@@ -1,0 +1,70 @@
+*{
+	font-family:Calibri;
+	background: none;
+	margin:0px;
+}
+
+body{
+	/*background:#F4F4F4;*/
+	/*width: 100vw;*/
+}
+
+a{
+	text-decoration: none;
+}
+
+header{     
+	margin-bottom: none;
+	width: 100%;
+}
+
+#bna{
+	height: 50px;
+	min-width: 1519px;
+	margin: 0 auto;
+	background: #6441A5; 
+    background: -webkit-linear-gradient(to right, #2a0845, #6441A5); 
+    background: linear-gradient(to right, #2a0845, #6441A5); 
+}
+
+#bna>img{
+}
+
+.center{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#test{
+	width:30%;
+	height: 100px;
+	background:aqua;
+	margin: 0 auto;
+}
+
+
+#all{
+	width: 1180px;
+	min-height: 1518px;
+	margin: 0 auto;
+	background: none;
+	position: relative;
+	margin-top: -1px;
+	overflow: visible;
+}
+
+#bgf4{
+	min-width: 1519px;
+	background: #f4f4f4;
+
+}
+
+#bgbg{
+
+	background-image: url(../Image/other/new_year.png);
+	background-position: center top;
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+

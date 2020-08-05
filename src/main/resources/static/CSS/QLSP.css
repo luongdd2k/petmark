@@ -1,0 +1,488 @@
+ 	#product_QL{
+	width: 100%;
+	min-height: 850px;
+	background: #fff;
+	margin-top: 20px;
+	margin-bottom: 0px;
+	padding: 20px;
+	box-sizing: border-box;
+	position: relative;
+	float: left;
+}
+
+.menu_title{
+	float: left;
+    margin-top: 20px;
+    font-size: 132%;
+    font-weight: bold;
+	user-select: none;
+}
+
+.p_title_2{
+/* 	margin-bottom: 7px; */
+	font-size: 115%;
+	user-select: none;
+}
+
+#add_img_header{
+/* 	background-image: url(../Image/other/photo-camera_24.png); */
+/* 	background-repeat: no-repeat; */
+/* 	background-position: 5px 7px; */
+}
+
+td{
+	border-bottom: 1px solid #8c8c8c;/*
+	border: 1px solid #8c8c8c;*/
+}
+
+thead{
+	font-weight: bold;
+	font-size: 115%;
+}
+
+thead>tr{
+	background: #e6e6ff;
+}
+
+thead>tr>td{
+	padding: 5px;
+}
+
+tbody{
+	font-size: 110%;
+}
+
+tbody>tr>td{
+	padding: 8px 5px;
+	vertical-align: top;
+}
+
+.t_image{
+	width: 100px;
+}
+
+tbody>tr>.t_image{
+	height: 100px;
+}
+
+.t_category{
+	width: 128px;
+}
+
+.t_name{
+	width: 410px;
+	position: relative;
+}
+
+.t_price{
+	width: 125px;
+	position: relative;
+}
+
+.t_price>input{
+	font-size: 105%;
+}
+
+.t_quantity{
+	width: 100px;
+}
+
+.t_quantity>input{
+	font-weight: bold;
+}
+
+.t_action_1{
+	width: 95px;
+	position: relative;
+}
+
+.t_action_2{
+	width: 95px;
+}
+
+.t_action_3{
+	width: 95px;
+}
+
+td>input{
+	width: 100%;
+}
+
+
+.add_p>tbody>tr>td>input{
+	border: 1px solid #b3b3b3;
+	border-radius: 1px;
+}
+
+td>button{
+	height: 30px;
+	width: 85px;
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+	position: absolute;
+}
+
+button>i{
+	margin-right: 6px;
+}
+
+.btn_add{
+	background-color: DodgerBlue;
+	font-size: 15px;
+}
+
+.btn_upload{
+	background: #2eb8b8;
+	font-size: 15px;
+}
+
+#btn_upload{
+	background: #2eb8b8;
+	font-size: 15px;
+}
+
+.btn_delete{
+	background: rgb(255, 77, 88);
+	font-size: 15px;
+}
+
+.btn_save{
+	background: rgb(68, 204, 0);
+	font-size: 15px;
+}
+
+.p_more{
+	display: inline-block;
+	font-size: 92%;
+	font-style: italic;
+	margin-top: 10px;
+	color: #9066b2;
+}
+
+.p_more:hover{
+	text-decoration: underline;
+}
+
+.p_more:active{
+	color: orangered;
+}
+
+.t_action_3>a{
+	color: #fff !important; 
+	display: block;
+	width: 85px;
+	height: 30px;
+}
+
+.btn_delete{
+	color: #fff !important;
+	display: block;
+	width: 85px;
+	height: 30px;
+}
+
+select.p_id{
+	width: 100%;
+}
+
+.dialog-ovelay {
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.60);
+	z-index: 9999;
+}
+
+.dialog {
+	width: 530px;
+	background-color: #fff;
+	box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+	border-radius: 3px;
+	overflow: hidden;
+	position: fixed;
+	left: 50%;
+	margin-left: -265px;
+	top: 90px;
+	z-index: 99999;
+	font-family: sans-serif;
+}
+
+.dialog .headerConfirm {
+	padding: 10px 8px;
+	background-color: #f6f7f9;
+	border-bottom: 1px solid #e5e5e5
+}
+
+.dialog .headerConfirm .h3Confirm {
+	font-size: 16px;
+	margin: 0;
+	color: #555;
+	display: inline-block
+}
+
+.dialog .headerConfirm .fa-close {
+	float: right;
+	color: #c4c5c7;
+	cursor: pointer;
+	transition: all .5s ease;
+	padding: 0 2px;
+	border-radius: 1px
+}
+
+.dialog .headerConfirm .fa-close:hover {
+	color: #b9b9b9
+}
+
+.dialog-ovelay .dialog .headerConfirm .fa-close:active {
+	box-shadow: 0 0 5px #673AB7;
+	color: #a2a2a2
+}
+
+.dialog .dialog-msg {
+	padding: 12px 10px
+}
+
+.dialog .dialog-msg .pConfirm {
+	margin: 0;
+	font-size: 19px;
+	color: #333;
+	line-height: 1.4;
+}
+
+.dialog .footerConfirm {
+	border-top: 1px solid #e5e5e5;
+	padding: 8px 10px
+}
+
+.dialog .footerConfirm .controls {
+	direction: rtl
+}
+
+.dialog .footerConfirm .controls .button {
+	padding: 5px 15px;
+	border-radius: 3px
+}
+
+.button {
+	cursor: pointer
+}
+
+.button-default {
+	background-color: rgb(248, 248, 248);
+	border: 1px solid rgba(204, 204, 204, 0.5);
+	color: #5D5D5D;
+}
+
+.button-danger {
+	background-color: #f44336;
+	border: 1px solid #d32f2f;
+	color: #f5f5f5
+}
+
+.link {
+	padding: 5px 10px;
+	cursor: pointer
+}
+
+.confirmD_nameProduct {
+	color: #6666ff;
+	cursor: pointer;
+	text-decoration: none;
+	font-weight: bolder;
+}
+
+.confirmD_nameProduct:hover {
+	text-decoration: underline;
+}
+
+.testD {
+	position: absolute;
+	top: 600px;
+	left: 700px;
+}
+
+.sl_openQLSP {
+	height: 100vh;
+	overflow: hidden;
+}
+
+#cbo_sort_product2{
+	font-size: 117%;
+	float: right;
+}
+
+#qlsp_control{
+	width: 660px;
+	height: 30px;
+	position: relative;
+	float: left;
+	margin-left: 10px;
+	line-height: 120%;
+	font-size: 115%;
+	font-style: italic;
+	display: block;
+}
+
+#qlsp_form{
+	position: absolute;
+	top: -2px;
+	left: 95px;
+}
+
+#qlsp_total{
+	width: 50px;
+}
+
+#qlsp_search{
+	border: 1px solid #b3b3b3;
+	width: 180px;
+}
+
+.qlsp_direct{
+	width: 40px;
+/* 	border: 1px solid #b3b3b3; */
+	border-radius: 4px;
+	background: #ffffcc;
+	
+}
+
+#qlsp_current_page{
+	width: 25px;
+	border: 1px solid #b3b3b3;
+}
+
+#qlsp_go{
+	background: #e6e6e6;
+	width: 30px;
+	border-radius: 4px;
+	margin-right: 4px;
+}
+
+.cancel_discontinue{
+	background: #2eb8b8;
+	font-size: 15px;
+}
+
+
+.more_price_caret{
+	width: 100%;
+	position: absolute;
+	background: none;
+	top: 30px;
+	left: 7px;
+	font-size: 110%;
+	cursor: pointer;
+	color: #004d99;
+	z-index: 2;
+}
+
+.more_price_caret:hover{
+	color: #1a8cff;
+}
+
+.more_price_ori{
+	width: 100%;
+	margin-top: 25px;
+	display: none;
+	position: relative;
+}
+
+.more_price_ori>input{
+	width: 100%;
+}
+
+
+.add_sale{
+	box-sizing: border-box;
+	padding: 2.5px 7px;
+	cursor: pointer;
+	position: relative;
+	background: #0059b3;
+	user-select: none;
+	color: #fff;
+	border-radius: 4px;
+	font-size: 90%;
+	display: inline-block;
+	margin-top: 3px;
+}
+
+.add_sale>i{
+	position: absolute;
+	top: 6.5px;
+	left: 6px;
+	font-size: 66%;
+}
+
+.cancel_sale{
+	color: orangered;
+	font-size: 95%;
+	position: absolute;
+	cursor: pointer;
+	top: 24px;
+	right: 0px;
+}
+
+.viewSaleInfo{
+	font-size: 75%;
+	display: inline-block;
+	position: absolute;
+	cursor: pointer;
+	display: none;
+	top: 33.5px;
+	left: 25px;
+	z-index: 1;
+}
+
+.get_per{
+	color: red;
+	position: absolute;
+	top: -22px;
+	left: 20px;
+	font-size: 75%;
+	display: none;
+}
+
+.changelog{
+	position: absolute;
+	width: 100%;
+	height: 58%;
+	background: none;
+	font-size: 80%;
+	color: #000;
+	top: 45px;
+	left: 0px;
+}
+
+.noChangeQLSP{
+	display: none;
+}
+
+.countVLC{
+	height: 22px;
+	width: 200px;
+	color: #000;
+	position: absolute;
+	top: 85px;
+	left: 0xp;
+	background: none;
+	font-size: 90%;
+	cursor: pointer;
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+

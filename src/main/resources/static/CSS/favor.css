@@ -1,0 +1,119 @@
+
+.inlineBlock {
+    display: inline-block;
+    zoom: 1
+}
+
+._2tga {
+    background: #4267b2;
+    border: 1px solid #4267b2;
+    color: #fff;
+    float: left;
+    cursor: pointer;
+    font-family: Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin: 21px 10px 0px 25px;
+    -webkit-user-select: none;
+    white-space: nowrap;
+	border-radius: 3px;
+    font-size: 11px;
+    height: 20px;
+    padding: 0 0 0 2px;
+    padding-bottom: 1px;
+}
+
+._2tga.active {
+    background: #4080ff;
+    border: 1px solid #4080ff
+}
+
+._2tga:hover {
+    background: #365899;
+    border: 1px solid #365899
+}
+
+._2tga:active {
+    background: #577fbc;
+    border: 1px solid #577fbc
+}
+
+._2tga:focus {
+    outline-color: transparent;
+    outline-style: none
+}
+
+._2tga.active:hover {
+    background: #4080ff;
+    border: 1px solid #4080ff
+}
+
+._3jn- {
+    height: 16px;
+    vertical-align: middle;
+    width: 16px
+}
+
+._3jn_ {
+    background: none;
+    display: none;
+    height: 28px;
+    left: -6px;
+    position: absolute;
+    top: -6px;
+    width: 28px
+}
+
+@keyframes burst {
+    from {
+        background-position: 0 0
+    }
+
+    to {
+        background-position: -616px 0
+    }
+}
+
+._2tga.is_animating ._3jn_ {
+    animation: burst .24s steps(22) forwards;
+    background: url(../Image/other/nb_animate.png) no-repeat;
+    background-position: 0 0;
+    background-size: 616px 28px;
+    display: inline-block;
+    zoom: 1
+}
+
+._2tga.is_animating ._3jn_ {
+    left: -6px;
+    position: relative;
+    top: -6px
+}
+
+._2tga ._5n2y,
+._2tga.active ._49vg,
+._2tga.active.is_animating ._5n2y {
+    display: none
+}
+/**/
+._2tga ._49vg,
+._2tga.active ._5n2y,
+._2tga.active:hover {
+    display: inline-block;
+    zoom: 1
+}
+
+._49vh,
+._5n6h {
+    font-family: Helvetica, Arial, sans-serif;
+    vertical-align: middle;
+    padding-right: 4px;
+}
+
+._49vh {
+    font-weight: bold;
+    padding-left: 4px;
+}
+
+._2tga ._1pbq {
+    height: 16px;
+    width: 16px
+}
