@@ -70,16 +70,34 @@ tbody>tr>.t_image{
 }
 
 .t_name{
-	width: 410px;
+	width: 310px;
 	position: relative;
 }
-
+.t_status{
+	width: 110px;
+	position: relative;
+}
 .t_price{
 	width: 125px;
 	position: relative;
 }
 
 .t_price>input{
+	font-size: 105%;
+}
+.t_coc{
+	width: 125px;
+	position: relative;
+}
+
+.t_coc>input{
+	font-size: 105%;
+}
+.t_age{
+	width: 100px;
+	position: relative;
+}
+.t_age>input{
 	font-size: 105%;
 }
 

@@ -10,4 +10,5 @@ public interface SpeciesDAO {
 	boolean addSpecies(String name, String information);
 
 	void changeSp(Species species);
+	Species findById(int id);
 }

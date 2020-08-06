@@ -40,7 +40,7 @@ public class IndexController {
 	@RequestMapping("/index")
 	public String showAllProduct(ModelMap model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		List<Pet> listPet = new ArrayList<Pet>();
+//		List<Pet> listPet = new ArrayList<Pet>();
 //		List<Integer> listProductInteger = new ArrayList<Integer>();
 //		String sortValue = request.getParameter("sortValue");
 //		System.out.println("Index Sort: " + sortValue);
@@ -78,7 +78,7 @@ public class IndexController {
 //			}
 //		}
 //		
-		model.addAttribute("listPet", listPet);
+//		model.addAttribute("listPet", listPet);
 //		
 //		List<Product> listAccessory = productService.showIndexProduct("ACCESSORY");
 //		model.addAttribute("listAccessory", listAccessory);
