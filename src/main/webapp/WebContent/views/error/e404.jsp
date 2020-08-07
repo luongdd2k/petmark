@@ -6,7 +6,7 @@
 <HTML>
 	<HEAD>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<TITLE>Hoangnq Shop</TITLE>
+		<TITLE>PetMark</TITLE>
 		<base href="${pageContext.servletContext.contextPath}/">
 		<link rel="stylesheet" type="text/css" href="CSS/header.css">
 		<link rel="stylesheet" type="text/css" href="CSS/nnav.css">

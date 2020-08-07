@@ -162,7 +162,7 @@ $(document).ready(function() {
 	}
 	
 	$('.btn_delete:eq(0)').click(function(event) {
-		$('.p_id:eq(0)').val("SMARTPHONE");
+		$('.p_id:eq(0)').val("1");
 		$('.p_name:eq(0)').val("");
 		$('.p_price:eq(0)').val(0);
 		$('.p_quantity:eq(0)').val(1);

@@ -45,9 +45,9 @@ public class PetController {
 		List<Integer> listProductInteger = new ArrayList<Integer>();
 		List<Species> listCategory = speciesService.findAll();
 //		
-//		int countContinueProduct = productService.countContinueProduct();
+		int countContinueProduct = petService.countContinueProduct();
 //		System.out.println("countContinueProduct: " + countContinueProduct);
-//		int totalPage = (int) Math.ceil((double)countContinueProduct/10);
+		int totalPage = (int) Math.ceil((double)countContinueProduct/10);
 //		
 		int targetPage;
 
@@ -60,8 +60,8 @@ public class PetController {
 			targetPage = Integer.valueOf(request.getParameter("targetPage"));
 		}
 		int page = targetPage - 1;
-		listProduct = petService.findAll();
-//		listProduct = petService.showProductByCategoryPageable("còn hàng", PageRequest.of(page, 10, Sort.by("id").ascending()));
+//		listProduct = petService.findAll();
+		listProduct = petService.showProductByCategoryPageable("", PageRequest.of(page, 10, Sort.by("id").ascending()));
 //		System.out.println("danh sách thú: " +listProduct);
 //		System.out.println("danh sách giống: " +listCategory);
 //		model.addAttribute("listProduct", listProduct);
@@ -80,28 +80,33 @@ public class PetController {
 		if (sortValue == null)
 			sortValue = "-1";
 		model.addAttribute("sortValue", sortValue);
-//		try {		
-//			switch (sortValue) {
-//			case "-1":
-//				if(targetPage > totalPage) page = 0;
-//				listProduct = productService.showProductByCategoryPageable("", false, PageRequest.of(page, 10, Sort.by("id").ascending()));
-//				
-//				break;
-//			case "0":
-//				if(targetPage > totalPage) page = 0;
-//				listProduct = productService.showProductByCategoryPageable("", false, PageRequest.of(page, 10, Sort.by("id").descending()));
-//				
-//				break;
-//			case "1":
-//				if(targetPage > totalPage) page = 0;
-//				listProduct = productService.showProductByCategoryPageable("", false, PageRequest.of(page, 10, Sort.by("price").ascending()));
-//				
-//				break;
-//			case "2":
-//				if(targetPage > totalPage) page = 0;
-//				listProduct = productService.showProductByCategoryPageable("", false, PageRequest.of(page, 10, Sort.by("price").descending()));
-//				
-//				break;
+		try {		
+			switch (sortValue) {
+			case "-1":
+				if(targetPage > totalPage) page = 0;
+				listProduct = petService.showProductByCategoryPageable( "", PageRequest.of(page, 10, Sort.by("id").ascending()));
+				
+				break;
+			case "0":
+				if(targetPage > totalPage) page = 0;
+				listProduct = petService.showProductByCategoryPageable("", PageRequest.of(page, 10, Sort.by("id").descending()));
+				
+				break;
+			case "1":
+				if(targetPage > totalPage) page = 0;
+				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("price").ascending()));
+				
+				break;
+			case "2":
+				if(targetPage > totalPage) page = 0;
+				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("price").descending()));
+				
+				break;
+			case "3":
+				if(targetPage > totalPage) page = 0;
+				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("id").ascending()));
+				
+				break;
 //			case "3":
 //				int countPaid = productService.showProductByCategoryOrderByPaid("", false, null).size();
 //				totalPage = (int) Math.ceil((double)countPaid/10);
@@ -123,23 +128,23 @@ public class PetController {
 //				listProductInteger = productService.showProductByCategoryOrderByView("", false, PageRequest.of(page, 10));
 //				
 //				break;
-//			case "6":
-//				if(targetPage > totalPage) page = 0;
-//				listProduct = productService.showProductByCategoryPageable("", true, PageRequest.of(page, 10, Sort.by("id").ascending()));
-//				totalPage = (int) Math.ceil((double)productService.countDiscontinueProduct()/10);
-//				nameButton2 = "Đăng bán";
-//				classButton2 = "cancel_discontinue";
-//				classButtonDelete = "permanently_deleted";
-//				
-//				break;
-//			default:
-//				
-//				break;
-//			}
-//		
-//		} catch (Exception e) {
-//			return "404";
-//		}
+			case "4":
+				if(targetPage > totalPage) page = 0;
+				listProduct = petService.showProductByCategoryPageable("Ngừng bán", PageRequest.of(page, 10, Sort.by("id").ascending()));
+//				totalPage = (int) Math.ceil((double)petService.countProduct("Ngừng bán")/10);
+				nameButton2 = "Đăng bán";
+				classButton2 = "cancel_discontinue";
+				classButtonDelete = "permanently_deleted";
+				
+				break;
+			default:
+				
+				break;
+			}
+		
+		} catch (Exception e) {
+			return "404";
+		}
 		if (!listProductInteger.isEmpty()) {
 			for (Integer integer : listProductInteger) {
 				listProduct.add(petService.findById(integer));
@@ -156,7 +161,7 @@ public class PetController {
 		model.addAttribute("nameButton2", nameButton2);
 		model.addAttribute("classButton2", classButton2);
 		model.addAttribute("classButtonDelete", classButtonDelete);
-//		model.addAttribute("totalPage", totalPage);
+		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("listProduct", listProduct);
 		model.addAttribute("listCategory", listCategory);
 //		
@@ -171,13 +176,13 @@ public class PetController {
 	}
 
 //	
-//	@RequestMapping("/changeSortValue")
-//	public String changeSortValue(HttpServletRequest request) {
-//		String sortValue = request.getParameter("sortValue");
-//		
-//		return "redirect:/admin/ProductManagement?sortValue="+sortValue;
-//		
-//	}
+	@RequestMapping("/changeSortValue")
+	public String changeSortValue(HttpServletRequest request) {
+		String sortValue = request.getParameter("sortValue");
+		
+		return "redirect:/admin/ProductManagement?sortValue="+sortValue;
+		
+	}
 //	
 	@RequestMapping("/ProductManagement/AddProduct")
 	public String addProduct(HttpServletRequest request) {
@@ -255,14 +260,14 @@ public class PetController {
 		return "?DisContinuedProduct=" + productId;
 	}
 //	
-//	@RequestMapping("/ProductManagement/ContinuedProduct")
-//	@ResponseBody
-//	public String continuedProduct(HttpServletRequest request) {
-//		int productId = Integer.valueOf(request.getParameter("productId"));
-//		productService.continueProduct(productId);
-//		
-//		return "?ContinuedProduct="+productId;
-//	}
+	@RequestMapping("/ProductManagement/ContinuedProduct")
+	@ResponseBody
+	public String continuedProduct(HttpServletRequest request) {
+		int productId = Integer.valueOf(request.getParameter("productId"));
+		petService.continuePet(productId);
+		
+		return "?ContinuedProduct="+productId;
+	}
 //	
 //	@RequestMapping("/ProductManagement/PermanentlyDeleted")
 //	@ResponseBody

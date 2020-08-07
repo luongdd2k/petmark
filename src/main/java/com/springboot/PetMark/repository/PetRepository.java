@@ -19,9 +19,13 @@ public interface PetRepository extends JpaRepository<Pet, Integer> {
 	List<Pet> showProductByCategoryPageable(String status, Pageable pageable);
 	@Transactional
 	@Modifying
-	@Query("update Pet p set p.status='ngừng bán' where p.id = ?1")
+	@Query("update Pet p set p.status='Ngừng bán' where p.id = ?1")
 	void disContinuePet(int id);
 	
+	@Transactional
+	@Modifying
+	@Query("update Pet p set p.status='Còn hàng' where p.id = ?1")
+	void continuePet(int id);
 //	@Query("SELECT p FROM Pet p where p.species.id = ?1 order by newid()")
 //	List<Pet> showIndexProduct(String categoryID);
 	
@@ -55,8 +59,12 @@ public interface PetRepository extends JpaRepository<Pet, Integer> {
 //	@Query("SELECT p FROM Product p where p.category.id like %?1% and p.isDiscontinued = ?2")
 //	List<Pet> showProductByCategoryPageable(String categoryID, boolean isDiscontinued, Pageable pageable);
 	
-//	@Query("SELECT count(p.id) FROM Product p where p.isDiscontinued = 0")
-//	int countContinueProduct();
+	@Query("SELECT count(p.id) FROM Pet p")
+	int countContinueProduct();
+	@Transactional
+	@Modifying
+	@Query("SELECT count(p.id) FROM Pet p where p.status like %?1%")
+	int countProduct(String status);
 //
 //	@Query("SELECT count(p.id) FROM Product p where p.isDiscontinued = 1")
 //	int countDiscontinueProduct();

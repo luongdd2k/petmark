@@ -15,6 +15,9 @@ public interface PetService {
 
 	void updatePet(Pet pet);
 	void disContinuePet(int id);
-
+	void continuePet(int id);
 	List<Pet> showProductByCategoryPageable(String status, Pageable pageable);
+	int countContinueProduct();
+	int countProduct(String status);
+	
 }

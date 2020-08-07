@@ -53,7 +53,7 @@ public class PetDAOImpl implements PetDAO {
 	@Override
 	public void continuePet(int id) {
 		// TODO Auto-generated method stub
-
+		petRepository.continuePet(id);
 	}
 
 	@Override
@@ -79,6 +79,16 @@ public class PetDAOImpl implements PetDAO {
 	public List<Pet> showProductByCategoryPageable(String status, Pageable pageable) {
 		// TODO Auto-generated method stub
 		return petRepository.showProductByCategoryPageable(status, pageable);
+	}
+
+	@Override
+	public int countContinueProduct() {
+		// TODO Auto-generated method stub
+		return petRepository.countContinueProduct();
+	}
+	public int countProduct(String status) {
+		// TODO Auto-generated method stub
+		return petRepository.countProduct(status);
 	}
 
 }

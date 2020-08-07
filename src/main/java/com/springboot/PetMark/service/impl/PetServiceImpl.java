@@ -60,4 +60,25 @@ public class PetServiceImpl implements PetService {
 	}
 
 
+	@Override
+	public int countContinueProduct() {
+		// TODO Auto-generated method stub
+		return petDAO.countContinueProduct();
+	}
+
+
+	@Override
+	public int countProduct(String status) {
+		// TODO Auto-generated method stub
+		return petDAO.countProduct(status);
+	}
+
+
+	@Override
+	public void continuePet(int id) {
+		// TODO Auto-generated method stub
+		petDAO.continuePet(id);
+	}
+
+
 }

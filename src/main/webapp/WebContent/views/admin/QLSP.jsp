@@ -70,7 +70,7 @@
 										<td class="t_category"><select class="p_id"
 											name="p_add_category">
 												<c:forEach var="category" items="${listCategory }">
-													<c:if test="${category.id == '1'}">
+													<c:if test="${category.id == 1}">
 														<option value="${ category.id}" selected>${ category.name}</option>
 													</c:if>
 													<c:if test="${category.id ne 1}">
@@ -144,10 +144,10 @@
 						<option value="0">ID:&nbsp cao ⟶ thấp</option>
 						<option value="1">Giá:&nbsp từ thấp ⟶ cao</option>
 						<option value="2">Giá:&nbsp từ cao ⟶ thấp</option>
-						<option value="3">Bán chạy nhất</option>
-						<option value="4">Được yêu thích nhất</option>
-						<option value="5">Được xem nhiều nhất</option>
-						<option value="6" style="background: #ffe6e6">Dừng kinh
+						<option value="3">Còn Hàng</option>
+<!-- 						<option value="4">Được yêu thích nhất</option> -->
+<!-- 						<option value="5">Được xem nhiều nhất</option> -->
+						<option value="4" style="background: #ffe6e6">Dừng kinh
 							doanh</option>
 					</select> <span id="sortValue2" style="display: none;">${sortValue }</span>
 					<table class="show_p" style="margin-top: 30px;">
@@ -231,9 +231,10 @@
 										<td class='t_status'><input type='text'
 											name='p_fix_status' class='p_name' value='${product.status}'
 											autocomplete='off'></td>
-											<td class='t_status'><input type='text'
-											name='p_fix_date' class='p_name' value='${product.createdAt}'
-											autocomplete='off' readonly='readonly'></td>
+											<td class='t_status'>
+											<input type="text" name='p_fix_date' class='p_name' value='${product.createdAt}'
+											autocomplete='off' readonly='readonly'>
+											</td>
 										<td class='t_action_1'>
 											<button type='button' class='btn_save'>
 												<i class='fas fa-edit'></i>Lưu
