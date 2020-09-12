@@ -26,6 +26,9 @@ public interface PetRepository extends JpaRepository<Pet, Integer> {
 	@Modifying
 	@Query("update Pet p set p.status='Còn hàng' where p.id = ?1")
 	void continuePet(int id);
+	
+	@Query("select distinct(p.status) from Pet p")
+	List<String> selecStatus();
 //	@Query("SELECT p FROM Pet p where p.species.id = ?1 order by newid()")
 //	List<Pet> showIndexProduct(String categoryID);
 	

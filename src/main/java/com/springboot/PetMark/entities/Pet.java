@@ -2,6 +2,7 @@ package com.springboot.PetMark.entities;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -86,6 +87,11 @@ public Pet(int id, String name, float gia, float coc, int age, int soLuong, Stri
 	public String getDisplayDeposit() {
 		DecimalFormat decimalFormat = new DecimalFormat("#,##0");
 		return decimalFormat.format(this.deposit).replaceAll(",", ".") + " ₫";
+	}
+	public String getDate() {
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		String dateString = format.format(this.createdAt);
+		return dateString;
 	}
 
 	public Integer getId() {

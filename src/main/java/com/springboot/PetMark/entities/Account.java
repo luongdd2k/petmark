@@ -18,57 +18,147 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 public @Data class Account implements Serializable {
-	
 
 	private static final long serialVersionUID = 9093032790667422481L;
-	
+
 	@Id
 	private String username;
 
 	private String password;
-	
-	@Column(name="fullname")
+
+	@Column(name = "fullname")
 	private String fullName;
-	
+
 	private Boolean gender;
-	
+
 	private String email;
-	
+
 	private String phone;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="roleID")
+	@JoinColumn(name = "roleID")
 	private Role role;
-	
-	@Column(name="isdeactivate")
+
+	@Column(name = "isdeactivate")
 	private Boolean isDeactivate;
-	
-	@Column(name="imagepath")
+
+	@Column(name = "imagepath")
 	private String imagePath;
-	
-	@Column(name="address")
+
+	@Column(name = "address")
 	private String address;
-//	public Account(String username2, String password2, String fullName2, Boolean gender2, String email2, String phone2,
-//			Role role2, Boolean isDeactivate2, String imagePath, String address2) {
-//		// TODO Auto-generated constructor stub
-//		this.username = username2;
-//		this.password = password2;
-//		this.fullName = fullName2;
-//		this.gender = gender2;
-//		this.email = email2;
-//		this.phone = phone2;
-//		this.role = role2;
-//		this.isDeactivate=isDeactivate2;
-//		this.address=address2;
-//		this.imagePath=imagePath;
-//	}
-//	public String getPassword() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//	public Object getRole() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-	
+
+	public String getUsername() {
+		return username;
+	}
+
+	public Account() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Account(String username, String password, String fullName, Boolean gender, String email, String phone,
+			Role role, Boolean isDeactivate, String imagePath, String address) {
+		this.username = username;
+		this.password = password;
+		this.fullName = fullName;
+		this.gender = gender;
+		this.email = email;
+		this.phone = phone;
+		this.role = role;
+		this.address = address;
+		this.imagePath = imagePath;
+		this.isDeactivate = isDeactivate;
+	}
+
+	public String getDisplayGender() {
+		String gt = "Nam";
+		if (this.gender == true) {
+			gt = "Nữ";
+		}
+		return gt;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public Boolean getGender() {
+		return gender;
+	}
+
+	public void setGender(Boolean gender) {
+		this.gender = gender;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public Boolean getIsDeactivate() {
+		return isDeactivate;
+	}
+
+	public void setIsDeactivate(Boolean isDeactivate) {
+		this.isDeactivate = isDeactivate;
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "Account [username=" + username + ", password=" + password + ", fullName=" + fullName + ", gender="
+				+ gender + ", email=" + email + ", phone=" + phone + ", role=" + role + ", isDeactivate=" + isDeactivate
+				+ ", imagePath=" + imagePath + ", address=" + address + "]";
+	}
+
 }

@@ -47,7 +47,7 @@ $(document).ready(function() {
 
 	$('.viewSaleInfo').each(function() {
 		$(this).css('color', $(this).siblings('.more_price_caret').css('color'));
-		if($(this).css('color')=='rgb(0, 77, 153)') $(this).text('Thêm KM');
+		if($(this).css('color')=='rgb(0, 77, 153)') $(this).text('Xem giá cọc');
 	});
 
 	$('.more_price_caret').hover(function() {
@@ -612,7 +612,7 @@ $(document).ready(function() {
 	    });
 	}
 	$('.cancel_discontinue').click(function(event) {
-		var formIndex = $(this).parent('.t_action_2').siblings('.t_name').children('.formIndex').val();
+		var formIndex = $(this).parent('.t_action_3').siblings('.t_name').children('.formIndex').val();
 		var productName = $('.p_fix_name:eq('+formIndex+')').val();
 		var productId = $('.p_fix_id:eq('+formIndex+')').val();
 

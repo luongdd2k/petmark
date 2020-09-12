@@ -65,7 +65,6 @@
 										<!-- 								<img id="addProDuctIMGtag" src="Image/other/samplePhoneUpload.svg" style="width:100%;"> -->
 										<!-- 								<div id="img_fff" style="background-color: #fff; width: 100%; height: 100%; position:absolute; top:0; left:0; visibility: hidden;"></div> -->
 										<!-- 								<img id="img_loading" src="Image/other/lg.dual-gear-loading-icon.gif" width="100%" style="position:absolute; top:0; left:0; visibility: hidden; z-index:98; margin-top: 5px;"> -->
-
 										<!-- 							</td>	 -->
 										<td class="t_category"><select class="p_id"
 											name="p_add_category">
@@ -98,11 +97,11 @@
 												class="btn_add">
 												<i class="fas fa-plus"></i>Thêm
 											</button></td>
-										<td class="t_action_2"><input type='hidden'
-											name='p_fix_image' value='none.png'>
-											<button type="button" id="btn_upload">
-												<i class="fas fa-upload"></i>Tải ảnh
-											</button></td>
+<!-- 										<td class="t_action_2"><input type='hidden' -->
+<!-- 											name='p_fix_image' value='none.png'> -->
+<!-- 											<button type="button" id="btn_upload"> -->
+<!-- 												<i class="fas fa-upload"></i>Tải ảnh -->
+<!-- 											</button></td> -->
 										<td class="t_action_3"><button type="button"
 												class="btn_delete">
 												<i class="fas fa-trash-alt"></i>Hủy bỏ
@@ -144,10 +143,10 @@
 						<option value="0">ID:&nbsp cao ⟶ thấp</option>
 						<option value="1">Giá:&nbsp từ thấp ⟶ cao</option>
 						<option value="2">Giá:&nbsp từ cao ⟶ thấp</option>
-						<option value="3">Còn Hàng</option>
+<!-- 						<option value="3">Còn Hàng</option> -->
 <!-- 						<option value="4">Được yêu thích nhất</option> -->
 <!-- 						<option value="5">Được xem nhiều nhất</option> -->
-						<option value="4" style="background: #ffe6e6">Dừng kinh
+						<option value="3" style="background: #ffe6e6">Dừng kinh
 							doanh</option>
 					</select> <span id="sortValue2" style="display: none;">${sortValue }</span>
 					<table class="show_p" style="margin-top: 30px;">
@@ -186,13 +185,17 @@
 										<!-- 											src="Image/other/lg.dual-gear-loading-icon.gif" width="100%" -->
 										<!-- 											style="position: absolute; top: 0; left: 0; visibility: hidden; z-index: 98; margin-top: 5px;"> -->
 										<!-- 										</td> -->
-										<td class='t_category'><input type='text' name='p_fix_id'
+										<td class='t_category' >
+										<input type='text' id="p_fix_id" name='p_fix_id'
 											class='p_fix_id' value='${product.id }' autocomplete='off'
-											readonly='readonly'></td>
-										<td class='t_name'><input type='hidden' name='formIndex'
-											class='formIndex' value='${count }'> <%-- 																					<input type='hidden' name='p_fix_image' class='p_fix_image' value='${product.getImagePath() }'> --%>
-											<input type='hidden' name='p_fix_categoryID'
-											value='${product.getSpecies().getId() }'> <%-- 																					<input type='hidden' name='p_fix_ori' value='${product.price }'> --%>
+											readonly='readonly'>
+											</td>
+<%-- 											<p>${product.petName }</p> --%>
+										<td class='t_name'>
+								<input type='hidden' name='formIndex'
+											class='formIndex' value='${count }'> 																					
+<!-- 											<input type='hidden' name='p_fix_categoryID' -->
+<%-- 											value='${product.getSpecies().getId() }'> 																					<input type='hidden' name='p_fix_ori' value='${product.price }'> --%>
 											<input type='text' name='p_fix_name' class='p_fix_name'
 											value='${product.petName }' autocomplete='off' required>
 											<a target='_blank' href='ViewProduct/${product.getId() }'
@@ -203,54 +206,63 @@
 													class="fas fa-cart-arrow-down"> 100</i>
 
 											</div></td>
-										<td class='t_age'><input type='text' class='p_quantity'
-											name='p_fix_age' value='${product.age }'></td>
-										<td class='t_price'><input type='text' class='p_price'
-											name='p_fix_price' value='${product.getDisplayPrice(1) }'>
+										<td class='t_age'> ${product.age }
+<!-- 										<input type='text' class='p_quantity' -->
+<%-- 											name='p_fix_age' value='${product.age }'> --%>
+											</td>
+										<td class='t_price'>${product.getDisplayPrice(1) }
+<!-- 										<input type='text' class='p_price' -->
+<%-- 											name='p_fix_price' value='${product.getDisplayPrice(1) }'> --%>
 
 											<div class="more_price_ori">
-												<b>Giá cọc</b> <input style="display: none;" type='text'
-													name='p_fix_coc' class='p_price p_sale'
-													value='${product.getDisplayDeposit() }' autocomplete='off'>
-												<input style="display: none;" type='text' name='p_hidden2'
-													class='p_saleHidden'
-													value='${product.getDisplayDeposit() }' autocomplete='off'>
+												<p>Giá cọc</p> ${product.getDisplayDeposit() }
+<!-- 												<input style="display: none;" type='text' -->
+<!-- 													name='p_fix_coc' class='p_price p_sale' -->
+<%-- 													value='${product.getDisplayDeposit() }' autocomplete='off'> --%>
+<!-- 												<input style="display: none;" type='text' name='p_hidden2' -->
+<!-- 													class='p_saleHidden' -->
+<%-- 													value='${product.getDisplayDeposit() }' autocomplete='off'> --%>
 												<!-- 												<i title="Hủy bỏ khuyến mãi" style="display: none;" -->
 												<!-- 													class="fas fa-times cancel_sale"></i> -->
-												<div style="display: none;" class="add_sale">
-													<i class="fas fa-plus"></i>&nbsp;&nbsp;&nbsp;&nbsp;Thêm
-												</div>
+<!-- 												<div style="display: none;" class="add_sale"> -->
+<!-- 													<i class="fas fa-plus"></i>&nbsp;&nbsp;&nbsp;&nbsp;Thêm -->
+<!-- 												</div> -->
 											</div>
 											<div class="more_price_caret">
 												<i class="fas fa-caret-down"></i>
-											</div> <d iv class="viewSaleInfo">Xem giá cọc
-											</div></td>
-										<td class='t_quantity'><input type='text'
-											name='p_fix_quantity' class='p_quantity'
-											value='${product.amount}' autocomplete='off'></td>
-										<td class='t_status'><input type='text'
-											name='p_fix_status' class='p_name' value='${product.status}'
-											autocomplete='off'></td>
-											<td class='t_status'>
-											<input type="text" name='p_fix_date' class='p_name' value='${product.createdAt}'
-											autocomplete='off' readonly='readonly'>
-											</td>
-										<td class='t_action_1'>
-											<button type='button' class='btn_save'>
-												<i class='fas fa-edit'></i>Lưu
-											</button>
-											<div class="changelog">
-												<div class="isChangeQLSP noChangeQLSP">Các thay đổi:</div>
-
+											</div> <div class="viewSaleInfo">Xem giá cọc
 											</div>
-										</td>
-										<td class='t_action_2'><input type='file'
-											name='addProductIMG' class='fix_img' style='display: none'>
-											<button type='button' class='${classButton2 }'>
-												<i class='fas fa-upload'></i>${nameButton2 }</button></td>
+											</td>
+										<td class='t_quantity'>${product.amount}
+<!-- 										<input type='text' -->
+<!-- 											name='p_fix_quantity' class='p_quantity' -->
+<%-- 											value='${product.amount}' autocomplete='off'> --%>
+											</td>
+										<td class='t_status'>${product.status}
+<!-- 										<input type='text' -->
+<%-- 											name='p_fix_status' class='p_name' value='${product.status}' --%>
+<!-- 											autocomplete='off'> -->
+											</td>
+											<td class='t_status'>${product.getDate()}
+<%-- 											<input type="text" name='p_fix_date' class='p_name' value='${product.getDate()}' --%>
+<!-- 											autocomplete='off' readonly='readonly'> -->
+											</td>
+<!-- 										<td class='t_action_1'> -->
+<!-- 											<button type='button' class='btn_save'> -->
+<!-- 												<i class='fas fa-edit'></i>Lưu -->
+<!-- 											</button> -->
+<!-- 											<div class="changelog"> -->
+<!-- 												<div class="isChangeQLSP noChangeQLSP">Các thay đổi:</div> -->
+
+<!-- 											</div> -->
+<!-- 										</td> -->
+<!-- 										<td class='t_action_2'><input type='file' -->
+<!-- 											name='addProductIMG' class='fix_img' style='display: none'> -->
+<%-- 											<button type='button' class='${classButton2 }'> --%>
+<%-- 												<i class='fas fa-upload'></i>${nameButton2 }</button></td> --%>
 										<td class='t_action_3'><button type='button'
 												class='btn_delete ${classButtonDelete }'>
-												<i class='fas fa-trash-alt'></i>Ngừng bán
+												<i class='fas fa-trash-alt'></i>${nameButton2 }
 											</button></td>
 									</tr>
 								</tbody>

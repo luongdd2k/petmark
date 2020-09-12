@@ -19,6 +19,7 @@ public interface PetDAO {
 	List<Pet> findBySpecies(Integer speciesId);
 
 	List<Pet> findByName(String name);
+	List<String> selecStatus();
 
 
 	void disContinuePet(int id);

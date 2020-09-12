@@ -107,7 +107,15 @@
 							</a>
 						</div>
 						<div class="menu_row" id="qlsp_admin">
-							<a href="admin/ProductManagement">Quản lý phụ kiện&nbsp;&nbsp;&nbsp; <i class="far fa-star"></i>
+							<a href="admin/AccessoriesManagement">Quản lý phụ kiện&nbsp;&nbsp;&nbsp; <i class="far fa-star"></i>
+							</a>
+						</div>
+						<div class="menu_row" id="qlsp_admin">
+							<a href="admin/SpeciesManagement">Quản lý giống&nbsp;&nbsp;&nbsp; <i class="far fa-star"></i>
+							</a>
+						</div>
+						<div class="menu_row" id="qlsp_admin">
+							<a href="admin/CategoryManagement">Quản lý hãng phụ kiện&nbsp;&nbsp;&nbsp; <i class="far fa-star"></i>
 							</a>
 						</div>
 						<div class="menu_row" id="qlsp_admin_2">

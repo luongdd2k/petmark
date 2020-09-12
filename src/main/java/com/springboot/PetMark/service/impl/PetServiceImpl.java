@@ -81,4 +81,11 @@ public class PetServiceImpl implements PetService {
 	}
 
 
+	@Override
+	public List<String> selecStatus() {
+		// TODO Auto-generated method stub
+		return petDAO.selecStatus();
+	}
+
+
 }

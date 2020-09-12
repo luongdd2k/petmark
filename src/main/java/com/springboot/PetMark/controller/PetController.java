@@ -45,6 +45,7 @@ public class PetController {
 		List<Integer> listProductInteger = new ArrayList<Integer>();
 		List<Species> listCategory = speciesService.findAll();
 //		
+		List<String> listStatus = petService.selecStatus();
 		int countContinueProduct = petService.countContinueProduct();
 //		System.out.println("countContinueProduct: " + countContinueProduct);
 		int totalPage = (int) Math.ceil((double)countContinueProduct/10);
@@ -72,8 +73,8 @@ public class PetController {
 			model.addAttribute("scrollT", request.getParameter("scrollT"));
 		}
 
-		String nameButton2 = "Tải ảnh";
-		String classButton2 = "btn_upload";
+		String nameButton2 = "Ngừng bán";
+//		String classButton2 = "btn_upload";
 		String classButtonDelete = "btn_delete2";
 		String sortValue = request.getParameter("sortValue");
 		System.out.println("Index Sort: " + sortValue);
@@ -84,12 +85,12 @@ public class PetController {
 			switch (sortValue) {
 			case "-1":
 				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showProductByCategoryPageable( "", PageRequest.of(page, 10, Sort.by("id").ascending()));
+				listProduct = petService.showProductByCategoryPageable( "Còn hàng", PageRequest.of(page, 10, Sort.by("id").ascending()));
 				
 				break;
 			case "0":
 				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showProductByCategoryPageable("", PageRequest.of(page, 10, Sort.by("id").descending()));
+				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("id").descending()));
 				
 				break;
 			case "1":
@@ -102,11 +103,11 @@ public class PetController {
 				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("price").descending()));
 				
 				break;
-			case "3":
-				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("id").ascending()));
-				
-				break;
+//			case "3":
+//				if(targetPage > totalPage) page = 0;
+//				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("id").ascending()));
+//				
+//				break;
 //			case "3":
 //				int countPaid = productService.showProductByCategoryOrderByPaid("", false, null).size();
 //				totalPage = (int) Math.ceil((double)countPaid/10);
@@ -128,13 +129,13 @@ public class PetController {
 //				listProductInteger = productService.showProductByCategoryOrderByView("", false, PageRequest.of(page, 10));
 //				
 //				break;
-			case "4":
+			case "3":
 				if(targetPage > totalPage) page = 0;
 				listProduct = petService.showProductByCategoryPageable("Ngừng bán", PageRequest.of(page, 10, Sort.by("id").ascending()));
 //				totalPage = (int) Math.ceil((double)petService.countProduct("Ngừng bán")/10);
 				nameButton2 = "Đăng bán";
-				classButton2 = "cancel_discontinue";
-				classButtonDelete = "permanently_deleted";
+//				classButton2 = "cancel_discontinue";
+				classButtonDelete = "cancel_discontinue";
 				
 				break;
 			default:
@@ -159,23 +160,25 @@ public class PetController {
 //		
 		session.setAttribute("targetPage", targetPage);
 		model.addAttribute("nameButton2", nameButton2);
-		model.addAttribute("classButton2", classButton2);
+//		model.addAttribute("classButton2", classButton2);
 		model.addAttribute("classButtonDelete", classButtonDelete);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("listProduct", listProduct);
 		model.addAttribute("listCategory", listCategory);
-//		
-		return "admin/QLSP";
+		model.addAttribute("listStatus", listStatus);
+		System.out.println("danh sách trạng thái: "+ listStatus);
+	
+		return "pages/pet/pet-manager";
 	}
 
-//	
+	
 	@RequestMapping("/getPageableQLSP")
 	public String getPageableQLSP(HttpServletRequest request) {
 
 		return "redirect:/admin/ProductManagement";
 	}
 
-//	
+	
 	@RequestMapping("/changeSortValue")
 	public String changeSortValue(HttpServletRequest request) {
 		String sortValue = request.getParameter("sortValue");
@@ -183,73 +186,54 @@ public class PetController {
 		return "redirect:/admin/ProductManagement?sortValue="+sortValue;
 		
 	}
-//	
+
 	@RequestMapping("/ProductManagement/AddProduct")
 	public String addProduct(HttpServletRequest request) {
-		String name = request.getParameter("p_add_name");
-		String status = request.getParameter("p_add_status");
+		String name = request.getParameter("name");
+		String status = request.getParameter("status");
+//		System.out.println("Trạng thái: "+status);
 //		String imagePath = request.getParameter("hiddenImgPath");
 //		System.out.println("IMGpath:" + imagePath);
-		String priceDisplay = request.getParameter("p_add_price");
-		float price = Float.valueOf(priceDisplay.substring(0, priceDisplay.length() - 2).replaceAll("\\.", ""));
-		String giaCoc = request.getParameter("p_add_coc");
-		float coc = Float.valueOf(giaCoc.substring(0, giaCoc.length() - 2).replaceAll("\\.", ""));
-		int quantityLeft = Integer.valueOf(request.getParameter("p_add_quantity"));
-		int age = Integer.valueOf(request.getParameter("p_add_age"));
-		int categoryID = Integer.valueOf(request.getParameter("p_add_category"));
+		int age = Integer.valueOf(request.getParameter("age"));
+		int categoryID = Integer.valueOf(request.getParameter("giong"));
+		String priceDisplay = request.getParameter("petPrice");
+		float price = Float.valueOf(priceDisplay);
+		float coc = price/10;
+		int quantityLeft = Integer.valueOf(request.getParameter("soluong"));
+		String des = request.getParameter("mota");
 		Species species = speciesService.findById(categoryID);
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
-		Pet pet = new Pet(name, price, coc, age, quantityLeft, "", status, species, date);
-//		System.out.println("pet: "+pet);
-//		System.out.println("giống : "+species);
+		Pet pet = new Pet(name, price, coc, age, quantityLeft, des, status, species, date);
+		System.out.println("pet: "+pet);
 		petService.addPet(pet);
-		request.getSession().setAttribute("add", "added");
 
-		return "redirect:/admin/ProductManagement?sortValue=0";
+		return "redirect:/admin/ProductManagement";
 	}
 
-//	
-//	
-//	
-//	
-//	
-	@RequestMapping("/ProductManagement/UpdateProduct")
-	@ResponseBody
-	public String updateProduct(HttpServletRequest request) throws ParseException {
-		int id = Integer.valueOf(request.getParameter("p_fix_id"));
-		String name = request.getParameter("p_fix_name");
-		String status = request.getParameter("p_fix_status");
-//		String imagePath = request.getParameter("p_fix_image");
-		String priceDisplay = request.getParameter("p_fix_price");
-		String coc = request.getParameter("p_fix_coc");
-		float price = Float.valueOf(priceDisplay.substring(0, priceDisplay.length() - 2).replaceAll("\\.", ""));
-		float giaCoc = Float.valueOf(coc.substring(0, coc.length() - 2).replaceAll("\\.", ""));
-//		if(priceSale > price) price = priceSale;
-		int quantityLeft = Integer.valueOf(request.getParameter("p_fix_quantity"));
-		int age = Integer.valueOf(request.getParameter("p_fix_age"));
-		int categoryID = Integer.valueOf(request.getParameter("p_fix_categoryID"));
-		Species species = speciesService.findById(categoryID);
-		String date1 = request.getParameter("p_fix_date");
-		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(date1);
-		Pet pet = new Pet(id, name, price, giaCoc, age, quantityLeft, "", status, species, date);
 
-//		System.out.println("Update: " + pet);
-//		
-//		
-//		
-		petService.updatePet(pet);
-//		
-
-//		System.out.println(priceDisplay.substring(0, priceDisplay.length()-2).replaceAll("\\.", ""));
-//		System.out.println(priceSaleDisplay);
-
-		return "?update=done";
-	}
-
-//	
-//	
-//	
+//	@RequestMapping("/ProductManagement/UpdateProduct")
+//	@ResponseBody
+//	public String updateProduct(HttpServletRequest request) throws ParseException {
+//		int id = Integer.valueOf(request.getParameter("p_fix_id"));
+//		String name = request.getParameter("p_fix_name");
+//		String status = request.getParameter("p_fix_status");
+//		String priceDisplay = request.getParameter("p_fix_price");
+//		String coc = request.getParameter("p_fix_coc");
+//		float price = Float.valueOf(priceDisplay.substring(0, priceDisplay.length() - 2).replaceAll("\\.", ""));
+//		float giaCoc = Float.valueOf(coc.substring(0, coc.length() - 2).replaceAll("\\.", ""));
+//		int quantityLeft = Integer.valueOf(request.getParameter("p_fix_quantity"));
+//		int age = Integer.valueOf(request.getParameter("p_fix_age"));
+//		int categoryID = Integer.valueOf(request.getParameter("p_fix_categoryID"));
+//		Species species = speciesService.findById(categoryID);
+//		String date1 = request.getParameter("p_fix_date");
+//		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(date1);
+//		System.out.println(date);
+//		Pet pet = new Pet(id, name, price, giaCoc, age, quantityLeft, "", status, species, date);
+//		petService.updatePet(pet);
+//		return "?update=done";
+//	}
+	
 	@RequestMapping("/ProductManagement/DisContinuedProduct")
 	@ResponseBody
 	public String disContinuedProduct(HttpServletRequest request) {
@@ -263,6 +247,8 @@ public class PetController {
 	@RequestMapping("/ProductManagement/ContinuedProduct")
 	@ResponseBody
 	public String continuedProduct(HttpServletRequest request) {
+//		String productId = request.getParameter("productId");
+//		System.out.println("ID đăng bán: "+productId);
 		int productId = Integer.valueOf(request.getParameter("productId"));
 		petService.continuePet(productId);
 		

@@ -91,4 +91,10 @@ public class PetDAOImpl implements PetDAO {
 		return petRepository.countProduct(status);
 	}
 
+	@Override
+	public List<String> selecStatus() {
+		// TODO Auto-generated method stub
+		return petRepository.selecStatus();
+	}
+
 }

@@ -182,7 +182,7 @@ public class AccountController {
 		String currentPath = (String) session.getAttribute("currentPath");
 		
 		if(loggedRole.equals("ROLE_ADMIN") && currentPath.contains("/index")) {
-			return "redirect:/admin/ProductManagement";
+			return "indexadmin";
 		}
 		
 		return "redirect:"+currentPath;
