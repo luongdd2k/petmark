@@ -73,10 +73,16 @@
             <a href="#" class="dropdown-item dropdown-footer">Xem tất cả thông báo</a>
           </div>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-            class="fas fa-th-large"></i></a>
-        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="../../pages/examples/recover-password.html">
+            <i class="fas fa-unlock-alt"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../pages/examples/login.html">
+            <i class="fas fa-sign-out-alt"></i>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.navbar -->
@@ -85,9 +91,9 @@
     <aside class="main-sidebar sidebar-light-primary elevation-4">
       <!-- Brand Logo -->
       <a href="../../index.html" class="brand-link">
-        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        <img src="../../dist/img/AdminLTELogo.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
           style="opacity: .8">
-        <span class="brand-text font-weight-light">Pet Mark</span>
+        <span class="brand-text font-weight-light">Pet Mart</span>
       </a>
 
       <!-- Sidebar -->
@@ -109,7 +115,7 @@
      with font-awesome or any other icon font library -->
             <li class="nav-item has-treeview">
               <a href="../../index.html" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <i class="nav-icon fas fa-home"></i>
                 <p>
                   Trang chủ
                 </p>
@@ -118,7 +124,7 @@
             <li class="nav-header">CỬA HÀNG</li>
             <li class="nav-item">
               <a href="../employee-manager.html" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+                <i class="nav-icon fas fa-users"></i>
                 <p>
                   Nhân viên
                 </p>
@@ -126,7 +132,7 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="../pet/pet-manager.html" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
+                <i class="nav-icon fas fa-paw"></i>
                 <p>
                   Thú cưng
                 </p>
@@ -134,7 +140,7 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="../bread/pet-bread.html" class="nav-link">
-                <i class="nav-icon fas fa-chart-pie"></i>
+                <i class="nav-icon fas fa-dog"></i>
                 <p>
                   Giống thú cưng
                 </p>
@@ -142,7 +148,7 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="../accessory/accessory-manager.html" class="nav-link">
-                <i class="nav-icon fas fa-tree"></i>
+                <i class="nav-icon fab fa-simplybuilt"></i>
                 <p>
                   Phụ kiện
                 </p>
@@ -150,7 +156,7 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="../category/category-manager.html" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
+                <i class="nav-icon fab fa-bandcamp"></i>
                 <p>
                   Hãng phụ kiện
                 </p>
@@ -167,7 +173,7 @@
             </li>
             <li class="nav-item">
               <a href="../deposit/deposit-manager.html" class="nav-link">
-                <i class="nav-icon fas fa-calendar-alt"></i>
+                <i class="nav-icon fas fa-receipt"></i>
                 <p>
                   Quản lý cọc
                 </p>
@@ -181,89 +187,6 @@
                   Thống kê
                 </p>
               </a>
-            </li>
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i class="nav-icon far fa-plus-square"></i>
-                <p>
-                  Extras
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages/examples/login.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Login</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/register.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Register</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/forgot-password.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Forgot Password</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/recover-password.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Recover Password</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/lockscreen.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Lockscreen</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/legacy-user-menu.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Legacy User Menu</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/language-menu.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Language Menu</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/404.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Error 404</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/500.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Error 500</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/pace.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Pace</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/blank.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Blank Page</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="starter.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Starter Page</p>
-                  </a>
-                </li>
-              </ul>
             </li>
           </ul>
         </nav>
@@ -299,13 +222,13 @@
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">
-                    <i class="far fa-chart-bar"></i>
+                    <i class="fas fa-table"></i>
                     Danh sách đơn hàng
                   </h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <div class="main-table" style="max-width:1000px;">
+                  <div class="table-responsive-xl main-table" style="max-width:1000px;">
                     <table class="table" style="margin-bottom: -1%;">
                       <thead class="thead-light">
                         <tr>
@@ -410,9 +333,9 @@
     <!-- /.content-wrapper -->
     <footer class="main-footer">
       <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.0.5
+        <b>Version</b> 1.0.0
       </div>
-      <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+      <strong>Copyright &copy; 2020 <a href="http://adminlte.io">Petmart </a>.</strong> All rights
       reserved.
     </footer>
 

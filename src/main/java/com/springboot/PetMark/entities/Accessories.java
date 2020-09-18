@@ -58,6 +58,7 @@ public @Data class Accessories implements Serializable {
 
 	public Accessories(String name, float price, int amount, Category category, Date createdAt, String description,
 			String status) {
+		super();
 		this.name = name;
 		this.price = price;
 		this.amount = amount;
@@ -79,12 +80,13 @@ public @Data class Accessories implements Serializable {
 		DecimalFormat decimalFormat = new DecimalFormat("#,##0");
 		return decimalFormat.format(this.price).replaceAll(",", ".") + " ₫";
 	}
+
 	public String getDate() {
-		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString = format.format(this.createdAt);
 		return dateString;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}

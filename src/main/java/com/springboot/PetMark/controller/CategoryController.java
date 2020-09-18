@@ -54,8 +54,8 @@ public class CategoryController {
 
 		int page = targetPage - 1;
 
-		String nameButton2 = "Tải ảnh";
-		String classButton2 = "btn_upload";
+		String nameButton2 = "Ngừng kinh doanh";
+		String action = "DisContinuedCategory";
 		String classButtonDelete = "btn_delete2";
 		String sortValue = request.getParameter("sortValue");
 		System.out.println("Index Sort: " + sortValue);
@@ -85,7 +85,7 @@ public class CategoryController {
 						PageRequest.of(page, 10, Sort.by("id").ascending()));
 				totalPage = (int) Math.ceil((double) CategoryService.countDiscontinueProduct() / 10);
 				nameButton2 = "Đăng bán";
-				classButton2 = "cancel_discontinue";
+				action = "ContinuedCategory";
 				classButtonDelete = "permanently_deleted";
 
 				break;
@@ -110,7 +110,7 @@ public class CategoryController {
 
 		session.setAttribute("targetPage", targetPage);
 		model.addAttribute("nameButton2", nameButton2);
-		model.addAttribute("classButton2", classButton2);
+		model.addAttribute("action", action);
 		model.addAttribute("classButtonDelete", classButtonDelete);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("listCategory", listCategory);
@@ -155,22 +155,22 @@ public class CategoryController {
 	}
 
 	@RequestMapping("/DisContinuedCategory")
-	@ResponseBody
+//	@ResponseBody
 	public String disContinuedCategory(HttpServletRequest request) {
 		int CategoryId = Integer.valueOf(request.getParameter("CategoryId"));
 		System.out.println("ID giống: " + CategoryId);
 		CategoryService.disContinueCategory(CategoryId);
 
-		return "?DisContinuedCategory=" + CategoryId;
+		return "redirect:/admin/CategoryManagement";
 	}
 
 	@RequestMapping("/ContinuedCategory")
-	@ResponseBody
+//	@ResponseBody
 	public String continuedCategory(HttpServletRequest request) {
 		int CategoryId = Integer.valueOf(request.getParameter("CategoryId"));
 		CategoryService.continueCategory(CategoryId);
 
-		return "?ContinuedCategory=" + CategoryId;
+		return "redirect:/admin/CategoryManagement";
 	}
 
 	@RequestMapping("/UploadIMG")

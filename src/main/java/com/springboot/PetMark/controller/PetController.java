@@ -16,6 +16,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -49,7 +50,7 @@ public class PetController {
 		int countContinueProduct = petService.countContinueProduct();
 //		System.out.println("countContinueProduct: " + countContinueProduct);
 		int totalPage = (int) Math.ceil((double)countContinueProduct/10);
-//		
+		String action = "DisContinuedProduct";
 		int targetPage;
 
 		if (session.getAttribute("targetPage") != null) {
@@ -61,23 +62,18 @@ public class PetController {
 			targetPage = Integer.valueOf(request.getParameter("targetPage"));
 		}
 		int page = targetPage - 1;
-//		listProduct = petService.findAll();
+
 		listProduct = petService.showProductByCategoryPageable("", PageRequest.of(page, 10, Sort.by("id").ascending()));
-//		System.out.println("danh sách thú: " +listProduct);
-//		System.out.println("danh sách giống: " +listCategory);
-//		model.addAttribute("listProduct", listProduct);
-//		model.addAttribute("listCategory", listCategory);
-//		int page = targetPage - 1;
 
 		if (request.getParameter("scrollT") != null) {
 			model.addAttribute("scrollT", request.getParameter("scrollT"));
 		}
 
-		String nameButton2 = "Ngừng bán";
+		String nameButton2 = "Ngừng kinh doanh";
 //		String classButton2 = "btn_upload";
 		String classButtonDelete = "btn_delete2";
 		String sortValue = request.getParameter("sortValue");
-		System.out.println("Index Sort: " + sortValue);
+//		System.out.println("Index Sort: " + sortValue);
 		if (sortValue == null)
 			sortValue = "-1";
 		model.addAttribute("sortValue", sortValue);
@@ -134,6 +130,7 @@ public class PetController {
 				listProduct = petService.showProductByCategoryPageable("Ngừng bán", PageRequest.of(page, 10, Sort.by("id").ascending()));
 //				totalPage = (int) Math.ceil((double)petService.countProduct("Ngừng bán")/10);
 				nameButton2 = "Đăng bán";
+				action ="ContinuedProduct";
 //				classButton2 = "cancel_discontinue";
 				classButtonDelete = "cancel_discontinue";
 				
@@ -158,6 +155,7 @@ public class PetController {
 			session.setAttribute("add", null);
 		}
 //		
+		
 		session.setAttribute("targetPage", targetPage);
 		model.addAttribute("nameButton2", nameButton2);
 //		model.addAttribute("classButton2", classButton2);
@@ -166,8 +164,10 @@ public class PetController {
 		model.addAttribute("listProduct", listProduct);
 		model.addAttribute("listCategory", listCategory);
 		model.addAttribute("listStatus", listStatus);
-		System.out.println("danh sách trạng thái: "+ listStatus);
-	
+		model.addAttribute("action", action);
+//		System.out.println("danh sách trạng thái: "+ listStatus);
+		model.addAttribute("pet", new Pet());
+//		return "admin/QLSP";
 		return "pages/pet/pet-manager";
 	}
 
@@ -182,25 +182,25 @@ public class PetController {
 	@RequestMapping("/changeSortValue")
 	public String changeSortValue(HttpServletRequest request) {
 		String sortValue = request.getParameter("sortValue");
-		
+		System.out.println("value lọc: "+ sortValue);
 		return "redirect:/admin/ProductManagement?sortValue="+sortValue;
 		
 	}
 
 	@RequestMapping("/ProductManagement/AddProduct")
 	public String addProduct(HttpServletRequest request) {
-		String name = request.getParameter("name");
-		String status = request.getParameter("status");
+		String name = request.getParameter("tenThu");
+		String status = request.getParameter("trangThai");
 //		System.out.println("Trạng thái: "+status);
 //		String imagePath = request.getParameter("hiddenImgPath");
 //		System.out.println("IMGpath:" + imagePath);
-		int age = Integer.valueOf(request.getParameter("age"));
-		int categoryID = Integer.valueOf(request.getParameter("giong"));
-		String priceDisplay = request.getParameter("petPrice");
+		int age = Integer.valueOf(request.getParameter("tuoiThu"));
+		int categoryID = Integer.valueOf(request.getParameter("giongThu"));
+		String priceDisplay = request.getParameter("giaThu");
 		float price = Float.valueOf(priceDisplay);
 		float coc = price/10;
-		int quantityLeft = Integer.valueOf(request.getParameter("soluong"));
-		String des = request.getParameter("mota");
+		int quantityLeft = Integer.valueOf(request.getParameter("soLuong"));
+		String des = request.getParameter("moTaThu");
 		Species species = speciesService.findById(categoryID);
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
@@ -212,59 +212,59 @@ public class PetController {
 	}
 
 
-//	@RequestMapping("/ProductManagement/UpdateProduct")
+	@RequestMapping("/ProductManagement/UpdateProduct")
 //	@ResponseBody
-//	public String updateProduct(HttpServletRequest request) throws ParseException {
-//		int id = Integer.valueOf(request.getParameter("p_fix_id"));
-//		String name = request.getParameter("p_fix_name");
-//		String status = request.getParameter("p_fix_status");
-//		String priceDisplay = request.getParameter("p_fix_price");
+	public String updateProduct(HttpServletRequest request) throws ParseException {
+		int id = Integer.valueOf(request.getParameter("id"));
+		String name = request.getParameter("tenThu");
+		String status = request.getParameter("trangThai");
+		String priceDisplay = request.getParameter("giaThu");
 //		String coc = request.getParameter("p_fix_coc");
-//		float price = Float.valueOf(priceDisplay.substring(0, priceDisplay.length() - 2).replaceAll("\\.", ""));
-//		float giaCoc = Float.valueOf(coc.substring(0, coc.length() - 2).replaceAll("\\.", ""));
-//		int quantityLeft = Integer.valueOf(request.getParameter("p_fix_quantity"));
-//		int age = Integer.valueOf(request.getParameter("p_fix_age"));
-//		int categoryID = Integer.valueOf(request.getParameter("p_fix_categoryID"));
-//		Species species = speciesService.findById(categoryID);
-//		String date1 = request.getParameter("p_fix_date");
-//		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(date1);
-//		System.out.println(date);
-//		Pet pet = new Pet(id, name, price, giaCoc, age, quantityLeft, "", status, species, date);
-//		petService.updatePet(pet);
-//		return "?update=done";
-//	}
+		float price = Float.valueOf(priceDisplay.substring(0, priceDisplay.length() - 2).replaceAll("\\.", ""));
+		float giaCoc = price/10;
+		int quantityLeft = Integer.valueOf(request.getParameter("soLuong"));
+		int age = Integer.valueOf(request.getParameter("tuoiThu"));
+		int categoryID = Integer.valueOf(request.getParameter("giongThu"));
+		Species species = speciesService.findById(categoryID);
+		String date1 = request.getParameter("ngayNhap");
+		String des = request.getParameter("moTaThu");
+		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(date1);
+		System.out.println(date);
+		Pet pet = new Pet(id, name, price, giaCoc, age, quantityLeft, des, status, species, date);
+		petService.updatePet(pet);
+		return "redirect:/admin/ProductManagement";
+	}
 	
 	@RequestMapping("/ProductManagement/DisContinuedProduct")
-	@ResponseBody
+//	@ResponseBody
 	public String disContinuedProduct(HttpServletRequest request) {
-		int productId = Integer.valueOf(request.getParameter("productId"));
+		int productId = Integer.valueOf(request.getParameter("idthu"));
 		System.out.println("productID: " + productId);
 		petService.disContinuePet(productId);
 
-		return "?DisContinuedProduct=" + productId;
+		return "redirect:/admin/ProductManagement";
 	}
 //	
 	@RequestMapping("/ProductManagement/ContinuedProduct")
-	@ResponseBody
+//	@ResponseBody
 	public String continuedProduct(HttpServletRequest request) {
-//		String productId = request.getParameter("productId");
-//		System.out.println("ID đăng bán: "+productId);
-		int productId = Integer.valueOf(request.getParameter("productId"));
+		int productId = Integer.valueOf(request.getParameter("idthu"));
 		petService.continuePet(productId);
 		
-		return "?ContinuedProduct="+productId;
+		return "redirect:/admin/ProductManagement";
 	}
-//	
-//	@RequestMapping("/ProductManagement/PermanentlyDeleted")
+	
+	@RequestMapping("/ProductManagement/edit")
 //	@ResponseBody
-//	public String permanentlyDeleted(HttpServletRequest request) {
-//		int productId = Integer.valueOf(request.getParameter("productId"));
-//		productService.permanentlyDeleted(productId);
-//		
-//		return "?PermanentlyDeleted="+productId;
-//	}
-//	
-//	
+	public String editProduct(HttpServletRequest request, ModelMap model) {
+		int productId = Integer.valueOf(request.getParameter("id"));
+	 Pet pet = petService.findById(productId);
+//		request.setAttribute("pet", pet);
+		model.addAttribute("pet", pet);
+		System.out.println("Thú update: "+pet);
+		return "redirect:/admin/ProductManagement";
+	}
+
 //	@RequestMapping("/UploadIMG")
 //	@ResponseBody
 //	public String uploadIMG(ModelMap model, @RequestParam("addProductIMG") MultipartFile photo) {

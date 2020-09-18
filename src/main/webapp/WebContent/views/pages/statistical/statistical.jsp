@@ -75,10 +75,16 @@
             <a href="#" class="dropdown-item dropdown-footer">Xem tất cả thông báo</a>
           </div>
         </li>
-        <!-- <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-            class="fas fa-th-large"></i></a>
-      </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="../../pages/examples/recover-password.html">
+            <i class="fas fa-unlock-alt"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../pages/examples/login.html">
+            <i class="fas fa-sign-out-alt"></i>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.navbar -->
@@ -87,9 +93,9 @@
     <aside class="main-sidebar sidebar-light-primary elevation-4">
       <!-- Brand Logo -->
       <a href="../../index.html" class="brand-link">
-        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        <img src="../../dist/img/AdminLTELogo.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
           style="opacity: .8">
-        <span class="brand-text font-weight-light">Pet Mark</span>
+        <span class="brand-text font-weight-light">Pet Mart</span>
       </a>
 
       <!-- Sidebar -->
@@ -111,7 +117,7 @@
              with font-awesome or any other icon font library -->
             <li class="nav-item has-treeview">
               <a href="../../index.html" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <i class="nav-icon fas fa-home"></i>
                 <p>
                   Trang chủ
                 </p>
@@ -120,7 +126,7 @@
             <li class="nav-header">CỬA HÀNG</li>
             <li class="nav-item">
               <a href="../employee-manager.html" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+                <i class="nav-icon fas fa-users"></i>
                 <p>
                   Nhân viên
                 </p>
@@ -128,7 +134,7 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="javascript:" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
+                <i class="nav-icon fas fa-paw"></i>
                 <p>
                   Thú cưng
                 </p>
@@ -136,7 +142,7 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="../bread/pet-bread.html" class="nav-link">
-                <i class="nav-icon fas fa-chart-pie"></i>
+                <i class="nav-icon fas fa-dog"></i>
                 <p>
                   Giống thú cưng
                 </p>
@@ -144,7 +150,7 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="../accessory/accessory-manager.html" class="nav-link">
-                <i class="nav-icon fas fa-tree"></i>
+                <i class="nav-icon fab fa-simplybuilt"></i>
                 <p>
                   Phụ kiện
                 </p>
@@ -152,7 +158,7 @@
             </li>
             <li class="nav-item has-treeview">
               <a href="../category/category-manager.html" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
+                <i class="nav-icon fab fa-bandcamp"></i>
                 <p>
                   Hãng phụ kiện
                 </p>
@@ -168,8 +174,8 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="pages/calendar.html" class="nav-link">
-                <i class="nav-icon fas fa-calendar-alt"></i>
+              <a href="../deposit/deposit-manager.html" class="nav-link">
+                <i class="nav-icon fas fa-receipt"></i>
                 <p>
                   Quản lý cọc
                 </p>
@@ -183,83 +189,6 @@
                   Thống kê
                 </p>
               </a>
-            </li>
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i class="nav-icon far fa-plus-square"></i>
-                <p>
-                  Extras
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../examples/login.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Login</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/register.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Register</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/forgot-password.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Forgot Password</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/recover-password.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Recover Password</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/lockscreen.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Lockscreen</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/legacy-user-menu.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Legacy User Menu</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/language-menu.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Language Menu</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/404.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Error 404</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/500.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Error 500</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/pace.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Pace</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/blank.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Blank Page</p>
-                  </a>
-                </li>
-              </ul>
             </li>
           </ul>
         </nav>
@@ -332,6 +261,47 @@
               <!-- /.card -->
             </div>
             <!-- /.col-md-6 -->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Sales</h3>
+                    <a href="javascript:void(0);">View Report</a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="d-flex">
+                    <p class="d-flex flex-column">
+                      <span class="text-bold text-lg">$18,230.00</span>
+                      <span>Sales Over Time</span>
+                    </p>
+                    <p class="ml-auto d-flex flex-column text-right">
+                      <span class="text-success">
+                        <i class="fas fa-arrow-up"></i> 33.1%
+                      </span>
+                      <span class="text-muted">Since last month</span>
+                    </p>
+                  </div>
+                  <!-- /.d-flex -->
+
+                  <div class="position-relative mb-4">
+                    <canvas id="sales-chart" height="200"></canvas>
+                  </div>
+
+                  <div class="d-flex flex-row justify-content-end">
+                    <span class="mr-2">
+                      <i class="fas fa-square text-primary"></i> This year
+                    </span>
+
+                    <span>
+                      <i class="fas fa-square text-gray"></i> Last year
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col-md-6 -->
           </div>
           <!-- /.row -->
         </div>
@@ -345,7 +315,7 @@
       <div class="float-right d-none d-sm-block">
         <b>Version</b> 1.0.0
       </div>
-      <strong>Copyright &copy; 2020 <a href="http://adminlte.io">Petmark </a>.</strong> All rights
+      <strong>Copyright &copy; 2020 <a href="http://adminlte.io">Petmart </a>.</strong> All rights
       reserved.
     </footer>
 
@@ -367,14 +337,10 @@
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
-  <script type="text/javascript">
-    function hienThi(visible) {
-      var hienForm = document.getElementById("form-disable");
-      hienForm.style.display = visible ? "" : "none";
-      var timKiem = document.getElementById("new-pet");
-      timKiem.style.display = visible ? "none" : "block";
-    }
-  </script>
+  <!-- OPTIONAL SCRIPTS -->
+  <script src="../../plugins/chart.js/Chart.min.js"></script>
+  <script src="../../dist/js/demo.js"></script>
+  <script src="../../dist/js/pages/dashboard3.js"></script>
 </body>
 
 </html>

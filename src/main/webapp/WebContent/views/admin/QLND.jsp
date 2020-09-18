@@ -77,7 +77,8 @@
 							<td class="t_action_3"><button type="reset" class="btn_delete"><i class="fas fa-trash-alt"></i>Hủy bỏ</button></td>
 						</tr>
 					</tbody>
-				</table></form>
+				</table>
+				</form>
 				
 
 				<div style="height: 70px;"></div>
@@ -100,7 +101,7 @@
 					<option value="3" title="Nhân viên & Quản trị viên">Nhân viên & QTV</option>
 					<option value="4" style="background: #ff4d4d; color: #fff;">Bị chặn</option>
 				</select>
-					<span id="sortValue2" style="display: none;">${sortValue }</span> 
+					<span id="sortValue2" style="display: none;">${sortValue }</span>  
 				<table class="show_p" style="margin-top: 30px;">
 					<thead>
 						<tr>

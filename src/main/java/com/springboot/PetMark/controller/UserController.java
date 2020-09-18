@@ -140,7 +140,7 @@ public class UserController {
 		model.addAttribute("sortValue", sortValue);
 		model.addAttribute("search_display", search_display);
 		
-		
+//		return "admin/QLND";
 		return "pages/employee-manager";
 	}
 		

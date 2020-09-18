@@ -53,10 +53,9 @@ public class SpeciesController {
 		}
 		
 		int page = targetPage - 1;
-		
-		String nameButton2 = "Tải ảnh";
+		String action ="DisContinuedSpecies";
+		String nameButton2 = "Ngừng kinh doanh";
 		String classButton2 = "btn_upload";
-		String classButtonDelete = "btn_delete2";
 		String sortValue = request.getParameter("sortValue");
 		System.out.println("Index Sort: " + sortValue);
 		if(sortValue == null) sortValue = "-1";
@@ -78,8 +77,8 @@ public class SpeciesController {
 				listSpecies = speciesService.showSpeciesPageable(true, PageRequest.of(page, 10, Sort.by("id").ascending()));
 				totalPage = (int) Math.ceil((double)speciesService.countDiscontinueProduct()/10);
 				nameButton2 = "Đăng bán";
-				classButton2 = "cancel_discontinue";
-				classButtonDelete = "permanently_deleted";
+				action = "ContinuedSpecies";
+				
 				
 				break;
 			default:
@@ -104,7 +103,7 @@ public class SpeciesController {
 		session.setAttribute("targetPage", targetPage);
 		model.addAttribute("nameButton2", nameButton2);
 		model.addAttribute("classButton2", classButton2);
-		model.addAttribute("classButtonDelete", classButtonDelete);
+		model.addAttribute("action", action);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("listSpecies", listSpecies);
 		System.out.println("Giong" + listSpecies);
@@ -156,22 +155,22 @@ public class SpeciesController {
 	
 	
 	@RequestMapping("/DisContinuedSpecies")
-	@ResponseBody
+//	@ResponseBody
 	public String disContinuedSpecies(HttpServletRequest request) {
 		int speciesId = Integer.valueOf(request.getParameter("speciesId"));
 		System.out.println("ID giống: "+ speciesId);
 		speciesService.disContinueSpecies(speciesId);
 		
-		return "?DisContinuedSpecies="+speciesId;
+		return "redirect:/admin/SpeciesManagement";
 	}
 	
 	@RequestMapping("/ContinuedSpecies")
-	@ResponseBody
+//	@ResponseBody
 	public String continuedSpecies(HttpServletRequest request) {
 		int speciesId = Integer.valueOf(request.getParameter("speciesId"));
 		speciesService.continueSpecies(speciesId);
 		
-		return "?ContinuedSpecies="+speciesId;
+		return "redirect:/admin/SpeciesManagement";
 	}
 	
 

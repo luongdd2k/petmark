@@ -74,7 +74,8 @@ public class AccessoriesController {
 			model.addAttribute("scrollT", request.getParameter("scrollT"));
 		}
 
-		String nameButton2 = "Ngừng bán";
+		String action = "DisContinuedAccessories";
+		String nameButton2 = "Ngừng kinh doanh";
 //		String classButton2 = "btn_upload";
 		String classButtonDelete = "btn_delete2";
 		String sortValue = request.getParameter("sortValue");
@@ -135,6 +136,7 @@ public class AccessoriesController {
 				listAccessories = AccessoriesService.showProductByCategoryPageable("Ngừng bán", PageRequest.of(page, 10, Sort.by("id").ascending()));
 //				totalPage = (int) Math.ceil((double)AccessoriesService.countAccessories("Ngừng bán")/10);
 				nameButton2 = "Đăng bán";
+				action = "ContinuedAccessories";
 //				classButton2 = "cancel_discontinue";
 				classButtonDelete = "cancel_discontinue";
 				
@@ -167,7 +169,8 @@ public class AccessoriesController {
 		model.addAttribute("listAccessories", listAccessories);
 		model.addAttribute("listCategory", listCategory);
 		model.addAttribute("listStatus", listStatus);
-		System.out.println(listAccessories);
+		model.addAttribute("action", action);
+//		System.out.println(listAccessories);
 //		
 		return "pages/accessory/accessory-manager";
 //		return "admin/QLPK";
@@ -191,18 +194,18 @@ public class AccessoriesController {
 //	
 	@RequestMapping("/AddAccessories")
 	public String addAccessories(HttpServletRequest request) {
-		String name = request.getParameter("name");
-		String status = request.getParameter("status");
-		String des = request.getParameter("mota");
+		String name = request.getParameter("tenPhuKien");
+		String status = request.getParameter("trangThaiPhuKien");
+		String des = request.getParameter("moTaPhuKien");
 //		String imagePath = request.getParameter("hiddenImgPath");
 //		System.out.println("IMGpath:" + imagePath);
-		String priceDisplay = request.getParameter("price");
+		String priceDisplay = request.getParameter("giaPhuKien");
 		float price = Float.valueOf(priceDisplay);
 //		String giaCoc = request.getParameter("p_add_coc");
 //		float coc = Float.valueOf(giaCoc.substring(0, giaCoc.length() - 2).replaceAll("\\.", ""));
-		int quantityLeft = Integer.valueOf(request.getParameter("quantity"));
+		int quantityLeft = Integer.valueOf(request.getParameter("soLuongPhuKien"));
 //		int age = Integer.valueOf(request.getParameter("p_add_age"));
-		int categoryID = Integer.valueOf(request.getParameter("category"));
+		int categoryID = Integer.valueOf(request.getParameter("hangPhuKien"));
 		Category Category = CategoryService.findById(categoryID);
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
@@ -216,45 +219,44 @@ public class AccessoriesController {
 	}
 
 
-//	@RequestMapping("/AccessoriesManagement/UpdateAccessories")
+	@RequestMapping("/UpdateAccessories")
 //	@ResponseBody
-//	public String updateAccessories(HttpServletRequest request) throws ParseException {
-//		int id = Integer.valueOf(request.getParameter("p_fix_id"));
-//		String name = request.getParameter("p_fix_name");
-//		String status = request.getParameter("p_fix_status");
-//		String priceDisplay = request.getParameter("p_fix_price");
-//		String coc = request.getParameter("p_fix_coc");
-//		float price = Float.valueOf(priceDisplay.substring(0, priceDisplay.length() - 2).replaceAll("\\.", ""));
-//		float giaCoc = Float.valueOf(coc.substring(0, coc.length() - 2).replaceAll("\\.", ""));
-//		int quantityLeft = Integer.valueOf(request.getParameter("p_fix_quantity"));
-//		int age = Integer.valueOf(request.getParameter("p_fix_age"));
-//		int categoryID = Integer.valueOf(request.getParameter("p_fix_categoryID"));
-//		Category Category = CategoryService.findById(categoryID);
-//		String date1 = request.getParameter("p_fix_date");
-//		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(date1);
-//		System.out.println(date);
-//		Accessories Accessories = new Accessories(id, name, price, giaCoc, age, quantityLeft, "", status, Category, date);
-//		AccessoriesService.updateAccessories(Accessories);
-//		return "?update=done";
-//	}
+	public String updateAccessories(HttpServletRequest request) throws ParseException {
+		int id = Integer.valueOf(request.getParameter("id"));
+		String name = request.getParameter("tenPhuKien");
+		String status = request.getParameter("trangThaiPhuKien");
+		String priceDisplay = request.getParameter("giaPhuKien");
+		String description = request.getParameter("moTaPhuKien");
+		float price = Float.valueOf(priceDisplay.substring(0, priceDisplay.length() - 2).replaceAll("\\.", ""));
+		int amount = Integer.valueOf(request.getParameter("soLuongPhuKien"));
+		int categoryID = Integer.valueOf(request.getParameter("hangPhuKien"));
+		Category Category = CategoryService.findById(categoryID);
+		String date1 = request.getParameter("ngayUpdate");
+		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(date1);
+		System.out.println(date);
+		Accessories Accessories = new Accessories(id, name, price, amount, Category, date, description, status);
+		System.out.println("phụ kiện update: " +Accessories);
+		AccessoriesService.updateAccessories(Accessories);
+		return "redirect:/admin/AccessoriesManagement";
+	}
 	
 	@RequestMapping("/DisContinuedAccessories")
-	@ResponseBody
+//	@ResponseBody
 	public String disContinuedAccessories(HttpServletRequest request) {
 		int AccessoriesId = Integer.valueOf(request.getParameter("AccessoriesId"));
 		System.out.println("AccessoriesID: " + AccessoriesId);
 		AccessoriesService.disContinueAccessories(AccessoriesId);
 
-		return "?DisContinuedAccessories=" + AccessoriesId;
+		return "redirect:/admin/AccessoriesManagement";
 	}
 //	
 	@RequestMapping("/ContinuedAccessories")
-	@ResponseBody
+//	@ResponseBody
 	public String continuedAccessories(HttpServletRequest request) {
 		int AccessoriesId = Integer.valueOf(request.getParameter("AccessoriesId"));
 		AccessoriesService.continueAccessories(AccessoriesId);
 		
-		return "?ContinuedAccessories="+AccessoriesId;
+		return "redirect:/admin/AccessoriesManagement";
 	}
 //	
 //	@RequestMapping("/AccessoriesManagement/PermanentlyDeleted")

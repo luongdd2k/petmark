@@ -89,7 +89,7 @@ public Pet(int id, String name, float gia, float coc, int age, int soLuong, Stri
 		return decimalFormat.format(this.deposit).replaceAll(",", ".") + " ₫";
 	}
 	public String getDate() {
-		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString = format.format(this.createdAt);
 		return dateString;
 	}

@@ -5,6 +5,23 @@
     margin-left: 1%;;
 }
 .btn-new-css{
-    padding-left: 88%;
+    float: right;
     padding-bottom: 10px;
 }
+.th-css{
+text-align: center;
+}
+.td-em-css{
+    text-align: center;
+    margin-top: 8em;
+}
+.pagination-main{
+    padding-top: 10px;
+    float: right;
+}
+.form-disable-p1{
+    max-width: 400px;margin-left: 30px; margin: auto; margin-bottom: 10px;
+}
+
+
+
