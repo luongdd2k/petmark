@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -39,9 +42,30 @@ public @Data class Accessories implements Serializable {
 	private Date createdAt;
 	private String description;
 	private String status;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "accessories")
+	private Set<SizeAccessories> sizes = new HashSet<SizeAccessories>(0);
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "accessories")
+	private Set<ColorAccessories> colors = new HashSet<ColorAccessories>(0);
 
 	public Accessories() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Set<SizeAccessories> getSizes() {
+		return sizes;
+	}
+
+	public void setSizes(Set<SizeAccessories> sizes) {
+		this.sizes = sizes;
+	}
+
+	public Set<ColorAccessories> getColors() {
+		return colors;
+	}
+
+	public void setColors(Set<ColorAccessories> colors) {
+		this.colors = colors;
 	}
 
 	public Accessories(int id, String name, float price, int amount, Category category, Date createdAt,
@@ -154,7 +178,8 @@ public @Data class Accessories implements Serializable {
 	@Override
 	public String toString() {
 		return "Accessories [id=" + id + ", category=" + category + ", name=" + name + ", price=" + price + ", amount="
-				+ amount + ", createdAt=" + createdAt + ", description=" + description + ", status=" + status + "]";
+				+ amount + ", createdAt=" + createdAt + ", description=" + description + ", status=" + status
+				+ ", sizes=" + sizes + ", colors=" + colors + "]";
 	}
 
 }

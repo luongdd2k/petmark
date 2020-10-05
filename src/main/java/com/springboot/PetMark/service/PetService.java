@@ -20,5 +20,6 @@ public interface PetService {
 	int countContinueProduct();
 	int countProduct(String status);
 	List<String> selecStatus();
+	List<Pet> showByDes(String des,Pageable pageable);
 	
 }

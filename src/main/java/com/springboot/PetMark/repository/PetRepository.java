@@ -21,6 +21,8 @@ public interface PetRepository extends JpaRepository<Pet, Integer> {
 	@Modifying
 	@Query("update Pet p set p.status='Ngừng bán' where p.id = ?1")
 	void disContinuePet(int id);
+	@Query("select p from Pet p where p.description like %?1%")
+	List<Pet> showByDes(String des,Pageable pageable);
 	
 	@Transactional
 	@Modifying

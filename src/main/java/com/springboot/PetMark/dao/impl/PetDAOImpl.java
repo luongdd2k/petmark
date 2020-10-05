@@ -97,4 +97,10 @@ public class PetDAOImpl implements PetDAO {
 		return petRepository.selecStatus();
 	}
 
+	@Override
+	public List<Pet> showByDes(String des, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return petRepository.showByDes(des, pageable);
+	}
+
 }

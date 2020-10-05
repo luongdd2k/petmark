@@ -208,7 +208,7 @@
 				</div>
 				<input type="text" name="sl_login_username" id="sl_login_username"
 					class="input_text" placeholder="Tên đăng nhập" autocomplete="off"
-					required spellcheck="false">
+					required spell check="false">
 			</div>
 			<div class="sl_form_login_row">
 				<div class="sl_form_input_svg_container">

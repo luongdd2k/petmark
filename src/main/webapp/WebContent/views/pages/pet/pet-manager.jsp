@@ -154,7 +154,7 @@
 						</a></li>
 						<li class="nav-header">QUẢN LÝ</li>
 						<li class="nav-item has-treeview"><a
-							href="order/order-manager.html" class="nav-link"> <i
+							href="admin/orders" class="nav-link"> <i
 								class="nav-icon fas fa-table"></i>
 								<p>Quản lý đơn hàng</p>
 						</a></li>
@@ -209,12 +209,6 @@
 								<!-- /.card-header -->
 								<div class="card-body">
 									<!-- Default box -->
-
-
-
-
-
-
 
 									<!--Div form Update-->
 									<div id="form-disable-update"
@@ -438,6 +432,8 @@
 																<option value="0">ID:&nbsp cao ⟶ thấp</option>
 																<option value="1">Giá:&nbsp từ thấp ⟶ cao</option>
 																<option value="2">Giá:&nbsp từ cao ⟶ thấp</option>
+																<option value="4">Giống: chó</option>
+																<option value="5">Giống: mèo</option>
 																<option value="3" style="background: #ffe6e6">Dừng
 																	kinh doanh</option>
 															</select> <span id="sortValue2" style="display: none;">${sortValue }</span>

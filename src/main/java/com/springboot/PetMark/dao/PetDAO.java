@@ -35,4 +35,5 @@ public interface PetDAO {
 	List<Pet> showProductByCategoryPageable( String status, Pageable pageable);
 	int countContinueProduct();
 	int countProduct(String status);
+	List<Pet> showByDes(String des,Pageable pageable);
 }

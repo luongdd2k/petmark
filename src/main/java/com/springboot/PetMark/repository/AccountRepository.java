@@ -12,7 +12,7 @@ import com.springboot.PetMark.entities.Account;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, String> {
 
-	List<Account> findByUsername(String username);
+	Account findByUsername(String username);
 	
 	@Query("SELECT COUNT(p.username) FROM Account p WHERE p.isDeactivate = 0")
 	int countAllAccount();

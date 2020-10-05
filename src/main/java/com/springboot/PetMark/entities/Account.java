@@ -48,9 +48,6 @@ public @Data class Account implements Serializable {
 	@Column(name = "address")
 	private String address;
 
-	public String getUsername() {
-		return username;
-	}
 
 	public Account() {
 		// TODO Auto-generated constructor stub
@@ -69,7 +66,9 @@ public @Data class Account implements Serializable {
 		this.imagePath = imagePath;
 		this.isDeactivate = isDeactivate;
 	}
-
+	public String getUsername() {
+		return username;
+	}
 	public String getDisplayGender() {
 		String gt = "Nam";
 		if (this.gender == true) {
@@ -78,9 +77,6 @@ public @Data class Account implements Serializable {
 		return gt;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
 
 	public String getPassword() {
 		return password;
@@ -152,6 +148,10 @@ public @Data class Account implements Serializable {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	@Override

@@ -135,6 +135,16 @@ public class PetController {
 				classButtonDelete = "cancel_discontinue";
 				
 				break;
+			case "4":
+				if(targetPage > totalPage) page = 0;
+				listProduct = petService.showByDes( "chó", PageRequest.of(page, 10, Sort.by("id").ascending()));
+				
+				break;
+			case "5":
+				if(targetPage > totalPage) page = 0;
+				listProduct = petService.showByDes( "mèo", PageRequest.of(page, 10, Sort.by("id").ascending()));
+				
+				break;
 			default:
 				
 				break;

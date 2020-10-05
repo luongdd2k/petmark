@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.service.AccountService;
@@ -36,45 +37,45 @@ public class AccountController {
 	@Autowired
 	ServletContext context;
 	
-	@RequestMapping(value="/CheckLogin", method=RequestMethod.POST)
-	public String checkLogin(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		
-		//never reach
-		String username = request.getParameter("sl_login_username");
-		String password = request.getParameter("sl_login_password");
-		String urlPage = request.getParameter("urlPage");
-		
-//		session.setAttribute("totalQuantity", cartItemService.countCartQuantity(username));
-
-		
-		if(accountService.checkLogin(username, password)) {
-			System.out.println("Login Success!");
-			session.setAttribute("username", username);
-			session.setAttribute("role", accountService.getRole(username));
-			session.setAttribute("fullname", accountService.findById(username).getFullName());
-			session.setAttribute("profilePictureURL", accountService.findById(username).getImagePath());
-			
-		} else {
-			System.out.println("Login Fail!");
-		}
-
-		return "redirect:"+urlPage;
-	}
+//	@RequestMapping(value="/CheckLogin", method=RequestMethod.POST)
+//	public String checkLogin(HttpServletRequest request) {
+//		HttpSession session = request.getSession();
+//		// không bao giờ chạy
+//		String username = request.getParameter("username");
+//		String password = request.getParameter("password");
+//		String urlPage = request.getParameter("urlPage");
+//		System.out.println("tên đăng nhập: "+username);
+//		System.out.println("Mậy khẩu: "+password);
+//		System.out.println("Url: "+urlPage);
+//		
+//		if(accountService.checkLogin(username, password)) {
+//			System.out.println("Login Success!");
+//			session.setAttribute("username", username);
+//			session.setAttribute("role", accountService.getRole(username));
+//			session.setAttribute("fullname", accountService.findById(username).getFullName());
+//			session.setAttribute("profilePictureURL", accountService.findById(username).getImagePath());
+//			
+//		} else {
+//			System.out.println("Login Fail!");
+//		}
+//
+//		return "redirect:"+urlPage;
+////		return null;
+//	}
 	
 	@RequestMapping(value="/isLoginFail", method=RequestMethod.POST)
 	@ResponseBody
 	public String loginFail(HttpServletRequest request) {
+//		xong
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		System.out.println("tên đăng nhập: "+username);
+		System.out.println("mật khẩu: "+password);
 		
-		String username = request.getParameter("username_f");
-		String password = request.getParameter("password_f");
-		String currentPath = request.getParameter("currentPath_f");
-		System.out.println("currentPath: "+currentPath);
 		String isLoginFail = "1";
 		if(accountService.checkLogin(username, password)) {
 			isLoginFail = "0";
 		} 
-		
 		return "?"+"isLoginFail="+isLoginFail;
 	}
 	
@@ -157,14 +158,21 @@ public class AccountController {
 	
 	
 	@RequestMapping("/LoggedInSuccessfully")
-	public String loggedInSuccessfully(HttpServletRequest request, Principal principal) {
+	public ModelAndView loggedInSuccessfully(HttpServletRequest request, Principal principal) {
 		HttpSession session = request.getSession();
+		ModelAndView model = new ModelAndView();
+		model.setViewName("redirect:/index");
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 		
 		String loggedUsername = loginedUser.getUsername();
 		String loggedUsernameAuthorities = loginedUser.getAuthorities().toString();
 		String loggedRole = loggedUsernameAuthorities.substring(1, loggedUsernameAuthorities.length()-1);
 		String loggedFullname = accountService.findById(loggedUsername).getFullName();
+		Account account = accountService.findById(loggedUsername);
+		String us = accountService.findById(loggedUsername).getUsername();
+//		model.addObject("account", account);
+		model.addObject("us", us);
+		System.out.println("Thông tin tài khoản: "+account);
 		
 		System.out.println("\r---------------------");
 		System.out.println("Logged In Successfully!");
@@ -180,12 +188,13 @@ public class AccountController {
 //		session.setAttribute("totalQuantity", cartItemService.countCartQuantity(loggedUsername));
 		System.out.println("currentPath: "+ session.getAttribute("currentPath"));
 		String currentPath = (String) session.getAttribute("currentPath");
-		
-		if(loggedRole.equals("ROLE_ADMIN") && currentPath.contains("/index")) {
-			return "indexadmin";
+//		&& currentPath.contains("/index")
+		if(loggedRole.equals("ROLE_ADMIN")&& currentPath.contains("/index")) {
+			model.setViewName("indexadmin");
+			return model;
 		}
 		
-		return "redirect:"+currentPath;
+		return model;
 	}
 	
 	@RequestMapping("Profile")

@@ -163,14 +163,11 @@
               </a>
             </li>
             <li class="nav-header">QUẢN LÝ</li>
-            <li class="nav-item has-treeview">
-              <a href="order/order-manager.html" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>
-                  Quản ý đơn hàng
-                </p>
-              </a>
-            </li>
+						<li class="nav-item has-treeview"><a
+							href="admin/orders" class="nav-link"> <i
+								class="nav-icon fas fa-table"></i>
+								<p>Quản lý đơn hàng</p>
+						</a></li>
             <li class="nav-item">
               <a href="javascript:" class="nav-link active">
                 <i class="nav-icon fas fa-receipt"></i>

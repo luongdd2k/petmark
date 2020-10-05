@@ -26,6 +26,7 @@ import com.springboot.PetMark.entities.Category;
 import com.springboot.PetMark.repository.AccessoriesRepository;
 import com.springboot.PetMark.service.AccessoriesService;
 import com.springboot.PetMark.service.CategoryService;
+import com.springboot.PetMark.service.ColorAccessoriesService;
 
 @Controller
 @RequestMapping("/admin/AccessoriesManagement")
@@ -34,6 +35,8 @@ public class AccessoriesController {
 	AccessoriesService AccessoriesService;
 	@Autowired
 	CategoryService CategoryService;
+	@Autowired
+	ColorAccessoriesService color;
 	@Autowired
 	ServletContext context;
 

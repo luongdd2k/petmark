@@ -164,10 +164,10 @@ to get the desired effect
           </li>
           <li class="nav-header">QUẢN LÝ</li>
           <li class="nav-item has-treeview">
-            <a href="pages/order/order-manager.html" class="nav-link">
+            <a href="admin/orders" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Quản ý đơn hàng
+                Quản lý đơn hàng
               </p>
             </a>
           </li>

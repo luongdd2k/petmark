@@ -35,7 +35,6 @@ public class RequestResponseLoggingFilter implements Filter {
 
 		chain.doFilter(request, response);
 		if(!reqRequestURI.contains("/TkWBH/data")&&!reqRequestURI.contains("/TkWBH/files")&&!reqRequestURI.contains("/TkWBH/Image")&&!reqRequestURI.contains("/TkWBH/CSS")&&!reqRequestURI.contains("/TkWBH/Script")) {
-			System.out.println(".\rLogging Response: " + res.getContentType() + "\r----------");
 		}
 	}
 

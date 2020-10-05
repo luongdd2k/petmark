@@ -431,8 +431,6 @@ $(document).ready(function() {
 
 
 	$('.sl_submit:eq(0)').click(function(event) {
-		// var checkVld_2 = true;
-		// var checkLogin_2 = true;
 		$('.sl_form_input span').text("");
 		event.preventDefault();
 		$.ajax({
@@ -440,18 +438,18 @@ $(document).ready(function() {
 			type: 'POST',
 			dataType: 'html',
 			data: {
-				"username_f": $('#sl_login_username').val(),
-				"password_f": $('#sl_login_password').val(),
-				"currentPath_f": $('#urlPage').val()
+				"username": $('#username').val(),
+				"password": $('#password').val(),
+				"currentPath": $('#urlPage').val()
 			},
 		})
 		.done(function(login_resp) {
 			console.log(login_resp);
 			if($.urlParam('isLoginFail', login_resp)=="1"){
-				$('.sl_form_login_row:eq(1)').after('<span class="msgForm">Đăng nhập thất bại!</span>');
+				$('.abc:eq(1)').after('<span class="msgForm">Đăng nhập thất bại!</span>');
 				event.preventDefault();
 			} else if($.urlParam('isLoginFail', login_resp)=="0"){
-				$('.sl_form_login_row:eq(1)').after('<span class="msgForm" style="color: #00e600; font-size: 115%;">Đăng nhập thành công!</span>');
+				$('.abc:eq(1)').after('<span class="msgForm" style="color: #00e600; font-size: 115%;">Đăng nhập thành công!</span>');
 				
 				setTimeout(function(){
 					$('#sl_form_login').submit();

@@ -37,13 +37,10 @@ public class AccountDAOImpl implements AccountDAO{
 	@Override
 	public boolean checkLogin(String username, String password) {
 
-		List<Account> accounts = accountRepository.findByUsername(username);
-//		if (!(accounts.isEmpty())) {
-//			return accounts.get(0).getPassword().equals(hash(password, accounts.get(0).getSalt()));
-//		}
+		Account accounts = accountRepository.findByUsername(username);
 
-		if (!(accounts.isEmpty())) {
-			return new BCryptPasswordEncoder().matches(password, accounts.get(0).getPassword());
+		if ((accounts!=null)) {
+			return new BCryptPasswordEncoder().matches(password, accounts.getPassword());
 		}
 		return false;
 		
@@ -52,8 +49,8 @@ public class AccountDAOImpl implements AccountDAO{
 	@Override
 	public boolean isDuplicate(String username) {
 
-		List<Account> accounts = accountRepository.findByUsername(username);
-		if (!(accounts.isEmpty())) {
+		Account accounts = accountRepository.findByUsername(username);
+		if ((accounts!=null)) {
 			return true;
 		}
 
@@ -155,9 +152,9 @@ public class AccountDAOImpl implements AccountDAO{
 	@Override
 	public String getRole(String username) {
 
-		List<Account> accounts = accountRepository.findByUsername(username);
-		if (!(accounts.isEmpty())) {
-			return accounts.get(0).getRole().getId();
+		Account accounts = accountRepository.findByUsername(username);
+		if ((accounts!=null)) {
+			return accounts.getRole().getId();
 		}
 
 		return null;
@@ -166,13 +163,13 @@ public class AccountDAOImpl implements AccountDAO{
 	@Override
 	public Account findById(String username) {
 		
-		return accountRepository.findById(username).get();
+		return accountRepository.findByUsername(username);
 	}
 	
 	@Override
 	public Optional<Account> findById2(String username) {
 		// TODO Auto-generated method stub
-		return accountRepository.findById(username);
+		return Optional.of(accountRepository.findByUsername(username));
 	}
 	
 //	@Override

@@ -17,7 +17,7 @@ public class LoginPathInterceptor extends HandlerInterceptorAdapter{
 			Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
-		String currentPath = request.getParameter("currentPath_f");
+		String currentPath = request.getParameter("currentPath");
 		if(currentPath == null) {
 			currentPath = request.getParameter("urlPage2");
 		}
@@ -25,10 +25,6 @@ public class LoginPathInterceptor extends HandlerInterceptorAdapter{
 		
 		this.currentPath = currentPath;
 		
-		System.out.println("preHandle LoginInterceptor: currentPath = " + currentPath);
-
-
-//		response.sendRedirect(contextPath + "/index");
 
 		return true;
 	}

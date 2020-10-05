@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<HTML>
+<html lang="en">
 	<HEAD>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<TITLE>Shop Ban Hang</TITLE>
@@ -112,6 +112,6 @@
 		</div></div></div>
 		<%@ include file="footer.jsp" %>
 	</BODY>
-</HTML>
+</html>
 
 

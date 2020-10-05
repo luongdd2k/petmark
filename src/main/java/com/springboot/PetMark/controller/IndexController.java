@@ -14,13 +14,21 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.springboot.PetMark.config.HibernateProxyTypeAdapter;
+import com.springboot.PetMark.entities.Accessories;
+import com.springboot.PetMark.entities.Account;
+import com.springboot.PetMark.entities.CardItemAccessories;
 import com.springboot.PetMark.entities.Pet;
+import com.springboot.PetMark.service.AccessoriesService;
+import com.springboot.PetMark.service.AccountService;
+import com.springboot.PetMark.service.CartItemService;
 import com.springboot.PetMark.service.PetService;
 
 
@@ -29,18 +37,31 @@ import com.springboot.PetMark.service.PetService;
 public class IndexController {
 	@Autowired
 	PetService petService;
-//	@Autowired
-//	CartItemService cartItemService;
-	
+	@Autowired
+	AccessoriesService accessSv;
+	@Autowired
+	CartItemService cardSv;
+	@Autowired
+	AccountService accountService;
 	@RequestMapping("/")
 	public String showIndex() {
 		return "redirect:/index";
 	}
 	
 	@RequestMapping("/index")
-	public String showAllProduct(ModelMap model, HttpServletRequest request) {
+	public ModelAndView showAllProduct( HttpServletRequest request) {
 		HttpSession session = request.getSession();
-//		List<Pet> listPet = new ArrayList<Pet>();
+		ModelAndView model = new ModelAndView();
+		model.setViewName("client/index");
+		List<Pet> listPet = petService.findAll();
+		List<Accessories> listAcces = accessSv.findAll();
+		model.addObject("list", listPet);
+		model.addObject("listAcc", listAcces);
+		String user = (String) request.getParameter("us");
+		System.out.println("tên đăng nhập ở index: " +user);
+		Account account = accountService.findById(user);
+		model.addObject("user", user);
+		model.addObject("account", account);
 //		List<Integer> listProductInteger = new ArrayList<Integer>();
 //		String sortValue = request.getParameter("sortValue");
 //		System.out.println("Index Sort: " + sortValue);
@@ -84,7 +105,8 @@ public class IndexController {
 //		model.addAttribute("listAccessory", listAccessory);
 		
 //		session.setAttribute("totalQuantity", cartItemService.countCartQuantity((String)session.getAttribute("username")));
-		return "index";
+//		return "index";
+		return model;
 	}
 	
 	@RequestMapping("/SearchProduct")
@@ -245,5 +267,48 @@ public class IndexController {
 //		}
 		
 	}
+@RequestMapping("/pet-detail/{id}")
+public ModelAndView showDetail(@PathVariable String id, HttpServletRequest httpServletRequest) {
+	ModelAndView model = new ModelAndView();
+	model.setViewName("client/pet-detail");
+	if(id!=null) {
+	Pet pet = petService.findById(Integer.valueOf(id));
+	model.addObject("pet",pet);
+	}
+	return model;
+}
+@RequestMapping("/acc-detail/{id}/{user}")
+public ModelAndView showDetailAcc(@PathVariable String id, @PathVariable String user, HttpServletRequest httpServletRequest) {
+	ModelAndView model = new ModelAndView();
+	model.setViewName("client/acc-detail");
+	model.addObject("user", user);
+	if(id!=null) {
+	Accessories acc = accessSv.findById(Integer.valueOf(id));
+	model.addObject("acc",acc);
+	}
+	return model;
+}
+@RequestMapping("/add-card/{id}/{user}")
+public ModelAndView showCard(@PathVariable String id, @PathVariable String user, HttpServletRequest httpServletRequest) {
+	ModelAndView model = new ModelAndView();
+	model.setViewName("client/cart");
+//	model.addObject("acc", accessSv.findById(Integer.valueOf(id)));
+	Accessories accessories = accessSv.findById(Integer.valueOf(id));
+	Account account = accountService.findById(user);
+	long millis = System.currentTimeMillis();
+	java.sql.Date date = new java.sql.Date(millis);
+	CardItemAccessories card = new CardItemAccessories(accessories,account,1,date);
+	cardSv.save(card);
+	model.addObject("card", cardSv.findByAccount(account));
+	return model;
+}
 
+@RequestMapping("/show-card/{user}")
+public ModelAndView showCard(@PathVariable String user,HttpServletRequest httpServletRequest) {
+	ModelAndView model = new ModelAndView();
+	model.setViewName("client/cart");
+	Account account = accountService.findById(user);
+	model.addObject("card", cardSv.findByAccount(account));
+	return model;
+}
 }

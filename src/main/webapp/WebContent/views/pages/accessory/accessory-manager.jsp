@@ -146,9 +146,9 @@
 						</a></li>
 						<li class="nav-header">QUẢN LÝ</li>
 						<li class="nav-item has-treeview"><a
-							href="order/order-manager.html" class="nav-link"> <i
+							href="admin/orders" class="nav-link"> <i
 								class="nav-icon fas fa-table"></i>
-								<p>Quản ý đơn hàng</p>
+								<p>Quản lý đơn hàng</p>
 						</a></li>
 						<li class="nav-item"><a href="deposit/deposit-manager.html"
 							class="nav-link"> <i class="nav-icon fas fa-receipt"></i>
@@ -448,7 +448,7 @@
 													src="https://bizweb.dktcdn.net/100/229/172/products/vong-co-1cm-min.png?v=1550506530000"
 													alt="" style="max-width: 70px; max-height: 70px;"></td>
 												<td class="td-center tenthucung" style="padding-top: 2.5%;"><div
-														onclick="showFormUpdate(true, ${Accessories.id})">${Accessories.name }</div></td>
+														onclick="showFormUpdate(true, ${Accessories.id})" class="alert-link">${Accessories.name }</div></td>
 												<td class="td-center" style="padding-top: 2.5%;"><span
 													hidden="true">${Accessories.getCategory().getId() }</span>
 													${Accessories.getCategory().getName() }</td>

@@ -18,8 +18,6 @@ public class RequestLoggingInterceptor extends HandlerInterceptorAdapter{
 		String reqRequestURI = request.getRequestURI();
 		if (!reqRequestURI.contains("/TkWBH/data")&&!reqRequestURI.contains("/TkWBH/error")&&!reqRequestURI.contains("/TkWBH/files") && !reqRequestURI.contains("/TkWBH/Image")
 				&& !reqRequestURI.contains("/TkWBH/CSS") && !reqRequestURI.contains("/TkWBH/Script")) {
-			System.out.println("__________\rLogging Request " + request.getMethod() + ": " + request.getRequestURI() + "\r.");
-			System.out.print(time + " __ ");
 		}
 		return true;
 	}
