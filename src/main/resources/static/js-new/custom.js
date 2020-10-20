@@ -65,12 +65,12 @@ $(function(){
         $("#phuKien").addClass("hide");
         $("#cho").removeClass("hide");
         $("#thuCung").removeClass("hide");
-        $("#phuKien").addClass("hide");
+        $("#phu-kien").addClass("hide");
     }else if(value == "phuKien"){
         $("#phuKien").removeClass("hide");
         $("#cho").addClass("hide");
         $("#thuCung").addClass("hide");
-        $("#phuKien").removeClass("hide");
+        $("#phu-kien").removeClass("hide");
     }
 })
 
