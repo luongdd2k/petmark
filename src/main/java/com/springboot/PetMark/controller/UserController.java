@@ -51,11 +51,12 @@ public class UserController {
 		
 		int page = targetPage - 1;
 		
-		String nameButton3 = "Lưu";
-		String classButton3 = "btn_save";
-		String nameButtonDelete3 = "Chặn";
-		String classButtonDelete3 = "btn_deactive";
-		String titleButtonDelete3 = "Chặn người dùng này";
+//		String nameButton3 = "Lưu";
+//		String classButton3 = "btn_save";
+		String nameButton3 = "Chặn";
+		String action = "DeactiveAccount";
+//		String classButtonDelete3 = "btn_deactive";
+//		String titleButtonDelete3 = "Chặn người dùng này";
 		
 		String sortValue = request.getParameter("sortValue");
 		System.out.println("Index Sort: " + sortValue);
@@ -93,10 +94,11 @@ public class UserController {
 				if(targetPage > totalPage) page = 0;
 				listAccount = accountService.showAllAccount("ROLE_MEMBER", "ROLE_STAFF", "ROLE_ADMIN", true, PageRequest.of(page, 10, Sort.by("username").ascending()));		
 				nameButton3 = "Bỏ chặn";
-				classButton3 = "btn_active";
-				nameButtonDelete3 = "Xóa";
-				classButtonDelete3 = "permanently_deleted";
-				titleButtonDelete3 = "Xóa vĩnh viễn người dùng này";
+				action = "ActiveAccount";
+//				classButton3 = "btn_active";
+//				nameButtonDelete3 = "Xóa";
+//				classButtonDelete3 = "permanently_deleted";
+//				titleButtonDelete3 = "Xóa vĩnh viễn người dùng này";
 				
 				break;
 			case "searchResult":
@@ -131,10 +133,11 @@ public class UserController {
 		
 		session.setAttribute("targetPage", page+1);
 		model.addAttribute("nameButton3", nameButton3);
-		model.addAttribute("classButton3", classButton3);
-		model.addAttribute("nameButtonDelete3", nameButtonDelete3);
-		model.addAttribute("classButtonDelete3", classButtonDelete3);
-		model.addAttribute("titleButtonDelete3", titleButtonDelete3);
+		model.addAttribute("action", action);
+//		model.addAttribute("classButton3", classButton3);
+//		model.addAttribute("nameButtonDelete3", nameButtonDelete3);
+//		model.addAttribute("classButtonDelete3", classButtonDelete3);
+//		model.addAttribute("titleButtonDelete3", titleButtonDelete3);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("listAccount", listAccount);
 		model.addAttribute("sortValue", sortValue);
@@ -154,36 +157,36 @@ public class UserController {
 	}
 	
 	@RequestMapping("/ChangeRole")
-	@ResponseBody
+//	@ResponseBody
 	public String changeRole (HttpServletRequest request) {	
 		Account account = accountService.findById(request.getParameter("u_username"));
-		Role role = roleService.findById(request.getParameter("u_role"));
+		Role role = roleService.findById(request.getParameter("quyen"));
 		
 		account.setRole(role);
 		accountService.save(account);
 		
-		return "?change=done";
+		return "redirect:/admin/UserManagement";
 	}
 	
 	@RequestMapping("/DeactiveAccount")
-	@ResponseBody
+//	@ResponseBody
 	public String deactiveAccount (HttpServletRequest request) {	
 		Account account = accountService.findById(request.getParameter("u_username"));
 		account.setIsDeactivate(true);
 		accountService.save(account);
 
-		return "?deactive=done";
+		return "redirect:/admin/UserManagement";
 		
 	}
 	
 	@RequestMapping("/ActiveAccount")
-	@ResponseBody
+//	@ResponseBody
 	public String activeAccount (HttpServletRequest request) {	
 		Account account = accountService.findById(request.getParameter("u_username"));
 		account.setIsDeactivate(false);
 		accountService.save(account);
 
-		return "?active=done";
+		return "redirect:/admin/UserManagement";
 	}
 	
 	@RequestMapping("/PermanentlyDeleted")

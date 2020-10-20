@@ -227,7 +227,7 @@
                     <input class="form-control" type="number" value="1">
                   </div>
                 </div> -->
-                            <div class="ps-product__shopping"><a class="ps-btn mb-10" href="add-card/${id}/${user}">Thêm vào giỏ hàng<i
+                            <div class="ps-product__shopping"><a class="ps-btn mb-10" href="add-card/${id}">Thêm vào giỏ hàng<i
                                         class="ps-icon-next"></i></a>
                                 <div class="ps-product__actions"><a class="mr-10" href="whishlist.html"><i
                                             class="ps-icon-heart"></i></a></div>

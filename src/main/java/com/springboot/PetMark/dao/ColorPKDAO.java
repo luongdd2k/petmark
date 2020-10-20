@@ -1,13 +1,12 @@
-package com.springboot.PetMark.repository;
+package com.springboot.PetMark.dao;
 
 import java.util.List;
-
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.springboot.PetMark.entities.Accessories;
 import com.springboot.PetMark.entities.ColorAccessories;
 
-public interface ColorAccessoriesRepository extends JpaRepository<ColorAccessories,Integer> {
+public interface ColorPKDAO {
+	void addColor(ColorAccessories color);
+	void updateColor(ColorAccessories color);
 	List<ColorAccessories> findByAccessories(Accessories accessories);
-	
 }

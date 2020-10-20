@@ -31,6 +31,9 @@ import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.CartItemService;
 import com.springboot.PetMark.service.PetService;
 
+import pet.mart.security.CurrentUser;
+import pet.mart.security.UserPrincipal;
+
 
 @Controller
 @RequestMapping()
@@ -49,7 +52,7 @@ public class IndexController {
 	}
 	
 	@RequestMapping("/index")
-	public ModelAndView showAllProduct( HttpServletRequest request) {
+	public ModelAndView showAllProduct(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		ModelAndView model = new ModelAndView();
 		model.setViewName("client/index");
@@ -57,11 +60,16 @@ public class IndexController {
 		List<Accessories> listAcces = accessSv.findAll();
 		model.addObject("list", listPet);
 		model.addObject("listAcc", listAcces);
-		String user = (String) request.getParameter("us");
+		
+		//user
+		String user = request.getParameter("us");
+		if(user != null) {
 		System.out.println("tên đăng nhập ở index: " +user);
 		Account account = accountService.findById(user);
-		model.addObject("user", user);
+//		model.addObject("user", user);
 		model.addObject("account", account);
+		}
+		
 //		List<Integer> listProductInteger = new ArrayList<Integer>();
 //		String sortValue = request.getParameter("sortValue");
 //		System.out.println("Index Sort: " + sortValue);
@@ -219,54 +227,7 @@ public class IndexController {
 	
 	
 	
-	@RequestMapping("/testA")
-	public String testA(ModelMap model, HttpServletRequest request) {
-		
-		
-		return "testA";
-	}
-	
-//	@Autowired
-//	ProductRepository pro;
-//	@Autowired
-//	CategoryRepository cate;
-	
-	@RequestMapping("/sendA")
-	@ResponseBody
-	public void sendA(HttpServletRequest request, HttpServletResponse response) {
-//		Pageable pageable = PageRequest.of(0, 10);
-//		Pageable pageable2 = PageRequest.of(0, 10, Sort.by("id").descending());
-////		Pageable pageable = PageRequest.of(2, 5, Sort.by("id").ascending());
-////		List<Integer> listProductInteger = pro.showContinueProductOrderByLike(pageable);
-//		List<Integer> listProductInteger = pro.showProductByCategoryOrderByPaid("SMARTPHONE", false, pageable);
-//		List<Product> listProduct2 = pro.showProductByCategoryPageable("SMARTPHONE", false, pageable2);
-////		List<Product> listProductByCategory = pro.findByIsDiscontinuedAndCategory(false, cate.findById("SMARTPHONE").get(), pageable);
-//		List<Product> listProduct = new ArrayList<Product>();
-//		
-//		
-//		for (Integer integer : listProductInteger) {
-//			listProduct.add(productService.findById(integer));
-//		}
-//
-//		
-//		
-//		try {
-//			GsonBuilder gsonBuilder = new GsonBuilder();
-//			gsonBuilder.registerTypeAdapterFactory(HibernateProxyTypeAdapter.FACTORY);
-//			Gson gson = gsonBuilder.create();
-//			
-//			String json = gson.toJson(listProduct2);
-//			response.setContentType("application/json");
-//		    response.setCharacterEncoding("UTF-8");
-//		    response.getWriter().write(json);
-//			
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			System.out.println("Gson: " + e);
-//			e.printStackTrace();
-//		}
-		
-	}
+
 @RequestMapping("/pet-detail/{id}")
 public ModelAndView showDetail(@PathVariable String id, HttpServletRequest httpServletRequest) {
 	ModelAndView model = new ModelAndView();
@@ -277,38 +238,15 @@ public ModelAndView showDetail(@PathVariable String id, HttpServletRequest httpS
 	}
 	return model;
 }
-@RequestMapping("/acc-detail/{id}/{user}")
-public ModelAndView showDetailAcc(@PathVariable String id, @PathVariable String user, HttpServletRequest httpServletRequest) {
+@RequestMapping("/acc-detail/{id}")
+public ModelAndView showDetailAcc(@PathVariable String id, HttpServletRequest httpServletRequest) {
 	ModelAndView model = new ModelAndView();
 	model.setViewName("client/acc-detail");
-	model.addObject("user", user);
 	if(id!=null) {
 	Accessories acc = accessSv.findById(Integer.valueOf(id));
 	model.addObject("acc",acc);
 	}
 	return model;
 }
-@RequestMapping("/add-card/{id}/{user}")
-public ModelAndView showCard(@PathVariable String id, @PathVariable String user, HttpServletRequest httpServletRequest) {
-	ModelAndView model = new ModelAndView();
-	model.setViewName("client/cart");
-//	model.addObject("acc", accessSv.findById(Integer.valueOf(id)));
-	Accessories accessories = accessSv.findById(Integer.valueOf(id));
-	Account account = accountService.findById(user);
-	long millis = System.currentTimeMillis();
-	java.sql.Date date = new java.sql.Date(millis);
-	CardItemAccessories card = new CardItemAccessories(accessories,account,1,date);
-	cardSv.save(card);
-	model.addObject("card", cardSv.findByAccount(account));
-	return model;
-}
 
-@RequestMapping("/show-card/{user}")
-public ModelAndView showCard(@PathVariable String user,HttpServletRequest httpServletRequest) {
-	ModelAndView model = new ModelAndView();
-	model.setViewName("client/cart");
-	Account account = accountService.findById(user);
-	model.addObject("card", cardSv.findByAccount(account));
-	return model;
-}
 }

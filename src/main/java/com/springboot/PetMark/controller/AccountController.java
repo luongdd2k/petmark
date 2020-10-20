@@ -169,9 +169,9 @@ public class AccountController {
 		String loggedRole = loggedUsernameAuthorities.substring(1, loggedUsernameAuthorities.length()-1);
 		String loggedFullname = accountService.findById(loggedUsername).getFullName();
 		Account account = accountService.findById(loggedUsername);
-		String us = accountService.findById(loggedUsername).getUsername();
+//		String us = accountService.findById(loggedUsername).getUsername();
 //		model.addObject("account", account);
-		model.addObject("us", us);
+		model.addObject("us", loggedUsername);
 		System.out.println("Thông tin tài khoản: "+account);
 		
 		System.out.println("\r---------------------");

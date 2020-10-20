@@ -6,11 +6,12 @@ import com.springboot.PetMark.entities.Accessories;
 import com.springboot.PetMark.entities.ColorAccessories;
 
 public interface ColorAccessoriesService {
-	List<ColorAccessories> findAll();
+//	List<ColorAccessories> findAll();
 
 //	ColorAccessories findById(int id);
 
-	List<ColorAccessories> findByAccessories(int accessoriesId);
+	List<ColorAccessories> findByAccessories(Accessories accessories);
 
-	boolean addColorAccessories(ColorAccessories colorAccessories);
+	void addColorAccessories(ColorAccessories colorAccessories);
+	void updateColorAccessories(ColorAccessories colorAccessories);
 }

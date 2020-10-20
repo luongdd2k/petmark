@@ -26,19 +26,19 @@ public class BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 271330875543972837L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", nullable = false)
-	protected Long id;
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Column(name = "id", nullable = false)
+//	protected int id;
 
 	@CreatedDate
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at", length = 19)
+//	@Column(name = "created_at", length = 19)
 	protected Date createdAt;
 
 	@LastModifiedDate
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at", length = 19)
+//	@Column(name = "updated_at", length = 19)
 	protected Date updatedAt;
 
 }

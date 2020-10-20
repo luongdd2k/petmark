@@ -9,4 +9,5 @@ import com.springboot.PetMark.entities.CardItemAccessories;
 
 public interface CardItemAccessoriesRepo extends JpaRepository<CardItemAccessories, Integer>{
  List<CardItemAccessories> findByAccount(Account account);
+
 }

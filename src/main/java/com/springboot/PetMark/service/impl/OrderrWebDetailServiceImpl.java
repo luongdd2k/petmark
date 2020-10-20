@@ -24,5 +24,10 @@ OrderrWebDetailDAO dao;
 		// TODO Auto-generated method stub
 		return dao.findOrderrWeb(order);
 	}
+	@Override
+	public void save(OrderrWebDetail ode) {
+		// TODO Auto-generated method stub
+		dao.save(ode);
+	}
 
 }

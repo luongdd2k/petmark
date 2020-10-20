@@ -27,10 +27,11 @@ public class OrderrWebDetailDAOImpl implements OrderrWebDetailDAO {
 		return repo.findByOrderrWeb(order);
 	}
 
+
 	@Override
-	public void save(OrderrWeb order) {
+	public void save(OrderrWebDetail order) {
 		// TODO Auto-generated method stub
-//		repo.save(entity)
+		repo.save(order);
 	}
 
 }

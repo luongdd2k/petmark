@@ -93,7 +93,6 @@
 			name="login_fullname" id="login_fullname" value="${account.getFullName() }">
 <!-- 		<input type="hidden" name="login_profilePictureURL" -->
 <%-- 			id="login_profilePictureURL" value="${profilePictureURL }"> --%>
-			<p>Tên đăng nhập: ${user }</p>
 		<div id="myModal" class="modal fade signup-form">
 			<div class="modal-dialog modal-login">
 				<div class="modal-content" >
@@ -165,7 +164,7 @@
 						</button>
 					</form>
 					<div class="ps-cart">
-						<a class="ps-cart__toggle" href="show-card/${user }"><span><i>1</i></span><i
+						<a class="ps-cart__toggle" href="show-card"><span><i>1</i></span><i
 							class="ps-icon-shopping-cart"></i></a>
 					</div>
 					<div class="menu-toggle">
@@ -654,7 +653,7 @@
 											src="https://vn-live-01.slatic.net/p/fab431d28976ce60654b4fbfce556207.jpg"
 											style="height: 350px;" alt=""><a
 											class="ps-shoe__overlay"
-											href="acc-detail/${listAcc.getId() }/${user}"></a>
+											href="acc-detail/${listAcc.getId() }"></a>
 									</div>
 									<div class="ps-shoe__content">
 										<div class="ps-shoe__variants">
@@ -679,7 +678,7 @@
 										</div>
 										<div class="ps-shoe__detail">
 											<a class="ps-shoe__name"
-												href="acc-detail/${listAcc.getId() }/${user}">${listAcc.getName() }</a>
+												href="acc-detail/${listAcc.getId() }">${listAcc.getName() }</a>
 											<span class="ps-shoe__price">${listAcc.getDisplayPrice(1) }</span>
 										</div>
 									</div>

@@ -35,9 +35,16 @@ public @Data class CardItemAccessories implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "username")
 	private Account account;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "sizeid")
+	private SizeAccessories size;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "colorid")
+	private ColorAccessories color;
 	private int amount;
 	@Column(name = "created_at")
 	private Date createdAt;
+
 	public CardItemAccessories() {
 		// TODO Auto-generated constructor stub
 	}
@@ -90,10 +97,26 @@ public @Data class CardItemAccessories implements Serializable {
 		this.createdAt = createdAt;
 	}
 
+	public SizeAccessories getSize() {
+		return size;
+	}
+
+	public void setSize(SizeAccessories size) {
+		this.size = size;
+	}
+
+	public ColorAccessories getColor() {
+		return color;
+	}
+
+	public void setColor(ColorAccessories color) {
+		this.color = color;
+	}
+
 	@Override
 	public String toString() {
-		return "CardItemAccessories [id=" + id + ", accessories=" + accessories + ", account=" + account + ", amount="
-				+ amount + ", createdAt=" + createdAt + "]";
+		return "CardItemAccessories [id=" + id + ", accessories=" + accessories + ", account=" + account + ", size="
+				+ size + ", color=" + color + ", amount=" + amount + ", createdAt=" + createdAt + "]";
 	}
 
 }

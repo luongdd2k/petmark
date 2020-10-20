@@ -26,6 +26,9 @@ public @Data class Deposit implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "username")
 	private Account account;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "colorid")
+	private ColorPet color;
 	@Column(name = "created_at")
 	private Date createdAt;
 	@Column(name = "total_amount")
@@ -68,6 +71,14 @@ public @Data class Deposit implements Serializable {
 		this.pet = pet;
 	}
 
+	public ColorPet getColor() {
+		return color;
+	}
+
+	public void setColor(ColorPet color) {
+		this.color = color;
+	}
+
 	public Account getAccount() {
 		return account;
 	}
@@ -94,8 +105,8 @@ public @Data class Deposit implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Deposit [id=" + id + ", pet=" + pet + ", account=" + account + ", createdAt=" + createdAt
-				+ ", totalAmount=" + totalAmount + "]";
+		return "Deposit [id=" + id + ", pet=" + pet + ", account=" + account + ", color=" + color + ", createdAt="
+				+ createdAt + ", totalAmount=" + totalAmount + "]";
 	}
 
 }

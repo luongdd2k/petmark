@@ -9,5 +9,5 @@ import com.springboot.PetMark.entities.OrderrWebDetail;
 public interface OrderrWebDetailDAO {
  List<OrderrWebDetail> findAll();
  List<OrderrWebDetail> findOrderrWeb(OrderrWeb order);
- void save(OrderrWeb order);
+ void save(OrderrWebDetail order);
 }

@@ -33,6 +33,12 @@ public @Data class OrderrAppDetail implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "orderrappid")
 	private OrderrApp orderrApp;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "sizeid")
+	private SizeAccessories size;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "colorid")
+	private ColorAccessories color;
 	private int amount;
 	@Column(name = "created_at")
 	private Date createdAt;
@@ -61,6 +67,22 @@ public @Data class OrderrAppDetail implements Serializable {
 		this.amount = amount;
 		this.createdAt = date;
 		this.totalAmount = totalAmount;
+	}
+
+	public SizeAccessories getSize() {
+		return size;
+	}
+
+	public void setSize(SizeAccessories size) {
+		this.size = size;
+	}
+
+	public ColorAccessories getColor() {
+		return color;
+	}
+
+	public void setColor(ColorAccessories color) {
+		this.color = color;
 	}
 
 	public Integer getId() {
@@ -113,8 +135,11 @@ public @Data class OrderrAppDetail implements Serializable {
 
 	@Override
 	public String toString() {
-		return "OrderrAppDetail [id=" + id + ", accessories=" + accessories + ", orderrApp=" + orderrApp + ", amount="
-				+ amount + ", createdAt=" + createdAt + ", totalAmount=" + totalAmount + "]";
+		return "OrderrAppDetail [id=" + id + ", accessories=" + accessories + ", orderrApp=" + orderrApp + ", size="
+				+ size + ", color=" + color + ", amount=" + amount + ", createdAt=" + createdAt + ", totalAmount="
+				+ totalAmount + "]";
 	}
+
+	
 
 }

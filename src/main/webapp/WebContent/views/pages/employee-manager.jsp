@@ -143,9 +143,8 @@
 								<p>Hãng phụ kiện</p>
 						</a></li>
 						<li class="nav-header">QUẢN LÝ</li>
-						<li class="nav-item has-treeview"><a
-							href="admin/orders" class="nav-link"> <i
-								class="nav-icon fas fa-table"></i>
+						<li class="nav-item has-treeview"><a href="admin/orders"
+							class="nav-link"> <i class="nav-icon fas fa-table"></i>
 								<p>Quản lý đơn hàng</p>
 						</a></li>
 						<li class="nav-item"><a href="./deposit/deposit-manager.html"
@@ -259,8 +258,8 @@
 								</div>
 								<!-- /.card-header -->
 								<div class="form-group col-2">
-								<label for="exampleFormControlSelect1">Lọc</label>
-									<select id="cbo_role" class="form-control" style="">
+									<label for="exampleFormControlSelect1">Lọc</label> <select
+										id="cbo_role" class="form-control" style="">
 										<option value="searchResult" id="searchResult"
 											style="display: ${search_display };">Kết quả tìm
 											kiếm</option>
@@ -300,30 +299,46 @@
 														<td class="td-center td-em-css">${user.getPhone() }</td>
 														<td class="td-center td-em-css">${user.getAddress() }</td>
 														<td class="td-center td-em-css">
-															<div class="dropdown"
-																style="float: left; margin-top: 0.10em">
-																<!-- <div class="btn-group">
-                                <a type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown"
-                                  aria-haspopup="true" aria-expanded="false" >
-                                  Nhân viên
-                              </a>
-                                <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="#">Khách hàng</a>
-                                </div>
-                              </div> -->
-																<select name="quyen" id="quyens" style="height: 34px;">
-																	<option value="employee" selected>Nhân viên</option>
-																	<option value="admin">Admin</option>
-																</select>
-															</div>
-															<div
-																style="float: left; margin-left: 0.75em; margin-top: 0.10em;">
-																<button type="button" class="btn btn-success">Lưu</button>
-															</div>
+															<form action="admin/UserManagement/ChangeRole"
+																method="post">
+																<div class="dropdown"
+																	style="float: left; margin-top: 0.10em">
+																	<input type="hidden" name="u_username"
+																		value="${user.getUsername() }"> <select
+																		name="quyen" id="quyens" style="height: 34px;">
+																		<c:if test="${user.getRole().getId() == 'ROLE_STAFF' }">
+																		<option value="ROLE_STAFF" selected="selected">Nhân viên</option>
+																		</c:if>
+																		<c:if test="${user.getRole().getId() ne 'ROLE_STAFF' }">
+																		<option value="ROLE_STAFF">Nhân viên</option>
+																		</c:if>
+																		<c:if test="${user.getRole().getId() == 'ROLE_ADMIN' }">
+																		<option value="ROLE_ADMIN" selected="selected">Admin</option>
+																		</c:if>
+																		<c:if test="${user.getRole().getId() ne 'ROLE_ADMIN' }">
+																		<option value="ROLE_ADMIN" >Admin</option>
+																		</c:if>
+																		<c:if test="${user.getRole().getId() == 'ROLE_MEMBER' }">
+																		<option value="ROLE_MEMBER" selected="selected">Khách hàng</option>
+																		</c:if>
+																		<c:if test="${user.getRole().getId() ne 'ROLE_MEMBER' }">
+																		<option value="ROLE_MEMBER">Khách hàng</option>
+																		</c:if>
+																	</select>
+																</div>
+																<div
+																	style="float: left; margin-left: 0.75em; margin-top: 0.10em;">
+																	<button type="submit" class="btn btn-success">Lưu</button>
+																</div>
+															</form>
+															<form action="admin/UserManagement/${action}" method="post">
 															<div
 																style="float: left; margin-left: 10px; margin-top: 0.10em">
-																<button type="button" class="btn btn-danger">Chặn</button>
+																<input type="hidden" name="u_username"
+																		value="${user.getUsername() }">
+																<button type="submit" class="btn btn-danger">${nameButton3 }</button>
 															</div>
+															</form>
 														</td>
 													</tr>
 												</tbody>

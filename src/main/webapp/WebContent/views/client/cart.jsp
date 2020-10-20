@@ -116,7 +116,7 @@
               <c:forEach var="card" items="${card }">
               <tbody>
                 <tr>
-                  <td><a class="ps-product__preview" href="acc-detail.html"><img class="mr-15" style="width: 100px;" src="https://vn-live-01.slatic.net/p/fab431d28976ce60654b4fbfce556207.jpg" alt=""> ${card.getAccessories().getName() } </a></td>
+                  <td><a class="ps-product__preview" href="acc-detail/${card.getAccessories().getId()}"><img class="mr-15" style="width: 100px;" src="https://vn-live-01.slatic.net/p/fab431d28976ce60654b4fbfce556207.jpg" alt=""> ${card.getAccessories().getName() } </a></td>
                   <td>${card.getAccessories().getDisplayPrice(1)}</td>
                   <td>
                     <div class="form-group--number">
@@ -127,7 +127,7 @@
                   </td>
                   <td>280.000đ</td>
                   <td>
-                    <div class="ps-remove"></div>
+                    <a class="ps-remove" href="delete/${card.getId() }"></a>
                   </td>
                 </tr>
               </tbody>
