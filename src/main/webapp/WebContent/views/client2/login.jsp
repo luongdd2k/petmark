@@ -8,18 +8,18 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
 			integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" type="text/css" href="css-new/login.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<img class="wave" src="images/login/wave.png">
+	<img class="wave" src="images-new/login/wave.png">
 	<div class="container">
 		<div class="img">
-			<img src="images/login/bg.svg">
+			<img src="images-new/login/bg.svg">
 		</div>
 		<div class="login-content">
 			<form action="">
-				<img src="images/login/avatar.svg">
+				<img src="images-new/login/avatar.svg">
 				<h2 class="title">Xin chào</h2>
            		<div class="input-div one">
            		   <div class="i">
@@ -48,7 +48,7 @@
             </form>
         </div>
     </div>
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js-new/main.js"></script>
 	<script>
 		const inputs = document.querySelectorAll(".input");
   

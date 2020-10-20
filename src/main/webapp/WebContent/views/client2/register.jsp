@@ -18,18 +18,18 @@
       crossorigin="anonymous"
     />
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <link rel="stylesheet" type="text/css" href="css-new/login.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <img class="wave" src="images/login/wave.png" />
+    <img class="wave" src="images-new/login/wave.png" />
     <div class="container">
       <div class="img">
-        <img src="images/login/product.svg" />
+        <img src="images-new/login/product.svg" />
       </div>
       <div class="login-content">
         <form action="">
-          <img src="images/login/avatar.svg" />
+          <img src="images-new/login/avatar.svg" />
           <h2 class="title1">Tài khoản mới</h2>
           <div class="row">
             <div class="col-6">
@@ -133,7 +133,7 @@
         </form>
       </div>
     </div>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js-new/main.js"></script>
     <script>
       const inputs = document.querySelectorAll(".input");
 

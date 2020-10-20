@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet" />
 
-    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./images-new/favicon.ico" type="image/x-icon" />
 
     <!-- Carousel -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -21,8 +21,8 @@
 
 
     <!-- Custom StyleSheet -->
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css-new/styles.css" />
+    <link rel="stylesheet" href="css-new/cart.css">
 
     <title>Pet Mart | Giỏ hàng</title>
 </head>
@@ -45,7 +45,7 @@
               <nav class="nav">
                 <div class="nav__hamburger">
                   <svg>
-                    <use xlink:href="./images/sprite.svg#icon-menu"></use>
+                    <use xlink:href="./images-new/sprite.svg#icon-menu"></use>
                   </svg>
                 </div>
       
@@ -60,7 +60,7 @@
                     <span class="nav__category">PET MART</span>
                     <a href="index.html" class="close__toggle">
                       <svg>
-                        <use xlink:href="./images/sprite.svg#icon-cross"></use>
+                        <use xlink:href="./images-new/sprite.svg#icon-cross"></use>
                       </svg>
                     </a>
                   </div>
@@ -83,19 +83,19 @@
                 <div class="nav__icons">
                   <a href="#" class="icon__item">
                     <svg class="icon__user">
-                      <use xlink:href="./images/sprite.svg#icon-user"></use>
+                      <use xlink:href="./images-new/sprite.svg#icon-user"></use>
                     </svg>
                   </a>
       
                   <a href="#" class="icon__item">
                     <svg class="icon__search">
-                      <use xlink:href="./images/sprite.svg#icon-search"></use>
+                      <use xlink:href="./images-new/sprite.svg#icon-search"></use>
                     </svg>
                   </a>
       
                   <a href="cart.html" class="icon__item">
                     <svg class="icon__cart">
-                      <use xlink:href="./images/sprite.svg#icon-shopping-basket"></use>
+                      <use xlink:href="./images-new/sprite.svg#icon-shopping-basket"></use>
                     </svg>
                     <span id="cart__total">0</span>
                   </a>
@@ -111,7 +111,7 @@
                         <li>
                             <a href="/">
                                 <svg>
-                                    <use xlink:href="./images/sprite.svg#icon-home"></use>
+                                    <use xlink:href="./images-new/sprite.svg#icon-home"></use>
                                 </svg>
                             </a>
                         </li>
@@ -142,7 +142,7 @@
                                 <tr>
                                     <td class="product__thumbnail">
                                         <a href="#">
-                                            <img src="./images/products/iPhone/iphone6.jpeg" alt="">
+                                            <img src="./images-new/products/iPhone/iphone6.jpeg" alt="">
                                         </a>
                                     </td>
                                     <td class="product__name">
@@ -160,13 +160,13 @@
                                             <div>
                                                 <span class="minus-btn">
                                                     <svg>
-                                                        <use xlink:href="./images/sprite.svg#icon-minus"></use>
+                                                        <use xlink:href="./images-new/sprite.svg#icon-minus"></use>
                                                     </svg>
                                                 </span>
                                                 <input type="text" min="1" value="1" max="10" class="counter-btn">
                                                 <span class="plus-btn">
                                                     <svg>
-                                                        <use xlink:href="./images/sprite.svg#icon-plus"></use>
+                                                        <use xlink:href="./images-new/sprite.svg#icon-plus"></use>
                                                     </svg>
                                                 </span>
                                             </div>
@@ -178,7 +178,7 @@
                                         </div>
                                         <a href="#" class="remove__cart-item">
                                             <svg>
-                                                <use xlink:href="./images/sprite.svg#icon-trash"></use>
+                                                <use xlink:href="./images-new/sprite.svg#icon-trash"></use>
                                             </svg>
                                         </a>
                                     </td>
@@ -221,7 +221,7 @@
             <div class="facility__box">
               <div class="facility-img__container">
                 <svg>
-                  <use xlink:href="./images/sprite.svg#icon-airplane"></use>
+                  <use xlink:href="./images-new/sprite.svg#icon-airplane"></use>
                 </svg>
               </div>
               <p>VẬN CHUYỂN KHU VỰC HÀ NỘI</p>
@@ -230,7 +230,7 @@
             <div class="facility__box">
               <div class="facility-img__container">
                 <svg>
-                  <use xlink:href="./images/sprite.svg#icon-credit-card-alt"></use>
+                  <use xlink:href="./images-new/sprite.svg#icon-credit-card-alt"></use>
                 </svg>
               </div>
               <p>HOÀN TIỀN 100%</p>
@@ -239,7 +239,7 @@
             <div class="facility__box">
               <div class="facility-img__container">
                 <svg>
-                  <use xlink:href="./images/sprite.svg#icon-credit-card"></use>
+                  <use xlink:href="./images-new/sprite.svg#icon-credit-card"></use>
                 </svg>
               </div>
               <p>NHIỀU ƯU ĐÃI LỠN</p>
@@ -248,7 +248,7 @@
             <div class="facility__box">
               <div class="facility-img__container">
                 <svg>
-                  <use xlink:href="./images/sprite.svg#icon-headphones"></use>
+                  <use xlink:href="./images-new/sprite.svg#icon-headphones"></use>
                 </svg>
               </div>
               <p>CHĂM SÓC TẬN TÌNH</p>
@@ -259,7 +259,7 @@
     </main>
 
     <!-- Footer -->
- <footer id="footer" class="section footer" style="background-image: url(images/Footer-Background-Image.png)">
+ <footer id="footer" class="section footer" style="background-image: url(images-new/Footer-Background-Image.png)">
     <div class="container">
       <div class="footer__top">
         <div class="footer-top__box">
@@ -285,7 +285,7 @@
           <div>
             <span>
               <svg>
-                <use xlink:href="./images/sprite.svg#icon-location"></use>
+                <use xlink:href="./images-new/sprite.svg#icon-location"></use>
               </svg>
             </span>
             206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội
@@ -293,7 +293,7 @@
           <div>
             <span>
               <svg>
-                <use xlink:href="./images/sprite.svg#icon-envelop"></use>
+                <use xlink:href="./images-new/sprite.svg#icon-envelop"></use>
               </svg>
             </span>
             petmart.support@gmail.com
@@ -301,7 +301,7 @@
           <div>
             <span>
               <svg>
-                <use xlink:href="./images/sprite.svg#icon-phone"></use>
+                <use xlink:href="./images-new/sprite.svg#icon-phone"></use>
               </svg>
             </span>
             (+84) 386768658
@@ -326,7 +326,7 @@
 
     <a href="#header" class="goto-top scroll-link">
         <svg>
-            <use xlink:href="./images/sprite.svg#icon-arrow-up"></use>
+            <use xlink:href="./images-new-new/sprite.svg#icon-arrow-up"></use>
         </svg>
     </a>
 
@@ -342,9 +342,9 @@
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
     <!-- Custom JavaScript -->
-    <script src="./js/products.js"></script>
-    <script src="./js/index.js"></script>
-    <script src="./js/slider.js"></script>
+    <script src="./js-new/products.js"></script>
+    <script src="./js-new/index.js"></script>
+    <script src="./js-new/slider.js"></script>
     <script>
         $(function(){
            let a = $('#test').val();
