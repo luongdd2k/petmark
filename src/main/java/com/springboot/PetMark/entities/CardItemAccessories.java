@@ -49,12 +49,14 @@ public @Data class CardItemAccessories implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CardItemAccessories(Accessories accessories, Account account, int amount, Date date) {
+	public CardItemAccessories(Accessories accessories, Account account, int amount, Date date, SizeAccessories size, ColorAccessories color) {
 		// TODO Auto-generated constructor stub
 		this.accessories = accessories;
 		this.account = account;
 		this.amount = amount;
 		this.createdAt = date;
+		this.size = size;
+		this.color=color;
 	}
 
 	public Integer getId() {

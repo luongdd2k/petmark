@@ -10,4 +10,5 @@ List<CardItemAccessories> findAll();
 List<CardItemAccessories> findByAccount(Account account);
 void save(CardItemAccessories cardItemAccessories);
 void delete(int id);
+void deleteByAccount(Account acc);
 }

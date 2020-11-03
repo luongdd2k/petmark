@@ -3,10 +3,15 @@ package com.springboot.PetMark.entities;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -50,23 +55,33 @@ public @Data class Pet implements Serializable {
 	private String status;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pet")
 	private Set<ColorPet> color = new HashSet<ColorPet>(0);
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pet")
-	private Set<ImgPet> img = new HashSet<ImgPet>(0);
+	@OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+	private List<ImgPet> imgs = new ArrayList<>();
+
+	public List<ImgPet> getImgs() {
+		return imgs;
+	}
+
+	public void setImgs(List<ImgPet> imgs) {
+		this.imgs = imgs;
+	}
+
 	public Pet() {
 	}
-public Pet(int id, String name, float gia, float coc, int age, int soLuong, String des, String status, Species species,
-		Date date) {
-	this.id = id;
-	this.petName = name;
-	this.age = age;
-	this.price = gia;
-	this.amount = soLuong;
-	this.deposit = coc;
-	this.description = des;
-	this.status = status;
-	this.species = species;
-	this.createdAt = date;
-}
+
+	public Pet(int id, String name, float gia, float coc, int age, int soLuong, String des, String status,
+			Species species, Date date) {
+		this.id = id;
+		this.petName = name;
+		this.age = age;
+		this.price = gia;
+		this.amount = soLuong;
+		this.deposit = coc;
+		this.description = des;
+		this.status = status;
+		this.species = species;
+		this.createdAt = date;
+	}
 
 	public Pet(String name, float gia, float coc, int age, int soLuong, String des, String status, Species species,
 			Date date) {
@@ -94,6 +109,7 @@ public Pet(int id, String name, float gia, float coc, int age, int soLuong, Stri
 		DecimalFormat decimalFormat = new DecimalFormat("#,##0");
 		return decimalFormat.format(this.deposit).replaceAll(",", ".") + " ₫";
 	}
+
 	public String getDate() {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString = format.format(this.createdAt);

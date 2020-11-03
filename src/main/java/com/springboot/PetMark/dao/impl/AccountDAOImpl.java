@@ -122,8 +122,8 @@ public class AccountDAOImpl implements AccountDAO{
 			password.length() < 8  || password.length() > 100 || 
 			fullName.length() == 0 || fullName.length() > 50  ||
 			email.length() < 5     || email.length() > 50     || 
-			phone.length() < 8     || phone.length() > 10     ||
-			address.length() < 8 || address.length() > 10) 	  {
+			phone.length() < 8     || phone.length() > 13     ||
+			address.length() < 8 || address.length() > 100) 	  {
 			
 			System.out.println("validate: invalid length");
 			return false;

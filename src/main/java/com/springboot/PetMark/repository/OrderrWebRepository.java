@@ -23,6 +23,9 @@ public interface OrderrWebRepository extends JpaRepository<OrderrWeb, Integer> {
     @Query("update OrderrWeb o set o.deliveryStatus = ?1 where o.id = ?2")
     void capnhatStt(String status, int id);
     
+    @Query("select o FROM OrderrWeb o where o.deliveryStatus = ?1 and o.account = ?2")
+    List<OrderrWeb> findBySttUser(String status, Account account);
+    
 	@Query("select o FROM OrderrWeb o where o.id = ?1 or o.consignee like %?1% "
 										  + "or o.consigneePhone like %?2% "
 										  + "or o.deliveryAddress like %?2% "

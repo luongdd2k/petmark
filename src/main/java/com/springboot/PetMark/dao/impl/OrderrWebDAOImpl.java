@@ -62,5 +62,11 @@ public class OrderrWebDAOImpl implements OrderrWebDAO {
 		repo.capnhatStt(status, id);
 	}
 
+	@Override
+	public List<OrderrWeb> findBySttUser(String stt, Account account) {
+		// TODO Auto-generated method stub
+		return repo.findBySttUser(stt, account);
+	}
+
 
 }

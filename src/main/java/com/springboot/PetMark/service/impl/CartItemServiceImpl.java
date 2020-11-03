@@ -39,4 +39,10 @@ public class CartItemServiceImpl implements CartItemService {
 		dao.delete(id);
 	}
 
+	@Override
+	public void deleteByAccount(Account acc) {
+		// TODO Auto-generated method stub
+		dao.deleteByAccount(acc);
+	}
+
 }

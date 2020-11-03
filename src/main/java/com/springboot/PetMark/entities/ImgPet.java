@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -19,6 +20,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
+@Table(name = "imgpet")
 public @Data class ImgPet implements Serializable {
 
 	private static final long serialVersionUID = -7919067819942913955L;
@@ -29,7 +31,7 @@ public @Data class ImgPet implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "petid")
 	private Pet pet;
-	@Column(name = "imgAvartar")
+	@Column(name = "imgavartar")
 	private String imgAvartar;
 	private String img1;
 	private String img2;

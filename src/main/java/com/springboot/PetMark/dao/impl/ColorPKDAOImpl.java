@@ -33,4 +33,10 @@ public class ColorPKDAOImpl implements ColorPKDAO {
 		repo.save(color);
 	}
 
+	@Override
+	public ColorAccessories findById(int id) {
+		// TODO Auto-generated method stub
+		return repo.findById(id).get();
+	}
+
 }

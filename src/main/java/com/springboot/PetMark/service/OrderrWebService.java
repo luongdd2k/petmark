@@ -17,4 +17,5 @@ public interface OrderrWebService {
 			Pageable pageable);
 
 	void save(OrderrWeb odOrderrWeb);
+	List<OrderrWeb> findBySttUser(String stt, Account account);
 }

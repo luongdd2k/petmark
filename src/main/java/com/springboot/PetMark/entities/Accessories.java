@@ -3,10 +3,13 @@ package com.springboot.PetMark.entities;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -47,10 +50,23 @@ public @Data class Accessories implements Serializable {
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "accessories")
 	private Set<ColorAccessories> colors = new HashSet<ColorAccessories>(0);
-
+	@OneToMany(mappedBy = "accessories", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+	private List<ImgAccessories> imgs = new ArrayList<>();
+	
 	public Accessories() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	public List<ImgAccessories> getImgs() {
+		return imgs;
+	}
+
+
+	public void setImgs(List<ImgAccessories> imgs) {
+		this.imgs = imgs;
+	}
+
 
 	public Set<SizeAccessories> getSizes() {
 		return sizes;
@@ -178,8 +194,8 @@ public @Data class Accessories implements Serializable {
 	@Override
 	public String toString() {
 		return "Accessories [id=" + id + ", category=" + category + ", name=" + name + ", price=" + price + ", amount="
-				+ amount + ", createdAt=" + createdAt + ", description=" + description + ", status=" + status
-				+ ", sizes=" + sizes + ", colors=" + colors + "]";
+				+ amount + ", createdAt=" + createdAt + ", description=" + description + ", status=" + status + "]";
 	}
+
 
 }
