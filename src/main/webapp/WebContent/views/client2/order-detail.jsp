@@ -269,7 +269,7 @@
                                         </path>
                                    </svg>
                               </div>
-                           <div class="userpage-sidebar-menu-entry__text" style="color: orangered;">Blog</div>
+                           <div class="userpage-sidebar-menu-entry__text">Blog</div>
                       </a>
                 </div>
               </div>

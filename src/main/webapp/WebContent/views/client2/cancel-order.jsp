@@ -229,16 +229,23 @@
 								class="stardust-dropdown__item-body stardust-dropdown__item-body--open"
 								style="opacity: 1;">
 								<div class="userpage-sideber-menu__subsection">
-									<a href="show-all-order" class="_17BcjA _1EUbVp"> <span
-										class="_2ilxaJ">Tất cả đơn hàng</span>
-									</a> <a href="show-waiting-order" class="_17BcjA"> <span
-										class="_2ilxaJ">Chờ xác nhận</span>
-									</a> <a href="show-waiting-delevery" class="_17BcjA"> <span
-										class="_2ilxaJ">Chờ giao hàng</span>
-									</a> <a href="show-delivered" class="_17BcjA"> <span
-										class="_2ilxaJ">Đã giao</span>
-									</a> <a href="javascript:" class="_17BcjA"> <span
-										class="_2ilxaJ" style="color: orangered;">Đã hủy</span>
+									<a href="show-all-order" class="_17BcjA _1EUbVp"> 
+										<span class="_2ilxaJ">Tất cả đơn hàng</span>
+									</a> 
+									<a href="show-waiting-order" class="_17BcjA"> 
+										<span class="_2ilxaJ">Chờ xác nhận</span>
+									</a> 
+									<a href="show-waiting-delevery" class="_17BcjA"> 
+										<span class="_2ilxaJ">Chờ giao hàng</span>
+									</a> 
+									<a href="show-waiting-delevery" class="_17BcjA">
+										<span class="_2ilxaJ">Đang giao hàng</span>
+									</a>
+									<a href="show-delivered" class="_17BcjA"> 
+										<span class="_2ilxaJ">Đã giao</span>
+									</a> 
+									<a href="javascript:" class="_17BcjA"> 
+										<span class="_2ilxaJ" style="color: orangered;">Đã hủy</span>
 									</a>
 								</div>
 							</div>
@@ -261,7 +268,7 @@
                                         </path>
                                    </svg>
                               </div>
-                           <div class="userpage-sidebar-menu-entry__text" style="color: orangered;">Blog</div>
+                           <div class="userpage-sidebar-menu-entry__text">Blog</div>
                       </a>
 						</div>
 					</div>

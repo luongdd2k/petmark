@@ -132,7 +132,7 @@
                 </svg>
               </a>
             </li>
-            <li class="page__title">Đơn hàng đang giao</li>
+            <li class="page__title">Đơn hàng chờ giao</li>
           </ul>
         </div>
       </div>
@@ -216,6 +216,9 @@
                             <a href="javascript:" class="_17BcjA">
                                 <span class="_2ilxaJ" style="color: orangered;">Chờ giao hàng</span>
                             </a>
+                            <a href="show-waiting-delevery" class="_17BcjA">
+                              <span class="_2ilxaJ">Đang giao hàng</span>
+                            </a>
                             <a href="show-delivered" class="_17BcjA">
                                 <span class="_2ilxaJ">Đã giao</span>
                             </a>
@@ -240,7 +243,7 @@
                                         </path>
                                    </svg>
                               </div>
-                           <div class="userpage-sidebar-menu-entry__text" style="color: orangered;">Blog</div>
+                           <div class="userpage-sidebar-menu-entry__text">Blog</div>
                       </a>
                 </div>
               </div>

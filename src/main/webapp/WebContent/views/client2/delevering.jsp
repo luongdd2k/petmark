@@ -24,9 +24,9 @@
 
   <!-- Custom StyleSheet -->
 
-  <title>Đơn hàng đã giao</title>
+  <title>Đơn hàng đang giao</title>
   <base href="${pageContext.servletContext.contextPath}/">
-  <link rel="stylesheet" href="css/acc-in.css">
+    <link rel="stylesheet" href="css/acc-in.css">
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -132,7 +132,7 @@
                 </svg>
               </a>
             </li>
-            <li class="page__title">Tất cả đơn hàng đã giao</li>
+            <li class="page__title">Đơn hàng đang giao</li>
           </ul>
         </div>
       </div>
@@ -210,17 +210,17 @@
                             <a href="show-all-order" class="_17BcjA _1EUbVp">
                                 <span class="_2ilxaJ">Tất cả đơn hàng</span>
                             </a>
-                            <a href="show-waiting-order" class="_17BcjA">
+                            <a href="javascript:" class="_17BcjA">
                                 <span class="_2ilxaJ">Chờ xác nhận</span>
                             </a>
                             <a href="show-waiting-delevery" class="_17BcjA">
                                 <span class="_2ilxaJ">Chờ giao hàng</span>
                             </a>
                             <a href="show-waiting-delevery" class="_17BcjA">
-                              <span class="_2ilxaJ">Đang giao hàng</span>
+                              <span class="_2ilxaJ" style="color: orangered;">Đang giao hàng</span>
                             </a>
-                            <a href="javascript:" class="_17BcjA">
-                                <span class="_2ilxaJ" style="color: orangered;">Đã giao</span>
+                            <a href="show-delivered" class="_17BcjA">
+                                <span class="_2ilxaJ">Đã giao</span>
                             </a>
                             <a href="show-cancel-order" class="_17BcjA">
                                 <span class="_2ilxaJ">Đã hủy</span>
@@ -253,7 +253,7 @@
                     <div class="my-account-section">
                         <div class="my-account-section__header">
                         <div class="my-account-section__header-left">
-                        <div class="my-acount-section__header-title">Đơn hàng đã giao</div>
+                        <div class="my-acount-section__header-title">Đơn hàng chờ xác nhận</div>
                         </div>
                         </div>
                         <div class="purchase-list-page__search-bar">
@@ -288,7 +288,7 @@
                                                             <div class="order-content-status">${list.getDeliveryStatus() }</div>
                                                         </div>
                                                         <div class="order-content__item-list">
-                                                            <div class="order-content__item-wrapper" >
+                                                            <a class="order-content__item-wrapper" href="#">
                                                                 <div class="order-content__item order-content__item--last">
                                                                     <div class="order-content__item__col order-content__item__detail">
                                                                         <div class="order-content__item__product">
@@ -316,18 +316,18 @@
                                                                             </div>
                                                                             <div class="order-content__item__detail-content">
                                                                                 <div class="order-content__item__name">Mã đơn hàng: ${list.getId() }</div>
-<!--                                                                                 <div class="order-content__item__quantity">x 3</div> -->
+<!--                                                                                 <div class="order-content__item__quantity">x 4</div> -->
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="order-content__item__price order-content__item__col order-content__item__col--small order-content__item__col--last">
                                                                         <div class="order-content__item__price-text">
                                                                             <div class="shopee-price--original">190000 đ</div>
-                                                                            <div class="shopee-price--primary">${list.getDisplayTotalAmount() } </div>
+                                                                            <div class="shopee-price--primary">${list.getDisplayTotalAmount() }</div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -350,8 +350,13 @@
                                                         <div class="purchase-card-buttons__text-info">
 
                                                         </div>
+                                                        <!-- <div class="purchase-card-buttons__show-button-wrapper">
+                                                            <button class="shopee-button-solid shopee-button-solid--fill shopee-button-solid--primary ">
+                                                                <span class="purchase-card-buttons__button-content"> Đánh giá </span>
+                                                            </button>
+                                                        </div> -->
                                                         <div class="purchase-card-buttons__show-button-wrapper">
-                                                            <button class="shopee-button-outline shopee-button-outline--fill shopee-button-outline--primary ">
+                                                            <button onclick="window.location.href='order-detail.html'" class="shopee-button-outline shopee-button-outline--fill shopee-button-outline--primary ">
                                                                 <span class="purchase-card-buttons__button-content"> Xem Chi tiết đơn hàng </span>
                                                             </button>
                                                         </div>

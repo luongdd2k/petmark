@@ -29,6 +29,56 @@
   <base href="${pageContext.servletContext.contextPath}/">
    <link rel="stylesheet" href="css/product.css">
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .buttons_added {
+      opacity:1;
+      display:inline-block;
+      display:-ms-inline-flexbox;
+      display:inline-flex;
+      white-space:nowrap;
+      vertical-align:top;
+      margin-left: 10px;
+    }
+    .is-form {
+      overflow:hidden;
+      position:relative;
+      background-color:#f9f9f9;
+      height:4rem;
+      width:4rem;
+      padding:0;
+      text-shadow:1px 1px 1px #fff;
+      border:1px solid #ddd;
+      font-size: 2rem ;
+    }
+    .is-form:focus,.input-text:focus {
+      outline:none;
+    }
+    .is-form.minus {
+      border-radius:4px 0 0 4px;
+    }
+    .is-form.plus {
+      border-radius:0 4px 4px 0;
+    }
+    .input-qty {
+      background-color:#fff;
+      height:4rem;
+      width: 4rem;
+      text-align:center;
+      font-size:1.5rem;
+      display:inline-block;
+      vertical-align:top;
+      margin:0;
+      border-top:1px solid #ddd;
+      border-bottom:1px solid #ddd;
+      border-left:0;
+      border-right:0;
+      padding:0;
+    }
+    .input-qty::-webkit-outer-spin-button,.input-qty::-webkit-inner-spin-button {
+      -webkit-appearance:none;
+      margin:0;
+    }
+  </style>
 </head>
 <!--    -->
 <body>
@@ -150,19 +200,19 @@
             <div class="details__container--left">
               <div class="product__pictures">
                 <div class="pictures__container">
-                  <img class="picture" src="${imgacc.getImg1() }"  id="pic1" />
+                  <img onclick="getUrl(this.src)" class="picture" src="${imgacc.getImg1() }"  id="pic1" />
                 </div>
                 <div class="pictures__container">
-                  <img class="picture" src="${imgacc.getImg2() }" id="pic2" />
+                  <img onclick="getUrl(this.src)" class="picture" src="${imgacc.getImg2() }" id="pic2" />
                 </div>
                 <div class="pictures__container">
-                  <img class="picture" src="${imgacc.getImg3() }" id="pic3" />
+                  <img onclick="getUrl(this.src)" class="picture" src="${imgacc.getImg3() }" id="pic3" />
                 </div>
                 <div class="pictures__container">
-                  <img class="picture" src="${imgacc.getImg1() }" id="pic4" />
+                  <img onclick="getUrl(this.src)" class="picture" src="${imgacc.getImg1() }" id="pic4" />
                 </div>
                 <div class="pictures__container">
-                  <img class="picture" src="${imgacc.getImg1() }" id="pic5" />
+                  <img onclick="getUrl(this.src)" class="picture" src="${imgacc.getImg1() }" id="pic5" />
                 </div>
               </div>
               <div class="product__picture" id="product__picture">
@@ -249,18 +299,10 @@
 
                     <div class="input-counter">
                       <span>Số lượng :</span>
-                      <div>
-                        <span id="" class="minus-btn">
-                          <svg>
-                            <use xlink:href="./images/sprite.svg#icon-minus"></use>
-                          </svg>
-                        </span>
-                        <input type="text" min="1" value="1" max="10" class="counter-btn" name="soLuong">
-                        <span class="plus-btn">
-                          <svg>
-                            <use xlink:href="./images/sprite.svg#icon-plus"></use>
-                          </svg>
-                        </span>
+                      <div class="buttons_added">
+                        <input onclick="changePrice()" class="minus is-form" type="button" value="-">
+                        <input id="so-luong" aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="1">
+                        <input onclick="changePrice()" class="plus is-form" type="button" value="+">
                       </div>
                     </div>
                   </li>
@@ -928,49 +970,28 @@
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/custom.js"></script>
   <script type="text/javascript">
-  const pic1 = document.getElementById("pic1");
-  const pic2 = document.getElementById("pic2");
-  const pic3 = document.getElementById("pic3");
-  const pic4 = document.getElementById("pic4");
-  const pic5 = document.getElementById("pic5");
-  const picContainer = document.querySelector(".product__pictures");
-  const zoom = document.getElementById("zoom");
-  const pic = document.getElementById("pic");
+    function getUrl(url){
+      document.getElementById("pic").src = url;
+    };
 
-
-  var $ = cheerio.load(body);
-  $('.product__pictures').each(function(i,e){
-   var urlhinh = $(this).find('.picture').prop('src');
-   console.log(urlhinh);
-  // Picture List
-  const picList = [pic1, pic2, pic3, pic4, pic5];
-
-  // Active Picture
-  let picActive = 1;
-
-  ["mouseover", "touchstart"].forEach(event => {
-    if (picContainer) {
-      picContainer.addEventListener(event, e => {
-        const target = e.target.closest("img");
-        if (!target) return;
-        const id = target.id.slice(3);
-        changeImage(`./images/products/iPhone/500-${id}.png`, id);
-      });
-    }
-  });
-
-  // change active image
-  const changeImage = (imgSrc, n) => {
-    // change the main image
-    pic.src = imgSrc;
-    // change the background-image
-    zoom.style.backgroundImage = `url(${imgSrc})`;
-    //   remove the border from the previous active side image
-    picList[picActive - 1].classList.remove("img-active");
-    // add to the active image
-    picList[n - 1].classList.add("img-active");
-    //   update the active side picture
-    picActive = n;
+    $('input.input-qty').each(function() {
+      var $this = $(this),
+              qty = $this.parent().find('.is-form'),
+              min = Number($this.attr('min')),
+              max = Number($this.attr('max'))
+      if (min == 0) {
+        var d = 0
+      } else d = min
+      $(qty).on('click', function() {
+        if ($(this).hasClass('minus')) {
+          if (d > min) d += -1
+        } else if ($(this).hasClass('plus')) {
+          var x = Number($this.val()) + 1
+          if (x <= max) d += 1
+        }
+        $this.attr('value', d).val(d)
+      })
+    });
   };
   </script>
 </body>
