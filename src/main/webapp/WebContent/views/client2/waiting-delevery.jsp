@@ -288,7 +288,7 @@
                                                             <div class="order-content-status">${list.getDeliveryStatus() }</div>
                                                         </div>
                                                         <div class="order-content__item-list">
-                                                            <a class="order-content__item-wrapper" href="#">
+                                                            <a class="order-content__item-wrapper" >
                                                                 <div class="order-content__item order-content__item--last">
                                                                     <div class="order-content__item__col order-content__item__detail">
                                                                         <div class="order-content__item__product">
@@ -307,7 +307,7 @@
                                                                                             </g>
                                                                                         </svg>
                                                                                     </div>
-                                                                                    <div class="shopee-image__content" style="background-image: url(https://vn-live-01.slatic.net/p/fab431d28976ce60654b4fbfce556207.jpg);">
+                                                                                    <div class="shopee-image__content" style="background-image: url(${list.getDetail().get(0).getAccessories().getImgs().get(0).getImgAvartar()});">
                                                                                         <div class="shopee-image__content--blur"> 
 
                                                                                         </div>

@@ -368,9 +368,9 @@ public class CheckoutController {
 
 				model.addAttribute("note", note);
 				model.addAttribute("result", result);
-				model.addAttribute("orderWeb", orderWeb);
+				model.addAttribute("orderweb", orderWeb);
 				model.addAttribute("isSuccess", isSuccess);
-				return "client2/order-detail";
+				return "redirect:/show-detail/" +id;
 			}
 		}
 		return "redirect:/show-account";

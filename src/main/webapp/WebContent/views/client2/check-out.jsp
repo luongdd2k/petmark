@@ -243,7 +243,7 @@
 																class="checkout-product-ordered-list-item__header checkout-product-ordered-list-item__header--product">
 																<img
 																	class="checkout-product-ordered-list-item__product-image img-fluid"
-																	src="https://vn-live-01.slatic.net/p/fab431d28976ce60654b4fbfce556207.jpg"
+																	src="${card.getAccessories().getImgs().get(0).getImgAvartar() }"
 																	width="90" height="90"> <span
 																	class="checkout-product-ordered-list-item__product-info">
 																	<span
