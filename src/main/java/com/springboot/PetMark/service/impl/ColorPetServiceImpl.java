@@ -21,4 +21,10 @@ public class ColorPetServiceImpl implements ColorPetService {
 		return dao.findByPet(pet);
 	}
 
+	@Override
+	public ColorPet findById(int id) {
+		// TODO Auto-generated method stub
+		return dao.findById(id);
+	}
+
 }

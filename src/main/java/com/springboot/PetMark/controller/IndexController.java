@@ -92,19 +92,7 @@ public class IndexController {
 		model.addObject("account", account);
 		return model;
 	}
-	@RequestMapping("/show-cancel-deposit")
-	public String showCancelDeposit() {
-		return "client2/cancel-deposit";
-	}
-	@RequestMapping("/show-deposit")
-	public ModelAndView showDesposit(Principal principal) {
-		ModelAndView model = new ModelAndView();
-		model.setViewName("client2/deposit");
-		User loginedUser = (User) ((Authentication) principal).getPrincipal();
-		Account account = accountService.findById(loginedUser.getUsername());
-		model.addObject("account", account);
-		return model;
-	}
+	
 	@RequestMapping("/showLogin")
 	public ModelAndView showLogin(HttpServletRequest req) {
 		ModelAndView model = new ModelAndView();

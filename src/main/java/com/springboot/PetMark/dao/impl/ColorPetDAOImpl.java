@@ -19,5 +19,10 @@ ColorPetRepo repo;
 		// TODO Auto-generated method stub
 		return repo.findByPet(pet);
 	}
+	@Override
+	public ColorPet findById(int id) {
+		// TODO Auto-generated method stub
+		return repo.findById(id).get();
+	}
 
 }

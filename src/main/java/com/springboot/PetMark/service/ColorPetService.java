@@ -7,4 +7,5 @@ import com.springboot.PetMark.entities.Pet;
 
 public interface ColorPetService {
 List<ColorPet> findByPet(Pet pet);
+ColorPet findById(int id);
 }

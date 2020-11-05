@@ -32,7 +32,7 @@
 <body>
   <header id="header" class="header">
     <div class="navigation">
-      <input type="hidden" id="usernameBE" value="haitn" />
+      <input type="hidden" id="usernameBE" value="${account.getFullName() }" />
       <input type="hidden" id="is-empty" value="" />
       <div class="row header__top" >
         <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
@@ -131,7 +131,7 @@
                 </svg>
               </a>
             </li>
-            <li class="page__title">Tất cả đơn đã hủy cọc</li>
+            <li class="page__title">Đơn đặt cọc đã huỷ</li>
           </ul>
         </div>
       </div>
@@ -155,14 +155,14 @@
                         </svg>
                       </div>
                       <img
-                        src="https://toplist.vn/images/800px/dino-studio-anh-vien-cho-be-va-gia-dinh-317623.jpg"
+                        src="${account.getImagePath() }"
                         alt="Ảnh thẻ"
                         class="petmark-avatar__img"
                       />
                     </div>
                   </a>
                   <div class="user-page-brief__right">
-                    <div class="user-page-brief__username">luongngu1234</div>
+                    <div class="user-page-brief__username">${account.getUsername() }</div>
                     <div>
                       <a href="" class="user-page-brief__edit">
                         <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px;">
@@ -241,7 +241,7 @@
                     <div class="my-account-section">
                         <div class="my-account-section__header">
                         <div class="my-account-section__header-left">
-                        <div class="my-acount-section__header-title">Tất cả đơn đã hủy cọc</div>
+                        <div class="my-acount-section__header-title">Đơn đặt cọc đã huỷ</div>
                         </div>
                         </div>
                         <div class="purchase-list-page__search-bar">
@@ -262,6 +262,7 @@
                                 <!--Start div list-order-->
                                 <div id="list-order" class="list_order ">
                                     <!--Start Item-->
+                                    <c:forEach var="list" items="${list }">
                                     <div class="order-card__container">
                                         <div class="order-card__content-wrapper">
                                             <div class="order-card__content">
@@ -272,10 +273,10 @@
                                                             <div class="order-content__header__flex-placeholder">
 
                                                             </div>
-                                                            <div class="order-content-status">Đã giao</div>
+                                                            <div class="order-content-status">${list.getDisplayStt() }</div>
                                                         </div>
                                                         <div class="order-content__item-list">
-                                                            <a class="order-content__item-wrapper" href="#">
+                                                            <a class="order-content__item-wrapper" >
                                                                 <div class="order-content__item order-content__item--last">
                                                                     <div class="order-content__item__col order-content__item__detail">
                                                                         <div class="order-content__item__product">
@@ -294,7 +295,7 @@
                                                                                             </g>
                                                                                         </svg>
                                                                                     </div>
-                                                                                    <div class="shopee-image__content" style="background-image: url(https://vn-live-01.slatic.net/p/fab431d28976ce60654b4fbfce556207.jpg);">
+                                                                                    <div class="shopee-image__content" style="background-image: url(${list.getPet().getImgs().get(0).getImgAvartar()});">
                                                                                         <div class="shopee-image__content--blur"> 
 
                                                                                         </div>
@@ -302,15 +303,15 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="order-content__item__detail-content">
-                                                                                <div class="order-content__item__name">Vòng cổ chuông cho mèo</div>
-                                                                                <div class="order-content__item__quantity">x 3</div>
+                                                                                <div class="order-content__item__name">${list.getPet().getPetName() }</div>
+<!--                                                                                 <div class="order-content__item__quantity">x 3</div> -->
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="order-content__item__price order-content__item__col order-content__item__col--small order-content__item__col--last">
                                                                         <div class="order-content__item__price-text">
-                                                                            <div class="shopee-price--original">190000 đ</div>
-                                                                            <div class="shopee-price--primary">140000 đ</div>
+                                                                            <div class="shopee-price--original">Giá thú: ${list.getPet().getDisplayPrice(1) }</div>
+                                                                            <div class="shopee-price--primary">Đã đặt cọc: ${list.getTotalAmount() } đ</div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -330,7 +331,7 @@
                                             <div class="order-card__buttons-container">
                                                 <div class="purchase-card-buttons__wrapper">
                                                     <div class="purchase-card-buttons__total-payment">
-                                                        <span class="purchase-card-buttons__label-price"> Tổng số tiền: </span>
+                                                        <span class="purchase-card-buttons__label-price"> Số tiền cần thanh toán: </span>
                                                         <span class="purchase-card-buttons__total-price"> 140000 đ</span>
                                                     </div>
                                                     <div class="purchase-card-buttons__container">
@@ -356,6 +357,7 @@
                                                 </div>
                                             </div>
                                     </div>
+                                    </c:forEach>
                                     <!--End Item-->
                                 </div>
                                 <!--End div list-order-->

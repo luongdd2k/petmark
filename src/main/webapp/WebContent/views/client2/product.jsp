@@ -137,216 +137,202 @@
 		<div class="container">
 			<!-- Products Details -->
 			<section class="section product-details__section">
-				<div class="product-detail__container">
-					<div class="product-detail__left">
-						<div class="details__container--left">
-							<div class="product__pictures">
-								<div class="pictures__container">
-									<img class="picture" src="${img.getImg1() }" id="pic1" />
+				<form action="deposit/${pet.getId() }" method="post">
+					<div class="product-detail__container">
+						<div class="product-detail__left">
+							<div class="details__container--left">
+								<div class="product__pictures">
+									<div class="pictures__container">
+										<img class="picture" src="${img.getImg1() }" id="pic1" />
+									</div>
+									<div class="pictures__container">
+										<img class="picture" src="${img.getImg2() }" id="pic2" />
+									</div>
+									<div class="pictures__container">
+										<img class="picture" src="${img.getImg3() }" id="pic3" />
+									</div>
+									<div class="pictures__container">
+										<img class="picture" src="${img.getImg1() }" id="pic4" />
+									</div>
+									<div class="pictures__container">
+										<img class="picture" src="${img.getImg1() }" id="pic5" />
+									</div>
 								</div>
-								<div class="pictures__container">
-									<img class="picture" src="${img.getImg2() }" id="pic2" />
+								<div class="product__picture" id="product__picture">
+									<!-- <div class="rect" id="rect"></div> -->
+									<div class="picture__container">
+										<img src="${img.getImgAvartar() }" id="pic" />
+									</div>
 								</div>
-								<div class="pictures__container">
-									<img class="picture" src="${img.getImg3() }" id="pic3" />
-								</div>
-								<div class="pictures__container">
-									<img class="picture" src="${img.getImg1() }" id="pic4" />
-								</div>
-								<div class="pictures__container">
-									<img class="picture" src="${img.getImg1() }" id="pic5" />
-								</div>
+								<div class="zoom" id="zoom"></div>
 							</div>
-							<div class="product__picture" id="product__picture">
-								<!-- <div class="rect" id="rect"></div> -->
-								<div class="picture__container">
-									<img src="${img.getImgAvartar() }" id="pic" />
-								</div>
-							</div>
-							<div class="zoom" id="zoom"></div>
-						</div>
-
-						<div id="phuKien"
-							class="product-details__btn product-details__btn_accessori">
-							<a class="add" href="javascript:"> <span> <svg>
-                    <use xlink:href="images/sprite.svg#icon-cart-plus"></use>
-                  </svg>
-							</span> THÊM VÀO GIỎ HÀNG
-							</a> <a class="buy" href="check-out.html"> <span> <svg>
+							<button id="cho" type="submit"
+								class="product-details__btn product-details__btn_pet hide">
+								<a class="buy" > <span> <svg>
                     <use xlink:href="images/sprite.svg#icon-credit-card"></use>
                   </svg>
-							</span> MUA NGAY
-							</a>
+								</span> ĐẶT CỌC NGAY
+								</a>
+							</button>
 						</div>
-						<div id="cho"
-							class="product-details__btn product-details__btn_pet hide">
-							<a class="buy" href="check-out.html"> <span> <svg>
-                    <use xlink:href="images/sprite.svg#icon-credit-card"></use>
-                  </svg>
-							</span> ĐẶT CỌC NGAY
-							</a>
-						</div>
-					</div>
 
-					<div id="phu-kien" class="product-detail__right">
-						<div class="product-detail__content">
-							<h3>${pet.getPetName() }</h3>
-							<div class="price">
-								<span class="new__price">${pet.getDisplayPrice(1) }</span>
-							</div>
-							<div class="product__review">
-								<div class="rating">
-									<svg>
+						<div id="phu-kien" class="product-detail__right">
+							<div class="product-detail__content">
+								<h3>${pet.getPetName() }</h3>
+								<div class="price">
+									<span class="new__price">${pet.getDisplayPrice(1) }</span>
+								</div>
+								<div class="product__review">
+									<div class="rating">
+										<svg>
                     <use xlink:href="images/sprite.svg#icon-star-full"></use>
                   </svg>
-									<svg>
+										<svg>
                     <use xlink:href="images/sprite.svg#icon-star-full"></use>
                   </svg>
-									<svg>
+										<svg>
                     <use xlink:href="images/sprite.svg#icon-star-full"></use>
                   </svg>
-									<svg>
+										<svg>
                     <use xlink:href="images/sprite.svg#icon-star-full"></use>
                   </svg>
-									<svg>
+										<svg>
                     <use xlink:href="images/sprite.svg#icon-star-empty"></use>
                   </svg>
+									</div>
+									<a href="#description" class="rating__quatity">3 nhận xét</a>
 								</div>
-								<a href="#description" class="rating__quatity">3 nhận xét</a>
-							</div>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Sunt a doloribus iste natus et facere? dolor sit amet
-								consectetur adipisicing elit. Sunt a doloribus iste natus et
-								facere?</p>
-							<div class="product__info-container">
-								<ul class="product__info">
-									<li class="select">
-										<div class="select__option">
-											<label for="colors">Màu lông - Màu mắt: </label> <select name="colors"
-												id="colors" class="select-box">
-												<c:forEach var="color" items="${color}">
-													<option value="${color.getId() }">${color.getFullColor() } - ${color.getEyeColor() }</option>
-												</c:forEach>
-											</select>
-										</div> 
-									</li>
-									<li>
-
-										<div class="input-counter">
-											<span>Số lượng :</span>
-											<div>
-												<span id="" class="minus-btn"> <svg>
-                            <use
-															xlink:href="images/sprite.svg#icon-minus"></use>
-                          </svg>
-												</span> <input type="text" min="1" value="1" max="10"
-													class="counter-btn"> <span class="plus-btn">
-													<svg>
-                            <use
-															xlink:href="images/sprite.svg#icon-plus"></use>
-                          </svg>
-												</span>
+								<div class="product__info-container">
+									<ul class="product__info">
+										<li class="select">
+											<div class="select__option">
+												<label for="colors">Màu lông - Màu mắt: </label> <select
+													name="colors" id="colors" class="select-box">
+													<c:forEach var="color" items="${color}">
+														<option value="${color.getId() }">${color.getFullColor() }
+															- ${color.getEyeColor() }</option>
+													</c:forEach>
+												</select>
 											</div>
-										</div>
-									</li>
+										</li>
+										<li>
 
-									<li><span>Số tiền :</span> <a href="#" class="new__price">80000
-											đ</a></li>
-									<li><span>Giống :</span> <a href="#">${pet.getSpecies().getName() }</a>
-									</li>
-									<li><span>Tuổi :</span> <a href="#">${pet.getAge() }
-											tháng</a></li>
-									<li><span>Trạng thái :</span> <a href="#" class="in-stock">${pet.getStatus() }
-											(${pet.getAmount() } sản phẩm)</a></li>
-								</ul>
+											<div class="input-counter">
+												<span>Số lượng :</span>
+												<div>
+													<span id="" class="minus-btn"> <svg>
+                            <use
+																xlink:href="images/sprite.svg#icon-minus"></use>
+                          </svg>
+													</span> <input type="text" min="1" value="1" max="10"
+														class="counter-btn"> <span class="plus-btn">
+														<svg>
+                            <use
+																xlink:href="images/sprite.svg#icon-plus"></use>
+                          </svg>
+													</span>
+												</div>
+											</div>
+										</li>
+
+										<li><span>Giá cọc :</span> <a href="#" class="new__price">${pet.getDisplayDeposit() }
+											</a></li>
+										<li><span>Giống :</span> <a href="#">${pet.getSpecies().getName() }</a>
+										</li>
+										<li><span>Tuổi :</span> <a href="#">${pet.getAge() }
+												tháng</a></li>
+										<li><span>Trạng thái :</span> <a href="#"
+											class="in-stock">${pet.getStatus() } (${pet.getAmount() }
+												con)</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<!--Div pet-->
-					<div id="thuCung" class="product-detail__right hide">
-						<div class="product-detail__content">
-							<h3>Husky Shibarian</h3>
-							<div class="price">
-								<span class="new__price">80000 đ</span>
-							</div>
-							<div class="product__review">
-								<div class="rating">
-									<svg>
+						<!--Div pet-->
+						<div id="thuCung" class="product-detail__right hide">
+							<div class="product-detail__content">
+								<h3>Husky Shibarian</h3>
+								<div class="price">
+									<span class="new__price">80000 đ</span>
+								</div>
+								<div class="product__review">
+									<div class="rating">
+										<svg>
                     <use xlink:href="images/sprite.svg#icon-star-full"></use>
                   </svg>
-									<svg>
+										<svg>
                     <use xlink:href="images/sprite.svg#icon-star-full"></use>
                   </svg>
-									<svg>
+										<svg>
                     <use xlink:href="images/sprite.svg#icon-star-full"></use>
                   </svg>
-									<svg>
+										<svg>
                     <use xlink:href="images/sprite.svg#icon-star-full"></use>
                   </svg>
-									<svg>
+										<svg>
                     <use xlink:href="images/sprite.svg#icon-star-empty"></use>
                   </svg>
+									</div>
+									<a href="#description" class="rating__quatity">3 nhận xét</a>
 								</div>
-								<a href="#description" class="rating__quatity">3 nhận xét</a>
-							</div>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Sunt a doloribus iste natus et facere? dolor sit amet
-								consectetur adipisicing elit. Sunt a doloribus iste natus et
-								facere?</p>
-							<div class="product__info-container">
-								<ul class="product__info">
-									<li class="select">
-										<div class="select__option">
-											<label for="colors">Màu lông: </label> <select name="colors"
-												id="colors" class="select-box">
-												<option value="xanh">Xanh dương</option>
-												<option value="do">Đỏ</option>
-												<option value="hong">Hồng</option>
-												<option value="cam">Cam</option>
-												<option value="xanhLa">Xanh lá</option>
-											</select>
-										</div>
-										<div class="select__option">
-											<label for="size">Màu mắt :</label> <select name="size"
-												id="size" class="select-box">
-												<option value="xanhDuong">Xanh dương</option>
-												<option value="den">Đen</option>
-											</select>
-										</div>
-									</li>
-									<li>
-
-										<div class="input-counter">
-											<span>Số lượng :</span>
-											<div>
-												<span id="" class="minus-btn"> <svg>
-                            <use
-															xlink:href="images/sprite.svg#icon-minus"></use>
-                          </svg>
-												</span> <input type="text" min="1" value="1" max="10"
-													class="counter-btn"> <span class="plus-btn">
-													<svg>
-                            <use
-															xlink:href="images/sprite.svg#icon-plus"></use>
-                          </svg>
-												</span>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+									Sunt a doloribus iste natus et facere? dolor sit amet
+									consectetur adipisicing elit. Sunt a doloribus iste natus et
+									facere?</p>
+								<div class="product__info-container">
+									<ul class="product__info">
+										<li class="select">
+											<div class="select__option">
+												<label for="colors">Màu lông: </label> <select name="colors"
+													id="colors" class="select-box">
+													<option value="xanh">Xanh dương</option>
+													<option value="do">Đỏ</option>
+													<option value="hong">Hồng</option>
+													<option value="cam">Cam</option>
+													<option value="xanhLa">Xanh lá</option>
+												</select>
 											</div>
-										</div>
-									</li>
+											<div class="select__option">
+												<label for="size">Màu mắt :</label> <select name="size"
+													id="size" class="select-box">
+													<option value="xanhDuong">Xanh dương</option>
+													<option value="den">Đen</option>
+												</select>
+											</div>
+										</li>
+										<li>
 
-									<li><span>Số tiền :</span> <a href="#" class="new__price">2500000
-											đ</a></li>
-									<li><span>Giống :</span> <a href="#">Husky</a></li>
-									<li><span>Loại thú cưng :</span> <a href="#">Chó</a></li>
-									<li><span>Trạng thái :</span> <a href="#" class="in-stock">Còn
-											hàng (15 sản phẩm)</a></li>
-								</ul>
+											<div class="input-counter">
+												<span>Số lượng :</span>
+												<div>
+													<span id="" class="minus-btn"> <svg>
+                            <use
+																xlink:href="images/sprite.svg#icon-minus"></use>
+                          </svg>
+													</span> <input type="text" min="1" value="1" max="10"
+														class="counter-btn"> <span class="plus-btn">
+														<svg>
+                            <use
+																xlink:href="images/sprite.svg#icon-plus"></use>
+                          </svg>
+													</span>
+												</div>
+											</div>
+										</li>
+
+										<li><span>Số tiền :</span> <a href="#" class="new__price">2500000
+												đ</a></li>
+										<li><span>Giống :</span> <a href="#">Husky</a></li>
+										<li><span>Loại thú cưng :</span> <a href="#">Chó</a></li>
+										<li><span>Trạng thái :</span> <a href="#"
+											class="in-stock">Còn hàng (15 sản phẩm)</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-
+				</form>
 				<div class="product-detail__bottom">
 					<div class="title__container tabs">
 
