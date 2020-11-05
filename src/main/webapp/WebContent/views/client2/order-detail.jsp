@@ -33,7 +33,7 @@
 <body>
   <header id="header" class="header">
     <div class="navigation">
-      <input type="hidden" id="usernameBE" value="haitn" />
+      <input type="hidden" id="usernameBE" value="${account.getFullName() }" />
       <input type="hidden" id="is-empty" value="" />
       <div class="row header__top" >
         <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
@@ -156,14 +156,14 @@
                         </svg>
                       </div>
                       <img
-                        src="https://toplist.vn/images/800px/dino-studio-anh-vien-cho-be-va-gia-dinh-317623.jpg"
+                        src="${account.getImagePath() }"
                         alt="Ảnh thẻ"
                         class="petmark-avatar__img"
                       />
                     </div>
                   </a>
                   <div class="user-page-brief__right">
-                    <div class="user-page-brief__username">luongngu1234</div>
+                    <div class="user-page-brief__username">${acoount.getUsername() }</div>
                     <div>
                       <a href="" class="user-page-brief__edit">
                         <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px;">
@@ -217,19 +217,22 @@
                     </a>
                     <div class="stardust-dropdown__item-body stardust-dropdown__item-body--open" style="opacity: 1;">
                         <div class="userpage-sideber-menu__subsection">
-                            <a href="javascript:" class="_17BcjA _1EUbVp">
+                            <a href="show-all-order" class="_17BcjA _1EUbVp">
                                 <span class="_2ilxaJ">Tất cả đơn hàng</span>
                             </a>
-                            <a href="waiting-order.html" class="_17BcjA">
+                            <a href="show-waiting-order" class="_17BcjA">
                                 <span class="_2ilxaJ">Chờ xác nhận</span>
                             </a>
-                            <a href="waiting-delevery.html" class="_17BcjA">
+                            <a href="show-waiting-delevery" class="_17BcjA">
                                 <span class="_2ilxaJ">Chờ giao hàng</span>
                             </a>
-                            <a href="delivered.html" class="_17BcjA">
+                             <a href="show-delevering" class="_17BcjA">
+                              <span class="_2ilxaJ">Đang giao hàng</span>
+                            </a>
+                            <a href="show-delivered" class="_17BcjA">
                                 <span class="_2ilxaJ">Đã giao</span>
                             </a>
-                            <a href="cancel-order.html" class="_17BcjA">
+                            <a href="show-cancel-order" class="_17BcjA">
                                 <span class="_2ilxaJ">Đã hủy</span>
                             </a>
                         </div>
@@ -242,25 +245,6 @@
                       </div>
                       <div class="userpage-sidebar-menu-entry__text" >Đặt cọc</div>
                     </a>
-                    <!-- <div class="stardust-dropdown__item-body stardust-dropdown__item-body--open" style="opacity: 1;">
-                      <div class="userpage-sideber-menu__subsection">
-                          <a href="javascript:" class="_17BcjA _1EUbVp">
-                              <span class="_2ilxaJ" style="color: orangered;">Tất cả đơn hàng</span>
-                          </a>
-                          <a href="waiting-order.html" class="_17BcjA">
-                              <span class="_2ilxaJ">Chờ xử lý</span>
-                          </a>
-                          <a href="waiting-delevery.html" class="_17BcjA">
-                              <span class="_2ilxaJ">Chờ giao hàng</span>
-                          </a>
-                          <a href="delivered.html" class="_17BcjA">
-                              <span class="_2ilxaJ">Đã giao</span>
-                          </a>
-                          <a href="cancel-order.html" class="_17BcjA">
-                              <span class="_2ilxaJ">Đã hủy</span>
-                          </a>
-                      </div>
-                  </div>  -->
                   <a href="blog.html" class="userpage-sidebar-menu-entry">
                         <div class="userpage-sidebar-menu-entry__icon" style="background-color: rgb(52, 223, 75);">
                                     <svg class="svg-icon shopee-svg-icon user-page-sidebar-icon " viewBox="0 0 20 20">
@@ -292,13 +276,13 @@
                                     <div class="order-detail-page__delivery__content">
                                         <div class="order-detail-page__delivery__shipping-address__container">
                                             <div class="order-detail-page__delivery__shipping-address">
-                                                <div class="order-detail-page__delivery__shipping-address__shipping-name">Trần Ngọc Hảii</div>
+                                                <div class="order-detail-page__delivery__shipping-address__shipping-name">${orderweb.getConsignee() }</div>
                                                 <div class="order-detail-page__delivery__shipping-address__detail">
-                                                    <span>(+84) 386768658</span>
-                                                    <br>17 An Trai, Vân Canh, Hoài Đức, Hà Nội, Xã Vân Canh, Huyện Hoài Đức, Hà Nội 
-                                                    <div class="_3mRAgM"><br>
-                                                        <button class="_2HZc_x _361Yzn _2u07D0">Sửa</button>
-                                                    </div>
+                                                    <span>${orderweb.getConsigneePhone() }</span>
+                                                    <br>${orderweb.getDeliveryAddress() }
+<!--                                                     <div class="_3mRAgM"><br> -->
+<!--                                                         <button class="_2HZc_x _361Yzn _2u07D0">Sửa</button> -->
+<!--                                                     </div> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -312,60 +296,11 @@
                                 <div class="_1zdufp">
                                     <div class="_3XTRw7">
                                         <div class="_1Mug_K">
-                                            <div class="_31SLfG">Kiện hàng 1</div>
-                                            <div class="_1WDRrw">Đã giao</div>
-                                        </div>
-                                        <div class="_3O5bHF">
-                                          <div class="kenPE-">
-                                            <!-- <div>VNPost Nhanh</div>
-                                            <div>EQ345220490VN</div> -->
-                                          </div>
-                                          <div>
-                                            <div class="_2nxwAx">
-                                              <div class="_2yPPls">
-                                                <div class="_3BYPkX"></div>
-                                                <div class="_1vgKQF">
-                                                  <div class="_3L4aC0 _3bUsaU"></div>
-                                                  <div class="_3frHyU _3ui5GA">13:06 13-10-2020</div>
-                                                  <div class="_2g0-M5">[VN]Giao thành công (VNP:EQ345220490VN)</div>
-                                                </div>
-                                              </div>
-                                              <div class="_2yPPls">
-                                                <div class="_3BYPkX"></div>
-                                                <div class="_1vgKQF">
-                                                  <div class="_3L4aC0"></div>
-                                                  <div class="_3frHyU">14:12 12-10-2020</div>
-                                                  <div class="">[VN]Đã lấy hàng</div>
-                                                </div>
-                                              </div>
-                                              <div class="_2yPPls">
-                                                <div class="_3BYPkX"></div>
-                                                <div class="_1vgKQF">
-                                                  <div class="_3L4aC0"></div>
-                                                  <div class="_3frHyU">09:53 12-10-2020</div>
-                                                  <div class="">[VN]0-Lý do khác-bc dang den thu gom</div>
-                                                </div>
-                                              </div>
-                                              <div class="_2yPPls">
-                                                <div class="_3BYPkX"></div>
-                                                <div class="_1vgKQF">
-                                                  <div class="_3L4aC0"></div>
-                                                  <div class="_3frHyU">20:49 11-10-2020</div>
-                                                  <div class="">[VN]0-Lý do khác-bc đang đến thu gom</div>
-                                                </div>
-                                              </div>
-                                              <div class="_2yPPls">
-                                                <div class="_3BYPkX _1zAJ6Q"></div>
-                                                <div class="_1vgKQF">
-                                                  <div class="_3L4aC0"></div>
-                                                  <div class="_3frHyU">08:11 11-10-2020</div>
-                                                  <div class="">[VN]Nhận tin</div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
+                                            <div class="_31SLfG">Mã đơn hàng: ${orderweb.getId() }</div>
+                                            <div class="_1WDRrw">${orderweb.getDeliveryStatus() }</div>
                                         </div>
                                     </div>
+                                    <c:forEach var="order" items="${order }">
                                     <div class="_2XBFNq">
                                       <div class="order-content__container">
                                         <div class="order-content__item-list">
@@ -388,14 +323,14 @@
                                                           </g>
                                                         </svg>
                                                       </div>
-                                                      <div class="shopee-image__content" style="background-image: url(https://cf.shopee.vn/file/cbedfbf0ad65ff3e46b973af68e05082_tn);">
+                                                      <div class="shopee-image__content" style="background-image: url(${order.getAccessories().getImgs().get(0).getImgAvartar() });">
                                                         <div class="shopee-image__content--blur"> </div>
                                                       </div>
                                                     </div>
                                                   </div>
                                                   <div class="order-content__item__detail-content">
-                                                    <div class="order-content__item__name">Khăn tắm xuất nhật siêu thấm hút 140cm x 70cm</div>
-                                                    <div class="order-content__item__quantity">x 1</div>
+                                                    <div class="order-content__item__name">${order.getAccessories().getName() }</div>
+                                                    <div class="order-content__item__quantity">x ${order.getAmount() }</div>
                                                   </div>
                                                 </div>
                                               </div>
@@ -410,6 +345,7 @@
                                         </div>
                                       </div>
                                     </div>
+                                    </c:forEach>
                                     <div class="payment-detail__container _1R4a4Y">
                                       <div class="payment-detail__item">
                                         <div class="payment-detail__item__description">Tổng tiền hàng</div>

@@ -120,7 +120,22 @@ public class CheckoutController {
 		model.addObject("isEmpty", isEmpty);
 		return model;
 	}
-
+	@RequestMapping("/show-delevering")
+	public ModelAndView showDelevering(Principal principal) {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("client2/delevering");
+		User logginedUser = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(logginedUser.getUsername());
+		model.addObject("account", account);
+		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.DELIVERING, account);
+		model.addObject("list", list);
+		String isEmpty = "1";
+		if (list.size() == 0) {
+			isEmpty = "0";
+		}
+		model.addObject("isEmpty", isEmpty);
+		return model;
+	}
 	@RequestMapping("/show-delivered")
 	public ModelAndView showDelivered(Principal principal) {
 		ModelAndView model = new ModelAndView();
@@ -288,6 +303,20 @@ public class CheckoutController {
 		job.addProperty("message", "success");
 		job.addProperty("data", paymentUrl);
 		return "redirect:" + paymentUrl;
+	}
+	
+	@RequestMapping("/show-detail/{id}")
+	public  ModelAndView showDetail(@PathVariable String id, Principal principal) {
+		ModelAndView model = new ModelAndView();
+		User loginedUser = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(loginedUser.getUsername());
+		model.setViewName("client2/order-detail");
+		model.addObject("account", account);
+		OrderrWeb orderWeb = orderWebService.findById(Integer.parseInt(id));
+		model.addObject("orderweb", orderWeb);
+		List<OrderrWebDetail> order = orderWebDetailService.findOrderrWeb(orderWeb);
+		model.addObject("order", order);
+		return model;
 	}
 
 	@GetMapping("/order-result/{id}")

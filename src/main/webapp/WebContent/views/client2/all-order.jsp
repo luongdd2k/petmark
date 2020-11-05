@@ -217,7 +217,7 @@
                             <a href="show-waiting-delevery" class="_17BcjA">
                                 <span class="_2ilxaJ">Chờ giao hàng</span>
                             </a>
-                            <a href="show-waiting-delevery" class="_17BcjA">
+                             <a href="show-delevering" class="_17BcjA">
                               <span class="_2ilxaJ">Đang giao hàng</span>
                             </a>
                             <a href="show-delivered" class="_17BcjA">
@@ -352,7 +352,7 @@
 
                                                         </div>
                                                         <div class="purchase-card-buttons__show-button-wrapper">
-                                                            <button class="shopee-button-outline shopee-button-outline--fill shopee-button-outline--primary ">
+                                                            <button onclick="window.location.href='show-detail/${list.getId()}'" class="shopee-button-outline shopee-button-outline--fill shopee-button-outline--primary ">
                                                                 <span class="purchase-card-buttons__button-content"> Xem Chi tiết đơn hàng </span>
                                                             </button>
                                                         </div>

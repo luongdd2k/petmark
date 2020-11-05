@@ -356,7 +356,7 @@
                                                             </button>
                                                         </div> -->
                                                         <div class="purchase-card-buttons__show-button-wrapper">
-                                                            <button onclick="window.location.href='order-detail.html'" class="shopee-button-outline shopee-button-outline--fill shopee-button-outline--primary ">
+                                                            <button onclick="window.location.href='show-detail/${list.getId()}'" class="shopee-button-outline shopee-button-outline--fill shopee-button-outline--primary ">
                                                                 <span class="purchase-card-buttons__button-content"> Xem Chi tiết đơn hàng </span>
                                                             </button>
                                                         </div>

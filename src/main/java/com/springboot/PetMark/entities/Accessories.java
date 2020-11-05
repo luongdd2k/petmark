@@ -109,11 +109,11 @@ public @Data class Accessories implements Serializable {
 	}
 
 	public String getDisplayPrice(int type) {
-		DecimalFormat decimalFormat = new DecimalFormat("#,##0");
+		DecimalFormat decimalFormat = new DecimalFormat("#");
 		if (type == 0) {
-			return decimalFormat.format(this.price).replaceAll(",", ".");
+			return decimalFormat.format(this.price);
 		} else
-			return decimalFormat.format(this.price).replaceAll(",", ".") + " ₫";
+			return decimalFormat.format(this.price);
 	}
 
 	public String getDisplayDeposit() {
