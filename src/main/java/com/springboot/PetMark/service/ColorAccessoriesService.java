@@ -8,7 +8,7 @@ import com.springboot.PetMark.entities.ColorAccessories;
 public interface ColorAccessoriesService {
 //	List<ColorAccessories> findAll();
 
-//	ColorAccessories findById(int id);
+	ColorAccessories findById(int id);
 
 	List<ColorAccessories> findByAccessories(Accessories accessories);
 

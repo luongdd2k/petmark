@@ -1,8 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
     <title>Đăng ký tài khoản mới</title>
+    <base href="${pageContext.servletContext.contextPath}/">
     <link
       href="https://fonts.googleapis.com/css2?family=Lemonada:wght@500&display=swap"
       rel="stylesheet"
@@ -28,8 +32,13 @@
         <img src="images-new/login/product.svg" />
       </div>
       <div class="login-content">
+<<<<<<< HEAD
         <form action="">
           <img src="images-new/login/avatar.svg" />
+=======
+        <form action="CheckSignup" method="post">
+          <img src="images/login/avatar.svg" />
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
           <h2 class="title1">Tài khoản mới</h2>
           <div class="row">
             <div class="col-6">
@@ -39,7 +48,7 @@
                 </div>
                 <div class="div">
                   <h5>Họ tên</h5>
-                  <input type="text" class="input" required />
+                  <input type="text" name="sl_signup_name" class="input" required />
                 </div>
               </div>
               <div class="input-div user">
@@ -48,7 +57,7 @@
                 </div>
                 <div class="div">
                   <h5>Tên tài khoản</h5>
-                  <input type="text" class="input" required />
+                  <input type="text" name="sl_signup_username" class="input" required />
                 </div>
               </div>
               <div class="input-div pass">
@@ -57,7 +66,7 @@
                 </div>
                 <div class="div">
                   <h5>Mật khẩu</h5>
-                  <input type="password" class="input" required />
+                  <input type="password" class="input" name="sl_signup_password" required />
                 </div>
               </div>
               <div class="input-div confri-pass">
@@ -66,7 +75,7 @@
                 </div>
                 <div class="div">
                   <h5>Nhập lại mật khẩu</h5>
-                  <input type="password" class="input" required />
+                  <input type="password" class="input" name="sl_signup_password_2" required />
                 </div>
               </div>
             </div>
@@ -77,7 +86,7 @@
                 </div>
                 <div class="div">
                   <h5>Email</h5>
-                  <input type="email" class="input" required />
+                  <input type="email" class="input" name="sl_signup_email" required />
                 </div>
               </div>
               <div class="radio-div gender">
@@ -88,11 +97,11 @@
                   <h5>Giới tính</h5>
                   <div class="merge">
                     <div class="custom-control custom-radio custom-control-inline" >
-                      <input type="radio" id="Nam" name="gioiTinh" class="custom-control-input" checked />
+                      <input type="radio" id="Nam" name="gioiTinh" class="custom-control-input" value="Nam" checked />
                       <label class="custom-control-label" for="Nam">Nam</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline" >
-                      <input type="radio" id="Nu" name="gioiTinh" class="custom-control-input" />
+                      <input type="radio" id="Nu" name="gioiTinh" class="custom-control-input" value="Nu" />
                       <label class="custom-control-label" for="Nu">Nữ</label>
                     </div>
                   </div>
@@ -104,7 +113,7 @@
                 </div>
                 <div class="div">
                   <h5>Số điện thoại</h5>
-                  <input type="text" class="input" required />
+                  <input type="text" class="input" name="sl_signup_phone" required />
                 </div>
               </div>
               <div class="input-div adress">
@@ -113,12 +122,12 @@
                 </div>
                 <div class="div">
                   <h5>Địa chỉ</h5>
-                  <input type="text" class="input" required />
+                  <input type="text" class="input" name="sl_signup_address" required />
                 </div>
               </div>
             </div>
           </div>
-
+		<p>${thongBao }</p>
           <div class="row form-group">
             <div class="col-6 form-check">
               <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required
@@ -127,7 +136,7 @@
                 <span>Tôi đồng ý với các điều khoản</span>
               </label>
             </div>
-            <div class="col-6"><a href="login.html">Trở lại đăng nhập</a></div>
+            <div class="col-6"><a href="showLogin">Trở lại đăng nhập</a></div>
           </div>
           <input type="submit" class="btn" value="ĐĂNG KÝ" />
         </form>

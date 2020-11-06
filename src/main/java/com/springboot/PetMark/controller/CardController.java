@@ -15,9 +15,13 @@ import org.springframework.web.servlet.ModelAndView;
 import com.springboot.PetMark.entities.Accessories;
 import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.CardItemAccessories;
+import com.springboot.PetMark.entities.ColorAccessories;
+import com.springboot.PetMark.entities.SizeAccessories;
 import com.springboot.PetMark.service.AccessoriesService;
 import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.CartItemService;
+import com.springboot.PetMark.service.ColorAccessoriesService;
+import com.springboot.PetMark.service.SizeService;
 
 import pet.mart.security.CurrentUser;
 import pet.mart.security.UserPrincipal;
@@ -30,18 +34,27 @@ public class CardController {
 	AccessoriesService accessoriesService;
 	@Autowired
 	AccountService accountService;
+	@Autowired
+	ColorAccessoriesService color;
+	@Autowired
+	SizeService sizeSv;
 
 	@RequestMapping("/add-card/{id}")
-	public ModelAndView showCard(@PathVariable String id, Principal principal, HttpServletRequest httpServletRequest) {
+	public ModelAndView showCard(@PathVariable String id, Principal principal, HttpServletRequest req) {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("redirect:/show-card");
+		String mau = req.getParameter("colors");
+		String size = req.getParameter("size");
+		ColorAccessories col = color.findById(Integer.parseInt(mau));
+		SizeAccessories siz = sizeSv.findById(Integer.parseInt(size));
+		int soLuong = Integer.parseInt(req.getParameter("soLuong"));
 		Accessories accessories = accessoriesService.findById(Integer.valueOf(id));
 		User loginUser = (User) ((Authentication) principal).getPrincipal();
 		String user = loginUser.getUsername();
 		Account account = accountService.findById(user);
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
-		CardItemAccessories card = new CardItemAccessories(accessories, account, 1, date);
+		CardItemAccessories card = new CardItemAccessories(accessories, account, soLuong, date,siz,col);
 		cartItemService.save(card);
 		model.addObject("card", cartItemService.findByAccount(account));
 		return model;
@@ -50,10 +63,9 @@ public class CardController {
 	@RequestMapping("/show-card")
 	public ModelAndView showCard(HttpServletRequest httpServletRequest, Principal principal) {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("client/cart");
+		model.setViewName("client2/cart");
 		User loginUser = (User) ((Authentication) principal).getPrincipal();
 		String username = loginUser.getUsername();
-		System.out.println("tên đăng nhập ở card: " + username);
 		Account account = accountService.findById(username);
 		model.addObject("card", cartItemService.findByAccount(account));
 		return model;

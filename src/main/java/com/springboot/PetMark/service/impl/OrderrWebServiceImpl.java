@@ -64,5 +64,11 @@ public class OrderrWebServiceImpl implements OrderrWebService {
 		
 	}
 
+	@Override
+	public List<OrderrWeb> findBySttUser(String stt, Account account) {
+		// TODO Auto-generated method stub
+		return dao.findBySttUser(stt, account);
+	}
+
 
 }

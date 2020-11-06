@@ -9,5 +9,4 @@ import com.springboot.PetMark.entities.ColorAccessories;
 
 public interface ColorAccessoriesRepository extends JpaRepository<ColorAccessories,Integer> {
 	List<ColorAccessories> findByAccessories(Accessories accessories);
-	
 }

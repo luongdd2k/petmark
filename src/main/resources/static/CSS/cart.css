@@ -1,4 +1,6 @@
-
+.btn-payment{
+    text-align: right !important;
+}
 
 #cart_container{
 	width: 75%;

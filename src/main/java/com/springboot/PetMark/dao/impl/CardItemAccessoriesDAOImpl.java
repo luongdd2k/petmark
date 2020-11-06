@@ -38,4 +38,10 @@ CardItemAccessoriesRepo repo;
 		repo.deleteById(id);
 	}
 
+	@Override
+	public void deleteByAccount(Account acc) {
+		// TODO Auto-generated method stub
+		repo.deleteByAccount(acc);
+	}
+
 }

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +11,11 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet" />
 
+<<<<<<< HEAD
     <link rel="shortcut icon" href="./images-new/favicon.ico" type="image/x-icon" />
+=======
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
 
     <!-- Carousel -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -19,12 +26,18 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 
-
+    <title>Pet Mart | Giỏ hàng</title>
+    <base href="${pageContext.servletContext.contextPath}/">
     <!-- Custom StyleSheet -->
+<<<<<<< HEAD
     <link rel="stylesheet" href="css-new/styles.css" />
     <link rel="stylesheet" href="css-new/cart.css">
 
     <title>Pet Mart | Giỏ hàng</title>
+=======
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/cart.css">
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
 </head>
 
 <body>
@@ -45,7 +58,11 @@
               <nav class="nav">
                 <div class="nav__hamburger">
                   <svg>
+<<<<<<< HEAD
                     <use xlink:href="./images-new/sprite.svg#icon-menu"></use>
+=======
+                    <use xlink:href="images/sprite.svg#icon-menu"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
                   </svg>
                 </div>
       
@@ -60,7 +77,11 @@
                     <span class="nav__category">PET MART</span>
                     <a href="index.html" class="close__toggle">
                       <svg>
+<<<<<<< HEAD
                         <use xlink:href="./images-new/sprite.svg#icon-cross"></use>
+=======
+                        <use xlink:href="images/sprite.svg#icon-cross"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
                       </svg>
                     </a>
                   </div>
@@ -69,7 +90,7 @@
                       <a href="index.html" class="nav__link scroll-link">Trang chủ</a>
                     </li>
                     <li class="nav__item">
-                      <a href="#category" class="nav__link scroll-link">Category</a>
+                      <a href="#category" class="nav__link scroll-link">Sản phẩm</a>
                     </li>
                     <li class="nav__item">
                       <a href="#news" class="nav__link scroll-link">Blog</a>
@@ -83,19 +104,31 @@
                 <div class="nav__icons">
                   <a href="#" class="icon__item">
                     <svg class="icon__user">
+<<<<<<< HEAD
                       <use xlink:href="./images-new/sprite.svg#icon-user"></use>
+=======
+                      <use xlink:href="images/sprite.svg#icon-user"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
                     </svg>
                   </a>
       
                   <a href="#" class="icon__item">
                     <svg class="icon__search">
+<<<<<<< HEAD
                       <use xlink:href="./images-new/sprite.svg#icon-search"></use>
+=======
+                      <use xlink:href="images/sprite.svg#icon-search"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
                     </svg>
                   </a>
       
                   <a href="cart.html" class="icon__item">
                     <svg class="icon__cart">
+<<<<<<< HEAD
                       <use xlink:href="./images-new/sprite.svg#icon-shopping-basket"></use>
+=======
+                      <use xlink:href="images/sprite.svg#icon-shopping-basket"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
                     </svg>
                     <span id="cart__total">0</span>
                   </a>
@@ -111,7 +144,11 @@
                         <li>
                             <a href="/">
                                 <svg>
+<<<<<<< HEAD
                                     <use xlink:href="./images-new/sprite.svg#icon-home"></use>
+=======
+                                    <use xlink:href="images/sprite.svg#icon-home"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
                                 </svg>
                             </a>
                         </li>
@@ -138,21 +175,24 @@
                                     <th>Tổng tiền</th>
                                 </tr>
                             </thead>
+                            <c:forEach var="card" items="${card }">
                             <tbody>
                                 <tr>
                                     <td class="product__thumbnail">
                                         <a href="#">
+<<<<<<< HEAD
                                             <img src="./images-new/products/iPhone/iphone6.jpeg" alt="">
+=======
+                                            <img src="${card.getAccessories().getImgs().get(0).getImgAvartar() }" alt="">
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
                                         </a>
                                     </td>
                                     <td class="product__name">
-                                        <a href="#">Vòng Cổ Chuông Cho Mèo</a>
-                                        <br><br>
-                                        <small>White/6.25</small>
+                                        <a href="#">${card.getAccessories().getName() } </a>
                                     </td>
                                     <td class="product__price">
                                         <div class="price">
-                                            <span class="new__price">$250.99</span>
+                                            <span class="new__price">${card.getAccessories().getDisplayPrice(1)}</span>
                                         </div>
                                     </td>
                                     <td class="product__quantity">
@@ -160,13 +200,21 @@
                                             <div>
                                                 <span class="minus-btn">
                                                     <svg>
+<<<<<<< HEAD
                                                         <use xlink:href="./images-new/sprite.svg#icon-minus"></use>
+=======
+                                                        <use xlink:href="images/sprite.svg#icon-minus"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
                                                     </svg>
                                                 </span>
-                                                <input type="text" min="1" value="1" max="10" class="counter-btn">
+                                                <input type="text" min="1" value="${card.getAmount() }" max="10" class="counter-btn">
                                                 <span class="plus-btn">
                                                     <svg>
+<<<<<<< HEAD
                                                         <use xlink:href="./images-new/sprite.svg#icon-plus"></use>
+=======
+                                                        <use xlink:href="images/sprite.svg#icon-plus"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
                                                     </svg>
                                                 </span>
                                             </div>
@@ -174,22 +222,27 @@
                                     </td>
                                     <td class="product__subtotal">
                                         <div class="price">
-                                            <span class="new__price">$250.99</span>
+                                            <span class="new__price">${card.getAccessories().price} * ${card.amount }</span>
                                         </div>
-                                        <a href="#" class="remove__cart-item">
+                                        <a href="delete/${card.getId() }" class="remove__cart-item">
                                             <svg>
+<<<<<<< HEAD
                                                 <use xlink:href="./images-new/sprite.svg#icon-trash"></use>
+=======
+                                                <use xlink:href="images/sprite.svg#icon-trash"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
                                             </svg>
                                         </a>
                                     </td>
                                 </tr>
                             </tbody>
+                            </c:forEach>
                         </table>
                     </div>
 
                     <div class="cart-btns">
                         <div class="continue__shopping">
-                            <a href="/">Tiếp tục mua hàng</a>
+                            <a href="">Tiếp tục mua hàng</a>
                         </div>
                     </div>
 
@@ -206,7 +259,7 @@
                             </li>
                         </ul>
                         <div class="btn-payment">
-                          <a href="check-out.html">TIẾN HÀNH THANH TOÁN</a>
+                          <a href="showcheck-out">TIẾN HÀNH THANH TOÁN</a>
                         </div>
                     </div>
                 </form>
@@ -221,7 +274,11 @@
             <div class="facility__box">
               <div class="facility-img__container">
                 <svg>
+<<<<<<< HEAD
                   <use xlink:href="./images-new/sprite.svg#icon-airplane"></use>
+=======
+                  <use xlink:href="images/sprite.svg#icon-airplane"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
                 </svg>
               </div>
               <p>VẬN CHUYỂN KHU VỰC HÀ NỘI</p>
@@ -230,7 +287,11 @@
             <div class="facility__box">
               <div class="facility-img__container">
                 <svg>
+<<<<<<< HEAD
                   <use xlink:href="./images-new/sprite.svg#icon-credit-card-alt"></use>
+=======
+                  <use xlink:href="images/sprite.svg#icon-credit-card-alt"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
                 </svg>
               </div>
               <p>HOÀN TIỀN 100%</p>
@@ -239,7 +300,11 @@
             <div class="facility__box">
               <div class="facility-img__container">
                 <svg>
+<<<<<<< HEAD
                   <use xlink:href="./images-new/sprite.svg#icon-credit-card"></use>
+=======
+                  <use xlink:href="images/sprite.svg#icon-credit-card"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
                 </svg>
               </div>
               <p>NHIỀU ƯU ĐÃI LỠN</p>
@@ -248,7 +313,11 @@
             <div class="facility__box">
               <div class="facility-img__container">
                 <svg>
+<<<<<<< HEAD
                   <use xlink:href="./images-new/sprite.svg#icon-headphones"></use>
+=======
+                  <use xlink:href="images/sprite.svg#icon-headphones"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
                 </svg>
               </div>
               <p>CHĂM SÓC TẬN TÌNH</p>
@@ -285,7 +354,11 @@
           <div>
             <span>
               <svg>
+<<<<<<< HEAD
                 <use xlink:href="./images-new/sprite.svg#icon-location"></use>
+=======
+                <use xlink:href="images/sprite.svg#icon-location"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
               </svg>
             </span>
             206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội
@@ -293,7 +366,11 @@
           <div>
             <span>
               <svg>
+<<<<<<< HEAD
                 <use xlink:href="./images-new/sprite.svg#icon-envelop"></use>
+=======
+                <use xlink:href="images/sprite.svg#icon-envelop"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
               </svg>
             </span>
             petmart.support@gmail.com
@@ -301,7 +378,11 @@
           <div>
             <span>
               <svg>
+<<<<<<< HEAD
                 <use xlink:href="./images-new/sprite.svg#icon-phone"></use>
+=======
+                <use xlink:href="images/sprite.svg#icon-phone"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
               </svg>
             </span>
             (+84) 386768658
@@ -326,7 +407,11 @@
 
     <a href="#header" class="goto-top scroll-link">
         <svg>
+<<<<<<< HEAD
             <use xlink:href="./images-new-new/sprite.svg#icon-arrow-up"></use>
+=======
+            <use xlink:href="images/sprite.svg#icon-arrow-up"></use>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
         </svg>
     </a>
 
@@ -342,9 +427,15 @@
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
     <!-- Custom JavaScript -->
+<<<<<<< HEAD
     <script src="./js-new/products.js"></script>
     <script src="./js-new/index.js"></script>
     <script src="./js-new/slider.js"></script>
+=======
+    <script src="js/products.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/slider.js"></script>
+>>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
     <script>
         $(function(){
            let a = $('#test').val();

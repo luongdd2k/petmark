@@ -13,5 +13,5 @@ public interface CardItemAccessoriesDAO {
 	void save(CardItemAccessories card);
 	
 	void delete (int id);
-//	void deleteByAccount(Account acc);
+	void deleteByAccount(Account acc);
 }

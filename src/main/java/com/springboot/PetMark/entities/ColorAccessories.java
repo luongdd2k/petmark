@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -19,6 +20,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
+@Table(name = "coloraccessories")
 public @Data class ColorAccessories implements Serializable {
 
 	private static final long serialVersionUID = 5669760855636176469L;
@@ -29,7 +31,7 @@ public @Data class ColorAccessories implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "accessoriesid")
 	private Accessories accessories;
-	@Column(name = "colorAccessories")
+	@Column(name = "coloraccessories")
 	private String colorAccessories;
 
 	public ColorAccessories() {

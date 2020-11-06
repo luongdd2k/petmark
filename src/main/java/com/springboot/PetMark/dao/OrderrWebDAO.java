@@ -16,6 +16,7 @@ public interface OrderrWebDAO {
 	List<OrderrWeb> findByAccount(Account account);
 	void save(OrderrWeb odeWeb);
 	void updatedelivery(String status, int id);
+	List<OrderrWeb> findBySttUser(String stt, Account account);
 	Page<OrderrWeb> search(@Param("id") int id, @Param("text") String name, Pageable pageable);
 	Page<OrderrWeb> searchFilter(@Param("text") String text, @Param("id") String id,
 			@Param("paymentMethod") String paymentMethod, @Param("paymentStatus") String paymentStatus,

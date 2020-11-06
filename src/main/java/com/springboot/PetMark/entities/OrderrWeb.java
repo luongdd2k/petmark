@@ -3,8 +3,11 @@ package com.springboot.PetMark.entities;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AccessLevel;
@@ -53,6 +57,17 @@ public @Data class OrderrWeb implements Serializable {
 	private String sentMail;
 	@Column(name = "total_amount")
 	private float totalAmount;
+	@OneToMany(mappedBy = "orderrWeb", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<OrderrWebDetail> detail = new ArrayList<>();
+	
+	
+	public List<OrderrWebDetail> getDetail() {
+		return detail;
+	}
+
+	public void setDetail(List<OrderrWebDetail> detail) {
+		this.detail = detail;
+	}
 
 	public OrderrWeb() {
 		// TODO Auto-generated constructor stub

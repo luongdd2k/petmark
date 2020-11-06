@@ -34,4 +34,10 @@ ColorPKDAO dao;
 		dao.updateColor(colorAccessories);
 	}
 
+	@Override
+	public ColorAccessories findById(int id) {
+		// TODO Auto-generated method stub
+		return dao.findById(id);
+	}
+
 }

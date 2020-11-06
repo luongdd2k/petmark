@@ -21,4 +21,10 @@ public class SizeDAOImpl implements SizeDAO {
 		return repo.findByAccessories(accessories);
 	}
 
+	@Override
+	public SizeAccessories findById(int id) {
+		// TODO Auto-generated method stub
+		return repo.findById(id).get();
+	}
+
 }
