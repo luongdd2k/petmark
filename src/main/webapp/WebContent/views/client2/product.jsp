@@ -166,6 +166,7 @@
 								</div>
 								<div class="zoom" id="zoom"></div>
 							</div>
+							<div id="cho" class="product-details__btn product-details__btn_pet hide">
 							<button id="cho" type="submit"
 								class="product-details__btn product-details__btn_pet hide">
 								<a class="buy" > <span> <svg>
@@ -174,6 +175,7 @@
 								</span> ĐẶT CỌC NGAY
 								</a>
 							</button>
+						</div>
 						</div>
 
 						<div id="phu-kien" class="product-detail__right">

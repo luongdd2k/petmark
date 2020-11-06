@@ -32,16 +32,12 @@ import com.springboot.PetMark.config.VNPayConfig;
 import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.ColorPet;
 import com.springboot.PetMark.entities.Deposit;
-import com.springboot.PetMark.entities.OrderrWeb;
 import com.springboot.PetMark.entities.Pet;
 import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.ColorPetService;
 import com.springboot.PetMark.service.DepositService;
 import com.springboot.PetMark.service.PetService;
 
-import pet.mart.util.DeliveryStatus;
-import pet.mart.util.PaymentMethod;
-import pet.mart.util.PaymentStatus;
 
 @Controller
 public class DepositController {

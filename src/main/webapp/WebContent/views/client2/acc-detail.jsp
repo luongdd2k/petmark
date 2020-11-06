@@ -225,21 +225,21 @@
             </div>
 
             <div id="phuKien" class="product-details__btn product-details__btn_accessori">
-              <button class="add" type="submit">
+              <button class="add" type="submit" >
                 <span>
                   <svg>
                     <use xlink:href="./images/sprite.svg#icon-cart-plus"></use>
                   </svg>
                 </span>
                 THÊM VÀO GIỎ HÀNG</button>
-              <a class="buy" href="check-out.html">
+              <button class="buy" onclick="form.action='show-buy-now/${acc.getId()}';">
                 <span>
                   <svg>
                     <use xlink:href="./images/sprite.svg#icon-credit-card"></use>
                   </svg>
                 </span>
                 MUA NGAY
-              </a>
+              </button>
             </div>
           </div>
 
@@ -301,7 +301,7 @@
                       <span>Số lượng :</span>
                       <div class="buttons_added">
                         <input onclick="changePrice()" class="minus is-form" type="button" value="-">
-                        <input id="so-luong" aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="1">
+                        <input id="so-luong"  aria-label="quantity" class="input-qty" max="10" min="1" name="soLuong" type="number" value="1">
                         <input onclick="changePrice()" class="plus is-form" type="button" value="+">
                       </div>
                     </div>

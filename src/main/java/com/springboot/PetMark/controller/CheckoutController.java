@@ -17,7 +17,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.poi.ss.formula.functions.Odd;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -25,7 +24,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -38,14 +36,14 @@ import com.springboot.PetMark.entities.ColorAccessories;
 import com.springboot.PetMark.entities.OrderrWeb;
 import com.springboot.PetMark.entities.OrderrWebDetail;
 import com.springboot.PetMark.entities.SizeAccessories;
+import com.springboot.PetMark.service.AccessoriesService;
 import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.CartItemService;
+import com.springboot.PetMark.service.ColorAccessoriesService;
 import com.springboot.PetMark.service.OrderrWebDetailService;
 import com.springboot.PetMark.service.OrderrWebService;
+import com.springboot.PetMark.service.SizeService;
 
-import pet.mart.security.CurrentUser;
-import pet.mart.security.IsAuthenticated;
-import pet.mart.security.UserPrincipal;
 import pet.mart.util.DeliveryStatus;
 import pet.mart.util.PaymentMethod;
 import pet.mart.util.PaymentStatus;
@@ -56,13 +54,18 @@ import pet.mart.util.Validator;
 public class CheckoutController {
 	@Autowired
 	CartItemService cartItemService;
-
+	@Autowired
+	AccessoriesService accessoriesService;
 	@Autowired
 	OrderrWebService orderWebService;
 	@Autowired
 	AccountService accountService;
 	@Autowired
 	OrderrWebDetailService orderWebDetailService;
+	@Autowired
+	ColorAccessoriesService colorAccessoriesService;
+	@Autowired
+	SizeService sizeService;
 
 //	@Autowired
 //    JavaMailSender javaMailSender;
@@ -248,7 +251,7 @@ public class CheckoutController {
 			orderWebService.save(orderWeb);
 			return "redirect:/order-result/" + orderWeb.getId();
 		}
-//		cartItemService.deleteByAccount(user);
+		cartItemService.deleteByAccount(user);
 
 		String dinhDang = "#";
 		DecimalFormat format = new DecimalFormat(dinhDang);
@@ -433,5 +436,136 @@ public class CheckoutController {
 	public String demoVNP() {
 		return "client2/vnpay-demo";
 	}
+	@RequestMapping("/show-buy-now/{id}")
+	public ModelAndView buyNow(@PathVariable String id,HttpServletRequest req,Principal principal) {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("client2/buy-now");
+		User loginUser = (User) ((Authentication) principal).getPrincipal();
+		String username = loginUser.getUsername();
+		Account account = accountService.findById(username);
+		model.addObject("account", account);
+		Accessories acc = accessoriesService.findById(Integer.parseInt(id));
+		model.addObject("acc",acc);
+		String mau = req.getParameter("colors");
+		model.addObject("color", mau);
+		String sizes = req.getParameter("size");
+		model.addObject("size",sizes);
+		String soLuong = req.getParameter("soLuong");
+		int amount = Integer.parseInt(soLuong);
+		float thanhTien = acc.getPrice() * amount;
+		model.addObject("amount",amount);
+		model.addObject("thanhTien",thanhTien);
+		return model;
+	}
+	@RequestMapping("/buy")
+	public String buy(HttpServletRequest req, Principal principal, ModelMap model)
+			throws UnsupportedEncodingException {
+		User loginedUser = (User) ((Authentication) principal).getPrincipal();
+		String username = loginedUser.getUsername();
+		Account user = accountService.findById(username);
+//		System.out.println("user check-out: "+user);
 
+		OrderrWeb orderWeb = new OrderrWeb();
+		orderWeb.setConsignee(req.getParameter("name"));
+		orderWeb.setConsigneePhone(req.getParameter("phone"));
+		orderWeb.setDeliveryAddress(req.getParameter("address"));
+		orderWeb.setAccount(user);
+		orderWeb.setSentMail(user.getEmail());
+		long millis = System.currentTimeMillis();
+		java.sql.Date date = new java.sql.Date(millis);
+		orderWeb.setCreatedAt(date);
+		orderWeb.setDeliveryStatus(DeliveryStatus.NOT_APPROVED);
+		String paymentMethod = req.getParameter("payment-methods");
+		if (paymentMethod.equals(PaymentMethod.COD)) {
+			orderWeb.setPaymentMethod(PaymentMethod.COD);
+			orderWeb.setPaymentStatus(PaymentStatus.UNPAID);
+
+		} else if (paymentMethod.equals(PaymentMethod.ATM)) {
+			orderWeb.setPaymentMethod(PaymentMethod.ATM);
+			orderWeb.setPaymentStatus(PaymentStatus.PENDING_ATM);
+		}
+		orderWebService.save(orderWeb);
+		
+			OrderrWebDetail orderWebDetail = new OrderrWebDetail();
+			String mau = req.getParameter("colors");
+			ColorAccessories color = colorAccessoriesService.findById(Integer.parseInt(mau));
+			String sizes = req.getParameter("size");
+			SizeAccessories size = sizeService.findById(Integer.parseInt(sizes));
+			String id = req.getParameter("idacc");
+			Accessories acc = accessoriesService.findById(Integer.parseInt(id));
+			float price = acc.getPrice();
+			int quantity = Integer.parseInt(req.getParameter("soLuong"));
+			float totalAmount = price*quantity;
+			orderWebDetail.setOrderrWeb(orderWeb);
+			orderWebDetail.setColor(color);
+			orderWebDetail.setSize(size);
+			orderWebDetail.setAccessories(acc);
+			orderWebDetail.setAmount(quantity);
+			orderWebDetail.setTotalAmount(price * quantity);
+			orderWebDetail.setCreatedAt(date);
+			orderWebDetailService.save(orderWebDetail);
+		
+		orderWeb.setTotalAmount(totalAmount);
+		orderWebService.save(orderWeb);
+
+		if (orderWeb.getPaymentMethod().equals(PaymentMethod.COD)) {
+			orderWeb.setPaymentStatus(PaymentStatus.UNPAID);
+			orderWebService.save(orderWeb);
+			return "redirect:/order-result/" + orderWeb.getId();
+		}
+
+		String dinhDang = "#";
+		DecimalFormat format = new DecimalFormat(dinhDang);
+		String tienVNP = format.format(totalAmount * 100);
+		Map<String, String> vnp_Params = new HashMap<>();
+		vnp_Params.put("vnp_Version", "2.0.0");
+		vnp_Params.put("vnp_Command", "pay");
+		vnp_Params.put("vnp_TmnCode", VNPayConfig.vnp_TmnCode);
+		vnp_Params.put("vnp_Amount", tienVNP);
+		vnp_Params.put("vnp_CurrCode", "VND");
+		vnp_Params.put("vnp_BankCode", "NCB");
+		vnp_Params.put("vnp_TxnRef", VNPayConfig.getRandomNumber(8));
+		vnp_Params.put("vnp_OrderInfo", String.valueOf(orderWeb.getId()));
+		vnp_Params.put("vnp_OrderType", "billpayment");
+		vnp_Params.put("vnp_Locale", "vn");
+		vnp_Params.put("vnp_ReturnUrl", VNPayConfig.vnp_Returnurl);
+		vnp_Params.put("vnp_IpAddr", VNPayConfig.getIpAddress(req));
+		System.out.println("reques: " + VNPayConfig.getIpAddress(req));
+		vnp_Params.put("vnp_CreateDate", new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()));
+
+		// Build data to hash and querystring
+		List<String> fieldNames = new ArrayList<String>(vnp_Params.keySet());
+		Collections.sort(fieldNames);
+		StringBuilder hashData = new StringBuilder();
+		StringBuilder query = new StringBuilder();
+		Iterator<String> itr = fieldNames.iterator();
+		while (itr.hasNext()) {
+			String fieldName = (String) itr.next();
+			String fieldValue = (String) vnp_Params.get(fieldName);
+			if ((fieldValue != null) && (fieldValue.length() > 0)) {
+				// Build hash data
+				hashData.append(fieldName);
+				hashData.append('=');
+				hashData.append(fieldValue);
+				// Build query
+				query.append(URLEncoder.encode(fieldName, StandardCharsets.US_ASCII.toString()));
+				query.append('=');
+				query.append(URLEncoder.encode(fieldValue, StandardCharsets.US_ASCII.toString()));
+				if (itr.hasNext()) {
+					query.append('&');
+					hashData.append('&');
+				}
+			}
+		}
+
+		String queryUrl = query.toString();
+		String vnp_SecureHash = VNPayConfig.Sha256(VNPayConfig.vnp_HashSecret + hashData.toString());
+		queryUrl += "&vnp_SecureHashType=SHA256&vnp_SecureHash=" + vnp_SecureHash;
+		String paymentUrl = VNPayConfig.vnp_PayUrl + "?" + queryUrl;
+		JsonObject job = new JsonObject();
+		job.addProperty("code", "00");
+		job.addProperty("message", "success");
+		job.addProperty("data", paymentUrl);
+		return "redirect:" + paymentUrl;
+	}
 }
