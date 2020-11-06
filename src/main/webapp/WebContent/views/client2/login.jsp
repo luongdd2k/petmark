@@ -15,19 +15,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<img class="wave" src="images-new/login/wave.png">
+	<img class="wave" src="images/login/wave.png">
 	<div class="container">
 		<div class="img">
-			<img src="images-new/login/bg.svg">
+			<img src="images/login/bg.svg">
 		</div>
 		<div class="login-content">
-<<<<<<< HEAD
-			<form action="">
-				<img src="images-new/login/avatar.svg">
-=======
 			<form action="CheckLogin" id="sl_form_login" method="post">
 				<img src="images/login/avatar.svg">
->>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
 				<h2 class="title">Xin chào</h2>
            		<div class="input-div one">
            		   <div class="i">
