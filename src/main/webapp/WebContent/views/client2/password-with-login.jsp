@@ -46,8 +46,8 @@
         </div>
         <div id="row-logout" class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
           <div class="header__actions">
-            <a href="" id="hello-name"></a>
-            <a href="">Đăng xuất</a>
+            <a href="javascript:" id="hello-name"></a>
+            <a href="#">Đăng xuất</a>
           </div>
         </div>
       </div>
