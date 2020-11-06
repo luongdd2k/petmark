@@ -78,7 +78,7 @@
                 <a href="index.html" class="nav__link scroll-link">Trang chủ</a>
               </li>
               <li class="nav__item">
-                <a href="#category" class="nav__link scroll-link">Category</a>
+                <a href="#category" class="nav__link scroll-link">Sản phẩm</a>
               </li>
               <li class="nav__item">
                 <a href="#news" class="nav__link scroll-link">Blog</a>
@@ -248,8 +248,8 @@
                           <use xlink:href="images/sprite.svg#icon-star-empty"></use>
                         </svg>
                       </div>
-                      <div class="product__price">
-                        <h4>${listAcc.getDisplayPrice(1) }</h4>
+                      <div  class="product__price">
+                        <h4 class="price">${listAcc.getDisplayPrice(1) }</h4>
                       </div>
                       <a href="#"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
                     </div>
@@ -299,7 +299,7 @@
                         </svg>
                       </div>
                       <div class="product__price">
-                        <h4>$900</h4>
+                        <h4 class="price">$900</h4>
                       </div>
                       <a href="#"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
                     </div>
@@ -729,7 +729,7 @@
                         </svg>
                       </div>
                       <div class="product__price">
-                        <h4>${list.getDisplayPrice(1) }</h4>
+                        <h4 class="price">${list.getDisplayPrice(1) }</h4>
                       </div>
                       <a href="#"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
                     </div>
@@ -1043,6 +1043,7 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <!-- Custom JavaScript -->
+  <script src="js/number-format.js"></script>
   <script src="js/products.js"></script>
   <script src="js/index.js"></script>
   <script src="js/slider.js"></script>

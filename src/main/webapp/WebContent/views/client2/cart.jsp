@@ -71,7 +71,7 @@
                       <a href="index.html" class="nav__link scroll-link">Trang chủ</a>
                     </li>
                     <li class="nav__item">
-                      <a href="#category" class="nav__link scroll-link">Category</a>
+                      <a href="#category" class="nav__link scroll-link">Sản phẩm</a>
                     </li>
                     <li class="nav__item">
                       <a href="#news" class="nav__link scroll-link">Blog</a>
