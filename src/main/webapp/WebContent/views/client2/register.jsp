@@ -32,13 +32,8 @@
         <img src="images-new/login/product.svg" />
       </div>
       <div class="login-content">
-<<<<<<< HEAD
-        <form action="">
-          <img src="images-new/login/avatar.svg" />
-=======
         <form action="CheckSignup" method="post">
           <img src="images/login/avatar.svg" />
->>>>>>> 4b097327cadbdae36ac5f9e8911524d12c325fa5
           <h2 class="title1">Tài khoản mới</h2>
           <div class="row">
             <div class="col-6">
