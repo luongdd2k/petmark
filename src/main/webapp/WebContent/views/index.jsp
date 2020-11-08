@@ -38,12 +38,12 @@
 			<div id="hot_keywords">
 				<div class="hot_keywords_f bg-blue-dark hover:bg-blue"><a href="SearchProduct?form_search=Samsung">Chó Husky</a></div>
 				<div class="hot_keywords_f bg-teal-darkest hover:bg-teal-darker"><a href="SearchProduct?form_search=Apple">Chó Corgi</a></div>
-				<div class="hot_keywords_f bg-indigo-dark hover:bg-indigo"><a href="#">Mèo Anh</a></div>
-				<div class="hot_keywords_f bg-orange-dark hover:bg-orange"><a href="#">Chó Phốc</a></div>
-				<div class="hot_keywords_f bg-red-dark hover:bg-red"><a href="#">Mèo Scottish </a></div>
-				<div class="hot_keywords_f bg-green-dark hover:bg-green"><a href="#">Mèo Munchkin</a></div>
-				<div class="hot_keywords_f bg-blue-darker hover:bg-blue-dark"><a href="#">Mèo Ba Tư</a></div>
-				<div class="hot_keywords_f bg-pink-darkest hover:bg-pink-darker"><a href="#">Chó Pug</a></div>
+				<div class="hot_keywords_f bg-indigo-dark hover:bg-indigo"><a href="javascript:">Mèo Anh</a></div>
+				<div class="hot_keywords_f bg-orange-dark hover:bg-orange"><a href="javascript:">Chó Phốc</a></div>
+				<div class="hot_keywords_f bg-red-dark hover:bg-red"><a href="javascript:">Mèo Scottish </a></div>
+				<div class="hot_keywords_f bg-green-dark hover:bg-green"><a href="javascript:">Mèo Munchkin</a></div>
+				<div class="hot_keywords_f bg-blue-darker hover:bg-blue-dark"><a href="javascript:">Mèo Ba Tư</a></div>
+				<div class="hot_keywords_f bg-pink-darkest hover:bg-pink-darker"><a href="javascript:">Chó Pug</a></div>
 			</div>
 		
 			<div class="menu_title">KHUYẾN MÃI</div>

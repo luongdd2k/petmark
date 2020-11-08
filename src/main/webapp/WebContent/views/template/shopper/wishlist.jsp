@@ -45,8 +45,8 @@
 							</div>
 						</div>
 						<div class="tt-col-btn">
-<!-- 							<a href="#" class="tt-btn-addtocart" data-toggle="modal" data-target="#modalAddToCartProduct"><i class="icon-f-39"></i>CHỌN MUA</a> -->
-							<a class="btn-link" href="#" data-toggle="modal" data-target="#ModalquickView"><i class="icon-f-73"></i>Xem sản phẩm</a>
+<!-- 							<a href="javascript:" class="tt-btn-addtocart" data-toggle="modal" data-target="#modalAddToCartProduct"><i class="icon-f-39"></i>CHỌN MUA</a> -->
+							<a class="btn-link" href="javascript:" data-toggle="modal" data-target="#ModalquickView"><i class="icon-f-73"></i>Xem sản phẩm</a>
 							<a class="btn-link js-removeitem" th:href="${product.id}"><i class="icon-h-02"></i>Xóa khỏi danh sách</a>
 						</div>
 					</div>

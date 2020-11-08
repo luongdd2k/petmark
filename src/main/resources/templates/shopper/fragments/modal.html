@@ -21,7 +21,7 @@
 					<div class="tt-modal-messages">
 						<i class="icon-f-68"></i> Added to cart successfully!
 					</div>
-					<a href="#" class="btn-link btn-close-popup">CONTINUE SHOPPING</a>
+					<a href="javascript:" class="btn-link btn-close-popup">CONTINUE SHOPPING</a>
 			        <a href="cart.html" class="btn-link">VIEW CART</a>
 			        <a href="page404.html" class="btn-link">PROCEED TO CHECKOUT</a>
 				</div>
@@ -47,15 +47,15 @@
 							</div>
 						</div>
 						<div class="col-12 col-lg-6">
-							<a href="#" class="tt-cart-total">
+							<a href="javascript:" class="tt-cart-total">
 								There are 1 items in your cart
 								<div class="tt-total">
 									TOTAL: <span class="tt-price">$324</span>
 								</div>
 							</a>
-							<a href="#" class="btn btn-border btn-close-popup">CONTINUE SHOPPING</a>
+							<a href="javascript:" class="btn btn-border btn-close-popup">CONTINUE SHOPPING</a>
 							<a href="cart.html" class="btn btn-border">VIEW CART</a>
-							<a href="#" class="btn">PROCEED TO CHECKOUT</a>
+							<a href="javascript:" class="btn">PROCEED TO CHECKOUT</a>
 						</div>
 					</div>
 				</div>
@@ -81,7 +81,7 @@
 								<div><img src="images/loader.svg" data-src="images/product/product-01-04.jpg" alt=""></div>
 								<div>
 									<div class="tt-video-block">
-										<a href="#" class="link-video"></a>
+										<a href="javascript:" class="link-video"></a>
 										<video class="movie" src="video/video.mp4" poster="video/video_img.jpg"></video>
 									</div>
 								</div>
@@ -108,7 +108,7 @@
 										<i class="icon-star-half"></i>
 										<i class="icon-star-empty"></i>
 									</div>
-									<a href="#">(1 Customer Review)</a>
+									<a href="javascript:">(1 Customer Review)</a>
 								</div>
 								<div class="tt-wrapper">
 									Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
@@ -141,31 +141,31 @@
 									<div class="tt-wrapper">
 										<div class="tt-title-options">TEXTURE:</div>
 										<ul class="tt-options-swatch options-large">
-											<li><a class="options-color" href="#">
+											<li><a class="options-color" href="javascript:">
 												<span class="swatch-img">
 													<img src="images/loader.svg" data-src="images/custom/texture-img-01.jpg" alt="">
 												</span>
 												<span class="swatch-label color-black"></span>
 											</a></li>
-											<li class="active"><a class="options-color" href="#">
+											<li class="active"><a class="options-color" href="javascript:">
 												<span class="swatch-img">
 													<img src="images/loader.svg" data-src="images/custom/texture-img-02.jpg" alt="">
 												</span>
 												<span class="swatch-label color-black"></span>
 											</a></li>
-											<li><a class="options-color" href="#">
+											<li><a class="options-color" href="javascript:">
 												<span class="swatch-img">
 													<img src="images/loader.svg" data-src="images/custom/texture-img-03.jpg" alt="">
 												</span>
 												<span class="swatch-label color-black"></span>
 											</a></li>
-											<li><a class="options-color" href="#">
+											<li><a class="options-color" href="javascript:">
 												<span class="swatch-img">
 													<img src="images/loader.svg" data-src="images/custom/texture-img-04.jpg" alt="">
 												</span>
 												<span class="swatch-label color-black"></span>
 											</a></li>
-											<li><a class="options-color" href="#">
+											<li><a class="options-color" href="javascript:">
 												<span class="swatch-img">
 													<img src="images/loader.svg" data-src="images/custom/texture-img-05.jpg" alt="">
 												</span>
@@ -184,7 +184,7 @@
 											</div>
 										</div>
 										<div class="col-item">
-											<a href="#" class="btn btn-lg"><i class="icon-f-39"></i>ADD TO CART</a>
+											<a href="javascript:" class="btn btn-lg"><i class="icon-f-39"></i>ADD TO CART</a>
 										</div>
 									</div>
 								</div>
@@ -212,7 +212,7 @@
 								<div><img src="images/loader.svg" th:data-src="${productView.primaryImage()}" alt=""></div>
 								<div>
 <!-- 									<div class="tt-video-block"> -->
-<!-- 										<a href="#" class="link-video"></a> -->
+<!-- 										<a href="javascript:" class="link-video"></a> -->
 <!-- 										<video class="movie" src="video/video.mp4" poster="video/video_img.jpg"></video> -->
 <!-- 									</div> -->
 								</div>
@@ -239,7 +239,7 @@
 										<i class="icon-star-half"></i>
 										<i class="icon-star-empty"></i>
 									</div>
-<!-- 									<a href="#">(1 Customer Review)</a> -->
+<!-- 									<a href="javascript:">(1 Customer Review)</a> -->
 								</div>
 								<div class="tt-wrapper" th:text="${productView.description}">
 									Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
@@ -267,7 +267,7 @@
 <!-- 											</div> -->
 <!-- 										</div> -->
 										<div class="col-item">
-											<a href="#" class="btn btn-lg"><i class="icon-f-39"></i>ADD TO CART</a>
+											<a href="javascript:" class="btn btn-lg"><i class="icon-f-39"></i>ADD TO CART</a>
 										</div>
 									</div>
 								</div>

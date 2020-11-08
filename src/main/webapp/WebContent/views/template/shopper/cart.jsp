@@ -42,7 +42,7 @@
 							</td>
 							<td>
 								<h2 class="tt-title" th:text="${product.name}">
-									<a href="#">name</a>
+									<a href="javascript:">name</a>
 								</h2>
 								<ul class="tt-list-description">
 									<li>Size: <span th:text="${cartItem.productSize.size}"></span></li>
@@ -96,8 +96,8 @@
 						<a class="btn-link" href="/index"><i class="icon-e-19"></i>Tiếp tục mua sắm</a>
 					</div>
 					<div class="col-right">
-						<a class="btn-link" href="#"><i class="icon-h-02"></i>Xóa hết</a>
-<!-- 						<a class="btn-link" href="#"><i class="icon-h-48"></i>UPDATE CART</a> -->
+						<a class="btn-link" href="javascript:"><i class="icon-h-02"></i>Xóa hết</a>
+<!-- 						<a class="btn-link" href="javascript:"><i class="icon-h-48"></i>UPDATE CART</a> -->
 					</div>
 				</div>
 			</div>
@@ -129,7 +129,7 @@
 									<input type="hidden" id="paymentMethod" name="paymentMethod">
 								</div>
 
-<!-- 								<a href="#" class="btn btn-border">CALCULATE SHIPPING</a> -->
+<!-- 								<a href="javascript:" class="btn btn-border">CALCULATE SHIPPING</a> -->
 <!-- 								<p> -->
 <!-- 									There is one shipping rate available for Alabama, Tanzania, United Republic Of. -->
 <!-- 								</p> -->

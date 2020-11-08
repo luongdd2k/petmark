@@ -105,19 +105,19 @@ var datatable = $('.kt-datatable').KTDatatable({
 //			template: function (row, index, datatable) {
 //				var dropup = (datatable.getPageSize() - index) <= 4 ? 'dropup' : '';
 //				return '<div class="dropdown ' + dropup + ' d-none">\
-//		                        <a href="#" class="btn btn-clean btn-icon btn-pill d-none" data-toggle="dropdown">\
+//		                        <a href="javascript:" class="btn btn-clean btn-icon btn-pill d-none" data-toggle="dropdown">\
 //		                            <i class="la la-ellipsis-h"></i>\
 //		                        </a>\
 //		                        <div class="dropdown-menu dropdown-menu-right">\
-//		                            <a class="dropdown-item" href="#"><i class="la la-edit"></i> Edit Details</a>\
-//		                            <a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>\
-//		                            <a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>\
+//		                            <a class="dropdown-item" href="javascript:"><i class="la la-edit"></i> Edit Details</a>\
+//		                            <a class="dropdown-item" href="javascript:"><i class="la la-leaf"></i> Update Status</a>\
+//		                            <a class="dropdown-item" href="javascript:"><i class="la la-print"></i> Generate Report</a>\
 //		                        </div>\
 //		                    </div>\
-//		                    <a href="#" class="btn btn-clean btn-icon btn-pill" title="Edit details">\
+//		                    <a href="javascript:" class="btn btn-clean btn-icon btn-pill" title="Edit details">\
 //		                        <i class="la la-edit"></i>\
 //		                    </a>\
-//		                    <a href="#" class="btn btn-clean btn-icon btn-pill" title="Delete">\
+//		                    <a href="javascript:" class="btn btn-clean btn-icon btn-pill" title="Delete">\
 //		                        <i class="la la-trash"></i>\
 //		                    </a>';
 //			},

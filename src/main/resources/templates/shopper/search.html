@@ -35,8 +35,8 @@
 				<div th:each ="product : ${products}" class="col-6 col-md-4 col-lg-3">
 					<div class="tt-product thumbprod-center">
 						<div class="tt-image-box">
-							<a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Xem Trước" data-tposition="left"></a>
-							<a href="#" class="tt-btn-wishlist" data-tooltip="Yêu Thích" th:if="${isSignedIn}" th:classappend="${product.isWishList} ? 'active' : ''" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Xem Trước" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-wishlist" data-tooltip="Yêu Thích" th:if="${isSignedIn}" th:classappend="${product.isWishList} ? 'active' : ''" data-tposition="left"></a>
 							<input class="productBoxId" type="hidden" th:value="${product.id}">
 							<a th:href="@{/product/} + ${product.id}">
 								<span class="tt-img"><img src="images/loader.svg" th:data-src="${product.primaryImage()}" alt=""></span>
@@ -51,7 +51,7 @@
 						<div class="tt-description">
 							<div class="tt-row">
 								<ul class="tt-add-info">
-									<li><a href="#"><br></a></li>
+									<li><a href="javascript:"><br></a></li>
 								</ul>
 							</div>
 							<h2 class="tt-title">
@@ -63,9 +63,9 @@
 							<div class="tt-product-inside-hover">
 
 								<div class="tt-row-btn">
-									<a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>
-									<a href="#" class="tt-btn-wishlist"></a>
-									<a href="#" class="tt-btn-compare"></a>
+									<a href="javascript:" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>
+									<a href="javascript:" class="tt-btn-wishlist"></a>
+									<a href="javascript:" class="tt-btn-compare"></a>
 								</div>
 							</div>
 						</div>

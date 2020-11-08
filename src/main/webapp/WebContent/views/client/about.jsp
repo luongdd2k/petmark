@@ -49,19 +49,19 @@
                   <p>460 West 34th Street, 15th floor, New York  -  Hotline: 804-377-3580 - 804-399-3580</p>
                 </div>
                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
-                  <div class="header__actions"><a href="#">Login & Regiser</a>
-                    <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">USD<i class="fa fa-angle-down"></i></a>
+                  <div class="header__actions"><a href="javascript:">Login & Regiser</a>
+                    <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="javascript:" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">USD<i class="fa fa-angle-down"></i></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#"><img src="images/flag/usa.svg" alt=""> USD</a></li>
-                        <li><a href="#"><img src="images/flag/singapore.svg" alt=""> SGD</a></li>
-                        <li><a href="#"><img src="images/flag/japan.svg" alt=""> JPN</a></li>
+                        <li><a href="javascript:"><img src="images/flag/usa.svg" alt=""> USD</a></li>
+                        <li><a href="javascript:"><img src="images/flag/singapore.svg" alt=""> SGD</a></li>
+                        <li><a href="javascript:"><img src="images/flag/japan.svg" alt=""> JPN</a></li>
                       </ul>
                     </div>
-                    <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language<i class="fa fa-angle-down"></i></a>
+                    <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="javascript:" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language<i class="fa fa-angle-down"></i></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#">English</a></li>
-                        <li><a href="#">Japanese</a></li>
-                        <li><a href="#">Chinese</a></li>
+                        <li><a href="javascript:">English</a></li>
+                        <li><a href="javascript:">Japanese</a></li>
+                        <li><a href="javascript:">Chinese</a></li>
                       </ul>
                     </div>
                   </div>
@@ -79,11 +79,11 @@
                   <li class="menu-item menu-item-has-children dropdown"><a href="index.html">Home</a>
                         <ul class="sub-menu">
                           <li class="menu-item"><a href="index.html">Homepage #1</a></li>
-                          <li class="menu-item"><a href="#">Homepage #2</a></li>
-                          <li class="menu-item"><a href="#">Homepage #3</a></li>
+                          <li class="menu-item"><a href="javascript:">Homepage #2</a></li>
+                          <li class="menu-item"><a href="javascript:">Homepage #3</a></li>
                         </ul>
                   </li>
-                  <li class="menu-item menu-item-has-children has-mega-menu"><a href="#">Men</a>
+                  <li class="menu-item menu-item-has-children has-mega-menu"><a href="javascript:">Men</a>
                     <div class="mega-menu">
                       <div class="mega-wrap">
                         <div class="mega-column">
@@ -145,9 +145,9 @@
                       </div>
                     </div>
                   </li>
-                  <li class="menu-item"><a href="#">Women</a></li>
-                  <li class="menu-item"><a href="#">Kids</a></li>
-                  <li class="menu-item menu-item-has-children dropdown"><a href="#">News</a>
+                  <li class="menu-item"><a href="javascript:">Women</a></li>
+                  <li class="menu-item"><a href="javascript:">Kids</a></li>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="javascript:">News</a>
                         <ul class="sub-menu">
                           <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.html">Blog-grid</a>
                                 <ul class="sub-menu">
@@ -158,7 +158,7 @@
                           <li class="menu-item"><a href="blog-list.html">Blog List</a></li>
                         </ul>
                   </li>
-                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Contact</a>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="javascript:">Contact</a>
                         <ul class="sub-menu">
                           <li class="menu-item"><a href="contact-us.html">Contact Us #1</a></li>
                           <li class="menu-item"><a href="contact-us.html">Contact Us #2</a></li>
@@ -171,22 +171,22 @@
               <input class="form-control" type="text" placeholder="Search Product…">
               <button><i class="ps-icon-search"></i></button>
             </form>
-            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i>20</i></span><i class="ps-icon-shopping-cart"></i></a>
+            <div class="ps-cart"><a class="ps-cart__toggle" href="javascript:"><span><i>20</i></span><i class="ps-icon-shopping-cart"></i></a>
               <div class="ps-cart__listing">
                 <div class="ps-cart__content">
-                  <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
+                  <div class="ps-cart-item"><a class="ps-cart-item__close" href="javascript:"></a>
                     <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/cart-preview/1.jpg" alt=""></div>
                     <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">Amazin’ Glazin’</a>
                       <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
                     </div>
                   </div>
-                  <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
+                  <div class="ps-cart-item"><a class="ps-cart-item__close" href="javascript:"></a>
                     <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/cart-preview/2.jpg" alt=""></div>
                     <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">The Crusty Croissant</a>
                       <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
                     </div>
                   </div>
-                  <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
+                  <div class="ps-cart-item"><a class="ps-cart-item__close" href="javascript:"></a>
                     <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/cart-preview/3.jpg" alt=""></div>
                     <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">The Rolling Pin</a>
                       <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
@@ -230,9 +230,9 @@
                     <div class="ps-user">
                       <div class="ps-user__thumbnnail"><img src="images/team/1.png" alt="">
                         <ul class="ps-user__social">
-                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                          <li><a href="javascript:"><i class="fa fa-twitter"></i></a></li>
+                          <li><a href="javascript:"><i class="fa fa-facebook"></i></a></li>
+                          <li><a href="javascript:"><i class="fa fa-dribbble"></i></a></li>
                         </ul>
                       </div>
                       <div class="ps-user__content">
@@ -245,9 +245,9 @@
                     <div class="ps-user">
                       <div class="ps-user__thumbnnail"><img src="images/team/2.png" alt="">
                         <ul class="ps-user__social">
-                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                          <li><a href="javascript:"><i class="fa fa-twitter"></i></a></li>
+                          <li><a href="javascript:"><i class="fa fa-facebook"></i></a></li>
+                          <li><a href="javascript:"><i class="fa fa-dribbble"></i></a></li>
                         </ul>
                       </div>
                       <div class="ps-user__content">
@@ -260,9 +260,9 @@
                     <div class="ps-user">
                       <div class="ps-user__thumbnnail"><img src="images/team/3.png" alt="">
                         <ul class="ps-user__social">
-                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                          <li><a href="javascript:"><i class="fa fa-twitter"></i></a></li>
+                          <li><a href="javascript:"><i class="fa fa-facebook"></i></a></li>
+                          <li><a href="javascript:"><i class="fa fa-dribbble"></i></a></li>
                         </ul>
                       </div>
                       <div class="ps-user__content">
@@ -275,9 +275,9 @@
                     <div class="ps-user">
                       <div class="ps-user__thumbnnail"><img src="images/team/4.png" alt="">
                         <ul class="ps-user__social">
-                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                          <li><a href="javascript:"><i class="fa fa-twitter"></i></a></li>
+                          <li><a href="javascript:"><i class="fa fa-facebook"></i></a></li>
+                          <li><a href="javascript:"><i class="fa fa-dribbble"></i></a></li>
                         </ul>
                       </div>
                       <div class="ps-user__content">
@@ -297,10 +297,10 @@
                   <div class="ps-team">
                     <h3>Staff.</h3>
                     <ul class="ps-team__listing">
-                      <li><a href="#">Carolyn Flowers</a></li>
-                      <li><a href="#">Norman Barnett</a></li>
-                      <li><a href="#">Gabriel Barnes</a></li>
-                      <li><a href="#">Harriett Weaver</a></li>
+                      <li><a href="javascript:">Carolyn Flowers</a></li>
+                      <li><a href="javascript:">Norman Barnett</a></li>
+                      <li><a href="javascript:">Gabriel Barnes</a></li>
+                      <li><a href="javascript:">Harriett Weaver</a></li>
                     </ul>
                   </div>
                 </div>
@@ -308,10 +308,10 @@
                   <div class="ps-team">
                     <h3>Assistant.</h3>
                     <ul class="ps-team__listing">
-                      <li><a href="#">Hattie Figueroa</a></li>
-                      <li><a href="#">Sarah Cruz</a></li>
-                      <li><a href="#">Edna Cortez</a></li>
-                      <li><a href="#">Mabel Castillo</a></li>
+                      <li><a href="javascript:">Hattie Figueroa</a></li>
+                      <li><a href="javascript:">Sarah Cruz</a></li>
+                      <li><a href="javascript:">Edna Cortez</a></li>
+                      <li><a href="javascript:">Mabel Castillo</a></li>
                     </ul>
                   </div>
                 </div>
@@ -319,10 +319,10 @@
                   <div class="ps-team">
                     <h3>Staff.</h3>
                     <ul class="ps-team__listing">
-                      <li><a href="#">Max Wagner</a></li>
-                      <li><a href="#">Robert Peterson</a></li>
-                      <li><a href="#">Lee McLaughlin</a></li>
-                      <li><a href="#">Cory Payne</a></li>
+                      <li><a href="javascript:">Max Wagner</a></li>
+                      <li><a href="javascript:">Robert Peterson</a></li>
+                      <li><a href="javascript:">Lee McLaughlin</a></li>
+                      <li><a href="javascript:">Cory Payne</a></li>
                     </ul>
                   </div>
                 </div>
@@ -330,16 +330,16 @@
                   <div class="ps-team">
                     <h3>Staff.</h3>
                     <ul class="ps-team__listing">
-                      <li><a href="#">Sally Murray</a></li>
-                      <li><a href="#">Sally Sherman</a></li>
-                      <li><a href="#">Edith King</a></li>
-                      <li><a href="#">Mathilda Austin</a></li>
+                      <li><a href="javascript:">Sally Murray</a></li>
+                      <li><a href="javascript:">Sally Sherman</a></li>
+                      <li><a href="javascript:">Edith King</a></li>
+                      <li><a href="javascript:">Mathilda Austin</a></li>
                     </ul>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                   <div class="ps-join-team">
-                    <h3>Would you like to join team & build your dream NOW?</h3><a class="ps-btn" href="#">JOIN OUR TEAM<i class="ps-icon-arrow-left"></i></a>
+                    <h3>Would you like to join team & build your dream NOW?</h3><a class="ps-btn" href="javascript:">JOIN OUR TEAM<i class="ps-icon-arrow-left"></i></a>
                   </div>
                 </div>
           </div>
@@ -428,10 +428,10 @@
                       </header>
                       <footer>
                         <ul class="ps-list--link">
-                          <li><a href="#">Coupon Code</a></li>
-                          <li><a href="#">SignUp For Email</a></li>
-                          <li><a href="#">Site Feedback</a></li>
-                          <li><a href="#">Careers</a></li>
+                          <li><a href="javascript:">Coupon Code</a></li>
+                          <li><a href="javascript:">SignUp For Email</a></li>
+                          <li><a href="javascript:">Site Feedback</a></li>
+                          <li><a href="javascript:">Careers</a></li>
                         </ul>
                       </footer>
                     </aside>
@@ -443,11 +443,11 @@
                       </header>
                       <footer>
                         <ul class="ps-list--line">
-                          <li><a href="#">Order Status</a></li>
-                          <li><a href="#">Shipping and Delivery</a></li>
-                          <li><a href="#">Returns</a></li>
-                          <li><a href="#">Payment Options</a></li>
-                          <li><a href="#">Contact Us</a></li>
+                          <li><a href="javascript:">Order Status</a></li>
+                          <li><a href="javascript:">Shipping and Delivery</a></li>
+                          <li><a href="javascript:">Returns</a></li>
+                          <li><a href="javascript:">Payment Options</a></li>
+                          <li><a href="javascript:">Contact Us</a></li>
                         </ul>
                       </footer>
                     </aside>
@@ -459,10 +459,10 @@
                       </header>
                       <footer>
                         <ul class="ps-list--line">
-                          <li><a href="#">Shoes</a></li>
-                          <li><a href="#">Clothing</a></li>
-                          <li><a href="#">Accessries</a></li>
-                          <li><a href="#">Football Boots</a></li>
+                          <li><a href="javascript:">Shoes</a></li>
+                          <li><a href="javascript:">Clothing</a></li>
+                          <li><a href="javascript:">Accessries</a></li>
+                          <li><a href="javascript:">Football Boots</a></li>
                         </ul>
                       </footer>
                     </aside>
@@ -474,14 +474,14 @@
           <div class="ps-container">
             <div class="row">
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-                    <p>&copy; <a href="#">SKYTHEMES</a>, Inc. All rights Resevered. Design by <a href="#"> Alena Studio</a></p>
+                    <p>&copy; <a href="javascript:">SKYTHEMES</a>, Inc. All rights Resevered. Design by <a href="javascript:"> Alena Studio</a></p>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                     <ul class="ps-social">
-                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                      <li><a href="javascript:"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="javascript:"><i class="fa fa-google-plus"></i></a></li>
+                      <li><a href="javascript:"><i class="fa fa-twitter"></i></a></li>
+                      <li><a href="javascript:"><i class="fa fa-instagram"></i></a></li>
                     </ul>
                   </div>
             </div>

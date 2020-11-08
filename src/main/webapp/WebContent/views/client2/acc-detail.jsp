@@ -137,14 +137,14 @@
                 <a href="show-blog" class="nav__link">Blog</a>
               </li>
               <li class="nav__item">
-                <a href="#" class="nav__link">Liên hệ</a>
+                <a href="javascript:" class="nav__link">Liên hệ</a>
               </li>
             </ul>
           </div>
 
           <div class="nav__icons">
             <div id="location" class="hide"> 
-              <a href="#" class="icon__item">
+              <a href="javascript:" class="icon__item">
                 <svg class="icon__user">
                   <use xlink:href="./images/sprite.svg#icon-location"></use>
                 </svg>
@@ -153,7 +153,7 @@
             <div id="search-box" style="margin-right: 1rem;">
               <input class="form-control search-form"  type="search" aria-label="Search" placeholder="Tìm kiếm ...">
             </div>
-              <a href="#" class="icon__item">
+              <a href="javascript:" class="icon__item">
                 <svg class="icon__search">
                   <use xlink:href="./images/sprite.svg#icon-search"></use>
                 </svg>
@@ -309,19 +309,19 @@
 
                   <li>
                     <span>Số tiền :</span>
-                    <a href="#" class="new__price">80000 đ</a>
+                    <a href="javascript:" class="new__price">80000 đ</a>
                   </li>
                   <li>
                     <span>Hãng :</span>
-                    <a href="#">${acc.getCategory().getName() }</a>
+                    <a href="javascript:">${acc.getCategory().getName() }</a>
                   </li>
                   <li>
                     <span>Loại sản phẩm :</span>
-                    <a href="#">${acc.getCategory().getName() }</a>
+                    <a href="javascript:">${acc.getCategory().getName() }</a>
                   </li>
                   <li>
                     <span>Trạng thái :</span>
-                    <a href="#" class="in-stock">${acc.getStatus() }  (${acc.getAmount() } sản phẩm)</a>
+                    <a href="javascript:" class="in-stock">${acc.getStatus() }  (${acc.getAmount() } sản phẩm)</a>
                   </li>
                 </ul>
               </div>
@@ -392,7 +392,7 @@
                 <li class="glide__slide">
                   <div class="product">
                     <div class="product__header">
-                      <a href="#"><img src="images/products/sumsung/samsung5.jpeg" alt="product"></a>
+                      <a href="javascript:"><img src="images/products/sumsung/samsung5.jpeg" alt="product"></a>
                     </div>
                     <div class="product__footer">
                       <h3>Samsung Galaxy</h3>
@@ -416,11 +416,11 @@
                       <div class="product__price">
                         <h4>$900</h4>
                       </div>
-                      <a href="#"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
+                      <a href="javascript:"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
                     </div>
                     <ul>
                       <li>
-                        <a data-tip="Quick View" data-place="left" href="#">
+                        <a data-tip="Quick View" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-eye"></use>
                           </svg>
@@ -428,7 +428,7 @@
                       </li>
                        
                       <li>
-                        <a data-tip="Add To Compare" data-place="left" href="#">
+                        <a data-tip="Add To Compare" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-loop2"></use>
                           </svg>
@@ -441,7 +441,7 @@
                 <li class="glide__slide">
                   <div class="product">
                     <div class="product__header">
-                      <a href="#"><img src="images/products/iPhone/iphone6.jpeg" alt="product"></a>
+                      <a href="javascript:"><img src="images/products/iPhone/iphone6.jpeg" alt="product"></a>
                     </div>
                     <div class="product__footer">
                       <h3>Apple iPhone 11</h3>
@@ -465,11 +465,11 @@
                       <div class="product__price">
                         <h4>$750</h4>
                       </div>
-                      <a href="#"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
+                      <a href="javascript:"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
                     </div>
                     <ul>
                       <li>
-                        <a data-tip="Quick View" data-place="left" href="#">
+                        <a data-tip="Quick View" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-eye"></use>
                           </svg>
@@ -477,7 +477,7 @@
                       </li>
                        
                       <li>
-                        <a data-tip="Add To Compare" data-place="left" href="#">
+                        <a data-tip="Add To Compare" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-loop2"></use>
                           </svg>
@@ -489,7 +489,7 @@
                 <li class="glide__slide">
                   <div class="product">
                     <div class="product__header">
-                      <a href="#"><img src="images/products/sumsung/samsung3.jpeg" alt="product"></a>
+                      <a href="javascript:"><img src="images/products/sumsung/samsung3.jpeg" alt="product"></a>
                     </div>
                     <div class="product__footer">
                       <h3>Samsung Galaxy</h3>
@@ -513,11 +513,11 @@
                       <div class="product__price">
                         <h4>$850</h4>
                       </div>
-                      <a href="#"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
+                      <a href="javascript:"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
                     </div>
                     <ul>
                       <li>
-                        <a data-tip="Quick View" data-place="left" href="#">
+                        <a data-tip="Quick View" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-eye"></use>
                           </svg>
@@ -525,7 +525,7 @@
                       </li>
                        
                       <li>
-                        <a data-tip="Add To Compare" data-place="left" href="#">
+                        <a data-tip="Add To Compare" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-loop2"></use>
                           </svg>
@@ -537,7 +537,7 @@
                 <li class="glide__slide">
                   <div class="product">
                     <div class="product__header">
-                      <a href="#"><img src="images/products/iPhone/iphone2.jpeg" alt="product"></a>
+                      <a href="javascript:"><img src="images/products/iPhone/iphone2.jpeg" alt="product"></a>
                     </div>
                     <div class="product__footer">
                       <h3>Apple iPhone 11</h3>
@@ -561,11 +561,11 @@
                       <div class="product__price">
                         <h4>$450</h4>
                       </div>
-                      <a href="#"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
+                      <a href="javascript:"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
                     </div>
                     <ul>
                       <li>
-                        <a data-tip="Quick View" data-place="left" href="#">
+                        <a data-tip="Quick View" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-eye"></use>
                           </svg>
@@ -573,7 +573,7 @@
                       </li>
                        
                       <li>
-                        <a data-tip="Add To Compare" data-place="left" href="#">
+                        <a data-tip="Add To Compare" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-loop2"></use>
                           </svg>
@@ -585,7 +585,7 @@
                 <li class="glide__slide">
                   <div class="product">
                     <div class="product__header">
-                      <a href="#"><img src="/images/products/headphone/headphone4.jpeg" alt="product"></a>
+                      <a href="javascript:"><img src="/images/products/headphone/headphone4.jpeg" alt="product"></a>
                     </div>
                     <div class="product__footer">
                       <h3>Sony WH-CH510</h3>
@@ -609,11 +609,11 @@
                       <div class="product__price">
                         <h4>$600</h4>
                       </div>
-                      <a href="#"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
+                      <a href="javascript:"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
                     </div>
                     <ul>
                       <li>
-                        <a data-tip="Quick View" data-place="left" href="#">
+                        <a data-tip="Quick View" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-eye"></use>
                           </svg>
@@ -621,7 +621,7 @@
                       </li>
                        
                       <li>
-                        <a data-tip="Add To Compare" data-place="left" href="#">
+                        <a data-tip="Add To Compare" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-loop2"></use>
                           </svg>
@@ -634,7 +634,7 @@
                 <li class="glide__slide">
                   <div class="product">
                     <div class="product__header">
-                      <a href="#"><img src="images/products/sumsung/samsung1.jpeg" alt="product"></a>
+                      <a href="javascript:"><img src="images/products/sumsung/samsung1.jpeg" alt="product"></a>
                     </div>
                     <div class="product__footer">
                       <h3>Samsung Galaxy</h3>
@@ -658,11 +658,11 @@
                       <div class="product__price">
                         <h4>$300</h4>
                       </div>
-                      <a href="#"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
+                      <a href="javascript:"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
                     </div>
                     <ul>
                       <li>
-                        <a data-tip="Quick View" data-place="left" href="#">
+                        <a data-tip="Quick View" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-eye"></use>
                           </svg>
@@ -670,7 +670,7 @@
                       </li>
                        
                       <li>
-                        <a data-tip="Add To Compare" data-place="left" href="#">
+                        <a data-tip="Add To Compare" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-loop2"></use>
                           </svg>
@@ -682,7 +682,7 @@
                 <li class="glide__slide">
                   <div class="product">
                     <div class="product__header">
-                      <a href="#"><img src="images/products/headphone/headphone2.jpeg" alt="product"></a>
+                      <a href="javascript:"><img src="images/products/headphone/headphone2.jpeg" alt="product"></a>
                     </div>
                     <div class="product__footer">
                       <h3>Sony WH-CH510</h3>
@@ -706,11 +706,11 @@
                       <div class="product__price">
                         <h4>$300</h4>
                       </div>
-                      <a href="#"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
+                      <a href="javascript:"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
                     </div>
                     <ul>
                       <li>
-                        <a data-tip="Quick View" data-place="left" href="#">
+                        <a data-tip="Quick View" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-eye"></use>
                           </svg>
@@ -718,7 +718,7 @@
                       </li>
                        
                       <li>
-                        <a data-tip="Add To Compare" data-place="left" href="#">
+                        <a data-tip="Add To Compare" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-loop2"></use>
                           </svg>
@@ -730,7 +730,7 @@
                 <li class="glide__slide">
                   <div class="product">
                     <div class="product__header">
-                      <a href="#"><img src="images/products/headphone/headphone1.jpeg" alt="product"></a>
+                      <a href="javascript:"><img src="images/products/headphone/headphone1.jpeg" alt="product"></a>
                     </div>
                     <div class="product__footer">
                       <h3>Sony WH-CH510</h3>
@@ -754,11 +754,11 @@
                       <div class="product__price">
                         <h4>$250</h4>
                       </div>
-                      <a href="#"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
+                      <a href="javascript:"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
                     </div>
                     <ul>
                       <li>
-                        <a data-tip="Quick View" data-place="left" href="#">
+                        <a data-tip="Quick View" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-eye"></use>
                           </svg>
@@ -766,7 +766,7 @@
                       </li>
                        
                       <li>
-                        <a data-tip="Add To Compare" data-place="left" href="#">
+                        <a data-tip="Add To Compare" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-loop2"></use>
                           </svg>
@@ -778,7 +778,7 @@
                 <li class="glide__slide">
                   <div class="product">
                     <div class="product__header">
-                      <a href="#"><img src="images/products/iPhone/iphone1.jpeg" alt="product"></a>
+                      <a href="javascript:"><img src="images/products/iPhone/iphone1.jpeg" alt="product"></a>
                     </div>
                     <div class="product__footer">
                       <h3>Apple iPhone XR</h3>
@@ -802,11 +802,11 @@
                       <div class="product__price">
                         <h4>$550</h4>
                       </div>
-                      <a href="#"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
+                      <a href="javascript:"><button type="submit" class="product__btn">Thêm vào giỏ hàng</button></a>
                     </div>
                     <ul>
                       <li>
-                        <a data-tip="Quick View" data-place="left" href="#">
+                        <a data-tip="Quick View" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-eye"></use>
                           </svg>
@@ -814,7 +814,7 @@
                       </li>
                        
                       <li>
-                        <a data-tip="Add To Compare" data-place="left" href="#">
+                        <a data-tip="Add To Compare" data-place="left" href="javascript:">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-loop2"></use>
                           </svg>
@@ -892,21 +892,21 @@
       <div class="footer__top">
         <div class="footer-top__box">
           <h3>SẢN PHẨM</h3>
-          <a href="#">Chó</a>
-          <a href="#">Mèo</a>
-          <a href="#">Phụ kiện</a>
+          <a href="javascript:">Chó</a>
+          <a href="javascript:">Mèo</a>
+          <a href="javascript:">Phụ kiện</a>
         </div>
         <div class="footer-top__box">
           <h3>THÔNG TIN</h3>
-          <a href="#">Về chúng tôi</a>
-          <a href="#">Chính Sách Bảo Mật</a>
-          <a href="#">Điều khoản và Điều kiện</a>
-          <a href="#">Liên hệ</a>
+          <a href="javascript:">Về chúng tôi</a>
+          <a href="javascript:">Chính Sách Bảo Mật</a>
+          <a href="javascript:">Điều khoản và Điều kiện</a>
+          <a href="javascript:">Liên hệ</a>
         </div>
         <div class="footer-top__box">
           <h3>TÀI KHOẢN CỦA TÔI</h3>
-          <a href="#">Thông tin tài khoản</a>
-          <a href="#">Danh sách đơn hàng</a>
+          <a href="javascript:">Thông tin tài khoản</a>
+          <a href="javascript:">Danh sách đơn hàng</a>
         </div>
         <div class="footer-top__box">
           <h3>LIÊN HỆ</h3>

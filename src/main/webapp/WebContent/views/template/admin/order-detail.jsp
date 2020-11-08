@@ -18,7 +18,7 @@
 			</div>
 			<div class="kt-portlet__head-toolbar">
 				<div class="kt-portlet__head-wrapper">
-					<a href="#" class="btn btn-clean btn-icon-sm d-none">
+					<a href="javascript:" class="btn btn-clean btn-icon-sm d-none">
 						<i class="la la-long-arrow-left"></i>
 						Quay lại
 					</a>
@@ -77,7 +77,7 @@
 				<div class="col-12 d-none"><h4>Thay đổi trạng thái:</h4></div>
 				<div class="col-12">
 					<button th:each="action : ${actions}" type="button" th:class="${'btn_change_status btn ' + action.class}" th:status="${action.status}" th:text="${action.title}"></button>
-					<a href="#" class="btn btn-clean btn-icon-sm undo_action" th:status="${undoAction}" th:if="${undoAction != ''}">
+					<a href="javascript:" class="btn btn-clean btn-icon-sm undo_action" th:status="${undoAction}" th:if="${undoAction != ''}">
 						<i class="la la-long-arrow-left"></i>
 						Quay lại trạng thái trước
 <!-- 						<span th:text="${undoAction}"></span> -->

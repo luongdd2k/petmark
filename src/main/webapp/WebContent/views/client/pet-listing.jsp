@@ -115,11 +115,11 @@
           </div>
           <div class="ps-pagination">
             <ul class="pagination">
-              <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">...</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+              <li><a href="javascript:"><i class="fa fa-angle-left"></i></a></li>
+              <li class="active"><a href="javascript:">1</a></li>
+              <li><a href="javascript:">2</a></li>
+              <li><a href="javascript:">...</a></li>
+              <li><a href="javascript:"><i class="fa fa-angle-right"></i></a></li>
             </ul>
           </div>
         </div>
@@ -131,7 +131,7 @@
                 <div class="ps-badge ps-badge--sale ps-badge--2nd">
                   <span>-35%</span>
                 </div>
-                <a class="ps-shoe__favorite" href="#">
+                <a class="ps-shoe__favorite" href="javascript:">
                   <i class="ps-icon-heart"></i>
                 </a>
                 <img src="https://tapchithucung.vn/Uploads/images/content/benh-ve-ky-sinh-gay-benh-o-cho-Alaska.jpg"
@@ -236,7 +236,7 @@
               <div class="ps-shoe__thumbnail">
                 <!-- <div class="ps-badge"><span>New</span></div>
                 <div class="ps-badge ps-badge--sale ps-badge--2nd"><span>-35%</span></div> -->
-                <a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img
+                <a class="ps-shoe__favorite" href="javascript:"><i class="ps-icon-heart"></i></a><img
                   src="https://i.pinimg.com/originals/ef/ec/9f/efec9f666e35de94c5e11430ca2698b2.jpg" alt=""><a
                   class="ps-shoe__overlay" href="pet-detail.html"></a>
               </div>
@@ -510,11 +510,11 @@
           </div>
           <div class="ps-pagination">
             <ul class="pagination">
-              <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">...</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+              <li><a href="javascript:"><i class="fa fa-angle-left"></i></a></li>
+              <li class="active"><a href="javascript:">1</a></li>
+              <li><a href="javascript:">2</a></li>
+              <li><a href="javascript:">...</a></li>
+              <li><a href="javascript:"><i class="fa fa-angle-right"></i></a></li>
             </ul>
           </div>
         </div>
@@ -545,7 +545,7 @@
               data-unit="$"></div>
             <p class="ac-slider__meta">Price:<span class="ac-slider__value ac-slider__min"></span>-<span
                 class="ac-slider__value ac-slider__max"></span></p><a class="ac-slider__filter ps-btn"
-              href="#">Filter</a>
+              href="javascript:">Filter</a>
           </div>
         </aside>
         
@@ -556,19 +556,19 @@
             </div>
             <div class="ps-widget__content">
               <ul class="ps-list--color">
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
+                <li><a href="javascript:"></a></li>
+                <li><a href="javascript:"></a></li>
+                <li><a href="javascript:"></a></li>
+                <li><a href="javascript:"></a></li>
+                <li><a href="javascript:"></a></li>
+                <li><a href="javascript:"></a></li>
+                <li><a href="javascript:"></a></li>
+                <li><a href="javascript:"></a></li>
+                <li><a href="javascript:"></a></li>
+                <li><a href="javascript:"></a></li>
+                <li><a href="javascript:"></a></li>
+                <li><a href="javascript:"></a></li>
+                <li><a href="javascript:"></a></li>
               </ul>
             </div>
           </aside>

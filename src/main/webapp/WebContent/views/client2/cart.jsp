@@ -83,13 +83,13 @@
                 </div>
       
                 <div class="nav__icons">
-                  <a href="#" class="icon__item">
+                  <a href="javascript:" class="icon__item">
                     <svg class="icon__user">
                       <use xlink:href="images/sprite.svg#icon-user"></use>
                     </svg>
                   </a>
       
-                  <a href="#" class="icon__item">
+                  <a href="javascript:" class="icon__item">
                     <svg class="icon__search">
                       <use xlink:href="images/sprite.svg#icon-search"></use>
                     </svg>
@@ -144,12 +144,12 @@
                             <tbody>
                                 <tr>
                                     <td class="product__thumbnail">
-                                        <a href="#">
+                                        <a href="javascript:">
                                             <img src="${card.getAccessories().getImgs().get(0).getImgAvartar() }" alt="">
                                         </a>
                                     </td>
                                     <td class="product__name">
-                                        <a href="#">${card.getAccessories().getName() } </a>
+                                        <a href="javascript:">${card.getAccessories().getName() } </a>
                                     </td>
                                     <td class="product__price">
                                         <div class="price">
@@ -266,21 +266,21 @@
       <div class="footer__top">
         <div class="footer-top__box">
           <h3>SẢN PHẨM</h3>
-          <a href="#">Chó</a>
-          <a href="#">Mèo</a>
-          <a href="#">Phụ kiện</a>
+          <a href="javascript:">Chó</a>
+          <a href="javascript:">Mèo</a>
+          <a href="javascript:">Phụ kiện</a>
         </div>
         <div class="footer-top__box">
           <h3>THÔNG TIN</h3>
-          <a href="#">Về chúng tôi</a>
-          <a href="#">Chính Sách Bảo Mật</a>
-          <a href="#">Điều khoản và Điều kiện</a>
-          <a href="#">Liên hệ</a>
+          <a href="javascript:">Về chúng tôi</a>
+          <a href="javascript:">Chính Sách Bảo Mật</a>
+          <a href="javascript:">Điều khoản và Điều kiện</a>
+          <a href="javascript:">Liên hệ</a>
         </div>
         <div class="footer-top__box">
           <h3>TÀI KHOẢN CỦA TÔI</h3>
-          <a href="#">Thông tin tài khoản</a>
-          <a href="#">Danh sách đơn hàng</a>
+          <a href="javascript:">Thông tin tài khoản</a>
+          <a href="javascript:">Danh sách đơn hàng</a>
         </div>
         <div class="footer-top__box">
           <h3>LIÊN HỆ</h3>

@@ -32,43 +32,43 @@
 				<div class="row">
 					<div class="col-sm-6 col-md-6 col-lg-4">
 						<div class="tt-box-thumb">
-							<a href="#" class="tt-img"><img src="images/loader.svg" data-src="images/custom/services-img-01.jpg" alt=""></a>
-							<h6 class="tt-title"><a href="#">FUTURE LEADERS</a></h6>
+							<a href="javascript:" class="tt-img"><img src="images/loader.svg" data-src="images/custom/services-img-01.jpg" alt=""></a>
+							<h6 class="tt-title"><a href="javascript:">FUTURE LEADERS</a></h6>
 							<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-6 col-lg-4">
 						<div class="tt-box-thumb">
-							<a href="#" class="tt-img"><img src="images/loader.svg" data-src="images/custom/services-img-02.jpg" alt=""></a>
-							<h6 class="tt-title"><a href="#">POWERFUL SOLUTIONS</a></h6>
+							<a href="javascript:" class="tt-img"><img src="images/loader.svg" data-src="images/custom/services-img-02.jpg" alt=""></a>
+							<h6 class="tt-title"><a href="javascript:">POWERFUL SOLUTIONS</a></h6>
 							<p>Dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-6 col-lg-4">
 						<div class="tt-box-thumb">
-							<a href="#" class="tt-img"><img src="images/loader.svg" data-src="images/custom/services-img-03.jpg" alt=""></a>
-							<h6 class="tt-title"><a href="#">PROGRESSIVE TOOLS</a></h6>
+							<a href="javascript:" class="tt-img"><img src="images/loader.svg" data-src="images/custom/services-img-03.jpg" alt=""></a>
+							<h6 class="tt-title"><a href="javascript:">PROGRESSIVE TOOLS</a></h6>
 							<p>Ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-6 col-lg-4">
 						<div class="tt-box-thumb">
-							<a href="#" class="tt-img"><img src="images/loader.svg" data-src="images/custom/services-img-04.jpg" alt=""></a>
-							<h6 class="tt-title"><a href="#">CREATIVE PROJECTS</a></h6>
+							<a href="javascript:" class="tt-img"><img src="images/loader.svg" data-src="images/custom/services-img-04.jpg" alt=""></a>
+							<h6 class="tt-title"><a href="javascript:">CREATIVE PROJECTS</a></h6>
 							<p>Sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-6 col-lg-4">
 						<div class="tt-box-thumb">
-							<a href="#" class="tt-img"><img src="images/loader.svg" data-src="images/custom/services-img-05.jpg" alt=""></a>
-							<h6 class="tt-title"><a href="#">INNOVATION EXPERTS</a></h6>
+							<a href="javascript:" class="tt-img"><img src="images/loader.svg" data-src="images/custom/services-img-05.jpg" alt=""></a>
+							<h6 class="tt-title"><a href="javascript:">INNOVATION EXPERTS</a></h6>
 							<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-6 col-lg-4">
 						<div class="tt-box-thumb">
-							<a href="#" class="tt-img"><img src="images/loader.svg" data-src="images/custom/services-img-06.jpg" alt=""></a>
-							<h6 class="tt-title"><a href="#">LEADING STRATEGIES</a></h6>
+							<a href="javascript:" class="tt-img"><img src="images/loader.svg" data-src="images/custom/services-img-06.jpg" alt=""></a>
+							<h6 class="tt-title"><a href="javascript:">LEADING STRATEGIES</a></h6>
 							<p>Dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 						</div>
 					</div>

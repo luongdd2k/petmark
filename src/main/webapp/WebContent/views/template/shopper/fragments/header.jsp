@@ -452,7 +452,7 @@
 							<!-- desktop category -->
 							<nav>
 								<ul id="header-dropdown">
-<!-- 									<li><a href="#">Giày Sneaker</a></li> -->
+<!-- 									<li><a href="javascript:">Giày Sneaker</a></li> -->
 								</ul>
 							</nav>
 						</div>
@@ -580,12 +580,12 @@
 																THƯƠNG HIỆU
 															</a>
 															<ul class="tt-listing-01">
-																<li><a href="#" target="_blank"><img src="images/logoshoe/nike_logo.png" alt=""></a></li>
-																<li><a href="#" target="_blank"><img src="images/logoshoe/Converse-Logo.jpg" alt=""></a></li>
-																<li><a href="#" target="_blank"><img src="images/logoshoe/logo_adidas.jpg" alt=""></a></li>
-																<li><a href="#" target="_blank"><img src="images/logoshoe/alacoste-Logo.jpg" alt=""></a></li>
-																<li><a href="#" target="_blank"><img src="images/logoshoe/logo_newbalan.jpg" alt=""></a></li>
-																<li><a href="#" target="_blank"><img src="images/logoshoe/logo_lv.jpg" alt=""></a></li>
+																<li><a href="javascript:" target="_blank"><img src="images/logoshoe/nike_logo.png" alt=""></a></li>
+																<li><a href="javascript:" target="_blank"><img src="images/logoshoe/Converse-Logo.jpg" alt=""></a></li>
+																<li><a href="javascript:" target="_blank"><img src="images/logoshoe/logo_adidas.jpg" alt=""></a></li>
+																<li><a href="javascript:" target="_blank"><img src="images/logoshoe/alacoste-Logo.jpg" alt=""></a></li>
+																<li><a href="javascript:" target="_blank"><img src="images/logoshoe/logo_newbalan.jpg" alt=""></a></li>
+																<li><a href="javascript:" target="_blank"><img src="images/logoshoe/logo_lv.jpg" alt=""></a></li>
 															</ul>
 														</div>
 													</div>
@@ -851,7 +851,7 @@
 														</div>
 													</a>
 													<div class="tt-item-close">
-														<a href="#" class="tt-btn-close"></a>
+														<a href="javascript:" class="tt-btn-close"></a>
 													</div>
 												</div>
 

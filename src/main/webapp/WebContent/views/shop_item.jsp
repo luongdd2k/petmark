@@ -59,7 +59,7 @@
 				
 				<div id="product_title">
 					<div id="product_title_1">${product.getName()}</div>
-					<div id="product_title_2">Thương hiệu: <a href="#"></a></div>
+					<div id="product_title_2">Thương hiệu: <a href="javascript:"></a></div>
 					<div id="product_title_3">Xem <span>12 đánh giá</span></div>
 					<div id="product_title_4"><span>${countProductView }</span> lượt xem</div>
 					<input type="hidden" name="cart_hidden_id" id="cart_hidden_id" value="${id}">

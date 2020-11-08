@@ -46,7 +46,7 @@
 					<div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
 						<div class="kt-login__container">
 							<div class="kt-login__logo">
-								<a href="#">
+								<a href="javascript:">
 									<img src="https://mms.businesswire.com/media/20180705005045/en/592515/23/PetSmart_Logo_w_tag_RGB.jpg" style="width: 125px;">
 								</a>
 							</div>

@@ -50,11 +50,11 @@
                 </div>
                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                   <div class="header__actions">
-                    <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language<i class="fa fa-angle-down"></i></a>
+                    <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="javascript:" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language<i class="fa fa-angle-down"></i></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#">English</a></li>
-                        <li><a href="#">Japanese</a></li>
-                        <li><a href="#">Chinese</a></li>
+                        <li><a href="javascript:">English</a></li>
+                        <li><a href="javascript:">Japanese</a></li>
+                        <li><a href="javascript:">Chinese</a></li>
                       </ul>
                     </div>
                   </div>
@@ -190,9 +190,9 @@
                             <label for="rdo02">Paypal</label>
                           </div>
                           <ul class="ps-payment-method">
-                            <li><a href="#"><img src="images/payment/1.png" alt=""></a></li>
-                            <!-- <li><a href="#"><img src="images/payment/2.png" alt=""></a></li>
-                            <li><a href="#"><img src="images/payment/3.png" alt=""></a></li> -->
+                            <li><a href="javascript:"><img src="images/payment/1.png" alt=""></a></li>
+                            <!-- <li><a href="javascript:"><img src="images/payment/2.png" alt=""></a></li>
+                            <li><a href="javascript:"><img src="images/payment/3.png" alt=""></a></li> -->
                           </ul>
                           <button class="ps-btn ps-btn--fullwidth">Despost<i class="ps-icon-next"></i></button>
                         </div>

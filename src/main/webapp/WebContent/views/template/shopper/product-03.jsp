@@ -41,7 +41,7 @@
 				</div> -->
 				<!-- <div>
 					<div class="tt-video-block">
-						<a href="#" class="link-video"></a>
+						<a href="javascript:" class="link-video"></a>
 						<video class="movie" src="video/video.mp4" poster="video/video_img.jpg"></video>
 					</div>
 				</div> -->
@@ -64,7 +64,7 @@
 							</li> -->
 							<!-- <li>
 								<div class="tt-video-block">
-									<a href="#" class="link-video"></a>
+									<a href="javascript:" class="link-video"></a>
 									<video class="movie" src="video/video.mp4" poster="video/video_img.jpg"></video>
 								</div>
 							</li> -->
@@ -93,7 +93,7 @@
 									<i class="icon-star-half"></i>
 									<i class="icon-star-empty"></i>
 								</div>
-								<a href="#">(1 Customer Review)</a>
+								<a href="javascript:">(1 Customer Review)</a>
 							</div>
 							<div class="tt-wrapper">
 								Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
@@ -108,14 +108,14 @@
 										</div>
 									</div>
 									<div class="col-item">
-										<a href="#" class="btn btn-lg"><i class="icon-f-39"></i>ADD TO CART</a>
+										<a href="javascript:" class="btn btn-lg"><i class="icon-f-39"></i>ADD TO CART</a>
 									</div>
 								</div>
 							</div>
 							<div class="tt-wrapper">
 								<ul class="tt-list-btn">
-									<li><a class="btn-link" href="#"><i class="icon-n-072"></i>ADD TO WISH LIST</a></li>
-									<li><a class="btn-link" href="#"><i class="icon-n-08"></i>ADD TO COMPARE</a></li>
+									<li><a class="btn-link" href="javascript:"><i class="icon-n-072"></i>ADD TO WISH LIST</a></li>
+									<li><a class="btn-link" href="javascript:"><i class="icon-n-08"></i>ADD TO COMPARE</a></li>
 								</ul>
 							</div>
 							<div class="tt-wrapper">
@@ -123,7 +123,7 @@
 									<ul>
 										<li><span>Vendor:</span> Polo</li>
 										<li><span>Product Type:</span> T-Shirt</li>
-										<li><span>Tag:</span> <a href="#">T-Shirt</a>, <a href="#">Women</a>, <a href="#">Top</a></li>
+										<li><span>Tag:</span> <a href="javascript:">T-Shirt</a>, <a href="javascript:">Women</a>, <a href="javascript:">Top</a></li>
 									</ul>
 								</div>
 							</div>
@@ -166,13 +166,13 @@
 													</h2>
 												</div>
 												<div class="col-item">
-													<a href="#">Write a review</a>
+													<a href="javascript:">Write a review</a>
 												</div>
 											</div>
 											<div class="tt-review-comments">
 												<div class="tt-item">
 													<div class="tt-avatar">
-														<a href="#"><img src="images/product/single/review-comments-img-01.jpg" alt=""></a>
+														<a href="javascript:"><img src="images/product/single/review-comments-img-01.jpg" alt=""></a>
 													</div>
 													<div class="tt-content">
 														<div class="tt-rating">
@@ -194,7 +194,7 @@
 												</div>
 												<div class="tt-item">
 													<div class="tt-avatar">
-														<a href="#"><img src="images/product/single/review-comments-img-02.jpg" alt=""></a>
+														<a href="javascript:"><img src="images/product/single/review-comments-img-02.jpg" alt=""></a>
 													</div>
 													<div class="tt-content">
 														<div class="tt-rating">
@@ -216,7 +216,7 @@
 												</div>
 												<div class="tt-item">
 													<div class="tt-avatar">
-														<a href="#"></a>
+														<a href="javascript:"></a>
 													</div>
 													<div class="tt-content">
 														<div class="tt-rating">
@@ -302,9 +302,9 @@
 				<div class="col-2 col-md-4 col-lg-3">
 					<div class="tt-product thumbprod-center">
 						<div class="tt-image-box">
-							<a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>
-							<a href="#" class="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
-							<a href="#" class="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
 							<a href="product.html">
 								<span class="tt-img"><img src="images/product/product-16.jpg" alt=""></span>
 								<span class="tt-img-roll-over"><img src="images/product/product-16-02.jpg" alt=""></span>
@@ -313,7 +313,7 @@
 						<div class="tt-description">
 							<div class="tt-row">
 								<ul class="tt-add-info">
-									<li><a href="#">T-SHIRTS</a></li>
+									<li><a href="javascript:">T-SHIRTS</a></li>
 								</ul>
 							</div>
 							<h2 class="tt-title"><a href="product.html">Flared Shift Dress</a></h2>
@@ -322,12 +322,12 @@
 							</div>
 							<div class="tt-product-inside-hover">
 								<div class="tt-row-btn">
-									<a href="#" class="tt-btn-addtocart thumbprod-button-bg" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a>
+									<a href="javascript:" class="tt-btn-addtocart thumbprod-button-bg" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a>
 								</div>
 								<div class="tt-row-btn">
-									<a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>
-									<a href="#" class="tt-btn-wishlist"></a>
-									<a href="#" class="tt-btn-compare"></a>
+									<a href="javascript:" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>
+									<a href="javascript:" class="tt-btn-wishlist"></a>
+									<a href="javascript:" class="tt-btn-compare"></a>
 								</div>
 							</div>
 						</div>
@@ -336,9 +336,9 @@
 				<div class="col-2 col-md-4 col-lg-3">
 					<div class="tt-product thumbprod-center">
 						<div class="tt-image-box">
-							<a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>
-							<a href="#" class="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
-							<a href="#" class="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
 							<a href="product.html">
 								<span class="tt-img"><img src="images/product/product-17.jpg" alt=""></span>
 								<span class="tt-img-roll-over"><img src="images/product/product-17-01.jpg" alt=""></span>
@@ -347,7 +347,7 @@
 						<div class="tt-description">
 							<div class="tt-row">
 								<ul class="tt-add-info">
-									<li><a href="#">T-SHIRTS</a></li>
+									<li><a href="javascript:">T-SHIRTS</a></li>
 								</ul>
 								<div class="tt-rating">
 									<i class="icon-star"></i>
@@ -363,12 +363,12 @@
 							</div>
 							<div class="tt-product-inside-hover">
 								<div class="tt-row-btn">
-									<a href="#" class="tt-btn-addtocart thumbprod-button-bg" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a>
+									<a href="javascript:" class="tt-btn-addtocart thumbprod-button-bg" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a>
 								</div>
 								<div class="tt-row-btn">
-									<a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>
-									<a href="#" class="tt-btn-wishlist"></a>
-									<a href="#" class="tt-btn-compare"></a>
+									<a href="javascript:" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>
+									<a href="javascript:" class="tt-btn-wishlist"></a>
+									<a href="javascript:" class="tt-btn-compare"></a>
 								</div>
 							</div>
 						</div>
@@ -377,9 +377,9 @@
 				<div class="col-2 col-md-4 col-lg-3">
 					<div class="tt-product thumbprod-center">
 						<div class="tt-image-box">
-							<a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>
-							<a href="#" class="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
-							<a href="#" class="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
 							<a href="product.html">
 								<span class="tt-img"><img src="images/product/product-18.jpg" alt=""></span>
 								<span class="tt-img-roll-over"><img src="images/product/product-18-02.jpg" alt=""></span>
@@ -388,7 +388,7 @@
 						<div class="tt-description">
 							<div class="tt-row">
 								<ul class="tt-add-info">
-									<li><a href="#">T-SHIRTS</a></li>
+									<li><a href="javascript:">T-SHIRTS</a></li>
 								</ul>
 							</div>
 							<h2 class="tt-title"><a href="product.html">Flared Shift Dress</a></h2>
@@ -397,18 +397,18 @@
 							</div>
 							<div class="tt-option-block">
 								<ul class="tt-options-swatch">
-									<li><a class="options-color tt-color-bg-01" href="#"></a></li>
-									<li><a class="options-color tt-color-bg-02" href="#"></a></li>
+									<li><a class="options-color tt-color-bg-01" href="javascript:"></a></li>
+									<li><a class="options-color tt-color-bg-02" href="javascript:"></a></li>
 								</ul>
 							</div>
 							<div class="tt-product-inside-hover">
 								<div class="tt-row-btn">
-									<a href="#" class="tt-btn-addtocart thumbprod-button-bg" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a>
+									<a href="javascript:" class="tt-btn-addtocart thumbprod-button-bg" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a>
 								</div>
 								<div class="tt-row-btn">
-									<a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>
-									<a href="#" class="tt-btn-wishlist"></a>
-									<a href="#" class="tt-btn-compare"></a>
+									<a href="javascript:" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>
+									<a href="javascript:" class="tt-btn-wishlist"></a>
+									<a href="javascript:" class="tt-btn-compare"></a>
 								</div>
 							</div>
 						</div>
@@ -417,9 +417,9 @@
 				<div class="col-2 col-md-4 col-lg-3">
 					<div class="tt-product thumbprod-center">
 						<div class="tt-image-box">
-							<a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>
-							<a href="#" class="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
-							<a href="#" class="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
 							<a href="product.html">
 								<span class="tt-img"><img src="images/product/product-19.jpg" alt=""></span>
 								<span class="tt-img-roll-over"><img src="images/product/product-19-02.jpg" alt=""></span>
@@ -428,7 +428,7 @@
 						<div class="tt-description">
 							<div class="tt-row">
 								<ul class="tt-add-info">
-									<li><a href="#">T-SHIRTS</a></li>
+									<li><a href="javascript:">T-SHIRTS</a></li>
 								</ul>
 								<div class="tt-rating">
 									<i class="icon-star"></i>
@@ -444,12 +444,12 @@
 							</div>
 							<div class="tt-product-inside-hover">
 								<div class="tt-row-btn">
-									<a href="#" class="tt-btn-addtocart thumbprod-button-bg" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a>
+									<a href="javascript:" class="tt-btn-addtocart thumbprod-button-bg" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a>
 								</div>
 								<div class="tt-row-btn">
-									<a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>
-									<a href="#" class="tt-btn-wishlist"></a>
-									<a href="#" class="tt-btn-compare"></a>
+									<a href="javascript:" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>
+									<a href="javascript:" class="tt-btn-wishlist"></a>
+									<a href="javascript:" class="tt-btn-compare"></a>
 								</div>
 							</div>
 						</div>
@@ -458,9 +458,9 @@
 				<div class="col-2 col-md-4 col-lg-3">
 					<div class="tt-product thumbprod-center">
 						<div class="tt-image-box">
-							<a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>
-							<a href="#" class="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
-							<a href="#" class="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Quick View" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-wishlist" data-tooltip="Add to Wishlist" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-compare" data-tooltip="Add to Compare" data-tposition="left"></a>
 							<a href="product.html">
 								<span class="tt-img"><img src="images/product/product-14.jpg" alt=""></span>
 								<span class="tt-img-roll-over"><img src="images/product/product-14-02.jpg" alt=""></span>
@@ -469,7 +469,7 @@
 						<div class="tt-description">
 							<div class="tt-row">
 								<ul class="tt-add-info">
-									<li><a href="#">T-SHIRTS</a></li>
+									<li><a href="javascript:">T-SHIRTS</a></li>
 								</ul>
 							</div>
 							<h2 class="tt-title"><a href="product.html">Flared Shift Dress</a></h2>
@@ -478,12 +478,12 @@
 							</div>
 							<div class="tt-product-inside-hover">
 								<div class="tt-row-btn">
-									<a href="#" class="tt-btn-addtocart thumbprod-button-bg" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a>
+									<a href="javascript:" class="tt-btn-addtocart thumbprod-button-bg" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a>
 								</div>
 								<div class="tt-row-btn">
-									<a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>
-									<a href="#" class="tt-btn-wishlist"></a>
-									<a href="#" class="tt-btn-compare"></a>
+									<a href="javascript:" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>
+									<a href="javascript:" class="tt-btn-wishlist"></a>
+									<a href="javascript:" class="tt-btn-compare"></a>
 								</div>
 							</div>
 						</div>

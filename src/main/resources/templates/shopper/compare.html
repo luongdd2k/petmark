@@ -38,7 +38,7 @@
 								</div>
 							</div>
 							<div class="tt-col">
-								<a href="#" class="tt-remove-item js-remove-item"></a>
+								<a href="javascript:" class="tt-remove-item js-remove-item"></a>
 							</div>
 						</div>
 						<div class="tt-img">
@@ -70,7 +70,7 @@
 						100% Polyester
 					</div>
 					<div class="tt-col">
-						<a href="#" class="tt-btn-addtocart" data-toggle="modal" data-target="#modalAddToCartProduct"><i class="icon-f-39"></i>ADD TO CART</a>
+						<a href="javascript:" class="tt-btn-addtocart" data-toggle="modal" data-target="#modalAddToCartProduct"><i class="icon-f-39"></i>ADD TO CART</a>
 					</div>
 				</div>
 				<div class="tt-item">
@@ -82,7 +82,7 @@
 								</div>
 							</div>
 							<div class="tt-col">
-								<a href="#" class="tt-remove-item js-remove-item"></a>
+								<a href="javascript:" class="tt-remove-item js-remove-item"></a>
 							</div>
 						</div>
 						<div class="tt-img">
@@ -115,14 +115,14 @@
 						100% Polyester
 					</div>
 					<div class="tt-col">
-						<a href="#" class="tt-btn-addtocart" data-toggle="modal" data-target="#modalAddToCartProduct"><i class="icon-f-39"></i>ADD TO CART</a>
+						<a href="javascript:" class="tt-btn-addtocart" data-toggle="modal" data-target="#modalAddToCartProduct"><i class="icon-f-39"></i>ADD TO CART</a>
 					</div>
 				</div>
 				<div class="tt-item">
 					<div class="tt-image-box">
 						<div class="tt-row-custom">
 							<div class="tt-col">
-								<a href="#" class="tt-remove-item js-remove-item"></a>
+								<a href="javascript:" class="tt-remove-item js-remove-item"></a>
 							</div>
 						</div>
 						<div class="tt-img">
@@ -154,7 +154,7 @@
 						100% Polyester
 					</div>
 					<div class="tt-col">
-						<a href="#" class="tt-btn-addtocart" data-toggle="modal" data-target="#modalAddToCartProduct"><i class="icon-f-39"></i>ADD TO CART</a>
+						<a href="javascript:" class="tt-btn-addtocart" data-toggle="modal" data-target="#modalAddToCartProduct"><i class="icon-f-39"></i>ADD TO CART</a>
 					</div>
 				</div>
 				<div class="tt-item">
@@ -166,7 +166,7 @@
 								</div>
 							</div>
 							<div class="tt-col">
-								<a href="#" class="tt-remove-item js-remove-item"></a>
+								<a href="javascript:" class="tt-remove-item js-remove-item"></a>
 							</div>
 						</div>
 						<div class="tt-img">
@@ -198,7 +198,7 @@
 						100% Polyester
 					</div>
 					<div class="tt-col">
-						<a href="#" class="tt-btn-addtocart" data-toggle="modal" data-target="#modalAddToCartProduct"><i class="icon-f-39"></i>ADD TO CART</a>
+						<a href="javascript:" class="tt-btn-addtocart" data-toggle="modal" data-target="#modalAddToCartProduct"><i class="icon-f-39"></i>ADD TO CART</a>
 					</div>
 				</div>
 			</div>

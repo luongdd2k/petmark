@@ -83,17 +83,17 @@
                 <a href="#category" class="nav__link">Sản phẩm</a>
               </li>
               <li class="nav__item">
-                <a href="#" class="nav__link">Blog</a>
+                <a href="javascript:" class="nav__link">Blog</a>
               </li>
               <li class="nav__item">
-                <a href="#" class="nav__link">Liên hệ</a>
+                <a href="javascript:" class="nav__link">Liên hệ</a>
               </li>
             </ul>
           </div>
 
           <div class="nav__icons">
             <div id="location" class="hide"> 
-              <a href="#" class="icon__item">
+              <a href="javascript:" class="icon__item">
                 <svg class="icon__user">
                   <use xlink:href="./images/sprite.svg#icon-location"></use>
                 </svg>
@@ -102,7 +102,7 @@
             <div id="search-box" style="margin-right: 1rem;">
               <input class="form-control"  type="search" aria-label="Search" placeholder="Tìm kiếm ...">
             </div>
-              <a href="#" class="icon__item">
+              <a href="javascript:" class="icon__item">
                 <svg class="icon__search">
                   <use xlink:href="./images/sprite.svg#icon-search"></use>
                 </svg>
@@ -145,7 +145,7 @@
             <div class="userpage-sidebar">
               <div class="div-left">
                 <div class="user-page-brief">
-                  <a href="#" class="user-page-brief__avatar">
+                  <a href="javascript:" class="user-page-brief__avatar">
                     <div class="petmark-avatar">
                       <div class="petmark-avatar__placeholder">
                         <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15"  x="0" y="0" class="shopee-svg-icon icon-headshot" >
@@ -446,21 +446,21 @@
       <div class="footer__top">
         <div class="footer-top__box">
           <h3>SẢN PHẨM</h3>
-          <a href="#">Chó</a>
-          <a href="#">Mèo</a>
-          <a href="#">Phụ kiện</a>
+          <a href="javascript:">Chó</a>
+          <a href="javascript:">Mèo</a>
+          <a href="javascript:">Phụ kiện</a>
         </div>
         <div class="footer-top__box">
           <h3>THÔNG TIN</h3>
-          <a href="#">Về chúng tôi</a>
-          <a href="#">Chính Sách Bảo Mật</a>
-          <a href="#">Điều khoản và Điều kiện</a>
-          <a href="#">Liên hệ</a>
+          <a href="javascript:">Về chúng tôi</a>
+          <a href="javascript:">Chính Sách Bảo Mật</a>
+          <a href="javascript:">Điều khoản và Điều kiện</a>
+          <a href="javascript:">Liên hệ</a>
         </div>
         <div class="footer-top__box">
           <h3>TÀI KHOẢN CỦA TÔI</h3>
-          <a href="#">Thông tin tài khoản</a>
-          <a href="#">Danh sách đơn hàng</a>
+          <a href="javascript:">Thông tin tài khoản</a>
+          <a href="javascript:">Danh sách đơn hàng</a>
         </div>
         <div class="footer-top__box">
           <h3>LIÊN HỆ</h3>

@@ -91,7 +91,7 @@
 
           <div class="nav__icons">
             <div id="location" class="hide"> 
-              <a href="#" class="icon__item">
+              <a href="javascript:" class="icon__item">
                 <svg class="icon__user">
                   <use xlink:href="images/sprite.svg#icon-location"></use>
                 </svg>
@@ -100,7 +100,7 @@
             <div id="search-box" style="margin-right: 1rem;">
               <input class="form-control search-form"  type="search" aria-label="Search" placeholder="Tìm kiếm ...">
             </div>
-              <a href="#" class="icon__item">
+              <a href="javascript:" class="icon__item">
                 <svg class="icon__search">
                   <use xlink:href="images/sprite.svg#icon-search"></use>
                 </svg>
@@ -131,7 +131,7 @@
                   <span class="">New Inspiration 2020</span>
                   <h1 class="">PHONES MADE FOR YOU!</h1>
                   <p>Trending from mobile and headphone style collection</p>
-                  <a href="#"><button class="hero__btn">SHOP NOW</button></a>
+                  <a href="javascript:"><button class="hero__btn">SHOP NOW</button></a>
                 </div>
                 <div class="hero__right">
                   <!-- <div class="hero__img-container">
@@ -146,7 +146,7 @@
                   <span>New Inspiration 2020</span>
                   <h1>PHONES MADE FOR YOU!</h1>
                   <p>Trending from mobile and headphone style collection</p>
-                  <a href="#"><button class="hero__btn">SHOP NOW</button></a>
+                  <a href="javascript:"><button class="hero__btn">SHOP NOW</button></a>
                 </div>
                 <div class="hero__right">
                   <img class="banner_02" src="./images/banner_02.png" alt="banner2" />
@@ -203,7 +203,7 @@
               <div class="collection__data">
                 <span></span>
                 <h1>GANADOR</h1>
-                <a href="#">SHOP NOW</a>
+                <a href="javascript:">SHOP NOW</a>
               </div>
             </div>
           </div>
@@ -546,7 +546,7 @@
           </div>
           <form action="#">
             <input type="email" placeholder="Điền Email của bạn vào đây" class="newsletter__email">
-            <a class="newsletter__link" href="#">Đăng ký</a>
+            <a class="newsletter__link" href="javascript:">Đăng ký</a>
           </form>
         </div>
       </div>
@@ -562,21 +562,21 @@
     <div class="footer__top">
       <div class="footer-top__box">
         <h3>SẢN PHẨM</h3>
-        <a href="#">Chó</a>
-        <a href="#">Mèo</a>
-        <a href="#">Phụ kiện</a>
+        <a href="javascript:">Chó</a>
+        <a href="javascript:">Mèo</a>
+        <a href="javascript:">Phụ kiện</a>
       </div>
       <div class="footer-top__box">
         <h3>THÔNG TIN</h3>
-        <a href="#">Về chúng tôi</a>
-        <a href="#">Chính Sách Bảo Mật</a>
-        <a href="#">Điều khoản và Điều kiện</a>
-        <a href="#">Liên hệ</a>
+        <a href="javascript:">Về chúng tôi</a>
+        <a href="javascript:">Chính Sách Bảo Mật</a>
+        <a href="javascript:">Điều khoản và Điều kiện</a>
+        <a href="javascript:">Liên hệ</a>
       </div>
       <div class="footer-top__box">
         <h3>TÀI KHOẢN CỦA TÔI</h3>
-        <a href="#">Thông tin tài khoản</a>
-        <a href="#">Danh sách đơn hàng</a>
+        <a href="javascript:">Thông tin tài khoản</a>
+        <a href="javascript:">Danh sách đơn hàng</a>
       </div>
       <div class="footer-top__box">
         <h3>LIÊN HỆ</h3>

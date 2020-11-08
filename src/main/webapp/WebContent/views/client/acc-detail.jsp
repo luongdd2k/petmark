@@ -207,7 +207,7 @@
                   </ul>
                 </div> -->
                             <!-- <div class="ps-product__block ps-product__size">
-                  <h4>CHOOSE SIZE<a href="#">Size chart</a></h4>
+                  <h4>CHOOSE SIZE<a href="javascript:">Size chart</a></h4>
                   <select class="ps-select selectpicker">
                     <option value="1">Select Size</option>
                     <option value="2">4</option>
@@ -307,8 +307,8 @@
               <h3 class="ps-section__title" data-mask="Related item">- YOU MIGHT ALSO LIKE</h3>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
-              <div class="ps-owl-actions"><a class="ps-prev" href="#"><i class="ps-icon-arrow-right"></i>Prev</a><a
-                  class="ps-next" href="#">Next<i class="ps-icon-arrow-left"></i></a></div>
+              <div class="ps-owl-actions"><a class="ps-prev" href="javascript:"><i class="ps-icon-arrow-right"></i>Prev</a><a
+                  class="ps-next" href="javascript:">Next<i class="ps-icon-arrow-left"></i></a></div>
             </div>
           </div>
         </div>
@@ -320,7 +320,7 @@
             <div class="ps-shoes--carousel">
               <div class="ps-shoe">
                 <div class="ps-shoe__thumbnail">
-                  <div class="ps-badge"><span>New</span></div><a class="ps-shoe__favorite" href="#"><i
+                  <div class="ps-badge"><span>New</span></div><a class="ps-shoe__favorite" href="javascript:"><i
                       class="ps-icon-heart"></i></a><img src="images/shoe/1.jpg" alt=""><a class="ps-shoe__overlay"
                     href="product-detail.html"></a>
                 </div>
@@ -338,7 +338,7 @@
                     </select>
                   </div>
                   <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                    <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#">
+                    <p class="ps-shoe__categories"><a href="javascript:">Men shoes</a>,<a href="javascript:"> Nike</a>,<a href="javascript:">
                         Jordan</a></p><span class="ps-shoe__price"> £ 120</span>
                   </div>
                 </div>
@@ -349,7 +349,7 @@
                 <div class="ps-shoe__thumbnail">
                   <div class="ps-badge"><span>New</span></div>
                   <div class="ps-badge ps-badge--sale ps-badge--2nd"><span>-35%</span></div><a class="ps-shoe__favorite"
-                    href="#"><i class="ps-icon-heart"></i></a><img src="images/shoe/2.jpg" alt=""><a
+                    href="javascript:"><i class="ps-icon-heart"></i></a><img src="images/shoe/2.jpg" alt=""><a
                     class="ps-shoe__overlay" href="product-detail.html"></a>
                 </div>
                 <div class="ps-shoe__content">
@@ -366,7 +366,7 @@
                     </select>
                   </div>
                   <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                    <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#">
+                    <p class="ps-shoe__categories"><a href="javascript:">Men shoes</a>,<a href="javascript:"> Nike</a>,<a href="javascript:">
                         Jordan</a></p><span class="ps-shoe__price">
                       <del>£220</del> £ 120</span>
                   </div>
@@ -376,7 +376,7 @@
             <div class="ps-shoes--carousel">
               <div class="ps-shoe">
                 <div class="ps-shoe__thumbnail">
-                  <div class="ps-badge"><span>New</span></div><a class="ps-shoe__favorite" href="#"><i
+                  <div class="ps-badge"><span>New</span></div><a class="ps-shoe__favorite" href="javascript:"><i
                       class="ps-icon-heart"></i></a><img src="images/shoe/3.jpg" alt=""><a class="ps-shoe__overlay"
                     href="product-detail.html"></a>
                 </div>
@@ -394,7 +394,7 @@
                     </select>
                   </div>
                   <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                    <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#">
+                    <p class="ps-shoe__categories"><a href="javascript:">Men shoes</a>,<a href="javascript:"> Nike</a>,<a href="javascript:">
                         Jordan</a></p><span class="ps-shoe__price"> £ 120</span>
                   </div>
                 </div>
@@ -402,7 +402,7 @@
             </div>
             <div class="ps-shoes--carousel">
               <div class="ps-shoe">
-                <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i
+                <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="javascript:"><i
                       class="ps-icon-heart"></i></a><img src="images/shoe/4.jpg" alt=""><a class="ps-shoe__overlay"
                     href="product-detail.html"></a>
                 </div>
@@ -420,7 +420,7 @@
                     </select>
                   </div>
                   <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                    <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#">
+                    <p class="ps-shoe__categories"><a href="javascript:">Men shoes</a>,<a href="javascript:"> Nike</a>,<a href="javascript:">
                         Jordan</a></p><span class="ps-shoe__price"> £ 120</span>
                   </div>
                 </div>
@@ -429,7 +429,7 @@
             <div class="ps-shoes--carousel">
               <div class="ps-shoe">
                 <div class="ps-shoe__thumbnail">
-                  <div class="ps-badge"><span>New</span></div><a class="ps-shoe__favorite" href="#"><i
+                  <div class="ps-badge"><span>New</span></div><a class="ps-shoe__favorite" href="javascript:"><i
                       class="ps-icon-heart"></i></a><img src="images/shoe/5.jpg" alt=""><a class="ps-shoe__overlay"
                     href="product-detail.html"></a>
                 </div>
@@ -447,7 +447,7 @@
                     </select>
                   </div>
                   <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                    <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#">
+                    <p class="ps-shoe__categories"><a href="javascript:">Men shoes</a>,<a href="javascript:"> Nike</a>,<a href="javascript:">
                         Jordan</a></p><span class="ps-shoe__price"> £ 120</span>
                   </div>
                 </div>
@@ -455,7 +455,7 @@
             </div>
             <div class="ps-shoes--carousel">
               <div class="ps-shoe">
-                <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i
+                <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="javascript:"><i
                       class="ps-icon-heart"></i></a><img src="images/shoe/6.jpg" alt=""><a class="ps-shoe__overlay"
                     href="product-detail.html"></a>
                 </div>
@@ -473,7 +473,7 @@
                     </select>
                   </div>
                   <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air Jordan 7 Retro</a>
-                    <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#">
+                    <p class="ps-shoe__categories"><a href="javascript:">Men shoes</a>,<a href="javascript:"> Nike</a>,<a href="javascript:">
                         Jordan</a></p><span class="ps-shoe__price"> £ 120</span>
                   </div>
                 </div>

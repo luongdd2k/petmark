@@ -62,7 +62,7 @@
 										<div class="col-auto align-self-end">
 											<div class="form-group">
 												<ul class="additional-links">
-													<li><a href="#">Quên mật khẩu?</a></li>
+													<li><a href="javascript:">Quên mật khẩu?</a></li>
 												</ul>
 											</div>
 										</div>

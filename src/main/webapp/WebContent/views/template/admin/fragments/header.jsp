@@ -161,7 +161,7 @@
 
 <!-- begin::Quick Panel -->
 <div th:fragment="quick_panel" id="kt_quick_panel" class="kt-quick-panel">
-	<a href="#" class="kt-quick-panel__close" id="kt_quick_panel_close_btn"><i class="flaticon2-delete"></i></a>
+	<a href="javascript:" class="kt-quick-panel__close" id="kt_quick_panel_close_btn"><i class="flaticon2-delete"></i></a>
 	<div class="kt-quick-panel__nav">
 		<ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand  kt-notification-item-padding-x"
 			role="tablist">
@@ -181,7 +181,7 @@
 		<div class="tab-content">
 			<div class="tab-pane fade show kt-scroll active" id="kt_quick_panel_tab_notifications" role="tabpanel">
 				<div class="kt-notification">
-					<a href="#" class="kt-notification__item">
+					<a href="javascript:" class="kt-notification__item">
 						<div class="kt-notification__item-icon">
 							<i class="flaticon2-line-chart kt-font-success"></i>
 						</div>
@@ -194,7 +194,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification__item">
+					<a href="javascript:" class="kt-notification__item">
 						<div class="kt-notification__item-icon">
 							<i class="flaticon2-box-1 kt-font-brand"></i>
 						</div>
@@ -207,7 +207,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification__item">
+					<a href="javascript:" class="kt-notification__item">
 						<div class="kt-notification__item-icon">
 							<i class="flaticon2-chart2 kt-font-danger"></i>
 						</div>
@@ -220,7 +220,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification__item">
+					<a href="javascript:" class="kt-notification__item">
 						<div class="kt-notification__item-icon">
 							<i class="flaticon2-image-file kt-font-warning"></i>
 						</div>
@@ -233,7 +233,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification__item">
+					<a href="javascript:" class="kt-notification__item">
 						<div class="kt-notification__item-icon">
 							<i class="flaticon2-drop kt-font-info"></i>
 						</div>
@@ -246,7 +246,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification__item">
+					<a href="javascript:" class="kt-notification__item">
 						<div class="kt-notification__item-icon">
 							<i class="flaticon2-pie-chart-2 kt-font-success"></i>
 						</div>
@@ -259,7 +259,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification__item">
+					<a href="javascript:" class="kt-notification__item">
 						<div class="kt-notification__item-icon">
 							<i class="flaticon2-favourite kt-font-danger"></i>
 						</div>
@@ -272,7 +272,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification__item kt-notification__item--read">
+					<a href="javascript:" class="kt-notification__item kt-notification__item--read">
 						<div class="kt-notification__item-icon">
 							<i class="flaticon2-safe kt-font-primary"></i>
 						</div>
@@ -285,7 +285,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification__item">
+					<a href="javascript:" class="kt-notification__item">
 						<div class="kt-notification__item-icon">
 							<i class="flaticon2-psd kt-font-success"></i>
 						</div>
@@ -298,7 +298,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification__item">
+					<a href="javascript:" class="kt-notification__item">
 						<div class="kt-notification__item-icon">
 							<i class="flaticon-download-1 kt-font-danger"></i>
 						</div>
@@ -311,7 +311,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification__item">
+					<a href="javascript:" class="kt-notification__item">
 						<div class="kt-notification__item-icon">
 							<i class="flaticon-security kt-font-warning"></i>
 						</div>
@@ -324,7 +324,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification__item">
+					<a href="javascript:" class="kt-notification__item">
 						<div class="kt-notification__item-icon">
 							<i class="flaticon2-pie-chart kt-font-warning"></i>
 						</div>
@@ -341,7 +341,7 @@
 			</div>
 			<div class="tab-pane fade kt-scroll" id="kt_quick_panel_tab_logs" role="tabpanel">
 				<div class="kt-notification-v2">
-					<a href="#" class="kt-notification-v2__item">
+					<a href="javascript:" class="kt-notification-v2__item">
 						<div class="kt-notification-v2__item-icon">
 							<i class="flaticon-bell kt-font-brand"></i>
 						</div>
@@ -354,7 +354,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification-v2__item">
+					<a href="javascript:" class="kt-notification-v2__item">
 						<div class="kt-notification-v2__item-icon">
 							<i class="flaticon2-box kt-font-danger"></i>
 						</div>
@@ -367,7 +367,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification-v2__item">
+					<a href="javascript:" class="kt-notification-v2__item">
 						<div class="kt-notification-v2__item-icon">
 							<i class="flaticon-psd kt-font-brand"></i>
 						</div>
@@ -380,7 +380,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification-v2__item">
+					<a href="javascript:" class="kt-notification-v2__item">
 						<div class="kt-notification-v2__item-icon">
 							<i class="flaticon2-supermarket kt-font-warning"></i>
 						</div>
@@ -393,7 +393,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification-v2__item">
+					<a href="javascript:" class="kt-notification-v2__item">
 						<div class="kt-notification-v2__item-icon">
 							<i class="flaticon-paper-plane-1 kt-font-success"></i>
 						</div>
@@ -406,7 +406,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification-v2__item">
+					<a href="javascript:" class="kt-notification-v2__item">
 						<div class="kt-notification-v2__item-icon">
 							<i class="flaticon2-information kt-font-danger"></i>
 						</div>
@@ -419,7 +419,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification-v2__item">
+					<a href="javascript:" class="kt-notification-v2__item">
 						<div class="kt-notification-v2__item-icon">
 							<i class="flaticon2-mail-1 kt-font-brand"></i>
 						</div>
@@ -432,7 +432,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="kt-notification-v2__item">
+					<a href="javascript:" class="kt-notification-v2__item">
 						<div class="kt-notification-v2__item-icon">
 							<i class="flaticon2-hangouts-logo kt-font-warning"></i>
 						</div>
@@ -591,7 +591,7 @@
 		</div>
 		<div class="kt-subheader__toolbar">
 			<div class="kt-subheader__wrapper">
-				<a href="#" class="btn kt-subheader__btn-daterange" id="kt_dashboard_daterangepicker"
+				<a href="javascript:" class="btn kt-subheader__btn-daterange" id="kt_dashboard_daterangepicker"
 					data-toggle="kt-tooltip" title="Select dashboard daterange" data-placement="left">
 					<span class="kt-subheader__btn-daterange-title"
 						id="kt_dashboard_daterangepicker_title">Hôm nay</span>&nbsp;

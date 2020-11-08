@@ -16,7 +16,7 @@
 			</div>
 			<div class="kt-portlet__head-toolbar">
 				<div class="kt-portlet__head-wrapper">
-					<a href="#" class="btn btn-clean btn-icon-sm">
+					<a href="javascript:" class="btn btn-clean btn-icon-sm">
 						<i class="la la-long-arrow-left"></i>
 						Quay Lại
 					</a>
@@ -75,7 +75,7 @@
 						</div>
 					</div>
 					<div class="col-xl-4 order-1 order-xl-2 kt-align-right">
-						<a href="#" class="btn btn-default kt-hidden">
+						<a href="javascript:" class="btn btn-default kt-hidden">
 							<i class="la la-cart-plus"></i> New Order
 						</a>
 						<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg d-xl-none"></div>

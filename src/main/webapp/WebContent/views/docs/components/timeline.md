@@ -23,7 +23,7 @@ You can use it for descriptions of events that occurred in a particular time sec
     <!-- Time -->
       <span class="time"><i class="fas fa-clock"></i> 12:05</span>
       <!-- Header. Optional -->
-      <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+      <h3 class="timeline-header"><a href="javascript:">Support Team</a> sent you an email</h3>
       <!-- Body -->
       <div class="timeline-body">
         Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,

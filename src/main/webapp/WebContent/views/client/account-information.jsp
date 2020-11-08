@@ -56,18 +56,18 @@
         <!-- Collection of nav links, forms, and other content for toggling -->
         <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
             <div class="navbar-nav ml-auto" style="float: right;">
-                <a href="#" class="nav-item nav-link notifications"><i class="fa fa-bell-o"></i><span
+                <a href="javascript:" class="nav-item nav-link notifications"><i class="fa fa-bell-o"></i><span
                         class="badge">1</span></a>
                 <div class="nav-item dropdown">
-                    <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img
+                    <a href="javascript:" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img
                             src="https://toplist.vn/images/800px/tiem-chup-anh-the-lay-ngay-dep-nhat-o-hue-chu-de-da-duoc-nhan-cua-kieu-nguyen-317636.jpg"
                             class="avatar" alt="Avatar">
                         Huệ Ơi</a>
                     <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
-                        <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></a>
+                        <a href="javascript:" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
+                        <a href="javascript:" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></a>
+                        <a href="javascript:" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></a>
                     </div>
                 </div>
             </div>
@@ -118,9 +118,9 @@
                 <div class="aside1" style="padding-left: 90px;">
                     <div class="list">
                         <ul class="aside-menu" style="list-style-type: none; font-size: 15px;">
-                            <li class="aside-item"> <a href="#">Thông tin tài khoản</a></li>
-                            <li class="aside-item"> <a href="#">Đơn mua</a></li>
-                            <li class="aside-item"> <a href="#">Thông báo của tôi</a></li>
+                            <li class="aside-item"> <a href="javascript:">Thông tin tài khoản</a></li>
+                            <li class="aside-item"> <a href="javascript:">Đơn mua</a></li>
+                            <li class="aside-item"> <a href="javascript:">Thông báo của tôi</a></li>
                         </ul>
                     </div>
                 </div>

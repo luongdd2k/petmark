@@ -32,7 +32,7 @@
 			<div class="row">
 				<div class="col-md-4 col-lg-3 col-xl-3 leftColumn aside">
 					<div class="tt-btn-col-close">
-						<a href="#">Đóng</a>
+						<a href="javascript:">Đóng</a>
 					</div>
 					<div class="tt-collapse open tt-filter-detach-option">
 						<div class="tt-collapse-content">
@@ -47,16 +47,16 @@
 						<h3 class="tt-collapse-title">TÌM THEO</h3>
 						<div class="tt-collapse-content">
 							<ul class="tt-filter-list" id="list-filter">
-<!-- 								<li><a href="#">White</a></li> -->
+<!-- 								<li><a href="javascript:">White</a></li> -->
 							</ul>
-							<a href="#" id="remove-all-filter" class="btn-link-02">Loại bỏ tất cả lọc</a>
+							<a href="javascript:" id="remove-all-filter" class="btn-link-02">Loại bỏ tất cả lọc</a>
 						</div>
 					</div>
 					<div class="tt-collapse open ">
 						<h3 class="tt-collapse-title">DANH MỤC</h3>
 						<div class="tt-collapse-content">
 							<ul class="tt-list-row" id="list-gategory">
-<!-- 								<li class="active"><a href="#">a</a></li> -->
+<!-- 								<li class="active"><a href="javascript:">a</a></li> -->
 								
 							</ul>
 						</div>
@@ -65,7 +65,7 @@
 						<h3 class="tt-collapse-title">THỂ LOẠI</h3>
 						<div class="tt-collapse-content">
 							<ul class="tt-list-row" id="list-brand">
-<!-- 								<li class="active"><a href="#">a</a></li> -->
+<!-- 								<li class="active"><a href="javascript:">a</a></li> -->
 								<li th:each="brand : ${brands}"><a th:href="${brand.id}" th:text="${brand.name}">LACOSTE</a></li>
 							</ul>
 						</div>
@@ -74,10 +74,10 @@
 						<h3 class="tt-collapse-title">TÌM THEO MỨC GIÁ</h3>
 						<div class="tt-collapse-content">
 							<ul class="tt-list-row" id="list-price">
-								<li><a href="#" priceMax="1000000">0 — 1.000.000</a></li>
-								<li><a href="#" priceMin="1000000" priceMax="2000000">1.000.000 — 2.000.000</a></li>
-								<li><a href="#" priceMin="2000000" priceMax="3000000">2.000.000 — 3.000.000</a></li>
-								<li><a href="#" priceMin="3000000">> 3.000.000</a></li>
+								<li><a href="javascript:" priceMax="1000000">0 — 1.000.000</a></li>
+								<li><a href="javascript:" priceMin="1000000" priceMax="2000000">1.000.000 — 2.000.000</a></li>
+								<li><a href="javascript:" priceMin="2000000" priceMax="3000000">2.000.000 — 3.000.000</a></li>
+								<li><a href="javascript:" priceMin="3000000">> 3.000.000</a></li>
 							</ul>
 						</div>
 					</div>
@@ -85,7 +85,7 @@
 						<h3 class="tt-collapse-title">TÌM THEO KÍCH CỠ</h3>
 						<div class="tt-collapse-content">
 							<ul class="tt-options-swatch options-middle" id="list-size">
-								<li th:each="size : ${sizes}"><a href="#" th:text="${size}">42</a></li>
+								<li th:each="size : ${sizes}"><a href="javascript:" th:text="${size}">42</a></li>
 							</ul>
 						</div>
 					</div>
@@ -125,13 +125,13 @@
 						<h3 class="tt-collapse-title">TAGS</h3>
 						<div class="tt-collapse-content">
 							<ul class="tt-list-inline">
-								<li><a href="#">Dresses</a></li>
-								<li><a href="#">Shirts &amp; Tops</a></li>
-								<li><a href="#">Polo Shirts</a></li>
-								<li><a href="#">Sweaters</a></li>
-								<li><a href="#">Blazers</a></li>
-								<li><a href="#">Vests</a></li>
-								<li><a href="#">Jackets</a></li>
+								<li><a href="javascript:">Dresses</a></li>
+								<li><a href="javascript:">Shirts &amp; Tops</a></li>
+								<li><a href="javascript:">Polo Shirts</a></li>
+								<li><a href="javascript:">Sweaters</a></li>
+								<li><a href="javascript:">Blazers</a></li>
+								<li><a href="javascript:">Vests</a></li>
+								<li><a href="javascript:">Jackets</a></li>
 							</ul>
 						</div>
 					</div>
@@ -149,7 +149,7 @@
 <!-- 								<span class="tt-title-total">(12)</span> -->
 							</h1>
 							<div class="tt-btn-toggle">
-								<a href="#">LỌC</a>
+								<a href="javascript:">LỌC</a>
 							</div>
 							<div class="tt-sort">
 								<select id="sortSelect">
@@ -159,11 +159,11 @@
 								</select>
 							</div>
 							<div class="tt-quantity">
-								<a href="#" class="tt-col-one" data-value="tt-col-one"></a>
-								<a href="#" class="tt-col-two" data-value="tt-col-two"></a>
-								<a href="#" class="tt-col-three" data-value="tt-col-three"></a>
-								<a href="#" class="tt-col-four" data-value="tt-col-four"></a>
-								<a href="#" class="tt-col-six" data-value="tt-col-six"></a>
+								<a href="javascript:" class="tt-col-one" data-value="tt-col-one"></a>
+								<a href="javascript:" class="tt-col-two" data-value="tt-col-two"></a>
+								<a href="javascript:" class="tt-col-three" data-value="tt-col-three"></a>
+								<a href="javascript:" class="tt-col-four" data-value="tt-col-four"></a>
+								<a href="javascript:" class="tt-col-six" data-value="tt-col-six"></a>
 							</div>
 						</div>
 						<div class="tt-product-listing row">
@@ -171,8 +171,8 @@
 							<div th:fragment="product-listing-item" class="col-6 col-md-4 tt-col-item" th:each="product : ${products}">
 								<div class="tt-product thumbprod-center">
 									<div class="tt-image-box">
-										<a href="#" class="tt-btn-quickview d-none" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Xem trước" data-tposition="left"></a>
-										<a href="#" class="tt-btn-wishlist" th:if="${isSignedIn}" data-tooltip="Yêu thích" th:classappend="${product.isWishList} ? 'active' : ''" data-tposition="left"></a>
+										<a href="javascript:" class="tt-btn-quickview d-none" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Xem trước" data-tposition="left"></a>
+										<a href="javascript:" class="tt-btn-wishlist" th:if="${isSignedIn}" data-tooltip="Yêu thích" th:classappend="${product.isWishList} ? 'active' : ''" data-tposition="left"></a>
 										<input class="productBoxId" type="hidden" th:value="${product.id}">
 
 										<a th:href="@{/product/} + ${product.id}">
@@ -202,11 +202,11 @@
 										</div>
 										<div class="tt-product-inside-hover">
 <!-- 								<div class="tt-row-btn"> -->
-<!-- 									<a href="#" class="tt-btn-addtocart thumbprod-button-bg" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a> -->
+<!-- 									<a href="javascript:" class="tt-btn-addtocart thumbprod-button-bg" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a> -->
 <!-- 								</div> -->
 								<div class="tt-row-btn">
-									<a href="#" class="tt-btn-quickview" data-tooltip="Xem Trước" data-toggle="modal" data-target="#ModalquickView"></a>
-									<a href="#" class="tt-btn-wishlist" data-tooltip="Danh sách yêu thích"></a>
+									<a href="javascript:" class="tt-btn-quickview" data-tooltip="Xem Trước" data-toggle="modal" data-target="#ModalquickView"></a>
+									<a href="javascript:" class="tt-btn-wishlist" data-tooltip="Danh sách yêu thích"></a>
 								</div>
 							</div>
 									</div>

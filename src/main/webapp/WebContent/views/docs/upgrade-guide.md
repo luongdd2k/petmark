@@ -17,7 +17,7 @@ The biggest change in Main Header is the Logo is moved to Main Sidebar and the M
 2. Header / Nav
   - `<header class="main-header">` & `<nav class="navbar navbar-static-top">` merged with `<nav class="main-header navbar navbar-expand navbar-white navbar-light">`
 3. Sidebar Toggle / Left Navbar
-  - `<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"><span class="sr-only">Toggle navigation</span></a>` replaced with `<ul class="navbar-nav"><li class="nav-item"><a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a></li></ul>`
+  - `<a href="javascript:" class="sidebar-toggle" data-toggle="push-menu" role="button"><span class="sr-only">Toggle navigation</span></a>` replaced with `<ul class="navbar-nav"><li class="nav-item"><a class="nav-link" data-widget="pushmenu" href="javascript:"><i class="fas fa-bars"></i></a></li></ul>`
 3. Right Navbar
   - `<div class="navbar-custom-menu">` & `<ul class="nav navbar-nav">` merged with `<ul class="navbar-nav ml-auto">`
 
@@ -31,7 +31,7 @@ Like above the biggest change is the Main Sidebar contains now the Logo and the 
 3. Sidebar
   - `<section class="sidebar">` replaced with `<div class="sidebar">`
 4. User Panel
-  - `<div class="user-panel"><div class="pull-left image"><img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"></div><div class="pull-left info"><p>Alexander Pierce</p><a href="#"><i class="fa fa-circle text-success"></i> Online</a></div></div>` replaced with `<div class="user-panel mt-3 pb-3 mb-3 d-flex"><div class="image"><img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"></div><div class="info"><a href="#" class="d-block">Alexander Pierce</a></div></div>`
+  - `<div class="user-panel"><div class="pull-left image"><img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"></div><div class="pull-left info"><p>Alexander Pierce</p><a href="javascript:"><i class="fa fa-circle text-success"></i> Online</a></div></div>` replaced with `<div class="user-panel mt-3 pb-3 mb-3 d-flex"><div class="image"><img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"></div><div class="info"><a href="javascript:" class="d-block">Alexander Pierce</a></div></div>`
 5. Sidebar Menu
   - `<nav class="mt-2">` now around `<ul class="sidebar-menu" data-widget="tree">`
   - `<ul class="sidebar-menu" data-widget="tree">` replaced with `<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">`
@@ -81,7 +81,7 @@ New sample entry
 Old sample entry (with tree menu)
 ```html
 <li class="treeview">
-  <a href="#">
+  <a href="javascript:">
     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
     <span class="pull-right-container">
       <i class="fa fa-angle-left pull-right"></i>
@@ -97,7 +97,7 @@ Old sample entry (with tree menu)
 New sample entry (with tree menu)
 ```html
 <li class="nav-item has-treeview">
-  <a href="#" class="nav-link">
+  <a href="javascript:" class="nav-link">
     <i class="nav-icon fas fa-tachometer-alt"></i>
     <p>
       Dashboard
@@ -137,7 +137,7 @@ Old Content Header Markup
     <small>Control panel</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="javascript:"><i class="fa fa-dashboard"></i> Home</a></li>
     <li class="active">Dashboard</li>
   </ol>
 </section>
@@ -157,7 +157,7 @@ New Content Header Markup
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="javascript:">Home</a></li>
           <li class="breadcrumb-item active">Dashboard v1</li>
         </ol>
       </div>

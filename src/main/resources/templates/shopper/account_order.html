@@ -102,7 +102,7 @@
 						<div class="tt-item">
 							<h6 class="tt-title">SHIPPING ADDRESS:</h6>
 							<div class="tt-description">
-								<strong><a href="#">Payment status: pendibg</a></strong>
+								<strong><a href="javascript:">Payment status: pendibg</a></strong>
 								<p>
 									Ut enim ad minim veniam, quis nostrud
 									Eexercitation ullamco laboris nisi ut aliquip ex ea

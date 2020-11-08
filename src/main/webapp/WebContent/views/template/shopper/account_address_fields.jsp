@@ -32,7 +32,7 @@
 			<div class="tt-shopping-layout">
 				<h2 class="tt-title d-none">YOUR ADDRESS</h2>
 				<div class="tt-wrapper">
-					<a href="#" class="btn d-none">ADD A NEW ADDRESS</a><br>
+					<a href="javascript:" class="btn d-none">ADD A NEW ADDRESS</a><br>
 					<a href="/my-account" class="tt-link-back">
 						<i class="icon-h-46"></i> Quay lại Tài khoản của tôi
 					</a>

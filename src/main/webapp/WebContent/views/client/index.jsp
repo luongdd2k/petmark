@@ -271,9 +271,9 @@
 					<h3 class="ps-section__title" data-mask="features">- Features
 						Products</h3>
 					<ul class="ps-masonry__filter">
-						<li class="current"><a href="#" data-filter="*">All <sup>8</sup></a></li>
-						<li><a href="#" data-filter=".pet">Pet <sup>1</sup></a></li>
-						<li><a href="#" data-filter=".accessori">Accessori <sup>1</sup></a></li>
+						<li class="current"><a href="javascript:" data-filter="*">All <sup>8</sup></a></li>
+						<li><a href="javascript:" data-filter=".pet">Pet <sup>1</sup></a></li>
+						<li><a href="javascript:" data-filter=".accessori">Accessori <sup>1</sup></a></li>
 					</ul>
 				</div>
 				<div class="ps-section__content pb-50">
@@ -354,8 +354,8 @@
 						</div>
 						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
 							<div class="ps-owl-actions">
-								<a class="ps-prev" href="#"><i class="ps-icon-arrow-right"></i>Prev</a><a
-									class="ps-next" href="#">Next<i class="ps-icon-arrow-left"></i></a>
+								<a class="ps-prev" href="javascript:"><i class="ps-icon-arrow-right"></i>Prev</a><a
+									class="ps-next" href="javascript:">Next<i class="ps-icon-arrow-left"></i></a>
 							</div>
 						</div>
 					</div>
@@ -376,7 +376,7 @@
 									<div class="ps-badge ps-badge--sale ps-badge--2nd">
 										<span>-35%</span>
 									</div>
-									<a class="ps-shoe__favorite" href="#"><i
+									<a class="ps-shoe__favorite" href="javascript:"><i
 										class="ps-icon-heart"></i></a><img
 										src="https://tapchithucung.vn/Uploads/images/content/benh-ve-ky-sinh-gay-benh-o-cho-Alaska.jpg"
 										style="height: 350px;" alt=""><a
@@ -464,7 +464,7 @@
 									<div class="ps-badge ps-badge--sale ps-badge--2nd">
 										<span>-35%</span>
 									</div>
-									<a class="ps-shoe__favorite" href="#"><i
+									<a class="ps-shoe__favorite" href="javascript:"><i
 										class="ps-icon-heart"></i></a><img
 										src="https://i.pinimg.com/736x/32/bf/fb/32bffb281cfd5a9828f1862c187adef4.jpg"
 										style="height: 350px;" alt=""><a
@@ -492,7 +492,7 @@
 										</select>
 									</div>
 									<div class="ps-shoe__detail">
-										<a class="ps-shoe__name" href="#">Pug</a><span
+										<a class="ps-shoe__name" href="javascript:">Pug</a><span
 											class="ps-shoe__price"> <del>3.000.000 đ</del> &nbsp;
 											1.950.000 đ
 										</span>
@@ -505,7 +505,7 @@
 								<div class="ps-shoe__thumbnail">
 									<!-- <div class="ps-badge"><span>New</span></div>
                   <div class="ps-badge ps-badge--sale ps-badge--2nd"><span>-35%</span></div> -->
-									<a class="ps-shoe__favorite" href="#"><i
+									<a class="ps-shoe__favorite" href="javascript:"><i
 										class="ps-icon-heart"></i></a><img
 										src="https://i.pinimg.com/originals/ef/ec/9f/efec9f666e35de94c5e11430ca2698b2.jpg"
 										style="height: 350px;" alt=""><a
@@ -583,7 +583,7 @@
 								<div class="ps-shoe__thumbnail">
 									<!-- <div class="ps-badge"><span>New</span></div>
                   <div class="ps-badge ps-badge--sale ps-badge--2nd"><span>-35%</span></div> -->
-									<a class="ps-shoe__favorite" href="#"><i
+									<a class="ps-shoe__favorite" href="javascript:"><i
 										class="ps-icon-heart"></i></a><img
 										src="https://salt.tikicdn.com/cache/w1200/ts/product/85/b9/56/5ef1645cc1535406545b9064c3a544b8.jpg"
 										style="height: 350px;" alt=""><a
@@ -629,7 +629,7 @@
 						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
 							<div class="ps-owl-actions">
 								<a class="ps-prev" href="javascript:"><i
-									class="ps-icon-arrow-right"></i>Prev</a><a class="ps-next" href="#">Next<i
+									class="ps-icon-arrow-right"></i>Prev</a><a class="ps-next" href="javascript:">Next<i
 									class="ps-icon-arrow-left"></i></a>
 							</div>
 						</div>

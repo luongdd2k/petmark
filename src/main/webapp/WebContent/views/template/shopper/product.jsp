@@ -51,7 +51,7 @@
 							</li> -->
 							<!-- <li>
 								<div class="tt-video-block">
-									<a href="#" class="link-video"></a>
+									<a href="javascript:" class="link-video"></a>
 									<video class="movie" src="video/video.mp4" poster="video/video_img.jpg"></video>
 								</div>
 							</li> -->
@@ -95,8 +95,8 @@
 								</ul>
 							</div>
 							<div class="tt-wrapper product-information-buttons d-none">
-								<a data-toggle="modal" data-target="#modalProductInfo" href="#">Size Guide</a>
-								<a data-toggle="modal" data-target="#modalProductInfo-02" href="#">Shipping</a>
+								<a data-toggle="modal" data-target="#modalProductInfo" href="javascript:">Size Guide</a>
+								<a data-toggle="modal" data-target="#modalProductInfo-02" href="javascript:">Shipping</a>
 							</div>
 							<div class="tt-wrapper">
 								<div class="tt-row-custom-01">
@@ -116,8 +116,8 @@
 							</div>
 							<div class="tt-wrapper">
 								<ul class="tt-list-btn">
-									<li th:if="${isSignedIn}"><a class="btn-link" id="toogle-wishlist" href="#"><i th:class="${product.isWishList} ? 'icon-h-13' : 'icon-n-072'"></i><span th:text="${product.isWishList} ? 'Đã thích' : 'Yêu thích'"></span></a></li>
-									<li><a class="btn-link d-none" href="#"><i class="icon-n-08"></i>ADD TO COMPARE</a></li>
+									<li th:if="${isSignedIn}"><a class="btn-link" id="toogle-wishlist" href="javascript:"><i th:class="${product.isWishList} ? 'icon-h-13' : 'icon-n-072'"></i><span th:text="${product.isWishList} ? 'Đã thích' : 'Yêu thích'"></span></a></li>
+									<li><a class="btn-link d-none" href="javascript:"><i class="icon-n-08"></i>ADD TO COMPARE</a></li>
 								</ul>
 							</div>
 <!-- 							<div class="tt-wrapper"> -->
@@ -125,7 +125,7 @@
 <!-- 									<ul> -->
 <!-- 										<li><span>Vendor:</span> Polo</li> -->
 <!-- 										<li><span>Product Type:</span> T-Shirt</li> -->
-<!-- 										<li><span>Tag:</span> <a href="#">T-Shirt</a>, <a href="#">Women</a>, <a href="#">Top</a></li> -->
+<!-- 										<li><span>Tag:</span> <a href="javascript:">T-Shirt</a>, <a href="javascript:">Women</a>, <a href="javascript:">Top</a></li> -->
 <!-- 									</ul> -->
 <!-- 								</div> -->
 <!-- 							</div> -->
@@ -177,13 +177,13 @@
 													</h2>
 												</div>
 												<div class="col-item">
-													<a href="#">Write a review</a>
+													<a href="javascript:">Write a review</a>
 												</div>
 											</div>
 											<div class="tt-review-comments">
 												<div class="tt-item">
 													<div class="tt-avatar">
-														<a href="#"><img src="images/product/single/review-comments-img-01.jpg" alt=""></a>
+														<a href="javascript:"><img src="images/product/single/review-comments-img-01.jpg" alt=""></a>
 													</div>
 													<div class="tt-content">
 														<div class="tt-rating">
@@ -205,7 +205,7 @@
 												</div>
 												<div class="tt-item">
 													<div class="tt-avatar">
-														<a href="#"><img src="images/product/single/review-comments-img-02.jpg" alt=""></a>
+														<a href="javascript:"><img src="images/product/single/review-comments-img-02.jpg" alt=""></a>
 													</div>
 													<div class="tt-content">
 														<div class="tt-rating">
@@ -227,7 +227,7 @@
 												</div>
 												<div class="tt-item">
 													<div class="tt-avatar">
-														<a href="#"></a>
+														<a href="javascript:"></a>
 													</div>
 													<div class="tt-content">
 														<div class="tt-rating">
@@ -310,9 +310,9 @@
 				<div class="col-2 col-md-4 col-lg-3" th:each="product : ${relatedProducts}">
 					<div class="tt-product thumbprod-center">
 						<div class="tt-image-box">
-							<a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Xem trước" data-tposition="left"></a>
-							<a href="#" class="tt-btn-wishlist" th:if="${isSignedIn}" data-tooltip="Yêu thích" th:classappend="${product.isWishList} ? 'active' : ''" data-tposition="left"></a>
-							<a href="#" class="tt-btn-compare d-none" data-tooltip="So sánh" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"	data-tooltip="Xem trước" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-wishlist" th:if="${isSignedIn}" data-tooltip="Yêu thích" th:classappend="${product.isWishList} ? 'active' : ''" data-tposition="left"></a>
+							<a href="javascript:" class="tt-btn-compare d-none" data-tooltip="So sánh" data-tposition="left"></a>
 							<input class="productBoxId" type="hidden" th:value="${product.id}">
 							<a href="product.html">
 								<span class="tt-img"><img th:src="${product.primaryImage()}" alt=""></span>
@@ -331,12 +331,12 @@
 							</div>
 							<div class="tt-product-inside-hover">
 <!-- 								<div class="tt-row-btn"> -->
-<!-- 									<a href="#" class="tt-btn-addtocart thumbprod-button-bg" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a> -->
+<!-- 									<a href="javascript:" class="tt-btn-addtocart thumbprod-button-bg" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a> -->
 <!-- 								</div> -->
 								<div class="tt-row-btn">
-									<a href="#" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>
-									<a href="#" class="tt-btn-wishlist"></a>
-									<a href="#" class="tt-btn-compare"></a>
+									<a href="javascript:" class="tt-btn-quickview" data-toggle="modal" data-target="#ModalquickView"></a>
+									<a href="javascript:" class="tt-btn-wishlist"></a>
+									<a href="javascript:" class="tt-btn-compare"></a>
 								</div>
 							</div>
 						</div>

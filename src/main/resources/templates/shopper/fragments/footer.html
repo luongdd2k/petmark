@@ -99,4 +99,4 @@
 		</div>
 	</div>
 </footer>
-<a href="#" class="tt-back-to-top">BACK TO TOP</a> -->
+<a href="javascript:" class="tt-back-to-top">BACK TO TOP</a> -->

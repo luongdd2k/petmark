@@ -30,11 +30,11 @@
 				&copy; PetMart 2020.
 			</p>
 			<ul class="tt-social-icon">
-				<li><a href="#" target="blank" class="icon-g-64"></a></li>
-				<li><a href="#" target="blank" class="icon-h-58"></a></li>
-				<li><a href="#" target="blank" class="icon-g-66"></a></li>
-				<li><a href="#" target="blank" class="icon-g-67"></a></li>
-				<li><a href="#" target="blank" class="icon-g-70"></a></li>
+				<li><a href="javascript:" target="blank" class="icon-g-64"></a></li>
+				<li><a href="javascript:" target="blank" class="icon-h-58"></a></li>
+				<li><a href="javascript:" target="blank" class="icon-g-66"></a></li>
+				<li><a href="javascript:" target="blank" class="icon-g-67"></a></li>
+				<li><a href="javascript:" target="blank" class="icon-g-70"></a></li>
 			</ul>
 		</div>
 	</div>

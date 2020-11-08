@@ -35,7 +35,7 @@ to get the desired effect
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        <a class="nav-link" data-widget="pushmenu" href="javascript:" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="index.html" class="nav-link">Trang chủ</a>
@@ -58,29 +58,29 @@ to get the desired effect
     <ul class="navbar-nav ml-auto">
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
+        <a class="nav-link" data-toggle="dropdown" href="javascript:">
           <i class="far fa-bell"></i>
           <span class="badge badge-warning navbar-badge">15</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-item dropdown-header">15 Thông báo</span>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="javascript:" class="dropdown-item">
             <i class="fas fa-envelope mr-2"></i> 4 tin nhắn mới
             <span class="float-right text-muted text-sm">3 phút</span>
           </a>
           <div class="dropdown-divider"></div>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="javascript:" class="dropdown-item">
             <i class="fas fa-file mr-2"></i> 3 báo cáo mới
             <span class="float-right text-muted text-sm">2 ngày</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">Xem tất cả thông báo</a>
+          <a href="javascript:" class="dropdown-item dropdown-footer">Xem tất cả thông báo</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="javascript:" role="button"><i
             class="fas fa-th-large"></i></a>
       </li>
     </ul>
@@ -189,7 +189,7 @@ to get the desired effect
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="javascript:" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
                 Extras
@@ -345,10 +345,10 @@ to get the desired effect
               <div class="card-header border-0">
                 <h3 class="card-title">Products</h3>
                 <div class="card-tools">
-                  <a href="#" class="btn btn-tool btn-sm">
+                  <a href="javascript:" class="btn btn-tool btn-sm">
                     <i class="fas fa-download"></i>
                   </a>
-                  <a href="#" class="btn btn-tool btn-sm">
+                  <a href="javascript:" class="btn btn-tool btn-sm">
                     <i class="fas fa-bars"></i>
                   </a>
                 </div>
@@ -378,7 +378,7 @@ to get the desired effect
                       12,000 Sold
                     </td>
                     <td>
-                      <a href="#" class="text-muted">
+                      <a href="javascript:" class="text-muted">
                         <i class="fas fa-search"></i>
                       </a>
                     </td>
@@ -397,7 +397,7 @@ to get the desired effect
                       123,234 Sold
                     </td>
                     <td>
-                      <a href="#" class="text-muted">
+                      <a href="javascript:" class="text-muted">
                         <i class="fas fa-search"></i>
                       </a>
                     </td>
@@ -416,7 +416,7 @@ to get the desired effect
                       198 Sold
                     </td>
                     <td>
-                      <a href="#" class="text-muted">
+                      <a href="javascript:" class="text-muted">
                         <i class="fas fa-search"></i>
                       </a>
                     </td>
@@ -436,7 +436,7 @@ to get the desired effect
                       87 Sold
                     </td>
                     <td>
-                      <a href="#" class="text-muted">
+                      <a href="javascript:" class="text-muted">
                         <i class="fas fa-search"></i>
                       </a>
                     </td>
@@ -492,10 +492,10 @@ to get the desired effect
               <div class="card-header border-0">
                 <h3 class="card-title">Online Store Overview</h3>
                 <div class="card-tools">
-                  <a href="#" class="btn btn-sm btn-tool">
+                  <a href="javascript:" class="btn btn-sm btn-tool">
                     <i class="fas fa-download"></i>
                   </a>
-                  <a href="#" class="btn btn-sm btn-tool">
+                  <a href="javascript:" class="btn btn-sm btn-tool">
                     <i class="fas fa-bars"></i>
                   </a>
                 </div>

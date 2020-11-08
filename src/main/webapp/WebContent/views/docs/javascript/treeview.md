@@ -15,11 +15,11 @@ Add `data-widget="treeview"` to any `ul` or `ol` element to activate the plugin.
 
 ```html
 <ul data-widget="treeview">
-  <li><a href="#">One Level</a></li>
+  <li><a href="javascript:">One Level</a></li>
   <li class="treeview">
-    <a href="#">Multilevel</a>
+    <a href="javascript:">Multilevel</a>
     <ul class="treeview-menu">
-      <li><a href="#">Level 2</a></li>
+      <li><a href="javascript:">Level 2</a></li>
     </ul>
   </li>
 </ul>
