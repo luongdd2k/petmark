@@ -88,7 +88,7 @@
 		<aside class="main-sidebar sidebar-light-primary elevation-4">
 			<!-- Brand Logo -->
 			<a href="index.html" class="brand-link"> <img
-				src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+				src="dist/img/AdminLTELogo.jpg" alt="AdminLTE Logo"
 				class="brand-image img-circle elevation-3" style="opacity: .8">
 				<span class="brand-text font-weight-light">PET MARK</span>
 			</a>
@@ -147,7 +147,7 @@
 							class="nav-link"> <i class="nav-icon fas fa-table"></i>
 								<p>Quản lý đơn hàng</p>
 						</a></li>
-						<li class="nav-item"><a href="./deposit/deposit-manager.html"
+						<li class="nav-item"><a href="admin/deposit"
 							class="nav-link"> <i class="nav-icon fas fa-calendar-alt"></i>
 								<p>Quản lý cọc</p>
 						</a></li>
@@ -291,7 +291,7 @@
 													<tr>
 														<%--                           <th class="td-center td-em-css" scope="row">${user.getUsername() }</th> --%>
 														<td><img class="img-fluid"
-															src="https://toplist.vn/images/800px/dino-studio-anh-vien-cho-be-va-gia-dinh-317623.jpg"
+															src="${user.getImagePath() }"
 															alt="" style="max-width: 70px; max-height: 70px;"></td>
 														<td class="td-center td-em-css">${user.getFullName() }</td>
 														<td class="td-center td-em-css">${user.getDisplayGender() }</td>

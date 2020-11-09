@@ -1,6 +1,7 @@
 package com.springboot.PetMark.entities;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -41,20 +42,13 @@ public @Data class Deposit implements Serializable {
 	private Date createdAt;
 	@Column(name = "total_amount")
 	private float totalAmount;
-	private boolean status;
+	private String status;
 
 	public Deposit() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public String getDisplayStt() {
-		String stt = "Đã thanh toán";
-		if(this.status == false) {
-			stt = "Đã huỷ";
-		}
-		return stt;
-	}
-	public Deposit(Pet pet, Account account,ColorPet color, Date date, float totalAmount, boolean status) {
+	public Deposit(Pet pet, Account account,ColorPet color, Date date, float totalAmount, String status) {
 		// TODO Auto-generated constructor stub
 		this.pet = pet;
 		this.account = account;
@@ -64,7 +58,7 @@ public @Data class Deposit implements Serializable {
 		this.status = status;
 	}
 
-	public Deposit(int id, Pet pet, Account account,ColorPet color, Date date, float totalAmount, boolean status) {
+	public Deposit(int id, Pet pet, Account account,ColorPet color, Date date, float totalAmount, String status) {
 		// TODO Auto-generated constructor stub
 		this.id = id;
 		this.pet = pet;
@@ -74,12 +68,19 @@ public @Data class Deposit implements Serializable {
 		this.totalAmount = totalAmount;
 		this.status = status;
 	}
-	
-	public boolean isStatus() {
+	public String getDisplayTotalAmount(int type) {
+		DecimalFormat decimalFormat = new DecimalFormat("#,##0");
+		if (type == 0) {
+			return decimalFormat.format(this.totalAmount).replaceAll(",", ".");
+		} else
+			return decimalFormat.format(this.totalAmount).replaceAll(",", ".") + " ₫";
+	}
+
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(boolean status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 

@@ -158,7 +158,7 @@
 								class="nav-icon fas fa-table"></i>
 								<p>Quản lý đơn hàng</p>
 						</a></li>
-						<li class="nav-item"><a href="deposit/deposit-manager.html"
+						<li class="nav-item"><a href="admin/deposit"
 							class="nav-link"> <i class="nav-icon fas fa-receipt"></i>
 								<p>Quản lý cọc</p>
 						</a></li>
@@ -452,8 +452,8 @@
 										<!-- End Thêm mới-->
 									</div>
 
-									<div class="table-responsive-xl main-table">
-										<table class="table" style="margin-bottom: -1%;" id="table-js">
+									<div class="table-responsive-xl main-table ">
+										<table class="table table-striped" style="margin-bottom: -1%;" id="table-js">
 											<thead class="thead-light">
 												<tr>
 													<th scope="col">#</th>
@@ -479,7 +479,7 @@
 														<th scope="row" class="td-center"
 															style="padding-top: 2.5%;">${product.id }</th>
 														<td><img class="img-fluid"
-															src="https://static2.yan.vn/YanNews/2167221/201810/20225687_1792599400765091_5368175985709547520_n-d0a5361a.jpg"
+															src="${product.getImgs().get(0).getImgAvartar() }"
 															alt="" style="max-width: 70px; max-height: 70px;"></td>
 														<td class="td-center" style="padding-top: 2.5%;">
 															<div onclick="showFormUpdate(true, ${product.id})">${product.petName }</div>				

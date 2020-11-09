@@ -150,7 +150,7 @@
 								class="nav-icon fas fa-table"></i>
 								<p>Quản lý đơn hàng</p>
 						</a></li>
-						<li class="nav-item"><a href="deposit/deposit-manager.html"
+						<li class="nav-item"><a href="admin/deposit"
 							class="nav-link"> <i class="nav-icon fas fa-receipt"></i>
 								<p>Quản lý cọc</p>
 						</a></li>
@@ -445,7 +445,7 @@
 												<th scope="row" class="td-center idthu"
 													style="padding-top: 2.5%;">${Accessories.id }</th>
 												<td><img class="img-fluid"
-													src="https://bizweb.dktcdn.net/100/229/172/products/vong-co-1cm-min.png?v=1550506530000"
+													src="${Accessories.getImgs().get(0).getImgAvartar() }"
 													alt="" style="max-width: 70px; max-height: 70px;"></td>
 												<td class="td-center tenthucung" style="padding-top: 2.5%;"><div
 														onclick="showFormUpdate(true, ${Accessories.id})" class="alert-link">${Accessories.name }</div></td>

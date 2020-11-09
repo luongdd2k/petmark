@@ -46,10 +46,10 @@ public @Data class Accessories implements Serializable {
 	private String description;
 	private String status;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "accessories")
-	private Set<SizeAccessories> sizes = new HashSet<SizeAccessories>(0);
+	private List<SizeAccessories> sizes = new ArrayList<>();
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "accessories")
-	private Set<ColorAccessories> colors = new HashSet<ColorAccessories>(0);
+	private List<ColorAccessories> colors = new ArrayList<>();
 	@OneToMany(mappedBy = "accessories", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 	private List<ImgAccessories> imgs = new ArrayList<>();
 	
@@ -68,21 +68,25 @@ public @Data class Accessories implements Serializable {
 	}
 
 
-	public Set<SizeAccessories> getSizes() {
+	public List<SizeAccessories> getSizes() {
 		return sizes;
 	}
 
-	public void setSizes(Set<SizeAccessories> sizes) {
+
+	public void setSizes(List<SizeAccessories> sizes) {
 		this.sizes = sizes;
 	}
 
-	public Set<ColorAccessories> getColors() {
+
+	public List<ColorAccessories> getColors() {
 		return colors;
 	}
 
-	public void setColors(Set<ColorAccessories> colors) {
+
+	public void setColors(List<ColorAccessories> colors) {
 		this.colors = colors;
 	}
+
 
 	public Accessories(int id, String name, float price, int amount, Category category, Date createdAt,
 			String description, String status) {

@@ -11,5 +11,5 @@ import com.springboot.PetMark.entities.Deposit;
 public interface DepositRepo extends JpaRepository<Deposit, Integer> {
 	List<Deposit> findByAccount(Account account);
 	@Query("select d from Deposit d where d.account = ?1 and d.status = ?2 ")
-	List<Deposit> findByAccountStt(Account account, boolean stt);
+	List<Deposit> findByAccountStt(Account account, String stt);
 }

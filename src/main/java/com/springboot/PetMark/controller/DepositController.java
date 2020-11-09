@@ -38,6 +38,8 @@ import com.springboot.PetMark.service.ColorPetService;
 import com.springboot.PetMark.service.DepositService;
 import com.springboot.PetMark.service.PetService;
 
+import pet.mart.util.DepositStatus;
+
 
 @Controller
 public class DepositController {
@@ -56,7 +58,7 @@ public class DepositController {
 		model.setViewName("client2/cancel-deposit");
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(loginedUser.getUsername());
-		List<Deposit> list = depositService.findByAccountStt(account, false);
+		List<Deposit> list = depositService.findByAccountStt(account, DepositStatus.CANCELLED);
 		model.addObject("list",list);
 		model.addObject("account", account);
 		return model;
@@ -67,7 +69,7 @@ public class DepositController {
 		model.setViewName("client2/deposit");
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(loginedUser.getUsername());
-		List<Deposit> list = depositService.findByAccountStt(account, true);
+		List<Deposit> list = depositService.findByAccountStt(account, DepositStatus.DEPOSITED);
 		model.addObject("list",list);
 		model.addObject("account", account);
 		return model;
@@ -80,12 +82,13 @@ public class DepositController {
 		Account account = accountService.findById(loginedUser.getUsername());
 		Pet pet = petService.findById(Integer.parseInt(id));
 		String mau = req.getParameter("colors");
+		int soLuong = Integer.parseInt(req.getParameter("soLuong"));
 		ColorPet color = colorPetService.findById(Integer.parseInt(mau));
 		model.setViewName("client2/vnpay-demo");
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
-		float totalAmount = pet.getDeposit();
-		boolean stt = false;
+		float totalAmount = pet.getDeposit()*soLuong;
+		String stt = DepositStatus.CANCELLED;
 		Deposit deposit = new Deposit(pet, account,color, date, totalAmount, stt);
 		depositService.add(deposit);
 		model.addObject("total",totalAmount);
@@ -151,7 +154,7 @@ public class DepositController {
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 		String username = loginedUser.getUsername();
 		if (deposit.getAccount().getUsername().equals(username)) {
-			if (deposit.isStatus()==false) {
+			if (deposit.getStatus().equals(DepositStatus.CANCELLED)) {
 				
 				Map<String, String> fields = new HashMap<String, String>();
 				for (Enumeration<String> params = request.getParameterNames(); params.hasMoreElements();) {
@@ -174,7 +177,7 @@ public class DepositController {
 				if (signValue.equals(vnp_SecureHash)) {
 					if ("00".equals(request.getParameter("vnp_ResponseCode"))) {
 
-						deposit.setStatus(true);
+						deposit.setStatus(DepositStatus.DEPOSITED);
 					}
 				}
 				depositService.add(deposit);
