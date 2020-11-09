@@ -2,6 +2,7 @@ package com.springboot.PetMark.entities;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -74,6 +75,11 @@ public @Data class Deposit implements Serializable {
 			return decimalFormat.format(this.totalAmount).replaceAll(",", ".");
 		} else
 			return decimalFormat.format(this.totalAmount).replaceAll(",", ".") + " ₫";
+	}
+	public String getDate() {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		String dateString = format.format(this.createdAt);
+		return dateString;
 	}
 
 	public String getStatus() {
