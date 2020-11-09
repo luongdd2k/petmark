@@ -13,5 +13,5 @@ public interface DepositService {
 	List<Deposit> findByAccount(Account account);
 	
 	void add(Deposit deposit);
-	List<Deposit> findByAccountStt(Account account, boolean stt);
+	List<Deposit> findByAccountStt(Account account, String stt);
 }

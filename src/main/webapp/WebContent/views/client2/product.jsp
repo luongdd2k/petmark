@@ -226,7 +226,7 @@
                             <use
 																xlink:href="images/sprite.svg#icon-minus"></use>
                           </svg>
-													</span> <input type="text" min="1" value="1" max="10"
+													</span> <input type="text" min="1" value="1" name="soLuong" max="10"
 														class="counter-btn"> <span class="plus-btn">
 														<svg>
                             <use

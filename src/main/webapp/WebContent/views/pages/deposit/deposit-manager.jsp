@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -5,6 +8,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Admin || Deposit Manager</title>
+  <base href="${pageContext.servletContext.contextPath}/">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -123,7 +127,7 @@
             </li>
             <li class="nav-header">CỬA HÀNG</li>
             <li class="nav-item">
-              <a href="employee-manager.html" class="nav-link">
+              <a href="admin/UserManagement" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                   Nhân viên
@@ -131,7 +135,7 @@
               </a>
             </li>
             <li class="nav-item has-treeview">
-              <a href="pet/pet-manager.html" class="nav-link">
+              <a href="admin/ProductManagement" class="nav-link">
                 <i class="nav-icon fas fa-paw"></i>
                 <p>
                   Thú cưng
@@ -139,7 +143,7 @@
               </a>
             </li>
             <li class="nav-item has-treeview">
-              <a href="bread/pet-bread.html" class="nav-link">
+              <a href="admin/SpeciesManagement" class="nav-link">
                 <i class="nav-icon fas fa-dog"></i>
                 <p>
                   Giống thú cưng
@@ -147,7 +151,7 @@
               </a>
             </li>
             <li class="nav-item has-treeview">
-              <a href="accessory/accessory-manager.html" class="nav-link">
+              <a href="admin/AccessoriesManagement" class="nav-link">
                 <i class="nav-icon fab fa-simplybuilt"></i>
                 <p>
                   Phụ kiện
@@ -155,7 +159,7 @@
               </a>
             </li>
             <li class="nav-item has-treeview">
-              <a href="category/category-manager.html" class="nav-link">
+              <a href="admin/CategoryManagement" class="nav-link">
                 <i class="nav-icon fab fa-bandcamp"></i>
                 <p>
                   Hãng phụ kiện
@@ -236,44 +240,17 @@
                           <th scope="col">Giá cọc</th>
                         </tr>
                       </thead>
+                      <c:forEach var="list" items="${list }">
                       <tbody>
                         <tr>
-                          <td class="td-center" style="padding-top: 2%;"><a href="./deposit-detail.html">D001</a></td>
-                          <td class="td-center" style="padding-top: 2%;">20/05/2020</td>
-                          <td class="td-center" style="padding-top: 2%;">Husky Shibarian</td>
-                          <td class="td-center" style="padding-top: 2%;">5.140.000 đ</td>
-                          <td class="td-center" style="padding-top: 2%;">2.570.000 đ</td>
-                        </tr>
-                        <tr>
-                          <td class="td-center" style="padding-top: 2.5%;"><a href="./deposit-detail.html">D002</a></td>
-                          <td class="td-center" style="padding-top: 2.5%;">21/05/2020</td>
-                          <td class="td-center" style="padding-top: 2.5%;">Corgi</td>
-                          <td class="td-center" style="padding-top: 2%;">5.900.000 đ</td>
-                          <td class="td-center" style="padding-top: 2%;">2.950.000 đ</td>
-                        </tr>
-                        <tr>
-                          <td class="td-center" style="padding-top: 2.5%;"><a href="./deposit-detail.html">D003</a></td>
-                          <td class="td-center" style="padding-top: 2%;">22/05/2020</td>
-                          <td class="td-center" style="padding-top: 2%;">Pomeranian</td>
-                          <td class="td-center" style="padding-top: 2%;">5.500.000 đ</td>
-                          <td class="td-center" style="padding-top: 2%;">2.750.000 đ</td>
-                        </tr>
-                        <tr>
-                          <td class="td-center" style="padding-top: 2.5%;"><a href="./deposit-detail.html">D004</a>
-                          </td>
-                          <td class="td-center" style="padding-top: 2%;">27/04/2020</td>
-                          <td class="td-center" style="padding-top: 2%;">Beagle</td>
-                          <td class="td-center" style="padding-top: 2%;">7.040.000 đ</td>
-                          <td class="td-center" style="padding-top: 2%;">3.520.000 đ</td>
-                        </tr>
-                        <tr>
-                          <td class="td-center" style="padding-top: 2.5%;"><a href="./deposit-detail.html">D005</a></td>
-                          <td class="td-center" style="padding-top: 2%;">02/04/2020</td>
-                          <td class="td-center" style="padding-top: 2%;">Pug</td>
-                          <td class="td-center" style="padding-top: 2%;">1.950.000 đ</td>
-                          <td class="td-center" style="padding-top: 2%;">975.000 đ</td>
+                          <td class="td-center" style="padding-top: 2%;"><a href="./deposit-detail.html">${list.getId()}</a></td>
+                          <td class="td-center" style="padding-top: 2%;">${list.getCreatedAt() }</td>
+                          <td class="td-center" style="padding-top: 2%;">${list.getPet().getPetName() }</td>
+                          <td class="td-center" style="padding-top: 2%;">${list.getPet().getDisplayPrice(1) }</td>
+                          <td class="td-center" style="padding-top: 2%;">${list.getDisplayTotalAmount(1) }</td>
                         </tr>
                       </tbody>
+                      </c:forEach>
                     </table>
                     <hr>
                   </div>

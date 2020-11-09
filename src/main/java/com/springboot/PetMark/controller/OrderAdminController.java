@@ -56,7 +56,6 @@ public class OrderAdminController {
 	@Autowired
 	OrderrWebService service;
 
-//	@PostMapping()
 	@RequestMapping()
 	public String showOrders(ModelMap model, HttpServletRequest request) {
 		HttpSession session = request.getSession();

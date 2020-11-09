@@ -79,9 +79,9 @@ public class CheckoutController {
 		model.setViewName("client2/all-order");
 		User logginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(logginedUser.getUsername());
+		model.addObject("account", account);
 		List<OrderrWeb> list = orderWebService.findByAccount(account);
 		model.addObject("list", list);
-		model.addObject("account", account);
 		String isEmpty = "1";
 		if (list.size() == 0) {
 			isEmpty = "0";

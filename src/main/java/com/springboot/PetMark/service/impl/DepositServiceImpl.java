@@ -39,7 +39,7 @@ public class DepositServiceImpl implements DepositService {
 	}
 
 	@Override
-	public List<Deposit> findByAccountStt(Account account, boolean stt) {
+	public List<Deposit> findByAccountStt(Account account, String stt) {
 		// TODO Auto-generated method stub
 		return dao.findByAccountStt(account, stt);
 	}

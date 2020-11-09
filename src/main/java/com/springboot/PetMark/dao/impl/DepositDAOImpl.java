@@ -39,7 +39,7 @@ public class DepositDAOImpl implements DepositDAO{
 	}
 
 	@Override
-	public List<Deposit> findByAccountStt(Account account, boolean stt) {
+	public List<Deposit> findByAccountStt(Account account, String stt) {
 		// TODO Auto-generated method stub
 		return repo.findByAccountStt(account, stt);
 	}
