@@ -13,17 +13,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- jsGrid -->
-    <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid.min.css">
-    <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid-theme.min.css">
+    <link rel="stylesheet" href="plugins/jsgrid/jsgrid.min.css">
+    <link rel="stylesheet" href="plugins/jsgrid/jsgrid-theme.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <link rel="stylesheet" href="../../dist/css/custom.css">
+    <link rel="stylesheet" href="dist/css/custom.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -36,7 +36,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="javascript:" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../../index4.html" class="nav-link">Trang chủ</a>
+                    <a href="index4.html" class="nav-link">Trang chủ</a>
                 </li>
             </ul>
 
@@ -79,12 +79,12 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../pages/examples/recover-password.html">
+                    <a class="nav-link" href="pages/examples/recover-password.html">
                         <i class="fas fa-unlock-alt"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../pages/examples/login.html">
+                    <a class="nav-link" href="pages/examples/login.html">
                         <i class="fas fa-sign-out-alt"></i>
                     </a>
                 </li>
@@ -95,8 +95,8 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-light-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="../../index.html" class="brand-link">
-                <img src="../../dist/img/AdminLTELogo.jpg" alt="AdminLTE Logo"
+            <a href="index.html" class="brand-link">
+                <img src="dist/img/AdminLTELogo.jpg" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Pet Mart</span>
             </a>
@@ -106,10 +106,10 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="../examples/profile.html" class="d-block">Trần Ngọc Hải</a>
+                        <a href="examples/profile.html" class="d-block">Trần Ngọc Hải</a>
                     </div>
                 </div>
 
@@ -120,13 +120,14 @@
                         <!-- Add icons to the links using the .nav-icon class
      with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview">
-                            <a href="../../index.html" class="nav-link">
+                            <a href="index.html" class="nav-link">
                                 <i class="nav-icon fas fa-home"></i>
                                 <p>
                                     Trang chủ
                                 </p>
                             </a>
                         </li>
+<<<<<<< HEAD
                         <li class="nav-header">CỬA HÀNG</li>
                         <li class="nav-item">
                             <a href="../employee-manager.html" class="nav-link">
@@ -186,8 +187,66 @@
                             </a>
                         </li>
                         <li class="nav-header">THỐNG KÊ</li>
+=======
+            <li class="nav-header">CỬA HÀNG</li>
+            <li class="nav-item">
+              <a href="admin/UserManagement" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                  Nhân viên
+                </p>
+              </a>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="admin/ProductManagement" class="nav-link">
+                <i class="nav-icon fas fa-paw"></i>
+                <p>
+                  Thú cưng
+                </p>
+              </a>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="admin/SpeciesManagement" class="nav-link">
+                <i class="nav-icon fas fa-dog"></i>
+                <p>
+                  Giống thú cưng
+                </p>
+              </a>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="admin/AccessoriesManagement" class="nav-link">
+                <i class="nav-icon fab fa-simplybuilt"></i>
+                <p>
+                  Phụ kiện
+                </p>
+              </a>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="admin/CategoryManagement" class="nav-link">
+                <i class="nav-icon fab fa-bandcamp"></i>
+                <p>
+                  Hãng phụ kiện
+                </p>
+              </a>
+            </li>
+            <li class="nav-header">QUẢN LÝ</li>
+						<li class="nav-item has-treeview"><a
+							href="admin/orders" class="nav-link"> <i
+								class="nav-icon fas fa-table"></i>
+								<p>Quản lý đơn hàng</p>
+						</a></li>
+            <li class="nav-item">
+              <a href="admin/deposit" class="nav-link active">
+                <i class="nav-icon fas fa-receipt"></i>
+                <p>
+                  Quản lý cọc
+                </p>
+              </a>
+            </li>
+                        <li class="nav-header">THỐNG KÊ</li>
+>>>>>>> 0fe79c765bb14dfd74faae7bac943899860d6f0a
                         <li class="nav-item">
-                            <a href="../statistical/statistical.html" class="nav-link">
+                            <a href="statistical/statistical.html" class="nav-link">
                                 <i class="nav-icon far fa-chart-bar"></i>
                                 <p>
                                     Thống kê
@@ -212,9 +271,15 @@
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
+<<<<<<< HEAD
                                 <li class="breadcrumb-item"><a href="../../index.html">Trang chủ</a></li>
                                 <li class="breadcrumb-item"><a href="./deposit-manager.html">Đơn cọc</a></li>
                                 <li class="breadcrumb-item active">Chi tiết đơn hàng</li>
+=======
+                                <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                                <li class="breadcrumb-item"><a href="./deposit-manager.html">Đơn đặt cọc</a></li>
+                                <li class="breadcrumb-item active">Chi tiết đơn đặt cọc</li>
+>>>>>>> 0fe79c765bb14dfd74faae7bac943899860d6f0a
                             </ol>
                         </div>
                     </div>
@@ -333,16 +398,16 @@
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- jsGrid -->
-    <script src="../../plugins/jsgrid/demos/db.js"></script>
-    <script src="../../plugins/jsgrid/jsgrid.min.js"></script>
+    <script src="plugins/jsgrid/demos/db.js"></script>
+    <script src="plugins/jsgrid/jsgrid.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js"></script>
+    <script src="dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="../../dist/js/demo.js"></script>
+    <script src="dist/js/demo.js"></script>
     <!-- page script -->
 
 </body>

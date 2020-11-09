@@ -243,8 +243,8 @@
                       <c:forEach var="list" items="${list }">
                       <tbody>
                         <tr>
-                          <td class="td-center" style="padding-top: 2%;"><a href="./deposit-detail.html">${list.getId()}</a></td>
-                          <td class="td-center" style="padding-top: 2%;">${list.getCreatedAt() }</td>
+                          <td class="td-center" style="padding-top: 2%;"><a href="admin/deposit/deposit-detail/${list.getId() }">${list.getId()}</a></td>
+                          <td class="td-center" style="padding-top: 2%;">${list.getDate() }</td>
                           <td class="td-center" style="padding-top: 2%;">${list.getPet().getPetName() }</td>
                           <td class="td-center" style="padding-top: 2%;">${list.getPet().getDisplayPrice(1) }</td>
                           <td class="td-center" style="padding-top: 2%;">${list.getDisplayTotalAmount(1) }</td>
