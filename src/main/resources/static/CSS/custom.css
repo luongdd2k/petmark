@@ -8,3 +8,7 @@
     padding-left: 88%;
     padding-bottom: 10px;
 }
+.hide{
+	display: none;
+	visibility: hidden;
+}

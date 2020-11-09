@@ -127,67 +127,6 @@
                                 </p>
                             </a>
                         </li>
-<<<<<<< HEAD
-                        <li class="nav-header">CỬA HÀNG</li>
-                        <li class="nav-item">
-                            <a href="../employee-manager.html" class="nav-link">
-                                <i class="nav-icon fas fa-users"></i>
-                                <p>
-                                    Nhân viên
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="../pet/pet-manager.html" class="nav-link">
-                                <i class="nav-icon fas fa-paw"></i>
-                                <p>
-                                    Thú cưng
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="../bread/pet-bread.html" class="nav-link">
-                                <i class="nav-icon fas fa-dog"></i>
-                                <p>
-                                    Giống thú cưng
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="../accessory/accessory-manager.html" class="nav-link">
-                                <i class="nav-icon fab fa-simplybuilt"></i>
-                                <p>
-                                    Phụ kiện
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="../category/category-manager.html" class="nav-link">
-                                <i class="nav-icon fab fa-bandcamp"></i>
-                                <p>
-                                    Hãng phụ kiện
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-header">QUẢN LÝ</li>
-                        <li class="nav-item has-treeview">
-                            <a href="../order/order-manager.html" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
-                                <p>
-                                    Quản lý đơn hàng
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="deposit-manager.html" class="nav-link active">
-                                <i class="nav-icon fas fa-receipt"></i>
-                                <p>
-                                    Quản lý cọc
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-header">THỐNG KÊ</li>
-=======
             <li class="nav-header">CỬA HÀNG</li>
             <li class="nav-item">
               <a href="admin/UserManagement" class="nav-link">
@@ -244,7 +183,6 @@
               </a>
             </li>
                         <li class="nav-header">THỐNG KÊ</li>
->>>>>>> 0fe79c765bb14dfd74faae7bac943899860d6f0a
                         <li class="nav-item">
                             <a href="statistical/statistical.html" class="nav-link">
                                 <i class="nav-icon far fa-chart-bar"></i>
@@ -271,15 +209,9 @@
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-<<<<<<< HEAD
-                                <li class="breadcrumb-item"><a href="../../index.html">Trang chủ</a></li>
-                                <li class="breadcrumb-item"><a href="./deposit-manager.html">Đơn cọc</a></li>
-                                <li class="breadcrumb-item active">Chi tiết đơn hàng</li>
-=======
                                 <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
                                 <li class="breadcrumb-item"><a href="./deposit-manager.html">Đơn đặt cọc</a></li>
                                 <li class="breadcrumb-item active">Chi tiết đơn đặt cọc</li>
->>>>>>> 0fe79c765bb14dfd74faae7bac943899860d6f0a
                             </ol>
                         </div>
                     </div>
@@ -300,49 +232,74 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12 col-sm-6 col-md-3">
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-3">
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-3">
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-3">
-                                            <div style="float: right; margin-bottom: 15px;">
-                                                <a type="button" class="btn btn-danger"
-                                                    href="./deposit-status-cancle.html">
-                                                    <i class="fas fa-calendar-times"></i>
-                                                    <span> Hủy đơn cọc này</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End Row .Button Huy-->
-
-                                    <div style="border: solid 1px black; max-width: 100%; margin: auto; height: 100%; margin-bottom: 10px;">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p style="padding-left: 20px;">Người đặt cọc :</p>
-                                                <p style="padding-left: 30px; margin-top: -8px; font-size: 16px;">
-                                                    <strong>Nguyễn Văn A</strong>
-                                                </p>
-                                                <p style="padding-left: 20px;">Địa chỉ :</p>
-                                                <p style="padding-left: 30px; margin-top: -8px;font-size: 16px;">
-                                                    <strong>23 Xuân Đỉnh</strong>
-                                                </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p style="padding-left: 20px;">Số điện thoại :</p>
-                                                <p style="padding-left: 30px; margin-top: -8px; font-size: 16px;">
-                                                    <strong>0123456789</strong></p>
-                                           		<p style="padding-left: 20px;">Trạng thái :</p>
-                                                <p style="padding-left: 30px; margin-top: -8px;font-size: 16px;">
-                                                    <strong id="status-deposit">Đã thanh toán</strong></p> 
-                                            </div>
-                                        </div>
-                                        <!-- End .row infor-->
-                                    </div>
-                                    <!--End div .row content-->
-
+                                	<div class="information" style="max-width: 62%; margin: auto; height: 100%; margin-bottom: 10px;">
+	                                    <div class="row">
+	                                        <div class="col-12 col-sm-6 col-md-3">
+	                                        </div>
+	                                        <div class="col-12 col-sm-6 col-md-3">
+	                                        </div>
+	                                        <div class="col-12 col-sm-6 col-md-3">
+	                                        	<div id="hoan-tien" style="float: right; margin-bottom: 15px;">
+	                                                <a type="button" class="btn btn-danger"
+	                                                    href="./deposit-status-cancle.html">
+	                                                    <i class="fas fa-calendar-times"></i>
+	                                                    <span> Hoàn tiền đơn này</span></a>
+	                                            </div>
+	                                        </div>
+	                                        <div class="col-12 col-sm-6 col-md-3">
+	                                            <div id="huy" style="float: right; margin-bottom: 15px;">
+	                                                <a type="button" class="btn btn-danger"
+	                                                    href="./deposit-status-cancle.html">
+	                                                    <i class="fas fa-calendar-times"></i>
+	                                                    <span> Hủy đơn cọc này</span></a>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <!--End Row .Button Huy-->
+	
+	                                    <div id="information" style="border: solid 1px black; max-width: 100%; margin: auto; height: 100%; margin-bottom: 10px;">
+	                                        <div class="row">
+	                                            <div class="col-6">
+	                                                <p style="padding-left: 20px;">Người đặt cọc :</p>
+	                                                <p style="padding-left: 30px; margin-top: -8px; font-size: 16px;">
+	                                                    <strong>Nguyễn Văn A</strong>
+	                                                </p>
+	                                                <p style="padding-left: 20px;">Địa chỉ :</p>
+	                                                <p style="padding-left: 30px; margin-top: -8px;font-size: 16px;">
+	                                                    <strong>23 Xuân Đỉnh</strong>
+	                                                </p>
+	                                            </div>
+	                                            <div class="col-6">
+	                                                <p style="padding-left: 20px;">Số điện thoại :</p>
+	                                                <p style="padding-left: 30px; margin-top: -8px; font-size: 16px;">
+	                                                    <strong>0123456789</strong></p>
+	                                           		<p style="padding-left: 20px;">Trạng thái :</p>
+	                                                <p style="padding-left: 30px; margin-top: -8px;font-size: 16px;">
+	                                                    <strong id="status-deposit">Đã hủy - Chưa hoàn tiền</strong></p> 
+	                                            </div>
+	                                        </div>
+	                                        <!-- End .row infor-->
+	                                    </div>
+	                                    <!--End div .row content-->
+	                                    
+	                                    <div id="thanh-toan" class="row" >
+					                      <div class="col-12 col-sm-6 col-md-3">
+					                        <div style="margin-top: 15px; margin-bottom: 10px">
+					                          <button
+					                            onclick="hienThiBtnBD(true)"
+					                            class="btn btn-custon-three btn-primary"
+					                          >
+					                            <i class="fas fa-calendar-check"></i>
+					                            <span>Đã thanh toán</span>
+					                          </button>
+					                        </div>
+					                      </div>
+					                      <div class="col-12 col-sm-6 col-md-3"></div>
+					                      <div class="col-12 col-sm-6 col-md-3"></div>
+					                      <div class="col-12 col-sm-6 col-md-3"></div>
+					                    </div>
+					                    <!--End Row .Button duyệt-->
+									</div>
                                     <div class="main-table" style="max-width: 1000px;">
                                         <table class="table" style="margin-bottom: -1%;">
                                             <thead class="thead-light">
@@ -408,6 +365,33 @@
     <script src="dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
+    <script type="text/javascript">
+		let stt = $("#status-deposit").html();
+		$(function(){
+			if(stt == "Đã thanh toán"){
+				$("#hoan-tien").addClass("hide");
+				$("#huy").addClass("hide");
+				$("#thanh-toan").addClass("hide");
+				$("#information").css("background-color","#cefcce");
+			}else if(stt == "Đã hủy"){
+				$("#hoan-tien").addClass("hide");
+				$("#huy").addClass("hide");
+				$("#thanh-toan").addClass("hide");
+				$("#information").css("background-color","#f8d6d0");
+			}else if(stt == "Đã đặt cọc"){
+				$("#hoan-tien").removeClass("hide");
+				$("#huy").removeClass("hide");
+				$("#thanh-toan").removeClass("hide");
+				$("#information").css("background-color","#b9caec");
+			}else if(stt == "Đã hủy - Chưa hoàn tiền"){
+				$("#hoan-tien").removeClass("hide");
+				$("#huy").addClass("hide");
+				$("#thanh-toan").addClass("hide");
+				$("#information").css("background-color","#FEF889");
+			}
+				
+		})
+    </script>
     <!-- page script -->
 
 </body>
