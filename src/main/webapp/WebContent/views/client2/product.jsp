@@ -155,7 +155,7 @@
 										<img class="picture" src="${img.getImg1() }" id="pic4" />
 									</div>
 									<div class="pictures__container">
-										<img class="picture" src="${img.getImg1() }" id="pic5" />
+										<img class="picture" src="${img.getImg3() }" id="pic5" />
 									</div>
 								</div>
 								<div class="product__picture" id="product__picture">

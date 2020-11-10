@@ -84,7 +84,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pages/examples/login.html">
+                    <a class="nav-link" href="">
                         <i class="fas fa-sign-out-alt"></i>
                     </a>
                 </li>
@@ -109,7 +109,7 @@
                         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="examples/profile.html" class="d-block">Trần Ngọc Hải</a>
+                        <a href="admin/UserManagement/show-profile" class="d-block">${account.getFullName() }</a>
                     </div>
                 </div>
 
@@ -120,7 +120,7 @@
                         <!-- Add icons to the links using the .nav-icon class
      with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview">
-                            <a href="index.html" class="nav-link">
+                            <a href="${pageContext.servletContext.contextPath}/LoggedInSuccessfully" class="nav-link">
                                 <i class="nav-icon fas fa-home"></i>
                                 <p>
                                     Trang chủ

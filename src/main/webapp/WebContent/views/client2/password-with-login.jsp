@@ -125,7 +125,7 @@
         <div class="page__title-container">
           <ul class="page__titles">
             <li>
-              <a href="/">
+              <a href="javascript:">
                 <svg>
                   <use xlink:href="./images/sprite.svg#icon-home"></use>
                 </svg>
@@ -162,7 +162,7 @@
                     </div>
                   </a>
                   <div class="user-page-brief__right">
-                    <div class="user-page-brief__username">${account.getUsername() }</div>
+                    <div class="user-page-brief__username">${account.getFullName() }</div>
                     <div>
                       <a href="" class="user-page-brief__edit">
                         <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px;">
@@ -194,7 +194,7 @@
                               <a href="show-account" class="_17BcjA _1EUbVp">
                                   <span class="_2ilxaJ">Hồ sơ</span>
                               </a>
-                              <a href="#" class="_17BcjA">
+                              <a href="javascript:" class="_17BcjA">
                                   <span class="_2ilxaJ" style="color: orangered;">Đổi mật khẩu</span>
                               </a>
                             </div>
@@ -244,7 +244,7 @@
                       <div class="my-account-section__header-subtitle">Để bảo mật tài khoản, vui lòng không chia sẻ mật khẩu cho người khác</div>
                     </div>
                   </div>
-                  <form action="">
+                  <form action="Changepw" method="post">
                       <div class="_2RXy7B">
                           <div class="KYsB_e">
                             <div class="_2b9N_5">
@@ -270,7 +270,7 @@
                                         <label class="_3_bW3Q" for="newPassword">Mật khẩu mới</label>
                                     </div>
                                     <div class="_1jBnmJ">
-                                        <input class="_2mVfdi _2u9RSh" type="password" autocomplete="off" name="newPassword" value="" aria-autocomplete="list">
+                                        <input class="_2mVfdi _2u9RSh" type="password" autocomplete="off" name="newPassword" aria-autocomplete="list">
                                     </div>
                                 </div>
                             </div>
@@ -291,7 +291,7 @@
                             <div class="_356OXR"></div>
                             <div class="f3x8pt">
                                 <button 
-                                    type="button" 
+                                    type="submit" 
                                     class="btn btn-solid-primary btn--m btn--inline btn-solid-primary--disabled" 
                                     aria-disabled="true"
                                     >Xác nhận

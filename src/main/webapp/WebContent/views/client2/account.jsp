@@ -33,7 +33,7 @@
 <body>
   <header id="header" class="header">
     <div class="navigation">
-      <input type="hidden" id="usernameBE" value="haitn" />
+      <input type="hidden" id="usernameBE" value="${account.getFullName() }" />
       <div class="row header__top" >
         <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
           <p>206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội</p>
@@ -191,7 +191,7 @@
                         </div>
                         <div class="stardust-dropdown__item-body stardust-dropdown__item-body--open" style="opacity: 1;">
                             <div class="userpage-sideber-menu__subsection">
-                              <a href="" class="_17BcjA _1EUbVp">
+                              <a href="javascript:" class="_17BcjA _1EUbVp">
                                   <span class="_2ilxaJ" style="color: orangered;">Hồ sơ</span>
                               </a>
                               <a href="show-change-pass" class="_17BcjA">

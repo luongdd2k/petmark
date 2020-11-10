@@ -106,7 +106,7 @@
             <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="../examples/profile.html" class="d-block">Trần Ngọc Hải</a>
+            <a href="../admin/UserManagement/show-profile" class="d-block">${account.getFullName() }</a>
           </div>
         </div>
 
