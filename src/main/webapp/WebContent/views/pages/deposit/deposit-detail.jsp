@@ -387,7 +387,7 @@
 				$("#hoan-tien").removeClass("hide");
 				$("#huy").addClass("hide");
 				$("#thanh-toan").addClass("hide");
-				$("#information").css("background-color","#FEF889");
+				$("#information").css("background-color","#fef889");
 			}
 				
 		})
