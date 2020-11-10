@@ -2,9 +2,17 @@ package com.springboot.PetMark.controller;
 
 import java.io.File;
 import java.security.Principal;
+import java.util.Properties;
+import java.util.Random;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,6 +32,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.springboot.PetMark.config.MailConfig;
 import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.service.AccountService;
 
@@ -40,38 +49,13 @@ public class AccountController {
 	public String showForgotpw() {
 		return "client2/forgot-pass";
 	}
-//	@RequestMapping(value="/CheckLogin", method=RequestMethod.POST)
-//	public String checkLogin(HttpServletRequest request) {
-//		HttpSession session = request.getSession();
-//		// không bao giờ chạy
-//		String username = request.getParameter("username");
-//		String password = request.getParameter("password");
-//		String urlPage = request.getParameter("urlPage");
-//		System.out.println("tên đăng nhập: "+username);
-//		System.out.println("Mậy khẩu: "+password);
-//		System.out.println("Url: "+urlPage);
-//		
-//		if(accountService.checkLogin(username, password)) {
-//			System.out.println("Login Success!");
-//			session.setAttribute("username", username);
-//			session.setAttribute("role", accountService.getRole(username));
-//			session.setAttribute("fullname", accountService.findById(username).getFullName());
-//			session.setAttribute("profilePictureURL", accountService.findById(username).getImagePath());
-//			
-//		} else {
-//			System.out.println("Login Fail!");
-//		}
-//
-//		return "redirect:"+urlPage;
-////		return null;
-//	}
 
 	@RequestMapping(value = "/isLoginFail", method = RequestMethod.POST)
 	@ResponseBody
 	public String loginFail(HttpServletRequest request) {
 //		xong
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		String username = request.getParameter("sl_login_username");
+		String password = request.getParameter("sl_login_password");
 		System.out.println("tên đăng nhập: " + username);
 		System.out.println("mật khẩu: " + password);
 
@@ -174,7 +158,7 @@ public class AccountController {
 	public ModelAndView loggedInSuccessfully(HttpServletRequest request, Principal principal) {
 		HttpSession session = request.getSession();
 		ModelAndView model = new ModelAndView();
-		model.setViewName("redirect:/index");
+		model.setViewName("redirect:/welcome");
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 
 		String loggedUsername = loginedUser.getUsername();
@@ -182,9 +166,6 @@ public class AccountController {
 		String loggedRole = loggedUsernameAuthorities.substring(1, loggedUsernameAuthorities.length() - 1);
 		String loggedFullname = accountService.findById(loggedUsername).getFullName();
 		Account account = accountService.findById(loggedUsername);
-//		String us = accountService.findById(loggedUsername).getUsername();
-//		model.addObject("account", account);
-		model.addObject("us", loggedUsername);
 		System.out.println("Thông tin tài khoản: " + account);
 
 		System.out.println("\r---------------------");
@@ -204,9 +185,9 @@ public class AccountController {
 //		&& currentPath.contains("/index")
 		if (loggedRole.equals("ROLE_ADMIN")) {
 			model.setViewName("indexadmin");
+			model.addObject("name", loggedFullname);
 			return model;
 		}
-
 		return model;
 	}
 
@@ -287,32 +268,62 @@ public class AccountController {
 	}
 
 	@RequestMapping("Changepw")
-	public String changepw(ModelMap model) {
-
-		return "account/changepw";
+	public String changepw(ModelMap model,HttpServletRequest req,Principal principal) {
+		User loginedUser = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(loginedUser.getUsername());
+		String passworded = account.getPassword();
+		String nowPass = req.getParameter("password");
+		String newPass = req.getParameter("newPassword");
+		String confirmPass = req.getParameter("newPasswordRepeat");
+		if( new BCryptPasswordEncoder().matches(nowPass, passworded)) {
+			if(newPass.equalsIgnoreCase(confirmPass)) {
+				account.setPassword(new BCryptPasswordEncoder().encode(newPass));
+				accountService.save(account);
+				return "redirect:/show-account";
+			}
+		}
+		return "redirect:/show-chang-pass";
 	}
 
-	@RequestMapping(value = "CheckCurrentPw", method = RequestMethod.POST)
-//	@PreAuthorize("hasAnyRole('ROLE_MEMBER', 'ROLE_ADMIN')")
-	@ResponseBody
-	public String submitPw(HttpServletRequest request, ModelMap model, Principal principal) {
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(10);
-		User loginedUser = (User) ((Authentication) principal).getPrincipal();
-		String loggedUsername = loginedUser.getUsername();
-		Account account = accountService.findById(loggedUsername);
-		String oldPw = request.getParameter("sl_current_pw");
-		String newPw = request.getParameter("sl_new_pw");
-		String pw;
-
-		if (accountService.checkLogin(loggedUsername, oldPw)) {
-			pw = "1";
-			account.setPassword(encoder.encode(newPw));
-			accountService.saveAccount(account);
-			return "?pw=" + pw;
-		} else {
-			pw = "0";
-			return "?pw=" + pw;
-		}
+	@RequestMapping("/forgot-pass")
+	public String forgotPass(HttpServletRequest req) {
+		Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", MailConfig.HOST_NAME);
+        props.put("mail.smtp.port", MailConfig.TSL_PORT);
+        
+        // get Session
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(MailConfig.APP_EMAIL, MailConfig.APP_PASSWORD);
+            }
+        });
+ 
+        // compose message
+        try {
+        	String email = req.getParameter("email");
+        	String username = req.getParameter("username");
+        	Account account = accountService.findById(username);
+        	if(account!=null && account.getUsername().equals(username) && account.getEmail().equals(email)) {
+        		int code = (int) Math.floor(((Math.random() * 89999999) + 10000000));
+        		String newPass = String.valueOf(code);
+            MimeMessage message = new MimeMessage(session);
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+            message.setSubject("Thông báo quên mật khẩu từ PetMark");
+            message.setText("Mật khẩu của bạn là: " +newPass);
+            account.setPassword(new BCryptPasswordEncoder().encode(newPass));
+			accountService.save(account);
+            // send message
+            Transport.send(message);
+ 
+            System.out.println("Message sent successfully");
+            return "redirect:/showLogin";
+        	}
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
+        return "redirect:/show-forgot-pass";
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.springboot.PetMark.controller;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,10 +10,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.Role;
@@ -28,7 +32,7 @@ public class UserController {
 	RoleService roleService;
 	
 	@RequestMapping
-	public String UserManagement(ModelMap model, HttpServletRequest request) {
+	public String UserManagement(ModelMap model, HttpServletRequest request,Principal principal) {
 		HttpSession session = request.getSession();
 		List<Account> listAccount = new ArrayList<Account>();
 		
@@ -51,12 +55,8 @@ public class UserController {
 		
 		int page = targetPage - 1;
 		
-//		String nameButton3 = "Lưu";
-//		String classButton3 = "btn_save";
 		String nameButton3 = "Chặn";
 		String action = "DeactiveAccount";
-//		String classButtonDelete3 = "btn_deactive";
-//		String titleButtonDelete3 = "Chặn người dùng này";
 		
 		String sortValue = request.getParameter("sortValue");
 		System.out.println("Index Sort: " + sortValue);
@@ -95,10 +95,6 @@ public class UserController {
 				listAccount = accountService.showAllAccount("ROLE_MEMBER", "ROLE_STAFF", "ROLE_ADMIN", true, PageRequest.of(page, 10, Sort.by("username").ascending()));		
 				nameButton3 = "Bỏ chặn";
 				action = "ActiveAccount";
-//				classButton3 = "btn_active";
-//				nameButtonDelete3 = "Xóa";
-//				classButtonDelete3 = "permanently_deleted";
-//				titleButtonDelete3 = "Xóa vĩnh viễn người dùng này";
 				
 				break;
 			case "searchResult":
@@ -130,24 +126,29 @@ public class UserController {
 			return "error/e404";
 		}
 		
-		
+		User user = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(user.getUsername());
+		model.addAttribute("account", account);
 		session.setAttribute("targetPage", page+1);
 		model.addAttribute("nameButton3", nameButton3);
 		model.addAttribute("action", action);
-//		model.addAttribute("classButton3", classButton3);
-//		model.addAttribute("nameButtonDelete3", nameButtonDelete3);
-//		model.addAttribute("classButtonDelete3", classButtonDelete3);
-//		model.addAttribute("titleButtonDelete3", titleButtonDelete3);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("listAccount", listAccount);
 		model.addAttribute("sortValue", sortValue);
 		model.addAttribute("search_display", search_display);
-		
-//		return "admin/QLND";
+	
 		return "pages/employee-manager";
 	}
 		
-	
+	@RequestMapping("/show-profile")
+	public ModelAndView showProfile(Principal principal) {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("pages/examples/profile");
+		User logginedUser = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(logginedUser.getUsername());
+		model.addObject("account", account);
+		return model;
+	}
 	@RequestMapping("/changeSortValue")
 	public String changeSortValue (HttpServletRequest request) {
 		String sortValue = request.getParameter("sortValue");

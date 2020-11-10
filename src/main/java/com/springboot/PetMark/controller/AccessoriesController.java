@@ -1,6 +1,7 @@
 package com.springboot.PetMark.controller;
 
 import java.io.File;
+import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,9 +25,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.springboot.PetMark.entities.Accessories;
+import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.Category;
 import com.springboot.PetMark.repository.AccessoriesRepository;
 import com.springboot.PetMark.service.AccessoriesService;
+import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.CategoryService;
 import com.springboot.PetMark.service.ColorAccessoriesService;
 
@@ -38,22 +43,20 @@ public class AccessoriesController {
 	@Autowired
 	ColorAccessoriesService color;
 	@Autowired
+	AccountService accountService;
+	@Autowired
 	ServletContext context;
 
 //	
 	@RequestMapping
-	public String index(ModelMap model, HttpServletRequest request) throws IllegalArgumentException {
+	public String index(ModelMap model, HttpServletRequest request,Principal principal) throws IllegalArgumentException {
 		HttpSession session = request.getSession();
 		List<Accessories> listAccessories = new ArrayList<Accessories>();
-//		List<Accessories> listAccessories = AccessoriesService.findAll();
 		List<Integer> listAccessoriesInteger = new ArrayList<Integer>();
 		List<Category> listCategory = CategoryService.findAll();
-//		
 		List<String> listStatus = AccessoriesService.getStatus();
 		int countContinueAccessories = AccessoriesService.countContinueProduct();
-//		System.out.println("countContinueAccessories: " + countContinueAccessories);
 		int totalPage = (int) Math.ceil((double)countContinueAccessories/10);
-//		
 		int targetPage;
 
 		if (session.getAttribute("targetPage") != null) {
@@ -65,12 +68,7 @@ public class AccessoriesController {
 			targetPage = Integer.valueOf(request.getParameter("targetPage"));
 		}
 		int page = targetPage - 1;
-//		listAccessories = AccessoriesService.findAll();
 		listAccessories = AccessoriesService.showProductByCategoryPageable("", PageRequest.of(page, 10, Sort.by("id").ascending()));
-//		System.out.println("danh sách thú: " +listAccessories);
-//		System.out.println("danh sách giống: " +listCategory);
-//		model.addAttribute("listAccessories", listAccessories);
-//		model.addAttribute("listCategory", listCategory);
 //		int page = targetPage - 1;
 
 		if (request.getParameter("scrollT") != null) {
@@ -79,7 +77,6 @@ public class AccessoriesController {
 
 		String action = "DisContinuedAccessories";
 		String nameButton2 = "Ngừng kinh doanh";
-//		String classButton2 = "btn_upload";
 		String classButtonDelete = "btn_delete2";
 		String sortValue = request.getParameter("sortValue");
 		System.out.println("Index Sort: " + sortValue);
@@ -108,39 +105,12 @@ public class AccessoriesController {
 				listAccessories = AccessoriesService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("price").descending()));
 				
 				break;
-//			case "3":
-//				if(targetPage > totalPage) page = 0;
-//				listAccessories = AccessoriesService.showAccessoriesByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("id").ascending()));
-//				
-//				break;
-//			case "3":
-//				int countPaid = AccessoriesService.showAccessoriesByCategoryOrderByPaid("", false, null).size();
-//				totalPage = (int) Math.ceil((double)countPaid/10);
-//				if(targetPage > totalPage) page = 0;
-//				listAccessoriesInteger = AccessoriesService.showAccessoriesByCategoryOrderByPaid("", false, PageRequest.of(page, 10));
-//				
-//				break;
-//			case "4":
-//				int countLike = AccessoriesService.showAccessoriesByCategoryOrderByLike("", false, null).size();
-//				totalPage = (int) Math.ceil((double)countLike/10);
-//				if(targetPage > totalPage) page = 0;
-//				listAccessoriesInteger = AccessoriesService.showAccessoriesByCategoryOrderByLike("", false, PageRequest.of(page, 10));
-//				
-//				break;
-//			case "5":
-//				int countView = AccessoriesService.showAccessoriesByCategoryOrderByView("", false, null).size();
-//				totalPage = (int) Math.ceil((double)countView/10);
-//				if(targetPage > totalPage) page = 0;
-//				listAccessoriesInteger = AccessoriesService.showAccessoriesByCategoryOrderByView("", false, PageRequest.of(page, 10));
-//				
-//				break;
 			case "3":
 				if(targetPage > totalPage) page = 0;
 				listAccessories = AccessoriesService.showProductByCategoryPageable("Ngừng bán", PageRequest.of(page, 10, Sort.by("id").ascending()));
 //				totalPage = (int) Math.ceil((double)AccessoriesService.countAccessories("Ngừng bán")/10);
 				nameButton2 = "Đăng bán";
 				action = "ContinuedAccessories";
-//				classButton2 = "cancel_discontinue";
 				classButtonDelete = "cancel_discontinue";
 				
 				break;
@@ -163,20 +133,18 @@ public class AccessoriesController {
 			model.addAttribute("add", "added");
 			session.setAttribute("add", null);
 		}
-//		
+		User logginedUser = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(logginedUser.getUsername());
+		model.addAttribute("account", account);
 		session.setAttribute("targetPage", targetPage);
 		model.addAttribute("nameButton2", nameButton2);
-//		model.addAttribute("classButton2", classButton2);
 		model.addAttribute("classButtonDelete", classButtonDelete);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("listAccessories", listAccessories);
 		model.addAttribute("listCategory", listCategory);
 		model.addAttribute("listStatus", listStatus);
 		model.addAttribute("action", action);
-//		System.out.println(listAccessories);
-//		
 		return "pages/accessory/accessory-manager";
-//		return "admin/QLPK";
 	}
 
 //	

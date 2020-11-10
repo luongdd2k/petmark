@@ -212,7 +212,7 @@
                   <img onclick="getUrl(this.src)" class="picture" src="${imgacc.getImg1() }" id="pic4" />
                 </div>
                 <div class="pictures__container">
-                  <img onclick="getUrl(this.src)" class="picture" src="${imgacc.getImg1() }" id="pic5" />
+                  <img onclick="getUrl(this.src)" class="picture" src="${imgacc.getImg3() }" id="pic5" />
                 </div>
               </div>
               <div class="product__picture" id="product__picture">

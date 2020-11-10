@@ -1,6 +1,7 @@
 package com.springboot.PetMark.controller;
 
 import java.io.File;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +21,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.Species;
+import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.SpeciesService;
 
 @Controller
@@ -26,12 +31,13 @@ import com.springboot.PetMark.service.SpeciesService;
 public class SpeciesController {
 	@Autowired
 	SpeciesService speciesService;
-	
+	@Autowired
+	AccountService accountService;
 	@Autowired
 	ServletContext context;
 	
 	@RequestMapping
-	public String index(ModelMap model, HttpServletRequest request) throws IllegalArgumentException{
+	public String index(ModelMap model, HttpServletRequest request,Principal principal) throws IllegalArgumentException{
 		HttpSession session = request.getSession();
 //		List<Product> listProduct = productService.showProductManagement();
 		List<Species> listSpecies = new ArrayList<Species>();
@@ -99,6 +105,9 @@ public class SpeciesController {
 			model.addAttribute("add", "added");
 			session.setAttribute("add", null);
 		}
+		User user = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(user.getUsername());
+		model.addAttribute("account", account);
 		
 		session.setAttribute("targetPage", targetPage);
 		model.addAttribute("nameButton2", nameButton2);

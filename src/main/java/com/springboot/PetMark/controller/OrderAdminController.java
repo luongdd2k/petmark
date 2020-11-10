@@ -1,5 +1,6 @@
 package com.springboot.PetMark.controller;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +15,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,7 +52,7 @@ public class OrderAdminController {
 	@Autowired
 	OrderrWebDetailService detailSv;
 	@Autowired
-	AccountService account;
+	AccountService accountService;
 	@Autowired
 	DeliveryLogRepository deliveryLogRepository;
 
@@ -57,16 +60,22 @@ public class OrderAdminController {
 	OrderrWebService service;
 
 	@RequestMapping()
-	public String showOrders(ModelMap model, HttpServletRequest request) {
+	public String showOrders(ModelMap model, HttpServletRequest request, Principal principal) {
 		HttpSession session = request.getSession();
 		List<OrderrWeb> list = service.findAll();
 		model.addAttribute("list", list);
+		User logginedUser = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(logginedUser.getUsername());
+		model.addAttribute("account", account);
 		return "pages/order/order-manager";
 	}
 
 	@RequestMapping("/detail/{id}")
-	public ModelAndView showOrderDetail(@PathVariable String id, HttpServletRequest request) {
+	public ModelAndView showOrderDetail(@PathVariable String id, HttpServletRequest request,Principal principal) {
 		ModelAndView model = new ModelAndView();
+		User logginedUser = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(logginedUser.getUsername());
+		model.addObject("account", account);
 		model.setViewName("pages/order/order-brower");
 		if (id != null) {
 			OrderrWeb orderWeb = service.findById(Integer.valueOf(id));

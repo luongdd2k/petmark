@@ -1,6 +1,7 @@
 package com.springboot.PetMark.controller;
 
 import java.io.File;
+import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,8 +25,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.Pet;
 import com.springboot.PetMark.entities.Species;
+import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.PetService;
 import com.springboot.PetMark.service.SpeciesService;
 
@@ -33,13 +38,15 @@ public class PetController {
 	@Autowired
 	PetService petService;
 	@Autowired
+	AccountService accountService;
+	@Autowired
 	SpeciesService speciesService;
 	@Autowired
 	ServletContext context;
 
 //	
 	@RequestMapping("/ProductManagement")
-	public String index(ModelMap model, HttpServletRequest request) throws IllegalArgumentException {
+	public String index(ModelMap model, HttpServletRequest request,Principal principal) throws IllegalArgumentException {
 		HttpSession session = request.getSession();
 		List<Pet> listProduct = new ArrayList<Pet>();
 //		List<Pet> listProduct = petService.findAll();
@@ -99,32 +106,6 @@ public class PetController {
 				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("price").descending()));
 				
 				break;
-//			case "3":
-//				if(targetPage > totalPage) page = 0;
-//				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("id").ascending()));
-//				
-//				break;
-//			case "3":
-//				int countPaid = productService.showProductByCategoryOrderByPaid("", false, null).size();
-//				totalPage = (int) Math.ceil((double)countPaid/10);
-//				if(targetPage > totalPage) page = 0;
-//				listProductInteger = productService.showProductByCategoryOrderByPaid("", false, PageRequest.of(page, 10));
-//				
-//				break;
-//			case "4":
-//				int countLike = productService.showProductByCategoryOrderByLike("", false, null).size();
-//				totalPage = (int) Math.ceil((double)countLike/10);
-//				if(targetPage > totalPage) page = 0;
-//				listProductInteger = productService.showProductByCategoryOrderByLike("", false, PageRequest.of(page, 10));
-//				
-//				break;
-//			case "5":
-//				int countView = productService.showProductByCategoryOrderByView("", false, null).size();
-//				totalPage = (int) Math.ceil((double)countView/10);
-//				if(targetPage > totalPage) page = 0;
-//				listProductInteger = productService.showProductByCategoryOrderByView("", false, PageRequest.of(page, 10));
-//				
-//				break;
 			case "3":
 				if(targetPage > totalPage) page = 0;
 				listProduct = petService.showProductByCategoryPageable("Ngừng bán", PageRequest.of(page, 10, Sort.by("id").ascending()));
@@ -164,20 +145,19 @@ public class PetController {
 			model.addAttribute("add", "added");
 			session.setAttribute("add", null);
 		}
-//		
-		
+	
+		User user = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(user.getUsername());
+		model.addAttribute("account", account);
 		session.setAttribute("targetPage", targetPage);
 		model.addAttribute("nameButton2", nameButton2);
-//		model.addAttribute("classButton2", classButton2);
 		model.addAttribute("classButtonDelete", classButtonDelete);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("listProduct", listProduct);
 		model.addAttribute("listCategory", listCategory);
 		model.addAttribute("listStatus", listStatus);
 		model.addAttribute("action", action);
-//		System.out.println("danh sách trạng thái: "+ listStatus);
 		model.addAttribute("pet", new Pet());
-//		return "admin/QLSP";
 		return "pages/pet/pet-manager";
 	}
 

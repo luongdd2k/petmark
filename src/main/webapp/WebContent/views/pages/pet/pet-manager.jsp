@@ -114,7 +114,7 @@
 							class="img-circle elevation-2" alt="User Image">
 					</div>
 					<div class="info">
-						<a href="examples/profile.html" class="d-block">Trần Ngọc Hải</a>
+						<a href="admin/UserManagement/show-profile" class="d-block">${account.getFullName() }</a>
 					</div>
 				</div>
 
@@ -124,7 +124,7 @@
 						data-widget="treeview" role="menu" data-accordion="false">
 						<!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-						<li class="nav-item has-treeview"><a href="index.html"
+						<li class="nav-item has-treeview"><a href="${pageContext.servletContext.contextPath}/LoggedInSuccessfully"
 							class="nav-link"> <i class="nav-icon fas fa-home"></i>
 								<p>Trang chủ</p>
 						</a></li>

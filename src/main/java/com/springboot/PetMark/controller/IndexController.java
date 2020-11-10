@@ -119,63 +119,22 @@ public class IndexController {
 		List<Accessories> listAcces = accessSv.findAll();
 		model.addObject("list", listPet);
 		model.addObject("listAcc", listAcces);
-	
-		// user
-		String user = request.getParameter("us");
-		if (user != null) {
-//			System.out.println("tên đăng nhập ở index: " + user);
-			Account account = accountService.findById(user);
-//		model.addObject("user", user);
-			model.addObject("account", account);
-		}
-
-//		List<Integer> listProductInteger = new ArrayList<Integer>();
-//		String sortValue = request.getParameter("sortValue");
-//		System.out.println("Index Sort: " + sortValue);
-//		if(sortValue == null) sortValue = "1";
-//		model.addAttribute("sortValue", sortValue);
-//		switch (sortValue) {
-//		case "1":
-//			listSmartphone = productService.showProductByCategoryPageable("SMARTPHONE", false, PageRequest.of(0, 10, Sort.by("priceSale").descending()));
-//			
-//			break;
-//		case "2":
-//			listSmartphone = productService.showProductByCategoryPageable("SMARTPHONE", false, PageRequest.of(0, 10, Sort.by("priceSale").ascending()));
-//			
-//			break;
-//		case "3":
-//			listProductInteger = productService.showProductByCategoryOrderByPaid("SMARTPHONE", false, PageRequest.of(0, 10));
-//			
-//			break;
-//		case "4":
-//			listProductInteger = productService.showProductByCategoryOrderByLike("SMARTPHONE", false, PageRequest.of(0, 10));
-//			
-//			break;
-//		case "5":
-//			listProductInteger = productService.showProductByCategoryOrderByView("SMARTPHONE", false, PageRequest.of(0, 10));
-//			
-//			break;
-//		default:
-//			
-//			break;
-//		}
-//		
-//		if(!listProductInteger.isEmpty()) {
-//			for (Integer integer : listProductInteger) {
-//				listSmartphone.add(productService.findById(integer));
-//			}
-//		}
-//		
-//		model.addAttribute("listPet", listPet);
-//		
-//		List<Product> listAccessory = productService.showIndexProduct("ACCESSORY");
-//		model.addAttribute("listAccessory", listAccessory);
-
-//		session.setAttribute("totalQuantity", cartItemService.countCartQuantity((String)session.getAttribute("username")));
-//		return "index";
 		return model;
 	}
-
+	@RequestMapping("/welcome")
+	public ModelAndView showWelcome(HttpServletRequest request,Principal principal) throws Exception{
+		HttpSession session = request.getSession();
+		ModelAndView model = new ModelAndView();
+		model.setViewName("client2/welcome");
+		User logginedUser = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(logginedUser.getUsername());
+		model.addObject("account", account);
+		List<Pet> listPet = petService.findAll();
+		List<Accessories> listAcces = accessSv.findAll();
+		model.addObject("list", listPet);
+		model.addObject("listAcc", listAcces);
+		return model;
+	}
 	@RequestMapping("/SearchProduct")
 	public String searchProduct(ModelMap model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -285,9 +244,6 @@ public class IndexController {
 	public ModelAndView showDetail(@PathVariable String id, HttpServletRequest httpServletRequest, Principal principal) {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("client2/product");
-//		User loginedUser = (User) ((Authentication) principal).getPrincipal();
-//    	String username = loginedUser.getUsername();
-//		model.addObject("user", username);
 		if (id != null) {
 			Pet pet = petService.findById(Integer.valueOf(id));
 			model.addObject("pet", pet);
@@ -303,11 +259,6 @@ public class IndexController {
 	public ModelAndView showDetailAcc(@PathVariable String id, HttpServletRequest httpServletRequest, Principal principal) {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("client2/acc-detail");
-//		User loginedUser = (User) ((Authentication) principal).getPrincipal();
-//		if(loginedUser!=null) {
-//    	String username = loginedUser.getUsername();
-//		model.addObject("user", username);
-//		}
 		if (id != null) {
 			Accessories acc = accessSv.findById(Integer.valueOf(id));
 			model.addObject("acc", acc);
@@ -320,4 +271,42 @@ public class IndexController {
 		return model;
 	}
 
+	@RequestMapping("/pet-detail2/{id}")
+	public ModelAndView showDetail2(@PathVariable String id, HttpServletRequest httpServletRequest, Principal principal) {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("client2/product");
+		User loginedUser = (User) ((Authentication) principal).getPrincipal();
+    	String username = loginedUser.getUsername();
+		model.addObject("user", username);
+		if (id != null) {
+			Pet pet = petService.findById(Integer.valueOf(id));
+			model.addObject("pet", pet);
+			String loai = "pet";
+			model.addObject("color",colorPetSv.findByPet(pet));
+			model.addObject("loai", loai);
+			model.addObject("img", imgPet.findByPet(pet));
+		}
+		return model;
+	}
+
+	@RequestMapping("/acc-detail2/{id}")
+	public ModelAndView showDetailAcc2(@PathVariable String id, HttpServletRequest httpServletRequest, Principal principal) {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("client2/acc-detail");
+		User loginedUser = (User) ((Authentication) principal).getPrincipal();
+		if(loginedUser!=null) {
+    	String username = loginedUser.getUsername();
+		model.addObject("user", username);
+		}
+		if (id != null) {
+			Accessories acc = accessSv.findById(Integer.valueOf(id));
+			model.addObject("acc", acc);
+			String loai = "acc";
+			model.addObject("loai", loai);
+			model.addObject("imgacc", imgAcc.findByAccessories(acc));
+			model.addObject("colacc", colorAcc.findByAccessories(acc));
+			model.addObject("size", size.findByAccessories(acc));
+		}
+		return model;
+	}
 }

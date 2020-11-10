@@ -22,19 +22,28 @@
 			<img src="images/login/questions.svg">
 		</div>
 		<div class="login-content">
-			<form action="">
+			<form action="forgot-pass" method="post">
 				<img src="images/login/avatar.svg">
                 <h2 class="title1">Quên mật khẩu ?</h2>
                 <h3 class="title_des">
                     Vui lòng cung cấp Email để lấy lại mật khẩu
                 </h3>
+                <div class="input-div email">
+           		   <div class="i">
+                    <i class="far fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Tên đăng nhập</h5>
+           		   		<input type="text" class="input" name="username">
+           		   </div>
+           		</div>
            		<div class="input-div email">
            		   <div class="i">
                     <i class="far fa-envelope"></i>
            		   </div>
            		   <div class="div">
            		   		<h5>Email</h5>
-           		   		<input type="text" class="input">
+           		   		<input type="text" class="input" name="email">
            		   </div>
            		</div>
             	<a href="login.html">Trở lại đăng nhập</a>
