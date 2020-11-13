@@ -122,81 +122,49 @@ to get the desired effect
             </a>
           </li>
           <li class="nav-header">CỬA HÀNG</li>
-          <li class="nav-item">
-            <a href="admin/UserManagement" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Nhân viên
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="admin/ProductManagement" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Thú cưng
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="admin/SpeciesManagement" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Giống thú cưng
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="admin/AccessoriesManagement" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
-              <p>
-                Phụ kiện
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="admin/CategoryManagement" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Hãng phụ kiện
-              </p>
-            </a>
-          </li>
-          <li class="nav-header">QUẢN LÝ</li>
-          <li class="nav-item has-treeview">
-            <a href="admin/orders" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Quản lý đơn hàng
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="admin/deposit" class="nav-link">
-              <i class="nav-icon fas fa-calendar-alt"></i>
-              <p>
-                Quản lý cọc
-              </p>
-            </a>
-          </li>
-          <li class="nav-header">BLOG</li>
-          <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-chart-bar"></i>
-              <p>
-               Danh sách Blog
-              </p>
-            </a>
-          </li>
-          <li class="nav-header">THỐNG KÊ</li>
-          <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-chart-bar"></i>
-              <p>
-               Thống kê
-              </p>
-            </a>
-          </li>
+						<li class="nav-item"><a href="admin/UserManagement"
+							class="nav-link"> <i class="nav-icon fas fa-users"></i>
+								<p>Nhân viên</p>
+						</a></li>
+						<li class="nav-item has-treeview"><a
+							href="admin/ProductManagement" class="nav-link"> <i
+								class="nav-icon fas fa-paw"></i>
+								<p>Thú cưng</p>
+						</a></li>
+						<li class="nav-item has-treeview"><a
+							href="admin/SpeciesManagement" class="nav-link"> <i
+								class="nav-icon fas fa-dog"></i>
+								<p>Giống thú cưng</p>
+						</a></li>
+						<li class="nav-item has-treeview"><a
+							href="admin/AccessoriesManagement" class="nav-link"> <i
+								class="nav-icon fab fa-simplybuilt"></i>
+								<p>Phụ kiện</p>
+						</a></li>
+						<li class="nav-item has-treeview"><a
+							href="admin/CategoryManagement" class="nav-link"> <i
+								class="nav-icon fab fa-bandcamp"></i>
+								<p>Hãng phụ kiện</p>
+						</a></li>
+						<li class="nav-header">QUẢN LÝ</li>
+						<li class="nav-item has-treeview"><a href="admin/orders"
+							class="nav-link"> <i class="nav-icon fas fa-table"></i>
+								<p>Quản lý đơn hàng</p>
+						</a></li>
+						<li class="nav-item"><a href="admin/deposit"
+							class="nav-link"> <i class="nav-icon fas fa-receipt"></i>
+								<p>Quản lý cọc</p>
+						</a></li>
+						<li class="nav-header">QUẢN LÝ BLOG</li>
+						<li class="nav-item has-treeview"><a href="javascript:"
+							class="nav-link"> <i class="nav-icon fas fa-table"></i>
+								<p>Danh sách Blog</p>
+						</a></li>
+						<li class="nav-header">THỐNG KÊ</li>
+						<li class="nav-item"><a href="statistical/statistical.html"
+							class="nav-link"> <i class="nav-icon far fa-chart-bar"></i>
+								<p>Thống kê</p>
+						</a></li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

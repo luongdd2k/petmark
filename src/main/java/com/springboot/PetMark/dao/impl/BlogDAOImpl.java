@@ -39,4 +39,10 @@ public class BlogDAOImpl implements BlogDAO {
 		return repo.findById(id).get();
 	}
 
+	@Override
+	public void saveBlog(Blog blog) {
+		// TODO Auto-generated method stub
+		repo.save(blog);
+	}
+
 }

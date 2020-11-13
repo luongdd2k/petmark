@@ -315,10 +315,9 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="order-content__item__detail-content">
-                                                                                <div class="order-content__item__name">Mã đơn hàng: ${list.getId() }</div>
-<!--                                                                                 <div class="order-content__item__quantity">x 3</div> -->
-                                                                            </div>
+                                                                           <c:forEach var="name" items="${list.getDetail() }">
+                                                                                <div class="order-content__item__name">${name.getAccessories().getName() }</div>
+                                                                            </c:forEach>
                                                                         </div>
                                                                     </div>
                                                                     <div class="order-content__item__price order-content__item__col order-content__item__col--small order-content__item__col--last">

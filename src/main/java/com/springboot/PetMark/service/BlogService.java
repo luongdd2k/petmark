@@ -12,4 +12,5 @@ public interface BlogService {
 
 	List<Blog> findByUser(Account account);
 	Blog findById(int id);
+	void saveBlog(Blog blog);
 }

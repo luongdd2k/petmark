@@ -39,4 +39,10 @@ public class BlogServiceImpl implements BlogService {
 		return dao.findById(id);
 	}
 
+	@Override
+	public void saveBlog(Blog blog) {
+		// TODO Auto-generated method stub
+		dao.saveBlog(blog);
+	}
+
 }
