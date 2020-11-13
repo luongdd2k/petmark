@@ -180,6 +180,15 @@
                 </p>
               </a>
             </li>
+            <li class="nav-header">BLOG</li>
+	          <li class="nav-item">
+	            <a href="pages/gallery.html" class="nav-link">
+	              <i class="nav-icon far fa-chart-bar"></i>
+	              <p>
+	               Danh sách Blog
+	              </p>
+	            </a>
+	          </li>
             <li class="nav-header">THỐNG KÊ</li>
             <li class="nav-item">
               <a href="statistical/statistical.html" class="nav-link">

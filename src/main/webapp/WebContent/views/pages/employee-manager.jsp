@@ -150,72 +150,20 @@
 							class="nav-link"> <i class="nav-icon fas fa-calendar-alt"></i>
 								<p>Quản lý cọc</p>
 						</a></li>
+						<li class="nav-header">BLOG</li>
+				          <li class="nav-item">
+				            <a href="pages/gallery.html" class="nav-link">
+				              <i class="nav-icon far fa-chart-bar"></i>
+				              <p>
+				               Danh sách Blog
+				              </p>
+				            </a>
+				          </li>
 						<li class="nav-header">THỐNG KÊ</li>
 						<li class="nav-item"><a href="./statistical/statistical.html"
 							class="nav-link"> <i class="nav-icon far fa-chart-bar"></i>
 								<p>Thống kê</p>
 						</a></li>
-						<li class="nav-item has-treeview"><a href="javascript:"
-							class="nav-link"> <i class="nav-icon far fa-plus-square"></i>
-								<p>
-									Extras <i class="fas fa-angle-left right"></i>
-								</p>
-						</a>
-							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="pages/examples/login.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Login</p>
-								</a></li>
-								<li class="nav-item"><a href="pages/examples/register.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Register</p>
-								</a></li>
-								<li class="nav-item"><a
-									href="pages/examples/forgot-password.html" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
-										<p>Forgot Password</p>
-								</a></li>
-								<li class="nav-item"><a
-									href="pages/examples/recover-password.html" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
-										<p>Recover Password</p>
-								</a></li>
-								<li class="nav-item"><a
-									href="pages/examples/lockscreen.html" class="nav-link"> <i
-										class="far fa-circle nav-icon"></i>
-										<p>Lockscreen</p>
-								</a></li>
-								<li class="nav-item"><a
-									href="pages/examples/legacy-user-menu.html" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
-										<p>Legacy User Menu</p>
-								</a></li>
-								<li class="nav-item"><a
-									href="pages/examples/language-menu.html" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
-										<p>Language Menu</p>
-								</a></li>
-								<li class="nav-item"><a href="pages/examples/404.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Error 404</p>
-								</a></li>
-								<li class="nav-item"><a href="pages/examples/500.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Error 500</p>
-								</a></li>
-								<li class="nav-item"><a href="pages/examples/pace.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Pace</p>
-								</a></li>
-								<li class="nav-item"><a href="pages/examples/blank.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Blank Page</p>
-								</a></li>
-								<li class="nav-item"><a href="starter.html"
-									class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>Starter Page</p>
-								</a></li>
-							</ul></li>
 					</ul>
 				</nav>
 				<!-- /.sidebar-menu -->

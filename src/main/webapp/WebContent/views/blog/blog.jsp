@@ -11,10 +11,15 @@
     <base href="${pageContext.servletContext.contextPath}/">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="css/fontawesome-free-5.15.1/css/all.min.css"
+    />
 
     <!-- Carousel -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -25,11 +30,40 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <!-- Custom StyleSheet -->
+    <link rel="stylesheet" href="js/ckeditor/QEditor.css">
     <link rel="stylesheet" href="css/acc-in.css">
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/blog.css">
-
-    
+	<style>
+      .qeditor-content img {
+        width: 300px;
+      }
+      .hide {
+        display: none;
+        visibility: hidden;
+      }
+      #button-gr {
+        margin-top: 10px;
+      }
+      .aa {
+        margin-top: 10px;
+      }
+      .du-lieu {
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        max-width: 250px;
+        margin: 0 auto;
+      }
+      .col-3 {
+        margin-top: 10px;
+      }
+      #demo-ck {
+        margin: 0 auto;
+      }
+      #DL img {
+        width: 300px;
+      }
+    </style>
 </head>
 
 <body>
@@ -37,6 +71,7 @@
         <div class="navigation">
             <input type="hidden" id="usernameBE" value="${account.getFullName() }" />
             <input type="hidden" id="hadBlog" value="1" />
+            <input type="hidden" id="content" value="" />
             <div class="row header__top">
                 <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
                     <p>206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội</p>
@@ -58,7 +93,7 @@
                 <nav class="nav">
                     <div class="nav__hamburger">
                         <svg>
-                            <use xlink:href="./images/sprite.svg#icon-menu"></use>
+                            <use xlink:href="images/sprite.svg#icon-menu"></use>
                         </svg>
                     </div>
 
@@ -73,7 +108,7 @@
                             <span class="nav__category">PET MART</span>
                             <a href="index.html" class="close__toggle">
                                 <svg>
-                                    <use xlink:href="./images/sprite.svg#icon-cross"></use>
+                                    <use xlink:href="images/sprite.svg#icon-cross"></use>
                                 </svg>
                             </a>
                         </div>
@@ -97,7 +132,7 @@
                         <div id="location" class="hide">
                             <a href="javascript:" class="icon__item">
                                 <svg class="icon__user">
-                                    <use xlink:href="./images/sprite.svg#icon-location"></use>
+                                    <use xlink:href="images/sprite.svg#icon-location"></use>
                                 </svg>
                             </a>
                         </div>
@@ -106,14 +141,14 @@
                         </div>
                         <a href="javascript:" class="icon__item">
                             <svg class="icon__search">
-                                <use xlink:href="./images/sprite.svg#icon-search"></use>
+                                <use xlink:href="images/sprite.svg#icon-search"></use>
                             </svg>
                         </a>
 
                         <div id="cart" class="hide">
                             <a href="cart.html" class="icon__item">
                                 <svg class="icon__cart">
-                                    <use xlink:href="./images/sprite.svg#icon-shopping-basket"></use>
+                                    <use xlink:href="images/sprite.svg#icon-shopping-basket"></use>
                                 </svg>
                                 <span id="cart__total">0</span>
                             </a>
@@ -130,7 +165,7 @@
                         <li>
                             <a href="/">
                                 <svg>
-                                    <use xlink:href="./images/sprite.svg#icon-home"></use>
+                                    <use xlink:href="images/sprite.svg#icon-home"></use>
                                 </svg>
                             </a>
                         </li>
@@ -261,73 +296,8 @@
                                     <div class="row row-cols-1 row-cols-md-3">
                                         <div class="col mb-4">
                                             <div class="card h-100">
-                                                <img src="https://www.5giay.vn/data/tag-images/2016/12/693824_565eef7be50e4b52f07c268ee7585518.jpg"
-                                                    class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">This is a longer card with supporting text
-                                                        below as a natural lead-in to additional content. This content
-                                                        is a little bit longer.</p>
-                                                </div>
-                                                <div class="action">
-                                                    <span class="count-like">1k</span>
-                                                    <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                                      </svg>
-                                                    <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                                      </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col mb-4">
-                                            <div class="card h-100">
-                                                <img src="https://vn-test-11.slatic.net/original/c8a7a988aa8c59253f627a11b3de517b.jpg_720x720q80.jpg_.webp"
-                                                    class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">This is a short card.</p>
-                                                </div>
-                                                <div class="action">
-                                                    <span class="count-like">1k</span>
-                                                    <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                                      </svg>
-                                                    <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                                      </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col mb-4">
-                                            <div class="card h-100">
-                                                <img src="https://www.5giay.vn/data/tag-images/2016/12/693824_565eef7be50e4b52f07c268ee7585518.jpg"
-                                                    class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">This is a longer card with supporting text
-                                                        below as a natural lead-in to additional content.</p>
-                                                </div>
-                                                <div class="action">
-                                                    <span class="count-like">1k</span>
-                                                    <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                                      </svg>
-                                                    <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                                      </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col mb-4">
-                                            <div class="card h-100">
-                                                <img src="https://cf.shopee.vn/file/70d39ce10ba5b79e7abfb4285bb7858a"
-                                                    class="card-img-top" alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">This is a longer card with supporting text
-                                                        below as a natural lead-in to additional content. This content
-                                                        is a little bit longer.</p>
+                                                <div id="hien" class="card-body">
+                                                	
                                                 </div>
                                                 <div class="action">
                                                     <span class="count-like">1k</span>
@@ -361,19 +331,11 @@
                                 <div class="my-account-profile">
                                         <div class="new-blog-form">
                                             <h2 class="form-title" style="text-align: center;">Tạo bài viết</h2>
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">Tiêu đề</label>
-                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">Thân bài</label>
-                                                <textarea class="form-control" id="testCk" rows="2"></textarea>
-                                            </div>
-                                            <div class="button" style="text-align: center;">
-                                                <button id="luu" type="submit" class="btn btn-primary">Lưu bài</button>
+                                            <div style="max-width: 800px" name="DSC" id="demo-ck"></div>
+                                            <div class="button" style="text-align: center; margin-top: 10px">
+                                                <button onclick="getDL()" id="luu" type="submit" class="btn btn-primary">Lưu bài</button>
                                                 <button id="huy" type="submit" class="btn btn-warning">Hủy</button>
                                             </div>
-                                            
                                         </div>
                                 </div>
                             </div>
@@ -389,7 +351,7 @@
                     <div class="facility__box">
                         <div class="facility-img__container">
                             <svg>
-                                <use xlink:href="./images/sprite.svg#icon-airplane"></use>
+                                <use xlink:href="images/sprite.svg#icon-airplane"></use>
                             </svg>
                         </div>
                         <p>VẬN CHUYỂN KHU VỰC HÀ NỘI</p>
@@ -398,7 +360,7 @@
                     <div class="facility__box">
                         <div class="facility-img__container">
                             <svg>
-                                <use xlink:href="./images/sprite.svg#icon-credit-card-alt"></use>
+                                <use xlink:href="images/sprite.svg#icon-credit-card-alt"></use>
                             </svg>
                         </div>
                         <p>HOÀN TIỀN 100%</p>
@@ -407,7 +369,7 @@
                     <div class="facility__box">
                         <div class="facility-img__container">
                             <svg>
-                                <use xlink:href="./images/sprite.svg#icon-credit-card"></use>
+                                <use xlink:href="images/sprite.svg#icon-credit-card"></use>
                             </svg>
                         </div>
                         <p>NHIỀU ƯU ĐÃI LỠN</p>
@@ -416,7 +378,7 @@
                     <div class="facility__box">
                         <div class="facility-img__container">
                             <svg>
-                                <use xlink:href="./images/sprite.svg#icon-headphones"></use>
+                                <use xlink:href="images/sprite.svg#icon-headphones"></use>
                             </svg>
                         </div>
                         <p>CHĂM SÓC TẬN TÌNH</p>
@@ -453,7 +415,7 @@
                     <div>
                         <span>
                             <svg>
-                                <use xlink:href="./images/sprite.svg#icon-location"></use>
+                                <use xlink:href="images/sprite.svg#icon-location"></use>
                             </svg>
                         </span>
                         206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội
@@ -461,7 +423,7 @@
                     <div>
                         <span>
                             <svg>
-                                <use xlink:href="./images/sprite.svg#icon-envelop"></use>
+                                <use xlink:href="images/sprite.svg#icon-envelop"></use>
                             </svg>
                         </span>
                         petmart.support@gmail.com
@@ -469,7 +431,7 @@
                     <div>
                         <span>
                             <svg>
-                                <use xlink:href="./images/sprite.svg#icon-phone"></use>
+                                <use xlink:href="images/sprite.svg#icon-phone"></use>
                             </svg>
                         </span>
                         (+84) 386768658
@@ -494,7 +456,7 @@
 
     <a href="#header" class="goto-top scroll-link">
         <svg>
-            <use xlink:href="./images/sprite.svg#icon-arrow-up"></use>
+            <use xlink:href="images/sprite.svg#icon-arrow-up"></use>
         </svg>
     </a>
 
@@ -503,19 +465,18 @@
 
 
     <!-- Animate On Scroll -->
-    <script src="js/ckeditor/ckeditor.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="js/jquery-3.5.1.min.js"></script>
 
     <!-- Custom JavaScript -->
+    <script src="js/ckeditor/QEditor.js"></script>
     <script src="js/index.js"></script>
     <script src="js/slider.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/all-order.js"></script>
     <script src="js/sweat-alert.js"></script>
     <script>
-        CKEDITOR.replace("testCk");
 
         var hadBlog = $("#hadBlog").val();
         var blog = document.getElementById("blog");
@@ -543,6 +504,22 @@
                 $("#new-blog").removeClass("hide");
             });
         })
+        
+      var qeditorInstance;
+    	QEditor.init("demo-ck", {}).then(function (instance) {
+      	qeditorInstance = instance;
+    });
+    function getDL() {
+      var getData = qeditorInstance.getContent().dataHtml;
+      document.getElementById("content").value = getData;
+      var hi = document.getElementById("content").value;
+      // Store
+      localStorage.setItem("value", hi);
+      $("#blog").removeClass("hide");
+      $("#new-blog").addClass("hide");
+      document.getElementById("hien").innerHTML = hi;
+      
+    }
     </script>
 </body>
 
