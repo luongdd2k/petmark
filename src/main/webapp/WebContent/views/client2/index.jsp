@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <!-- Custom StyleSheet -->
-  <link rel="stylesheet" href="css-new/styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 
   <title>Pet Mart | Cửa hàng thú cưng và phụ kiện cho thú cưng</title>
   <base href="${pageContext.servletContext.contextPath}/">
@@ -31,26 +31,26 @@
 
   <!-- Header -->
   <header id="header" class="header">
-    <div class="navigation">
-      <div class="container">
-        <input type="hidden" id="usernameBE" value="${account.getUsername() }" />  
+    <div class="navigation">  
         <div class="row header__top" >
           <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
-            <p>206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội</p>
+            <p class="pl-40">206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội</p>
           </div>
-          <div id="row-login" class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
-            <div class="header__actions">
+          <div id="row-login" class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
+            <div class="header__actions pr-40">
               <a href="showLogin">Đăng nhập</a>
               <a href="showregister">Đăng ký</a>
             </div>
           </div>
           <div id="row-logout" class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
-            <div class="header__actions">
+            <div class="header__actions pr-40">
               <a href="show-account" id="hello-name"></a>
               <a href="">Đăng xuất</a>
             </div>
           </div>
         </div>
+      <div class="container">
+        <input type="hidden" id="usernameBE" value="${account.getUsername() }" />
         <nav class="nav">
           <div class="nav__hamburger">
             <svg>

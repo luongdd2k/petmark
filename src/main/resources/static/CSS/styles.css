@@ -564,7 +564,7 @@ Collection
 */
 
 .section {
-  padding: 3rem 0;
+  padding: 1.5rem 0;
 }
 
 .collection {
@@ -706,7 +706,7 @@ Latest Products
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 6rem;
+  margin: 0 auto 2.5rem;
   padding: 2rem 0;
   background-color: var(--primaryColor);
 }
@@ -916,9 +916,9 @@ span.dot::before {
   padding-bottom: 1rem;
 }
 
-.product__footer h3 {
-  font-size: 1.6rem;
-}
+/* .product__footer h3 { */
+/*   font-size: 1.6rem; */
+/* } */
 
 .product__btn {
   display: inline-block;
@@ -2548,4 +2548,37 @@ Check Out
 */
 .ps-container{
   margin: 0 auto;
+}
+
+
+/* 
+====================
+Index
+====================
+*/
+.collection__box{
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+	border-radius: 10px;
+}
+.product{
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+	border-radius: 10px;
+}
+.pl-20{
+	padding-left: 20px;
+}
+.pl-30{
+	padding-left: 30px;
+}
+.pl-40{
+	padding-left: 40px;
+}
+.pr-20{
+	padding-right: 20px;
+}
+.pr-30{
+	padding-right: 30px;
+}
+.pr-40{
+	padding-right: 40px;
 }
