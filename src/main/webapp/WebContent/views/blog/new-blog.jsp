@@ -288,45 +288,6 @@
                                     <div class="order-section__header-title">Blog của tôi</div>
                                 </div>
                             </div>
-                            <div id="blog" class="blog">
-                                <div class="btn-new">
-                                    <a id="new" href="javascript:"><button>Tạo mới</button></a>
-                                </div>
-                                <div class="my-account-profile">
-                                    <div class="row row-cols-1 row-cols-md-3">
-                                        <div class="col mb-4">
-                                            <div class="card h-100">
-                                                <div id="hien" class="card-body">
-                                                	
-                                                </div>
-                                                <div class="action">
-                                                    <span class="count-like">1k</span>
-                                                    <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                                      </svg>
-                                                    <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-three-dots-vertical" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                                      </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="no-blog" class="no-blog">
-                                <div class="purchase-list-page__empty-page-wrapper">
-                                    <div class="purchase-empty-order__container">
-                                        <div class="purchase-empty-blog__icon"> </div>
-                                        <div class="purchase-empty-order__text"> Bạn chưa có Blog nào </div>
-                                        <div class="purchase-empty-order__text"> 
-                                          <svg class="svg-icon shopee-svg-icon user-page-sidebar-icon" viewBox="0 0 20 20">
-                                            <path d="M3.24,7.51c-0.146,0.142-0.146,0.381,0,0.523l5.199,5.193c0.234,0.238,0.633,0.064,0.633-0.262v-2.634c0.105-0.007,0.212-0.011,0.321-0.011c2.373,0,4.302,1.91,4.302,4.258c0,0.957-0.33,1.809-1.008,2.602c-0.259,0.307,0.084,0.762,0.451,0.572c2.336-1.195,3.73-3.408,3.73-5.924c0-3.741-3.103-6.783-6.916-6.783c-0.307,0-0.615,0.028-0.881,0.063V2.575c0-0.327-0.398-0.5-0.633-0.261L3.24,7.51 M4.027,7.771l4.301-4.3v2.073c0,0.232,0.21,0.409,0.441,0.366c0.298-0.056,0.746-0.123,1.184-0.123c3.402,0,6.172,2.709,6.172,6.041c0,1.695-0.718,3.24-1.979,4.352c0.193-0.51,0.293-1.045,0.293-1.602c0-2.76-2.266-5-5.046-5c-0.256,0-0.528,0.018-0.747,0.05C8.465,9.653,8.328,9.81,8.328,9.995v2.074L4.027,7.771z"></path>
-                                          </svg>
-                                          <a id="hidebox" href="javascript:">Thêm một blog ngay</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div id="new-blog" class="new-blog">
                                 <div class="my-account-profile">
                                         <div class="new-blog-form">
@@ -477,34 +438,6 @@
     <script src="js/all-order.js"></script>
     <script src="js/sweat-alert.js"></script>
     <script>
-
-        var hadBlog = $("#hadBlog").val();
-        var blog = document.getElementById("blog");
-        var noBlog = document.getElementById("no-blog");
-        var newBlog = document.getElementById("new-blog");
-        if(hadBlog == ""){
-            $("#blog").addClass("hide");
-            $("#no-blog").removeClass("hide");
-            $("#new-blog").addClass("hide");
-        }else if(hadBlog == "1"){
-            $("#blog").removeClass("hide");
-            $("#no-blog").addClass("hide");
-            $("#new-blog").addClass("hide");
-        }
-
-        $(function(){
-            $("a#hidebox").click(function(){
-                $("#blog").addClass("hide");
-                $("#no-blog").addClass("hide");
-                $("#new-blog").removeClass("hide");
-            });
-            $("a#new").click(function(){
-                $("#blog").addClass("hide");
-                $("#no-blog").addClass("hide");
-                $("#new-blog").removeClass("hide");
-            });
-        })
-        
       var qeditorInstance;
     	QEditor.init("demo-ck", {}).then(function (instance) {
       	qeditorInstance = instance;
