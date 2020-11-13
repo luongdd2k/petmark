@@ -11,11 +11,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.service.AccountService;
+import com.springboot.PetMark.service.BlogService;
 
 @Controller
 public class BlogController {
 	@Autowired
 	AccountService accountService;
+	@Autowired
+	BlogService blogService;
 	
 @RequestMapping("/show-blog")
 public ModelAndView showBlog(Principal principal) {

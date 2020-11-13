@@ -3,7 +3,6 @@ package com.springboot.PetMark.controller;
 import java.io.File;
 import java.security.Principal;
 import java.util.Properties;
-import java.util.Random;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;

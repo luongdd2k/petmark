@@ -90,7 +90,7 @@ public class DepositController {
 		java.sql.Date date = new java.sql.Date(millis);
 		float totalAmount = pet.getDeposit()*soLuong;
 		String stt = DepositStatus.CANCELLED;
-		Deposit deposit = new Deposit(pet, account,color, date, totalAmount, stt);
+		Deposit deposit = new Deposit(pet, account,color, date, soLuong, totalAmount, stt);
 		depositService.add(deposit);
 		model.addObject("total",totalAmount);
 		String dinhDang = "#";

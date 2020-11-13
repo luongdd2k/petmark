@@ -102,12 +102,12 @@ public @Data class Pet implements Serializable {
 		if (type == 0) {
 			return decimalFormat.format(this.price).replaceAll(",", ".");
 		} else
-			return decimalFormat.format(this.price).replaceAll(",", ".") + " ₫";
+			return decimalFormat.format(this.price).replaceAll(",", ".") + " đ";
 	}
 
 	public String getDisplayDeposit() {
 		DecimalFormat decimalFormat = new DecimalFormat("#,##0");
-		return decimalFormat.format(this.deposit).replaceAll(",", ".") + " ₫";
+		return decimalFormat.format(this.deposit).replaceAll(",", ".") + " đ";
 	}
 
 	public String getDate() {

@@ -31,8 +31,6 @@ public class Blog implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "username")
 	private Account account;
-	private String title;
-	private String img;
 	private String content;
 	@Column(name = "date_submitted")
 	private Date dateSubmitted;
@@ -42,21 +40,17 @@ public class Blog implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Blog(int id, Account account, String title, String content, String img, Date date, String status) {
+	public Blog(int id, Account account, String content, Date date, String status) {
 		this.id = id;
 		this.account = account;
-		this.title = title;
 		this.content = content;
-		this.img = img;
 		this.dateSubmitted = date;
 		this.status = status;
 	}
 
-	public Blog(Account account, String title, String content, String img, Date date, String status) {
+	public Blog(Account account, String content, Date date, String status) {
 		this.account = account;
-		this.title = title;
 		this.content = content;
-		this.img = img;
 		this.dateSubmitted = date;
 		this.status = status;
 	}
@@ -75,22 +69,6 @@ public class Blog implements Serializable {
 
 	public void setAccount(Account account) {
 		this.account = account;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
 	}
 
 	public String getContent() {
@@ -119,8 +97,8 @@ public class Blog implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Blog [id=" + id + ", account=" + account + ", title=" + title + ", img=" + img + ", content=" + content
-				+ ", dateSubmitted=" + dateSubmitted + ", status=" + status + "]";
+		return "Blog [id=" + id + ", account=" + account + ", content=" + content + ", dateSubmitted=" + dateSubmitted
+				+ ", status=" + status + "]";
 	}
 
 }

@@ -43,7 +43,7 @@
             <!-- SEARCH FORM -->
             <form class="form-inline ml-3">
                 <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" placeholder="TÃ¬m kiáº¿m ..."
+                    <input class="form-control form-control-navbar" type="search" placeholder="Tìm kiếm ..."
                         aria-label="Search">
                     <div class="input-group-append">
                         <button class="btn btn-navbar" type="submit">
@@ -210,7 +210,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
-                                <li class="breadcrumb-item"><a href="./deposit-manager.html">Đơn đặt cọc</a></li>
+                                <li class="breadcrumb-item"><a href="admin/deposit">Đơn đặt cọc</a></li>
                                 <li class="breadcrumb-item active">Chi tiết đơn đặt cọc</li>
                             </ol>
                         </div>
@@ -227,7 +227,7 @@
                                 <div class="card-header">
                                     <h3 class="card-title">
                                         <i class="nav-icon fas fa-receipt"></i>
-                                        Mã đơn : 185463hg
+                                        Mã đơn cọc : ${deposit.getId() }
                                     </h3>
                                 </div>
                                 <!-- /.card-header -->
@@ -241,7 +241,7 @@
 	                                        <div class="col-12 col-sm-6 col-md-3">
 	                                        	<div id="hoan-tien" style="float: right; margin-bottom: 15px;">
 	                                                <a type="button" class="btn btn-danger"
-	                                                    href="./deposit-status-cancle.html">
+	                                                    href="admin/deposit/return-deposit/${deposit.getId() }">
 	                                                    <i class="fas fa-calendar-times"></i>
 	                                                    <span> Hoàn tiền đơn này</span></a>
 	                                            </div>
@@ -249,7 +249,7 @@
 	                                        <div class="col-12 col-sm-6 col-md-3">
 	                                            <div id="huy" style="float: right; margin-bottom: 15px;">
 	                                                <a type="button" class="btn btn-danger"
-	                                                    href="./deposit-status-cancle.html">
+	                                                    href="admin/deposit/cancel-deposit/${deposit.getId() }">
 	                                                    <i class="fas fa-calendar-times"></i>
 	                                                    <span> Hủy đơn cọc này</span></a>
 	                                            </div>
@@ -262,20 +262,20 @@
 	                                            <div class="col-6">
 	                                                <p style="padding-left: 20px;">Người đặt cọc :</p>
 	                                                <p style="padding-left: 30px; margin-top: -8px; font-size: 16px;">
-	                                                    <strong>Nguyễn Văn A</strong>
+	                                                    <strong>${account.getFullName() }</strong>
 	                                                </p>
 	                                                <p style="padding-left: 20px;">Địa chỉ :</p>
 	                                                <p style="padding-left: 30px; margin-top: -8px;font-size: 16px;">
-	                                                    <strong>23 Xuân Đỉnh</strong>
+	                                                    <strong>${account.getAddress() }</strong>
 	                                                </p>
 	                                            </div>
 	                                            <div class="col-6">
 	                                                <p style="padding-left: 20px;">Số điện thoại :</p>
 	                                                <p style="padding-left: 30px; margin-top: -8px; font-size: 16px;">
-	                                                    <strong>0123456789</strong></p>
+	                                                    <strong>${account.getPhone() }</strong></p>
 	                                           		<p style="padding-left: 20px;">Trạng thái :</p>
 	                                                <p style="padding-left: 30px; margin-top: -8px;font-size: 16px;">
-	                                                    <strong id="status-deposit">Đã hủy - Chưa hoàn tiền</strong></p> 
+	                                                    <strong id="status-deposit">${deposit.getStatus() }</strong></p> 
 	                                            </div>
 	                                        </div>
 	                                        <!-- End .row infor-->
@@ -285,13 +285,12 @@
 	                                    <div id="thanh-toan" class="row" >
 					                      <div class="col-12 col-sm-6 col-md-3">
 					                        <div style="margin-top: 15px; margin-bottom: 10px">
-					                          <button
+					                          <a href="admin/deposit/paid-deposit/${deposit.getId() }" type="button" class="btn btn-primary"
 					                            onclick="hienThiBtnBD(true)"
-					                            class="btn btn-custon-three btn-primary"
 					                          >
 					                            <i class="fas fa-calendar-check"></i>
 					                            <span>Đã thanh toán</span>
-					                          </button>
+					                          </a>
 					                        </div>
 					                      </div>
 					                      <div class="col-12 col-sm-6 col-md-3"></div>
@@ -305,6 +304,7 @@
                                             <thead class="thead-light">
                                                 <tr>
                                                     <th scope="col">Tên thú cưng</th>
+                                                    <th scope="col">Số lượng</th>
                                                     <th scope="col">Màu lông</th>
                                                     <th scope="col">Màu mắt</th>
                                                     <th scope="col">Đã cọc</th>
@@ -313,11 +313,12 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td class="td-center" style="padding-top: 2%;">Husky Shibarian</td>
-                                                    <td class="td-center" style="padding-top: 2%;">Xám</td>
-                                                    <td class="td-center" style="padding-top: 2%;">Xanh</td>
-                                                    <td class="td-center" style="padding-top: 2%;">2700000</td>
-                                                    <td class="td-center" style="padding-top: 2%;">5400000</td>
+                                                    <td class="td-center" style="padding-top: 2%;">${deposit.getPet().getPetName() }</td>
+                                                    <td class="td-center" style="padding-top: 2%;">${deposit.getAmount() }</td>
+                                                    <td class="td-center" style="padding-top: 2%;">${deposit.getColor().getFullColor() }</td>
+                                                    <td class="td-center" style="padding-top: 2%;">${deposit.getColor().getEyeColor() }</td>
+                                                   <td class="td-center" style="padding-top: 2%;">${deposit.getDisplayTotalAmount(1) }</td>
+                                                    <td class="td-center" style="padding-top: 2%;">${total } đ</td>
                                                 </tr>
                                             </tbody>
                                         </table>

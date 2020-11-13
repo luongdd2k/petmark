@@ -39,6 +39,7 @@ public @Data class Deposit implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "colorid")
 	private ColorPet color;
+	private int amount;
 	@Column(name = "created_at")
 	private Date createdAt;
 	@Column(name = "total_amount")
@@ -49,7 +50,7 @@ public @Data class Deposit implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Deposit(Pet pet, Account account,ColorPet color, Date date, float totalAmount, String status) {
+	public Deposit(Pet pet, Account account,ColorPet color, Date date,int amount, float totalAmount, String status) {
 		// TODO Auto-generated constructor stub
 		this.pet = pet;
 		this.account = account;
@@ -57,9 +58,10 @@ public @Data class Deposit implements Serializable {
 		this.createdAt = date;
 		this.totalAmount = totalAmount;
 		this.status = status;
+		this.amount = amount;
 	}
 
-	public Deposit(int id, Pet pet, Account account,ColorPet color, Date date, float totalAmount, String status) {
+	public Deposit(int id, Pet pet, Account account,ColorPet color, Date date,int amount, float totalAmount, String status) {
 		// TODO Auto-generated constructor stub
 		this.id = id;
 		this.pet = pet;
@@ -68,13 +70,14 @@ public @Data class Deposit implements Serializable {
 		this.createdAt = date;
 		this.totalAmount = totalAmount;
 		this.status = status;
+		this.amount = amount;
 	}
 	public String getDisplayTotalAmount(int type) {
 		DecimalFormat decimalFormat = new DecimalFormat("#,##0");
 		if (type == 0) {
 			return decimalFormat.format(this.totalAmount).replaceAll(",", ".");
 		} else
-			return decimalFormat.format(this.totalAmount).replaceAll(",", ".") + " ₫";
+			return decimalFormat.format(this.totalAmount).replaceAll(",", ".") + " đ";
 	}
 	public String getDate() {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -84,6 +87,15 @@ public @Data class Deposit implements Serializable {
 
 	public String getStatus() {
 		return status;
+	}
+	
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 
 	public void setStatus(String status) {

@@ -14,9 +14,17 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.poi.ss.formula.functions.Odd;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -28,6 +36,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.JsonObject;
+import com.springboot.PetMark.config.MailConfig;
 import com.springboot.PetMark.config.VNPayConfig;
 import com.springboot.PetMark.entities.Accessories;
 import com.springboot.PetMark.entities.Account;
@@ -67,9 +76,6 @@ public class CheckoutController {
 	@Autowired
 	SizeService sizeService;
 
-//	@Autowired
-//    JavaMailSender javaMailSender;
-
 	private String successResult = "Đặt hàng thành công";
 	private String successNote = "Cảm ơn bạn đã mua hàng tại TopShoe";
 
@@ -82,6 +88,8 @@ public class CheckoutController {
 		model.addObject("account", account);
 		List<OrderrWeb> list = orderWebService.findByAccount(account);
 		model.addObject("list", list);
+		String title = "Tất cả đơn hàng";
+		model.addObject("title", title);
 		String isEmpty = "1";
 		if (list.size() == 0) {
 			isEmpty = "0";
@@ -93,13 +101,15 @@ public class CheckoutController {
 	@RequestMapping("/show-waiting-order")
 	public ModelAndView showWaitingOrder(Principal principal) {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("client2/waiting-order");
+		model.setViewName("client2/all-order");
 		User logginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addObject("account", account);
 		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.NOT_APPROVED, account);
 		model.addObject("list", list);
 		String isEmpty = "1";
+		String title = "Đơn hàng chờ xác nhận";
+		model.addObject("title", title);
 		if (list.size() == 0) {
 			isEmpty = "0";
 		}
@@ -110,12 +120,14 @@ public class CheckoutController {
 	@RequestMapping("/show-waiting-delevery")
 	public ModelAndView showWaitingDelevery(Principal principal) {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("client2/waiting-delevery");
+		model.setViewName("client2/all-order");
 		User logginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addObject("account", account);
 		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.WAITING_FOR_DELIVERY, account);
 		model.addObject("list", list);
+		String title = "Đơn hàng chờ giao";
+		model.addObject("title", title);
 		String isEmpty = "1";
 		if (list.size() == 0) {
 			isEmpty = "0";
@@ -123,15 +135,18 @@ public class CheckoutController {
 		model.addObject("isEmpty", isEmpty);
 		return model;
 	}
+
 	@RequestMapping("/show-delevering")
 	public ModelAndView showDelevering(Principal principal) {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("client2/delevering");
+		model.setViewName("client2/all-order");
 		User logginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addObject("account", account);
 		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.DELIVERING, account);
 		model.addObject("list", list);
+		String title = "Đơn hàng đang giao";
+		model.addObject("title", title);
 		String isEmpty = "1";
 		if (list.size() == 0) {
 			isEmpty = "0";
@@ -139,15 +154,18 @@ public class CheckoutController {
 		model.addObject("isEmpty", isEmpty);
 		return model;
 	}
+
 	@RequestMapping("/show-delivered")
 	public ModelAndView showDelivered(Principal principal) {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("client2/delivered");
+		model.setViewName("client2/all-order");
 		User logginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addObject("account", account);
 		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.SUCCESSFUL, account);
 		model.addObject("list", list);
+		String title = "Đơn hàng đã giao";
+		model.addObject("title", title);
 		String isEmpty = "1";
 		if (list.size() == 0) {
 			isEmpty = "0";
@@ -159,13 +177,15 @@ public class CheckoutController {
 	@RequestMapping("/show-cancel-order")
 	public ModelAndView showCancelOrder(Principal principal) {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("client2/cancel-order");
+		model.setViewName("client2/all-order");
 		User logginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addObject("account", account);
 		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.CANCELLED, account);
 		model.addObject("list", list);
 		String isEmpty = "1";
+		String title = "Đơn hàng đã huỷ";
+		model.addObject("title", title);
 		if (list.size() == 0) {
 			isEmpty = "0";
 		}
@@ -307,9 +327,9 @@ public class CheckoutController {
 		job.addProperty("data", paymentUrl);
 		return "redirect:" + paymentUrl;
 	}
-	
+
 	@RequestMapping("/show-detail/{id}")
-	public  ModelAndView showDetail(@PathVariable String id, Principal principal) {
+	public ModelAndView showDetail(@PathVariable String id, Principal principal) {
 		ModelAndView model = new ModelAndView();
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(loginedUser.getUsername());
@@ -352,17 +372,28 @@ public class CheckoutController {
 					return "redirect:/show-account";
 				}
 
-//		        !orderWeb.getSentMail() &&
 				if (orderWeb.getSentMail() != null) {
-					try {
-//			        	SimpleMailMessage msg = new SimpleMailMessage();
-//				        msg.setTo(orderWeb.getUser().getEmail());
-//				        msg.setSubject("TopShoe - Đơn hàng #TS" + orderWeb.getId());
-//				        msg.setText(result + "\n" + note + "\n");
-//				        javaMailSender.send(msg);
-//				        orderWeb.setSentMail(true);
-						orderWebService.save(orderWeb);
+					Properties props = new Properties();
+					props.put("mail.smtp.auth", "true");
+					props.put("mail.smtp.starttls.enable", "true");
+					props.put("mail.smtp.host", MailConfig.HOST_NAME);
+					props.put("mail.smtp.port", MailConfig.TSL_PORT);
 
+					// get Session
+					Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+						protected PasswordAuthentication getPasswordAuthentication() {
+							return new PasswordAuthentication(MailConfig.APP_EMAIL, MailConfig.APP_PASSWORD);
+						}
+					});
+					try {
+						MimeMessage message = new MimeMessage(session);
+						message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(orderWeb.getSentMail()));
+						message.setSubject("Thông báo đặt hàng từ PetMark");
+						message.setText("Mã đơn hàng của bạn: " + orderWeb.getId() + "\n"
+								+ "Bạn có thể truy cập vào trang web của chúng tôi để theo dõi đơn hàng." + "\n"
+								+ "Xin chân thành cảm ơn.");
+						Transport.send(message);
+						System.out.println("thông báo mail đặt hàng thành công");
 					} catch (Exception e) {
 						// TODO: handle exception
 						System.out.println(e);
@@ -373,7 +404,7 @@ public class CheckoutController {
 				model.addAttribute("result", result);
 				model.addAttribute("orderweb", orderWeb);
 				model.addAttribute("isSuccess", isSuccess);
-				return "redirect:/show-detail/" +id;
+				return "redirect:/show-detail/" + id;
 			}
 		}
 		return "redirect:/show-account";
@@ -421,7 +452,12 @@ public class CheckoutController {
 
 						orderWeb.setPaymentStatus(PaymentStatus.PAID);
 						orderWeb.setDeliveryStatus(DeliveryStatus.WAITING_FOR_DELIVERY);
-
+						List<OrderrWebDetail> orderDetail = orderWeb.getDetail();
+						for (OrderrWebDetail detail : orderDetail) {
+							Accessories acc = detail.getAccessories();
+							acc.setAmount(acc.getAmount() - detail.getAmount());
+							accessoriesService.addAccessories(acc);
+						}
 //		        		cartItemService.deleteByUser(userPrincipal.getCurrentUser());
 					}
 				}
@@ -436,8 +472,9 @@ public class CheckoutController {
 	public String demoVNP() {
 		return "client2/vnpay-demo";
 	}
+
 	@RequestMapping("/show-buy-now/{id}")
-	public ModelAndView buyNow(@PathVariable String id,HttpServletRequest req,Principal principal) {
+	public ModelAndView buyNow(@PathVariable String id, HttpServletRequest req, Principal principal) {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("client2/buy-now");
 		User loginUser = (User) ((Authentication) principal).getPrincipal();
@@ -445,25 +482,24 @@ public class CheckoutController {
 		Account account = accountService.findById(username);
 		model.addObject("account", account);
 		Accessories acc = accessoriesService.findById(Integer.parseInt(id));
-		model.addObject("acc",acc);
+		model.addObject("acc", acc);
 		String mau = req.getParameter("colors");
 		model.addObject("color", mau);
 		String sizes = req.getParameter("size");
-		model.addObject("size",sizes);
+		model.addObject("size", sizes);
 		String soLuong = req.getParameter("soLuong");
 		int amount = Integer.parseInt(soLuong);
 		float thanhTien = acc.getPrice() * amount;
-		model.addObject("amount",amount);
-		model.addObject("thanhTien",thanhTien);
+		model.addObject("amount", amount);
+		model.addObject("thanhTien", thanhTien);
 		return model;
 	}
+
 	@RequestMapping("/buy")
-	public String buy(HttpServletRequest req, Principal principal, ModelMap model)
-			throws UnsupportedEncodingException {
+	public String buy(HttpServletRequest req, Principal principal, ModelMap model) throws UnsupportedEncodingException {
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 		String username = loginedUser.getUsername();
 		Account user = accountService.findById(username);
-//		System.out.println("user check-out: "+user);
 
 		OrderrWeb orderWeb = new OrderrWeb();
 		orderWeb.setConsignee(req.getParameter("name"));
@@ -485,26 +521,26 @@ public class CheckoutController {
 			orderWeb.setPaymentStatus(PaymentStatus.PENDING_ATM);
 		}
 		orderWebService.save(orderWeb);
-		
-			OrderrWebDetail orderWebDetail = new OrderrWebDetail();
-			String mau = req.getParameter("colors");
-			ColorAccessories color = colorAccessoriesService.findById(Integer.parseInt(mau));
-			String sizes = req.getParameter("size");
-			SizeAccessories size = sizeService.findById(Integer.parseInt(sizes));
-			String id = req.getParameter("idacc");
-			Accessories acc = accessoriesService.findById(Integer.parseInt(id));
-			float price = acc.getPrice();
-			int quantity = Integer.parseInt(req.getParameter("soLuong"));
-			float totalAmount = price*quantity;
-			orderWebDetail.setOrderrWeb(orderWeb);
-			orderWebDetail.setColor(color);
-			orderWebDetail.setSize(size);
-			orderWebDetail.setAccessories(acc);
-			orderWebDetail.setAmount(quantity);
-			orderWebDetail.setTotalAmount(price * quantity);
-			orderWebDetail.setCreatedAt(date);
-			orderWebDetailService.save(orderWebDetail);
-		
+
+		OrderrWebDetail orderWebDetail = new OrderrWebDetail();
+		String mau = req.getParameter("colors");
+		ColorAccessories color = colorAccessoriesService.findById(Integer.parseInt(mau));
+		String sizes = req.getParameter("size");
+		SizeAccessories size = sizeService.findById(Integer.parseInt(sizes));
+		String id = req.getParameter("idacc");
+		Accessories acc = accessoriesService.findById(Integer.parseInt(id));
+		float price = acc.getPrice();
+		int quantity = Integer.parseInt(req.getParameter("soLuong"));
+		float totalAmount = price * quantity;
+		orderWebDetail.setOrderrWeb(orderWeb);
+		orderWebDetail.setColor(color);
+		orderWebDetail.setSize(size);
+		orderWebDetail.setAccessories(acc);
+		orderWebDetail.setAmount(quantity);
+		orderWebDetail.setTotalAmount(price * quantity);
+		orderWebDetail.setCreatedAt(date);
+		orderWebDetailService.save(orderWebDetail);
+
 		orderWeb.setTotalAmount(totalAmount);
 		orderWebService.save(orderWeb);
 

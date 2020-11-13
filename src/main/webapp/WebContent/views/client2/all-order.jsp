@@ -24,7 +24,7 @@
 
   <!-- Custom StyleSheet -->
 
-  <title>Tất cả đơn hàng</title>
+  <title>${title }</title>
   <base href="${pageContext.servletContext.contextPath}/">
   
   <link rel="stylesheet" href="css/acc-in.css">
@@ -133,7 +133,7 @@
                 </svg>
               </a>
             </li>
-            <li class="page__title">Tất cả đơn hàng</li>
+            <li class="page__title">${title }</li>
           </ul>
         </div>
       </div>
@@ -208,7 +208,7 @@
                     </a>
                     <div class="stardust-dropdown__item-body stardust-dropdown__item-body--open" style="opacity: 1;">
                         <div class="userpage-sideber-menu__subsection">
-                            <a href="javascript:" class="_17BcjA _1EUbVp">
+                            <a href="show-all-order" class="_17BcjA _1EUbVp">
                                 <span class="_2ilxaJ" style="color: orangered;">Tất cả đơn hàng</span>
                             </a>
                             <a href="show-waiting-order" class="_17BcjA">
@@ -254,7 +254,7 @@
                     <div class="my-account-section">
                         <div class="my-account-section__header">
                         <div class="my-account-section__header-left">
-                        <div class="my-acount-section__header-title">Tất cả đơn hàng</div>
+                        <div class="my-acount-section__header-title">${title }</div>
                         </div>
                         </div>
                         <div class="purchase-list-page__search-bar">

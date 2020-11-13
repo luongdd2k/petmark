@@ -122,7 +122,7 @@ public @Data class Accessories implements Serializable {
 
 	public String getDisplayDeposit() {
 		DecimalFormat decimalFormat = new DecimalFormat("#,##0");
-		return decimalFormat.format(this.price).replaceAll(",", ".") + " ₫";
+		return decimalFormat.format(this.price).replaceAll(",", ".") + " đ";
 	}
 
 	public String getDate() {
