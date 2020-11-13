@@ -45,7 +45,7 @@ public ModelAndView showBlog(Principal principal) {
 public ModelAndView addBlog(Principal principal,HttpServletRequest req) {
 	ModelAndView model = new ModelAndView();
 	model.setViewName("redirect:/show-blog");
-	String content = req.getParameter("content");
+	String content =  req.getParameter("content");
 	System.out.println("nội dung blog: "+content);
 	return model;
 }

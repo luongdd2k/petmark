@@ -546,7 +546,7 @@
 		      $("#blog").removeClass("hide");
 		      $("#new-blog").addClass("hide");
 		      document.getElementById("hien").innerHTML = hi;
-		      setTimeout(function(){$("#btn-an").click(); }, 1500);
+		      setTimeout(function(){$("#btn-an").click() }, 1500);
 		}
 		
 	</script>
