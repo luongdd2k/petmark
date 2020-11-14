@@ -42,6 +42,7 @@
 .qeditor-content img {
 	width: 300px;
 }
+
 .hide {
 	display: none;
 	visibility: hidden;
@@ -54,20 +55,31 @@
 .aa {
 	margin-top: 10px;
 }
+
 .du-lieu {
 	text-align: center;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	max-width: 250px;
 	margin: 0 auto;
 }
+
 .col-3 {
 	margin-top: 10px;
 }
 
-      #cke_editor1 #cke_2_top,
-      #cke_editor1 #cke_2_bottom {
-        display: none;
-      }
+#cke_editor1 #cke_2_top, #cke_editor1 #cke_2_bottom {
+	display: none;
+}
+
+#cke_editor {
+	max-width: 72%;
+}
+
+#cke_editor1 {
+	max-width: 300px;
+	margin-top: 30px;
+}
+
 #DL img {
 	width: 300px;
 }
@@ -80,10 +92,10 @@
 			<input type="hidden" id="usernameBE"
 				value="${account.getFullName() }" /> <input type="hidden"
 				id="hadBlog" value="1" />
-				<form action="addBlog" method="post">
+			<form action="addBlog" method="post">
 				<input type="hidden" name="content" id="content" value="" />
-				<button id="btn-an" type="submit">Thêm</button>
-				</form>
+				<button id="btn-an" class="hide" type="submit">Thêm</button>
+			</form>
 			<div class="row header__top">
 				<div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
 					<p>206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội</p>
@@ -312,7 +324,7 @@
 									<a id="new" href="javascript:"><button>Tạo mới</button></a>
 								</div>
 								<div class="my-account-profile">
-									<div class="row row-cols-1 row-cols-md-3">
+									<div class="row">
 										<div class="col mb-4">
 											<div class="card h-100">
 												<div name="content" id="editor1"></div>
@@ -360,13 +372,13 @@
 									<div class="new-blog-form">
 										<h2 class="form-title" style="text-align: center;">Tạo
 											bài viết</h2>
-											<textarea name="content" id="editor"> </textarea>
-											<div class="button"
-												style="text-align: center; margin-top: 10px">
-												<button onclick="getDL()" id="luu" type="submit"
-													class="btn btn-primary">Lưu bài</button>
-												<button id="huy" type="button" class="btn btn-warning">Hủy</button>
-											</div>
+										<textarea name="content" id="editor"> </textarea>
+										<div class="button"
+											style="text-align: center; margin-top: 10px">
+											<button onclick="getDL()" id="luu" type="submit"
+												class="btn btn-primary">Lưu bài</button>
+											<button id="huy" type="button" class="btn btn-warning">Hủy</button>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -530,31 +542,34 @@
 			});
 		})
 		CKEDITOR.replace("editor");
-    	CKEDITOR.replace("editor1", { readOnly: true });
-    	var cke = CKEDITOR.instances.editor;
-        var cke2 = CKEDITOR.instances.editor1;
-        function getDL() {
-          var data = cke.getData();
-          console.log(data);
-          document.getElementById("content").value = data;
-          $("#blog").removeClass("hide");
-	      $("#new-blog").addClass("hide");
-          var hi = document.getElementById("content").value;
-	      cke2.setData(hi);
-		  setTimeout(function(){$("#btn-an").click() }, 1000);
-        }
-// 		function getDL() {
-// 			var getData = qeditorInstance.getContent().dataHtml;
-// 			var res = getData.replace(/"/gi, "'");
-// 			document.getElementById("content").value = res;
-// 			var hi = document.getElementById("content").value;
-// 			localStorage.setItem("value", hi);
-// 		      $("#blog").removeClass("hide");
-// 		      $("#new-blog").addClass("hide");
-// 		      document.getElementById("hien").innerHTML = hi;
-// 		      setTimeout(function(){$("#btn-an").click() }, 150000);
-// 		}
-		
+		CKEDITOR.replace("editor1", {
+			readOnly : true
+		});
+		var cke = CKEDITOR.instances.editor;
+		var cke2 = CKEDITOR.instances.editor1;
+		function getDL() {
+			var data = cke.getData();
+			console.log(data);
+			document.getElementById("content").value = data;
+			$("#blog").removeClass("hide");
+			$("#new-blog").addClass("hide");
+			setTimeout(function() {
+				$("#btn-an").click()
+			}, 1000);
+			var hi = document.getElementById("content").value;
+			cke2.setData(hi);
+		}
+		// 		function getDL() {
+		// 			var getData = qeditorInstance.getContent().dataHtml;
+		// 			var res = getData.replace(/"/gi, "'");
+		// 			document.getElementById("content").value = res;
+		// 			var hi = document.getElementById("content").value;
+		// 			localStorage.setItem("value", hi);
+		// 		      $("#blog").removeClass("hide");
+		// 		      $("#new-blog").addClass("hide");
+		// 		      document.getElementById("hien").innerHTML = hi;
+		// 		      setTimeout(function(){$("#btn-an").click() }, 150000);
+		// 		}
 	</script>
 </body>
 
