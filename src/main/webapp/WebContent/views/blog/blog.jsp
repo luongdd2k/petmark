@@ -42,22 +42,10 @@
 .qeditor-content img {
 	width: 300px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 501175a74eebfafbb4fd3ecb002f9bb9d4cd85da
 .hide {
 	display: none;
 	visibility: hidden;
 }
-<<<<<<< HEAD
-#button-gr {
-	margin-top: 10px;
-}
-.aa {
-	margin-top: 10px;
-}
-=======
 
 #button-gr {
 	margin-top: 10px;
@@ -66,32 +54,20 @@
 .aa {
 	margin-top: 10px;
 }
-
->>>>>>> 501175a74eebfafbb4fd3ecb002f9bb9d4cd85da
 .du-lieu {
 	text-align: center;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	max-width: 250px;
 	margin: 0 auto;
 }
-<<<<<<< HEAD
-.col-3 {
-	margin-top: 10px;
-}
-#demo-ck {
-	margin: 0 auto;
-}
-=======
-
 .col-3 {
 	margin-top: 10px;
 }
 
-#demo-ck {
-	margin: 0 auto;
-}
-
->>>>>>> 501175a74eebfafbb4fd3ecb002f9bb9d4cd85da
+      #cke_editor1 #cke_2_top,
+      #cke_editor1 #cke_2_bottom {
+        display: none;
+      }
 #DL img {
 	width: 300px;
 }
@@ -339,7 +315,7 @@
 									<div class="row row-cols-1 row-cols-md-3">
 										<div class="col mb-4">
 											<div class="card h-100">
-												<div id="hien" class="card-body"></div>
+												<div name="content" id="editor1"></div>
 												<div class="action">
 													<span class="count-like">1k</span>
 													<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"
@@ -384,7 +360,7 @@
 									<div class="new-blog-form">
 										<h2 class="form-title" style="text-align: center;">Tạo
 											bài viết</h2>
-										<div style="max-width: 800px" name="DSC" id="demo-ck"></div>
+											<textarea name="content" id="editor"> </textarea>
 											<div class="button"
 												style="text-align: center; margin-top: 10px">
 												<button onclick="getDL()" id="luu" type="submit"
@@ -521,7 +497,7 @@
 	<script src="js/jquery-3.5.1.min.js"></script>
 
 	<!-- Custom JavaScript -->
-	<script src="js/ckeditor/QEditor.js"></script>
+	<script src="js/ckeditor/ckeditor.js"></script>
 	<script src="js/index.js"></script>
 	<script src="js/slider.js"></script>
 	<script src="js/custom.js"></script>
@@ -541,10 +517,6 @@
 			$("#no-blog").addClass("hide");
 			$("#new-blog").addClass("hide");
 		}
-<<<<<<< HEAD
-=======
-
->>>>>>> 501175a74eebfafbb4fd3ecb002f9bb9d4cd85da
 		$(function() {
 			$("a#hidebox").click(function() {
 				$("#blog").addClass("hide");
@@ -557,25 +529,31 @@
 				$("#new-blog").removeClass("hide");
 			});
 		})
-<<<<<<< HEAD
-=======
-
->>>>>>> 501175a74eebfafbb4fd3ecb002f9bb9d4cd85da
-		var qeditorInstance;
-		QEditor.init("demo-ck", {}).then(function(instance) {
-			qeditorInstance = instance;
-		});
-		function getDL() {
-			var getData = qeditorInstance.getContent().dataHtml;
-			var res = getData.replace(/"/gi, "'");
-			document.getElementById("content").value = res;
-			var hi = document.getElementById("content").value;
-			localStorage.setItem("value", hi);
-		      $("#blog").removeClass("hide");
-		      $("#new-blog").addClass("hide");
-		      document.getElementById("hien").innerHTML = hi;
-		      setTimeout(function(){$("#btn-an").click() }, 150000);
-		}
+		CKEDITOR.replace("editor");
+    	CKEDITOR.replace("editor1", { readOnly: true });
+    	var cke = CKEDITOR.instances.editor;
+        var cke2 = CKEDITOR.instances.editor1;
+        function getDL() {
+          var data = cke.getData();
+          console.log(data);
+          document.getElementById("content").value = data;
+          $("#blog").removeClass("hide");
+	      $("#new-blog").addClass("hide");
+          var hi = document.getElementById("content").value;
+	      cke2.setData(hi);
+		  setTimeout(function(){$("#btn-an").click() }, 1000);
+        }
+// 		function getDL() {
+// 			var getData = qeditorInstance.getContent().dataHtml;
+// 			var res = getData.replace(/"/gi, "'");
+// 			document.getElementById("content").value = res;
+// 			var hi = document.getElementById("content").value;
+// 			localStorage.setItem("value", hi);
+// 		      $("#blog").removeClass("hide");
+// 		      $("#new-blog").addClass("hide");
+// 		      document.getElementById("hien").innerHTML = hi;
+// 		      setTimeout(function(){$("#btn-an").click() }, 150000);
+// 		}
 		
 	</script>
 </body>
