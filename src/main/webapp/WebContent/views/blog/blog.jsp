@@ -42,44 +42,29 @@
 .qeditor-content img {
 	width: 300px;
 }
-
 .hide {
 	display: none;
 	visibility: hidden;
 }
-
 #button-gr {
 	margin-top: 10px;
 }
-
 .aa {
 	margin-top: 10px;
 }
-
 .du-lieu {
 	text-align: center;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	max-width: 250px;
 	margin: 0 auto;
 }
-
 .col-3 {
 	margin-top: 10px;
 }
-
-#cke_editor1 #cke_2_top, #cke_editor1 #cke_2_bottom {
-	display: none;
-}
-
-#cke_editor {
-	max-width: 72%;
-}
-
-#cke_editor1 {
-	max-width: 300px;
-	margin-top: 30px;
-}
-
+      #cke_editor1 #cke_2_top,
+      #cke_editor1 #cke_2_bottom {
+        display: none;
+      }
 #DL img {
 	width: 300px;
 }
@@ -92,12 +77,13 @@
 			<input type="hidden" id="usernameBE"
 				value="${account.getFullName() }" /> <input type="hidden"
 				id="hadBlog" value="1" />
-			<form action="addBlog" method="post">
+				<form action="addBlog" method="post">
 				<input type="hidden" name="content" id="content" value="" />
 <%-- 				<c:forEach var="blog" items="${blog }"> --%>
 <%-- 				<input  name="list" id="list" value="${blog.getContent() }" /> --%>
 <%-- 				</c:forEach> --%>
 				<button id="btn-an" class="hide" type="submit">Thêm</button>
+				</form>
 			<div class="row header__top">
 				<div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
 					<p>206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội</p>
@@ -326,7 +312,7 @@
 									<a id="new" href="javascript:"><button>Tạo mới</button></a>
 								</div>
 								<div class="my-account-profile">
-									<div class="row">
+									<div class="row row-cols-1 row-cols-md-3">
 									<c:forEach var="blog" items="${blog }">
 										<div class="col mb-4">
 											<div class="card h-100">
@@ -378,13 +364,13 @@
 									<div class="new-blog-form">
 										<h2 class="form-title" style="text-align: center;">Tạo
 											bài viết</h2>
-										<textarea name="content" id="editor"> </textarea>
-										<div class="button"
-											style="text-align: center; margin-top: 10px">
-											<button onclick="getDL()" id="luu" type="submit"
-												class="btn btn-primary">Lưu bài</button>
-											<button id="huy" type="button" class="btn btn-warning">Hủy</button>
-										</div>
+											<textarea name="content" id="editor"> </textarea>
+											<div class="button"
+												style="text-align: center; margin-top: 10px">
+												<button onclick="getDL()" id="luu" type="submit"
+													class="btn btn-primary">Lưu bài</button>
+												<button id="huy" type="button" class="btn btn-warning">Hủy</button>
+											</div>
 									</div>
 								</div>
 							</div>
@@ -561,6 +547,7 @@
 	      cke2.setData(hi);
 		  setTimeout(function(){$("#btn-an").click() }, 1000);
         }
+		
 	</script>
 </body>
 
