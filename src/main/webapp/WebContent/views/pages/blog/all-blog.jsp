@@ -224,14 +224,16 @@
 								<!-- /.card-header -->
 								<div class="card-body">
 									<div class="row">
+									<c:forEach var="blog" items="${blog }">
 										<div class="col-4 card">
-											<div id="ha"></div>
+											<div id="ha">${blog.getContent() }</div>
 											<div class="button-card">
-												<button class="ui green basic button">Duyyệt bài</button>
+												<button class="ui green basic button">Duyệt bài</button>
 												<button class="ui yellow basic button" data-toggle="modal"
 													data-target="#reasonBlock">Hủy bài</button>
 											</div>
 										</div>
+										</c:forEach>
 									</div>
 								</div>
 								<!-- /.card-body -->
@@ -317,8 +319,6 @@
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
 	<!-- page script -->
-	<script>
-		document.getElementById("ha").innerHTML = localStorage.getItem("value");
-	</script>
+
 </body>
 </html>

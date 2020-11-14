@@ -82,6 +82,9 @@
 				id="hadBlog" value="1" />
 				<form action="addBlog" method="post">
 				<input type="hidden" name="content" id="content" value="" />
+<%-- 				<c:forEach var="blog" items="${blog }"> --%>
+<%-- 				<input  name="list" id="list" value="${blog.getContent() }" /> --%>
+<%-- 				</c:forEach> --%>
 				<button id="btn-an" type="submit">Thêm</button>
 				</form>
 			<div class="row header__top">
@@ -313,9 +316,12 @@
 								</div>
 								<div class="my-account-profile">
 									<div class="row row-cols-1 row-cols-md-3">
+									<c:forEach var="blog" items="${blog }">
 										<div class="col mb-4">
 											<div class="card h-100">
-												<div name="content" id="editor1"></div>
+												<div name="content" id="editor1">
+												${blog.getContent() }
+												</div>
 												<div class="action">
 													<span class="count-like">1k</span>
 													<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"
@@ -335,6 +341,7 @@
 												</div>
 											</div>
 										</div>
+										</c:forEach>
 									</div>
 								</div>
 							</div>
@@ -543,17 +550,6 @@
 	      cke2.setData(hi);
 		  setTimeout(function(){$("#btn-an").click() }, 1000);
         }
-// 		function getDL() {
-// 			var getData = qeditorInstance.getContent().dataHtml;
-// 			var res = getData.replace(/"/gi, "'");
-// 			document.getElementById("content").value = res;
-// 			var hi = document.getElementById("content").value;
-// 			localStorage.setItem("value", hi);
-// 		      $("#blog").removeClass("hide");
-// 		      $("#new-blog").addClass("hide");
-// 		      document.getElementById("hien").innerHTML = hi;
-// 		      setTimeout(function(){$("#btn-an").click() }, 150000);
-// 		}
 		
 	</script>
 </body>

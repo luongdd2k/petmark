@@ -34,13 +34,13 @@ public class Blog implements Serializable {
 	private String content;
 	@Column(name = "date_submitted")
 	private Date dateSubmitted;
-	private String status;
+	private boolean status;
 
 	public Blog() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Blog(int id, Account account, String content, Date date, String status) {
+	public Blog(int id, Account account, String content, Date date, Boolean status) {
 		this.id = id;
 		this.account = account;
 		this.content = content;
@@ -48,11 +48,19 @@ public class Blog implements Serializable {
 		this.status = status;
 	}
 
-	public Blog(Account account, String content, Date date, String status) {
+	public Blog(Account account, String content, Date date, Boolean status) {
 		this.account = account;
 		this.content = content;
 		this.dateSubmitted = date;
 		this.status = status;
+	}
+	
+	public String displayStt() {
+		String stt = "Chưa xét duyệt";
+		if(this.status==true) {
+			stt = "Đã duyệt";
+		}
+		return stt;
 	}
 
 	public Integer getId() {
@@ -87,11 +95,11 @@ public class Blog implements Serializable {
 		this.dateSubmitted = dateSubmitted;
 	}
 
-	public String getStatus() {
+	public boolean isStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 

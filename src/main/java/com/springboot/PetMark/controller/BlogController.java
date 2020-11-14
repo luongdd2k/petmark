@@ -33,19 +33,28 @@ public ModelAndView showBlog(Principal principal) {
 	Account account = accountService.findById(loginedUser.getUsername());
 	model.addObject("account", account);
 	List<Blog> blog = blogService.findByUser(account);
+	System.out.println("Dang sách blog: "+blog);
 	String has = "1";
 	if(blog.size()==0) {
 		has = "";
 	}
 	model.addObject("has", has);
+	model.addObject("blog", blog);
 	return model;
 }
 @RequestMapping(value = "/addBlog", method = RequestMethod.POST)
 public ModelAndView addBlog(Principal principal,HttpServletRequest req) {
 	ModelAndView model = new ModelAndView();
 	model.setViewName("redirect:/show-blog");
+	User loginedUser = (User) ((Authentication) principal).getPrincipal();
+	Account account = accountService.findById(loginedUser.getUsername());
+	model.addObject("account", account);
+	long millis = System.currentTimeMillis();
+	java.sql.Date date = new java.sql.Date(millis);
 	String content =  req.getParameter("content");
 	System.out.println("nội dung blog: "+content);
+	Blog blog = new Blog(account, content, date, false);
+	blogService.saveBlog(blog);
 	return model;
 }
 }
