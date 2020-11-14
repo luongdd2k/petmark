@@ -77,7 +77,7 @@
 				value="${account.getFullName() }" /> <input type="hidden"
 				id="hadBlog" value="1" />
 				<form action="addBlog" method="post">
-				<input type="hidden" name="content" id="content" value="pojknbnbnbn" />
+				<input type="hidden" name="content" id="content" value="" />
 				<button id="btn-an" type="submit">Thêm</button>
 				</form>
 			<div class="row header__top">
@@ -531,13 +531,14 @@
 		});
 		function getDL() {
 			var getData = qeditorInstance.getContent().dataHtml;
-			document.getElementById("content").value = getData;
+			var res = getData.replace(/"/gi, "'");
+			document.getElementById("content").value = res;
 			var hi = document.getElementById("content").value;
 			localStorage.setItem("value", hi);
 		      $("#blog").removeClass("hide");
 		      $("#new-blog").addClass("hide");
 		      document.getElementById("hien").innerHTML = hi;
-		      setTimeout(function(){$("#btn-an").click() }, 1500);
+		      setTimeout(function(){$("#btn-an").click() }, 150000);
 		}
 		
 	</script>
