@@ -42,28 +42,56 @@
 .qeditor-content img {
 	width: 300px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 501175a74eebfafbb4fd3ecb002f9bb9d4cd85da
 .hide {
 	display: none;
 	visibility: hidden;
 }
+<<<<<<< HEAD
 #button-gr {
 	margin-top: 10px;
 }
 .aa {
 	margin-top: 10px;
 }
+=======
+
+#button-gr {
+	margin-top: 10px;
+}
+
+.aa {
+	margin-top: 10px;
+}
+
+>>>>>>> 501175a74eebfafbb4fd3ecb002f9bb9d4cd85da
 .du-lieu {
 	text-align: center;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	max-width: 250px;
 	margin: 0 auto;
 }
+<<<<<<< HEAD
 .col-3 {
 	margin-top: 10px;
 }
 #demo-ck {
 	margin: 0 auto;
 }
+=======
+
+.col-3 {
+	margin-top: 10px;
+}
+
+#demo-ck {
+	margin: 0 auto;
+}
+
+>>>>>>> 501175a74eebfafbb4fd3ecb002f9bb9d4cd85da
 #DL img {
 	width: 300px;
 }
@@ -513,6 +541,10 @@
 			$("#no-blog").addClass("hide");
 			$("#new-blog").addClass("hide");
 		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 501175a74eebfafbb4fd3ecb002f9bb9d4cd85da
 		$(function() {
 			$("a#hidebox").click(function() {
 				$("#blog").addClass("hide");
@@ -525,6 +557,10 @@
 				$("#new-blog").removeClass("hide");
 			});
 		})
+<<<<<<< HEAD
+=======
+
+>>>>>>> 501175a74eebfafbb4fd3ecb002f9bb9d4cd85da
 		var qeditorInstance;
 		QEditor.init("demo-ck", {}).then(function(instance) {
 			qeditorInstance = instance;
