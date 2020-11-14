@@ -156,7 +156,7 @@ to get the desired effect
 								<p>Quản lý cọc</p>
 						</a></li>
 						<li class="nav-header">QUẢN LÝ BLOG</li>
-						<li class="nav-item has-treeview"><a href="javascript:"
+						<li class="nav-item has-treeview"><a href="admin/blog"
 							class="nav-link"> <i class="nav-icon fas fa-table"></i>
 								<p>Danh sách Blog</p>
 						</a></li>

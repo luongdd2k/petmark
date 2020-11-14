@@ -94,8 +94,10 @@
 				id="hadBlog" value="1" />
 			<form action="addBlog" method="post">
 				<input type="hidden" name="content" id="content" value="" />
+<%-- 				<c:forEach var="blog" items="${blog }"> --%>
+<%-- 				<input  name="list" id="list" value="${blog.getContent() }" /> --%>
+<%-- 				</c:forEach> --%>
 				<button id="btn-an" class="hide" type="submit">Thêm</button>
-			</form>
 			<div class="row header__top">
 				<div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
 					<p>206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội</p>
@@ -325,9 +327,12 @@
 								</div>
 								<div class="my-account-profile">
 									<div class="row">
+									<c:forEach var="blog" items="${blog }">
 										<div class="col mb-4">
 											<div class="card h-100">
-												<div name="content" id="editor1"></div>
+												<div name="content" id="editor1">
+												${blog.getContent() }
+												</div>
 												<div class="action">
 													<span class="count-like">1k</span>
 													<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"
@@ -347,6 +352,7 @@
 												</div>
 											</div>
 										</div>
+										</c:forEach>
 									</div>
 								</div>
 							</div>
@@ -542,34 +548,19 @@
 			});
 		})
 		CKEDITOR.replace("editor");
-		CKEDITOR.replace("editor1", {
-			readOnly : true
-		});
-		var cke = CKEDITOR.instances.editor;
-		var cke2 = CKEDITOR.instances.editor1;
-		function getDL() {
-			var data = cke.getData();
-			console.log(data);
-			document.getElementById("content").value = data;
-			$("#blog").removeClass("hide");
-			$("#new-blog").addClass("hide");
-			setTimeout(function() {
-				$("#btn-an").click()
-			}, 1000);
-			var hi = document.getElementById("content").value;
-			cke2.setData(hi);
-		}
-		// 		function getDL() {
-		// 			var getData = qeditorInstance.getContent().dataHtml;
-		// 			var res = getData.replace(/"/gi, "'");
-		// 			document.getElementById("content").value = res;
-		// 			var hi = document.getElementById("content").value;
-		// 			localStorage.setItem("value", hi);
-		// 		      $("#blog").removeClass("hide");
-		// 		      $("#new-blog").addClass("hide");
-		// 		      document.getElementById("hien").innerHTML = hi;
-		// 		      setTimeout(function(){$("#btn-an").click() }, 150000);
-		// 		}
+    	CKEDITOR.replace("editor1", { readOnly: true });
+    	var cke = CKEDITOR.instances.editor;
+        var cke2 = CKEDITOR.instances.editor1;
+        function getDL() {
+          var data = cke.getData();
+          console.log(data);
+          document.getElementById("content").value = data;
+          $("#blog").removeClass("hide");
+	      $("#new-blog").addClass("hide");
+          var hi = document.getElementById("content").value;
+	      cke2.setData(hi);
+		  setTimeout(function(){$("#btn-an").click() }, 1000);
+        }
 	</script>
 </body>
 
