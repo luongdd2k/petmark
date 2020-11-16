@@ -539,8 +539,8 @@
         var cke2 = CKEDITOR.instances.editor1;
         function getDL() {
           var data = cke.getData();
-          console.log(data);
           document.getElementById("content").value = data;
+          console.log(document.getElementById("content").value = data);
           $("#blog").removeClass("hide");
 	      $("#new-blog").addClass("hide");
           var hi = document.getElementById("content").value;
