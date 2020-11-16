@@ -314,7 +314,7 @@
 								<div class="my-account-profile">
 									<div class="row row-cols-1 row-cols-md-3">
 									<c:forEach var="blog" items="${blog }">
-										<div class="col mb-4">
+										<div class="col-6">
 											<div class="card h-100">
 												<div name="content" id="editor1">
 												${blog.getContent() }
