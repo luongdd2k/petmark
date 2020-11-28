@@ -639,7 +639,6 @@
 
   <!-- Custom JavaScript -->
   <script src="js/number-format.js"></script>
-  
   <script src="js/index.js"></script>
   <script src="js/slider.js"></script>
   <script src="js/custom.js"></script>
