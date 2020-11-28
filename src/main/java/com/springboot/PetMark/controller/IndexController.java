@@ -135,18 +135,38 @@ public class IndexController {
 		model.addObject("listAcc", listAcces);
 		return model;
 	}
-	@RequestMapping("/SearchProduct")
-	public String searchProduct(ModelMap model, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-//		String searchContent = request.getParameter("form_search");
-//		
-//		List<Product> searchResult = productService.findByNameContainingOrderByName(searchContent);
-//		model.addAttribute("searchResult", searchResult);
-//		
-//		session.setAttribute("form_search_submit", searchContent);
-//		System.out.println(searchContent);
-
-		return "search";
+	@RequestMapping("/search")
+	public ModelAndView searchProduct(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("client2/index");
+		String search = request.getParameter("search");	
+		List<Pet> listPet = petService.search(search);
+		model.addObject("list", listPet);
+		List<Accessories> listAcces = accessSv.search(search);
+		String result = "";
+		if(listAcces.size() == 0) {
+			listAcces = accessSv.findAll();
+			result = "Không tìm thấy phụ kiện phù hợp";
+		}
+		model.addObject("listAcc", listAcces);
+		return model;
+	}
+	@RequestMapping("/search1")
+	public ModelAndView search(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("client2/welcome");
+		String search = request.getParameter("search");	
+		List<Pet> listPet = petService.search(search);
+		model.addObject("list", listPet);
+		List<Accessories> listAcces = accessSv.search(search);
+		String result = "";
+		if(listAcces.size() == 0) {
+			listAcces = accessSv.findAll();
+			result = "Không tìm thấy phụ kiện phù hợp";
+		}
+		model.addObject("result", result);
+		model.addObject("listAcc", listAcces);
+		return model;
 	}
 
 	@RequestMapping("/403")

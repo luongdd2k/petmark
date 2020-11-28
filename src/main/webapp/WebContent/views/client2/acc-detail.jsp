@@ -269,12 +269,6 @@
                 </div>
                 <a href="#description"  class="rating__quatity">3 nhận xét</a>
               </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-                a doloribus iste natus et facere?
-                dolor sit amet consectetur adipisicing elit. Sunt
-                a doloribus iste natus et facere?
-              </p>
               <div class="product__info-container">
                 <ul class="product__info">
                   <li class="select">
@@ -287,7 +281,7 @@
                       </select>
                     </div>
                     <div class="select__option">
-                      <label for="size">Kích cỡ :</label>
+                      <label for="size">Kích cỡ: </label>
                       <select name="size" id="size" class="select-box">
                       <c:forEach var="size" items="${size }">
                         <option value="${size.getId() }">${size.getSizeName() }</option>
@@ -298,7 +292,7 @@
                   <li>
 
                     <div class="input-counter">
-                      <span>Số lượng :</span>
+                      <span>Số lượng: </span>
                       <div class="buttons_added">
                         <input onclick="changePrice()" class="minus is-form" type="button" value="-">
                         <input id="so-luong"  aria-label="quantity" class="input-qty" max="10" min="1" name="soLuong" type="number" value="1">

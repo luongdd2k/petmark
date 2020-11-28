@@ -85,4 +85,10 @@ public class PetServiceImpl implements PetService {
 		return petDAO.showByDes(des, pageable);
 	}
 
+	@Override
+	public List<Pet> search(String search) {
+		// TODO Auto-generated method stub
+		return petDAO.search(search);
+	}
+
 }

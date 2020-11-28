@@ -93,4 +93,10 @@ public class AccessoriesDAOImpl implements AccessoriesDAO {
 		// TODO Auto-generated method stub
 		return AccessoriesRepository.getStatus();
 	}
+
+	@Override
+	public List<Accessories> search(String search) {
+		// TODO Auto-generated method stub
+		return AccessoriesRepository.search(search);
+	}
 }

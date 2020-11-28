@@ -21,5 +21,5 @@ public interface PetService {
 	int countProduct(String status);
 	List<String> selecStatus();
 	List<Pet> showByDes(String des,Pageable pageable);
-	
+	List<Pet> search(String search);
 }

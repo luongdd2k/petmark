@@ -35,15 +35,13 @@ public ModelAndView show(Principal principal) {
 	return model;
 }
 @RequestMapping("/cancel/{id}")
-public String cancelBlog(@PathVariable String id,Principal principal) {
-	int id1 = Integer.parseInt("id");
-	blogService.changeStt(false, id1);
+public String cancelBlog(@PathVariable int id,Principal principal) {
+	blogService.changeStt(false, id);
 	return "redirect:/admin/blog";
 }
 @RequestMapping("/confirm/{id}")
-public String confirmBlog(@PathVariable String id,Principal principal) {
-	int id1 = Integer.parseInt("id");
-	blogService.changeStt(true, id1);
+public String confirmBlog(@PathVariable int id,Principal principal) {
+	blogService.changeStt(true, id);
 	return "redirect:/admin/blog";
 }
 }

@@ -77,4 +77,10 @@ public class AccessoriesServiceImpl implements AccessoriesService {
 		return AccessoriesDAO.getStatus();
 	}
 
+	@Override
+	public List<Accessories> search(String search) {
+		// TODO Auto-generated method stub
+		return AccessoriesDAO.search(search);
+	}
+
 }

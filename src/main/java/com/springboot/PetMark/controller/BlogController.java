@@ -53,7 +53,7 @@ public ModelAndView addBlog(Principal principal,HttpServletRequest req) {
 	java.sql.Date date = new java.sql.Date(millis);
 	String content =  req.getParameter("content");
 	System.out.println("nội dung blog: "+content);
-	Blog blog = new Blog(account, content, date, false);
+	Blog blog = new Blog(account, content, date, false,content);
 	blogService.saveBlog(blog);
 	return model;
 }

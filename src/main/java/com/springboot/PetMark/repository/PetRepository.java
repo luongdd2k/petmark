@@ -31,6 +31,8 @@ public interface PetRepository extends JpaRepository<Pet, Integer> {
 	
 	@Query("select distinct(p.status) from Pet p")
 	List<String> selecStatus();
+	@Query("select p from Pet p where p.petName like %?1% or p.species.name like %?1%")
+	List<Pet> search(String search);
 //	@Query("SELECT p FROM Pet p where p.species.id = ?1 order by newid()")
 //	List<Pet> showIndexProduct(String categoryID);
 	

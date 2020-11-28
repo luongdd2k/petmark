@@ -123,7 +123,7 @@
 							class="img-circle elevation-2" alt="User Image" />
 					</div>
 					<div class="info">
-						<a href="examples/profile.html" class="d-block">Trần Ngọc Hải</a>
+						<a href="admin/UserManagement/show-profile" class="d-block">${account.getFullName() }</a>
 					</div>
 				</div>
 
@@ -227,11 +227,13 @@
 									<c:forEach var="blog" items="${blog }">
 										<div class="col-4 card">
 											<div id="ha">${blog.getContent() }</div>
+											<form action="admin/blog/confirm/${blog.getId()}">
 											<div class="button-card">
-												<button class="ui green basic button">Duyệt bài</button>
+												<button class="ui green basic button" type="submit">Duyệt bài</button>
 												<button class="ui yellow basic button" data-toggle="modal"
-													data-target="#reasonBlock">Hủy bài</button>
+													data-target="#reasonBlock" onclick="form.action='admin/blog/cancel/${blog.getId()}'">Hủy bài</button>
 											</div>
+											</form>
 										</div>
 										</c:forEach>
 									</div>

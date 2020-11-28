@@ -20,4 +20,5 @@ public interface AccessoriesService {
 	int countContinueProduct();
 	int countProduct(String status);
 	List<String> getStatus();
+	List<Accessories> search(String search);
 }

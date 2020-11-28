@@ -20,7 +20,7 @@ public interface PetDAO {
 
 	List<Pet> findByName(String name);
 	List<String> selecStatus();
-
+	List<Pet> search(String search);
 
 	void disContinuePet(int id);
 

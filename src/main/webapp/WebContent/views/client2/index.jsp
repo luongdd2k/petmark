@@ -97,15 +97,16 @@
                 </svg>
               </a>
             </div>
+            <form action="search" method="get">
             <div id="search-box" style="margin-right: 1rem;">
-              <input class="form-control search-form"  type="search" aria-label="Search" placeholder="Tìm kiếm ...">
+              <input class="form-control search-form"  type="search" aria-label="Search" placeholder="Tìm kiếm ..." name="search">
             </div>
-              <a href="javascript:" class="icon__item">
+              <button type="submit" class="icon__item">
                 <svg class="icon__search">
                   <use xlink:href="images/sprite.svg#icon-search"></use>
                 </svg>
-              </a>
-            
+              </button>
+            </form>
             <div id="cart" class="hide"> 
               <a href="show-card" class="icon__item">
                 <svg class="icon__cart">
@@ -221,8 +222,7 @@
           <div class="glide" id="glide_2">
             <div class="glide__track" data-glide-el="track">
               <ul class="glide__slides latest-center">
-                
-               
+
                 <c:forEach var="listAcc" items="${listAcc }">
                 <li class="glide__slide">
                   <div class="product">
@@ -249,7 +249,7 @@
                         </svg>
                       </div>
                       <div  class="product__price">
-                        <h4 class="price">${listAcc.getDisplayPrice(1) }</h4>
+                        <h4 class="price">${listAcc.getDisplayDeposit() }</h4>
                       </div>
                     </div>
                     <ul>

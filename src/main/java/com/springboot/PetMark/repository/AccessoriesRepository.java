@@ -29,6 +29,8 @@ public interface AccessoriesRepository extends JpaRepository<Accessories, Intege
 	void continueAccessories(int id);
 	@Query("select distinct(a.status) from Accessories a")
 	List<String> getStatus();
+	@Query("select a from Accessories a where a.name like %?1% or a.category.name like %?1%")
+	List<Accessories> search(String search);
 //	@Query("SELECT p FROM Accessories p where p.species.id = ?1 order by newid()")
 //	List<Accessories> showIndexProduct(String categoryID);
 	

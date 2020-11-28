@@ -103,4 +103,10 @@ public class PetDAOImpl implements PetDAO {
 		return petRepository.showByDes(des, pageable);
 	}
 
+	@Override
+	public List<Pet> search(String search) {
+		// TODO Auto-generated method stub
+		return petRepository.search(search);
+	}
+
 }

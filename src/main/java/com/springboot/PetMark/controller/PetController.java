@@ -75,7 +75,6 @@ public class PetController {
 		if (request.getParameter("scrollT") != null) {
 			model.addAttribute("scrollT", request.getParameter("scrollT"));
 		}
-
 		String nameButton2 = "Ngừng kinh doanh";
 //		String classButton2 = "btn_upload";
 		String classButtonDelete = "btn_delete2";

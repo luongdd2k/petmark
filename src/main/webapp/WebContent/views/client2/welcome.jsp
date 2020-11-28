@@ -97,15 +97,16 @@
                 </svg>
               </a>
             </div>
+            <form action="search1">
             <div id="search-box" style="margin-right: 1rem;">
-              <input class="form-control search-form"  type="search" aria-label="Search" placeholder="Tìm kiếm ...">
+              <input class="form-control search-form"  type="search" aria-label="Search" placeholder="Tìm kiếm ..." name="search">
             </div>
-              <a href="#" class="icon__item">
+              <button type="submit" class="icon__item">
                 <svg class="icon__search">
                   <use xlink:href="images/sprite.svg#icon-search"></use>
                 </svg>
-              </a>
-            
+              </button>
+            </form>
             <div id="cart" class="hide"> 
               <a href="show-card" class="icon__item">
                 <svg class="icon__cart">

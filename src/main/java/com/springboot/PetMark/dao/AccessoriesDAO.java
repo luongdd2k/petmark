@@ -22,7 +22,7 @@ public interface AccessoriesDAO {
 
 	List<Accessories> findByName(String name);
 	List<String> getStatus();
-
+	List<Accessories> search(String search);
 	void disContinueAccessories(int id);
 
 	void continueAccessories(int id);

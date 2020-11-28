@@ -77,11 +77,11 @@
 			<input type="hidden" id="usernameBE"
 				value="${account.getFullName() }" /> <input type="hidden"
 				id="hadBlog" value="1" />
+				<c:forEach var="blog" items="${blog }">
+				<input  name="list" id="list" value="${blog.getContent() }" />
+				</c:forEach>
 				<form action="addBlog" method="post">
 				<input type="hidden" name="content" id="content" value="" />
-<%-- 				<c:forEach var="blog" items="${blog }"> --%>
-<%-- 				<input  name="list" id="list" value="${blog.getContent() }" /> --%>
-<%-- 				</c:forEach> --%>
 				<button id="btn-an" class="hide" type="submit">Thêm</button>
 				</form>
 			<div class="row header__top">
@@ -317,7 +317,7 @@
 										<div class="col-6">
 											<div class="card h-100">
 												<div name="content" id="editor1">
-												${blog.getContent() }
+<%-- 												${blog.getContent() } --%>
 												</div>
 												<div class="action">
 													<span class="count-like">1k</span>
@@ -540,7 +540,8 @@
         function getDL() {
           var data = cke.getData();
           console.log(data);
-          document.getElementById("content").value = data;
+          var hide = data.replace(/"/gi, "'");
+          document.getElementById("content").value = hide;
           $("#blog").removeClass("hide");
 	      $("#new-blog").addClass("hide");
           var hi = document.getElementById("content").value;

@@ -31,6 +31,7 @@ public class Blog implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "username")
 	private Account account;
+	private String img;
 	private String content;
 	@Column(name = "date_submitted")
 	private Date dateSubmitted;
@@ -40,19 +41,21 @@ public class Blog implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Blog(int id, Account account, String content, Date date, Boolean status) {
+	public Blog(int id, Account account, String content, Date date, Boolean status, String img) {
 		this.id = id;
 		this.account = account;
 		this.content = content;
 		this.dateSubmitted = date;
 		this.status = status;
+		this.img = img;
 	}
 
-	public Blog(Account account, String content, Date date, Boolean status) {
+	public Blog(Account account, String content, Date date, Boolean status,String img) {
 		this.account = account;
 		this.content = content;
 		this.dateSubmitted = date;
 		this.status = status;
+		this.img = img;
 	}
 	
 	public String displayStt() {
@@ -103,10 +106,18 @@ public class Blog implements Serializable {
 		this.status = status;
 	}
 
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
 	@Override
 	public String toString() {
-		return "Blog [id=" + id + ", account=" + account + ", content=" + content + ", dateSubmitted=" + dateSubmitted
-				+ ", status=" + status + "]";
+		return "Blog [id=" + id + ", account=" + account + ", img=" + img + ", content=" + content + ", dateSubmitted="
+				+ dateSubmitted + ", status=" + status + "]";
 	}
 
 }

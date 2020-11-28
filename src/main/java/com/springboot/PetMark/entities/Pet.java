@@ -54,7 +54,7 @@ public @Data class Pet implements Serializable {
 	private String description;
 	private String status;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pet")
-	private Set<ColorPet> color = new HashSet<ColorPet>(0);
+	private List<ColorPet> color = new ArrayList<>();
 	@OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 	private List<ImgPet> imgs = new ArrayList<>();
 
@@ -81,6 +81,15 @@ public @Data class Pet implements Serializable {
 		this.status = status;
 		this.species = species;
 		this.createdAt = date;
+	}
+	
+
+	public List<ColorPet> getColor() {
+		return color;
+	}
+
+	public void setColor(List<ColorPet> color) {
+		this.color = color;
 	}
 
 	public Pet(String name, float gia, float coc, int age, int soLuong, String des, String status, Species species,
