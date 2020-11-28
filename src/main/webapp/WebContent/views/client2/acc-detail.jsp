@@ -992,7 +992,6 @@
         $this.attr('value', d).val(d)
       })
     });
-  };
   </script>
 </body>
 

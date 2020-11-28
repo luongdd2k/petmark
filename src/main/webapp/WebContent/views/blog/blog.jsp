@@ -34,39 +34,17 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 <!-- Custom StyleSheet -->
-<link rel="stylesheet" href="js/ckeditor/QEditor.css">
+<link rel="stylesheet" href="css/image-uploader.min.css">
 <link rel="stylesheet" href="css/acc-in.css">
 <link rel="stylesheet" href="css/styles.css" />
 <link rel="stylesheet" href="css/blog.css">
 <style>
-.qeditor-content img {
-	width: 300px;
-}
 .hide {
 	display: none;
 	visibility: hidden;
 }
 #button-gr {
 	margin-top: 10px;
-}
-.aa {
-	margin-top: 10px;
-}
-.du-lieu {
-	text-align: center;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	max-width: 250px;
-	margin: 0 auto;
-}
-.col-3 {
-	margin-top: 10px;
-}
-      #cke_editor1 #cke_2_top,
-      #cke_editor1 #cke_2_bottom {
-        display: none;
-      }
-#DL img {
-	width: 300px;
 }
 </style>
 </head>
@@ -79,9 +57,9 @@
 				id="hadBlog" value="1" />
 				<form action="addBlog" method="post">
 				<input type="hidden" name="content" id="content" value="" />
-<%-- 				<c:forEach var="blog" items="${blog }"> --%>
-<%-- 				<input  name="list" id="list" value="${blog.getContent() }" /> --%>
-<%-- 				</c:forEach> --%>
+				<c:forEach var="blog" items="${blog }">
+				<input type="hidden" id="list"  name="list" value="${blog.getContent()}" />
+				</c:forEach>
 				<button id="btn-an" class="hide" type="submit">Thêm</button>
 				</form>
 			<div class="row header__top">
@@ -311,13 +289,15 @@
 								<div class="btn-new">
 									<a id="new" href="javascript:"><button>Tạo mới</button></a>
 								</div>
-								<div class="my-account-profile">
-									<div class="row row-cols-1 row-cols-md-3">
-									<c:forEach var="blog" items="${blog }">
-										<div class="col-6">
-											<div class="card h-100">
-												<div name="content" id="editor1">
-												${blog.getContent() }
+								<div class="my-account-profile" style="display: block">
+									<div class="row">
+										<div class="col-4">
+											<div class="card">
+												<div name="image" id="image">
+													<img alt="" src="https://icdn.dantri.com.vn/thumb_w/640/2017/1-1510967806416.jpg">
+												</div>
+												<div class="description">
+													Balo dễ dùng, đẹp thoải mái
 												</div>
 												<div class="action">
 													<span class="count-like">1k</span>
@@ -338,7 +318,34 @@
 												</div>
 											</div>
 										</div>
-										</c:forEach>
+										<div class="col-4">
+											<div class="card">
+												<div name="image" id="image">
+													<img alt="" src="https://i-dulich.vnecdn.net/2019/11/22/2-1574406624_680x0.jpg">
+												</div>
+												<div class="description">
+													Balo dễ dùng, đẹp thoải mái
+												</div>
+												<div class="action">
+													<span class="count-like">1k</span>
+													<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"
+														class="bi bi-heart" fill="currentColor"
+														xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+															fill-rule="evenodd"
+															d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                                      </svg>
+													<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"
+														class="bi bi-three-dots-vertical" fill="currentColor"
+														xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+															fill-rule="evenodd"
+															d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                                      </svg>
+												</div>
+											</div>
+										</div>
+										
 									</div>
 								</div>
 							</div>
@@ -362,15 +369,24 @@
 							<div id="new-blog" class="new-blog">
 								<div class="my-account-profile">
 									<div class="new-blog-form">
-										<h2 class="form-title" style="text-align: center;">Tạo
-											bài viết</h2>
-											<textarea name="content" id="editor"> </textarea>
-											<div class="button"
-												style="text-align: center; margin-top: 10px">
-												<button onclick="getDL()" id="luu" type="submit"
-													class="btn btn-primary">Lưu bài</button>
-												<button id="huy" type="button" class="btn btn-warning">Hủy</button>
-											</div>
+										<h2 class="form-title" style="text-align: center;">Tạo bài viết</h2>
+											<form method="POST" name="form-example-1" id="form-example-1" enctype="multipart/form-data">
+											    <div class="input-field">
+											        <input type="text" name="description-1" id="description-1">
+											        <label for="description-1">Nhận xét</label>
+											    </div>
+											
+											    <div class="input-field">
+											        <label class="active">Ảnh</label>
+											        <div class="input-images-1" style="padding-top: .5rem;max-width: 50%;height: 20rem;"></div>
+											    </div>
+												<div class="button"
+													style="text-align: center; margin-top: 10px">
+													<button  id="luu" type="submit"
+														class="btn btn-primary">Lưu bài</button>
+													<button id="huy" type="button" class="btn btn-warning">Hủy</button>
+												</div>
+											</form>
 									</div>
 								</div>
 							</div>
@@ -379,6 +395,15 @@
 				</div>
 			</div>
 		</div>
+		<div id="show-submit-data" class="modal" style="visibility: hidden;">
+        <div class="content">
+            <h4>Dữ liệu vừa lưu:</h4>
+            <p id="display-description"><strong>Nhận xét:</strong> <span></span></p>
+            <p><strong>Ảnh vừa Upload:</strong></p>
+            <ul id="display-new-images"></ul>
+            <a href="javascript:$('#show-submit-data').css('visibility', 'hidden')" class="close">x</a>
+        </div>
+    </div>
 		<!-- Facility Section -->
 		<section class="facility__section section" id="facility">
 			<div class="container">
@@ -501,12 +526,13 @@
 	<script src="js/jquery-3.5.1.min.js"></script>
 
 	<!-- Custom JavaScript -->
-	<script src="js/ckeditor/ckeditor.js"></script>
+	
 	<script src="js/index.js"></script>
 	<script src="js/slider.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/all-order.js"></script>
 	<script src="js/sweat-alert.js"></script>
+	<script src="js/image-uploader.min.js"></script>
 	<script>
 		var hadBlog = $("#hadBlog").val();
 		var blog = document.getElementById("blog");
@@ -533,21 +559,76 @@
 				$("#new-blog").removeClass("hide");
 			});
 		})
-		CKEDITOR.replace("editor");
-    	CKEDITOR.replace("editor1", { readOnly: true });
-    	var cke = CKEDITOR.instances.editor;
-        var cke2 = CKEDITOR.instances.editor1;
-        function getDL() {
-          var data = cke.getData();
-          document.getElementById("content").value = data;
-          console.log(document.getElementById("content").value = data);
-          $("#blog").removeClass("hide");
-	      $("#new-blog").addClass("hide");
-          var hi = document.getElementById("content").value;
-	      cke2.setData(hi);
-		  setTimeout(function(){$("#btn-an").click() }, 1000);
-        }
-		
+		 $(function () {
+
+        $('.input-images-1').imageUploader();
+
+        
+
+        $('form').on('submit', function (event) {
+
+            // Stop propagation
+            event.preventDefault();
+            event.stopPropagation();
+
+            // Get some vars
+            let $form = $(this),
+                $modal = $('.modal');
+
+            // Set name and description
+            $modal.find('#display-name span').text($form.find('input[id^="name"]').val());
+            $modal.find('#display-description span').text($form.find('input[id^="description"]').val());
+
+            // Get the input file
+            let $inputImages = $form.find('input[name^="images"]');
+            if (!$inputImages.length) {
+                $inputImages = $form.find('input[name^="photos"]')
+            }
+
+            // Get the new files names
+            let $fileNames = $('<ul>');
+            for (let file of $inputImages.prop('files')) {
+                $('<li>', {text: file.name}).appendTo($fileNames);
+            }
+
+            // Set the new files names
+            $modal.find('#display-new-images').html($fileNames.html());
+
+            // Get the preloaded inputs
+            let $inputPreloaded = $form.find('input[name^="old"]');
+            if ($inputPreloaded.length) {
+
+                // Get the ids
+                let $preloadedIds = $('<ul>');
+                for (let iP of $inputPreloaded) {
+                    $('<li>', {text: '#' + iP.value}).appendTo($preloadedIds);
+                }
+
+                // Show the preloadede info and set the list of ids
+                $modal.find('#display-preloaded-images').show().html($preloadedIds.html());
+
+            } else {
+
+                // Hide the preloaded info
+                $modal.find('#display-preloaded-images').hide();
+
+            }
+
+            // Show the modal
+            $modal.css('visibility', 'visible');
+        });
+
+        // Input and label handler
+        $('input').on('focus', function () {
+            $(this).parent().find('label').addClass('active')
+        }).on('blur', function () {
+            if ($(this).val() == '') {
+                $(this).parent().find('label').removeClass('active');
+            }
+        });
+
+
+    });
 	</script>
 </body>
 

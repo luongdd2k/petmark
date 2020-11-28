@@ -998,7 +998,7 @@
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 	<!-- Custom JavaScript -->
-	<script src="js/products.js"></script>
+	
 	<script src="js/index.js"></script>
 	<script src="js/slider.js"></script>
 	<script src="js/jquery-3.5.1.min.js"></script>

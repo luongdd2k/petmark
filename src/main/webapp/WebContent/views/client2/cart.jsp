@@ -261,7 +261,7 @@
     </main>
 
     <!-- Footer -->
- <footer id="footer" class="section footer" style="background-image: url(images-new/Footer-Background-Image.png)">
+ <footer id="footer" class="section footer" style="background-image: url(images/Footer-Background-Image.png)">
     <div class="container">
       <div class="footer__top">
         <div class="footer-top__box">
@@ -344,7 +344,7 @@
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
     <!-- Custom JavaScript -->
-    <script src="js/products.js"></script>
+    
     <script src="js/index.js"></script>
     <script src="js/slider.js"></script>
     <script>
