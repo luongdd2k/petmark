@@ -26,10 +26,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <img class="wave" src="images-new/login/wave.png" />
+    <img class="wave" src="images/login/wave.png" />
     <div class="container">
       <div class="img">
-        <img src="images-new/login/product.svg" />
+        <img src="images/login/product.svg" />
       </div>
       <div class="login-content">
         <form action="CheckSignup" method="post">

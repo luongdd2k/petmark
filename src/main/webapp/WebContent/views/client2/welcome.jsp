@@ -558,7 +558,7 @@
   <!-- End Main -->
 
  <!-- Footer -->
- <footer id="footer" class="section footer" style="background-image: url(images-new/Footer-Background-Image.png)">
+ <footer id="footer" class="section footer" style="background-image: url(images/Footer-Background-Image.png)">
   <div class="container">
     <div class="footer__top">
       <div class="footer-top__box">
@@ -640,7 +640,6 @@
 
   <!-- Custom JavaScript -->
   <script src="js/number-format.js"></script>
-  <script src="js/products.js"></script>
   <script src="js/index.js"></script>
   <script src="js/slider.js"></script>
   <script src="js/custom.js"></script>
