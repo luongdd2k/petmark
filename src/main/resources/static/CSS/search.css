@@ -1,0 +1,204 @@
+.block {
+  padding: 0px 20px 15px;
+}
+.block:nth-child(n + 2) {
+  border-top: 2px solid rgb(247, 247, 247);
+}
+.block .title {
+  margin: 0px;
+  line-height: 20px;
+  display: block;
+  color: rgb(36, 36, 36);
+  font-size: 14px;
+  padding: 18px 0px 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.block .list .item {
+  font-size: 13px;
+  color: rgb(36, 36, 36);
+  padding: 5px 0px;
+  line-height: 15px;
+  display: block;
+}
+.block .list .item .bold {
+  font-weight: 500;
+}
+.block .price-small-text {
+  color: rgb(133, 133, 133);
+  font-size: 13px;
+  padding-bottom: 5px;
+}
+.block .input-group {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.block .input-group input {
+  flex: 1 1 0%;
+  width: 95px;
+  height: 30px;
+  padding: 0px 8px;
+  background: rgb(255, 255, 255);
+  border-radius: 4px;
+  text-align: left;
+  border: 1px solid rgb(184, 184, 184);
+  outline: 0px;
+  font-size: 13px;
+}
+.block button {
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(24, 158, 255);
+  font-size: 12px;
+  color: rgb(24, 158, 255);
+  padding: 5px 15px;
+  width: 99px;
+  margin-top: 8px;
+  border-radius: 4px;
+}
+.fYDhGF .search-summary {
+  padding: 25px 20px 7px;
+  background-color: rgb(255, 255, 255);
+}
+.fYDhGF .search-summary .title {
+  margin-bottom: 7px;
+}
+.fYDhGF .search-summary .title h1 {
+  display: inline;
+  font-weight: 300;
+  font-size: 24px !important;
+  margin: 0.67em 0px;
+}
+.fYDhGF .search-summary .title h4 {
+  display: inline;
+  font-size: 22px;
+  font-weight: 300;
+  color: rgb(137, 137, 137);
+}
+.ftKDwW {
+  padding-top: 20px;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(225, 225, 225);
+  margin-bottom: 10px;
+}
+.fYDhGF{
+    width: 985px;
+    border-radius: 0px 4px 4px 0px;
+}
+.ehYkVZ {
+  margin-right: 10px;
+}
+.ehYkVZ span {
+  color: rgb(74, 74, 74);
+  font-size: 14px;
+}
+.ehYkVZ .sort-list {
+  display: inline-block;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+.ehYkVZ .sort-list a {
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: -2px;
+  font-weight: 400;
+  color: rgb(137, 137, 137);
+  padding: 9px 10px 11px;
+  display: inline-block;
+  font-size: 14px;
+  border-bottom: 2px solid transparent;
+}
+.ehYkVZ .sort-list a:hover,
+.ehYkVZ .sort-list a.active {
+  border-bottom: 2px solid rgb(0, 146, 255);
+  color: rgb(0, 156, 255);
+}
+.healEa {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: stretch;
+  background-color: rgb(255, 255, 255);
+}
+.healEa > * {
+  width: 25%;
+}
+.healEa .product-item {
+  text-decoration: none;
+  display: flex;
+  position: relative;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.healEa .product-item:hover{
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+.bHrHjw {
+  display: flex;
+  padding: 12px 4px;
+  color: rgb(36, 36, 36);
+  text-decoration: none;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.bHrHjw .thumbnail {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  margin: 0px 6px;
+  text-align: center;
+}
+.bHrHjw .info{
+    margin: 0px 12px;
+}
+.bHrHjw .badge-service {
+  margin-bottom: 8px;
+  margin-top: 12px;
+}
+.bHrHjw .name{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.bHrHjw .rating-review{
+    display: flex;
+}
+.bHrHjw .price-discount{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.bHrHjw .badge-benefits{
+    margin-top: 8px;
+}
+.bHrHjw .badge-additional-info{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 8px; 
+}
+.bHrHjw .name > span{
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0px 0px 4px;
+    line-height: 20px;
+    padding: 5px 6px;
+}
+.bHrHjw .rating{
+    position: relative;
+    margin: 0px 4px 0px 0px;
+}
+.bHrHjw .review{
+    font-size: 11px;
+    line-height: 16px;
+    color: rgb(120, 120, 120);
+}
+.bHrHjw .price-discount__price{
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 600;
+    margin: 0px 8px 0px 0px;
+}
