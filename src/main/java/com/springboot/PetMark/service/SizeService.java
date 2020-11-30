@@ -8,4 +8,5 @@ import com.springboot.PetMark.entities.SizeAccessories;
 public interface SizeService {
 	List<SizeAccessories> findByAccessories(Accessories accessories);
 	SizeAccessories findById(int id);
+	List<String> getStatus();
 }

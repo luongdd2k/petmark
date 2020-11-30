@@ -13,4 +13,5 @@ public interface BlogDAO {
 	List<Blog> findByUser(Account account);
 	Blog findById(int id);
 	void saveBlog(Blog blog);
+	List<Blog> findByStatus(Boolean status);
 }

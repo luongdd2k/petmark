@@ -215,7 +215,7 @@
         <div class="title__container">
           <div class="section__title active" data-id="Latest Products">
             <span class="dot"></span>
-            <h1 class="primary__title">Sản phẩm mới nhất</h1>
+            <h1 class="primary__title">Tất cả phụ kiện</h1>
           </div>
         </div>
         <div class="container" data-aos="fade-up" data-aos-duration="1200">
@@ -289,20 +289,20 @@
             <div class="section__titles category__titles ">
               <div class="section__title filter-btn active" data-id="All Products">
                 <span class="dot"></span>
-                <h1 class="primary__title">Tất cả sản phẩm</h1>
+                <h1 class="primary__title">Tất cả thú cưng</h1>
               </div>
             </div>
             <div class="section__titles">
               <div class="section__title filter-btn" data-id="Trending Products">
                 <span class="dot"></span>
-                <h1 class="primary__title">Sản phẩm hot</h1>
+                <h1 class="primary__title">Thú cưng hot</h1>
               </div>
             </div>
 
             <div class="section__titles">
               <div class="section__title filter-btn" data-id="Special Products">
                 <span class="dot"></span>
-                <h1 class="primary__title">Sản phẩm đặc biệt</h1>
+                <h1 class="primary__title">Thú cưng đặc biệt</h1>
               </div>
             </div>
           </div>
@@ -463,19 +463,20 @@
           <div class="glide" id="glide_5">
             <div class="glide__track" data-glide-el="track">
               <ul class="glide__slides">
+              <c:forEach var="blog" items="${blog }">
                 <li class="glide__slide">
                   <div class="new__card">
                     <div class="card__header">
-                      <img src="./images/news1.jpg" alt="">
+                      <img src="${blog.getImg() }" alt="">
                     </div>
                     <div class="card__footer">
                       <h3>Styling White Shirts After A Cool Day</h3>
                       <span>By <strong>Admin</strong></span>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium, numquam non
-                        provident rem sed minus natus unde vel modi!</p>
+                      <p>${blog.getContent() }</p>
                     </div>
                   </div>
                 </li>
+                </c:forEach>
                 <li class="glide__slide">
                   <div class="new__card">
                     <div class="card__header">

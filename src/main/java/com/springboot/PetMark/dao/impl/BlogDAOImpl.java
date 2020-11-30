@@ -45,4 +45,10 @@ public class BlogDAOImpl implements BlogDAO {
 		repo.save(blog);
 	}
 
+	@Override
+	public List<Blog> findByStatus(Boolean status) {
+		// TODO Auto-generated method stub
+		return repo.findByStatus(status);
+	}
+
 }

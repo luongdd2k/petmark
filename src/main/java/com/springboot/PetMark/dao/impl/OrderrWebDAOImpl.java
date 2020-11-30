@@ -68,5 +68,11 @@ public class OrderrWebDAOImpl implements OrderrWebDAO {
 		return repo.findBySttUser(stt, account);
 	}
 
+	@Override
+	public List<OrderrWeb> findByDeliveryStatusOrderByCreatedAtAsc(String deliveryStatus) {
+		// TODO Auto-generated method stub
+		return repo.findByDeliveryStatusOrderByCreatedAtAsc(deliveryStatus);
+	}
+
 
 }
