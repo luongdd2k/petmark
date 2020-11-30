@@ -375,6 +375,7 @@
 											    <div class="input-field">
 											        <label class="active">Ảnh</label>
 											        <div class="input-images-1" style="padding-top: .5rem;max-width: 50%;height: 20rem;"></div>
+											        <input type="file" name="addProductIMG" id="add_img" style="display: none;" value="">
 											    </div>
 												<div class="button"
 													style="text-align: center; margin-top: 10px">
@@ -555,24 +556,6 @@
 				$("#new-blog").removeClass("hide");
 			});
 		})
-<<<<<<< HEAD
-		CKEDITOR.replace("editor");
-    	CKEDITOR.replace("editor1", { readOnly: true });
-    	var cke = CKEDITOR.instances.editor;
-        var cke2 = CKEDITOR.instances.editor1;
-        function getDL() {
-          var data = cke.getData();
-          console.log(data);
-          var hide = data.replace(/"/gi, "'");
-          document.getElementById("content").value = hide;
-          $("#blog").removeClass("hide");
-	      $("#new-blog").addClass("hide");
-          var hi = document.getElementById("content").value;
-	      cke2.setData(hi);
-		  setTimeout(function(){$("#btn-an").click() }, 1000);
-        }
-		
-=======
 		 $(function () {
 
         $('.input-images-1').imageUploader();
@@ -607,6 +590,9 @@
 
             // Set the new files names
             $modal.find('#display-new-images').html($fileNames.html());
+            let fName1 =  $fileNames.html().replace("<li>", "");
+            let fName2 =  fName1.replace("</li>", "");
+            document.getElementById("add_img").value=fName2;
 
             // Get the preloaded inputs
             let $inputPreloaded = $form.find('input[name^="old"]');
@@ -643,7 +629,6 @@
 
 
     });
->>>>>>> 81467990dc7ae146cff7383e52aca5b4e71484df
 	</script>
 </body>
 
