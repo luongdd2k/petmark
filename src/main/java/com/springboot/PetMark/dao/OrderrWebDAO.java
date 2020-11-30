@@ -21,4 +21,5 @@ public interface OrderrWebDAO {
 	Page<OrderrWeb> searchFilter(@Param("text") String text, @Param("id") String id,
 			@Param("paymentMethod") String paymentMethod, @Param("paymentStatus") String paymentStatus,
 			@Param("deliveryStatus") String deliveryStatus, Pageable pageable);
+	List<OrderrWeb> findByDeliveryStatusOrderByCreatedAtAsc(String deliveryStatus);
 }

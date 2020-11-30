@@ -13,7 +13,8 @@ import com.springboot.PetMark.entities.Blog;
 
 public interface BlogRepo extends JpaRepository<Blog, Integer> {
 	List<Blog> findByAccount(Account account);
-
+	List<Blog> findByStatus(Boolean status);
+	
 	@Transactional
 	@Modifying
 	@Query("update Blog b set b.status = ?1 where b.id = ?2")

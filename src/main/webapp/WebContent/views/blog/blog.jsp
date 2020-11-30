@@ -287,13 +287,14 @@
 								</div>
 								<div class="my-account-profile" style="display: block">
 									<div class="row">
+									<c:forEach var="blog" items="${blog }">
 										<div class="col-4">
 											<div class="card">
 												<div name="image" id="image">
-													<img alt="" src="https://icdn.dantri.com.vn/thumb_w/640/2017/1-1510967806416.jpg">
+													<img alt="" src="${blog.getImg() }">
 												</div>
 												<div class="description">
-													Balo dễ dùng, đẹp thoải mái
+													${blog.getContent() }
 												</div>
 												<div class="action">
 													<span class="count-like">1k</span>
@@ -314,33 +315,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-4">
-											<div class="card">
-												<div name="image" id="image">
-													<img alt="" src="https://i-dulich.vnecdn.net/2019/11/22/2-1574406624_680x0.jpg">
-												</div>
-												<div class="description">
-													Balo dễ dùng, đẹp thoải mái
-												</div>
-												<div class="action">
-													<span class="count-like">1k</span>
-													<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"
-														class="bi bi-heart" fill="currentColor"
-														xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-															fill-rule="evenodd"
-															d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
-                                                      </svg>
-													<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"
-														class="bi bi-three-dots-vertical" fill="currentColor"
-														xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-															fill-rule="evenodd"
-															d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                                                      </svg>
-												</div>
-											</div>
-										</div>
+										</c:forEach>
 										
 									</div>
 								</div>
@@ -366,7 +341,14 @@
 								<div class="my-account-profile">
 									<div class="new-blog-form">
 										<h2 class="form-title" style="text-align: center;">Tạo bài viết</h2>
-											<form method="POST" name="form-example-1" id="form-example-1" enctype="multipart/form-data">
+										
+										
+										
+<!-- 						đang làm				 -->
+
+
+
+											<form action="addBlog" method="POST" name="form-example-1" id="form-example-1" enctype="multipart/form-data">
 											    <div class="input-field">
 											        <input type="text" name="description-1" id="description-1">
 											        <label for="description-1">Nhận xét</label>
@@ -375,14 +357,18 @@
 											    <div class="input-field">
 											        <label class="active">Ảnh</label>
 											        <div class="input-images-1" style="padding-top: .5rem;max-width: 50%;height: 20rem;"></div>
+											        <input type="file" id="myFile" name="addimg">
 											    </div>
 												<div class="button"
 													style="text-align: center; margin-top: 10px">
 													<button  id="luu" type="submit"
-														class="btn btn-primary">Lưu bài</button>
+														class="btn btn-primary">Đăng bài</button>
 													<button id="huy" type="button" class="btn btn-warning">Hủy</button>
 												</div>
 											</form>
+											
+											
+											
 									</div>
 								</div>
 							</div>
@@ -555,24 +541,6 @@
 				$("#new-blog").removeClass("hide");
 			});
 		})
-<<<<<<< HEAD
-		CKEDITOR.replace("editor");
-    	CKEDITOR.replace("editor1", { readOnly: true });
-    	var cke = CKEDITOR.instances.editor;
-        var cke2 = CKEDITOR.instances.editor1;
-        function getDL() {
-          var data = cke.getData();
-          console.log(data);
-          var hide = data.replace(/"/gi, "'");
-          document.getElementById("content").value = hide;
-          $("#blog").removeClass("hide");
-	      $("#new-blog").addClass("hide");
-          var hi = document.getElementById("content").value;
-	      cke2.setData(hi);
-		  setTimeout(function(){$("#btn-an").click() }, 1000);
-        }
-		
-=======
 		 $(function () {
 
         $('.input-images-1').imageUploader();
@@ -582,7 +550,7 @@
         $('form').on('submit', function (event) {
 
             // Stop propagation
-            event.preventDefault();
+//             event.preventDefault();
             event.stopPropagation();
 
             // Get some vars
@@ -643,7 +611,6 @@
 
 
     });
->>>>>>> 81467990dc7ae146cff7383e52aca5b4e71484df
 	</script>
 </body>
 

@@ -27,4 +27,10 @@ public class SizeServiceImpl implements SizeService {
 		return dao.findById(id);
 	}
 
+	@Override
+	public List<String> getStatus() {
+		// TODO Auto-generated method stub
+		return dao.getStatus();
+	}
+
 }

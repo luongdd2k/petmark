@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -20,33 +21,34 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
-public @Data class CommentAccessories implements Serializable {
+@Table(name = "votepet")
+public @Data class VotePet implements Serializable {
 
-	private static final long serialVersionUID = 1454194405927354429L;
+	private static final long serialVersionUID = 4658420370799564900L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "accessoriesid")
-	private Accessories accessories;
+	@JoinColumn(name = "petid")
+	private Pet pet;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "username")
 	private Account account;
-	private String content;
-	@Column(name = "dateComment")
-	private Date dateComment;
+	private int star;
+	@Column(name = "dateVote")
+	private Date dateVote;
 
-	public CommentAccessories() {
+	public VotePet() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CommentAccessories(Accessories accessories, Account account, String content, Date date) {
+	public VotePet(Pet pet, Account account, int star, Date date) {
 		// TODO Auto-generated constructor stub
-		this.accessories = accessories;
+		this.pet = pet;
 		this.account = account;
-		this.content = content;
-		this.dateComment = date;
+		this.star = star;
+		this.dateVote = date;
 	}
 
 	public Integer getId() {
@@ -57,12 +59,12 @@ public @Data class CommentAccessories implements Serializable {
 		this.id = id;
 	}
 
-	public Accessories getAccessories() {
-		return accessories;
+	public Pet getPet() {
+		return pet;
 	}
 
-	public void setAccessories(Accessories accessories) {
-		this.accessories = accessories;
+	public void setPet(Pet pet) {
+		this.pet = pet;
 	}
 
 	public Account getAccount() {
@@ -73,26 +75,31 @@ public @Data class CommentAccessories implements Serializable {
 		this.account = account;
 	}
 
-	public String getContent() {
-		return content;
+	
+
+	public int getStar() {
+		return star;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setStar(int star) {
+		this.star = star;
 	}
 
-	public Date getDateComment() {
-		return dateComment;
+	public Date getDateVote() {
+		return dateVote;
 	}
 
-	public void setDateComment(Date dateComment) {
-		this.dateComment = dateComment;
+	public void setDateVote(Date dateVote) {
+		this.dateVote = dateVote;
 	}
 
 	@Override
 	public String toString() {
-		return "CommentAccessories [id=" + id + ", accessories=" + accessories + ", account=" + account + ", content="
-				+ content + ", dateComment=" + dateComment + "]";
+		return "VotePet [id=" + id + ", pet=" + pet + ", account=" + account + ", star=" + star + ", dateVote="
+				+ dateVote + "]";
 	}
+
+	
+	
 
 }

@@ -45,4 +45,10 @@ public class BlogServiceImpl implements BlogService {
 		dao.saveBlog(blog);
 	}
 
+	@Override
+	public List<Blog> findByStatus(Boolean status) {
+		// TODO Auto-generated method stub
+		return dao.findByStatus(status);
+	}
+
 }

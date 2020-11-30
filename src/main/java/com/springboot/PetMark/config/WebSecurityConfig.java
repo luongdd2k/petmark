@@ -53,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().and().formLogin()
         
                 .loginProcessingUrl("/CheckLogin") 
-                .loginPage("/index")
+                .loginPage("/welcome")
                 .defaultSuccessUrl("/LoggedInSuccessfully", true)
                 .failureUrl("/404")
                 .usernameParameter("sl_login_username")

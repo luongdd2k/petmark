@@ -98,7 +98,7 @@
 						class="fas fa-unlock-alt"></i>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="pages/examples/login.html"> <i
+					href="index"> <i
 						class="fas fa-sign-out-alt"></i>
 				</a></li>
 			</ul>
@@ -226,6 +226,9 @@
 									<div class="row">
 									<c:forEach var="blog" items="${blog }">
 										<div class="col-4 card">
+										<div name="image" id="image">
+													<img alt="" src="${blog.getImg() }">
+											</div>
 											<div id="ha">${blog.getContent() }</div>
 											<form action="admin/blog/confirm/${blog.getId()}">
 											<div class="button-card">
