@@ -28,101 +28,9 @@
 </head>
 
 <body>
-
-  <!-- Header -->
-  <header id="header" class="header">
-    <div class="navigation">
-      <div class="container">
-        <input type="hidden" id="usernameBE" value="${account.getUsername() }" />  
-        <div class="row header__top" >
-          <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
-            <p>206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội</p>
-          </div>
-          <div id="row-login" class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
-            <div class="header__actions">
-              <a href="showLogin">Đăng nhập</a>
-              <a href="showregister">Đăng ký</a>
-            </div>
-          </div>
-          <div id="row-logout" class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
-            <div class="header__actions">
-              <a href="show-account" id="hello-name"></a>
-              <a href="">Đăng xuất</a>
-            </div>
-          </div>
-        </div>
-        <nav class="nav">
-          <div class="nav__hamburger">
-            <svg>
-              <use xlink:href="images/sprite.svg#icon-menu"></use>
-            </svg>
-          </div>
-
-          <div class="nav__logo">
-            <a href="index.html" class="scroll-link">
-              PET MART
-            </a>
-          </div>
-
-          <div class="nav__menu">
-            <div class="menu__top">
-              <span class="nav__category">PET MART</span>
-              <a href="index.html" class="close__toggle">
-                <svg>
-                  <use xlink:href="images/sprite.svg#icon-cross"></use>
-                </svg>
-              </a>
-            </div>
-            <ul class="nav__list">
-              <li class="nav__item">
-                <a href="index.html" class="nav__link scroll-link">Trang chủ</a>
-              </li>
-              <li class="nav__item">
-                <a href="#category" class="nav__link scroll-link">Sản phẩm</a>
-              </li>
-              <li class="nav__item">
-                <a href="#news" class="nav__link scroll-link">Blog</a>
-              </li>
-              <li class="nav__item">
-                <a href="#contact" class="nav__link scroll-link">Liên hệ</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="nav__icons">
-            <div id="location" class="hide"> 
-              <a href="#" class="icon__item">
-                <svg class="icon__user">
-                  <use xlink:href="images/sprite.svg#icon-location"></use>
-                </svg>
-              </a>
-            </div>
-            <form action="search1">
-            <div id="search-box" style="margin-right: 1rem;">
-              <input class="form-control search-form"  type="search" aria-label="Search" placeholder="Tìm kiếm ..." name="search">
-            </div>
-              <button type="submit" class="icon__item">
-                <svg class="icon__search">
-                  <use xlink:href="images/sprite.svg#icon-search"></use>
-                </svg>
-              </button>
-            </form>
-            <div id="cart" class="hide"> 
-              <a href="show-card" class="icon__item">
-                <svg class="icon__cart">
-                  <use xlink:href="images/sprite.svg#icon-shopping-basket"></use>
-                </svg>
-                <span id="cart__total">0</span>
-              </a>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
-
+	<%@ include file="/WebContent/views/header_nav.jsp" %>
     <!-- Hero -->
     <div class="hero">
-      
       <div class="glide" id="glide_1">
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides">
@@ -175,8 +83,7 @@
         </div>
       </div>
     </div>
-  </header>
-  <!-- End Header -->
+  
 
   <!-- Main -->
   <main id="main">
