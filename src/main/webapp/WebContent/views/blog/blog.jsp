@@ -56,7 +56,7 @@
 				value="${account.getFullName() }" /> <input type="hidden"
 				id="hadBlog" value="1" />
 				<c:forEach var="blog" items="${blog }">
-				<input  name="list" id="list" value="${blog.getContent() }" />
+				<input type="hidden"  name="list"  value="${blog.getContent() }" />
 				</c:forEach>
 			<div class="row header__top">
 				<div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
@@ -356,8 +356,8 @@
 											
 											    <div class="input-field">
 											        <label class="active">Ảnh</label>
-											        <div class="input-images-1" style="padding-top: .5rem;max-width: 50%;height: 20rem;"></div>
-											        <input type="file" id="myFile" name="addimg">
+<!-- 											        <div class="input-images-1" style="padding-top: .5rem;max-width: 50%;height: 20rem;"></div> -->
+											        <input type="file" id="myFile" name="addimg" style="padding-top: 1rem;">
 											    </div>
 												<div class="button"
 													style="text-align: center; margin-top: 10px">
