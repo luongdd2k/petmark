@@ -350,13 +350,12 @@
 
 											<form action="addBlog" method="POST" name="form-example-1" id="form-example-1" enctype="multipart/form-data">
 											    <div class="input-field">
-											        <input type="text" name="description-1" id="description-1">
+											        <input type="text" name="content" id="description-1" >
 											        <label for="description-1">Nhận xét</label>
 											    </div>
 											
 											    <div class="input-field">
 											        <label class="active">Ảnh</label>
-<!-- 											        <div class="input-images-1" style="padding-top: .5rem;max-width: 50%;height: 20rem;"></div> -->
 											        <input type="file" id="myFile" name="addimg" style="padding-top: 1rem;">
 											    </div>
 												<div class="button"

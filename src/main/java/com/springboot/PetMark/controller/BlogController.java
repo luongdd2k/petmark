@@ -68,47 +68,19 @@ public class BlogController {
 		if(req.getParameter("content")!=null) {
 			content = req.getParameter("content");
 		}
-		System.out.println("nội dung blog: " + content);
 		try {
 			String photoPath = context.getRealPath("files/image/" + photo.getOriginalFilename());
 			photo.transferTo(new File(photoPath));
+			Blog blog = new Blog(account, content, date, false,"files/image/" +photo.getOriginalFilename());
+			blogService.saveBlog(blog);
 		} catch (Exception e) {
 			System.out.println("Lỗi lưu ảnh: " + e);
 		}	
-	Blog blog = new Blog(account, content, date, false,"files/image/" +photo.getOriginalFilename());
-	blogService.saveBlog(blog);
+	
 		return model;
 	}
+//	@RequestMapping("/uploadImg")
+//	@ResponseBody
+//	public void 
 
-	@RequestMapping("/UploadIMG")
-	@ResponseBody
-	public String uploadIMG(ModelMap model, @RequestParam("addimg") MultipartFile photo) {
-		try {
-			String fileContentType = photo.getContentType();
-			long fileSize = photo.getSize();
-			System.out.println("fileContentType: " + fileContentType);
-			System.out.println("fileSize: " + fileSize);
-			System.out.println(fileContentType.substring(0, 6));
-			if (!fileContentType.substring(0, 6).equals("image/")) {
-				return "?photo_name=FAIL";
-			} else if (fileSize > 2097152) {
-				return "?photo_name=OVERSIZE";
-			}
-
-			String photoPath = context.getRealPath("/files/shop_item/" + photo.getOriginalFilename());
-			System.out.println("đường dẫn ảnh1 : " + photoPath);
-			photo.transferTo(new File(photoPath));
-			System.out.println("đường dẫn ảnh : " + photoPath);
-			System.out.println("tên ảnh: imgage/product/" + photo.getOriginalFilename());
-			System.out.println("name ảnh: " + photo.getName());
-			System.out.println("real path: " + context.getRealPath(photo.getOriginalFilename()));
-			model.addAttribute("photo_name", photo.getOriginalFilename());
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("Lỗi lưu file: " + e);
-		}
-
-		return "?photo_name=files/shop_item/" + photo.getOriginalFilename();
-	}
 }

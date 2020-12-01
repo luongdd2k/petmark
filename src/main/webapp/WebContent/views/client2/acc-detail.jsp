@@ -85,7 +85,7 @@
   <header id="header" class="header">
     <div class="navigation">
       <div class="container">
-        <input type="hidden" id="usernameBE" value="${user }" />  
+        <input type="hidden" id="usernameBE" value="${account.getUsername() }" />  
         <input type="hidden" id="valuePetOrAccessori" value="${loai }" />  
         <div class="row header__top" >
           <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
