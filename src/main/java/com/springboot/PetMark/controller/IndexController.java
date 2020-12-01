@@ -19,11 +19,14 @@ import org.springframework.web.servlet.ModelAndView;
 import com.springboot.PetMark.entities.Accessories;
 import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.Blog;
+import com.springboot.PetMark.entities.Category;
+import com.springboot.PetMark.entities.ColorAccessories;
 import com.springboot.PetMark.entities.Pet;
 import com.springboot.PetMark.service.AccessoriesService;
 import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.BlogService;
 import com.springboot.PetMark.service.CartItemService;
+import com.springboot.PetMark.service.CategoryService;
 import com.springboot.PetMark.service.ColorAccessoriesService;
 import com.springboot.PetMark.service.ColorPetService;
 import com.springboot.PetMark.service.ImgAccService;
@@ -55,6 +58,8 @@ public class IndexController {
 	ColorPetService colorPetSv;
 	@Autowired
 	BlogService blogService;
+	@Autowired
+	CategoryService categoryService;
 	@RequestMapping("/")
 	public String showIndex() {
 		return "redirect:/index";
@@ -283,8 +288,11 @@ public class IndexController {
 			Account account = accountService.findById(loginedUser.getUsername());
 			model.addObject("account", account);
 		}
+		List<Category> category = categoryService.showCategoryManagement();
+		model.addObject("category", category);
+		List<ColorAccessories> color = colorAcc.findAll();
+		model.addObject("color", color);
 		model.setViewName("client2/search");
-		
 		model.addObject("size", size.getStatus());
 		return model;
 	}

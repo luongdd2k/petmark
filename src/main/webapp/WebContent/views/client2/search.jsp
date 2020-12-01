@@ -125,41 +125,43 @@
 					<div class="userpage-sidebar">
 						<div class="div-left">
 							<div class="block">
-								<h4 class="title">Danh Mục Sản Phẩm</h4>
-								<div class="form-check">
+								<h4 class="title">Loại Phụ Kiện</h4>
+								
 									<select id="inputState" class="form-control">
-<%-- 									<c:forEach> --%>
-										<option selected>Choose...</option>
-<%-- 									</c:forEach> --%>
+									<option selected value="">Tất cả loại phụ kiện</option>
+									<c:forEach var="category" items="${category }">
+										<option value="${category.getId() }">${category.getName() }</option>
+									</c:forEach>
 									</select>
-								</div>
+								
 							</div>
 							<div class="block">
 								<h4 class="title">Giá</h4>
 								<div class="price-small-text">Chọn khoảng giá</div>
 								<div class="input-group">
-									<input pattern="[0-9]*" placeholder="Giá từ" value="0">
+									<input pattern="[0-9]*" placeholder="Giá từ" value="0" name="min">
 									<span>-</span> <input pattern="[0-9]*" placeholder="Giá đến"
-										value="0">
+										value="0" name="max">
 								</div>
 								<button>OK</button>
 							</div>
 							<div class="block">
 								<h4 class="title">Màu sắc</h4>
-								<div class="list collapsed">
-									<a class="item item--option_color " href="javascript:"
-										style="padding-left: 0px;">Đen</a>
-
-								</div>
+								<select id="inputState" class="form-control">
+									<option selected value="">Tất cả màu sắc</option>
+									<c:forEach var="color" items="${color }">
+										<option value="${color.getId() }">${color.getColorAccessories() }</option>
+									</c:forEach>
+									</select>
 							</div>
 							<div class="block">
 								<h4 class="title">Kích cỡ</h4>
-								<div class="list collapsed">
+								<select id="inputState" class="form-control">
+								<option selected value="">Tất cả kích cỡ</option>
 									<c:forEach var="size" items="${size }">
-										<a class="item item--option_size " href="javascript:"
-											style="padding-left: 0px;">${size }</a>
+										<option value="${size }">${size }</option>
 									</c:forEach>
-								</div>
+								</select>
 							</div>
 						</div>
 					</div>
