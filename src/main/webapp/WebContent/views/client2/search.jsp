@@ -106,7 +106,7 @@
                   <use xlink:href="images/sprite.svg#icon-home"></use>
                 </svg>
 						</a></li>
-						<li class="page__title">Kết quả tìm kiếm cho ${value }</li>
+						<li class="page__title">Kết quả tìm kiếm</li>
 					</ul>
 				</div>
 			</div>
@@ -121,30 +121,19 @@
 
 
 
-<!-- 				<form action="select"> -->
+				<form action="select">
 					<div class="userpage-sidebar">
 						<div class="div-left">
-						<form action="select">
 							<div class="block">
 								<h4 class="title">Danh Mục Sản Phẩm</h4>
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="check box 1"
-										id="defaultCheck1" name="checkbox"> <label class="form-check-label"
-										for="defaultCheck1"> check box 1 </label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="check box 2"
-										id="defaultCheck1" name="checkbox"> <label class="form-check-label"
-										for="defaultCheck1"> check box 2 </label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="check box 3"
-										id="defaultCheck1" name="checkbox"> <label class="form-check-label"
-										for="defaultCheck1"> check box 3 </label>
+									<select id="inputState" class="form-control">
+<%-- 									<c:forEach> --%>
+										<option selected>Choose...</option>
+<%-- 									</c:forEach> --%>
+									</select>
 								</div>
 							</div>
-							<button type="submit">chọn</button>
-							</form>
 							<div class="block">
 								<h4 class="title">Giá</h4>
 								<div class="price-small-text">Chọn khoảng giá</div>
@@ -166,15 +155,15 @@
 							<div class="block">
 								<h4 class="title">Kích cỡ</h4>
 								<div class="list collapsed">
-								<c:forEach var="size" items="${size }">
-									<a class="item item--option_size " href="javascript:"
-										style="padding-left: 0px;">${size }</a>
-										</c:forEach>
+									<c:forEach var="size" items="${size }">
+										<a class="item item--option_size " href="javascript:"
+											style="padding-left: 0px;">${size }</a>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
 					</div>
-<!-- 				</form> -->
+				</form>
 
 
 
@@ -184,7 +173,7 @@
 					<div class="inner">
 						<div class="search-summary">
 							<div class="title">
-								<h1>Kết quả tìm kiếm cho ${value}:</h1>
+								<h1>Kết quả tìm kiếm:</h1>
 								<h4>10k+ kết quả</h4>
 							</div>
 							<div class="Sorter__Root-sc-1u1tc3w-0 jdfxzb">

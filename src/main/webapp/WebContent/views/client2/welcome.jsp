@@ -162,7 +162,7 @@
                     </div>
                     <ul>
                       <li>
-                        <a data-tip="Quick View" data-place="left" href="acc-detail2/${listAcc.getId() }">
+                        <a data-tip="Quick View" data-place="left" href="acc-detail/${listAcc.getId() }">
                           <svg>
                             <use xlink:href="images/sprite.svg#icon-eye"></use>
                           </svg>
@@ -248,7 +248,7 @@
                     </div>
                     <ul>
                       <li>
-                        <a data-tip="Quick View" data-place="left" href="pet-detail2/${list.getId() }">
+                        <a data-tip="Quick View" data-place="left" href="pet-detail/${list.getId() }">
                           <svg>
                             <use xlink:href="images/sprite.svg#icon-eye"></use>
                           </svg>

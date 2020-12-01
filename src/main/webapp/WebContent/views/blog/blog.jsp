@@ -264,7 +264,6 @@
 											
 											    <div class="input-field custom-file">
 											        <label class="active">Ảnh</label>
-<!-- 											        <div class="input-images-1" style="padding-top: .5rem;max-width: 50%;height: 20rem;"></div> -->
 											        <input type="file" class="custom-file-input" id="myFile" name="addimg" style="padding-top: 1rem;">
 											        <label class="custom-file-label" for="customFile">Choose file</label>
 											    </div>
@@ -276,8 +275,7 @@
 												</div>
 											</form>
 											
-											
-											
+									
 									</div>
 								</div>
 							</div>
