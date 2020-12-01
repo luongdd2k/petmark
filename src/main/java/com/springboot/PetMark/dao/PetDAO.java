@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.springboot.PetMark.entities.Pet;
+import com.springboot.PetMark.entities.Species;
 
 public interface PetDAO {
 	List<Pet> findAll();
@@ -19,7 +20,9 @@ public interface PetDAO {
 	List<Pet> findBySpecies(Integer speciesId);
 
 	List<Pet> findByName(String name);
+
 	List<String> selecStatus();
+
 	List<Pet> search(String search);
 
 	void disContinuePet(int id);
@@ -31,9 +34,16 @@ public interface PetDAO {
 	boolean addPet(Pet pet);
 
 	List<Pet> findByInformation(String information, Pageable pageable);
-	
-	List<Pet> showProductByCategoryPageable( String status, Pageable pageable);
+
+	List<Pet> showProductByCategoryPageable(String status, Pageable pageable);
+
 	int countContinueProduct();
+
 	int countProduct(String status);
-	List<Pet> showByDes(String des,Pageable pageable);
+
+	List<Pet> showByDes(String des, Pageable pageable);
+
+	List<Pet> findBetweenPrice(float min, float max);
+
+	List<Pet> findBySpecies(Species species);
 }

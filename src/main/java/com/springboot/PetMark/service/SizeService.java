@@ -9,4 +9,5 @@ public interface SizeService {
 	List<SizeAccessories> findByAccessories(Accessories accessories);
 	SizeAccessories findById(int id);
 	List<String> getStatus();
+	List<Accessories> findListAcc(String size);
 }

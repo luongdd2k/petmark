@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.springboot.PetMark.entities.Accessories;
+import com.springboot.PetMark.entities.Category;
 
 
 
@@ -18,7 +19,7 @@ public interface AccessoriesDAO {
 
 	Accessories findById(int id);
 
-	List<Accessories> findByCategory(Integer categoryId);
+	List<Accessories> findByCategory(Category category);
 
 	List<Accessories> findByName(String name);
 	List<String> getStatus();
@@ -36,4 +37,5 @@ public interface AccessoriesDAO {
 	List<Accessories> showProductByCategoryPageable( String status, Pageable pageable);
 	int countContinueProduct();
 	int countProduct(String status);
+	List<Accessories> findBetweenPrice(float min, float max);
 }

@@ -11,4 +11,6 @@ public interface ColorPKDAO {
 	List<ColorAccessories> findByAccessories(Accessories accessories);
 	ColorAccessories findById(int id);
 	List<ColorAccessories> findAll();
+	List<String> findColor();
+	List<Accessories> findListAcc(String mau);
 }

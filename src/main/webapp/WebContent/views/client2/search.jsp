@@ -97,20 +97,20 @@
 </head>
 <!--    -->
 <body>
-	<%@ include file="/WebContent/views/header_nav.jsp" %>
+	<%@ include file="/WebContent/views/header_nav.jsp"%>
 	<div class="page__title-area">
-			<div class="container">
-				<div class="page__title-container">
-					<ul class="page__titles">
-						<li><a href="/"> <svg>
+		<div class="container">
+			<div class="page__title-container">
+				<ul class="page__titles">
+					<li><a href="/"> <svg>
                   <use xlink:href="images/sprite.svg#icon-home"></use>
                 </svg>
-						</a></li>
-						<li class="page__title">Kết quả tìm kiếm</li>
-					</ul>
-				</div>
+					</a></li>
+					<li class="page__title">Kết quả tìm kiếm</li>
+				</ul>
 			</div>
 		</div>
+	</div>
 
 	<main id="main">
 		<div class="container">
@@ -121,48 +121,50 @@
 
 
 
-				<form action="select">
+				<form action="loc" method="post">
 					<div class="userpage-sidebar">
 						<div class="div-left">
 							<div class="block">
 								<h4 class="title">Loại Phụ Kiện</h4>
-								
-									<select id="inputState" class="form-control">
+
+								<select id="inputState" class="form-control" name="hang">
 									<option selected value="">Tất cả loại phụ kiện</option>
 									<c:forEach var="category" items="${category }">
 										<option value="${category.getId() }">${category.getName() }</option>
 									</c:forEach>
-									</select>
-								
+								</select>
+
 							</div>
 							<div class="block">
 								<h4 class="title">Giá</h4>
 								<div class="price-small-text">Chọn khoảng giá</div>
 								<div class="input-group">
-									<input pattern="[0-9]*" placeholder="Giá từ" value="0" name="min">
-									<span>-</span> <input pattern="[0-9]*" placeholder="Giá đến"
-										value="0" name="max">
+									<input pattern="[0-9]*" placeholder="Giá từ" value="0"
+										name="min"> <span>-</span> <input pattern="[0-9]*"
+										placeholder="Giá đến" value="0" name="max">
 								</div>
-								<button>OK</button>
+
 							</div>
 							<div class="block">
 								<h4 class="title">Màu sắc</h4>
-								<select id="inputState" class="form-control">
+								<select id="inputState" class="form-control" name="mau">
 									<option selected value="">Tất cả màu sắc</option>
 									<c:forEach var="color" items="${color }">
-										<option value="${color.getId() }">${color.getColorAccessories() }</option>
+										<option value="${color }">${color }</option>
 									</c:forEach>
-									</select>
+								</select>
 							</div>
 							<div class="block">
 								<h4 class="title">Kích cỡ</h4>
-								<select id="inputState" class="form-control">
-								<option selected value="">Tất cả kích cỡ</option>
+								<select id="inputState" class="form-control" name="kichCo">
+									<option selected value="">Tất cả kích cỡ</option>
 									<c:forEach var="size" items="${size }">
 										<option value="${size }">${size }</option>
 									</c:forEach>
 								</select>
 							</div>
+							<button type="submit" class="btn btn-primary">Áp dụng</button>
+
 						</div>
 					</div>
 				</form>
@@ -176,7 +178,7 @@
 						<div class="search-summary">
 							<div class="title">
 								<h1>Kết quả tìm kiếm:</h1>
-								<h4>10k+ kết quả</h4>
+								<h4>${kqsearch } kết quả</h4>
 							</div>
 							<div class="Sorter__Root-sc-1u1tc3w-0 jdfxzb">
 								<div class="Sorter__Top-sc-1u1tc3w-1 ftKDwW">
@@ -195,144 +197,75 @@
 							</div>
 						</div>
 						<div class="ProductList__Wrapper-sc-1dl80l2-0 healEa">
-							<a class="product-item" href="javascript:"> <span
-								class="style__StyledItem-sc-18svp8n-0 bHrHjw">
-									<div>
-										<div class="thumbnail">
-											<img
-												src="https://salt.tikicdn.com/cache/200x200/ts/product/d3/e7/93/2fab1cf3c4497f66fbb8268b5a317a90.jpg"
-												alt="Vòng cổ đệm cho chó (Chọn 4 màu) - Vòng cổ chó mèo 5 size thích hợp mọi loại chó">
-										</div>
-										<div class="info">
-											<div class="badge-service"></div>
-											<div class="name">
-												<span>Vòng cổ đệm cho chó (Chọn 4 màu) - Vòng cổ chó
-													mèo 5 size thích hợp mọi loại chó</span>
+							<c:forEach var="list" items="${list }">
+								<a class="product-item" href="javascript:"> <span
+									class="style__StyledItem-sc-18svp8n-0 bHrHjw">
+										<div>
+											<div class="thumbnail">
+												<img
+													src="${list.getImgs().get(0).getImgAvartar() }">
 											</div>
-											<div class="rating-review">
-												<div class="rating">
-													<div class="rating__total">
-														<svg stroke="currentColor" fill="currentColor"
-															stroke-width="0" viewBox="0 0 24 24" size="12"
-															color="#c7c7c7" height="12" width="12"
-															xmlns="http://www.w3.org/2000/svg"
-															style="color: rgb(199, 199, 199);">
-                                <path
-																d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                              </svg>
-														<svg stroke="currentColor" fill="currentColor"
-															stroke-width="0" viewBox="0 0 24 24" size="12"
-															color="#c7c7c7" height="12" width="12"
-															xmlns="http://www.w3.org/2000/svg"
-															style="color: rgb(199, 199, 199);">
-                                <path
-																d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                              </svg>
-														<svg stroke="currentColor" fill="currentColor"
-															stroke-width="0" viewBox="0 0 24 24" size="12"
-															color="#c7c7c7" height="12" width="12"
-															xmlns="http://www.w3.org/2000/svg"
-															style="color: rgb(199, 199, 199);">
-                                <path
-																d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                              </svg>
-														<svg stroke="currentColor" fill="currentColor"
-															stroke-width="0" viewBox="0 0 24 24" size="12"
-															color="#c7c7c7" height="12" width="12"
-															xmlns="http://www.w3.org/2000/svg"
-															style="color: rgb(199, 199, 199);">
-                                <path
-																d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                              </svg>
-														<svg stroke="currentColor" fill="currentColor"
-															stroke-width="0" viewBox="0 0 24 24" size="12"
-															color="#c7c7c7" height="12" width="12"
-															xmlns="http://www.w3.org/2000/svg"
-															style="color: rgb(199, 199, 199);">
-                                <path
-																d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                              </svg>
-													</div>
+											<div class="info">
+												<div class="badge-service"></div>
+												<div class="name">
+													<span>${list.getName() }</span>
 												</div>
-												<div class="review">(70)</div>
-											</div>
-											<div class="price-discount">
-												<div class="price-discount__price">34.999 ₫</div>
-											</div>
-											<div class="badge-under-price"></div>
-										</div>
-									</div>
-							</span>
-							</a> <a class="product-item" href="javascript:"> <span
-								class="style__StyledItem-sc-18svp8n-0 bHrHjw">
-									<div>
-										<div class="thumbnail">
-											<img
-												src="https://salt.tikicdn.com/cache/200x200/ts/product/d3/e7/93/2fab1cf3c4497f66fbb8268b5a317a90.jpg"
-												alt="Vòng cổ đệm cho chó (Chọn 4 màu) - Vòng cổ chó mèo 5 size thích hợp mọi loại chó">
-										</div>
-										<div class="info">
-											<div class="badge-service"></div>
-											<div class="name">
-												<span>Vòng cổ đệm cho chó (Chọn 4 màu) - Vòng cổ chó
-													mèo 5 size thích hợp mọi loại chó</span>
-											</div>
-											<div class="rating-review">
-												<div class="rating">
-													<div class="rating__total">
-														<svg stroke="currentColor" fill="currentColor"
-															stroke-width="0" viewBox="0 0 24 24" size="12"
-															color="#c7c7c7" height="12" width="12"
-															xmlns="http://www.w3.org/2000/svg"
-															style="color: rgb(199, 199, 199);">
+												<div class="rating-review">
+													<div class="rating">
+														<div class="rating__total">
+															<svg stroke="currentColor" fill="currentColor"
+																stroke-width="0" viewBox="0 0 24 24" size="12"
+																color="#c7c7c7" height="12" width="12"
+																xmlns="http://www.w3.org/2000/svg"
+																style="color: rgb(199, 199, 199);">
                                 <path
-																d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+																	d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
                               </svg>
-														<svg stroke="currentColor" fill="currentColor"
-															stroke-width="0" viewBox="0 0 24 24" size="12"
-															color="#c7c7c7" height="12" width="12"
-															xmlns="http://www.w3.org/2000/svg"
-															style="color: rgb(199, 199, 199);">
+															<svg stroke="currentColor" fill="currentColor"
+																stroke-width="0" viewBox="0 0 24 24" size="12"
+																color="#c7c7c7" height="12" width="12"
+																xmlns="http://www.w3.org/2000/svg"
+																style="color: rgb(199, 199, 199);">
                                 <path
-																d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+																	d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
                               </svg>
-														<svg stroke="currentColor" fill="currentColor"
-															stroke-width="0" viewBox="0 0 24 24" size="12"
-															color="#c7c7c7" height="12" width="12"
-															xmlns="http://www.w3.org/2000/svg"
-															style="color: rgb(199, 199, 199);">
+															<svg stroke="currentColor" fill="currentColor"
+																stroke-width="0" viewBox="0 0 24 24" size="12"
+																color="#c7c7c7" height="12" width="12"
+																xmlns="http://www.w3.org/2000/svg"
+																style="color: rgb(199, 199, 199);">
                                 <path
-																d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+																	d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
                               </svg>
-														<svg stroke="currentColor" fill="currentColor"
-															stroke-width="0" viewBox="0 0 24 24" size="12"
-															color="#c7c7c7" height="12" width="12"
-															xmlns="http://www.w3.org/2000/svg"
-															style="color: rgb(199, 199, 199);">
+															<svg stroke="currentColor" fill="currentColor"
+																stroke-width="0" viewBox="0 0 24 24" size="12"
+																color="#c7c7c7" height="12" width="12"
+																xmlns="http://www.w3.org/2000/svg"
+																style="color: rgb(199, 199, 199);">
                                 <path
-																d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+																	d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
                               </svg>
-														<svg stroke="currentColor" fill="currentColor"
-															stroke-width="0" viewBox="0 0 24 24" size="12"
-															color="#c7c7c7" height="12" width="12"
-															xmlns="http://www.w3.org/2000/svg"
-															style="color: rgb(199, 199, 199);">
+															<svg stroke="currentColor" fill="currentColor"
+																stroke-width="0" viewBox="0 0 24 24" size="12"
+																color="#c7c7c7" height="12" width="12"
+																xmlns="http://www.w3.org/2000/svg"
+																style="color: rgb(199, 199, 199);">
                                 <path
-																d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+																	d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
                               </svg>
+														</div>
 													</div>
+													<div class="review">(70)</div>
 												</div>
-												<div class="review">(70)</div>
+												<div class="price-discount">
+													<div class="price-discount__price">${list.getDisplayPrice(1) }đ</div>
+												</div>
+												<div class="badge-under-price"></div>
 											</div>
-											<div class="price-discount">
-												<div class="price-discount__price">34.999 ₫</div>
-											</div>
-											<div class="badge-under-price"></div>
 										</div>
-									</div>
-							</span>
-							</a>
-
+								</span>
+								</a>
+							</c:forEach>
 						</div>
 					</div>
 				</div>

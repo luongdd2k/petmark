@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.springboot.PetMark.dao.AccessoriesDAO;
 import com.springboot.PetMark.entities.Accessories;
+import com.springboot.PetMark.entities.Category;
 import com.springboot.PetMark.service.AccessoriesService;
 
 @Service
@@ -82,5 +83,19 @@ public class AccessoriesServiceImpl implements AccessoriesService {
 		// TODO Auto-generated method stub
 		return AccessoriesDAO.search(search);
 	}
+
+	@Override
+	public List<Accessories> findBetweenPrice(float min, float max) {
+		// TODO Auto-generated method stub
+		return AccessoriesDAO.findBetweenPrice(min, max);
+	}
+
+
+	@Override
+	public List<Accessories> findByCategory(Category category) {
+		// TODO Auto-generated method stub
+		return AccessoriesDAO.findByCategory(category);
+	}
+
 
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.springboot.PetMark.dao.PetDAO;
 import com.springboot.PetMark.entities.Pet;
+import com.springboot.PetMark.entities.Species;
 import com.springboot.PetMark.repository.PetRepository;
 import com.springboot.PetMark.service.PetService;
 
@@ -89,6 +90,18 @@ public class PetServiceImpl implements PetService {
 	public List<Pet> search(String search) {
 		// TODO Auto-generated method stub
 		return petDAO.search(search);
+	}
+
+	@Override
+	public List<Pet> findBetweenPrice(float min, float max) {
+		// TODO Auto-generated method stub
+		return petDAO.findBetweenPrice(min, max);
+	}
+
+	@Override
+	public List<Pet> findBySpecies(Species species) {
+		// TODO Auto-generated method stub
+		return petDAO.findBySpecies(species);
 	}
 
 }

@@ -27,4 +27,22 @@ public class ColorPetServiceImpl implements ColorPetService {
 		return dao.findById(id);
 	}
 
+	@Override
+	public List<String> getEyeColor() {
+		// TODO Auto-generated method stub
+		return dao.getEyeColor();
+	}
+
+	@Override
+	public List<String> getFullColor() {
+		// TODO Auto-generated method stub
+		return dao.getFullColor();
+	}
+
+	@Override
+	public List<Pet> findListPet(String fullColor, String eyeColor) {
+		// TODO Auto-generated method stub
+		return dao.findListPet(fullColor, eyeColor);
+	}
+
 }

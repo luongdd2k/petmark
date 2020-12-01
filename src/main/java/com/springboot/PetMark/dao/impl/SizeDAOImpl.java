@@ -33,4 +33,10 @@ public class SizeDAOImpl implements SizeDAO {
 		return repo.getStatus();
 	}
 
+	@Override
+	public List<Accessories> findListAcc(String size) {
+		// TODO Auto-generated method stub
+		return repo.findListAcc(size);
+	}
+
 }

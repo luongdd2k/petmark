@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.springboot.PetMark.dao.AccessoriesDAO;
 import com.springboot.PetMark.entities.Accessories;
+import com.springboot.PetMark.entities.Category;
 import com.springboot.PetMark.repository.AccessoriesRepository;
 
 @Repository
@@ -28,9 +29,9 @@ public class AccessoriesDAOImpl implements AccessoriesDAO {
 	}
 
 	@Override
-	public List<Accessories> findByCategory(Integer categoryId) {
+	public List<Accessories> findByCategory(Category category) {
 		// TODO Auto-generated method stub
-		return null;
+		return AccessoriesRepository.findByCategory(category);
 	}
 
 	@Override
@@ -99,4 +100,11 @@ public class AccessoriesDAOImpl implements AccessoriesDAO {
 		// TODO Auto-generated method stub
 		return AccessoriesRepository.search(search);
 	}
+
+	@Override
+	public List<Accessories> findBetweenPrice(float min, float max) {
+		// TODO Auto-generated method stub
+		return AccessoriesRepository.findBetweenPrice(min, max);
+	}
+
 }

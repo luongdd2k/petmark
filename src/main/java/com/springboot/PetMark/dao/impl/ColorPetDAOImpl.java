@@ -24,5 +24,20 @@ ColorPetRepo repo;
 		// TODO Auto-generated method stub
 		return repo.findById(id).get();
 	}
+	@Override
+	public List<String> getEyeColor() {
+		// TODO Auto-generated method stub
+		return repo.getEyeColor();
+	}
+	@Override
+	public List<String> getFullColor() {
+		// TODO Auto-generated method stub
+		return repo.getFullColor();
+	}
+	@Override
+	public List<Pet> findListPet(String fullColor, String eyeColor) {
+		// TODO Auto-generated method stub
+		return repo.findListPet(fullColor, eyeColor);
+	}
 
 }

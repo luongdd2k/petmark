@@ -17,7 +17,7 @@
 				</div>
 				<div id="row-login" class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
 					<div class="header__actions">
-						<a href="login.html">Đăng nhập</a> 
+						<a href="showLogin">Đăng nhập</a> 
 						<a href="register.html">Đăng ký</a>
 					</div>
 				</div>
@@ -52,7 +52,7 @@
 							<li class="nav__item"><a href="index.html" class="nav__link">Trang chủ</a></li>
 							<li class="nav__item"><a href="#category" class="nav__link">Sản phẩm</a></li>
 							<li class="nav__item"><a href="javascript:" class="nav__link">Thú cưng</a></li>
-							<li class="nav__item"><a href="javascript:" class="nav__link">Phụ kiện</a></li>		
+							<li class="nav__item"><a href="show-search-acc" class="nav__link">Phụ kiện</a></li>		
 							<li class="nav__item"><a href="javascript:" class="nav__link">Blog</a></li>
 							<li class="nav__item"><a href="javascript:" class="nav__link">Liên hệ</a></li>
 						</ul>
