@@ -10,4 +10,5 @@ public interface ColorPKDAO {
 	void updateColor(ColorAccessories color);
 	List<ColorAccessories> findByAccessories(Accessories accessories);
 	ColorAccessories findById(int id);
+	List<ColorAccessories> findAll();
 }

@@ -40,4 +40,10 @@ ColorPKDAO dao;
 		return dao.findById(id);
 	}
 
+	@Override
+	public List<ColorAccessories> findAll() {
+		// TODO Auto-generated method stub
+		return dao.findAll();
+	}
+
 }
