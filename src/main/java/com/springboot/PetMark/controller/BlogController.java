@@ -65,7 +65,7 @@ public class BlogController {
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
 		String content = "";
-		if(req.getParameter("content")!=null) {
+		if(req.getParameter("content")!="") {
 			content = req.getParameter("content");
 		}
 		try {
