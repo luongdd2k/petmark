@@ -23,7 +23,7 @@
 			</div>
 			<div id="row-logout" class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
 				<div class="header__actions">
-					<a href="index" id="hello-name"></a> <a href="">Đăng xuất</a>
+					<a href="show-account" id="hello-name"></a> <a href="log-out">Đăng xuất</a>
 				</div>
 			</div>
 		</div>
@@ -83,7 +83,7 @@
 								class="icon__cart">
                                     <use
 									xlink:href="images/sprite.svg#icon-shopping-basket"></use>
-                                </svg> <span id="cart__total">0</span>
+                                </svg> <span id="cart__total">${slCard }</span>
 						</a>
 					</div>
 				</div>

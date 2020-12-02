@@ -45,4 +45,10 @@ public class CartItemServiceImpl implements CartItemService {
 		dao.deleteByAccount(acc);
 	}
 
+	@Override
+	public int countByAccount(Account account) {
+		// TODO Auto-generated method stub
+		return dao.countByAccount(account);
+	}
+
 }

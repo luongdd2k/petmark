@@ -3,6 +3,7 @@ package com.springboot.PetMark.controller;
 import java.security.Principal;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -49,12 +50,13 @@ public class CardController {
 		SizeAccessories siz = sizeSv.findById(Integer.parseInt(size));
 		int soLuong = Integer.parseInt(req.getParameter("soLuong"));
 		Accessories accessories = accessoriesService.findById(Integer.valueOf(id));
-		User loginUser = (User) ((Authentication) principal).getPrincipal();
-		String user = loginUser.getUsername();
-		Account account = accountService.findById(user);
+		HttpSession session = req.getSession();
+		String username = (String) session.getAttribute("username");
+		Account account = accountService.findById(username);
+		model.addObject("account", account);
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
-		CardItemAccessories card = new CardItemAccessories(accessories, account, soLuong, date,siz,col);
+		CardItemAccessories card = new CardItemAccessories(accessories, account, soLuong, date, siz, col);
 		cartItemService.save(card);
 		model.addObject("card", cartItemService.findByAccount(account));
 		return model;
@@ -67,6 +69,7 @@ public class CardController {
 		User loginUser = (User) ((Authentication) principal).getPrincipal();
 		String username = loginUser.getUsername();
 		Account account = accountService.findById(username);
+		model.addObject("account", account);
 		model.addObject("card", cartItemService.findByAccount(account));
 		return model;
 	}
