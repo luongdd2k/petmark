@@ -71,6 +71,11 @@ public class CardController {
 		Account account = accountService.findById(username);
 		model.addObject("account", account);
 		model.addObject("card", cartItemService.findByAccount(account));
+		int slCard = 0;
+		if(cartItemService.countByAccount(account)!=0) {
+		slCard = cartItemService.countByAccount(account);
+		}
+		model.addObject("slCard", slCard);
 		return model;
 	}
 

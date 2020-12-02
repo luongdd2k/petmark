@@ -36,6 +36,7 @@ import com.springboot.PetMark.entities.ColorPet;
 import com.springboot.PetMark.entities.Deposit;
 import com.springboot.PetMark.entities.Pet;
 import com.springboot.PetMark.service.AccountService;
+import com.springboot.PetMark.service.CartItemService;
 import com.springboot.PetMark.service.ColorPetService;
 import com.springboot.PetMark.service.DepositService;
 import com.springboot.PetMark.service.PetService;
@@ -53,6 +54,8 @@ public class DepositController {
 	ColorPetService colorPetService;
 	@Autowired
 	PetService petService;
+	@Autowired
+	CartItemService cardSv;
 	
 	@RequestMapping("/show-cancel-deposit")
 	public ModelAndView showCancelDeposit(Principal principal) {
@@ -61,6 +64,11 @@ public class DepositController {
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(loginedUser.getUsername());
 		List<Deposit> list = depositService.findByAccountStt(account, DepositStatus.CANCELLED);
+		int slCard = 0;
+		if(cardSv.countByAccount(account)!=0) {
+		slCard = cardSv.countByAccount(account);
+		}
+		model.addObject("slCard", slCard);
 		model.addObject("list",list);
 		model.addObject("account", account);
 		return model;
@@ -72,6 +80,11 @@ public class DepositController {
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(loginedUser.getUsername());
 		List<Deposit> list = depositService.findByAccountStt(account, DepositStatus.DEPOSITED);
+		int slCard = 0;
+		if(cardSv.countByAccount(account)!=0) {
+		slCard = cardSv.countByAccount(account);
+		}
+		model.addObject("slCard", slCard);
 		model.addObject("list",list);
 		model.addObject("account", account);
 		return model;
