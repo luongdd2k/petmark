@@ -356,7 +356,9 @@ public class IndexController {
 						if (listByHang.get(i).getId() == byPrice.get(j).getId()
 								&& byPrice.get(j).getId() == byMau.get(m).getId()
 								&& byMau.get(m).getId() == bySize.get(n).getId()) {
+							if(!list.contains(listByHang.get(i))) {
 							list.add(listByHang.get(i));
+							}
 						}
 					}
 				}
@@ -405,9 +407,12 @@ public class IndexController {
 		model.setViewName("client2/search2");
 		float min = Float.parseFloat(req.getParameter("min"));
 		float max = Float.parseFloat(req.getParameter("max"));
-		String mau = req.getParameter("mau");
-		String sizes = req.getParameter("kichCo");
-		List<Pet> byMau = colorPetSv.findListPet(mau, sizes);
+		String mau = req.getParameter("mauLong");
+		String sizes = req.getParameter("mauMat");
+		List<Pet> byMau = petService.findAll();
+		if(mau!="" || sizes!="") {
+		 byMau = colorPetSv.findListPet(mau, sizes);
+		}
 		List<Pet> list = new ArrayList<Pet>();
 		String hangPK = req.getParameter("hang");
 		List<Pet> listByHang = petService.findAll();
@@ -424,7 +429,9 @@ public class IndexController {
 				for (int m = 0; m < byMau.size(); m++) {
 						if (listByHang.get(i).getId() == byPrice.get(j).getId()
 								&& byPrice.get(j).getId() == byMau.get(m).getId()) {
+							if(!list.contains(listByHang.get(i))) {
 							list.add(listByHang.get(i));
+							}
 						}			
 				}
 			}
@@ -432,7 +439,6 @@ public class IndexController {
 		int kqsearch = list.size();
 		model.addObject("kqsearch", kqsearch);
 		model.addObject("list", list);
-
 		return model;
 	}
 	
