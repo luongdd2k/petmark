@@ -121,14 +121,14 @@
 
 
 
-				<form action="loc" method="post">
+				<form action="locPet" method="post">
 					<div class="userpage-sidebar">
 						<div class="div-left">
 							<div class="block">
-								<h4 class="title">Loại Phụ Kiện</h4>
+								<h4 class="title">Giống thú cưng</h4>
 
 								<select id="inputState" class="form-control" name="hang">
-									<option selected value="">Tất cả loại phụ kiện</option>
+									<option  value="">Tất cả giống thú cưng</option>
 									<c:forEach var="category" items="${category }">
 										<option value="${category.getId() }">${category.getName() }</option>
 									</c:forEach>
@@ -146,18 +146,18 @@
 
 							</div>
 							<div class="block">
-								<h4 class="title">Màu sắc</h4>
+								<h4 class="title">Màu lông</h4>
 								<select id="inputState" class="form-control" name="mau">
-									<option selected value="">Tất cả màu sắc</option>
+									<option selected value="">Tất cả màu lông</option>
 									<c:forEach var="color" items="${color }">
 										<option value="${color }">${color }</option>
 									</c:forEach>
 								</select>
 							</div>
 							<div class="block">
-								<h4 class="title">Kích cỡ</h4>
+								<h4 class="title">Màu mắt</h4>
 								<select id="inputState" class="form-control" name="kichCo">
-									<option selected value="">Tất cả kích cỡ</option>
+									<option selected value="">Tất cả màu mắt</option>
 									<c:forEach var="size" items="${size }">
 										<option value="${size }">${size }</option>
 									</c:forEach>
@@ -198,7 +198,7 @@
 						</div>
 						<div class="ProductList__Wrapper-sc-1dl80l2-0 healEa">
 							<c:forEach var="list" items="${list }">
-								<a class="product-item" href="acc-detail/${list.getId() }"> <span
+								<a class="product-item" href="pet-detail/${list.getId() }"> <span
 									class="style__StyledItem-sc-18svp8n-0 bHrHjw">
 										<div>
 											<div class="thumbnail">
@@ -208,7 +208,7 @@
 											<div class="info">
 												<div class="badge-service"></div>
 												<div class="name">
-													<span>${list.getName() }</span>
+													<span>${list.getPetName() }</span>
 												</div>
 												<div class="rating-review">
 													<div class="rating">
@@ -258,7 +258,7 @@
 													<div class="review">(70)</div>
 												</div>
 												<div class="price-discount">
-													<div class="price-discount__price">${list.getDisplayPrice(1) }đ</div>
+													<div class="price-discount__price">${list.getDisplayPrice(1) }</div>
 												</div>
 												<div class="badge-under-price"></div>
 											</div>

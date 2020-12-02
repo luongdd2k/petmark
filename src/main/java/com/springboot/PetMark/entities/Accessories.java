@@ -45,10 +45,10 @@ public @Data class Accessories implements Serializable {
 	private Date createdAt;
 	private String description;
 	private String status;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "accessories")
+	@OneToMany( mappedBy = "accessories",fetch = FetchType.LAZY)
 	private List<SizeAccessories> sizes = new ArrayList<>();
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "accessories")
+	@OneToMany( mappedBy = "accessories",fetch = FetchType.LAZY)
 	private List<ColorAccessories> colors = new ArrayList<>();
 	@OneToMany(mappedBy = "accessories", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 	private List<ImgAccessories> imgs = new ArrayList<>();

@@ -15,4 +15,6 @@ public interface ColorAccessoriesService {
 	void addColorAccessories(ColorAccessories colorAccessories);
 	void updateColorAccessories(ColorAccessories colorAccessories);
 	List<ColorAccessories> findAll();
+	List<String> findColor();
+	List<Accessories> findListAcc(String mau);
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.springboot.PetMark.dao.PetDAO;
 import com.springboot.PetMark.entities.Pet;
+import com.springboot.PetMark.entities.Species;
 import com.springboot.PetMark.repository.PetRepository;
 
 @Repository
@@ -107,6 +108,18 @@ public class PetDAOImpl implements PetDAO {
 	public List<Pet> search(String search) {
 		// TODO Auto-generated method stub
 		return petRepository.search(search);
+	}
+
+	@Override
+	public List<Pet> findBetweenPrice(float min, float max) {
+		// TODO Auto-generated method stub
+		return petRepository.findBetweenPrice(min, max);
+	}
+
+	@Override
+	public List<Pet> findBySpecies(Species species) {
+		// TODO Auto-generated method stub
+		return petRepository.findBySpecies(species);
 	}
 
 }

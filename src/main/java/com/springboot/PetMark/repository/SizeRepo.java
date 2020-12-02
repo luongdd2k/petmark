@@ -12,4 +12,6 @@ public interface SizeRepo extends JpaRepository<SizeAccessories, Integer>{
 	List<SizeAccessories> findByAccessories(Accessories accessories);
 	@Query("select distinct(s.sizeName) from SizeAccessories s")
 	List<String> getStatus();
+	@Query("select s.accessories from SizeAccessories s where s.sizeName like %?1%")
+	List<Accessories> findListAcc(String size);
 }

@@ -45,4 +45,16 @@ public class ColorPKDAOImpl implements ColorPKDAO {
 		return repo.findAll();
 	}
 
+	@Override
+	public List<String> findColor() {
+		// TODO Auto-generated method stub
+		return repo.findColor();
+	}
+
+	@Override
+	public List<Accessories> findListAcc(String mau) {
+		// TODO Auto-generated method stub
+		return repo.findListAcc(mau);
+	}
+
 }

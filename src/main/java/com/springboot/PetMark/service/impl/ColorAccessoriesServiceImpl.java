@@ -46,4 +46,16 @@ ColorPKDAO dao;
 		return dao.findAll();
 	}
 
+	@Override
+	public List<String> findColor() {
+		// TODO Auto-generated method stub
+		return dao.findColor();
+	}
+
+	@Override
+	public List<Accessories> findListAcc(String mau) {
+		// TODO Auto-generated method stub
+		return dao.findListAcc(mau);
+	}
+
 }
