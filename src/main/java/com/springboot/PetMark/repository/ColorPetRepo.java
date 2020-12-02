@@ -16,6 +16,6 @@ public interface ColorPetRepo extends JpaRepository<ColorPet, Integer> {
  @Query("select distinct(c.fullColor) from ColorPet c")
  List<String> getFullColor();
  
- @Query("select c.pet from ColorPet c where c.fullColor = ?1 and c.eyeColor = ?2")
+ @Query("select c.pet from ColorPet c where c.fullColor = ?1 or c.eyeColor = ?2")
  List<Pet> findListPet(String fullColor,String eyeColor );
 }

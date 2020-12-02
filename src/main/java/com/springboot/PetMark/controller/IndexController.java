@@ -22,7 +22,9 @@ import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.Blog;
 import com.springboot.PetMark.entities.Category;
 import com.springboot.PetMark.entities.ColorAccessories;
+import com.springboot.PetMark.entities.Deposit;
 import com.springboot.PetMark.entities.Pet;
+import com.springboot.PetMark.entities.Species;
 import com.springboot.PetMark.service.AccessoriesService;
 import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.BlogService;
@@ -30,10 +32,12 @@ import com.springboot.PetMark.service.CartItemService;
 import com.springboot.PetMark.service.CategoryService;
 import com.springboot.PetMark.service.ColorAccessoriesService;
 import com.springboot.PetMark.service.ColorPetService;
+import com.springboot.PetMark.service.DepositService;
 import com.springboot.PetMark.service.ImgAccService;
 import com.springboot.PetMark.service.ImgPetService;
 import com.springboot.PetMark.service.PetService;
 import com.springboot.PetMark.service.SizeService;
+import com.springboot.PetMark.service.SpeciesService;
 
 @Controller
 @RequestMapping()
@@ -60,6 +64,8 @@ public class IndexController {
 	BlogService blogService;
 	@Autowired
 	CategoryService categoryService;
+	@Autowired
+	SpeciesService speciesService;
 
 	@RequestMapping("/")
 	public String showIndex() {
@@ -307,7 +313,7 @@ public class IndexController {
 		model.addObject("list", listAcces);
 		return model;
 	}
-
+	
 	@RequestMapping("/loc")
 	public ModelAndView loc(HttpServletRequest req, Principal principal) {
 		ModelAndView model = new ModelAndView();
@@ -362,4 +368,72 @@ public class IndexController {
 
 		return model;
 	}
+	
+	@RequestMapping("/show-search-pet")
+	public ModelAndView filterPet(HttpServletRequest req, Principal principal) {
+		ModelAndView model = new ModelAndView();
+		HttpSession session = req.getSession();
+		String username = (String) session.getAttribute("username");
+		if (username != null) {
+			Account account = accountService.findById(username);
+			model.addObject("account", account);
+		}
+		List<Pet> listAcces = petService.findAll();
+		List<Species> category = speciesService.findAll();
+		model.addObject("category", category);
+		List<String> color = colorPetSv.getFullColor();
+		model.addObject("color", color);
+		model.setViewName("client2/search2");
+		model.addObject("size", colorPetSv.getEyeColor());
+		model.addObject("list", listAcces);
+		return model;
+	}
+	@RequestMapping("/locPet")
+	public ModelAndView locPet(HttpServletRequest req, Principal principal) {
+		ModelAndView model = new ModelAndView();
+		HttpSession session = req.getSession();
+		List<Species> category = speciesService.findAll();
+		model.addObject("category", category);
+		List<String> color = colorPetSv.getFullColor();
+		model.addObject("color", color);
+		model.addObject("size", colorPetSv.getEyeColor());
+		String username = (String) session.getAttribute("username");
+		if (username != null) {
+			Account account = accountService.findById(username);
+			model.addObject("account", account);
+		}
+		model.setViewName("client2/search2");
+		float min = Float.parseFloat(req.getParameter("min"));
+		float max = Float.parseFloat(req.getParameter("max"));
+		String mau = req.getParameter("mau");
+		String sizes = req.getParameter("kichCo");
+		List<Pet> byMau = colorPetSv.findListPet(mau, sizes);
+		List<Pet> list = new ArrayList<Pet>();
+		String hangPK = req.getParameter("hang");
+		List<Pet> listByHang = petService.findAll();
+		if (hangPK != "") {
+			int id = Integer.parseInt(hangPK);
+			listByHang = petService.findBySpecies(speciesService.findById(id));
+		}
+		List<Pet> byPrice = petService.findAll();
+		if (max > 0) {
+			byPrice = petService.findBetweenPrice(min, max);
+		}
+		for (int i = 0; i < listByHang.size(); i++) {
+			for (int j = 0; j < byPrice.size(); j++) {
+				for (int m = 0; m < byMau.size(); m++) {
+						if (listByHang.get(i).getId() == byPrice.get(j).getId()
+								&& byPrice.get(j).getId() == byMau.get(m).getId()) {
+							list.add(listByHang.get(i));
+						}			
+				}
+			}
+		}
+		int kqsearch = list.size();
+		model.addObject("kqsearch", kqsearch);
+		model.addObject("list", list);
+
+		return model;
+	}
+	
 }
