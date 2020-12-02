@@ -97,12 +97,12 @@ public class AccountController {
 		String email = request.getParameter("sl_signup_email");
 		String phone = request.getParameter("sl_signup_phone");
 		String address = request.getParameter("sl_signup_address");
-		String message ="";
+		String message = "";
 		if (password.equalsIgnoreCase(password2)) {
 			accountService.addAccount(username, password, fullname, gender, email, phone, address);
 			model.setViewName("redirect:/showLogin");
-			 message = "Đăng kí thành công! Mời bạn đăng nhập";
-			 model.addObject("thongBao", message);
+			message = "Đăng kí thành công! Mời bạn đăng nhập";
+			model.addObject("thongBao", message);
 		} else {
 			message = "Mật khẩu bạn nhập không trùng khớp vui lòng nhập lại!!";
 			model.setViewName("redirect:/showregister");
@@ -157,7 +157,7 @@ public class AccountController {
 	public ModelAndView loggedInSuccessfully(HttpServletRequest request, Principal principal) {
 		HttpSession session = request.getSession();
 		ModelAndView model = new ModelAndView();
-		model.setViewName("redirect:/welcome");
+		model.setViewName("redirect:/index");
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 
 		String loggedUsername = loginedUser.getUsername();
@@ -267,15 +267,15 @@ public class AccountController {
 	}
 
 	@RequestMapping("Changepw")
-	public String changepw(ModelMap model,HttpServletRequest req,Principal principal) {
+	public String changepw(ModelMap model, HttpServletRequest req, Principal principal) {
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(loginedUser.getUsername());
 		String passworded = account.getPassword();
 		String nowPass = req.getParameter("password");
 		String newPass = req.getParameter("newPassword");
 		String confirmPass = req.getParameter("newPasswordRepeat");
-		if( new BCryptPasswordEncoder().matches(nowPass, passworded)) {
-			if(newPass.equalsIgnoreCase(confirmPass)) {
+		if (new BCryptPasswordEncoder().matches(nowPass, passworded)) {
+			if (newPass.equalsIgnoreCase(confirmPass)) {
 				account.setPassword(new BCryptPasswordEncoder().encode(newPass));
 				accountService.save(account);
 				return "redirect:/show-account";
@@ -287,42 +287,48 @@ public class AccountController {
 	@RequestMapping("/forgot-pass")
 	public String forgotPass(HttpServletRequest req) {
 		Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", MailConfig.HOST_NAME);
-        props.put("mail.smtp.port", MailConfig.TSL_PORT);
-        
-        // get Session
-        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(MailConfig.APP_EMAIL, MailConfig.APP_PASSWORD);
-            }
-        });
- 
-        // compose message
-        try {
-        	String email = req.getParameter("email");
-        	String username = req.getParameter("username");
-        	Account account = accountService.findById(username);
-        	if(account!=null && account.getUsername().equals(username) && account.getEmail().equals(email)) {
-        		int code = (int) Math.floor(((Math.random() * 89999999) + 10000000));
-        		String newPass = String.valueOf(code);
-            MimeMessage message = new MimeMessage(session);
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-            message.setSubject("Thông báo quên mật khẩu từ PetMark");
-            message.setText("Mật khẩu của bạn là: " +newPass);
-            account.setPassword(new BCryptPasswordEncoder().encode(newPass));
-			accountService.save(account);
-            // send message
-            Transport.send(message);
- 
-            System.out.println("Message sent successfully");
-            return "redirect:/showLogin";
-        	}
-        } catch (MessagingException e) {
-            throw new RuntimeException(e);
-        }
-        return "redirect:/show-forgot-pass";
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", MailConfig.HOST_NAME);
+		props.put("mail.smtp.port", MailConfig.TSL_PORT);
+
+		// get Session
+		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(MailConfig.APP_EMAIL, MailConfig.APP_PASSWORD);
+			}
+		});
+
+		// compose message
+		try {
+			String email = req.getParameter("email");
+			String username = req.getParameter("username");
+			Account account = accountService.findById(username);
+			if (account != null && account.getUsername().equals(username) && account.getEmail().equals(email)) {
+				int code = (int) Math.floor(((Math.random() * 89999999) + 10000000));
+				String newPass = String.valueOf(code);
+				MimeMessage message = new MimeMessage(session);
+				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+				message.setSubject("Thông báo quên mật khẩu từ PetMark");
+				message.setText("Mật khẩu của bạn là: " + newPass);
+				account.setPassword(new BCryptPasswordEncoder().encode(newPass));
+				accountService.save(account);
+				// send message
+				Transport.send(message);
+
+				System.out.println("Message sent successfully");
+				return "redirect:/showLogin";
+			}
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
+		}
+		return "redirect:/show-forgot-pass";
 	}
 
+	@RequestMapping("log-out")
+	public String logOut(HttpServletRequest req) {
+		HttpSession session = req.getSession(false);
+		session.invalidate();
+		return "redirect:/index";
+	}
 }

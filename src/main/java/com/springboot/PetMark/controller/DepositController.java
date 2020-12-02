@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,8 +80,10 @@ public class DepositController {
 	@RequestMapping("/deposit/{id}")
 	public String addDeposit(@PathVariable String id,Principal principal, HttpServletRequest req) throws UnsupportedEncodingException {
 		ModelAndView model = new ModelAndView();
-		User loginedUser = (User) ((Authentication) principal).getPrincipal();
-		Account account = accountService.findById(loginedUser.getUsername());
+		HttpSession session = req.getSession();
+		String username = (String) session.getAttribute("username");
+		Account account = accountService.findById(username);
+		model.addObject("account", account);
 		Pet pet = petService.findById(Integer.parseInt(id));
 		String mau = req.getParameter("colors");
 		int soLuong = Integer.parseInt(req.getParameter("soLuong"));

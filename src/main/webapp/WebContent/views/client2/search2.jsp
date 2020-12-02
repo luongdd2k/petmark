@@ -121,14 +121,14 @@
 
 
 
-				<form action="locPet" method="post">
+				<form action="locPet" method="get">
 					<div class="userpage-sidebar">
 						<div class="div-left">
 							<div class="block">
 								<h4 class="title">Giống thú cưng</h4>
 
 								<select id="inputState" class="form-control" name="hang">
-									<option  value="">Tất cả giống thú cưng</option>
+									<option selected value="">Tất cả giống thú cưng</option>
 									<c:forEach var="category" items="${category }">
 										<option value="${category.getId() }">${category.getName() }</option>
 									</c:forEach>
@@ -147,7 +147,7 @@
 							</div>
 							<div class="block">
 								<h4 class="title">Màu lông</h4>
-								<select id="inputState" class="form-control" name="mau">
+								<select id="inputState" class="form-control" name="mauLong">
 									<option selected value="">Tất cả màu lông</option>
 									<c:forEach var="color" items="${color }">
 										<option value="${color }">${color }</option>
@@ -156,7 +156,7 @@
 							</div>
 							<div class="block">
 								<h4 class="title">Màu mắt</h4>
-								<select id="inputState" class="form-control" name="kichCo">
+								<select id="inputState" class="form-control" name="mauMat">
 									<option selected value="">Tất cả màu mắt</option>
 									<c:forEach var="size" items="${size }">
 										<option value="${size }">${size }</option>

@@ -314,476 +314,59 @@
 					<div class="glide" id="glide_3">
 						<div class="glide__track" data-glide-el="track">
 							<ul class="glide__slides latest-center">
-								<li class="glide__slide">
-									<div class="product">
-										<div class="product__header">
-											<a href="javascript:"><img
-												src="/images/products/sumsung/samsung5.jpeg" alt="product"></a>
-										</div>
-										<div class="product__footer">
-											<h3>Samsung Galaxy</h3>
-											<div class="rating">
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
+							
+							
+								<c:forEach var="list" items="${list }">
+                <li class="glide__slide">
+                  <div class="product">
+                    <div class="product__header">
+                      <a href="javascript:"><img src="${list.getImgs().get(0).getImgAvartar() }" alt="product"></a>
+                    </div>
+                    <div class="product__footer">
+                      <h3>${list.getPetName() }</h3>
+                      <div class="rating">
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
                         </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
                         </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
                         </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
                         </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-empty"></use>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
                         </svg>
-											</div>
-											<div class="product__price">
-												<h4>$900</h4>
-											</div>
-											<a href="javascript:"><button type="submit" class="product__btn">Thêm
-													vào giỏ hàng</button></a>
-										</div>
-										<ul>
-											<li><a data-tip="Quick View" data-place="left" href="javascript:">
-													<svg>
-                            <use xlink:href="images/sprite.svg#icon-eye"></use>
+                      </div>
+                      <div class="product__price">
+                        <h4>${list.getDisplayPrice(1) } </h4>
+                      </div>
+                    </div>
+                    <ul>
+                      <li>
+                        <a data-tip="Quick View" data-place="left" href="pet-detail/${list.getId() }">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-eye"></use>
                           </svg>
-											</a></li>
-
-											<li><a data-tip="Add To Compare" data-place="left"
-												href="javascript:"> <svg>
-                            <use
-															xlink:href="images/sprite.svg#icon-loop2"></use>
+                        </a>
+                      </li>
+                       
+                      <li>
+                        <a data-tip="Add To Compare" data-place="left" href="javascript:">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-loop2"></use>
                           </svg>
-											</a></li>
-										</ul>
-									</div>
-								</li>
-
-								<li class="glide__slide">
-									<div class="product">
-										<div class="product__header">
-											<a href="javascript:"><img
-												src="/images/products/iPhone/iphone6.jpeg" alt="product"></a>
-										</div>
-										<div class="product__footer">
-											<h3>Apple iPhone 11</h3>
-											<div class="rating">
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        </svg>
-											</div>
-											<div class="product__price">
-												<h4>$750</h4>
-											</div>
-											<a href="javascript:"><button type="submit" class="product__btn">Thêm
-													vào giỏ hàng</button></a>
-										</div>
-										<ul>
-											<li><a data-tip="Quick View" data-place="left" href="javascript:">
-													<svg>
-                            <use xlink:href="images/sprite.svg#icon-eye"></use>
-                          </svg>
-											</a></li>
-
-											<li><a data-tip="Add To Compare" data-place="left"
-												href="javascript:"> <svg>
-                            <use
-															xlink:href="images/sprite.svg#icon-loop2"></use>
-                          </svg>
-											</a></li>
-										</ul>
-									</div>
-								</li>
-								<li class="glide__slide">
-									<div class="product">
-										<div class="product__header">
-											<a href="javascript:"><img
-												src="/images/products/sumsung/samsung3.jpeg" alt="product"></a>
-										</div>
-										<div class="product__footer">
-											<h3>Samsung Galaxy</h3>
-											<div class="rating">
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        </svg>
-											</div>
-											<div class="product__price">
-												<h4>$850</h4>
-											</div>
-											<a href="javascript:"><button type="submit" class="product__btn">Thêm
-													vào giỏ hàng</button></a>
-										</div>
-										<ul>
-											<li><a data-tip="Quick View" data-place="left" href="javascript:">
-													<svg>
-                            <use xlink:href="images/sprite.svg#icon-eye"></use>
-                          </svg>
-											</a></li>
-
-											<li><a data-tip="Add To Compare" data-place="left"
-												href="javascript:"> <svg>
-                            <use
-															xlink:href="images/sprite.svg#icon-loop2"></use>
-                          </svg>
-											</a></li>
-										</ul>
-									</div>
-								</li>
-								<li class="glide__slide">
-									<div class="product">
-										<div class="product__header">
-											<a href="javascript:"><img
-												src="images/products/iPhone/iphone2.jpeg" alt="product"></a>
-										</div>
-										<div class="product__footer">
-											<h3>Apple iPhone 11</h3>
-											<div class="rating">
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        </svg>
-											</div>
-											<div class="product__price">
-												<h4>$450</h4>
-											</div>
-											<a href="javascript:"><button type="submit" class="product__btn">Thêm
-													vào giỏ hàng</button></a>
-										</div>
-										<ul>
-											<li><a data-tip="Quick View" data-place="left" href="javascript:">
-													<svg>
-                            <use xlink:href="images/sprite.svg#icon-eye"></use>
-                          </svg>
-											</a></li>
-
-											<li><a data-tip="Add To Compare" data-place="left"
-												href="javascript:"> <svg>
-                            <use
-															xlink:href="images/sprite.svg#icon-loop2"></use>
-                          </svg>
-											</a></li>
-										</ul>
-									</div>
-								</li>
-								<li class="glide__slide">
-									<div class="product">
-										<div class="product__header">
-											<a href="javascript:"><img
-												src="/images/products/headphone/headphone4.jpeg"
-												alt="product"></a>
-										</div>
-										<div class="product__footer">
-											<h3>Sony WH-CH510</h3>
-											<div class="rating">
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        </svg>
-											</div>
-											<div class="product__price">
-												<h4>$600</h4>
-											</div>
-											<a href="javascript:"><button type="submit" class="product__btn">Thêm
-													vào giỏ hàng</button></a>
-										</div>
-										<ul>
-											<li><a data-tip="Quick View" data-place="left" href="javascript:">
-													<svg>
-                            <use xlink:href="images/sprite.svg#icon-eye"></use>
-                          </svg>
-											</a></li>
-
-											<li><a data-tip="Add To Compare" data-place="left"
-												href="javascript:"> <svg>
-                            <use
-															xlink:href="images/sprite.svg#icon-loop2"></use>
-                          </svg>
-											</a></li>
-										</ul>
-									</div>
-								</li>
-
-								<li class="glide__slide">
-									<div class="product">
-										<div class="product__header">
-											<a href="javascript:"><img
-												src="images/products/sumsung/samsung1.jpeg" alt="product"></a>
-										</div>
-										<div class="product__footer">
-											<h3>Samsung Galaxy</h3>
-											<div class="rating">
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        </svg>
-											</div>
-											<div class="product__price">
-												<h4>$300</h4>
-											</div>
-											<a href="javascript:"><button type="submit" class="product__btn">Thêm
-													vào giỏ hàng</button></a>
-										</div>
-										<ul>
-											<li><a data-tip="Quick View" data-place="left" href="javascript:">
-													<svg>
-                            <use xlink:href="images/sprite.svg#icon-eye"></use>
-                          </svg>
-											</a></li>
-
-											<li><a data-tip="Add To Compare" data-place="left"
-												href="javascript:"> <svg>
-                            <use
-															xlink:href="images/sprite.svg#icon-loop2"></use>
-                          </svg>
-											</a></li>
-										</ul>
-									</div>
-								</li>
-								<li class="glide__slide">
-									<div class="product">
-										<div class="product__header">
-											<a href="javascript:"><img
-												src="images/products/headphone/headphone2.jpeg"
-												alt="product"></a>
-										</div>
-										<div class="product__footer">
-											<h3>Sony WH-CH510</h3>
-											<div class="rating">
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        </svg>
-											</div>
-											<div class="product__price">
-												<h4>$300</h4>
-											</div>
-											<a href="javascript:"><button type="submit" class="product__btn">Thêm
-													vào giỏ hàng</button></a>
-										</div>
-										<ul>
-											<li><a data-tip="Quick View" data-place="left" href="javascript:">
-													<svg>
-                            <use xlink:href="images/sprite.svg#icon-eye"></use>
-                          </svg>
-											</a></li>
-
-											<li><a data-tip="Add To Compare" data-place="left"
-												href="javascript:"> <svg>
-                            <use
-															xlink:href="images/sprite.svg#icon-loop2"></use>
-                          </svg>
-											</a></li>
-										</ul>
-									</div>
-								</li>
-								<li class="glide__slide">
-									<div class="product">
-										<div class="product__header">
-											<a href="javascript:"><img
-												src="images/products/headphone/headphone1.jpeg"
-												alt="product"></a>
-										</div>
-										<div class="product__footer">
-											<h3>Sony WH-CH510</h3>
-											<div class="rating">
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        </svg>
-											</div>
-											<div class="product__price">
-												<h4>$250</h4>
-											</div>
-											<a href="javascript:"><button type="submit" class="product__btn">Thêm
-													vào giỏ hàng</button></a>
-										</div>
-										<ul>
-											<li><a data-tip="Quick View" data-place="left" href="javascript:">
-													<svg>
-                            <use xlink:href="images/sprite.svg#icon-eye"></use>
-                          </svg>
-											</a></li>
-
-											<li><a data-tip="Add To Compare" data-place="left"
-												href="javascript:"> <svg>
-                            <use
-															xlink:href="images/sprite.svg#icon-loop2"></use>
-                          </svg>
-											</a></li>
-										</ul>
-									</div>
-								</li>
-								<li class="glide__slide">
-									<div class="product">
-										<div class="product__header">
-											<a href="javascript:"><img
-												src="images/products/iPhone/iphone1.jpeg" alt="product"></a>
-										</div>
-										<div class="product__footer">
-											<h3>Apple iPhone XR</h3>
-											<div class="rating">
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
-												<svg>
-                          <use
-														xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        </svg>
-											</div>
-											<div class="product__price">
-												<h4>$550</h4>
-											</div>
-											<a href="javascript:"><button type="submit" class="product__btn">Thêm
-													vào giỏ hàng</button></a>
-										</div>
-										<ul>
-											<li><a data-tip="Quick View" data-place="left" href="javascript:">
-													<svg>
-                            <use xlink:href="images/sprite.svg#icon-eye"></use>
-                          </svg>
-											</a></li>
-
-											<li><a data-tip="Add To Compare" data-place="left"
-												href="javascript:"> <svg>
-                            <use
-															xlink:href="images/sprite.svg#icon-loop2"></use>
-                          </svg>
-											</a></li>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                </c:forEach>
+								
+						
 										</ul>
 									</div>
 							</ul>

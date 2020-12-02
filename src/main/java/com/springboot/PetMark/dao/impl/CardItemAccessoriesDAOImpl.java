@@ -44,4 +44,10 @@ CardItemAccessoriesRepo repo;
 		repo.deleteByAccount(acc);
 	}
 
+	@Override
+	public int countByAccount(Account account) {
+		// TODO Auto-generated method stub
+		return repo.countByAccount(account);
+	}
+
 }

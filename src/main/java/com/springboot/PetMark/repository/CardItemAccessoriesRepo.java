@@ -18,4 +18,6 @@ public interface CardItemAccessoriesRepo extends JpaRepository<CardItemAccessori
 	@Modifying
 	@Query(value = "delete from CardItemAccessories c where c.account = ?1")
 	void deleteByAccount(Account account);
+	@Query("select count(c.id) from CardItemAccessories c where c.account = ?1")
+	int countByAccount(Account account);
 }

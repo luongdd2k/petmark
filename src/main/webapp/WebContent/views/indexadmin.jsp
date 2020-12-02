@@ -30,10 +30,9 @@ to get the desired effect
 -->
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-  <!-- Navbar -->
+  	<!-- Navbar -->
 	<%@ include file="/WebContent/views/header_nav_admin.jsp" %>
 	<!-- /.navbar -->
-
 	<!-- Main Sidebar Container -->
 	<%@ include file="/WebContent/views/aside_nav_admin.jsp" %>
 	<!-- End aside -->

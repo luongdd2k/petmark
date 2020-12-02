@@ -11,7 +11,10 @@ public interface CardItemAccessoriesDAO {
 	List<CardItemAccessories> findByUser(Account account);
 
 	void save(CardItemAccessories card);
-	
-	void delete (int id);
+
+	void delete(int id);
+
 	void deleteByAccount(Account acc);
+
+	int countByAccount(Account account);
 }

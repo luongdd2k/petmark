@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -5,20 +8,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Admin || Statistical</title>
+  <base href="${pageContext.servletContext.contextPath}/">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
 
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <link rel="stylesheet" href="../../dist/css/custom.css">
+  <link rel="stylesheet" href="dist/css/custom.css">
 
 </head>
 
@@ -44,7 +48,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="../../index.html">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
                 <li class="breadcrumb-item active">Thống kê</a></li>
               </ol>
             </div>
@@ -164,19 +168,19 @@
   <!-- ./wrapper -->
 
   <!-- jQuery -->
-  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <script src="plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
-  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- overlayScrollbars -->
-  <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <!-- AdminLTE App -->
-  <script src="../../dist/js/adminlte.min.js"></script>
+  <script src="dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
-  <script src="../../dist/js/demo.js"></script>
+  <script src="dist/js/demo.js"></script>
   <!-- OPTIONAL SCRIPTS -->
-  <script src="../../plugins/chart.js/Chart.min.js"></script>
-  <script src="../../dist/js/demo.js"></script>
-  <script src="../../dist/js/pages/dashboard3.js"></script>
+  <script src="plugins/chart.js/Chart.min.js"></script>
+  <script src="dist/js/demo.js"></script>
+  <script src="dist/js/pages/dashboard3.js"></script>
 </body>
 
 </html>
