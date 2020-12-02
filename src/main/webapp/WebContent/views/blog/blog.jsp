@@ -431,7 +431,7 @@
 			$("#blog").addClass("hide");
 			$("#no-blog").removeClass("hide");
 			$("#new-blog").addClass("hide");
-		} else if (hadBlog == "1") {
+		} else {
 			$("#blog").removeClass("hide");
 			$("#no-blog").addClass("hide");
 			$("#new-blog").addClass("hide");

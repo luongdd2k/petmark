@@ -59,7 +59,7 @@
 					</div>
 
 					<div class="nav__icons">
-						<div id="search-box" style="margin-right: 1rem;">
+						<div id="" style="margin-right: 1rem;">
 							<input class="form-control" type="search" aria-label="Search"
 								placeholder="Tìm kiếm ...">
 						</div>

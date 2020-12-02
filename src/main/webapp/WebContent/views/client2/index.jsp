@@ -30,60 +30,82 @@
 <body>
 <%@ include file="/WebContent/views/header_nav.jsp" %>
     <!-- Hero -->
-    <div class="hero">
-      <div class="glide" id="glide_1">
-        <div class="glide__track" data-glide-el="track">
-          <ul class="glide__slides">
-            <li class="glide__slide glide__slide1">
-              <div class="hero__center">
-                <div class="hero__left">
-                  <span class="">New Inspiration 2020</span>
-                  <h1 class="">PHONES MADE FOR YOU!</h1>
-                  <p>Trending from mobile and headphone style collection</p>
-                  <a href="javascript:"><button class="hero__btn">SHOP NOW</button></a>
-                </div>
-                <div class="hero__right">
-                  <!-- <div class="hero__img-container">
-                    <img class="banner_01" src="./images/" alt="banner2" />
-                  </div> -->
-                </div>
-              </div>
-            </li>
-            <li class="glide__slide glide__slide2">
-              <div class="hero__center">
-                <div class="hero__left">
-                  <span>New Inspiration 2020</span>
-                  <h1>PHONES MADE FOR YOU!</h1>
-                  <p>Trending from mobile and headphone style collection</p>
-                  <a href="javascript:"><button class="hero__btn">SHOP NOW</button></a>
-                </div>
-                <div class="hero__right">
-                  <img class="banner_02" src="./images/banner_02.png" alt="banner2" />
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="glide__bullets" data-glide-el="controls[nav]">
-          <button class="glide__bullet" data-glide-dir="=0"></button>
-          <button class="glide__bullet" data-glide-dir="=1"></button>
-        </div>
+<!--     <div class="hero"> -->
+<!--       <div class="glide" id="glide_1"> -->
+<!--         <div class="glide__track" data-glide-el="track"> -->
+<!--           <ul class="glide__slides"> -->
+<!--             <li class="glide__slide glide__slide1"> -->
+<!--               <div class="hero__center"> -->
+<!--                 <div class="hero__left"> -->
+<!--                   <p>Nhập khẩu, nhân giống thú cưng</p> -->
+<!--                   <h1 class="">THUẦN CHỦNG</h1> -->
+<!--                 </div> -->
+<!--                 <div class="hero__right"> -->
+<!--                   <div class="hero__img-container"> -->
+<!--                     <img class="banner_01" src="images/banner/banner-1.png" alt="banner2" /> -->
+<!--                   </div>  -->
+<!--                 </div> -->
+<!--               </div> -->
+<!--             </li> -->
+<!--             <li class="glide__slide glide__slide2"> -->
+<!--               <div class="hero__center"> -->
+<!--                 <div class="hero__left"> -->
+<!--                   <h1>PHONES MADE FOR YOU!</h1> -->
+<!--                   <p>Trending from mobile and headphone style collection</p> -->
+<!--                 </div> -->
+<!--                 <div class="hero__right"> -->
+<!--                   <img class="banner_02" src="./images/banner_02.png" alt="banner2" /> -->
+<!--                 </div> -->
+<!--               </div> -->
+<!--             </li> -->
+<!--           </ul> -->
+<!--         </div> -->
+<!--         <div class="glide__bullets" data-glide-el="controls[nav]"> -->
+<!--           <button class="glide__bullet" data-glide-dir="=0"></button> -->
+<!--           <button class="glide__bullet" data-glide-dir="=1"></button> -->
+<!--         </div> -->
 
-        <div class="glide__arrows" data-glide-el="controls">
-          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-            <svg>
-              <use xlink:href="./images/sprite.svg#icon-arrow-left2"></use>
-            </svg>
-          </button>
-          <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-            <svg>
-              <use xlink:href="./images/sprite.svg#icon-arrow-right2"></use>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  
+<!--         <div class="glide__arrows" data-glide-el="controls"> -->
+<%--           <button class="glide__arrow glide__arrow--left" data-glide-dir="<"> --%>
+<!--             <svg> -->
+<!--               <use xlink:href="./images/sprite.svg#icon-arrow-left2"></use> -->
+<!--             </svg> -->
+<!--           </button> -->
+<!--           <button class="glide__arrow glide__arrow--right" data-glide-dir=">"> -->
+<!--             <svg> -->
+<!--               <use xlink:href="./images/sprite.svg#icon-arrow-right2"></use> -->
+<!--             </svg> -->
+<!--           </button> -->
+<!--         </div> -->
+<!--       </div> -->
+<!--     </div> -->
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+	  <ol class="carousel-indicators">
+	    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+	    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+	    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	  </ol>
+	  <div class="carousel-inner">
+	    <div class="carousel-item active" data-interval="10000">
+	      <img src="https://petsily.vn/wp-content/uploads/2019/10/banner-petsily.jpg" class="d-block w-100" alt="Banner 1">
+	    </div>
+	    <div class="carousel-item" data-interval="10000">
+	      <img src="https://bizweb.dktcdn.net/100/047/359/themes/66510/assets/women_banner.png?1543757106135" class="d-block w-100" alt="Banner 2">
+	    </div>
+	    <div class="carousel-item" data-interval="10000">
+	      <img src="https://bizweb.dktcdn.net/100/378/907/themes/754099/assets/banner2.jpg?1583719129388" class="d-block w-100" alt="Banner 3">
+	    </div>
+	  </div>
+	  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
+  <!-- End Hero -->
 
   <!-- Main -->
   <main id="main">
