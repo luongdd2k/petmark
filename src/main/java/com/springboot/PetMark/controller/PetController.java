@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.Pet;
@@ -279,4 +280,10 @@ public class PetController {
 //		}
 //		
 //		return "?photo_name=files/shop_item/"+photo.getOriginalFilename();
+	@RequestMapping("/show-statistical")
+	public ModelAndView showStatistical(HttpServletRequest req) {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("pages/statistical/statistical");
+		return model;
+	}
 }

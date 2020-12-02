@@ -161,7 +161,7 @@ to get the desired effect
 								<p>Danh sách Blog</p>
 						</a></li>
 						<li class="nav-header">THỐNG KÊ</li>
-						<li class="nav-item"><a href="statistical/statistical.html"
+						<li class="nav-item"><a href="admin/show-statistical"
 							class="nav-link"> <i class="nav-icon far fa-chart-bar"></i>
 								<p>Thống kê</p>
 						</a></li>
