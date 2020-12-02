@@ -79,32 +79,28 @@
 <!--         </div> -->
 <!--       </div> -->
 <!--     </div> -->
-	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-	  <ol class="carousel-indicators">
-	    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-	    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-	    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-	  </ol>
-	  <div class="carousel-inner">
-	    <div class="carousel-item active" data-interval="10000">
-	      <img src="https://petsily.vn/wp-content/uploads/2019/10/banner-petsily.jpg" class="d-block w-100" alt="Banner 1">
-	    </div>
-	    <div class="carousel-item" data-interval="10000">
-	      <img src="https://bizweb.dktcdn.net/100/047/359/themes/66510/assets/women_banner.png?1543757106135" class="d-block w-100" alt="Banner 2">
-	    </div>
-	    <div class="carousel-item" data-interval="10000">
-	      <img src="https://bizweb.dktcdn.net/100/378/907/themes/754099/assets/banner2.jpg?1583719129388" class="d-block w-100" alt="Banner 3">
-	    </div>
-	  </div>
-	  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-	    <span class="sr-only">Previous</span>
-	  </a>
-	  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-	    <span class="sr-only">Next</span>
-	  </a>
-	</div>
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		  <ol class="carousel-indicators">
+		    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+		    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+		  </ol>
+		  <div class="carousel-inner">
+		    <div class="carousel-item active" data-interval="3000">
+		      <img src="https://petsily.vn/wp-content/uploads/2019/10/banner-petsily.jpg" class="d-block w-100" alt="Banner 1">
+		    </div>
+		    <div class="carousel-item" data-interval="3000">
+		      <img src="https://bizweb.dktcdn.net/100/047/359/themes/66510/assets/women_banner.png?1543757106135" class="d-block w-100" alt="Banner 2">
+		    </div>
+		  </div>
+		  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
   <!-- End Hero -->
 
   <!-- Main -->
@@ -153,7 +149,7 @@
               <ul class="glide__slides latest-center">
 
                 <c:forEach var="listAcc" items="${listAcc }">
-                <li class="glide__slide">
+                <li class="glide__slide" style="margin-bottom: 24px;width: 262.5px;">
                   <div class="product">
                     <div class="product__header">
                       <img style="border-radius: 10px;" src="${listAcc.getImgs().get(0).getImgAvartar() }" alt="product">
@@ -561,6 +557,8 @@
 
 
   <!-- Glide Carousel Script -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
 
   <!-- Animate On Scroll -->

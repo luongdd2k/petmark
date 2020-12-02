@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <!-- Custom StyleSheet -->
-  <link rel="stylesheet" href="css-new/styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 
   <title>Pet Mart | Cửa hàng thú cưng và phụ kiện cho thú cưng</title>
   <base href="${pageContext.servletContext.contextPath}/">

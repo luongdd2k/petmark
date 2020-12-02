@@ -63,23 +63,22 @@
 							<a href="show-search-acc" class="nav__link">Phụ kiện</a>
 						</li>
 						<li class="nav__item">
-							<a href="javascript:" class="nav__link">Blog</a>
+							<a href="#news" class="nav__link">Blog</a>
 						</li>
 						<li class="nav__item">
-							<a href="javascript:" class="nav__link">Liên hệ</a>
+							<a href="#contact" class="nav__link">Liên hệ</a>
 						</li>
 					</ul>
 				</div>
 				<div class="nav__icons">
-					<form action="search">
-						<div id="search-box" style="margin-right: 1rem;">
-							<input class="form-control" type="search" aria-label="Search" placeholder="Tìm kiếm ...">
+					<form action="search" style="display: flex;">
+						<div  style="margin-right: 1rem;">
+							<input class="form-control search-form" type="search" aria-label="Search" placeholder="Tìm kiếm ...">
 						</div>
 
-						<button type="submit" class="icon__item"> <svg
-								class="icon__search">
-                                <use
-									xlink:href="images/sprite.svg#icon-search"></use>
+						<button type="submit" class="icon__item"> 
+							<svg class="icon__search">
+                                <use xlink:href="images/sprite.svg#icon-search"></use>
                             </svg>
 						</button>
 					</form>
