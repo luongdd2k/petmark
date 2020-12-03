@@ -75,7 +75,7 @@ public class CheckoutController {
 	ColorAccessoriesService colorAccessoriesService;
 	@Autowired
 	SizeService sizeService;
-
+	
 	private String successResult = "Đặt hàng thành công";
 	private String successNote = "Cảm ơn bạn đã mua hàng tại TopShoe";
 
@@ -85,6 +85,11 @@ public class CheckoutController {
 		model.setViewName("client2/all-order");
 		User logginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(logginedUser.getUsername());
+		int slCard = 0;
+		if(cartItemService.countByAccount(account)!=0) {
+		slCard = cartItemService.countByAccount(account);
+		}
+		model.addObject("slCard", slCard);
 		model.addObject("account", account);
 		List<OrderrWeb> list = orderWebService.findByAccount(account);
 		model.addObject("list", list);
@@ -105,6 +110,11 @@ public class CheckoutController {
 		User logginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addObject("account", account);
+		int slCard = 0;
+		if(cartItemService.countByAccount(account)!=0) {
+		slCard = cartItemService.countByAccount(account);
+		}
+		model.addObject("slCard", slCard);
 		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.NOT_APPROVED, account);
 		model.addObject("list", list);
 		String isEmpty = "1";
@@ -124,6 +134,11 @@ public class CheckoutController {
 		User logginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addObject("account", account);
+		int slCard = 0;
+		if(cartItemService.countByAccount(account)!=0) {
+		slCard = cartItemService.countByAccount(account);
+		}
+		model.addObject("slCard", slCard);
 		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.WAITING_FOR_DELIVERY, account);
 		model.addObject("list", list);
 		String title = "Đơn hàng chờ giao";
@@ -143,6 +158,11 @@ public class CheckoutController {
 		User logginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addObject("account", account);
+		int slCard = 0;
+		if(cartItemService.countByAccount(account)!=0) {
+		slCard = cartItemService.countByAccount(account);
+		}
+		model.addObject("slCard", slCard);
 		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.DELIVERING, account);
 		model.addObject("list", list);
 		String title = "Đơn hàng đang giao";
@@ -164,6 +184,11 @@ public class CheckoutController {
 		model.addObject("account", account);
 		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.SUCCESSFUL, account);
 		model.addObject("list", list);
+		int slCard = 0;
+		if(cartItemService.countByAccount(account)!=0) {
+		slCard = cartItemService.countByAccount(account);
+		}
+		model.addObject("slCard", slCard);
 		String title = "Đơn hàng đã giao";
 		model.addObject("title", title);
 		String isEmpty = "1";
@@ -181,6 +206,11 @@ public class CheckoutController {
 		User logginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addObject("account", account);
+		int slCard = 0;
+		if(cartItemService.countByAccount(account)!=0) {
+		slCard = cartItemService.countByAccount(account);
+		}
+		model.addObject("slCard", slCard);
 		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.CANCELLED, account);
 		model.addObject("list", list);
 		String isEmpty = "1";
@@ -200,6 +230,11 @@ public class CheckoutController {
 		User loginUser = (User) ((Authentication) principal).getPrincipal();
 		String username = loginUser.getUsername();
 		Account account = accountService.findById(username);
+		int slCard = 0;
+		if(cartItemService.countByAccount(account)!=0) {
+		slCard = cartItemService.countByAccount(account);
+		}
+		model.addObject("slCard", slCard);
 		model.addObject("account", account);
 		List<CardItemAccessories> card = cartItemService.findByAccount(account);
 		model.addObject("card", card);
@@ -335,6 +370,11 @@ public class CheckoutController {
 		Account account = accountService.findById(loginedUser.getUsername());
 		model.setViewName("client2/order-detail");
 		model.addObject("account", account);
+		int slCard = 0;
+		if(cartItemService.countByAccount(account)!=0) {
+		slCard = cartItemService.countByAccount(account);
+		}
+		model.addObject("slCard", slCard);
 		OrderrWeb orderWeb = orderWebService.findById(Integer.parseInt(id));
 		model.addObject("orderweb", orderWeb);
 		List<OrderrWebDetail> order = orderWebDetailService.findOrderrWeb(orderWeb);
@@ -483,6 +523,11 @@ public class CheckoutController {
 		model.addObject("account", account);
 		Accessories acc = accessoriesService.findById(Integer.parseInt(id));
 		model.addObject("acc", acc);
+		int slCard = 0;
+		if(cartItemService.countByAccount(account)!=0) {
+		slCard = cartItemService.countByAccount(account);
+		}
+		model.addObject("slCard", slCard);
 		String mau = req.getParameter("colors");
 		model.addObject("color", mau);
 		String sizes = req.getParameter("size");
@@ -500,7 +545,11 @@ public class CheckoutController {
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 		String username = loginedUser.getUsername();
 		Account user = accountService.findById(username);
-
+		int slCard = 0;
+		if(cartItemService.countByAccount(user)!=0) {
+		slCard = cartItemService.countByAccount(user);
+		}
+		model.addAttribute("slCard", slCard);
 		OrderrWeb orderWeb = new OrderrWeb();
 		orderWeb.setConsignee(req.getParameter("name"));
 		orderWeb.setConsigneePhone(req.getParameter("phone"));

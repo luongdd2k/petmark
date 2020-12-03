@@ -26,6 +26,7 @@ import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.Blog;
 import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.BlogService;
+import com.springboot.PetMark.service.CartItemService;
 
 @Controller
 public class BlogController {
@@ -35,6 +36,8 @@ public class BlogController {
 	BlogService blogService;
 	@Autowired
 	ServletContext context;
+	@Autowired
+	CartItemService cardSv;
 
 	@RequestMapping("/show-blog")
 	public ModelAndView showBlog(Principal principal) {
@@ -43,6 +46,11 @@ public class BlogController {
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(loginedUser.getUsername());
 		model.addObject("account", account);
+		int slCard = 0;
+		if(cardSv.countByAccount(account)!=0) {
+		slCard = cardSv.countByAccount(account);
+		}
+		model.addObject("slCard", slCard);
 		List<Blog> blog = blogService.findByUser(account);
 		System.out.println("Dang sách blog: " + blog);
 		String has = "1";
@@ -65,7 +73,7 @@ public class BlogController {
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
 		String content = "";
-		if(req.getParameter("content")!=null) {
+		if(req.getParameter("content")!="") {
 			content = req.getParameter("content");
 		}
 		try {

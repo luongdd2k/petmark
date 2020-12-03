@@ -166,7 +166,7 @@ public class AccountController {
 		String loggedFullname = accountService.findById(loggedUsername).getFullName();
 		Account account = accountService.findById(loggedUsername);
 		System.out.println("Thông tin tài khoản: " + account);
-
+		model.addObject("account", account);
 		System.out.println("\r---------------------");
 		System.out.println("Logged In Successfully!");
 		System.out.println("username: " + loggedUsername);
@@ -178,7 +178,7 @@ public class AccountController {
 		session.setAttribute("fullname", loggedFullname);
 		session.setAttribute("profilePictureURL", accountService.findById(loggedUsername).getImagePath());
 
-//		session.setAttribute("totalQuantity", cartItemService.countCartQuantity(loggedUsername));
+
 		System.out.println("currentPath: " + session.getAttribute("currentPath"));
 		String currentPath = (String) session.getAttribute("currentPath");
 //		&& currentPath.contains("/index")

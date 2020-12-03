@@ -79,6 +79,11 @@ public class IndexController {
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(loginedUser.getUsername());
 		model.addObject("account", account);
+		int slCard = 0;
+		if(cardSv.countByAccount(account)!=0) {
+		slCard = cardSv.countByAccount(account);
+		}
+		model.addObject("slCard", slCard);
 //		return "client2/account";
 		return model;
 	}
@@ -90,6 +95,11 @@ public class IndexController {
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(loginedUser.getUsername());
 		model.addObject("account", account);
+		int slCard = 0;
+		if(cardSv.countByAccount(account)!=0) {
+		slCard = cardSv.countByAccount(account);
+		}
+		model.addObject("slCard", slCard);
 		return model;
 	}
 
@@ -120,6 +130,11 @@ public class IndexController {
 		if (username != null) {
 			Account account = accountService.findById(username);
 			model.addObject("account", account);
+			int slCard = 0;
+			if(cardSv.countByAccount(account)!=0) {
+			slCard = cardSv.countByAccount(account);
+			}
+			model.addObject("slCard", slCard);
 		}
 		model.setViewName("client2/index");
 		List<Pet> listPet = petService.findAll();
@@ -195,6 +210,11 @@ public class IndexController {
 		if (username != null) {
 			Account account = accountService.findById(username);
 			model.addObject("account", account);
+			int slCard = 0;
+			if(cardSv.countByAccount(account)!=0) {
+			slCard = cardSv.countByAccount(account);
+			}
+			model.addObject("slCard", slCard);
 		}
 		if (id != null) {
 			Pet pet = petService.findById(Integer.valueOf(id));
@@ -217,6 +237,11 @@ public class IndexController {
 		if (username != null) {
 			Account account = accountService.findById(username);
 			model.addObject("account", account);
+			int slCard = 0;
+			if(cardSv.countByAccount(account)!=0) {
+			slCard = cardSv.countByAccount(account);
+			}
+			model.addObject("slCard", slCard);
 		}
 		if (id != null) {
 			Accessories acc = accessSv.findById(Integer.valueOf(id));
@@ -274,6 +299,17 @@ public class IndexController {
 	public ModelAndView searchProduct(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("client2/index");
+		HttpSession session = request.getSession();
+		String username = (String) session.getAttribute("username");
+		if (username != null) {
+			Account account = accountService.findById(username);
+			model.addObject("account", account);
+			int slCard = 0;
+			if(cardSv.countByAccount(account)!=0) {
+			slCard = cardSv.countByAccount(account);
+			}
+			model.addObject("slCard", slCard);
+		}
 		String search = request.getParameter("search");
 		List<Pet> listPet = petService.search(search);
 		model.addObject("list", listPet);
@@ -288,23 +324,23 @@ public class IndexController {
 		return model;
 	}
 
-	@RequestMapping("/search1")
-	public ModelAndView search(HttpServletRequest request) {
-		ModelAndView model = new ModelAndView();
-		model.setViewName("client2/welcome");
-		String search = request.getParameter("search");
-		List<Pet> listPet = petService.search(search);
-		model.addObject("list", listPet);
-		List<Accessories> listAcces = accessSv.search(search);
-		String result = "";
-		if (listAcces.size() == 0) {
-			listAcces = accessSv.findAll();
-			result = "Không tìm thấy phụ kiện phù hợp";
-		}
-		model.addObject("result", result);
-		model.addObject("listAcc", listAcces);
-		return model;
-	}
+//	@RequestMapping("/search1")
+//	public ModelAndView search(HttpServletRequest request) {
+//		ModelAndView model = new ModelAndView();
+//		model.setViewName("client2/welcome");
+//		String search = request.getParameter("search");
+//		List<Pet> listPet = petService.search(search);
+//		model.addObject("list", listPet);
+//		List<Accessories> listAcces = accessSv.search(search);
+//		String result = "";
+//		if (listAcces.size() == 0) {
+//			listAcces = accessSv.findAll();
+//			result = "Không tìm thấy phụ kiện phù hợp";
+//		}
+//		model.addObject("result", result);
+//		model.addObject("listAcc", listAcces);
+//		return model;
+//	}
 
 	@RequestMapping("/show-search-acc")
 	public ModelAndView select(HttpServletRequest req, Principal principal) {
@@ -314,6 +350,11 @@ public class IndexController {
 		if (username != null) {
 			Account account = accountService.findById(username);
 			model.addObject("account", account);
+			int slCard = 0;
+			if(cardSv.countByAccount(account)!=0) {
+			slCard = cardSv.countByAccount(account);
+			}
+			model.addObject("slCard", slCard);
 		}
 		List<Accessories> listAcces = accessSv.findAll();
 		List<Category> category = categoryService.showCategoryManagement();
@@ -339,6 +380,11 @@ public class IndexController {
 		if (username != null) {
 			Account account = accountService.findById(username);
 			model.addObject("account", account);
+			int slCard = 0;
+			if(cardSv.countByAccount(account)!=0) {
+			slCard = cardSv.countByAccount(account);
+			}
+			model.addObject("slCard", slCard);
 		}
 		model.setViewName("client2/search");
 		float min = Float.parseFloat(req.getParameter("min"));
@@ -391,6 +437,11 @@ public class IndexController {
 		if (username != null) {
 			Account account = accountService.findById(username);
 			model.addObject("account", account);
+			int slCard = 0;
+			if(cardSv.countByAccount(account)!=0) {
+			slCard = cardSv.countByAccount(account);
+			}
+			model.addObject("slCard", slCard);
 		}
 		List<Pet> listAcces = petService.findAll();
 		List<Species> category = speciesService.findAll();
@@ -415,6 +466,11 @@ public class IndexController {
 		if (username != null) {
 			Account account = accountService.findById(username);
 			model.addObject("account", account);
+			int slCard = 0;
+			if(cardSv.countByAccount(account)!=0) {
+			slCard = cardSv.countByAccount(account);
+			}
+			model.addObject("slCard", slCard);
 		}
 		model.setViewName("client2/search2");
 		float min = Float.parseFloat(req.getParameter("min"));
