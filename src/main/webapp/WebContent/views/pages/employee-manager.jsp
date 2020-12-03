@@ -84,10 +84,10 @@
 									</select> <span id="sortValue2" style="display: none;">${sortValue }</span>
 								</div>
 								<div class="card-body">
-									<div class="table-responsive main-table">
-										<table class="table table-hover">
-											<thead>
-												<tr class="bg-primary">
+									<div class="main-table">
+										<table class="table">
+											<thead class="thead-light">
+												<tr>
 													<!--                           <th scope="col">Tên đăng nhập</th> -->
 													<th scope="col">Ảnh</th>
 													<th scope="col">Họ và tên</th>
@@ -139,13 +139,13 @@
 																	</select>
 																</div>
 																<div
-																	style="float: left; margin-left: 0.15em; margin-top: 0.10em;">
+																	style="float: left; margin-left: 0.75em; margin-top: 0.10em;">
 																	<button type="submit" class="btn btn-success">Lưu</button>
 																</div>
 															</form>
 															<form action="admin/UserManagement/${action}" method="post">
 															<div
-																style="float: left;margin-left: 0.05em; margin-top: 0.10em">
+																style="float: left; margin-left: 10px; margin-top: 0.10em">
 																<input type="hidden" name="u_username"
 																		value="${user.getUsername() }">
 																<button type="submit" class="btn btn-danger">${nameButton3 }</button>

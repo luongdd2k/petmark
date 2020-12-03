@@ -36,7 +36,7 @@
 					</li>
 					<li class="nav-header">CỬA HÀNG</li>
 					<li class="nav-item">
-						<a href="admin/UserManagement" class="nav-link"> 
+						<a href="javascript:" class="nav-link"> 
 						<i class="nav-icon fas fa-users"></i>
 							<p>Nhân viên</p>
 						</a>
