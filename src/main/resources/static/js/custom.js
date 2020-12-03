@@ -57,17 +57,3 @@ function anDoiDiaChi(){
     $("#edit-checkout-adress").addClass("hide");
 }
 
-$(function(){
-   let value = $("#valuePetOrAccessori").val();
-    if(value == "cho"){
-        $("#phuKien").addClass("hide");
-        $("#cho").removeClass("hide");
-        $("#thuCung").removeClass("hide");
-        $("#phu-kien").addClass("hide");
-    }else if(value == "phuKien"){
-        $("#phuKien").removeClass("hide");
-        $("#cho").addClass("hide");
-        $("#thuCung").addClass("hide");
-        $("#phu-kien").removeClass("hide");
-    }
-})
