@@ -54,10 +54,9 @@
 						</div>
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item">
-									<a href="index.html">Trang chủ</a>
-								</li>
-								<li class="breadcrumb-item active">Thú cưng</li>
+								<li class="breadcrumb-item"><a href="index.html">Trang
+										chủ</a></li>
+								<li class="breadcrumb-item active">Thú cưng</a></li>
 							</ol>
 						</div>
 					</div>
@@ -85,75 +84,89 @@
 										style="display: none; max-width: 95%; margin: auto;">
 										<form action="admin/ProductManagement/UpdateProduct" method="post">
 											<input type="hidden" name="id" id="id">
-											<div class="form-disable-p1 float-left" style="width: 330px; margin-left: 30px; float: left;">
+											<div class="form-disable-p1 float-left"
+												style="width: 330px; margin-left: 30px; float: left;">
 												<div class="form-group">
 													<label for="exampleFormControlInput1">Tên thú cưng</label>
-													<input type="text" class="form-control" id="petNameUpdate" name="tenThu">
+													<input type="text" class="form-control" id="petNameUpdate"
+														name="tenThu">
 												</div>
 												<div class="form-group">
-													<label for="exampleFormControlSelect1">Giống thú cưng</label> 
-														<select name="giongThu" id="pet-bread-update" style="height: 30px; width: 100%;">
-															<c:forEach var="category" items="${listCategory }">
+													<label for="exampleFormControlSelect1">Giống thú
+														cưng</label> <select name="giongThu" id="pet-bread-update"
+														style="height: 30px; width: 100%;">
+														<c:forEach var="category" items="${listCategory }">
 																<option value="${category.id }">${ category.getName()}</option>
-															</c:forEach>
-														</select>
+														</c:forEach>
+													</select>
 												</div>
 												<div class="form-group">
-													<label for="exampleFormControlInput1">Màu lông</label> 
-													<input type="text" class="form-control" id="petColor" name="mauLong">
+													<label for="exampleFormControlInput1">Màu lông</label> <input
+														type="text" class="form-control" id="petColor"
+														name="mauLong">
 												</div>
 												<div class="form-group">
-													<label for="exampleFormControlInput1">Màu mắt</label> 
-													<input type="text" class="form-control" id="petEyeColor" name="mauMat">
+													<label for="exampleFormControlInput1">Màu mắt</label> <input
+														type="text" class="form-control" id="petEyeColor"
+														name="mauMat">
 												</div>
 											</div>
 											<div class="form-disable-p1"
 												style="width: 330px; margin-left: 30px; float: left;">
 												<div class="form-group">
-													<label for="exampleFormControlInput1">Tuổi</label> 
-													<input type="text" class="form-control" id="petAgeUpdate" name="tuoiThu">
+													<label for="exampleFormControlInput1">Tuổi</label> <input
+														type="text" class="form-control" id="petAgeUpdate"
+														name="tuoiThu">
 												</div>
 												<div class="form-group">
-													<label for="exampleFormControlInput1">Giá</label> 
-													<input type="text" class="form-control" id="petPriceUpdate" name="giaThu">
+													<label for="exampleFormControlInput1">Giá</label> <input
+														type="text" class="form-control" id="petPriceUpdate"
+														name="giaThu">
 												</div>
 												<div class="form-group">
-													<label for="exampleFormControlSelect1">Trạng thái</label> 
-													<select name="trangThai" id="pet-status-update" style="height: 30px; width: 100%;">
+													<label for="exampleFormControlSelect1">Trạng thái</label> <select
+														name="trangThai" id="pet-status-update"
+														style="height: 30px; width: 100%;">
 														<c:forEach var="status" items="${listStatus }">
 															<option value="${status }">${status }</option>
 														</c:forEach>
 													</select>
 												</div>
 												<div class="form-group">
-													<label for="exampleFormControlInput1">Số lượng</label> 
-													<input type="text" class="form-control" id="petAmountUpdate" name="soLuong">
+													<label for="exampleFormControlInput1">Số lượng</label> <input
+														type="text" class="form-control" id="petAmountUpdate"
+														name="soLuong">
 												</div>
 											</div>
-											<div class="form-disable-p1" style="width: 330px; margin-left: 30px; float: left;">
+											<div class="form-disable-p1"
+												style="width: 330px; margin-left: 30px; float: left;">
 												<div class="form-group">
 													<label for="exampleFormControlTextarea1">Mô tả</label>
-													<textarea class="form-control" id="petInformationUpdate" rows="2" name="moTaThu"></textarea>
+													<textarea class="form-control" id="petInformationUpdate"
+														rows="2" name="moTaThu"></textarea>
 												</div>
 												<div class="custom-file mb-3">
-													<label class="custom-file-label" for="customFile">Chọn hình ảnh</label> 
-													<input type="file" class="custom-file-input" id="customFile" name="filename">
+													<label class="custom-file-label" for="customFile">Chọn
+														hình ảnh</label> <input type="file" class="custom-file-input"
+														id="customFile" name="filename">
 												</div>
 												
-												 <input type="hidden" class="form-control" id="petDateUpdate" name="ngayNhap">
-												<!-- Hinden Input -->
+												 <input type="hidden" class="form-control" id="petDateUpdate"
+														name="ngayNhap">
+												
 												<div>
-													<button type="submit" class="btn btn-custon-rounded-three btn-success btn-css">
-														<i class="fas fa-save"></i> 
-														<span> Save</span>
+													<button type="submit"
+														class="btn btn-custon-rounded-three btn-success btn-css">
+														<i class="fas fa-save"></i> <span> Save</span>
 													</button>
-													<button type="reset" class="btn btn-custon-rounded-three btn-warning btn-css">
-														<i class="fas fa-backspace"></i> 
-														<span> Clear</span>
+													<button type="reset"
+														class="btn btn-custon-rounded-three btn-warning btn-css">
+														<i class="fas fa-backspace"></i> <span> Clear</span>
 													</button>
-													<button type="button" class="btn btn-custon-rounded-three btn-danger btn-css" onclick="hiddenFormUpdate(true)">
-														<i class="fas fa-slash"></i> 
-														<span> Cancel</span>
+													<button type="button"
+														class="btn btn-custon-rounded-three btn-danger btn-css"
+														onclick="hiddenFormUpdate(true)">
+														<i class="fas fa-slash"></i> <span> Cancel</span>
 													</button>
 												</div>
 											</div>
@@ -167,62 +180,74 @@
 
 
 									<!--Div Form New-->
-									<div id="form-disable-new" style="display: none; max-width: 95%; margin: auto;">
-										<form id="formAddProduct" action="admin/ProductManagement/AddProduct" method="POST">
-											<div class="form-disable-p1 float-left" style="width: 330px; margin-left: 30px; float: left;">
+									<div id="form-disable-new"
+										style="display: none; max-width: 95%; margin: auto;">
+										<form id="formAddProduct"
+											action="admin/ProductManagement/AddProduct" method="POST">
+											<div class="form-disable-p1 float-left"
+												style="width: 330px; margin-left: 30px; float: left;">
 												<div class="form-group">
 													<label for="exampleFormControlInput1">Tên thú cưng</label>
-													<input type="text" class="form-control" id="petName" name="tenThu">
+													<input type="text" class="form-control" id="petName"
+														name="tenThu">
 												</div>
 												<div class="form-group">
-													<label for="exampleFormControlSelect1">Giống thú cưng</label> 
-													<select name="giongThu" id="pet-bread" style="height: 30px; width: 100%;">
+													<label for="exampleFormControlSelect1">Giống thú
+														cưng</label> <select name="giongThu" id="pet-bread"
+														style="height: 30px; width: 100%;">
 														<c:forEach var="category" items="${listCategory }">
 															<option value="${ category.id}">${ category.name}</option>
 														</c:forEach>
 													</select>
 												</div>
 												<div class="form-group">
-													<label for="exampleFormControlInput1">Tuổi</label> 
-													<input type="text" class="form-control" id="petAge" name="tuoiThu">
+													<label for="exampleFormControlInput1">Tuổi</label> <input
+														type="text" class="form-control" id="petAge"
+														name="tuoiThu">
 												</div>
 											</div>
 											<div class="form-disable-p1"
 												style="width: 330px; margin-left: 30px; float: left;">
 												<div class="form-group">
-													<label for="exampleFormControlInput1">Giá</label> 
-													<input type="text" class="form-control" id="petPrice" name="giaThu">
+													<label for="exampleFormControlInput1">Giá</label> <input
+														type="text" class="form-control" id="petPrice"
+														name="giaThu">
 												</div>
 												<div class="form-group">
-													<label for="exampleFormControlSelect1">Trạng thái</label> 
-													<select name="trangThai" id="pet-status" style="height: 30px; width: 100%;">
+													<label for="exampleFormControlSelect1">Trạng thái</label> <select
+														name="trangThai" id="pet-status"
+														style="height: 30px; width: 100%;">
 														<c:forEach var="status" items="${listStatus }">
 															<option value="${status }">${status }</option>
 														</c:forEach>
 													</select>
 												</div>
 												<div class="form-group">
-													<label for="exampleFormControlInput1">Số lượng</label> 
-													<input type="text" class="form-control" id="petAmount" name="soLuong">
+													<label for="exampleFormControlInput1">Số lượng</label> <input
+														type="text" class="form-control" id="petAmount"
+														name="soLuong">
 												</div>
 											</div>
-											<div class="form-disable-p1" style="width: 330px; margin-left: 30px; float: left;">
+											<div class="form-disable-p1"
+												style="width: 330px; margin-left: 30px; float: left;">
 												<div class="form-group">
 													<label for="exampleFormControlTextarea1">Mô tả</label>
-													<textarea class="form-control" id="petInformation" rows="2" name="moTaThu"></textarea>
+													<textarea class="form-control" id="petInformation" rows="2"
+														name="moTaThu"></textarea>
 												</div>
 												<div>
-													<button type="submit" class="btn btn-custon-rounded-three btn-success btn-css">
-														<i class="fas fa-save"></i> 
-														<span> Save</span>
+													<button type="submit"
+														class="btn btn-custon-rounded-three btn-success btn-css">
+														<i class="fas fa-save"></i> <span> Save</span>
 													</button>
-													<button type="reset" class="btn btn-custon-rounded-three btn-warning btn-css">
-														<i class="fas fa-backspace"></i> 
-														<span> Clear</span>
+													<button type="reset"
+														class="btn btn-custon-rounded-three btn-warning btn-css">
+														<i class="fas fa-backspace"></i> <span> Clear</span>
 													</button>
-													<button type="button" class="btn btn-custon-rounded-three btn-danger btn-css" onclick="hienThiFormNew(false)">
-														<i class="fas fa-slash"></i> 
-														<span> Cancel</span>
+													<button type="button"
+														class="btn btn-custon-rounded-three btn-danger btn-css"
+														onclick="hienThiFormNew(false)">
+														<i class="fas fa-slash"></i> <span> Cancel</span>
 													</button>
 												</div>
 											</div>
@@ -240,9 +265,37 @@
 																class="form-control" type="search"
 																placeholder="Tìm kiếm theo tên" aria-label="Search">
 														</div>
+														<!-- 														<div class="form-group col-2"> -->
+														<!-- 															<label for="exampleFormControlSelect1">Giống thú -->
+														<!-- 																cưng</label> <select class="form-control" id="locGiong" -->
+														<!-- 																style="max-width: 150px;"> -->
+														<%-- 																<c:forEach var="category" items="${listCategory }"> --%>
+														<%-- 																	<option value="${ category.id}">${ category.name}</option> --%>
+														<%-- 																</c:forEach> --%>
+														<!-- 															</select> -->
+														<!-- 														</div> -->
+														<!-- 														<div class="form-group col-2"> -->
+														<!-- 															<label for="exampleFormControlSelect1">Màu lông</label> <select -->
+														<!-- 																class="form-control" id="locMauLong" -->
+														<!-- 																style="max-width: 150px;"> -->
+														<!-- 																<option>Vàng</option> -->
+														<!-- 																<option>Trắng</option> -->
+														<!-- 																<option>Đen</option> -->
+														<!-- 																<option>Nâu</option> -->
+														<!-- 															</select> -->
+														<!-- 														</div> -->
+														<!-- 														<div class="form-group col-2"> -->
+														<!-- 															<label for="exampleFormControlSelect1">Màu mắt</label> <select -->
+														<!-- 																class="form-control" id="locMauMat" -->
+														<!-- 																style="max-width: 150px;"> -->
+														<!-- 																<option>Đen</option> -->
+														<!-- 																<option>Xanh</option> -->
+														<!-- 																<option>Vàng</option> -->
+														<!-- 																<option>Nâu</option> -->
+														<!-- 															</select> -->
+														<!-- 														</div> -->
 														<div class="form-group col-2">
-															<label for="exampleFormControlSelect1">Lọc</label> 
-															<select
+															<label for="exampleFormControlSelect1">Lọc</label> <select
 																class="form-control" id="cbo_sort_product2" style="">
 																<option value="-1">ID:&nbsp thấp ⟶ cao</option>
 																<option value="0">ID:&nbsp cao ⟶ thấp</option>
@@ -250,33 +303,34 @@
 																<option value="2">Giá:&nbsp từ cao ⟶ thấp</option>
 																<option value="4">Giống: chó</option>
 																<option value="5">Giống: mèo</option>
-																<option value="3" style="background: #ffe6e6">Dừng kinh doanh</option>
-															</select> 
-															<span id="sortValue2" style="display: none;">${sortValue }</span>
+																<option value="3" style="background: #ffe6e6">Dừng
+																	kinh doanh</option>
+															</select> <span id="sortValue2" style="display: none;">${sortValue }</span>
 														</div>
 													</div>
 												</form>
 											</div>
 										</div>
 										<div class="btn-new-css">
-											<button type="button" class="btn btn-custon-rounded-three btn-primary" style="display: block;" onclick="hienThiFormNew(true)">
-												<i class="fas fa-plus-circle"></i> 
-												<span> Thêm mới</span>
+											<button type="button"
+												class="btn btn-custon-rounded-three btn-primary"
+												style="display: block;" onclick="hienThiFormNew(true)">
+												<i class="fas fa-plus-circle"></i> <span> Thêm mới</span>
 											</button>
 										</div>
 										<!-- End Thêm mới-->
 									</div>
 
 									<div class="table-responsive-xl main-table ">
-										<table class="table table-hover" style="margin-bottom: -1%;" id="table-js">
-											<thead>
-												<tr class="bg-info">
+										<table class="table table-striped" style="margin-bottom: -1%;" id="table-js">
+											<thead class="thead-light">
+												<tr>
 													<th scope="col">#</th>
 													<th scope="col">Ảnh</th>
 													<th scope="col">Tên thú cưng</th>
 													<th scope="col">Giống thú</th>
-													<!-- <th scope="col">Màu lông</th> -->
-													<!-- <th scope="col">Màu mắt</th> -->
+													<!--                           <th scope="col">Màu lông</th> -->
+													<!--                           <th scope="col">Màu mắt</th> -->
 													<th scope="col">Tuổi</th>
 													<th scope="col">Giá</th>
 													<th scope="col">Giá cọc</th>
@@ -291,19 +345,20 @@
 
 												<tbody>
 													<tr>
-														<th scope="row" class="td-center" style="padding-top: 2.5%;">${product.id }</th>
-														<td>
-															<img class="img-fluid" src="${product.getImgs().get(0).getImgAvartar() }" alt="" style="max-width: 70px; max-height: 70px;">
-														</td>
+														<th scope="row" class="td-center"
+															style="padding-top: 2.5%;">${product.id }</th>
+														<td><img class="img-fluid"
+															src="${product.getImgs().get(0).getImgAvartar() }"
+															alt="" style="max-width: 70px; max-height: 70px;"></td>
 														<td class="td-center" style="padding-top: 2.5%;">
 															<div onclick="showFormUpdate(true, ${product.id})">${product.petName }</div>				
 														</td>
 														<td class="td-center" style="padding-top: 2.5%;">
-															<span hidden="true" >${product.getSpecies().getId() }</span>
-															${product.getSpecies().getName() }
+														<span hidden="true" >${product.getSpecies().getId() }</span>
+														${product.getSpecies().getName() }
 														</td>
-														<!--<td class="td-center" style="padding-top: 2.5%;">Xám trắng</td>-->
-														<!--<td class="td-center" style="padding-top: 2.5%;">Xanh dương</td>-->
+														<!--                           <td class="td-center" style="padding-top: 2.5%;">Xám trắng</td> -->
+														<!--                           <td class="td-center" style="padding-top: 2.5%;">Xanh dương</td> -->
 														<td class="td-center" style="padding-top: 2.5%;">${product.age }</td>
 														<td class="td-center" style="padding-top: 2.5%;">${product.getDisplayPrice(1) }</td>
 														<td class="td-center" style="padding-top: 2.5%;">${product.getDisplayDeposit() }</td>
@@ -312,9 +367,11 @@
 														<td class="td-center" style="padding-top: 2.5%;">${product.status}</td>
 														<td class="td-center" style="padding-top: 2.5%;" hidden="true">${product.description}</td>
 														<td class="td-center" style="padding-top: 2%;">
-															<form action="admin/ProductManagement/${action }" method="post">
+															<form action="admin/ProductManagement/${action }"
+																method="post">
 																<input type='hidden' name='idthu' value='${product.id }'>
-																<button type="submit" class="btn btn-custon-rounded-three btn-danger">${nameButton2 }</button>
+																<button type="submit"
+																	class="btn btn-custon-rounded-three btn-danger">${nameButton2 }</button>
 															</form>
 														</td>
 													</tr>
@@ -332,21 +389,14 @@
 											<div class="pagination-main">
 												<nav aria-label="Page navigation example">
 													<ul class="pagination">
-														<li class="page-item">
-															<a class="page-link" href="javascript:" aria-label="Previous"> 
-															<span aria-hidden="true">&laquo;</span>
+														<li class="page-item"><a class="page-link" href="javascript:"
+															aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 														</a></li>
-														<li class="page-item">
-															<a class="page-link" href="javascript:">1</a>
-														</li>
-														<li class="page-item">
-															<a class="page-link" href="javascript:">2</a>
-														</li>
-														<li class="page-item">
-															<a class="page-link" href="javascript:" aria-label="Next"> 
-															<span aria-hidden="true">&raquo;</span>
-															</a>
-														</li>
+														<li class="page-item"><a class="page-link" href="javascript:">1</a></li>
+														<li class="page-item"><a class="page-link" href="javascript:">2</a></li>
+														<li class="page-item"><a class="page-link" href="javascript:"
+															aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+														</a></li>
 													</ul>
 												</nav>
 											</div>

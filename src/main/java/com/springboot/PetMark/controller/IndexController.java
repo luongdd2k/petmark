@@ -256,45 +256,6 @@ public class IndexController {
 		return model;
 	}
 
-//	@RequestMapping("/pet-detail2/{id}")
-//	public ModelAndView showDetail2(@PathVariable String id, HttpServletRequest httpServletRequest, Principal principal) {
-//		ModelAndView model = new ModelAndView();
-//		model.setViewName("client2/product");
-//		User loginedUser = (User) ((Authentication) principal).getPrincipal();
-//    	String username = loginedUser.getUsername();
-//		model.addObject("user", username);
-//		if (id != null) {
-//			Pet pet = petService.findById(Integer.valueOf(id));
-//			model.addObject("pet", pet);
-//			String loai = "pet";
-//			model.addObject("color",colorPetSv.findByPet(pet));
-//			model.addObject("loai", loai);
-//			model.addObject("img", imgPet.findByPet(pet));
-//		}
-//		return model;
-//	}
-//
-//	@RequestMapping("/acc-detail2/{id}")
-//	public ModelAndView showDetailAcc2(@PathVariable String id, HttpServletRequest httpServletRequest, Principal principal) {
-//		ModelAndView model = new ModelAndView();
-//		model.setViewName("client2/acc-detail");
-//		User loginedUser = (User) ((Authentication) principal).getPrincipal();
-//		if(loginedUser!=null) {
-//    	String username = loginedUser.getUsername();
-//		model.addObject("user", username);
-//		}
-//		if (id != null) {
-//			Accessories acc = accessSv.findById(Integer.valueOf(id));
-//			model.addObject("acc", acc);
-//			String loai = "acc";
-//			model.addObject("loai", loai);
-//			model.addObject("imgacc", imgAcc.findByAccessories(acc));
-//			model.addObject("colacc", colorAcc.findByAccessories(acc));
-//			model.addObject("size", size.findByAccessories(acc));
-//		}
-//		return model;
-//	}
-
 	@RequestMapping("/search")
 	public ModelAndView searchProduct(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView();
@@ -323,24 +284,6 @@ public class IndexController {
 		model.addObject("listAcc", listAcces);
 		return model;
 	}
-
-//	@RequestMapping("/search1")
-//	public ModelAndView search(HttpServletRequest request) {
-//		ModelAndView model = new ModelAndView();
-//		model.setViewName("client2/welcome");
-//		String search = request.getParameter("search");
-//		List<Pet> listPet = petService.search(search);
-//		model.addObject("list", listPet);
-//		List<Accessories> listAcces = accessSv.search(search);
-//		String result = "";
-//		if (listAcces.size() == 0) {
-//			listAcces = accessSv.findAll();
-//			result = "Không tìm thấy phụ kiện phù hợp";
-//		}
-//		model.addObject("result", result);
-//		model.addObject("listAcc", listAcces);
-//		return model;
-//	}
 
 	@RequestMapping("/show-search-acc")
 	public ModelAndView select(HttpServletRequest req, Principal principal) {

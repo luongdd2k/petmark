@@ -32,6 +32,15 @@
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet" />
 <link rel="stylesheet" href="dist/css/custom.css" />
+<style>
+#ha {
+	text-align: center;
+}
+
+#ha img {
+	width: 200px;
+}
+</style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -80,20 +89,18 @@
 								<div class="card-body">
 									<div class="row">
 									<c:forEach var="blog" items="${blog }">
-										<div class="col-3 card">
+										<div class="col-4 card">
 										<div name="image" id="image">
-													<img class="img-fluid" alt="" src="${blog.getImg() }">
+													<img alt="" src="${blog.getImg() }">
 											</div>
-											<div id="ha"><h3>${blog.getContent() }</h3></div>
-											
-												<div class="button-card">
-													<form action="admin/blog/confirm/${blog.getId()}">
-													<button class="ui green basic button" type="submit">Duyệt bài</button>
-													</form>
-													<button class="ui yellow basic button" data-toggle="modal"
-													data-target="#reasonBlock">Hủy bài</button>
-												</div>
-											
+											<div id="ha">${blog.getContent() }</div>
+											<form action="admin/blog/confirm/${blog.getId()}">
+											<div class="button-card">
+												<button class="ui green basic button" type="submit">Duyệt bài</button>
+												<button class="ui yellow basic button" data-toggle="modal"
+													data-target="#reasonBlock" onclick="form.action='admin/blog/cancel/${blog.getId()}'">Hủy bài</button>
+											</div>
+											</form>
 										</div>
 										</c:forEach>
 									</div>
@@ -121,31 +128,32 @@
 		</footer>
 
 		<!-- Modal -->
-		<div class="modal fade" id="reasonBlock" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="reasonBlock" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h3 class="modal-title" id="exampleModalLabel">Lý do hủy bài</h3>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<h5 class="modal-title" id="exampleModalLabel">Lý do hủy bài</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 					<div class="modal-body">
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="Bài có ngôn từ không phù hợp" id="ngon-tu"> 
-							<label class="form-check-label" for="defaultCheck">Bài có ngôn từ không phù hợp</label>
+							<input class="form-check-input" type="checkbox" value=""
+								id="defaultCheck1"> <label class="form-check-label"
+								for="defaultCheck1"> ABC </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="Spam" id="spam"> 
-							<label class="form-check-label" for="defaultCheck1">Spam</label>
-						</div>
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="Thích thì mình hủy thôi" id="spam"> 
-							<label class="form-check-label" for="defaultCheck1">Thích thì mình hủy thôi</label>
+							<input class="form-check-input" type="checkbox" value=""
+								id="defaultCheck1"> <label class="form-check-label"
+								for="defaultCheck1"> BCS </label>
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Đóng</button>
 						<button type="button" class="btn btn-primary">Gửi</button>
 					</div>
 				</div>
