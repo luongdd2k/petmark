@@ -326,7 +326,7 @@
     
      <!--New Section  -->
     <section class="section news" id="news">
-      <div class="container">
+      <div class="container" >
         <div class="title__container">
           <div class="section__titles">
             <div class="section__title active">
@@ -335,7 +335,7 @@
             </div>
           </div>
         </div>
-        <div class="news__container">
+        <div class="news__container" data-aos="fade-up" data-aos-duration="1200">
           <div class="glide" id="glide_5">
             <div class="glide__track" data-glide-el="track">
               <ul class="glide__slides">
@@ -346,8 +346,8 @@
                       <img class="blog-img" src="${blog.getImg() }" alt="">
                     </div>
                     <div class="card__footer">
-                      <h3>${blog.getContent() }</h3>
-                      <span>By <strong>${blog.getAccount().getUsername()}</strong></span>
+                      <h4 class="blog-content">${blog.getContent() }</h4>
+                      <span class="blog-user">Đăng bởi <strong>${blog.getAccount().getFullName()}</strong> &nbsp <span>/ Ngày: </span> <strong class="blog-date">${blog.getDateSubmitted()}</strong></span>
                     </div>
                   </div>
                 </li>
@@ -468,8 +468,8 @@
   <script src="js/index.js"></script>
   <script src="js/slider.js"></script>
   <script src="js/custom.js"></script>
+  <script src="js/blog-card.js"></script>
   <script src="js/sweat-alert.js"></script>
-
 </body>
 
 </html>

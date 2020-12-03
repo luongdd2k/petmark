@@ -28,57 +28,8 @@
   <title>Pet Mart | Tên thú cưng, phụ kiện được xem chi tiết</title>
   <base href="${pageContext.servletContext.contextPath}/">
    <link rel="stylesheet" href="css/product.css">
-  <link rel="stylesheet" href="css/styles.css" />
-  <style>
-    .buttons_added {
-      opacity:1;
-      display:inline-block;
-      display:-ms-inline-flexbox;
-      display:inline-flex;
-      white-space:nowrap;
-      vertical-align:top;
-      margin-left: 10px;
-    }
-    .is-form {
-      overflow:hidden;
-      position:relative;
-      background-color:#f9f9f9;
-      height:4rem;
-      width:4rem;
-      padding:0;
-      text-shadow:1px 1px 1px #fff;
-      border:1px solid #ddd;
-      font-size: 2rem ;
-    }
-    .is-form:focus,.input-text:focus {
-      outline:none;
-    }
-    .is-form.minus {
-      border-radius:4px 0 0 4px;
-    }
-    .is-form.plus {
-      border-radius:0 4px 4px 0;
-    }
-    .input-qty {
-      background-color:#fff;
-      height:4rem;
-      width: 4rem;
-      text-align:center;
-      font-size:1.5rem;
-      display:inline-block;
-      vertical-align:top;
-      margin:0;
-      border-top:1px solid #ddd;
-      border-bottom:1px solid #ddd;
-      border-left:0;
-      border-right:0;
-      padding:0;
-    }
-    .input-qty::-webkit-outer-spin-button,.input-qty::-webkit-inner-spin-button {
-      -webkit-appearance:none;
-      margin:0;
-    }
-  </style>
+   <link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="css/input-count.css">
 </head>
 <!--    -->
 <body>
@@ -204,9 +155,9 @@
                     <div class="input-counter">
                       <span>Số lượng: </span>
                       <div class="buttons_added">
-                        <input onclick="changePrice()" class="minus is-form" type="button" value="-">
+                        <input  class="minus is-form" type="button" value="-">
                         <input id="so-luong"  aria-label="quantity" class="input-qty" max="10" min="1" name="soLuong" type="number" value="1">
-                        <input onclick="changePrice()" class="plus is-form" type="button" value="+">
+                        <input  class="plus is-form" type="button" value="+">
                       </div>
                     </div>
                   </li>
@@ -499,29 +450,9 @@
   <script src="js/slider.js"></script>
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/custom.js"></script>
+  <script src="js/image-detail.js"></script>
   <script type="text/javascript">
-    function getUrl(url){
-      document.getElementById("pic").src = url;
-    };
-
-    $('input.input-qty').each(function() {
-      var $this = $(this),
-              qty = $this.parent().find('.is-form'),
-              min = Number($this.attr('min')),
-              max = Number($this.attr('max'))
-      if (min == 0) {
-        var d = 0
-      } else d = min
-      $(qty).on('click', function() {
-        if ($(this).hasClass('minus')) {
-          if (d > min) d += -1
-        } else if ($(this).hasClass('plus')) {
-          var x = Number($this.val()) + 1
-          if (x <= max) d += 1
-        }
-        $this.attr('value', d).val(d)
-      })
-    });
+    
   </script>
 </body>
 
