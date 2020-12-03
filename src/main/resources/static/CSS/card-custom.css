@@ -1,0 +1,19 @@
+@charset "ISO-8859-1";
+
+.card__header{
+	text-align: center;
+}
+.new__card{
+	max-width: 80%;
+	background-color: white; 
+	border: 1px solid rgb(205, 209, 209);
+	border-radius: 5%;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.blog-img{
+	border-radius: 20%;
+	max-width: 90%;
+}
+.glide__slide-blog{
+	width: 400px;
+}

@@ -70,9 +70,9 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                   <div class="table-responsive-xl main-table" style="max-width:1000px;">
-                    <table class="table" style="margin-bottom: -1%;">
-                      <thead class="thead-light">
-                        <tr>
+                    <table class="table table-hover" style="margin-bottom: -1%;">
+                      <thead>
+                        <tr class="bg-info">
                           <th scope="col">Mã đơn cọc</th>
                           <th scope="col">Ngày đặt cọc</th>
                           <th scope="col">Thú cưng</th>
@@ -82,12 +82,14 @@
                       </thead>
                       <c:forEach var="list" items="${list }">
                       <tbody>
-                        <tr>
-                          <td class="td-center" style="padding-top: 2%;"><a href="admin/deposit/deposit-detail/${list.getId() }">${list.getId()}</a></td>
-                          <td class="td-center" style="padding-top: 2%;">${list.getDate() }</td>
-                          <td class="td-center" style="padding-top: 2%;">${list.getPet().getPetName() }</td>
-                          <td class="td-center" style="padding-top: 2%;">${list.getPet().getDisplayPrice(1) }</td>
-                          <td class="td-center" style="padding-top: 2%;">${list.getDisplayTotalAmount(1) }</td>
+                        <tr class="table-info">
+                          <td class="td-center td-id">
+                          	<a class="id" href="admin/deposit/deposit-detail/${list.getId() }">${list.getId()}</a>
+                          	</td>
+                          <td class="td-center">${list.getDate() }</td>
+                          <td class="td-center">${list.getPet().getPetName() }</td>
+                          <td class="td-center">${list.getPet().getDisplayPrice(1) }</td>
+                          <td class="td-center">${list.getDisplayTotalAmount(1) }</td>
                         </tr>
                       </tbody>
                       </c:forEach>

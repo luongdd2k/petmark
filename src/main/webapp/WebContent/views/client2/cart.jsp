@@ -15,8 +15,7 @@
 
     <!-- Carousel -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css" />
-    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css" />
+   
 
     <!-- Animate On Scroll -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -257,39 +256,15 @@
     </a>
 
     <!-- Glide Carousel Script -->
-    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Animate On Scroll -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- import Vue before Element -->
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <!-- import JavaScript -->
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
     <!-- Custom JavaScript -->
-    
+    <script src="js/custom.js"></script>
     <script src="js/index.js"></script>
     <script src="js/slider.js"></script>
-    <script>
-        $(function(){
-           let a = $('#test').val();
-           console.log(a);
-        })
-        new Vue({
-          el: '#cart-vue',
-          data: function() {
-            return {
-                num: 1
-            };
-          },
-            methods: {
-             handleChange(value) {
-                console.log(value)
-            }
-        }
-        })
-      </script>
 </body>
 
 </html>

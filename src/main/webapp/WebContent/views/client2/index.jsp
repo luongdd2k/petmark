@@ -22,6 +22,7 @@
 
   <!-- Custom StyleSheet -->
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/card-custom.css" />
 
   <title>Pet Mart | Cửa hàng thú cưng và phụ kiện cho thú cưng</title>
   <base href="${pageContext.servletContext.contextPath}/">
@@ -29,56 +30,6 @@
 
 <body>
 <%@ include file="/WebContent/views/header_nav.jsp" %>
-    <!-- Hero -->
-<!--     <div class="hero"> -->
-<!--       <div class="glide" id="glide_1"> -->
-<!--         <div class="glide__track" data-glide-el="track"> -->
-<!--           <ul class="glide__slides"> -->
-<!--             <li class="glide__slide glide__slide1"> -->
-<!--               <div class="hero__center"> -->
-<!--                 <div class="hero__left"> -->
-<!--                   <p>Nhập khẩu, nhân giống thú cưng</p> -->
-<!--                   <h1 class="">THUẦN CHỦNG</h1> -->
-<!--                 </div> -->
-<!--                 <div class="hero__right"> -->
-<!--                   <div class="hero__img-container"> -->
-<!--                     <img class="banner_01" src="images/banner/banner-1.png" alt="banner2" /> -->
-<!--                   </div>  -->
-<!--                 </div> -->
-<!--               </div> -->
-<!--             </li> -->
-<!--             <li class="glide__slide glide__slide2"> -->
-<!--               <div class="hero__center"> -->
-<!--                 <div class="hero__left"> -->
-<!--                   <h1>PHONES MADE FOR YOU!</h1> -->
-<!--                   <p>Trending from mobile and headphone style collection</p> -->
-<!--                 </div> -->
-<!--                 <div class="hero__right"> -->
-<!--                   <img class="banner_02" src="./images/banner_02.png" alt="banner2" /> -->
-<!--                 </div> -->
-<!--               </div> -->
-<!--             </li> -->
-<!--           </ul> -->
-<!--         </div> -->
-<!--         <div class="glide__bullets" data-glide-el="controls[nav]"> -->
-<!--           <button class="glide__bullet" data-glide-dir="=0"></button> -->
-<!--           <button class="glide__bullet" data-glide-dir="=1"></button> -->
-<!--         </div> -->
-
-<!--         <div class="glide__arrows" data-glide-el="controls"> -->
-<%--           <button class="glide__arrow glide__arrow--left" data-glide-dir="<"> --%>
-<!--             <svg> -->
-<!--               <use xlink:href="./images/sprite.svg#icon-arrow-left2"></use> -->
-<!--             </svg> -->
-<!--           </button> -->
-<!--           <button class="glide__arrow glide__arrow--right" data-glide-dir=">"> -->
-<!--             <svg> -->
-<!--               <use xlink:href="./images/sprite.svg#icon-arrow-right2"></use> -->
-<!--             </svg> -->
-<!--           </button> -->
-<!--         </div> -->
-<!--       </div> -->
-<!--     </div> -->
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 		  <ol class="carousel-indicators">
 		    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -389,71 +340,18 @@
             <div class="glide__track" data-glide-el="track">
               <ul class="glide__slides">
               <c:forEach var="blog" items="${blog }">
-                <li class="glide__slide">
+                <li class="glide__slide glide__slide-blog">
                   <div class="new__card">
                     <div class="card__header">
-                      <img src="${blog.getImg() }" alt="">
+                      <img class="blog-img" src="${blog.getImg() }" alt="">
                     </div>
                     <div class="card__footer">
-                      <h3>Styling White Shirts After A Cool Day</h3>
-                      <span>By <strong>Admin</strong></span>
-                      <p>${blog.getContent() }</p>
+                      <h3>${blog.getContent() }</h3>
+                      <span>By <strong>${blog.getAccount().getUsername()}</strong></span>
                     </div>
                   </div>
                 </li>
                 </c:forEach>
-                <li class="glide__slide">
-                  <div class="new__card">
-                    <div class="card__header">
-                      <img src="./images/news2.jpg" alt="">
-                    </div>
-                    <div class="card__footer">
-                      <h3>Styling White Shirts After A Cool Day</h3>
-                      <span>By <strong>Admin</strong></span>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium, numquam non
-                        provident rem sed minus natus unde vel modi!</p>
-                    </div>
-                  </div>
-                </li>
-                <li class="glide__slide">
-                  <div class="new__card">
-                    <div class="card__header">
-                      <img src="./images/news3.jpg" alt="">
-                    </div>
-                    <div class="card__footer">
-                      <h3>Styling White Shirts After A Cool Day</h3>
-                      <span>By <strong>Admin</strong></span>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium, numquam non
-                        provident rem sed minus natus unde vel modi!</p>
-                    </div>
-                  </div>
-                </li>
-                <li class="glide__slide">
-                  <div class="new__card">
-                    <div class="card__header">
-                      <img src="./images/news4.jpg" alt="">
-                    </div>
-                    <div class="card__footer">
-                      <h3>Styling White Shirts After A Cool Day</h3>
-                      <span>By <strong>Admin</strong></span>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium, numquam non
-                        provident rem sed minus natus unde vel modi!</p>
-                    </div>
-                  </div>
-                </li>
-                <li class="glide__slide">
-                  <div class="new__card">
-                    <div class="card__header">
-                      <img src="./images/news5.jpg" alt="">
-                    </div>
-                    <div class="card__footer">
-                      <h3>Styling White Shirts After A Cool Day</h3>
-                      <span>By <strong>Admin</strong></span>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium, numquam non
-                        provident rem sed minus natus unde vel modi!</p>
-                    </div>
-                  </div>
-                </li>
               </ul>
             </div>
           </div>
