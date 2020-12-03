@@ -66,7 +66,7 @@ public String cancelBlog(Principal principal,HttpServletRequest req) {
 	try {
 		MimeMessage message = new MimeMessage(session);
 		message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-		message.setSubject("Thông báo huỷ bài viết từ PetMark");
+		message.setSubject("Thông báo không duyệt bài đăng từ PetMark");
 		String liDo1 ="";
 		for(int i=0;i<liDo.length;i++) {
 		liDo1 +="-"+ liDo[i] +". \n";
