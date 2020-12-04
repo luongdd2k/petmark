@@ -12,7 +12,7 @@
   } else if (typeof exports === 'object') {
     module.exports = factory(require('jquery'));
   } else {
-    factory(jQuery);
+    factory;
   }
 }(function ($) {
   'use strict';

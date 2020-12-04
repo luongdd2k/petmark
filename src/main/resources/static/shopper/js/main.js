@@ -1838,7 +1838,7 @@
                 return (cls.match(new RegExp('\\b' + re + '', 'g')) || []).join(' ');
             });
         };
-    })(jQuery);
+    });
 
     function ttFilterLayout(ttwindowWidth){
 
@@ -3030,7 +3030,7 @@
         ]);
 
     };
-})(jQuery);
+});
 
 /*!
  * jQuery Cookie Plugin v1.4.1
@@ -3045,7 +3045,7 @@
   } else if (typeof exports === 'object') {
     module.exports = factory(require('jquery'));
   } else {
-    factory(jQuery);
+    factory;
   }
 }(function ($) {
 

@@ -25,12 +25,12 @@
                     jQuery = require('jquery')(root);
                 }
             }
-            factory(jQuery);
+            factory;
             return jQuery;
         };
     } else {
         // Browser globals
-        factory(jQuery);
+        factory;
     }
 }(function($) {
 

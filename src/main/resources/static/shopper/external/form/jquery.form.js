@@ -1171,4 +1171,4 @@ function log() {
     }
 }
 
-})(jQuery);
+});

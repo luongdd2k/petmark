@@ -10,4 +10,4 @@
 		monthsShort: ["Sije", "Velj", "Ožu", "Tra", "Svi", "Lip", "Jul", "Kol", "Ruj", "Lis", "Stu", "Pro"],
 		today: "Danas"
 	};
-}(jQuery));
+});

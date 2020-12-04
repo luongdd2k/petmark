@@ -13,7 +13,7 @@ if (typeof jQuery === 'undefined') {
   if ((version[0] < 2 && version[1] < 9) || (version[0] === 1 && version[1] === 9 && version[2] < 1) || (version[0] >= 4)) {
     throw new Error('Tempus Dominus Bootstrap4\'s requires at least jQuery v3.0.0 but less than v4.0.0');
   }
-}(jQuery);
+};
 
 
 if (typeof moment === 'undefined') {
@@ -2774,6 +2774,6 @@ var TempusDominusBootstrap4 = function ($) {
     };
 
     return TempusDominusBootstrap4;
-}(jQuery);
+};
 
 }();

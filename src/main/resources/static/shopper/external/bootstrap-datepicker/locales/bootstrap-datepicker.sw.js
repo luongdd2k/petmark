@@ -12,4 +12,4 @@
         monthsShort: ["Jan", "Feb", "Mac", "Apr", "Mei", "Jun", "Jul", "Ago", "Sep", "Okt", "Nov", "Des"],
         today: "Leo"
     };
-}(jQuery));
+});

@@ -12,4 +12,4 @@
 		today: "Aujourd'hui",
 		weekStart: 1
 	};
-}(jQuery));
+});

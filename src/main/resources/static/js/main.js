@@ -703,6 +703,6 @@
         resizeHeader()
     });
 
-})(jQuery);
+});
 
 //# sourceMappingURL=main.js.map

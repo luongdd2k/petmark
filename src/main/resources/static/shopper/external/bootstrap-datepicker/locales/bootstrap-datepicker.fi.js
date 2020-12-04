@@ -11,4 +11,4 @@
 		monthsShort: ["tam", "hel", "maa", "huh", "tou", "kes", "hei", "elo", "syy", "lok", "mar", "jou"],
 		today: "tänään"
 	};
-}(jQuery));
+});

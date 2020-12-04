@@ -13,4 +13,4 @@
         today: "Šodien",
         weekStart: 1
     };
-}(jQuery));
+});

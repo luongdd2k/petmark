@@ -12,4 +12,4 @@
 		monthsShort: ["Jan", "Feb", "Mar", "Apr", "Máj", "Jún", "Júl", "Aug", "Sep", "Okt", "Nov", "Dec"],
 		today: "Dnes"
 	};
-}(jQuery));
+});

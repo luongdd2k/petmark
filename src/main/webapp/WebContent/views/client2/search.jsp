@@ -115,12 +115,6 @@
 	<main id="main">
 		<div class="container">
 			<div class="main-container _2usMPO">
-
-
-
-
-
-
 				<form action="loc" method="post">
 					<div class="userpage-sidebar">
 						<div class="div-left">
@@ -147,7 +141,7 @@
 							</div>
 							<div class="block">
 								<h4 class="title">Màu sắc</h4>
-								<select id="inputState" class="form-control" name="mau">
+								<select id="mau" class="form-control" name="mau">
 									<option selected value="">Tất cả màu sắc</option>
 									<c:forEach var="color" items="${color }">
 										<option value="${color }">${color }</option>
@@ -156,7 +150,7 @@
 							</div>
 							<div class="block">
 								<h4 class="title">Kích cỡ</h4>
-								<select id="inputState" class="form-control" name="kichCo">
+								<select id="kichCo" class="form-control" name="kichCo">
 									<option selected value="">Tất cả kích cỡ</option>
 									<c:forEach var="size" items="${size }">
 										<option value="${size }">${size }</option>
@@ -168,11 +162,6 @@
 						</div>
 					</div>
 				</form>
-
-
-
-
-
 				<div class="lm_m-4 fYDhGF">
 					<div class="inner">
 						<div class="search-summary">
@@ -272,98 +261,11 @@
 			</div>
 		</div>
 		<!-- Facility Section -->
-		<section class="facility__section section" id="facility">
-			<div class="container">
-				<div class="facility__contianer">
-					<div class="facility__box">
-						<div class="facility-img__container">
-							<svg>
-                <use xlink:href="images/sprite.svg#icon-airplane"></use>
-              </svg>
-						</div>
-						<p>VẬN CHUYỂN KHU VỰC HÀ NỘI</p>
-					</div>
-
-					<div class="facility__box">
-						<div class="facility-img__container">
-							<svg>
-                <use xlink:href="images/sprite.svg#icon-credit-card-alt"></use>
-              </svg>
-						</div>
-						<p>HOÀN TIỀN 100%</p>
-					</div>
-
-					<div class="facility__box">
-						<div class="facility-img__container">
-							<svg>
-                <use xlink:href="images/sprite.svg#icon-credit-card"></use>
-              </svg>
-						</div>
-						<p>NHIỀU ƯU ĐÃI LỠN</p>
-					</div>
-
-					<div class="facility__box">
-						<div class="facility-img__container">
-							<svg>
-                <use xlink:href="images/sprite.svg#icon-headphones"></use>
-              </svg>
-						</div>
-						<p>CHĂM SÓC TẬN TÌNH</p>
-					</div>
-				</div>
-			</div>
-		</section>
+		<%@ include file="/WebContent/views/section-facility.jsp" %>
 	</main>
 
 	<!-- Footer -->
-	<footer id="footer" class="section footer"
-		style="background-image: url(images/Footer-Background-Image.png)">
-		<div class="container">
-			<div class="footer__top">
-				<div class="footer-top__box">
-					<h3>SẢN PHẨM</h3>
-					<a href="#">Chó</a> <a href="#">Mèo</a> <a href="#">Phụ kiện</a>
-				</div>
-				<div class="footer-top__box">
-					<h3>THÔNG TIN</h3>
-					<a href="#">Về chúng tôi</a> <a href="#">Chính Sách Bảo Mật</a> <a
-						href="#">Điều khoản và Điều kiện</a> <a href="#">Liên hệ</a>
-				</div>
-				<div class="footer-top__box">
-					<h3>TÀI KHOẢN CỦA TÔI</h3>
-					<a href="#">Thông tin tài khoản</a> <a href="#">Danh sách đơn
-						hàng</a>
-				</div>
-				<div class="footer-top__box">
-					<h3>LIÊN HỆ</h3>
-					<div>
-						<span> <svg>
-                <use xlink:href="images/sprite.svg#icon-location"></use>
-              </svg>
-						</span> 206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội
-					</div>
-					<div>
-						<span> <svg>
-                <use xlink:href="images/sprite.svg#icon-envelop"></use>
-              </svg>
-						</span> petmart.support@gmail.com
-					</div>
-					<div>
-						<span> <svg>
-                <use xlink:href="images/sprite.svg#icon-phone"></use>
-              </svg>
-						</span> (+84) 386768658
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer__bottom">
-			<div class="footer-bottom__box"></div>
-			<div class="footer-bottom__box"></div>
-		</div>
-		</div>
-	</footer>
-
+	<%@ include file="/WebContent/views/footer_client.jsp" %>
 	<!-- End Footer -->
 
 	<!-- Go To -->

@@ -6258,7 +6258,7 @@
 		var moveThumbSliderToPosition = function($this,pos,speed) {
 			punchgs.TweenLite.to($this.find('.tp-thumbcontainer'),0.2,{force3D:"auto",left:pos,ease:punchgs.Power3.easeOut,overwrite:"auto"});
 		}
-})(jQuery);
+});
 
 
 

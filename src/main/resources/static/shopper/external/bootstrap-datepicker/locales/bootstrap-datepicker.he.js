@@ -12,4 +12,4 @@
       today: "היום",
       rtl: true
   };
-}(jQuery));
+});

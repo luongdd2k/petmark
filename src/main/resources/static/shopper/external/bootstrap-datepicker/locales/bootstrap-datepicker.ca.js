@@ -11,4 +11,4 @@
 		monthsShort: ["Gen", "Feb", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Oct", "Nov", "Des"],
 		today: "Avui"
 	};
-}(jQuery));
+});

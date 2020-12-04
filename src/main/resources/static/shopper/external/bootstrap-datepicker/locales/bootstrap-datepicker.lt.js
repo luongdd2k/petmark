@@ -13,4 +13,4 @@
         today: "Šiandien",
         weekStart: 1
     };
-}(jQuery));
+});

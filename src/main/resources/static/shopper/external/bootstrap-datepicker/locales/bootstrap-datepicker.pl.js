@@ -12,4 +12,4 @@
                 today: "Dzisiaj",
                 weekStart: 1
         };
-}(jQuery));
+});

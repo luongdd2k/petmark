@@ -24,14 +24,14 @@
           jQuery = require('jquery')(root);
         }
       }
-      factory(jQuery);
+      factory;
       return jQuery;
     };
   } else {
     // Browser globals
-    factory(jQuery);
+    factory;
   }
-} (function (jQuery) {
+} (function  {
   // This is needed so we can catch the AMD loader configuration and use it
   // The inner file should be wrapped (by `banner.start.js`) in a function that
   // returns the AMD loader references.
@@ -6166,7 +6166,7 @@ S2.define('select2/selection/stopPropagation',[
         module.exports = factory;
     } else {
         // Browser globals
-        factory(jQuery);
+        factory;
     }
 }(function ($) {
 

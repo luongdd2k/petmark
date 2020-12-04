@@ -222,7 +222,7 @@ return /******/ (function(modules) { // webpackBootstrap
       }
     }
   });
-})(jQuery);
+});
 
 /***/ })
 

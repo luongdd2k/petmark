@@ -15,8 +15,8 @@
 
     <!-- Carousel -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css" />
-    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css" />
 
     <!-- Animate On Scroll -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -141,112 +141,12 @@
     </section>
 
         <!-- Facility Section -->
-    <section class="facility__section section" id="facility">
-        <div class="container">
-          <div class="facility__contianer">
-            <div class="facility__box">
-              <div class="facility-img__container">
-                <svg>
-                  <use xlink:href="images/sprite.svg#icon-airplane"></use>
-                </svg>
-              </div>
-              <p>VẬN CHUYỂN KHU VỰC HÀ NỘI</p>
-            </div>
-  
-            <div class="facility__box">
-              <div class="facility-img__container">
-                <svg>
-                  <use xlink:href="images/sprite.svg#icon-credit-card-alt"></use>
-                </svg>
-              </div>
-              <p>HOÀN TIỀN 100%</p>
-            </div>
-  
-            <div class="facility__box">
-              <div class="facility-img__container">
-                <svg>
-                  <use xlink:href="images/sprite.svg#icon-credit-card"></use>
-                </svg>
-              </div>
-              <p>NHIỀU ƯU ĐÃI LỠN</p>
-            </div>
-  
-            <div class="facility__box">
-              <div class="facility-img__container">
-                <svg>
-                  <use xlink:href="images/sprite.svg#icon-headphones"></use>
-                </svg>
-              </div>
-              <p>CHĂM SÓC TẬN TÌNH</p>
-            </div>
-          </div>
-        </div>
-      </section>
+        <%@ include file="/WebContent/views/section-facility.jsp" %>
     </main>
 
     <!-- Footer -->
- <footer id="footer" class="section footer" style="background-image: url(images/Footer-Background-Image.png)">
-    <div class="container">
-      <div class="footer__top">
-        <div class="footer-top__box">
-          <h3>SẢN PHẨM</h3>
-          <a href="javascript:">Chó</a>
-          <a href="javascript:">Mèo</a>
-          <a href="javascript:">Phụ kiện</a>
-        </div>
-        <div class="footer-top__box">
-          <h3>THÔNG TIN</h3>
-          <a href="javascript:">Về chúng tôi</a>
-          <a href="javascript:">Chính Sách Bảo Mật</a>
-          <a href="javascript:">Điều khoản và Điều kiện</a>
-          <a href="javascript:">Liên hệ</a>
-        </div>
-        <div class="footer-top__box">
-          <h3>TÀI KHOẢN CỦA TÔI</h3>
-          <a href="javascript:">Thông tin tài khoản</a>
-          <a href="javascript:">Danh sách đơn hàng</a>
-        </div>
-        <div class="footer-top__box">
-          <h3>LIÊN HỆ</h3>
-          <div>
-            <span>
-              <svg>
-                <use xlink:href="images/sprite.svg#icon-location"></use>
-              </svg>
-            </span>
-            206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội
-          </div>
-          <div>
-            <span>
-              <svg>
-                <use xlink:href="images/sprite.svg#icon-envelop"></use>
-              </svg>
-            </span>
-            petmart.support@gmail.com
-          </div>
-          <div>
-            <span>
-              <svg>
-                <use xlink:href="images/sprite.svg#icon-phone"></use>
-              </svg>
-            </span>
-            (+84) 386768658
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <div class="footer-bottom__box">
-  
-      </div>
-      <div class="footer-bottom__box">
-  
-      </div>
-    </div>
-    </div>
-  </footer>
-  
-  <!-- End Footer -->
+    <%@ include file="/WebContent/views/footer_client.jsp" %>
+    <!-- End Footer -->
 
     <!-- Go To -->
 
@@ -257,13 +157,11 @@
     </a>
 
     <!-- Glide Carousel Script -->
-    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
+<%--    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>--%>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Animate On Scroll -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- import Vue before Element -->
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <!-- import JavaScript -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
@@ -272,23 +170,6 @@
     <script src="js/index.js"></script>
     <script src="js/slider.js"></script>
     <script>
-        $(function(){
-           let a = $('#test').val();
-           console.log(a);
-        })
-        new Vue({
-          el: '#cart-vue',
-          data: function() {
-            return {
-                num: 1
-            };
-          },
-            methods: {
-             handleChange(value) {
-                console.log(value)
-            }
-        }
-        })
       </script>
 </body>
 

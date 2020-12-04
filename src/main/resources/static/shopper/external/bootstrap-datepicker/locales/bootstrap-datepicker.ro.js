@@ -12,4 +12,4 @@
 		today: "Astăzi",
 		weekStart: 1
 	};
-}(jQuery));
+});

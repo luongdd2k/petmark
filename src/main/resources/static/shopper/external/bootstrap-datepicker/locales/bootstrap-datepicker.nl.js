@@ -11,4 +11,4 @@
 		monthsShort: ["Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"],
 		today: "Vandaag"
 	};
-}(jQuery));
+});

@@ -12,4 +12,4 @@
 		monthsShort: ["Led", "Úno", "Bře", "Dub", "Kvě", "Čer", "Čnc", "Srp", "Zář", "Říj", "Lis", "Pro"],
 		today: "Dnes"
 	};
-}(jQuery));
+});

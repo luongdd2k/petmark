@@ -13,7 +13,7 @@ if (typeof jQuery === 'undefined') {
   if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] >= 4)) {
     throw new Error('Bootstrap\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0')
   }
-})(jQuery);
+});
 
 (function () {
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -176,7 +176,7 @@ var Util = function ($) {
   setTransitionEndSupport();
 
   return Util;
-}(jQuery);
+};
 
 /**
  * --------------------------------------------------------------------------
@@ -355,7 +355,7 @@ var Alert = function ($) {
   };
 
   return Alert;
-}(jQuery);
+};
 
 /**
  * --------------------------------------------------------------------------
@@ -525,7 +525,7 @@ var Button = function ($) {
   };
 
   return Button;
-}(jQuery);
+};
 
 /**
  * --------------------------------------------------------------------------
@@ -1032,7 +1032,7 @@ var Carousel = function ($) {
   };
 
   return Carousel;
-}(jQuery);
+};
 
 /**
  * --------------------------------------------------------------------------
@@ -1393,7 +1393,7 @@ var Collapse = function ($) {
   };
 
   return Collapse;
-}(jQuery);
+};
 
 /* global Popper */
 
@@ -1820,7 +1820,7 @@ var Dropdown = function ($) {
   };
 
   return Dropdown;
-}(jQuery);
+};
 
 /**
  * --------------------------------------------------------------------------
@@ -2391,7 +2391,7 @@ var Modal = function ($) {
   };
 
   return Modal;
-}(jQuery);
+};
 
 /**
  * --------------------------------------------------------------------------
@@ -2705,7 +2705,7 @@ var ScrollSpy = function ($) {
   };
 
   return ScrollSpy;
-}(jQuery);
+};
 
 /**
  * --------------------------------------------------------------------------
@@ -2955,7 +2955,7 @@ var Tab = function ($) {
   };
 
   return Tab;
-}(jQuery);
+};
 
 /* global Popper */
 
@@ -3630,7 +3630,7 @@ var Tooltip = function ($) {
   };
 
   return Tooltip;
-}(jQuery);
+};
 
 /**
  * --------------------------------------------------------------------------
@@ -3825,7 +3825,7 @@ var Popover = function ($) {
   };
 
   return Popover;
-}(jQuery);
+};
 
 
 })();

@@ -57,7 +57,7 @@
             </form>
         </div>
     </div>
-	<script type="text/javascript" src="js-new/main.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 	<script>
 		const inputs = document.querySelectorAll(".input");
   
@@ -78,6 +78,6 @@
 		  input.addEventListener("blur", remcl);
 		});
 	  </script>
-	  <script type="text/javascript" src="Script/index.js"></script>
+<%--	  <script type="text/javascript" src="Script/index.js"></script>--%>
 </body>
 </html>
