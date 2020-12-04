@@ -9,21 +9,11 @@
 	border: 1px solid rgb(205, 209, 209);
 	border-radius: 5%;
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-	height: 450px;
-	max-height: 600px;
 }
 .blog-img{
-	margin-top: 10px;
-	border-radius: 5%;
-	max-width: 300px;
-	max-height: 300px;
+	border-radius: 20%;
+	max-width: 90%;
 }
 .glide__slide-blog{
 	width: 400px;
-}
-.blog-content{
-	font-size: 17px;
-}
-.blog-user{
-	font-size: 13px;
 }

@@ -258,7 +258,7 @@
 
 											<form action="addBlog" method="POST" name="form-example-1" id="form-example-1" enctype="multipart/form-data">
 											    <div class="input-field">
-											        <input type="text" name="content" id="description-1">
+											        <input type="text" name="description-1" id="description-1">
 											        <label class="label" for="description-1">Nhận xét</label>
 											    </div>
 											

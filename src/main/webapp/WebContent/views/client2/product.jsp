@@ -17,35 +17,41 @@
 	rel="stylesheet" />
 
 <!-- Carousel -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css ">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css
+">
 <!-- Animate On Scroll -->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
 <title>Pet Mart | Tên thú cưng, phụ kiện được xem chi tiết</title>
 <base href="${pageContext.servletContext.contextPath}/">
 <link rel="stylesheet" href="css/product.css" />
 <link rel="stylesheet" href="css/styles.css" />
-<link rel="stylesheet" href="css/input-count.css">
 </head>
+
 <body>
 	<%@ include file="/WebContent/views/header_nav.jsp" %>
 	<div class="page__title-area">
 			<div class="container">
 				<div class="page__title-container">
 					<ul class="page__titles">
-						<li>
-							<a href="/"> 
-								<svg>
-                  					<use xlink:href="images/sprite.svg#icon-home"></use>
-               					</svg>
-							</a>
-						</li>
+						<li><a href="/"> <svg>
+                  <use xlink:href="images/sprite.svg#icon-home"></use>
+                </svg>
+						</a></li>
 						<li class="page__title">${pet.getPetName() }</li>
 					</ul>
 				</div>
 			</div>
 		</div>
+
 	<main id="main">
 		<div class="container">
 			<!-- Products Details -->
@@ -56,19 +62,19 @@
 							<div class="details__container--left">
 								<div class="product__pictures">
 									<div class="pictures__container">
-										<img  onclick="getUrl(this.src)" class="picture" src="${img.getImg1() }" id="pic1" />
+										<img class="picture" src="${img.getImg1() }" id="pic1" />
 									</div>
 									<div class="pictures__container">
-										<img onclick="getUrl(this.src)" class="picture" src="${img.getImg2() }" id="pic2" />
+										<img class="picture" src="${img.getImg2() }" id="pic2" />
 									</div>
 									<div class="pictures__container">
-										<img onclick="getUrl(this.src)" class="picture" src="${img.getImg3() }" id="pic3" />
+										<img class="picture" src="${img.getImg3() }" id="pic3" />
 									</div>
 									<div class="pictures__container">
-										<img onclick="getUrl(this.src)" class="picture" src="${img.getImg1() }" id="pic4" />
+										<img class="picture" src="${img.getImg1() }" id="pic4" />
 									</div>
 									<div class="pictures__container">
-										<img onclick="getUrl(this.src)" class="picture" src="${img.getImg3() }" id="pic5" />
+										<img class="picture" src="${img.getImg3() }" id="pic5" />
 									</div>
 								</div>
 								<div class="product__picture" id="product__picture">
@@ -79,20 +85,19 @@
 								</div>
 								<div class="zoom" id="zoom"></div>
 							</div>
-							<div id="cho" class="product-details__btn product-details__btn_pet">
-							<button id="cho" type="submit" class="product-details__btn product-details__btn_pet buy">
-								
-									<span> 
-										<svg> 
-											<use xlink:href="images/sprite.svg#icon-credit-card"></use> 
-										</svg>
-									</span> 
-									ĐẶT CỌC NGAY
+							<div id="cho" class="product-details__btn product-details__btn_pet hide">
+							<button id="cho" type="submit"
+								class="product-details__btn product-details__btn_pet hide">
+								<a class="buy" > <span> <svg>
+                    <use xlink:href="images/sprite.svg#icon-credit-card"></use>
+                  </svg>
+								</span> ĐẶT CỌC NGAY
+								</a>
 							</button>
-							</div>
+						</div>
 						</div>
 
-						<div class="product-detail__right">
+						<div id="phu-kien" class="product-detail__right">
 							<div class="product-detail__content">
 								<h3>${pet.getPetName() }</h3>
 								<div class="price">
@@ -101,20 +106,20 @@
 								<div class="product__review">
 									<div class="rating">
 										<svg>
-						                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
-						                </svg>
+                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
+                  </svg>
 										<svg>
-						                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
-						                </svg>
+                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
+                  </svg>
 										<svg>
-						                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
-						                </svg>
+                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
+                  </svg>
 										<svg>
-						                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
-						                </svg>
+                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
+                  </svg>
 										<svg>
-						                    <use xlink:href="images/sprite.svg#icon-star-empty"></use>
-						                </svg>
+                    <use xlink:href="images/sprite.svg#icon-star-empty"></use>
+                  </svg>
 									</div>
 									<a href="#description" class="rating__quatity">3 nhận xét</a>
 								</div>
@@ -122,40 +127,127 @@
 									<ul class="product__info">
 										<li class="select">
 											<div class="select__option">
-												<label for="colors">Màu lông - Màu mắt: </label> 
-												<select name="colors" id="colors" class="select-box">
+												<label for="colors">Màu lông - Màu mắt: </label> <select
+													name="colors" id="colors" class="select-box">
 													<c:forEach var="color" items="${color}">
-														<option value="${color.getId() }">${color.getFullColor() } - ${color.getEyeColor() }</option>
+														<option value="${color.getId() }">${color.getFullColor() }
+															- ${color.getEyeColor() }</option>
 													</c:forEach>
 												</select>
 											</div>
 										</li>
 										<li>
+
 											<div class="input-counter">
-						                      <span>Số lượng: </span>
-						                      <div class="buttons_added">
-						                        <input class="minus is-form" type="button" value="-">
-						                        <input id="so-luong"  aria-label="quantity" class="input-qty" max="10" min="1" name="soLuong" type="number" value="1">
-						                        <input class="plus is-form" type="button" value="+">
-						                      </div>
-						                    </div>
+												<span>Số lượng :</span>
+												<div>
+													<span id="" class="minus-btn"> <svg>
+                            <use
+																xlink:href="images/sprite.svg#icon-minus"></use>
+                          </svg>
+													</span> <input type="text" min="1" value="1" name="soLuong" max="10"
+														class="counter-btn"> <span class="plus-btn">
+														<svg>
+                            <use
+																xlink:href="images/sprite.svg#icon-plus"></use>
+                          </svg>
+													</span>
+												</div>
+											</div>
+										</li>
+
+										<li><span>Giá cọc :</span> <a href="javascript:" class="new__price">${pet.getDisplayDeposit() }
+											</a></li>
+										<li><span>Giống :</span> <a href="javascript:">${pet.getSpecies().getName() }</a>
+										</li>
+										<li><span>Tuổi :</span> <a href="javascript:">${pet.getAge() }
+												tháng</a></li>
+										<li><span>Trạng thái :</span> <a href="javascript:"
+											class="in-stock">${pet.getStatus() } (${pet.getAmount() }
+												con)</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<!--Div pet-->
+						<div id="thuCung" class="product-detail__right hide">
+							<div class="product-detail__content">
+								<h3>Husky Shibarian</h3>
+								<div class="price">
+									<span class="new__price">80000 đ</span>
+								</div>
+								<div class="product__review">
+									<div class="rating">
+										<svg>
+                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
+                  </svg>
+										<svg>
+                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
+                  </svg>
+										<svg>
+                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
+                  </svg>
+										<svg>
+                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
+                  </svg>
+										<svg>
+                    <use xlink:href="images/sprite.svg#icon-star-empty"></use>
+                  </svg>
+									</div>
+									<a href="#description" class="rating__quatity">3 nhận xét</a>
+								</div>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+									Sunt a doloribus iste natus et facere? dolor sit amet
+									consectetur adipisicing elit. Sunt a doloribus iste natus et
+									facere?</p>
+								<div class="product__info-container">
+									<ul class="product__info">
+										<li class="select">
+											<div class="select__option">
+												<label for="colors">Màu lông: </label> <select name="colors"
+													id="colors" class="select-box">
+													<option value="xanh">Xanh dương</option>
+													<option value="do">Đỏ</option>
+													<option value="hong">Hồng</option>
+													<option value="cam">Cam</option>
+													<option value="xanhLa">Xanh lá</option>
+												</select>
+											</div>
+											<div class="select__option">
+												<label for="size">Màu mắt :</label> <select name="size"
+													id="size" class="select-box">
+													<option value="xanhDuong">Xanh dương</option>
+													<option value="den">Đen</option>
+												</select>
+											</div>
 										</li>
 										<li>
-											<span>Giá cọc :</span> 
-											<a href="javascript:" class="new__price">${pet.getDisplayDeposit() }</a>
+
+											<div class="input-counter">
+												<span>Số lượng :</span>
+												<div>
+													<span id="" class="minus-btn"> <svg>
+                            <use
+																xlink:href="images/sprite.svg#icon-minus"></use>
+                          </svg>
+													</span> <input type="text" min="1" value="1" max="10"
+														class="counter-btn"> <span class="plus-btn">
+														<svg>
+                            <use
+																xlink:href="images/sprite.svg#icon-plus"></use>
+                          </svg>
+													</span>
+												</div>
+											</div>
 										</li>
-										<li>
-											<span>Giống :</span>
-											<a href="javascript:">${pet.getSpecies().getName() }</a>
-										</li>
-										<li>
-											<span>Tuổi :</span>
-											<a href="javascript:">${pet.getAge() } tháng</a>
-										</li>
-										<li>
-											<span>Trạng thái :</span> 
-											<a href="javascript:" class="in-stock">${pet.getStatus() } (${pet.getAmount() } con)</a>
-										</li>
+
+										<li><span>Số tiền :</span> <a href="javascript:" class="new__price">2500000
+												đ</a></li>
+										<li><span>Giống :</span> <a href="javascript:">Husky</a></li>
+										<li><span>Loại thú cưng :</span> <a href="javascript:">Chó</a></li>
+										<li><span>Trạng thái :</span> <a href="javascript:"
+											class="in-stock">Còn hàng (15 sản phẩm)</a></li>
 									</ul>
 								</div>
 							</div>
@@ -164,12 +256,15 @@
 				</form>
 				<div class="product-detail__bottom">
 					<div class="title__container tabs">
+
 						<div class="section__titles category__titles ">
-							<div class="section__title detail-btn active" data-id="description">
+							<div class="section__title detail-btn active"
+								data-id="description">
 								<span class="dot"></span>
 								<h1 class="primary__title">Mô tả sản phẩm</h1>
 							</div>
 						</div>
+
 						<div class="section__titles">
 							<div class="section__title detail-btn" data-id="reviews">
 								<span class="dot"></span>
@@ -187,25 +282,26 @@
 							<h1>Nhận xét của khách hàng</h1>
 							<div class="rating">
 								<svg>
-				                  <use xlink:href="images/sprite.svg#icon-star-full"></use>
-				                </svg>
+                  <use xlink:href="images/sprite.svg#icon-star-full"></use>
+                </svg>
 								<svg>
-				                  <use xlink:href="images/sprite.svg#icon-star-full"></use>
-				                </svg>
+                  <use xlink:href="images/sprite.svg#icon-star-full"></use>
+                </svg>
 								<svg>
-				                  <use xlink:href="images/sprite.svg#icon-star-full"></use>
-				                </svg>
+                  <use xlink:href="images/sprite.svg#icon-star-full"></use>
+                </svg>
 								<svg>
-				                  <use xlink:href="images/sprite.svg#icon-star-full"></use>
-				                </svg>
+                  <use xlink:href="images/sprite.svg#icon-star-full"></use>
+                </svg>
 								<svg>
-				                  <use xlink:href="images/sprite.svg#icon-star-empty"></use>
-				                </svg>
+                  <use xlink:href="images/sprite.svg#icon-star-empty"></use>
+                </svg>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
+
 			<!-- Related Products -->
 			<section class="section related__products">
 				<div class="title__container">
@@ -218,70 +314,77 @@
 					<div class="glide" id="glide_3">
 						<div class="glide__track" data-glide-el="track">
 							<ul class="glide__slides latest-center">
+							
+							
 								<c:forEach var="list" items="${list }">
-					                <li class="glide__slide">
-					                  <div class="product">
-					                    <div class="product__header">
-					                      <a href="javascript:"><img src="${list.getImgs().get(0).getImgAvartar() }" alt="product"></a>
-					                    </div>
-					                    <div class="product__footer">
-					                      <h3>${list.getPetName() }</h3>
-					                      <div class="rating">
-					                        <svg>
-					                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
-					                        </svg>
-					                        <svg>
-					                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
-					                        </svg>
-					                        <svg>
-					                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
-					                        </svg>
-					                        <svg>
-					                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
-					                        </svg>
-					                        <svg>
-					                          <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
-					                        </svg>
-					                      </div>
-					                      <div class="product__price">
-					                        <h4>${list.getDisplayPrice(1) } </h4>
-					                      </div>
-					                    </div>
-					                    <ul>
-					                      <li>
-					                        <a data-tip="Quick View" data-place="left" href="pet-detail/${list.getId() }">
-					                          <svg>
-					                            <use xlink:href="./images/sprite.svg#icon-eye"></use>
-					                          </svg>
-					                        </a>
-					                      </li>
-					                       
-					                      <li>
-					                        <a data-tip="Add To Compare" data-place="left" href="javascript:">
-					                          <svg>
-					                            <use xlink:href="./images/sprite.svg#icon-loop2"></use>
-					                          </svg>
-					                        </a>
-					                      </li>
-					                    </ul>
-					                  </div>
-					                </li>
-                				</c:forEach>
+                <li class="glide__slide">
+                  <div class="product">
+                    <div class="product__header">
+                      <a href="javascript:"><img src="${list.getImgs().get(0).getImgAvartar() }" alt="product"></a>
+                    </div>
+                    <div class="product__footer">
+                      <h3>${list.getPetName() }</h3>
+                      <div class="rating">
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                        </svg>
+                      </div>
+                      <div class="product__price">
+                        <h4>${list.getDisplayPrice(1) } </h4>
+                      </div>
+                    </div>
+                    <ul>
+                      <li>
+                        <a data-tip="Quick View" data-place="left" href="pet-detail/${list.getId() }">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-eye"></use>
+                          </svg>
+                        </a>
+                      </li>
+                       
+                      <li>
+                        <a data-tip="Add To Compare" data-place="left" href="javascript:">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-loop2"></use>
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                </c:forEach>
+								
+						
+										</ul>
+									</div>
 							</ul>
 						</div>
-					</ul>
-				</div>
-				<div class="glide__arrows" data-glide-el="controls">
-					<button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-						<svg>
-		                  <use xlink:href="images/sprite.svg#icon-arrow-left2"></use>
-		                </svg>
-					</button>
-					<button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-						<svg>
-		                  <use xlink:href="images/sprite.svg#icon-arrow-right2"></use>
-		                </svg>
-					</button>
+
+						<div class="glide__arrows" data-glide-el="controls">
+							<button class="glide__arrow glide__arrow--left"
+								data-glide-dir="<">
+								<svg>
+                  <use xlink:href="images/sprite.svg#icon-arrow-left2"></use>
+                </svg>
+							</button>
+							<button class="glide__arrow glide__arrow--right"
+								data-glide-dir=">">
+								<svg>
+                  <use xlink:href="images/sprite.svg#icon-arrow-right2"></use>
+                </svg>
+							</button>
 						</div>
 					</div>
 				</div>
@@ -294,32 +397,35 @@
 					<div class="facility__box">
 						<div class="facility-img__container">
 							<svg>
-				               <use xlink:href="images/sprite.svg#icon-airplane"></use>
-				            </svg>
+                <use xlink:href="images/sprite.svg#icon-airplane"></use>
+              </svg>
 						</div>
 						<p>VẬN CHUYỂN KHU VỰC HÀ NỘI</p>
 					</div>
+
 					<div class="facility__box">
 						<div class="facility-img__container">
 							<svg>
-			                	<use xlink:href="images/sprite.svg#icon-credit-card-alt"></use>
-			              	</svg>
+                <use xlink:href="images/sprite.svg#icon-credit-card-alt"></use>
+              </svg>
 						</div>
 						<p>HOÀN TIỀN 100%</p>
 					</div>
+
 					<div class="facility__box">
 						<div class="facility-img__container">
 							<svg>
-			                	<use xlink:href="images/sprite.svg#icon-credit-card"></use>
-			              	</svg>
+                <use xlink:href="images/sprite.svg#icon-credit-card"></use>
+              </svg>
 						</div>
 						<p>NHIỀU ƯU ĐÃI LỠN</p>
 					</div>
+
 					<div class="facility__box">
 						<div class="facility-img__container">
 							<svg>
-			                	<use xlink:href="images/sprite.svg#icon-headphones"></use>
-			              	</svg>
+                <use xlink:href="images/sprite.svg#icon-headphones"></use>
+              </svg>
 						</div>
 						<p>CHĂM SÓC TẬN TÌNH</p>
 					</div>
@@ -327,6 +433,7 @@
 			</div>
 		</section>
 	</main>
+
 	<!-- Footer -->
 	<footer id="footer" class="section footer"
 		style="background-image: url(images/Footer-Background-Image.png)">
@@ -334,43 +441,36 @@
 			<div class="footer__top">
 				<div class="footer-top__box">
 					<h3>SẢN PHẨM</h3>
-					<a href="javascript:">Chó</a> 
-					<a href="javascript:">Mèo</a> 
-					<a href="javascript:">Phụ kiện</a>
+					<a href="javascript:">Chó</a> <a href="javascript:">Mèo</a> <a href="javascript:">Phụ kiện</a>
 				</div>
 				<div class="footer-top__box">
 					<h3>THÔNG TIN</h3>
-					<a href="javascript:">Về chúng tôi</a>
-					 <a href="javascript:">Chính Sách Bảo Mật</a> 
-					 <a href="javascript:">Điều khoản và Điều kiện</a> 
-					 <a href="javascript:">Liên hệ</a>
+					<a href="javascript:">Về chúng tôi</a> <a href="javascript:">Chính Sách Bảo Mật</a> <a
+						href="javascript:">Điều khoản và Điều kiện</a> <a href="javascript:">Liên hệ</a>
 				</div>
 				<div class="footer-top__box">
 					<h3>TÀI KHOẢN CỦA TÔI</h3>
-					<a href="javascript:">Thông tin tài khoản</a> 
-					<a href="javascript:">Danh sách đơn hàng</a>
+					<a href="javascript:">Thông tin tài khoản</a> <a href="javascript:">Danh sách đơn
+						hàng</a>
 				</div>
 				<div class="footer-top__box">
 					<h3>LIÊN HỆ</h3>
 					<div>
-						<span> 
-							<svg>
-			                	<use xlink:href="images/sprite.svg#icon-location"></use>
-			              	</svg>
+						<span> <svg>
+                <use xlink:href="images/sprite.svg#icon-location"></use>
+              </svg>
 						</span> 206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội
 					</div>
 					<div>
-						<span> 
-							<svg>
-				              <use xlink:href="images/sprite.svg#icon-envelop"></use>
-				            </svg>
+						<span> <svg>
+                <use xlink:href="images/sprite.svg#icon-envelop"></use>
+              </svg>
 						</span> petmart.support@gmail.com
 					</div>
 					<div>
-						<span> 
-						<svg>
-		                	<use xlink:href="images/sprite.svg#icon-phone"></use>
-		              	</svg>
+						<span> <svg>
+                <use xlink:href="images/sprite.svg#icon-phone"></use>
+              </svg>
 						</span> (+84) 386768658
 					</div>
 				</div>
@@ -382,22 +482,29 @@
 		</div>
 		</div>
 	</footer>
+
 	<!-- End Footer -->
+
 	<!-- Go To -->
-	<a href="#header" class="goto-top scroll-link"> 
-		<svg>
-      		<use xlink:href="images/sprite.svg#icon-arrow-up"></use>
-    	</svg>
+
+	<a href="#header" class="goto-top scroll-link"> <svg>
+      <use xlink:href="images/sprite.svg#icon-arrow-up"></use>
+    </svg>
 	</a>
+
 	<!-- Glide Carousel Script -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
+
 	<!-- Animate On Scroll -->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 	<!-- Custom JavaScript -->
+	
 	<script src="js/index.js"></script>
 	<script src="js/slider.js"></script>
 	<script src="js/jquery-3.5.1.min.js"></script>
 	<script src="js/custom.js"></script>
-	<script src="js/image-detail.js"></script>
 </body>
+
 </html>
