@@ -30,55 +30,6 @@
 <body>
 <%@ include file="/WebContent/views/header_nav.jsp" %>
     <!-- Hero -->
-<!--     <div class="hero"> -->
-<!--       <div class="glide" id="glide_1"> -->
-<!--         <div class="glide__track" data-glide-el="track"> -->
-<!--           <ul class="glide__slides"> -->
-<!--             <li class="glide__slide glide__slide1"> -->
-<!--               <div class="hero__center"> -->
-<!--                 <div class="hero__left"> -->
-<!--                   <p>Nhập khẩu, nhân giống thú cưng</p> -->
-<!--                   <h1 class="">THUẦN CHỦNG</h1> -->
-<!--                 </div> -->
-<!--                 <div class="hero__right"> -->
-<!--                   <div class="hero__img-container"> -->
-<!--                     <img class="banner_01" src="images/banner/banner-1.png" alt="banner2" /> -->
-<!--                   </div>  -->
-<!--                 </div> -->
-<!--               </div> -->
-<!--             </li> -->
-<!--             <li class="glide__slide glide__slide2"> -->
-<!--               <div class="hero__center"> -->
-<!--                 <div class="hero__left"> -->
-<!--                   <h1>PHONES MADE FOR YOU!</h1> -->
-<!--                   <p>Trending from mobile and headphone style collection</p> -->
-<!--                 </div> -->
-<!--                 <div class="hero__right"> -->
-<!--                   <img class="banner_02" src="./images/banner_02.png" alt="banner2" /> -->
-<!--                 </div> -->
-<!--               </div> -->
-<!--             </li> -->
-<!--           </ul> -->
-<!--         </div> -->
-<!--         <div class="glide__bullets" data-glide-el="controls[nav]"> -->
-<!--           <button class="glide__bullet" data-glide-dir="=0"></button> -->
-<!--           <button class="glide__bullet" data-glide-dir="=1"></button> -->
-<!--         </div> -->
-
-<!--         <div class="glide__arrows" data-glide-el="controls"> -->
-<%--           <button class="glide__arrow glide__arrow--left" data-glide-dir="<"> --%>
-<!--             <svg> -->
-<!--               <use xlink:href="./images/sprite.svg#icon-arrow-left2"></use> -->
-<!--             </svg> -->
-<!--           </button> -->
-<!--           <button class="glide__arrow glide__arrow--right" data-glide-dir=">"> -->
-<!--             <svg> -->
-<!--               <use xlink:href="./images/sprite.svg#icon-arrow-right2"></use> -->
-<!--             </svg> -->
-<!--           </button> -->
-<!--         </div> -->
-<!--       </div> -->
-<!--     </div> -->
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 		  <ol class="carousel-indicators">
 		    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -133,6 +84,7 @@
               </div>
             </div>
           </div>
+        </div>
       </section>
 
       <!-- Latest Products -->
@@ -235,7 +187,6 @@
         <div class="category__container" data-aos="fade-up" data-aos-duration="1200">
           <div class="category__center">
           	   <c:forEach var="list" items="${list }">
-               
                   <div class="product">
                     <div class="product__header">
                       <img style="border-radius: 10px;"  src="${list.getImgs().get(0).getImgAvartar() }" alt="product">
@@ -276,11 +227,10 @@
                 </c:forEach>
           </div>
         </div>
-    </div>
     </section>
 
-    <!-- Facility Section -->
-    <section class="facility__section section" id="facility">
+      <!-- Facility Section -->
+      <section class="facility__section section" id="facility">
       <div class="container">
         <div class="facility__contianer">
           <div class="facility__box">
@@ -323,8 +273,8 @@
     </section>
    
 
-    <!-- Testimonial Section -->
-    <section class="section testimonial" id="testimonial">
+      <!-- Testimonial Section -->
+      <section class="section testimonial" id="testimonial">
       <div class="testimonial__container">
         <div class="glide" id="glide_4">
           <div class="glide__track" data-glide-el="track">
@@ -373,8 +323,8 @@
       </div>
     </section>
     
-     <!--New Section  -->
-    <section class="section news" id="news">
+      <!--New Section  -->
+      <section class="section news" id="news">
       <div class="container" >
         <div class="title__container">
           <div class="section__titles">
@@ -395,70 +345,12 @@
                       <img src="${blog.getImg() }" alt="">
                     </div>
                     <div class="card__footer">
-<<<<<<< HEAD
                       <h4 class="blog-content">${blog.getContent() }</h4>
                       <span class="blog-user">Đăng bởi <strong>${blog.getAccount().getFullName()}</strong> &nbsp <span>/ Ngày: </span> <strong class="blog-date">${blog.getDateSubmitted()}</strong></span>
-=======
-                      <h3>Styling White Shirts After A Cool Day</h3>
-                      <span>By <strong>Admin</strong></span>
-                      <p>${blog.getContent() }</p>
->>>>>>> parent of 805442c... Fix design
                     </div>
                   </div>
                 </li>
                 </c:forEach>
-                <li class="glide__slide">
-                  <div class="new__card">
-                    <div class="card__header">
-                      <img src="./images/news2.jpg" alt="">
-                    </div>
-                    <div class="card__footer">
-                      <h3>Styling White Shirts After A Cool Day</h3>
-                      <span>By <strong>Admin</strong></span>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium, numquam non
-                        provident rem sed minus natus unde vel modi!</p>
-                    </div>
-                  </div>
-                </li>
-                <li class="glide__slide">
-                  <div class="new__card">
-                    <div class="card__header">
-                      <img src="./images/news3.jpg" alt="">
-                    </div>
-                    <div class="card__footer">
-                      <h3>Styling White Shirts After A Cool Day</h3>
-                      <span>By <strong>Admin</strong></span>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium, numquam non
-                        provident rem sed minus natus unde vel modi!</p>
-                    </div>
-                  </div>
-                </li>
-                <li class="glide__slide">
-                  <div class="new__card">
-                    <div class="card__header">
-                      <img src="./images/news4.jpg" alt="">
-                    </div>
-                    <div class="card__footer">
-                      <h3>Styling White Shirts After A Cool Day</h3>
-                      <span>By <strong>Admin</strong></span>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium, numquam non
-                        provident rem sed minus natus unde vel modi!</p>
-                    </div>
-                  </div>
-                </li>
-                <li class="glide__slide">
-                  <div class="new__card">
-                    <div class="card__header">
-                      <img src="./images/news5.jpg" alt="">
-                    </div>
-                    <div class="card__footer">
-                      <h3>Styling White Shirts After A Cool Day</h3>
-                      <span>By <strong>Admin</strong></span>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium, numquam non
-                        provident rem sed minus natus unde vel modi!</p>
-                    </div>
-                  </div>
-                </li>
               </ul>
             </div>
           </div>
@@ -467,8 +359,8 @@
       </div>
     </section>
 
-    <!-- NewsLetter -->
-    <section class="section newsletter" id="contact">
+      <!-- NewsLetter -->
+      <section class="section newsletter" id="contact">
       <div class="container">
         <div class="newsletter__content">
           <div class="newsletter__data">
@@ -482,7 +374,7 @@
         </div>
       </div>
     </section>
-
+    </div>
   </main>
 
   <!-- End Main -->
@@ -563,7 +455,7 @@
 
   <!-- Glide Carousel Script -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
 
   <!-- Animate On Scroll -->

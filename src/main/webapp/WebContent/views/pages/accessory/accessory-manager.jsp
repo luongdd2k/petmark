@@ -29,145 +29,12 @@
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
 		<!-- Navbar -->
-		<nav
-			class="main-header navbar navbar-expand navbar-white navbar-light">
-			<!-- Left navbar links -->
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
-					href="javascript:" role="button"><i class="fas fa-bars"></i></a></li>
-				<li class="nav-item d-none d-sm-inline-block"><a
-					href="index4.html" class="nav-link">Trang chủ</a></li>
-			</ul>
-
-			<!-- SEARCH FORM -->
-			<form class="form-inline ml-3">
-				<div class="input-group input-group-sm">
-					<input class="form-control form-control-navbar" type="search"
-						placeholder="Tìm kiếm ..." aria-label="Search" />
-					<div class="input-group-append">
-						<button class="btn btn-navbar" type="submit">
-							<i class="fas fa-search"></i>
-						</button>
-					</div>
-				</div>
-			</form>
-
-			<!-- Right navbar links -->
-			<ul class="navbar-nav ml-auto">
-				<!-- Notifications Dropdown Menu -->
-				<li class="nav-item dropdown"><a class="nav-link"
-					data-toggle="dropdown" href="javascript:"> <i class="far fa-bell"></i> <span
-						class="badge badge-warning navbar-badge">15</span>
-				</a>
-					<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-						<span class="dropdown-item dropdown-header">15 Thông báo</span>
-						<div class="dropdown-divider"></div>
-						<a href="javascript:" class="dropdown-item"> <i
-							class="fas fa-envelope mr-2"></i> 4 tin nhắn mới <span
-							class="float-right text-muted text-sm">3 phút</span>
-						</a>
-						<div class="dropdown-divider"></div>
-						<div class="dropdown-divider"></div>
-						<a href="javascript:" class="dropdown-item"> <i class="fas fa-file mr-2"></i>
-							3 báo cáo mới <span class="float-right text-muted text-sm">2
-								ngày</span>
-						</a>
-						<div class="dropdown-divider"></div>
-						<a href="javascript:" class="dropdown-item dropdown-footer">Xem tất cả
-							thông báo</a>
-					</div></li>
-				<li class="nav-item"><a class="nav-link"
-					href="pages/examples/recover-password.html"> <i
-						class="fas fa-unlock-alt"></i>
-				</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="pages/examples/login.html"> <i
-						class="fas fa-sign-out-alt"></i>
-				</a></li>
-			</ul>
-		</nav>
+		<%@ include file="/WebContent/views/header_nav_admin.jsp" %>
 		<!-- /.navbar -->
 
 		<!-- Main Sidebar Container -->
-		<aside class="main-sidebar sidebar-light-primary elevation-4">
-			<!-- Brand Logo -->
-			<a href="index.html" class="brand-link"> <img
-				src="dist/img/AdminLTELogo.jpg" alt="AdminLTE Logo"
-				class="brand-image img-circle elevation-3" style="opacity: 0.8" />
-				<span class="brand-text font-weight-light">Pet Mart</span>
-			</a>
-
-			<!-- Sidebar -->
-			<div class="sidebar">
-				<!-- Sidebar user (optional) -->
-				<div class="user-panel mt-3 pb-3 mb-3 d-flex">
-					<div class="image">
-						<img src="dist/img/user2-160x160.jpg"
-							class="img-circle elevation-2" alt="User Image" />
-					</div>
-					<div class="info">
-						<a href="admin/UserManagement/show-profile" class="d-block">${account.getFullName() }</a>
-					</div>
-				</div>
-
-				<!-- Sidebar Menu -->
-				<nav class="mt-2">
-					<ul class="nav nav-pills nav-sidebar flex-column"
-						data-widget="treeview" role="menu" data-accordion="false">
-						<li class="nav-item has-treeview"><a href="${pageContext.servletContext.contextPath}/LoggedInSuccessfully"
-							class="nav-link"> <i class="nav-icon fas fa-home"></i>
-								<p>Trang chủ</p>
-						</a></li>
-						<li class="nav-header">CỬA HÀNG</li>
-						<li class="nav-item"><a href="admin/UserManagement"
-							class="nav-link"> <i class="nav-icon fas fa-users"></i>
-								<p>Nhân viên</p>
-						</a></li>
-						<li class="nav-item has-treeview"><a
-							href="admin/ProductManagement" class="nav-link"> <i
-								class="nav-icon fas fa-paw"></i>
-								<p>Thú cưng</p>
-						</a></li>
-						<li class="nav-item has-treeview"><a
-							href="admin/SpeciesManagement" class="nav-link"> <i
-								class="nav-icon fas fa-dog"></i>
-								<p>Giống thú cưng</p>
-						</a></li>
-						<li class="nav-item has-treeview"><a
-							href="javascript:" class="nav-link active"> <i
-								class="nav-icon fab fa-simplybuilt"></i>
-								<p>Phụ kiện</p>
-						</a></li>
-						<li class="nav-item has-treeview"><a
-							href="admin/CategoryManagement" class="nav-link"> <i
-								class="nav-icon fab fa-bandcamp"></i>
-								<p>Hãng phụ kiện</p>
-						</a></li>
-						<li class="nav-header">QUẢN LÝ</li>
-						<li class="nav-item has-treeview"><a href="admin/orders"
-							class="nav-link"> <i class="nav-icon fas fa-table"></i>
-								<p>Quản lý đơn hàng</p>
-						</a></li>
-						<li class="nav-item"><a href="admin/deposit"
-							class="nav-link"> <i class="nav-icon fas fa-receipt"></i>
-								<p>Quản lý cọc</p>
-						</a></li>
-						<li class="nav-header">QUẢN LÝ BLOG</li>
-						<li class="nav-item has-treeview"><a href="admin/blog"
-							class="nav-link "> <i class="nav-icon fas fa-table"></i>
-								<p>Danh sách Blog</p>
-						</a></li>
-						<li class="nav-header">THỐNG KÊ</li>
-						<li class="nav-item"><a href="statistical/statistical.html"
-							class="nav-link"> <i class="nav-icon far fa-chart-bar"></i>
-								<p>Thống kê</p>
-						</a></li>
-					</ul>
-				</nav>
-				<!-- /.sidebar-menu -->
-			</div>
-			<!-- /.sidebar -->
-		</aside>
+		<%@ include file="/WebContent/views/aside_nav_admin.jsp" %>
+		<!-- End aside -->
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -211,12 +78,12 @@
 									<div class="form-disable-p1 float-left"
 										style="width: 330px; margin-left: 30px; float: left">
 										<div class="form-group">
-											<label for="exampleFormControlInput1">Tên phụ kiện</label> <input
+											<label >Tên phụ kiện</label> <input
 												name="tenPhuKien" type="text" class="form-control"
 												id="tenUpdate" />
 										</div>
 										<div class="form-group">
-											<label for="exampleFormControlSelect1">Hãng</label> <select
+											<label >Hãng</label> <select
 												name="hangPhuKien" id="hangUpdate"
 												style="height: 30px; width: 100%">
 												<c:forEach var="category" items="${listCategory }">
@@ -225,7 +92,7 @@
 											</select>
 										</div>
 										<div class="form-group">
-											<label for="exampleFormControlInput1">Màu sắc</label> <input
+											<label >Màu sắc</label> <input
 												name="mauPhuKien" type="text" class="form-control"
 												id="accessoriColor" />
 										</div>
@@ -233,12 +100,12 @@
 									<div class="form-disable-p1"
 										style="width: 330px; margin-left: 30px; float: left">
 										<div class="form-group">
-											<label for="exampleFormControlInput1">Giá</label> <input
+											<label >Giá</label> <input
 												name="giaPhuKien" type="text" class="form-control"
 												id="giaUpdate" />
 										</div>
 										<div class="form-group">
-											<label for="exampleFormControlSelect1">Trạng thái</label> <select
+											<label >Trạng thái</label> <select
 												name="trangThaiPhuKien" id="trangThaiUpdate"
 												style="height: 30px; width: 100%">
 												<c:forEach var="status" items="${listStatus }">
@@ -247,7 +114,7 @@
 											</select>
 										</div>
 										<div class="form-group">
-											<label for="exampleFormControlInput1">Số lượng</label> <input
+											<label >Số lượng</label> <input
 												name="soLuongPhuKien" type="text" class="form-control"
 												id="soLuongUpdate" />
 										</div>
@@ -255,7 +122,7 @@
 									<div class="form-disable-p1"
 										style="width: 330px; margin-left: 30px; float: left">
 										<div class="form-group">
-											<label for="exampleFormControlTextarea1">Mô tả</label>
+											<label>Mô tả</label>
 											<textarea name="moTaPhuKien" class="form-control"
 												id="moTaUpdate" rows="2"></textarea>
 										</div>
@@ -297,12 +164,12 @@
 									<div class="form-disable-p1 float-left"
 										style="width: 330px; margin-left: 30px; float: left">
 										<div class="form-group">
-											<label for="exampleFormControlInput1">Tên phụ kiện</label> <input
+											<label>Tên phụ kiện</label> <input
 												name="tenPhuKien" type="text" class="form-control"
 												id="accessoriName" />
 										</div>
 										<div class="form-group">
-											<label for="exampleFormControlSelect1">Hãng</label> <select
+											<label>Hãng</label> <select
 												name="hangPhuKien" id="category"
 												style="height: 30px; width: 100%">
 												<c:forEach var="category" items="${listCategory }">
@@ -311,7 +178,7 @@
 											</select>
 										</div>
 										<div class="form-group">
-											<label for="exampleFormControlInput1">Giá</label> <input
+											<label>Giá</label> <input
 												name="giaPhuKien" type="text" class="form-control"
 												id="accessoriPrice" />
 										</div>
@@ -319,7 +186,7 @@
 									<div class="form-disable-p1"
 										style="width: 330px; margin-left: 30px; float: left">
 										<div class="form-group">
-											<label for="exampleFormControlSelect1">Trạng thái</label> <select
+											<label>Trạng thái</label> <select
 												name="trangThaiPhuKien" id="accessori-status"
 												style="height: 30px; width: 100%">
 												<c:forEach var="status" items="${listStatus }">
@@ -328,7 +195,7 @@
 											</select>
 										</div>
 										<div class="form-group">
-											<label for="exampleFormControlInput1">Số lượng</label> <input
+											<label>Số lượng</label> <input
 												name="soLuongPhuKien" type="text" class="form-control"
 												id="accessoriAmount" />
 										</div>
@@ -336,7 +203,7 @@
 									<div class="form-disable-p1"
 										style="width: 330px; margin-left: 30px; float: left">
 										<div class="form-group">
-											<label for="exampleFormControlTextarea1">Mô tả</label>
+											<label>Mô tả</label>
 											<textarea name="moTaPhuKien" class="form-control"
 												id="accessoriInformation" rows="2"></textarea>
 										</div>
@@ -366,42 +233,12 @@
 										<form action="">
 											<div class="form-row">
 												<div class="form-group col-2">
-													<label for="exampleFormControlSelect1">Tên</label> <input
+													<label>Tên</label> <input
 														class="form-control" type="search"
 														placeholder="Tìm kiếm theo tên" aria-label="Search">
 												</div>
-												<!-- 												<div class="form-group col-2"> -->
-												<!-- 													<label for="exampleFormControlSelect1">Hãng</label> <select -->
-												<!-- 														class="form-control" id="locGiong" -->
-												<!-- 														style="max-width: 150px;"> -->
-												<!-- 														<option>HUSKY</option> -->
-												<!-- 														<option>CORGI</option> -->
-												<!-- 														<option>MUNCHKIN</option> -->
-												<!-- 														<option>ALSASKA</option> -->
-												<!-- 													</select> -->
-												<!-- 												</div> -->
-												<!-- 												<div class="form-group col-2"> -->
-												<!-- 													<label for="exampleFormControlSelect1">Màu</label> <select -->
-												<!-- 														class="form-control" id="locMauLong" -->
-												<!-- 														style="max-width: 150px;"> -->
-												<!-- 														<option>Vàng</option> -->
-												<!-- 														<option>Trắng</option> -->
-												<!-- 														<option>Đen</option> -->
-												<!-- 														<option>Nâu</option> -->
-												<!-- 													</select> -->
-												<!-- 												</div> -->
-												<!-- 												<div class="form-group col-2"> -->
-												<!-- 													<label for="exampleFormControlSelect1">Trạng thái</label> <select -->
-												<!-- 														class="form-control" id="locTrangThai" -->
-												<!-- 														style="max-width: 150px;"> -->
-												<!-- 														<option selected>Vẫn còn hàng</option> -->
-												<!-- 														<option>Ngừng kinh doanh</option> -->
-												<!-- 														<option>Vừa nhập hàng</option> -->
-												<!-- 														<option>Hết hàng</option> -->
-												<!-- 													</select> -->
-												<!-- 												</div> -->
 												<div class="form-group col-2">
-													<label for="exampleFormControlSelect1">Lọc</label> <select
+													<label>Lọc</label> <select
 														class="form-control" id="cbo_sort_Accessories2" style="">
 														<option value="-1">ID:&nbsp thấp ⟶ cao</option>
 														<option value="0">ID:&nbsp cao ⟶ thấp</option>
@@ -433,7 +270,7 @@
 											<th scope="col">Ảnh</th>
 											<th scope="col">Tên phụ kiện</th>
 											<th scope="col">Hãng</th>
-											<!-- 											<th scope="col">Màu</th> -->
+											<!-- <th scope="col">Màu</th> -->
 											<th scope="col">Giá</th>
 											<th scope="col">Số lượng</th>
 											<th scope="col">Ngày nhập</th>
@@ -455,7 +292,7 @@
 												<td class="td-center" style="padding-top: 2.5%;"><span
 													hidden="true">${Accessories.getCategory().getId() }</span>
 													${Accessories.getCategory().getName() }</td>
-												<!-- 											<td class="td-center" style="padding-top: 2.5%;">Đỏ</td> -->
+												<!-- <td class="td-center" style="padding-top: 2.5%;">Đỏ</td> -->
 												<td class="td-center" style="padding-top: 2.5%;">${Accessories.getDisplayPrice(1) }</td>
 												<td class="td-center" style="padding-top: 2.5%;">${Accessories.getAmount() }</td>
 												<td class="td-center" style="padding-top: 2.5%;">${Accessories.getDate() }</td>

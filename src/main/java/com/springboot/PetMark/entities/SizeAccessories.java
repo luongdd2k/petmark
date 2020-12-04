@@ -18,8 +18,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
 @Table (name = "sizeaccessories")
 public @Data class SizeAccessories implements Serializable {
 

@@ -26,8 +26,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
 public @Data class Accessories implements Serializable {
 
 	private static final long serialVersionUID = -8319364514495733307L;

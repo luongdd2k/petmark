@@ -398,9 +398,7 @@ Hero Area
   height: 80vh;  
 }
  
-.glide__slide1{
-  background-image: url("images/banner-dog.jpg");
-}
+
 
 .hero .glide__bullet {
   background-color: #222;
@@ -1488,7 +1486,7 @@ Testimonial
 
 .testimonial {
   position: relative;
-  background: url("./images/testimonial.jpg") center/cover no-repeat;
+
   height: 50rem;
   padding: 5rem 0;
   z-index: 1;
@@ -1793,7 +1791,7 @@ Footer
 */
 
 .footer {
-  background-image: url("images/Footer-Background-Image.png");
+
   padding: 9rem 5rem;
   line-height: 4rem;
 }
@@ -2178,7 +2176,7 @@ Product Details
 
 #description li {
   line-height: 3rem;
-  color: vaf;
+  /*color: vaf;*/
 }
 
 #description ol {
@@ -2361,7 +2359,7 @@ Cart Area
 
 .cart__table .table th {
   font-weight: 500;
-  font-style: 2rem;
+  font-style: normal;
   text-align: left;
   padding: 1.8rem 0;
 }

@@ -18,8 +18,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
 public @Data class OrderrAppDetail implements Serializable {
 
 	private static final long serialVersionUID = -2090814497915398501L;

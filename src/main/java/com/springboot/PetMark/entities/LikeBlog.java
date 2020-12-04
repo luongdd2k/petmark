@@ -16,8 +16,6 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
 @Table(name = "likeblog")
 public class LikeBlog implements Serializable {
 

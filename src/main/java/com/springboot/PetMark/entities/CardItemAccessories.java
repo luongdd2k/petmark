@@ -19,8 +19,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
 @Table(name = "carditemaccessories")
 public @Data class CardItemAccessories implements Serializable {
 

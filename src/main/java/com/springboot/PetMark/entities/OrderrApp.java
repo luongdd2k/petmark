@@ -18,8 +18,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
 public @Data class OrderrApp extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = -1505214863712955854L;

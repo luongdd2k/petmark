@@ -18,9 +18,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
-@EntityListeners(AuditingEntityListener.class)
 public @Data class Account implements Serializable {
 
 	private static final long serialVersionUID = 9093032790667422481L;

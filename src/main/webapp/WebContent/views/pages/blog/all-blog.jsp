@@ -32,15 +32,7 @@
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet" />
 <link rel="stylesheet" href="dist/css/custom.css" />
-<style>
-#ha {
-	text-align: center;
-}
-
-#ha img {
-	width: 200px;
-}
-</style>
+<link rel="stylesheet" href="css/blog-admin.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -88,20 +80,20 @@
 								<!-- /.card-header -->
 								<div class="card-body">
 									<div class="row">
-									<c:forEach var="blog" items="${blog }">
-										<div class="col-4 card">
-										<div name="image" id="image">
-													<img alt="" src="${blog.getImg() }">
+										<c:forEach var="blog" items="${blog }">
+											<div class="col-3 card">
+												<div name="image" id="image">
+													<img class="img-fluid img-thumbnail" alt="" src="${blog.getImg() }" />
+												</div>
+												<div id="ha">${blog.getContent() }</div>
+
+												<div class="button-card">
+													<form action="admin/blog/confirm/${blog.getId()}">
+														<button class="ui green basic button" type="submit">Duyệt bài</button>
+													</form>
+														<button class="ui yellow basic button" data-toggle="modal" data-target="#reasonBlock">Hủy bài</button>
+												</div>
 											</div>
-											<div id="ha">${blog.getContent() }</div>
-											<form action="admin/blog/confirm/${blog.getId()}">
-											<div class="button-card">
-												<button class="ui green basic button" type="submit">Duyệt bài</button>
-												<button class="ui yellow basic button" data-toggle="modal"
-													data-target="#reasonBlock" onclick="form.action='admin/blog/cancel/${blog.getId()}'">Hủy bài</button>
-											</div>
-											</form>
-										</div>
 										</c:forEach>
 									</div>
 								</div>
@@ -147,8 +139,8 @@
 						</div>
 						<div class="form-check">
 							<input class="form-check-input" type="checkbox" value=""
-								id="defaultCheck1"> <label class="form-check-label"
-								for="defaultCheck1"> BCS </label>
+								id="defaultCheck2"> <label class="form-check-label"
+								for="defaultCheck2"> BCS </label>
 						</div>
 					</div>
 					<div class="modal-footer">

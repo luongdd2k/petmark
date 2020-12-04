@@ -19,8 +19,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
 @Table(name = "voteaccessories")
 public @Data class VoteAccessories implements Serializable {
 

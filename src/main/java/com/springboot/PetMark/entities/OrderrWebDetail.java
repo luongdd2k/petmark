@@ -20,8 +20,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
 @Table(name = "orderrwebdetail")
 public @Data class OrderrWebDetail implements Serializable {
 

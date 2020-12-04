@@ -27,8 +27,6 @@ import pet.mart.util.DeliveryStatus;
 import pet.mart.util.PaymentStatus;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
 @Table(name = "orderrweb")
 public @Data class OrderrWeb implements Serializable {
 

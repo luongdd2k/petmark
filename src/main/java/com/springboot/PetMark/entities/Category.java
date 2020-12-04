@@ -15,8 +15,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
 @Table (name = "category")
 public @Data class Category implements Serializable{
 	private static final long serialVersionUID = -7723298960039364640L;
