@@ -83,6 +83,9 @@
 												<div class="description">
 													${blog.getContent() }
 												</div>
+												<div class="description">
+													${blog.displayStt() }
+												</div>
 												<div class="action">
 													<span class="count-like">1k</span>
 													<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"

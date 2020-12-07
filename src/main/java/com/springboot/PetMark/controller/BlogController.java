@@ -79,7 +79,7 @@ public class BlogController {
 		try {
 			String photoPath = context.getRealPath("files/image/" + photo.getOriginalFilename());
 			photo.transferTo(new File(photoPath));
-			Blog blog = new Blog(account, content, date, false,"files/image/" +photo.getOriginalFilename());
+			Blog blog = new Blog(account, content, date ,"files/image/" +photo.getOriginalFilename(),2);
 			blogService.saveBlog(blog);
 		} catch (Exception e) {
 			System.out.println("Lỗi lưu ảnh: " + e);

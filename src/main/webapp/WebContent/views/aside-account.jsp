@@ -46,7 +46,7 @@
                 </div>
                 <div class="stardust-dropdown__item-body stardust-dropdown__item-body--open" style="opacity: 1;">
                     <div class="userpage-sideber-menu__subsection">
-                        <a href="javascript:" class="_17BcjA _1EUbVp">
+                        <a href="show-account" class="_17BcjA _1EUbVp">
                             <span class="_2ilxaJ">Hồ sơ</span>
                         </a>
                         <a href="show-change-pass" class="_17BcjA">
