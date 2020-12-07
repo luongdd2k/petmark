@@ -33,13 +33,13 @@ public class Blog implements Serializable {
 	private String content;
 	@Column(name = "date_submitted")
 	private Date dateSubmitted;
-	private boolean status;
+	private int status;
 
 	public Blog() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Blog(int id, Account account, String content, Date date, Boolean status, String img) {
+	public Blog(int id, Account account, String content, Date date, int status, String img) {
 		this.id = id;
 		this.account = account;
 		this.content = content;
@@ -48,7 +48,7 @@ public class Blog implements Serializable {
 		this.img = img;
 	}
 
-	public Blog(Account account, String content, Date date, Boolean status,String img) {
+	public Blog(Account account, String content, Date date,String img, int status) {
 		this.account = account;
 		this.content = content;
 		this.dateSubmitted = date;
@@ -58,8 +58,10 @@ public class Blog implements Serializable {
 	
 	public String displayStt() {
 		String stt = "Chưa xét duyệt";
-		if(this.status==true) {
+		if(this.status==1) {
 			stt = "Đã duyệt";
+		}else if (this.status==0) {
+			stt = "Đã huỷ";
 		}
 		return stt;
 	}
@@ -96,11 +98,12 @@ public class Blog implements Serializable {
 		this.dateSubmitted = dateSubmitted;
 	}
 
-	public boolean isStatus() {
+	
+	public int getStatus() {
 		return status;
 	}
 
-	public void setStatus(boolean status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 

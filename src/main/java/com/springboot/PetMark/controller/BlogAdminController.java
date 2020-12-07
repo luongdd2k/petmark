@@ -76,7 +76,7 @@ public String cancelBlog(Principal principal,HttpServletRequest req) {
 				+ "Xin chân thành cảm ơn.");
 		Transport.send(message);
 		System.out.println("thông báo mail huỷ bài viết thành công");
-		blogService.changeStt(false, id);
+		blogService.changeStt(0, id);
 	} catch (Exception e) {
 		// TODO: handle exception
 		System.out.println(e);
@@ -86,7 +86,7 @@ public String cancelBlog(Principal principal,HttpServletRequest req) {
 
 @RequestMapping("/confirm/{id}")
 public String confirmBlog(@PathVariable int id,Principal principal) {
-	blogService.changeStt(true, id);
+	blogService.changeStt(1, id);
 	return "redirect:/admin/blog";
 }
 }

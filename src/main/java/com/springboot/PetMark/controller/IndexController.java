@@ -139,34 +139,20 @@ public class IndexController {
 		model.setViewName("client2/index");
 		List<Pet> listPet = petService.findAll();
 		List<Accessories> listAcces = accessSv.findAll();
-		List<Blog> blog = blogService.findByStatus(true);
-		model.addObject("blog", blog);
+		List<Blog> blog = blogService.findByStatus(1);
+		int blog1 = 0;
+		if(blog.size()>0) {
+			blog1 = 1;
+			model.addObject("blog", blog);
+		}
+		System.out.println("blog: "+blog.size());
+		model.addObject("blog1", blog1);
+//		model.addObject("blog", blog);
 		model.addObject("list", listPet);
 		model.addObject("listAcc", listAcces);
 		return model;
 	}
 
-//	@RequestMapping("/welcome")
-//	public ModelAndView showWelcome(HttpServletRequest request, Principal principal) throws Exception {
-//		HttpSession session = request.getSession();
-//		ModelAndView model = new ModelAndView();
-//		model.setViewName("client2/welcome");
-//		User logginedUser = (User) ((Authentication) principal).getPrincipal();
-//		Account account = accountService.findById(logginedUser.getUsername());
-//		model.addObject("account", account);
-//		int slCard = 0;
-//		if(cardSv.countByAccount(account)!=0) {
-//		slCard = cardSv.countByAccount(account);
-//		}
-//		model.addObject("slCard", slCard);
-//		List<Pet> listPet = petService.findAll();
-//		List<Accessories> listAcces = accessSv.findAll();
-//		List<Blog> blog = blogService.findByStatus(true);
-//		model.addObject("blog", blog);
-//		model.addObject("list", listPet);
-//		model.addObject("listAcc", listAcces);
-//		return model;
-//	}
 
 	@RequestMapping("/403")
 	public String forbidden(ModelMap model, HttpServletRequest request) {

@@ -22,7 +22,7 @@ public class BlogDAOImpl implements BlogDAO {
 	}
 
 	@Override
-	public void changeStt(boolean stt, int id) {
+	public void changeStt(int stt, int id) {
 		// TODO Auto-generated method stub
 		repo.changeStt(stt, id);
 	}
@@ -46,7 +46,7 @@ public class BlogDAOImpl implements BlogDAO {
 	}
 
 	@Override
-	public List<Blog> findByStatus(Boolean status) {
+	public List<Blog> findByStatus(int status) {
 		// TODO Auto-generated method stub
 		return repo.findByStatus(status);
 	}
