@@ -36,11 +36,11 @@
 	<!-- Site wrapper -->
 	<div class="wrapper">
 		<!-- Navbar -->
-		<%@ include file="/WebContent/views/header_nav_admin.jsp" %>
+		<%@ include file="/WebContent/views/header_nav_admin.jsp"%>
 		<!-- /.navbar -->
 
 		<!-- Main Sidebar Container -->
-		<%@ include file="/WebContent/views/aside_nav_admin.jsp" %>
+		<%@ include file="/WebContent/views/aside_nav_admin.jsp"%>
 		<!-- End aside -->
 
 		<!-- Content Wrapper. Contains page content -->
@@ -82,7 +82,8 @@
 									<!--Div form Update-->
 									<div id="form-disable-update"
 										style="display: none; max-width: 95%; margin: auto;">
-										<form action="admin/ProductManagement/UpdateProduct" method="post">
+										<form action="admin/ProductManagement/UpdateProduct"
+											method="post">
 											<input type="hidden" name="id" id="id">
 											<div class="form-disable-p1 float-left"
 												style="width: 330px; margin-left: 30px; float: left;">
@@ -96,7 +97,7 @@
 														cưng</label> <select name="giongThu" id="pet-bread-update"
 														style="height: 30px; width: 100%;">
 														<c:forEach var="category" items="${listCategory }">
-																<option value="${category.id }">${ category.getName()}</option>
+															<option value="${category.id }">${ category.getName()}</option>
 														</c:forEach>
 													</select>
 												</div>
@@ -150,10 +151,10 @@
 														hình ảnh</label> <input type="file" class="custom-file-input"
 														id="customFile" name="filename">
 												</div>
-												
-												 <input type="hidden" class="form-control" id="petDateUpdate"
-														name="ngayNhap">
-												
+
+												<input type="hidden" class="form-control" id="petDateUpdate"
+													name="ngayNhap">
+
 												<div>
 													<button type="submit"
 														class="btn btn-custon-rounded-three btn-success btn-css">
@@ -322,7 +323,8 @@
 									</div>
 
 									<div class="table-responsive-xl main-table ">
-										<table class="table table-striped" style="margin-bottom: -1%;" id="table-js">
+										<table class="table table-striped" style="margin-bottom: -1%;"
+											id="table-js">
 											<thead class="thead-light">
 												<tr>
 													<th scope="col">#</th>
@@ -348,15 +350,14 @@
 														<th scope="row" class="td-center"
 															style="padding-top: 2.5%;">${product.id }</th>
 														<td><img class="img-fluid"
-															src="${product.getImgs().get(0).getImgAvartar() }"
-															alt="" style="max-width: 70px; max-height: 70px;"></td>
+															src="${product.getImgs().get(0).getImgAvartar() }" alt=""
+															style="max-width: 70px; max-height: 70px;"></td>
 														<td class="td-center" style="padding-top: 2.5%;">
-															<div onclick="showFormUpdate(true, ${product.id})">${product.petName }</div>				
+															<div onclick="showFormUpdate(true, ${product.id})">${product.petName }</div>
 														</td>
-														<td class="td-center" style="padding-top: 2.5%;">
-														<span hidden="true" >${product.getSpecies().getId() }</span>
-														${product.getSpecies().getName() }
-														</td>
+														<td class="td-center" style="padding-top: 2.5%;"><span
+															hidden="true">${product.getSpecies().getId() }</span>
+															${product.getSpecies().getName() }</td>
 														<!--                           <td class="td-center" style="padding-top: 2.5%;">Xám trắng</td> -->
 														<!--                           <td class="td-center" style="padding-top: 2.5%;">Xanh dương</td> -->
 														<td class="td-center" style="padding-top: 2.5%;">${product.age }</td>
@@ -365,7 +366,8 @@
 														<td class="td-center" style="padding-top: 2.5%;">${product.amount}</td>
 														<td class="td-center" style="padding-top: 2.5%;">${product.getDate() }</td>
 														<td class="td-center" style="padding-top: 2.5%;">${product.status}</td>
-														<td class="td-center" style="padding-top: 2.5%;" hidden="true">${product.description}</td>
+														<td class="td-center" style="padding-top: 2.5%;"
+															hidden="true">${product.description}</td>
 														<td class="td-center" style="padding-top: 2%;">
 															<form action="admin/ProductManagement/${action }"
 																method="post">
@@ -389,14 +391,10 @@
 											<div class="pagination-main">
 												<nav aria-label="Page navigation example">
 													<ul class="pagination">
-														<li class="page-item"><a class="page-link" href="javascript:"
-															aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-														</a></li>
-														<li class="page-item"><a class="page-link" href="javascript:">1</a></li>
-														<li class="page-item"><a class="page-link" href="javascript:">2</a></li>
-														<li class="page-item"><a class="page-link" href="javascript:"
-															aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-														</a></li>
+														<c:forEach begin="1" end="${totalPage }" var="i">
+															<li class="page-item"><a class="page-link"
+																href="admin/ProductManagement?targetPage=${i }">${i }</a>
+														</c:forEach>
 													</ul>
 												</nav>
 											</div>

@@ -137,6 +137,10 @@
                     </div>
                 </form>
             </div>
+
+            <div class="responsive__cart-area">
+
+            </div>
         </div>
     </section>
 
@@ -163,14 +167,14 @@
     <!-- Animate On Scroll -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- import JavaScript -->
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<%--    <script src="https://unpkg.com/element-ui/lib/index.js"></script>--%>
 
     <!-- Custom JavaScript -->
     
     <script src="js/index.js"></script>
+    <script src="js/custom.js"></script>
     <script src="js/slider.js"></script>
-    <script>
-      </script>
+
 </body>
 
 </html>

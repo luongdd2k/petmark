@@ -34,6 +34,56 @@
 <base href="${pageContext.servletContext.contextPath}/">
 <link rel="stylesheet" href="css/product.css" />
 <link rel="stylesheet" href="css/styles.css" />
+	<style>
+		.buttons_added {
+			opacity:1;
+			display:inline-block;
+			display:-ms-inline-flexbox;
+			display:inline-flex;
+			white-space:nowrap;
+			vertical-align:top;
+			margin-left: 10px;
+		}
+		.is-form {
+			overflow:hidden;
+			position:relative;
+			background-color:#f9f9f9;
+			height:4rem;
+			width:4rem;
+			padding:0;
+			text-shadow:1px 1px 1px #fff;
+			border:1px solid #ddd;
+			font-size: 2rem ;
+		}
+		.is-form:focus,.input-text:focus {
+			outline:none;
+		}
+		.is-form.minus {
+			border-radius:4px 0 0 4px;
+		}
+		.is-form.plus {
+			border-radius:0 4px 4px 0;
+		}
+		.input-qty {
+			background-color:#fff;
+			height:4rem;
+			width: 4rem;
+			text-align:center;
+			font-size:1.5rem;
+			display:inline-block;
+			vertical-align:top;
+			margin:0;
+			border-top:1px solid #ddd;
+			border-bottom:1px solid #ddd;
+			border-left:0;
+			border-right:0;
+			padding:0;
+		}
+		.input-qty::-webkit-outer-spin-button,.input-qty::-webkit-inner-spin-button {
+			-webkit-appearance:none;
+			margin:0;
+		}
+	</style>
 </head>
 
 <body>
@@ -62,19 +112,19 @@
 							<div class="details__container--left">
 								<div class="product__pictures">
 									<div class="pictures__container">
-										<img class="picture" src="${img.getImg1() }" id="pic1" />
+										<img onclick="getUrl(this.src)" class="picture" src="${img.getImg1() }" id="pic1" />
 									</div>
 									<div class="pictures__container">
-										<img class="picture" src="${img.getImg2() }" id="pic2" />
+										<img onclick="getUrl(this.src)" class="picture" src="${img.getImg2() }" id="pic2" />
 									</div>
 									<div class="pictures__container">
-										<img class="picture" src="${img.getImg3() }" id="pic3" />
+										<img onclick="getUrl(this.src)" class="picture" src="${img.getImg3() }" id="pic3" />
 									</div>
 									<div class="pictures__container">
-										<img class="picture" src="${img.getImg1() }" id="pic4" />
+										<img onclick="getUrl(this.src)" class="picture" src="${img.getImg1() }" id="pic4" />
 									</div>
 									<div class="pictures__container">
-										<img class="picture" src="${img.getImg3() }" id="pic5" />
+										<img onclick="getUrl(this.src)" class="picture" src="${img.getImg3() }" id="pic5" />
 									</div>
 								</div>
 								<div class="product__picture" id="product__picture">
@@ -85,16 +135,15 @@
 								</div>
 								<div class="zoom" id="zoom"></div>
 							</div>
-							<div id="cho" class="product-details__btn product-details__btn_pet hide">
-							<button id="cho" type="submit"
-								class="product-details__btn product-details__btn_pet hide">
-								<a class="buy" > <span> <svg>
-                    <use xlink:href="images/sprite.svg#icon-credit-card"></use>
-                  </svg>
-								</span> ĐẶT CỌC NGAY
-								</a>
-							</button>
-						</div>
+							<div class="product-details__btn product-details__btn_pet">
+								<button id="cho" type="submit" class="product-details__btn product-details__btn_pet buy">
+									<span>
+										<svg>
+											<use xlink:href="images/sprite.svg#icon-credit-card"></use>
+										</svg>
+									</span> ĐẶT CỌC NGAY
+								</button>
+							</div>
 						</div>
 
 						<div id="phu-kien" class="product-detail__right">
@@ -106,20 +155,20 @@
 								<div class="product__review">
 									<div class="rating">
 										<svg>
-                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
-                  </svg>
+											<use xlink:href="images/sprite.svg#icon-star-full"></use>
+									  	</svg>
 										<svg>
-                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
-                  </svg>
+                    						<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                  						</svg>
 										<svg>
-                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
-                  </svg>
+                    						<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                  						</svg>
 										<svg>
-                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
-                  </svg>
-										<svg>
-                    <use xlink:href="images/sprite.svg#icon-star-empty"></use>
-                  </svg>
+                    						<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                  						</svg>
+											<svg>
+												<use xlink:href="images/sprite.svg#icon-star-empty"></use>
+					  					</svg>
 									</div>
 									<a href="#description" class="rating__quatity">3 nhận xét</a>
 								</div>
@@ -127,8 +176,8 @@
 									<ul class="product__info">
 										<li class="select">
 											<div class="select__option">
-												<label for="colors">Màu lông - Màu mắt: </label> <select
-													name="colors" id="colors" class="select-box">
+												<label for="color">Màu lông - Màu mắt: </label>
+												<select name="colors" id="color" class="select-box">
 													<c:forEach var="color" items="${color}">
 														<option value="${color.getId() }">${color.getFullColor() }
 															- ${color.getEyeColor() }</option>
@@ -137,117 +186,32 @@
 											</div>
 										</li>
 										<li>
-
 											<div class="input-counter">
-												<span>Số lượng :</span>
-												<div>
-													<span id="" class="minus-btn"> <svg>
-                            <use
-																xlink:href="images/sprite.svg#icon-minus"></use>
-                          </svg>
-													</span> <input type="text" min="1" value="1" name="soLuong" max="10"
-														class="counter-btn"> <span class="plus-btn">
-														<svg>
-                            <use
-																xlink:href="images/sprite.svg#icon-plus"></use>
-                          </svg>
-													</span>
+												<span>Số lượng: </span>
+												<div class="buttons_added">
+													<input onclick="changePrice()" class="minus is-form" type="button" value="-">
+													<input id="so-luong"  aria-label="quantity" class="input-qty" max="10" min="1" name="soLuong" type="number" value="1">
+													<input onclick="changePrice()" class="plus is-form" type="button" value="+">
 												</div>
 											</div>
 										</li>
 
-										<li><span>Giá cọc :</span> <a href="javascript:" class="new__price">${pet.getDisplayDeposit() }
-											</a></li>
-										<li><span>Giống :</span> <a href="javascript:">${pet.getSpecies().getName() }</a>
-										</li>
-										<li><span>Tuổi :</span> <a href="javascript:">${pet.getAge() }
-												tháng</a></li>
-										<li><span>Trạng thái :</span> <a href="javascript:"
-											class="in-stock">${pet.getStatus() } (${pet.getAmount() }
-												con)</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
-						<!--Div pet-->
-						<div id="thuCung" class="product-detail__right hide">
-							<div class="product-detail__content">
-								<h3>Husky Shibarian</h3>
-								<div class="price">
-									<span class="new__price">80000 đ</span>
-								</div>
-								<div class="product__review">
-									<div class="rating">
-										<svg>
-                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
-                  </svg>
-										<svg>
-                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
-                  </svg>
-										<svg>
-                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
-                  </svg>
-										<svg>
-                    <use xlink:href="images/sprite.svg#icon-star-full"></use>
-                  </svg>
-										<svg>
-                    <use xlink:href="images/sprite.svg#icon-star-empty"></use>
-                  </svg>
-									</div>
-									<a href="#description" class="rating__quatity">3 nhận xét</a>
-								</div>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Sunt a doloribus iste natus et facere? dolor sit amet
-									consectetur adipisicing elit. Sunt a doloribus iste natus et
-									facere?</p>
-								<div class="product__info-container">
-									<ul class="product__info">
-										<li class="select">
-											<div class="select__option">
-												<label for="colors">Màu lông: </label> <select name="colors"
-													id="colors" class="select-box">
-													<option value="xanh">Xanh dương</option>
-													<option value="do">Đỏ</option>
-													<option value="hong">Hồng</option>
-													<option value="cam">Cam</option>
-													<option value="xanhLa">Xanh lá</option>
-												</select>
-											</div>
-											<div class="select__option">
-												<label for="size">Màu mắt :</label> <select name="size"
-													id="size" class="select-box">
-													<option value="xanhDuong">Xanh dương</option>
-													<option value="den">Đen</option>
-												</select>
-											</div>
+										<li>
+											<span>Giá cọc :</span>
+											<a href="javascript:" class="new__price">${pet.getDisplayDeposit() }</a>
 										</li>
 										<li>
-
-											<div class="input-counter">
-												<span>Số lượng :</span>
-												<div>
-													<span id="" class="minus-btn"> <svg>
-                            <use
-																xlink:href="images/sprite.svg#icon-minus"></use>
-                          </svg>
-													</span> <input type="text" min="1" value="1" max="10"
-														class="counter-btn"> <span class="plus-btn">
-														<svg>
-                            <use
-																xlink:href="images/sprite.svg#icon-plus"></use>
-                          </svg>
-													</span>
-												</div>
-											</div>
+											<span>Giống :</span>
+											<a href="javascript:">${pet.getSpecies().getName() }</a>
 										</li>
-
-										<li><span>Số tiền :</span> <a href="javascript:" class="new__price">2500000
-												đ</a></li>
-										<li><span>Giống :</span> <a href="javascript:">Husky</a></li>
-										<li><span>Loại thú cưng :</span> <a href="javascript:">Chó</a></li>
-										<li><span>Trạng thái :</span> <a href="javascript:"
-											class="in-stock">Còn hàng (15 sản phẩm)</a></li>
+										<li>
+											<span>Tuổi :</span>
+											<a href="javascript:">${pet.getAge() } tháng</a>
+										</li>
+										<li>
+											<span>Trạng thái :</span>
+											<a href="javascript:" class="in-stock">${pet.getStatus() } (${pet.getAmount() } con)</a>
+										</li>
 									</ul>
 								</div>
 							</div>
@@ -256,7 +220,6 @@
 				</form>
 				<div class="product-detail__bottom">
 					<div class="title__container tabs">
-
 						<div class="section__titles category__titles ">
 							<div class="section__title detail-btn active"
 								data-id="description">
@@ -282,20 +245,20 @@
 							<h1>Nhận xét của khách hàng</h1>
 							<div class="rating">
 								<svg>
-                  <use xlink:href="images/sprite.svg#icon-star-full"></use>
-                </svg>
+                  					<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                				</svg>
 								<svg>
-                  <use xlink:href="images/sprite.svg#icon-star-full"></use>
-                </svg>
+                  					<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                				</svg>
 								<svg>
-                  <use xlink:href="images/sprite.svg#icon-star-full"></use>
-                </svg>
+                  					<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                				</svg>
 								<svg>
-                  <use xlink:href="images/sprite.svg#icon-star-full"></use>
-                </svg>
+                  					<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                				</svg>
 								<svg>
-                  <use xlink:href="images/sprite.svg#icon-star-empty"></use>
-                </svg>
+                  					<use xlink:href="images/sprite.svg#icon-star-empty"></use>
+                				</svg>
 							</div>
 						</div>
 					</div>
@@ -314,10 +277,8 @@
 					<div class="glide" id="glide_3">
 						<div class="glide__track" data-glide-el="track">
 							<ul class="glide__slides latest-center">
-							
-							
 								<c:forEach var="list" items="${list }">
-                <li class="glide__slide">
+                					<li class="glide__slide">
                   <div class="product">
                     <div class="product__header">
                       <a href="javascript:"><img src="${list.getImgs().get(0).getImgAvartar() }" alt="product"></a>
@@ -364,28 +325,22 @@
                     </ul>
                   </div>
                 </li>
-                </c:forEach>
-								
-						
-										</ul>
-									</div>
+                				</c:forEach>
 							</ul>
 						</div>
-
-						<div class="glide__arrows" data-glide-el="controls">
-							<button class="glide__arrow glide__arrow--left"
-								data-glide-dir="<">
-								<svg>
-                  <use xlink:href="images/sprite.svg#icon-arrow-left2"></use>
-                </svg>
-							</button>
-							<button class="glide__arrow glide__arrow--right"
-								data-glide-dir=">">
-								<svg>
-                  <use xlink:href="images/sprite.svg#icon-arrow-right2"></use>
-                </svg>
-							</button>
-						</div>
+						</ul>
+					</div>
+					<div class="glide__arrows" data-glide-el="controls">
+						<button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+							<svg>
+                  				<use xlink:href="images/sprite.svg#icon-arrow-left2"></use>
+                			</svg>
+						</button>
+						<button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+							<svg>
+                  				<use xlink:href="images/sprite.svg#icon-arrow-right2"></use>
+                			</svg>
+						</button>
 					</div>
 				</div>
 			</section>
@@ -418,6 +373,30 @@
 	<script src="js/slider.js"></script>
 	<script src="js/jquery-3.5.1.min.js"></script>
 	<script src="js/custom.js"></script>
+	<script type="text/javascript">
+		function getUrl(url){
+			document.getElementById("pic").src = url;
+		};
+
+		$('input.input-qty').each(function() {
+			var $this = $(this),
+					qty = $this.parent().find('.is-form'),
+					min = Number($this.attr('min')),
+					max = Number($this.attr('max'))
+			if (min == 0) {
+				var d = 0
+			} else d = min
+			$(qty).on('click', function() {
+				if ($(this).hasClass('minus')) {
+					if (d > min) d += -1
+				} else if ($(this).hasClass('plus')) {
+					var x = Number($this.val()) + 1
+					if (x <= max) d += 1
+				}
+				$this.attr('value', d).val(d)
+			})
+		});
+	</script>
 </body>
 
 </html>

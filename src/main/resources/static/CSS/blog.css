@@ -37,7 +37,7 @@
     width: 100%;
 }
 .action{
-    text-align: right; 
+    text-align: right;
     margin-right: 10px;
     padding-bottom: 10px;
 }
@@ -49,6 +49,10 @@
     width: 25px;
     height: 25px;
 }
+
+
+
+
 input {
             background-color: transparent;
             border: none;
@@ -192,4 +196,3 @@ input {
 .description{
 	margin:8px 5px;
 }
-        

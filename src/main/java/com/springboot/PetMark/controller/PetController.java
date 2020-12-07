@@ -57,7 +57,7 @@ public class PetController {
 		List<String> listStatus = petService.selecStatus();
 		int countContinueProduct = petService.countContinueProduct();
 //		System.out.println("countContinueProduct: " + countContinueProduct);
-		int totalPage = (int) Math.ceil((double)countContinueProduct/20);
+		int totalPage = (int) Math.ceil((double)countContinueProduct/10);
 		String action = "DisContinuedProduct";
 		int targetPage;
 
@@ -71,7 +71,7 @@ public class PetController {
 		}
 		int page = targetPage - 1;
 
-		listProduct = petService.showProductByCategoryPageable("", PageRequest.of(page, 20, Sort.by("id").ascending()));
+		listProduct = petService.showProductByCategoryPageable("", PageRequest.of(page, 10, Sort.by("id").ascending()));
 
 		if (request.getParameter("scrollT") != null) {
 			model.addAttribute("scrollT", request.getParameter("scrollT"));
@@ -88,28 +88,28 @@ public class PetController {
 			switch (sortValue) {
 			case "-1":
 				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showProductByCategoryPageable( "Còn hàng", PageRequest.of(page, 20, Sort.by("id").ascending()));
+				listProduct = petService.showProductByCategoryPageable( "Còn hàng", PageRequest.of(page, 10, Sort.by("id").ascending()));
 				
 				break;
 			case "0":
 				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 20, Sort.by("id").descending()));
+				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("id").descending()));
 				
 				break;
 			case "1":
 				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 20, Sort.by("price").ascending()));
+				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("price").ascending()));
 				
 				break;
 			case "2":
 				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 20, Sort.by("price").descending()));
+				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("price").descending()));
 				
 				break;
 			case "3":
 				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showProductByCategoryPageable("Ngừng bán", PageRequest.of(page, 20, Sort.by("id").ascending()));
-//				totalPage = (int) Math.ceil((double)petService.countProduct("Ngừng bán")/20);
+				listProduct = petService.showProductByCategoryPageable("Ngừng bán", PageRequest.of(page, 10, Sort.by("id").ascending()));
+//				totalPage = (int) Math.ceil((double)petService.countProduct("Ngừng bán")/10);
 				nameButton2 = "Đăng bán";
 				action ="ContinuedProduct";
 //				classButton2 = "cancel_discontinue";
@@ -118,12 +118,12 @@ public class PetController {
 				break;
 			case "4":
 				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showByDes( "chó", PageRequest.of(page, 20, Sort.by("id").ascending()));
+				listProduct = petService.showByDes( "chó", PageRequest.of(page, 10, Sort.by("id").ascending()));
 				
 				break;
 			case "5":
 				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showByDes( "mèo", PageRequest.of(page, 20, Sort.by("id").ascending()));
+				listProduct = petService.showByDes( "mèo", PageRequest.of(page, 10, Sort.by("id").ascending()));
 				
 				break;
 			default:
@@ -266,7 +266,7 @@ public class PetController {
 //			System.out.println(fileContentType.substring(0, 6));
 //			if(!fileContentType.substring(0, 6).equals("image/")) {
 //				return "?photo_name=FAIL";
-//			} else if (fileSize > 2097152) {
+//			} else if (fileSize > 1097152) {
 //				return "?photo_name=OVERSIZE";
 //			}
 //			

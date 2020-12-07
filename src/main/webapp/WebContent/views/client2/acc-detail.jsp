@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTFfaci-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -157,7 +157,7 @@
             <div class="product-detail__content">
               <h3>${acc.getName() }</h3>
               <div class="price">
-                <span class="new__price">${acc.getDisplayPrice(1) }</span>
+                <span class="new__price">${acc.getDisplayPrice(1) } đ</span>
               </div>
               <div class="product__review">
                 <div class="rating">
@@ -200,7 +200,6 @@
                     </div>
                   </li>
                   <li>
-
                     <div class="input-counter">
                       <span>Số lượng: </span>
                       <div class="buttons_added">
@@ -369,7 +368,6 @@
               </button>
             </div>
           </div>
-        </div>
       </section>
     </div>
     <!-- Facility Section -->
