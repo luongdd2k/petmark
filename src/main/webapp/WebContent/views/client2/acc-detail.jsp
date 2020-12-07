@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTFfaci-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -200,7 +200,6 @@
                     </div>
                   </li>
                   <li>
-
                     <div class="input-counter">
                       <span>Số lượng: </span>
                       <div class="buttons_added">
@@ -369,7 +368,6 @@
               </button>
             </div>
           </div>
-        </div>
       </section>
     </div>
     <!-- Facility Section -->

@@ -7,37 +7,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Blog cá nhân</title>
-<base href="${pageContext.servletContext.contextPath}/">
+
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
 <!-- Google Fonts -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap"
-	rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet" />
 <!-- Font Awesome -->
-<link rel="stylesheet"
-	href="css/fontawesome-free-5.15.1/css/all.min.css" />
+<link rel="stylesheet" href="css/fontawesome-free-5.15.1/css/all.min.css" />
 
 <!-- Carousel -->
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-	crossorigin="anonymous">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css">
 <!-- Animate On Scroll -->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
+	<title>Blog cá nhân</title>
+	<base href="${pageContext.servletContext.contextPath}/">
 <!-- Custom StyleSheet -->
-<link rel="stylesheet" href="css/image-uploader.min.css">
 <link rel="stylesheet" href="css/acc-in.css">
 <link rel="stylesheet" href="css/styles.css" />
-<link rel="stylesheet" href="css/blog.css">
+<<link rel="stylesheet" href="css/blog.css">
 <style>
 .hide {
 	display: none;
@@ -137,13 +128,6 @@
 								<div class="my-account-profile">
 									<div class="new-blog-form">
 										<h2 class="form-title" style="text-align: center;">Tạo bài viết</h2>
-										
-										
-										
-<!-- 						đang làm				 -->
-
-
-
 											<form action="addBlog" method="POST" name="form-example-1" id="form-example-1" enctype="multipart/form-data">
 											    <div class="input-field">
 											        <input type="text" name="content" id="description-1">
@@ -153,7 +137,7 @@
 											    <div class="input-field custom-file">
 											        <label class="active">Ảnh</label>
 											        <input type="file" class="custom-file-input" id="myFile" name="addimg" style="padding-top: 1rem;">
-											        <label class="custom-file-label" for="customFile">Choose file</label>
+											        <label class="custom-file-label" for="customFile">Chọn ảnh</label>
 											    </div>
 												<div class="button"
 													style="text-align: center; margin-top: 10px">
@@ -162,8 +146,6 @@
 													<button id="huy" type="button" class="btn btn-warning">Hủy</button>
 												</div>
 											</form>
-											
-									
 									</div>
 								</div>
 							</div>
