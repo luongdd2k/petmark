@@ -255,35 +255,4 @@ public class PetController {
 		return "redirect:/admin/ProductManagement";
 	}
 
-//	@RequestMapping("/UploadIMG")
-//	@ResponseBody
-//	public String uploadIMG(ModelMap model, @RequestParam("addProductIMG") MultipartFile photo) {
-//		try {
-//			String fileContentType = photo.getContentType();
-//			long fileSize = photo.getSize();
-//			System.out.println("fileContentType: " + fileContentType); 
-//			System.out.println("fileSize: " + fileSize); 
-//			System.out.println(fileContentType.substring(0, 6));
-//			if(!fileContentType.substring(0, 6).equals("image/")) {
-//				return "?photo_name=FAIL";
-//			} else if (fileSize > 1097152) {
-//				return "?photo_name=OVERSIZE";
-//			}
-//			
-//			String photoPath = context.getRealPath("/files/shop_item/" + photo.getOriginalFilename());
-//			photo.transferTo(new File(photoPath));
-//			model.addAttribute("photo_name", photo.getOriginalFilename());
-//			
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			System.out.println("Lỗi lưu file: " + e);
-//		}
-//		
-//		return "?photo_name=files/shop_item/"+photo.getOriginalFilename();
-	@RequestMapping("/show-statistical")
-	public ModelAndView showStatistical(HttpServletRequest req) {
-		ModelAndView model = new ModelAndView();
-		model.setViewName("pages/statistical/statistical");
-		return model;
-	}
 }

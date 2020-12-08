@@ -50,6 +50,6 @@ public interface OrderrWebRepository extends JpaRepository<OrderrWeb, Integer> {
 								@Param("deliveryStatus") String deliveryStatus,
 								Pageable pageable);
 	
-	List<OrderrWeb> findByDeliveryStatusOrderByCreatedAtAsc(String deliveryStatus);
+	List<OrderrWeb> findByDeliveryStatusOrderByCreatedAtDesc(String deliveryStatus);
 
 }

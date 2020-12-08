@@ -5,167 +5,175 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin || Statistical</title>
-  <base href="${pageContext.servletContext.contextPath}/">
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Font Awesome -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Admin || Statistical</title>
+<base href="${pageContext.servletContext.contextPath}/">
+<!-- Tell the browser to be responsive to screen width -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Font Awesome -->
 
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <link rel="stylesheet" href="dist/css/custom.css">
+<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- overlayScrollbars -->
+<link rel="stylesheet"
+	href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="dist/css/adminlte.min.css">
+<!-- Google Font: Source Sans Pro -->
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
+	rel="stylesheet">
+<link rel="stylesheet" href="dist/css/custom.css">
 
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-  <!-- Site wrapper -->
-  <div class="wrapper">
-    <!-- Navbar -->
-	<%@ include file="/WebContent/views/header_nav_admin.jsp" %>
-	<!-- /.navbar -->
+	<!-- Site wrapper -->
+	<div class="wrapper">
+		<!-- Navbar -->
+		<%@ include file="/WebContent/views/header_nav_admin.jsp"%>
+		<!-- /.navbar -->
 
-	<!-- Main Sidebar Container -->
-	<%@ include file="/WebContent/views/aside_nav_admin.jsp" %>
-	<!-- End aside -->
+		<!-- Main Sidebar Container -->
+		<%@ include file="/WebContent/views/aside_nav_admin.jsp"%>
+		<!-- End aside -->
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1>THỐNG KÊ</h1>
-            </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
-                <li class="breadcrumb-item active">Thống kê</a></li>
-              </ol>
-            </div>
-          </div>
-        </div><!-- /.container-fluid -->
-      </section>
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1>THỐNG KÊ</h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="index.html">Trang
+										chủ</a></li>
+								<li class="breadcrumb-item active">Thống kê</a></li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
 
-      <!-- Main content -->
-      <section class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card">
-                <div class="card-header border-0">
-                  <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Tổng doanh thus</h3>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <div class="d-flex">
-                    <p class="d-flex flex-column">
-                      <span class="text-bold text-lg">820</span>
-                      <span>Tổng</span>
-                    </p>
-                    <p class="ml-auto d-flex flex-column text-right">
-                      <span class="text-success">
-                        <i class="fas fa-arrow-up"></i> 12.5%
-                      </span>
-                      <span class="text-muted">Từ tháng trước</span>
-                    </p>
-                  </div>
-                  <!-- /.d-flex -->
+			<!-- Main content -->
+			<section class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="card">
+								<div class="card-header border-0">
+									<div class="d-flex justify-content-between">
+										<h3 class="card-title">Tổng doanh thu</h3>
+									</div>
+								</div>
+								<div class="card-body">
+									<div class="d-flex">
+										<p class="d-flex flex-column">
+											<span class="text-bold text-lg">820</span> <span>Tổng</span>
+										</p>
+										<p class="ml-auto d-flex flex-column text-right">
+											<span class="text-success"> <i class="fas fa-arrow-up"></i>
+												12.5%
+											</span> <span class="text-muted">Từ tháng trước</span>
+										</p>
+									</div>
+									<!-- /.d-flex -->
 
-                  <div class="position-relative mb-4">
-                    <canvas id="visitors-chart" height="200"></canvas>
-                  </div>
+									<div class="position-relative mb-4">
+										<canvas id="visitors-chart" height="200"></canvas>
+									</div>
 
-                  <div class="d-flex flex-row justify-content-end">
-                    <span class="mr-2">
-                      <i class="fas fa-square text-primary"></i> Tháng này
-                    </span>
+									<div class="d-flex flex-row justify-content-end">
+										<span class="mr-2"> <i
+											class="fas fa-square text-primary"></i> Tháng này
+										</span> <span> <i class="fas fa-square text-gray"></i> Tháng
+											trước
+										</span>
+									</div>
+								</div>
+							</div>
+							<!-- /.card -->
+						</div>
 
-                    <span>
-                      <i class="fas fa-square text-gray"></i> Tháng trước
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <!-- /.card -->
-            </div>
+						<div class="col-lg-12">
+							<div class="card table-responsive"
+								style="max-width: 1000px; margin: 0 auto;">
+								<h4 style="margin-left: 10px;">Đơn hàng chưa xét duyệt</h4>
+								<table class="table table-hover">
+									<thead>
+										<tr class="bg-info">
+											<th scope="col">Mã đơn hàng</th>
+											<th scope="col">Người mua</th>
+											<th scope="col">Ngày đặt</th>
+											<th scope="col">Trạng thái giao hàng</th>
+											<th scope="col">Trạng thái thanh toán</th>
+											<th scope="col">Tổng tiền</th>
+										</tr>
+									</thead>
+									<c:forEach var="list" items="${list }">
+										<tbody>
+											<tr>
+												<td><a href="admin/orders/detail/${list.id}">${list.id }</a>
+												</td>
+												<td>${list.getAccount().getUsername() }</td>
+												<td>${list.getDate() }</td>
+												<td>${list.getPaymentStatus() }</td>
+												<td>${list.getDeliveryStatus() }</td>
+												<td>${list.getDisplayTotalAmount() }</td>
+											</tr>
+										</tbody>
+									</c:forEach>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- End container-fluid-->
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
 
-            <div class="col-lg-12">
-              <div class="card table-responsive" style="max-width: 1000px; margin: 0 auto;">
-                <h4 style="margin-left: 10px;">Đơn hàng chưa xét duyệt</h4>
-                <table class="table table-hover">
-                  <thead>
-                    <tr class="bg-info">
-                      <th scope="col">Mã đơn hàng</th>
-                      <th scope="col">Người mua</th>
-                      <th scope="col">Ngày đặt</th>
-                      <th scope="col">Trạng thái thanh toán</th>
-                      <th scope="col">Trạng thái giao hàng</th>
-                      <th scope="col">Tổng tiền</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr  class="table-warning">
-                      <th scope="row">Mã đơn</th>
-                      <td>Tên</td>
-                      <td>Ngu</td>
-                      <td>Ngu</td>
-                      <td>Ngu</td>
-                      <td>Ngu</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- End container-fluid-->
-      </section>
-      <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
+		<footer class="main-footer">
+			<div class="float-right d-none d-sm-block">
+				<b>Version</b> 1.0.0
+			</div>
+			<strong>Copyright &copy; 2020 <a href="http://adminlte.io">Petmart
+			</a>.
+			</strong> All rights reserved.
+		</footer>
 
-    <footer class="main-footer">
-      <div class="float-right d-none d-sm-block">
-        <b>Version</b> 1.0.0
-      </div>
-      <strong>Copyright &copy; 2020 <a href="http://adminlte.io">Petmart </a>.</strong> All rights
-      reserved.
-    </footer>
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+		<!-- /.control-sidebar -->
+	</div>
+	<!-- ./wrapper -->
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
-  </div>
-  <!-- ./wrapper -->
-
-  <!-- jQuery -->
-  <script src="plugins/jquery/jquery.min.js"></script>
-  <!-- Bootstrap 4 -->
-  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- overlayScrollbars -->
-  <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="dist/js/demo.js"></script>
-  <!-- OPTIONAL SCRIPTS -->
-  <script src="plugins/chart.js/Chart.min.js"></script>
-  <script src="dist/js/demo.js"></script>
-  <script src="dist/js/pages/dashboard3.js"></script>
+	<!-- jQuery -->
+	<script src="plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- overlayScrollbars -->
+	<script
+		src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="dist/js/adminlte.min.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="dist/js/demo.js"></script>
+	<!-- OPTIONAL SCRIPTS -->
+	<script src="plugins/chart.js/Chart.min.js"></script>
+	<script src="dist/js/demo.js"></script>
+	<script src="dist/js/pages/dashboard3.js"></script>
 </body>
 
 </html>

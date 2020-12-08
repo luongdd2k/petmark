@@ -71,7 +71,7 @@ public class OrderrWebDAOImpl implements OrderrWebDAO {
 	@Override
 	public List<OrderrWeb> findByDeliveryStatusOrderByCreatedAtAsc(String deliveryStatus) {
 		// TODO Auto-generated method stub
-		return repo.findByDeliveryStatusOrderByCreatedAtAsc(deliveryStatus);
+		return repo.findByDeliveryStatusOrderByCreatedAtDesc(deliveryStatus);
 	}
 
 
