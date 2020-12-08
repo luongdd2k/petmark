@@ -19,10 +19,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.springboot.PetMark.entities.Accessories;
 import com.springboot.PetMark.entities.Account;
@@ -229,40 +231,19 @@ public class AccessoriesController {
 		
 		return "redirect:/admin/AccessoriesManagement";
 	}
-//	
-//	@RequestMapping("/AccessoriesManagement/PermanentlyDeleted")
-//	@ResponseBody
-//	public String permanentlyDeleted(HttpServletRequest request) {
-//		int AccessoriesId = Integer.valueOf(request.getParameter("AccessoriesId"));
-//		AccessoriesService.permanentlyDeleted(AccessoriesId);
-//		
-//		return "?PermanentlyDeleted="+AccessoriesId;
-//	}
-//	
-//	
-//	@RequestMapping("/UploadIMG")
-//	@ResponseBody
-//	public String uploadIMG(ModelMap model, @RequestParam("addAccessoriesIMG") MultipartFile photo) {
-//		try {
-//			String fileContentType = photo.getContentType();
-//			long fileSize = photo.getSize();
-//			System.out.println("fileContentType: " + fileContentType); 
-//			System.out.println("fileSize: " + fileSize); 
-//			System.out.println(fileContentType.substring(0, 6));
-//			if(!fileContentType.substring(0, 6).equals("image/")) {
-//				return "?photo_name=FAIL";
-//			} else if (fileSize > 1097152) {
-//				return "?photo_name=OVERSIZE";
-//			}
-//			
-//			String photoPath = context.getRealPath("/files/shop_item/" + photo.getOriginalFilename());
-//			photo.transferTo(new File(photoPath));
-//			model.addAttribute("photo_name", photo.getOriginalFilename());
-//			
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			System.out.println("Lỗi lưu file: " + e);
-//		}
-//		
-//		return "?photo_name=files/shop_item/"+photo.getOriginalFilename();
+@RequestMapping("/show-edit/{id}")
+public ModelAndView showEditAcc(HttpServletRequest req,@PathVariable int id,Principal principal) {
+	ModelAndView model = new ModelAndView();
+	User logginedUser = (User) ((Authentication) principal).getPrincipal();
+	Account account = accountService.findById(logginedUser.getUsername());
+	model.addObject("account", account);
+	model.setViewName("pages/accessory/accessory-update");
+	Accessories accessories = AccessoriesService.findById(id);
+	List<Category> listCategory = CategoryService.findAll();
+	List<String> listStatus = AccessoriesService.getStatus();
+	model.addObject("acc", accessories);
+	model.addObject("listCategory", listCategory);
+	model.addObject("listStatus", listStatus);
+	return model;
+}
 }

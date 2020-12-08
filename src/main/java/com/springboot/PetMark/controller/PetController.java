@@ -256,7 +256,7 @@ public class PetController {
 		return "redirect:/admin/ProductManagement";
 	}
 	@RequestMapping("/ProductManagement/show-edit/{id}")
-	public ModelAndView showEdit(HttpServletRequest req, @PathVariable int id) {
+	public ModelAndView showEdit(HttpServletRequest req, @PathVariable int id, Principal principal) {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("pages/pet/pet-update");
 		Pet pet = petService.findById(id);
@@ -265,6 +265,9 @@ public class PetController {
 		model.addObject("listCategory", listCategory);
 		List<String> listStatus = petService.selecStatus();
 		model.addObject("listStatus", listStatus);
+		User logginedUser = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(logginedUser.getUsername());
+		model.addObject("account", account);
 		return model;
 	}
 
