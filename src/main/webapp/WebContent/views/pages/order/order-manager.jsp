@@ -78,7 +78,7 @@
 										<table class="table table-hover" style="margin-bottom: -1%;">
 											<thead>
 												<tr class="bg-info">
-													<th scope="col">Mã đơn hàng</th>
+													<th scope="col" style="width: 125px">Mã đơn hàng</th>
 													<th scope="col">Người mua</th>
 													<th scope="col">Ngày đặt</th>
 													<th scope="col">Trạng thái thanh toán</th>
@@ -92,10 +92,10 @@
 														<td>
 															<a href="admin/orders/detail/${list.id}">${list.id }</a>
 														</td>
-														<td>${list.getAccount().getUsername() }</td>
+														<td>${list.getAccount().getFullName() }</td>
 														<td>${list.getDate() }</td>
 														<td class="td-js">${list.getPaymentStatus() }</td>
-														<td>${list.getDeliveryStatus() }</td>
+														<td class="td_js">${list.getDeliveryStatus() }</td>
 														<td style="color: #f44336;font-weight: 600;">${list.getDisplayTotalAmount() }</td>
 													</tr>
 											</tbody>
@@ -170,29 +170,60 @@
 	<script src="dist/js/demo.js"></script>
 	<!-- page script -->
 	<script>
-		// Đã hủy bỏ Đã hoàn tiền
 		let tr = document.getElementsByClassName('tr-js');
 		let td = document.getElementsByClassName('td-js');
+		let td1 = document.getElementsByClassName('td_js');
 		abc();
 		function abc(){
 			for (let i = 0; i< td.length; i++){
 				if(td[i].innerHTML == 'Chưa thanh toán'){
-					console.log(td[i].innerHTML);
-					// tr[i].classList.add("table-warning");
 					td[i].style.color="#ff6f00";
 					td[i].style.fontWeight="600";
 				}
 				if(td[i].innerHTML == 'Đã thanh toán'){
-					console.log(td[i].innerHTML);
-					// tr[i].classList.add("table-success");
-					td[i].style.color="#1b5e20";
+					td[i].style.color="#64dd17";
 					td[i].style.fontWeight="600";
 				}
 				if(td[i].innerHTML == 'Chờ thanh toán ATM'){
-					console.log(td[i].innerHTML);
-					// tr[i].classList.add("table-info");
-					td[i].style.color="#1b5e20";
+					td[i].style.color="#0288d1";
 					td[i].style.fontWeight="600";
+				}
+				if(td[i].innerHTML == 'Đã hoàn tiền'){
+					td[i].style.color="#c0ca33";
+					td[i].style.fontWeight="600";
+				}
+				if(td[i].innerHTML == 'Đã hủy bỏ'){
+					td[i].style.color="#b71c1c";
+					td[i].style.fontWeight="600";
+				}
+				//Trạng thái giao hàng
+				if(td1[i].innerHTML == 'Chưa xét duyệt'){
+					td1[i].style.color="#ff6f00";
+					td1[i].style.fontWeight="600";
+				}
+				if(td1[i].innerHTML == 'Chờ giao hàng'){
+					td1[i].style.color="#ffee58";
+					td1[i].style.fontWeight="600";
+				}
+				if(td1[i].innerHTML == 'Chờ giao hàng lần 2'){
+					td1[i].style.color="#fdd835";
+					td1[i].style.fontWeight="600";
+				}
+				if(td1[i].innerHTML == 'Đang giao hàng'){
+					td1[i].style.color="#81c784";
+					td1[i].style.fontWeight="600";
+				}
+				if(td1[i].innerHTML == 'Đang giao hàng lần 2'){
+					td1[i].style.color="#1b5e20";
+					td1[i].style.fontWeight="600";
+				}
+				if(td1[i].innerHTML == 'Giao hàng thành công'){
+					td1[i].style.color="#64dd17";
+					td1[i].style.fontWeight="600";
+				}
+				if(td1[i].innerHTML == 'Đã hủy'){
+					td1[i].style.color="#b71c1c";
+					td1[i].style.fontWeight="600";
 				}
 			}
 		}

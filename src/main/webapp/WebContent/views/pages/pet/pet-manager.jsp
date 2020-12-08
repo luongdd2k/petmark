@@ -178,10 +178,6 @@
 									</div>
 									<!--End Div Form Update-->
 
-
-
-
-
 									<!--Div Form New-->
 									<div id="form-disable-new"
 										style="display: none; max-width: 95%; margin: auto;">
@@ -399,29 +395,6 @@
 			<!-- /.content -->
 		</div>
 		<!-- /.content-wrapper -->
-		<!-- Start modal-->
-		<div class="modal fade" id="modelMessage" tabindex="-1"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Bạn vừa ngừng
-							kinh doanh ... !!</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">ID của ... mà bạn vừa dừng kinh doanh
-						là :</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Đóng</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Modal-->
 
 		<footer class="main-footer">
 			<div class="float-right d-none d-sm-block">
@@ -453,67 +426,15 @@
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
 	<script type="text/javascript" src="Script/QLSP.js"></script>
-	<script type="text/javascript">
-	var x = [];
-    $("#table-js tr").each(function () {
-      var id = $(this).find("th").eq(0).html();
-      var ten = $(this).find("div").eq(0).html();
-      var hang = $(this).find("span").eq(0).html();
-      var tuoi = $(this).find("td").eq(3).html();
-      var gia = $(this).find("td").eq(4).html();
-      var coc = $(this).find("td").eq(5).html();
-      var soLuong = $(this).find("td").eq(6).html();
-      var date = $(this).find("td").eq(7).html();
-      var stt = $(this).find("td").eq(8).html();
-      var mota = $(this).find("td").eq(9).html();
-      x.push({
-        id: id,
-        ten: ten,
-        hang: hang,
-        tuoi: tuoi,
-        gia: gia,
-        coc: coc,
-        soLuong: soLuong,
-        date: date,
-        stt: stt,
-        mota: mota
-      });
-//       console.log(x);
-      });
-		function hienThiFormNew(visible) {
-			var hienFormNew = document.getElementById("form-disable-new");
-			hienFormNew.style.display = visible ? "" : "none";
-			var timKiem = document.getElementById("new-pet");
-			timKiem.style.display = visible ? "none" : "block";
-		}
-		function showFormUpdate(visible, id) {
-			var hienFormUpdate = document.getElementById("form-disable-update");
-			hienFormUpdate.style.display = visible ? "" : "none";
-			var timKiem = document.getElementById("new-pet");
-			timKiem.style.display = visible ? "none" : "block";
-			var hienFormNew = document.getElementById("form-disable-new");
-			hienFormNew.style.display = visible ? "none" : "block";
-			var pet = x.find( item => item.id === id.toString() );
-			console.log(pet.hang);
-			console.log(x);
-			$('#id').val(pet.id);
-			$('#petNameUpdate').val(pet.ten);
-			$('#petAgeUpdate').val(pet.tuoi);
-			$('#petPriceUpdate').val(pet.gia);
-			$('#petAmountUpdate').val(pet.soLuong);
-			$('#pet-status-update').val(pet.stt);
-			$('#pet-bread-update').val(pet.hang);
-			$('#petInformationUpdate').val(pet.mota);
-			$('#petDateUpdate').val(pet.date);
-		}
-		
-		function hiddenFormUpdate(visible) {
-			var hienFormUpdate = document.getElementById("form-disable-update");
-			hienFormUpdate.style.display = visible ? "none" : "block";
-			var timKiem = document.getElementById("new-pet");
-			timKiem.style.display = visible ? "" : "none";
-		}
+	<script>
+				function hienThiFormNew(visible) {
+					var hienFormNew = document.getElementById("form-disable-new");
+					hienFormNew.style.display = visible ? "" : "none";
+					var timKiem = document.getElementById("new-pet");
+					timKiem.style.display = visible ? "none" : "block";
+				}
 	</script>
+
 </body>
 
 </html>

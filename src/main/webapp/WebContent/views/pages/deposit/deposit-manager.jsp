@@ -78,16 +78,18 @@
                           <th scope="col">Thú cưng</th>
                           <th scope="col">Giá</th>
                           <th scope="col">Giá cọc</th>
+                          <th scope="col">Trạng thái</th>
                         </tr>
                       </thead>
                       <c:forEach var="list" items="${list }">
                       <tbody>
-                        <tr class="table-success">
+                        <tr class="tr-js">
                           <td><a href="admin/deposit/deposit-detail/${list.getId() }">${list.getId()}</a></td>
                           <td>${list.getDate() }</td>
                           <td>${list.getPet().getPetName() }</td>
                           <td>${list.getPet().getDisplayPrice(1) }</td>
                           <td>${list.getDisplayTotalAmount(1) }</td>
+                          <td class="td-js">${list.getStatus() }</td>
                         </tr>
                       </tbody>
                       </c:forEach>
@@ -166,7 +168,31 @@
   <!-- AdminLTE for demo purposes -->
   <script src="dist/js/demo.js"></script>
   <!-- page script -->
-
+  <script>
+    let tr = document.getElementsByClassName('tr-js');
+    let td = document.getElementsByClassName('td-js');
+    abc();
+    function abc(){
+      for (let i = 0; i< td.length; i++){
+        if(td[i].innerHTML == 'Đã đặt cọc'){
+          td[i].style.color="#ff6f00";
+          td[i].style.fontWeight="600";
+        }
+        if(td[i].innerHTML == 'Đã thanh toán'){
+          td[i].style.color="#64dd17";
+          td[i].style.fontWeight="600";
+        }
+        if(td[i].innerHTML == 'Đã hủy - Chưa hoàn tiền'){
+          td[i].style.color="#0288d1";
+          td[i].style.fontWeight="600";
+        }
+        if(td[i].innerHTML == 'Đã huỷ'){
+          td[i].style.color="#b71c1c";
+          td[i].style.fontWeight="600";
+        }
+      }
+    }
+  </script>
 </body>
 
 </html>
