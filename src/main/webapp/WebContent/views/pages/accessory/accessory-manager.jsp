@@ -289,9 +289,9 @@
 													<img class="img-fluid" src="${Accessories.getImgs().get(0).getImgAvartar() }" alt="" style="max-width: 90px; max-height: 90px;">
 												</td>
 												<td class="tenthucung">
-													<div onclick="showFormUpdate(true, ${Accessories.id})" class="alert-link">
+													<a href="admin/AccessoriesManagement/show-edit/${Accessories.getId() }">
 														<div class="td__center">${Accessories.name }</div>
-													</div>
+													</a>
 												</td>
 												<td>
 													<span hidden="true">${Accessories.getCategory().getId() }</span>

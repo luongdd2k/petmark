@@ -75,7 +75,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    <i class="fas fa-paw"></i> Quản lý thú cưng
+                                    <i class="fas fa-paw"></i> Thông tin chi tiết thú cưng
                                 </h3>
                             </div>
                             <!-- /.card-header -->
@@ -93,7 +93,7 @@
                                             <div class="form-group">
                                                 <label for="petNameUpdate">Tên thú cưng</label>
                                                 <input type="text" class="form-control" id="petNameUpdate"
-                                                       name="tenThu">
+                                                       name="tenThu" value="${pet.getPetName() }">
                                             </div>
                                             <div class="form-group">
                                                 <label for="pet-bread-update">Giống thú cưng</label>
@@ -114,12 +114,12 @@
                                         </div>
                                         <div class="form-disable-p1" style="width: 330px; margin-left: 30px; float: left;">
                                             <div class="form-group">
-                                                <label for="petAgeUpdate">Tuổi</label>
-                                                <input type="text" class="form-control" id="petAgeUpdate" name="tuoiThu">
+                                                <label for="petAgeUpdate">Tháng tuổi</label>
+                                                <input type="text" class="form-control" id="petAgeUpdate" name="tuoiThu" value="${pet.getAge() }">
                                             </div>
                                             <div class="form-group">
-                                                <label for="petPriceUpdate">Giá</label>
-                                                <input type="text" class="form-control" id="petPriceUpdate" name="giaThu">
+                                                <label for="petPriceUpdate">Giá (VND)</label>
+                                                <input type="text" class="form-control" id="petPriceUpdate" name="giaThu" value="${pet.getDisplayPrice(1) }">
                                             </div>
                                             <div class="form-group">
                                                 <label for="pet-status-update">Trạng thái</label>
@@ -131,13 +131,13 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="petAmountUpdate">Số lượng</label>
-                                                <input type="text" class="form-control" id="petAmountUpdate" name="soLuong">
+                                                <input type="text" class="form-control" id="petAmountUpdate" name="soLuong" value="${pet.getAmount() }">
                                             </div>
                                         </div>
                                         <div class="form-disable-p1" style="width: 330px; margin-left: 30px; float: left;">
                                             <div class="form-group">
                                                 <label for="petInformationUpdate">Mô tả</label>
-                                                <textarea class="form-control" id="petInformationUpdate" rows="2" name="moTaThu"></textarea>
+                                                <textarea class="form-control" id="petInformationUpdate" rows="2" name="moTaThu">${pet.getDescription() }</textarea>
                                             </div>
                                             <div class="custom-file mb-3">
                                                 <label class="custom-file-label" for="customFile">Chọn hình ảnh</label>
@@ -160,13 +160,13 @@
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-custon-rounded-three btn-success btn-css">
-                                                <i class="fas fa-save"></i> <span> Save</span>
+                                                <i class="fas fa-save"></i> <span> Lưu</span>
                                             </button>
                                             <button type="reset" class="btn btn-custon-rounded-three btn-warning btn-css">
-                                                <i class="fas fa-backspace"></i> <span> Clear</span>
+                                                <i class="fas fa-backspace"></i> <span> Làm mới</span>
                                             </button>
                                             <button type="button" class="btn btn-custon-rounded-three btn-danger btn-css" onclick="hiddenFormUpdate(true)">
-                                                <i class="fas fa-slash"></i> <span> Cancel</span>
+                                                <i class="fas fa-slash"></i> <span> Huỷ</span>
                                             </button>
                                         </div>
                                     </form>

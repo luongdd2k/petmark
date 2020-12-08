@@ -84,7 +84,7 @@
 					</li>
 					<li class="nav-header">THỐNG KÊ</li>
 					<li class="nav-item">
-						<a href="admin/show-statistical" class="nav-link"> 
+						<a href="admin/statistical/show-statistical" class="nav-link"> 
 						<i class="nav-icon far fa-chart-bar"></i>
 							<p>Thống kê</p>
 						</a>

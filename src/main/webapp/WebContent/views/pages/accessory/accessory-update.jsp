@@ -65,7 +65,7 @@
                 <div class="card card-default color-palette-box">
                     <div class="card-header">
                         <h3 class="card-title">
-                            <i class="fab fa-simplybuilt"></i> Quản lý phụ kiện
+                            <i class="fab fa-simplybuilt"></i> Thông tin chi tiết phụ kiện
                         </h3>
                     </div>
 
@@ -79,7 +79,7 @@
                                 <div class="form-disable-p1 float-left" style="width: 330px; margin-left: 30px; float: left">
                                     <div class="form-group">
                                         <label >Tên phụ kiện</label>
-                                        <input name="tenPhuKien" type="text" class="form-control" id="tenUpdate" />
+                                        <input name="tenPhuKien" type="text" class="form-control" id="tenUpdate" value="${acc.getName() }"/>
                                     </div>
                                     <div class="form-group">
                                         <label >Hãng</label>
@@ -97,7 +97,7 @@
                                 <div class="form-disable-p1" style="width: 330px; margin-left: 30px; float: left">
                                     <div class="form-group">
                                         <label >Giá</label>
-                                        <input name="giaPhuKien" type="text" class="form-control" id="giaUpdate" />
+                                        <input name="giaPhuKien" type="text" class="form-control" id="giaUpdate" value="${acc.getDisplayPrice(1) }"/>
                                     </div>
                                     <div class="form-group">
                                         <label >Trạng thái</label>
@@ -109,13 +109,13 @@
                                     </div>
                                     <div class="form-group">
                                         <label >Số lượng</label>
-                                        <input name="soLuongPhuKien" type="text" class="form-control" id="soLuongUpdate" />
+                                        <input name="soLuongPhuKien" type="text" class="form-control" id="soLuongUpdate" value="${acc.getAmount() }" />
                                     </div>
                                 </div>
                                 <div class="form-disable-p1" style="width: 330px; margin-left: 30px; float: left">
                                     <div class="form-group">
                                         <label>Mô tả</label>
-                                        <textarea name="moTaPhuKien" class="form-control" id="moTaUpdate" rows="2"></textarea>
+                                        <textarea name="moTaPhuKien" class="form-control" id="moTaUpdate" rows="2">${acc.getDescription() }</textarea>
                                     </div>
                                     <div class="custom-file mb-3">
                                         <label class="custom-file-label" for="customFile">Hình ảnh</label>
@@ -141,10 +141,10 @@
                                         <i class="fas fa-save"></i> <span> Lưu</span>
                                     </button>
                                     <button type="reset" class="btn btn-custon-rounded-three btn-warning btn-css">
-                                        <i class="fas fa-backspace"></i> <span> Clear</span>
+                                        <i class="fas fa-backspace"></i> <span> Làm mới</span>
                                     </button>
                                     <button type="button" class="btn btn-custon-rounded-three btn-danger btn-css" onclick="hiddenFormUpdate(true)">
-                                        <i class="fas fa-slash"></i> <span> Cancel</span>
+                                        <i class="fas fa-slash"></i> <span> Huỷ</span>
                                     </button>
                                 </div>
                             </form>

@@ -20,6 +20,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -254,36 +255,20 @@ public class PetController {
 		System.out.println("Thú update: "+pet);
 		return "redirect:/admin/ProductManagement";
 	}
-
-//	@RequestMapping("/UploadIMG")
-//	@ResponseBody
-//	public String uploadIMG(ModelMap model, @RequestParam("addProductIMG") MultipartFile photo) {
-//		try {
-//			String fileContentType = photo.getContentType();
-//			long fileSize = photo.getSize();
-//			System.out.println("fileContentType: " + fileContentType); 
-//			System.out.println("fileSize: " + fileSize); 
-//			System.out.println(fileContentType.substring(0, 6));
-//			if(!fileContentType.substring(0, 6).equals("image/")) {
-//				return "?photo_name=FAIL";
-//			} else if (fileSize > 1097152) {
-//				return "?photo_name=OVERSIZE";
-//			}
-//			
-//			String photoPath = context.getRealPath("/files/shop_item/" + photo.getOriginalFilename());
-//			photo.transferTo(new File(photoPath));
-//			model.addAttribute("photo_name", photo.getOriginalFilename());
-//			
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			System.out.println("Lỗi lưu file: " + e);
-//		}
-//		
-//		return "?photo_name=files/shop_item/"+photo.getOriginalFilename();
-	@RequestMapping("/show-statistical")
-	public ModelAndView showStatistical(HttpServletRequest req) {
+	@RequestMapping("/ProductManagement/show-edit/{id}")
+	public ModelAndView showEdit(HttpServletRequest req, @PathVariable int id, Principal principal) {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("pages/statistical/statistical");
+		model.setViewName("pages/pet/pet-update");
+		Pet pet = petService.findById(id);
+		model.addObject("pet", pet);
+		List<Species> listCategory = speciesService.findAll();
+		model.addObject("listCategory", listCategory);
+		List<String> listStatus = petService.selecStatus();
+		model.addObject("listStatus", listStatus);
+		User logginedUser = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(logginedUser.getUsername());
+		model.addObject("account", account);
 		return model;
 	}
+
 }
