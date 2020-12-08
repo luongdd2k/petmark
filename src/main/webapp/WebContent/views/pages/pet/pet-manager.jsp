@@ -28,9 +28,14 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="dist/css/custom.css">
 	<link rel="stylesheet" href="css/employee.css">
-
-
-
+	<style>
+		.do{
+			background-color: #ffebee;
+		}
+		.table-danger{
+			background-color: #ffebee;
+		}
+	</style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -311,7 +316,7 @@
 											<c:forEach var="product" items="${listProduct}">
 
 												<tbody>
-													<tr>
+													<tr class="tr-js">
 														<th scope="row">
 															<div class="td__center">${product.id }</div>
 														</th>
@@ -337,7 +342,7 @@
 															<div class="td__center">${product.getDisplayDeposit() }</div>
 														</td>
 														<td>
-															<div class="td__center">${product.amount}</div>
+															<div class="td__center sl-js">${product.amount}</div>
 														</td>
 														<td>
 															<div class="td__center">${product.getDate() }</div>
@@ -432,6 +437,24 @@
 					hienFormNew.style.display = visible ? "" : "none";
 					var timKiem = document.getElementById("new-pet");
 					timKiem.style.display = visible ? "none" : "block";
+				}
+				let tr = document.getElementsByClassName("tr-js");
+				let sl = document.getElementsByClassName("sl-js");
+				abc();
+				function abc(){
+
+					for (let i= 0; i<sl.length; i++){
+						if(parseInt(sl[i].innerHTML) <= 3){
+							tr[i].classList.add('table-danger');
+							sl[i].style.color='#b71c1c';
+							sl[i].style.fontWeight='600';
+						}
+						else if(4 < parseInt(sl[i].innerHTML) < 10){
+							// tr[i].classList.add('do');
+							sl[i].style.color='#fbc02d';
+							sl[i].style.fontWeight='600';
+						}
+					}
 				}
 	</script>
 
