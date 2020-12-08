@@ -88,15 +88,15 @@
 											</thead>
 											<c:forEach var="list" items="${list }">
 											<tbody>
-													<tr>
+													<tr class="tr-js">
 														<td>
 															<a href="admin/orders/detail/${list.id}">${list.id }</a>
 														</td>
 														<td>${list.getAccount().getUsername() }</td>
 														<td>${list.getDate() }</td>
-														<td>${list.getPaymentStatus() }</td>
+														<td class="td-js">${list.getPaymentStatus() }</td>
 														<td>${list.getDeliveryStatus() }</td>
-														<td>${list.getDisplayTotalAmount() }</td>
+														<td style="color: #f44336;font-weight: 600;">${list.getDisplayTotalAmount() }</td>
 													</tr>
 											</tbody>
 											</c:forEach>
@@ -169,7 +169,34 @@
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
 	<!-- page script -->
-
+	<script>
+		// Đã hủy bỏ Đã hoàn tiền
+		let tr = document.getElementsByClassName('tr-js');
+		let td = document.getElementsByClassName('td-js');
+		abc();
+		function abc(){
+			for (let i = 0; i< td.length; i++){
+				if(td[i].innerHTML == 'Chưa thanh toán'){
+					console.log(td[i].innerHTML);
+					// tr[i].classList.add("table-warning");
+					td[i].style.color="#ff6f00";
+					td[i].style.fontWeight="600";
+				}
+				if(td[i].innerHTML == 'Đã thanh toán'){
+					console.log(td[i].innerHTML);
+					// tr[i].classList.add("table-success");
+					td[i].style.color="#1b5e20";
+					td[i].style.fontWeight="600";
+				}
+				if(td[i].innerHTML == 'Chờ thanh toán ATM'){
+					console.log(td[i].innerHTML);
+					// tr[i].classList.add("table-info");
+					td[i].style.color="#1b5e20";
+					td[i].style.fontWeight="600";
+				}
+			}
+		}
+	</script>
 </body>
 
 </html>
