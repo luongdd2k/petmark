@@ -28,7 +28,11 @@
 
 <link rel="stylesheet" href="css/acc-in.css">
 <link rel="stylesheet" href="css/styles.css" />
+<<<<<<< HEAD
 
+=======
+<link rel="stylesheet" href="css/blog.css" />
+>>>>>>> a62db6c6304553aa432f39cc45b10ffedef317d6
 <style>
 .hide {
 	display: none;

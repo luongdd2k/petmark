@@ -157,7 +157,7 @@
             <div class="product-detail__content">
               <h3>${acc.getName() }</h3>
               <div class="price">
-                <span class="new__price">${acc.getDisplayPrice(1) }</span>
+                <span class="new__price">${acc.getDisplayPrice(1) } đ</span>
               </div>
               <div class="product__review">
                 <div class="rating">
