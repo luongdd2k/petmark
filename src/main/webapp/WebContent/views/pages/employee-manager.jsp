@@ -70,7 +70,7 @@
 								</div>
 								<!-- /.card-header -->
 								<div class="form-group col-2">
-									<label for="exampleFormControlSelect1">Lọc</label> <select
+									<label for="cbo_role">Lọc</label> <select
 										id="cbo_role" class="form-control" style="">
 										<option value="searchResult" id="searchResult"
 											style="display: ${search_display };">Kết quả tìm
@@ -84,40 +84,35 @@
 									</select> <span id="sortValue2" style="display: none;">${sortValue }</span>
 								</div>
 								<div class="card-body">
-									<div class="main-table">
-										<table class="table">
-											<thead class="thead-light">
-												<tr>
-													<!--                           <th scope="col">Tên đăng nhập</th> -->
-													<th scope="col">Ảnh</th>
-													<th scope="col">Họ và tên</th>
-													<th scope="col">Giới tính</th>
-													<th scope="col">Email</th>
-													<th scope="col">Điện thoại</th>
-													<th scope="col">Địa chỉ</th>
-													<th scope="col">Hành động</th>
+									<div class="main-table table-responsive-xl">
+										<table class="table table-hover">
+											<thead>
+												<tr class="bg-info">
+													<th scope="col" style="width: 60px;">Ảnh</th>
+													<th scope="col" style="width: 200px;">Họ và tên</th>
+													<th scope="col" style="width: 100px;">Giới tính</th>
+													<th scope="col" style="width: 100px;">Email</th>
+													<th scope="col" style="width: 50px;">Điện thoại</th>
+													<th scope="col" style="width: 200px;">Địa chỉ</th>
+													<th scope="col" style="width: 80px;">Hành động</th>
 												</tr>
 											</thead>
-											<c:forEach var="user" items="${listAccount }">
 												<tbody>
+													<c:forEach var="user" items="${listAccount }">
 													<tr>
-														<%--                           <th class="td-center td-em-css" scope="row">${user.getUsername() }</th> --%>
 														<td><img class="img-fluid"
 															src="${user.getImagePath() }"
 															alt="" style="max-width: 70px; max-height: 70px;"></td>
-														<td class="td-center td-em-css">${user.getFullName() }</td>
-														<td class="td-center td-em-css">${user.getDisplayGender() }</td>
-														<td class="td-center td-em-css">${user.getEmail() }</td>
-														<td class="td-center td-em-css">${user.getPhone() }</td>
-														<td class="td-center td-em-css">${user.getAddress() }</td>
-														<td class="td-center td-em-css">
-															<form action="admin/UserManagement/ChangeRole"
-																method="post">
-																<div class="dropdown"
-																	style="float: left; margin-top: 0.10em">
-																	<input type="hidden" name="u_username"
-																		value="${user.getUsername() }"> <select
-																		name="quyen" id="quyens" style="height: 34px;">
+														<td>${user.getFullName() }</td>
+														<td>${user.getDisplayGender() }</td>
+														<td>${user.getEmail() }</td>
+														<td>${user.getPhone() }</td>
+														<td>${user.getAddress() }</td>
+														<td>
+															<form action="admin/UserManagement/ChangeRole" method="post">
+																<div class="dropdown" style="float: left; margin-top: 0.10em">
+																	<input type="hidden" name="u_username" value="${user.getUsername() }">
+																	<select name="quyen" id="quyens" style="height: 34px;width: 113px;">
 																		<c:if test="${user.getRole().getId() == 'ROLE_STAFF' }">
 																		<option value="ROLE_STAFF" selected="selected">Nhân viên</option>
 																		</c:if>
@@ -138,23 +133,20 @@
 																		</c:if>
 																	</select>
 																</div>
-																<div
-																	style="float: left; margin-left: 0.75em; margin-top: 0.10em;">
-																	<button type="submit" class="btn btn-success">Lưu</button>
+																<div style="float: left; margin-top: 0.2em;">
+																	<button style="height: 34px;" type="submit" class="btn btn-success">Lưu</button>
 																</div>
 															</form>
 															<form action="admin/UserManagement/${action}" method="post">
-															<div
-																style="float: left; margin-left: 10px; margin-top: 0.10em">
-																<input type="hidden" name="u_username"
-																		value="${user.getUsername() }">
-																<button type="submit" class="btn btn-danger">${nameButton3 }</button>
-															</div>
+																<div style="float: left;margin-left: 0.2em;margin-top: 0.2em;height: 34px;">
+																	<input type="hidden" name="u_username" value="${user.getUsername() }">
+																	<button  style="height: 34px;" type="submit" class="btn btn-danger">${nameButton3 }</button>
+																</div>
 															</form>
 														</td>
 													</tr>
+													</c:forEach>
 												</tbody>
-											</c:forEach>
 										</table>
 										<hr>
 									</div>
@@ -191,18 +183,13 @@
 					<!-- /.row -->
 				</div>
 				<!-- /.row -->
+			<!-- /.container-fluid -->
+			</section>
+			<!-- /.content -->
 		</div>
-		<!-- /.container-fluid -->
-		</section>
-		<!-- /.content -->
+		<!-- /.content-wrapper -->
 
-		<!-- <a id="back-to-top" href="javascript:" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
-      <i class="fas fa-chevron-up"></i>
-    </a> -->
-	</div>
-	<!-- /.content-wrapper -->
-
-	<footer class="main-footer">
+		<footer class="main-footer">
 		<div class="float-right d-none d-sm-block">
 			<b>Version</b> 1.0.0
 		</div>
@@ -211,11 +198,11 @@
 		</strong> All rights reserved.
 	</footer>
 
-	<!-- Control Sidebar -->
-	<aside class="control-sidebar control-sidebar-dark">
-		<!-- Control sidebar content goes here -->
-	</aside>
-	<!-- /.control-sidebar -->
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+		<!-- /.control-sidebar -->
 	</div>
 	<!-- ./wrapper -->
 

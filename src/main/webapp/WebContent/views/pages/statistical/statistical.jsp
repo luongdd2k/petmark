@@ -60,25 +60,24 @@
       <section class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
               <div class="card">
                 <div class="card-header border-0">
                   <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Online Store Visitors</h3>
-                    <a href="javascript:void(0);">View Report</a>
+                    <h3 class="card-title">Tổng doanh thus</h3>
                   </div>
                 </div>
                 <div class="card-body">
                   <div class="d-flex">
                     <p class="d-flex flex-column">
                       <span class="text-bold text-lg">820</span>
-                      <span>Visitors Over Time</span>
+                      <span>Tổng</span>
                     </p>
                     <p class="ml-auto d-flex flex-column text-right">
                       <span class="text-success">
                         <i class="fas fa-arrow-up"></i> 12.5%
                       </span>
-                      <span class="text-muted">Since last week</span>
+                      <span class="text-muted">Từ tháng trước</span>
                     </p>
                   </div>
                   <!-- /.d-flex -->
@@ -89,59 +88,45 @@
 
                   <div class="d-flex flex-row justify-content-end">
                     <span class="mr-2">
-                      <i class="fas fa-square text-primary"></i> This Week
+                      <i class="fas fa-square text-primary"></i> Tháng này
                     </span>
 
                     <span>
-                      <i class="fas fa-square text-gray"></i> Last Week
+                      <i class="fas fa-square text-gray"></i> Tháng trước
                     </span>
                   </div>
                 </div>
               </div>
               <!-- /.card -->
             </div>
-            <!-- /.col-md-6 -->
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-header border-0">
-                  <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Sales</h3>
-                    <a href="javascript:void(0);">View Report</a>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <div class="d-flex">
-                    <p class="d-flex flex-column">
-                      <span class="text-bold text-lg">$18,230.00</span>
-                      <span>Sales Over Time</span>
-                    </p>
-                    <p class="ml-auto d-flex flex-column text-right">
-                      <span class="text-success">
-                        <i class="fas fa-arrow-up"></i> 33.1%
-                      </span>
-                      <span class="text-muted">Since last month</span>
-                    </p>
-                  </div>
-                  <!-- /.d-flex -->
 
-                  <div class="position-relative mb-4">
-                    <canvas id="sales-chart" height="200"></canvas>
-                  </div>
-
-                  <div class="d-flex flex-row justify-content-end">
-                    <span class="mr-2">
-                      <i class="fas fa-square text-primary"></i> This year
-                    </span>
-
-                    <span>
-                      <i class="fas fa-square text-gray"></i> Last year
-                    </span>
-                  </div>
-                </div>
+            <div class="col-lg-12">
+              <div class="card table-responsive" style="max-width: 1000px; margin: 0 auto;">
+                <h4 style="margin-left: 10px;">Đơn hàng chưa xét duyệt</h4>
+                <table class="table table-hover">
+                  <thead>
+                    <tr class="bg-info">
+                      <th scope="col">Mã đơn hàng</th>
+                      <th scope="col">Người mua</th>
+                      <th scope="col">Ngày đặt</th>
+                      <th scope="col">Trạng thái thanh toán</th>
+                      <th scope="col">Trạng thái giao hàng</th>
+                      <th scope="col">Tổng tiền</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr  class="table-warning">
+                      <th scope="row">Mã đơn</th>
+                      <td>Tên</td>
+                      <td>Ngu</td>
+                      <td>Ngu</td>
+                      <td>Ngu</td>
+                      <td>Ngu</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <!-- /.card -->
             </div>
-            <!-- /.col-md-6 -->
           </div>
           <!-- /.row -->
         </div>

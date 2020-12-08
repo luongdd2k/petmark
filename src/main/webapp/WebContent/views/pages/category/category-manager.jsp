@@ -133,9 +133,9 @@
 									<!-- End Thêm mới-->
 
 									<div class="table-responsive-xl main-table">
-										<table class="table" style="margin-bottom: -1%">
-											<thead class="thead-light">
-												<tr>
+										<table class="table table-hover" style="margin-bottom: -1%">
+											<thead>
+												<tr class="bg-info">
 													<th scope="col">ID</th>
 													<th scope="col">Hãng phụ kiện</th>
 													<th scope="col">Thông tin</th>
@@ -146,13 +146,12 @@
 											<c:forEach var="Category" items="${listCategory }">
 												<tbody>
 													<tr>
-														<th scope="row" class="td-center"
-															style="padding-top: 2.5%;">${Category.getId() }</th>
-														<td class="td-center" style="padding-top: 2.5%;"><a
+														<th scope="row">${Category.getId() }</th>
+														<td><a
 															href="javascript:" onclick="hienThi(true)">${Category.getName() }</a></td>
-														<td class="td-center" style="padding-top: 2.5%;">${Category.getDescription() }</td>
-														<td class="td-center" style="padding-top: 2.5%;">${Category.getDisplayStatus() }</td>
-														<td class="td-center" style="padding-top: 2%;">
+														<td>${Category.getDescription() }</td>
+														<td>${Category.getDisplayStatus() }</td>
+														<td>
 															<form action="admin/CategoryManagement/${action }"
 																method="post">
 																<input type="hidden" value="${Category.getId() }"

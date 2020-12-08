@@ -75,12 +75,12 @@
 											<form id="formAddSpecies"
 												action="admin/SpeciesManagement/AddSpecies" method="POST">
 												<div class="form-group">
-													<label for="exampleFormControlInput1">Tên giống thú
+													<label for="nameBread">Tên giống thú
 														cưng</label> <input type="text" class="form-control"
 														id="nameBread" name="nameBread">
 												</div>
 												<div class="form-group">
-													<label for="exampleFormControlInput1">Thông tin
+													<label for="infomation">Thông tin
 														thêm</label> <input type="text" class="form-control"
 														id="infomation" name="information">
 												</div>
@@ -103,7 +103,7 @@
 									</div>
 									<!-- End Form -->
 									<div class="form-group col-2">
-										<label for="exampleFormControlSelect1">Lọc</label> <select
+										<label for="cbo_sort_species2">Lọc</label> <select
 											class="form-control" id="cbo_sort_species2" style="">
 											<option value="-1">ID:&nbsp thấp ⟶ cao</option>
 											<option value="0">ID:&nbsp cao ⟶ thấp</option>
@@ -121,12 +121,12 @@
 									<!-- End Thêm mới-->
 
 									<div class="table-responsive-xl main-table">
-										<table class="table" style="margin-bottom: -1%">
-											<thead class="thead-light">
-												<tr>
+										<table class="table table-hover" style="margin-bottom: -1%">
+											<thead>
+												<tr class="bg-info">
 													<th scope="col">STT</th>
 													<th scope="col">Giống thú cưng</th>
-													<th scope="col">Thông tin</th>
+													<th scope="col" style="width: 695px;">Thông tin</th>
 													<th scope="col">Trạng thái</th>
 													<th scope="col">Hành động</th>
 												</tr>
@@ -134,13 +134,13 @@
 											<c:forEach var="species" items="${listSpecies }">
 												<tbody>
 													<tr>
-														<th scope="row" class="td-center"
-															style="padding-top: 2.5%;">${species.getId() }</th>
-														<td class="td-center" style="padding-top: 2.5%;"><a
-															href="javascript:" onclick="hienThi(true)">${species.getName() }</a></td>
-														<td class="td-center" style="padding-top: 2.5%;">${species.getInformation() }</td>
-														<td class="td-center" style="padding-top: 2.5%;">${species.getDisplayStatus() }</td>
-														<td class="td-center" style="padding-top: 2%;">
+														<th scope="row">${species.getId() }</th>
+														<td>
+															<a href="javascript:" onclick="hienThi(true)">${species.getName()}</a>
+														</td>
+														<td>${species.getInformation() }</td>
+														<td>${species.getDisplayStatus() }</td>
+														<td>
 														<form action="admin/SpeciesManagement/${action }" method="post">
 														<input type="hidden" value="${species.getId() }" name="speciesId">
 															<button type="submit"

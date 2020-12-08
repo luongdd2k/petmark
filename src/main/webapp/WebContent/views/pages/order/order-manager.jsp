@@ -75,9 +75,9 @@
 								<div class="card-body">
 									<div class="table-responsive-xl main-table"
 										style="max-width: 1000px;">
-										<table class="table" style="margin-bottom: -1%;">
-											<thead class="thead-light">
-												<tr>
+										<table class="table table-hover" style="margin-bottom: -1%;">
+											<thead>
+												<tr class="bg-info">
 													<th scope="col">Mã đơn hàng</th>
 													<th scope="col">Người mua</th>
 													<th scope="col">Ngày đặt</th>
@@ -89,13 +89,14 @@
 											<c:forEach var="list" items="${list }">
 											<tbody>
 													<tr>
-														<td class="td-center" style="padding-top: 2%;"><a
-															href="admin/orders/detail/${list.id}">${list.id }</a></td>
-														<td class="td-center" style="padding-top: 2%;">${list.getAccount().getUsername() }</td>
-														<td class="td-center" style="padding-top: 2%;">${list.getDate() }</td>
-														<td class="td-center" style="padding-top: 2%;">${list.getPaymentStatus() }</td>
-														<td class="td-center" style="padding-top: 2%;">${list.getDeliveryStatus() }</td>
-														<td class="td-center" style="padding-top: 2%;">${list.getDisplayTotalAmount() }</td>
+														<td>
+															<a href="admin/orders/detail/${list.id}">${list.id }</a>
+														</td>
+														<td>${list.getAccount().getUsername() }</td>
+														<td>${list.getDate() }</td>
+														<td>${list.getPaymentStatus() }</td>
+														<td>${list.getDeliveryStatus() }</td>
+														<td>${list.getDisplayTotalAmount() }</td>
 													</tr>
 											</tbody>
 											</c:forEach>

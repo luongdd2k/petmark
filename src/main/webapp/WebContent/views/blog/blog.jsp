@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,25 +9,26 @@
 
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet" />
 <!-- Font Awesome -->
-<link rel="stylesheet" href="css/fontawesome-free-5.15.1/css/all.min.css" />
+	<link rel="stylesheet" href="css/fontawesome-free-5.15.1/css/all.min.css" />
 
 <!-- Carousel -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css">
 <!-- Animate On Scroll -->
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 	<title>Blog cá nhân</title>
 	<base href="${pageContext.servletContext.contextPath}/">
 <!-- Custom StyleSheet -->
+
 <link rel="stylesheet" href="css/acc-in.css">
 <link rel="stylesheet" href="css/styles.css" />
-<<link rel="stylesheet" href="css/blog.css">
+
 <style>
 .hide {
 	display: none;
@@ -37,25 +37,74 @@
 #button-gr {
 	margin-top: 10px;
 }
+.card-title {
+	font-weight: 600;
+	font-size: 1.9rem;
+}
+.btn-new{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	padding: .75rem 0;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+	border-radius: 2px;
+	color: #555;
+}
+.btn-new a button{
+	display: inline-block;
+	font-weight: 700;
+	text-transform: uppercase;
+	width: 90px;
+	padding: 0.5rem 0;
+	border: 1px solid var(--black);
+	color: var(--black);
+	cursor: pointer;
+	font-size: 1.2rem ;
+}
+.purchase-empty-blog__icon{
+	background-position: 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-image: url(https://www.pngitem.com/pimgs/m/297-2978988_blogging-and-content-the-transparent-blog-png-png.png);
+	width: 15rem;
+	height: 15rem;
+	margin-bottom: 1.25rem;
+}
+.new-blog-form{
+	width: 100%;
+}
+.action{
+	text-align: right;
+	margin-right: 10px;
+	padding-bottom: 10px;
+}
+.count-like{
+	color: rgb(151, 153, 153);
+	font-size: 15px;
+}
 </style>
 </head>
 
 <body>
 			<%@ include file="/WebContent/views/header_nav.jsp" %>
 			<div class="page__title-area">
-			<div class="container">
-				<div class="page__title-container">
-					<ul class="page__titles">
-						<li><a href="/"> <svg>
-                                    <use
-										xlink:href="images/sprite.svg#icon-home"></use>
-                                </svg>
-						</a></li>
-						<li class="page__title">Blog cá nhân</li>
-					</ul>
+				<div class="container">
+					<div class="page__title-container">
+						<ul class="page__titles">
+							<li>
+								<a href="/">
+									<svg>
+                                    	<use xlink:href="images/sprite.svg#icon-home"></use>
+                                	</svg>
+								</a>
+							</li>
+							<li class="page__title">Blog cá nhân</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-		</div>
 	<main id="main">
 		<div class="container">
 			<div class="main-container _2usMPO">
@@ -74,39 +123,34 @@
 								</div>
 								<div class="my-account-profile" style="display: block">
 									<div class="row">
-									<c:forEach var="blog" items="${blog }">
-										<div class="col-4">
-											<div class="card">
-												<div name="image" id="image">
-													<img alt="" src="${blog.getImg() }">
-												</div>
-												<div class="description">
-													${blog.getContent() }
-												</div>
-												<div class="description">
-													${blog.displayStt() }
-												</div>
-												<div class="action">
-													<span class="count-like">1k</span>
-													<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"
-														class="bi bi-heart" fill="currentColor"
-														xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-															fill-rule="evenodd"
-															d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
-                                                      </svg>
-													<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"
-														class="bi bi-three-dots-vertical" fill="currentColor"
-														xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-															fill-rule="evenodd"
-															d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                                                      </svg>
+										<c:forEach var="blog" items="${blog }">
+											<div class="col-4">
+												<div class="card">
+													<div name="image" id="image">
+														<img alt="" src="${blog.getImg() }">
+													</div>
+													<div class="description">
+														${blog.getContent() }
+													</div>
+													<div class="description">
+														${blog.displayStt() }
+													</div>
+													<div class="action">
+														<span class="count-like">1k</span>
+														<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"
+															class="bi bi-heart" fill="currentColor"
+															xmlns="http://www.w3.org/2000/svg">
+															<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+														  </svg>
+														<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"
+															class="bi bi-three-dots-vertical" fill="currentColor"
+															xmlns="http://www.w3.org/2000/svg">
+															<path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+														  </svg>
+													</div>
 												</div>
 											</div>
-										</div>
 										</c:forEach>
-										
 									</div>
 								</div>
 							</div>
@@ -114,8 +158,7 @@
 								<div class="purchase-list-page__empty-page-wrapper">
 									<div class="purchase-empty-order__container">
 										<div class="purchase-empty-blog__icon"></div>
-										<div class="purchase-empty-order__text">Bạn chưa có Blog
-											nào</div>
+										<div class="purchase-empty-order__text">Bạn chưa có Blog nào</div>
 										<div class="purchase-empty-order__text">
 											<svg class="svg-icon shopee-svg-icon user-page-sidebar-icon"
 												viewBox="0 0 20 20">
@@ -130,22 +173,18 @@
 							<div id="new-blog" class="new-blog">
 								<div class="my-account-profile">
 									<div class="new-blog-form">
-										<h2 class="form-title" style="text-align: center;">Tạo bài viết</h2>
-											<form action="addBlog" method="POST" name="form-example-1" id="form-example-1" enctype="multipart/form-data">
-											    <div class="input-field">
-											        <input type="text" name="content" id="description-1">
-											        <label class="label" for="description-1">Nhận xét</label>
-											    </div>
-											
-											    <div class="input-field custom-file">
-											        <label class="active">Ảnh</label>
-											        <input type="file" class="custom-file-input" id="myFile" name="addimg" style="padding-top: 1rem;">
-											        <label class="custom-file-label" for="customFile">Chọn ảnh</label>
-											    </div>
-												<div class="button"
-													style="text-align: center; margin-top: 10px">
-													<button  id="luu" type="submit"
-														class="btn btn-primary">Đăng bài</button>
+											<form class="row" action="addBlog" method="POST" name="form-example-1" id="form-example-1" enctype="multipart/form-data" style="width: 500px; margin: 0 auto;">
+												<h2 class="col-12 form-title" style="text-align: center;">Tạo bài viết</h2>
+												<div class="form-group col-12">
+													<label for="comment">Nhận xét</label>
+													<textarea class="form-control" id="comment" rows="2" name="content"></textarea>
+												</div>
+												<div class="custom-file col-12">
+													<input type="file" class="custom-file-input" id="customFile" name="addimg">
+													<label class="custom-file-label" for="customFile">Choose file</label>
+												</div>
+												<div class="button col-12" style="text-align: center; margin-top: 10px">
+													<button  id="luu" type="submit" class="btn btn-primary">Đăng bài</button>
 													<button id="huy" type="button" class="btn btn-warning">Hủy</button>
 												</div>
 											</form>
@@ -183,6 +222,10 @@
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="js/jquery-3.5.1.min.js"></script>
+			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 	<!-- Custom JavaScript -->
 	<script src="js/index.js"></script>
 	<script src="js/slider.js"></script>

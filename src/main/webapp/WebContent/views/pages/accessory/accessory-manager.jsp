@@ -263,14 +263,13 @@
 							</div>
 
 							<div class="table-responsive-xl main-table">
-								<table class="table" style="margin-bottom: -1%" id="table-js">
-									<thead class="thead-light">
-										<tr>
+								<table class="table table-hover" style="margin-bottom: -1%" id="table-js">
+									<thead>
+										<tr class="bg-info">
 											<th scope="col">STT</th>
 											<th scope="col">Ảnh</th>
 											<th scope="col">Tên phụ kiện</th>
 											<th scope="col">Hãng</th>
-											<!-- <th scope="col">Màu</th> -->
 											<th scope="col">Giá</th>
 											<th scope="col">Số lượng</th>
 											<th scope="col">Ngày nhập</th>
@@ -282,23 +281,23 @@
 									<c:forEach var="Accessories" items="${listAccessories}">
 										<tbody>
 											<tr>
-												<th scope="row" class="td-center idthu"
-													style="padding-top: 2.5%;">${Accessories.id }</th>
-												<td><img class="img-fluid"
-													src="${Accessories.getImgs().get(0).getImgAvartar() }"
-													alt="" style="max-width: 70px; max-height: 70px;"></td>
-												<td class="td-center tenthucung" style="padding-top: 2.5%;"><div
-														onclick="showFormUpdate(true, ${Accessories.id})" class="alert-link">${Accessories.name }</div></td>
-												<td class="td-center" style="padding-top: 2.5%;"><span
-													hidden="true">${Accessories.getCategory().getId() }</span>
-													${Accessories.getCategory().getName() }</td>
-												<!-- <td class="td-center" style="padding-top: 2.5%;">Đỏ</td> -->
-												<td class="td-center" style="padding-top: 2.5%;">${Accessories.getDisplayPrice(1) }</td>
-												<td class="td-center" style="padding-top: 2.5%;">${Accessories.getAmount() }</td>
-												<td class="td-center" style="padding-top: 2.5%;">${Accessories.getDate() }</td>
-												<td class="td-center" style="padding-top: 2.5%;">${Accessories.getStatus() }</td>
-												<td class="td-center" hidden="true" style="padding-top: 2.5%;">${Accessories.getDescription()}</td>
-												<td class="td-center" style="padding-top: 2%;">
+												<th scope="row" class="idthu">${Accessories.id }</th>
+												<td>
+													<img class="img-fluid" src="${Accessories.getImgs().get(0).getImgAvartar() }" alt="" style="max-width: 70px; max-height: 70px;">
+												</td>
+												<td class="tenthucung">
+													<div onclick="showFormUpdate(true, ${Accessories.id})" class="alert-link">${Accessories.name }</div>
+												</td>
+												<td>
+													<span hidden="true">${Accessories.getCategory().getId() }</span>
+													${Accessories.getCategory().getName() }
+												</td>
+												<td>${Accessories.getDisplayPrice(1) } <span> đ</span></td>
+												<td>${Accessories.getAmount() }</td>
+												<td>${Accessories.getDate() }</td>
+												<td>${Accessories.getStatus() }</td>
+												<td hidden="true">${Accessories.getDescription()}</td>
+												<td>
 													<form action="admin/AccessoriesManagement/${action }"
 														method="post">
 														<input type="hidden" value="${Accessories.id }"
