@@ -27,6 +27,7 @@
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet">
 <link rel="stylesheet" href="dist/css/custom.css">
+	<link rel="stylesheet" href="css/employee.css">
 
 
 
@@ -294,16 +295,9 @@
 									</div>
 
 									<div class="table-responsive-xl main-table ">
-<<<<<<< HEAD
 										<table class="table table-hover" style="margin-bottom: -1%;" id="table-js">
 											<thead>
 												<tr class="bg-info">
-=======
-										<table class="table table-striped" style="margin-bottom: -1%;"
-											id="table-js">
-											<thead class="thead-light">
-												<tr>
->>>>>>> a62db6c6304553aa432f39cc45b10ffedef317d6
 													<th scope="col">#</th>
 													<th scope="col">Ảnh</th>
 													<th scope="col">Tên thú cưng</th>
@@ -322,52 +316,49 @@
 
 												<tbody>
 													<tr>
-														<th scope="row">${product.id }</th>
-														<td><img class="img-fluid"
-<<<<<<< HEAD
-															src="${product.getImgs().get(0).getImgAvartar() }"
-															alt="" style="max-width: 70px; max-height: 70px;"></td>
+														<th scope="row">
+															<div class="td__center">${product.id }</div>
+														</th>
 														<td>
-															<div onclick="showFormUpdate(true, ${product.id})">${product.petName }</div>				
+															<img class="img-fluid" src="${product.getImgs().get(0).getImgAvartar() }" alt="" style="max-width: 90px; max-height: 90px;">
 														</td>
 														<td>
-														<span hidden="true" >${product.getSpecies().getId() }</span>
-														${product.getSpecies().getName() }
-														<td>${product.age }</td>
-														<td>${product.getDisplayPrice(1) }</td>
-														<td>${product.getDisplayDeposit() }</td>
-														<td>${product.amount}</td>
-														<td>${product.getDate() }</td>
-														<td>${product.status}</td>
+															<div onclick="showFormUpdate(true, ${product.id})">
+																<div class="td__center">${product.petName }</div>
+															</div>
+														</td>
+														<td>
+															<span hidden="true" >${product.getSpecies().getId() }</span>
+															<div class="td__center">${product.getSpecies().getName() }</div>
+														</td>
+														<td>
+															<div class="td__center">${product.age }</div>
+														</td>
+														<td>
+															<div class="td__center">${product.getDisplayPrice(1) }</div>
+														</td>
+														<td>
+															<div class="td__center">${product.getDisplayDeposit() }</div>
+														</td>
+														<td>
+															<div class="td__center">${product.amount}</div>
+														</td>
+														<td>
+															<div class="td__center">${product.getDate() }</div>
+														</td>
+														<td>
+															<div class="td__center">${product.status}</div>
+														</td>
 														<td hidden="true">${product.description}</td>
 														<td>
-=======
-															src="${product.getImgs().get(0).getImgAvartar() }" alt=""
-															style="max-width: 70px; max-height: 70px;"></td>
-														<td class="td-center" style="padding-top: 2.5%;">
-															<div onclick="showFormUpdate(true, ${product.id})">${product.petName }</div>
-														</td>
-														<td class="td-center" style="padding-top: 2.5%;"><span
-															hidden="true">${product.getSpecies().getId() }</span>
-															${product.getSpecies().getName() }</td>
-														<!--                           <td class="td-center" style="padding-top: 2.5%;">Xám trắng</td> -->
-														<!--                           <td class="td-center" style="padding-top: 2.5%;">Xanh dương</td> -->
-														<td class="td-center" style="padding-top: 2.5%;">${product.age }</td>
-														<td class="td-center" style="padding-top: 2.5%;">${product.getDisplayPrice(1) }</td>
-														<td class="td-center" style="padding-top: 2.5%;">${product.getDisplayDeposit() }</td>
-														<td class="td-center" style="padding-top: 2.5%;">${product.amount}</td>
-														<td class="td-center" style="padding-top: 2.5%;">${product.getDate() }</td>
-														<td class="td-center" style="padding-top: 2.5%;">${product.status}</td>
-														<td class="td-center" style="padding-top: 2.5%;"
-															hidden="true">${product.description}</td>
-														<td class="td-center" style="padding-top: 2%;">
->>>>>>> a62db6c6304553aa432f39cc45b10ffedef317d6
-															<form action="admin/ProductManagement/${action }"
-																method="post">
-																<input type='hidden' name='idthu' value='${product.id }'>
-																<button type="submit"
-																	class="btn btn-custon-rounded-three btn-danger">${nameButton2 }</button>
-															</form>
+															<div class="td__center">
+																<form action="admin/ProductManagement/${action }"
+																	method="post">
+																	<input type='hidden' name='idthu' value='${product.id }'>
+																	<button type="submit"
+																		class="btn btn-custon-rounded-three btn-danger">${nameButton2 }</button>
+																</form>
+															</div>
 														</td>
 													</tr>
 												</tbody>
