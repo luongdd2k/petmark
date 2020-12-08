@@ -24,6 +24,7 @@
 	rel="stylesheet">
 <!--Custo CSS-->
 <link rel="stylesheet" href="dist/css/custom.css">
+	<link rel="stylesheet" href="css/employee.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -100,19 +101,29 @@
 												<tbody>
 													<c:forEach var="user" items="${listAccount }">
 													<tr>
-														<td><img class="img-fluid"
-															src="${user.getImagePath() }"
-															alt="" style="max-width: 70px; max-height: 70px;"></td>
-														<td>${user.getFullName() }</td>
-														<td>${user.getDisplayGender() }</td>
-														<td>${user.getEmail() }</td>
-														<td>${user.getPhone() }</td>
-														<td>${user.getAddress() }</td>
+														<td>
+															<img class="img-fluid" src="${user.getImagePath() }" alt="" style="max-width: 70px; max-height: 70px;">
+														</td>
+														<td>
+															<div class="td__center">${user.getFullName() }</div>
+														</td>
+														<td>
+															<div class="td__center">${user.getDisplayGender() }</div>
+														</td>
+														<td>
+															<div class="td__center">${user.getEmail() }</div>
+														</td>
+														<td>
+															<div class="td__center">${user.getPhone() }</div>
+														</td>
+														<td>
+															<div class="td__center">${user.getAddress() }</div>
+														</td>
 														<td>
 															<form action="admin/UserManagement/ChangeRole" method="post">
 																<div class="dropdown" style="float: left; margin-top: 0.10em">
 																	<input type="hidden" name="u_username" value="${user.getUsername() }">
-																	<select name="quyen" id="quyens" style="height: 34px;width: 113px;">
+																	<select name="quyen" style="height: 34px;width: 113px;">
 																		<c:if test="${user.getRole().getId() == 'ROLE_STAFF' }">
 																		<option value="ROLE_STAFF" selected="selected">Nhân viên</option>
 																		</c:if>

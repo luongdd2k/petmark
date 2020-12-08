@@ -24,6 +24,7 @@
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet" />
 <link rel="stylesheet" href="dist/css/custom.css" />
+	<link rel="stylesheet" href="css/employee.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -281,30 +282,44 @@
 									<c:forEach var="Accessories" items="${listAccessories}">
 										<tbody>
 											<tr>
-												<th scope="row" class="idthu">${Accessories.id }</th>
+												<th scope="row" class="idthu">
+													<div class="td__center">${Accessories.id }</div>
+												</th>
 												<td>
-													<img class="img-fluid" src="${Accessories.getImgs().get(0).getImgAvartar() }" alt="" style="max-width: 70px; max-height: 70px;">
+													<img class="img-fluid" src="${Accessories.getImgs().get(0).getImgAvartar() }" alt="" style="max-width: 90px; max-height: 90px;">
 												</td>
 												<td class="tenthucung">
-													<div onclick="showFormUpdate(true, ${Accessories.id})" class="alert-link">${Accessories.name }</div>
+													<div onclick="showFormUpdate(true, ${Accessories.id})" class="alert-link">
+														<div class="td__center">${Accessories.name }</div>
+													</div>
 												</td>
 												<td>
 													<span hidden="true">${Accessories.getCategory().getId() }</span>
-													${Accessories.getCategory().getName() }
+													<div class="td__center">${Accessories.getCategory().getName() }</div>
 												</td>
-												<td>${Accessories.getDisplayPrice(1) } <span> đ</span></td>
-												<td>${Accessories.getAmount() }</td>
-												<td>${Accessories.getDate() }</td>
-												<td>${Accessories.getStatus() }</td>
+												<td>
+													<div class="td__center">${Accessories.getDisplayPrice(1) } <span> đ</span></div>
+												</td>
+												<td>
+													<div class="td__center">${Accessories.getAmount() }</div>
+												</td>
+												<td>
+													<div class="td__center">${Accessories.getDate() }</div>
+												</td>
+												<td>
+													<div class="td__center">${Accessories.getStatus() }</div>
+												</td>
 												<td hidden="true">${Accessories.getDescription()}</td>
 												<td>
-													<form action="admin/AccessoriesManagement/${action }"
-														method="post">
-														<input type="hidden" value="${Accessories.id }"
-															name="AccessoriesId">
-														<button type="submit"
-															class="btn btn-custon-rounded-three btn-danger">${nameButton2 }</button>
-													</form>
+													<div class="td__center">
+														<form action="admin/AccessoriesManagement/${action }"
+															method="post">
+															<input type="hidden" value="${Accessories.id }"
+																name="AccessoriesId">
+															<button type="submit"
+																class="btn btn-custon-rounded-three btn-danger">${nameButton2 }</button>
+														</form>
+													</div>
 												</td>
 											</tr>
 										</tbody>
