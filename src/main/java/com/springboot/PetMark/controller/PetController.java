@@ -20,6 +20,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -253,6 +254,18 @@ public class PetController {
 		model.addAttribute("pet", pet);
 		System.out.println("Thú update: "+pet);
 		return "redirect:/admin/ProductManagement";
+	}
+	@RequestMapping("/ProductManagement/show-edit/{id}")
+	public ModelAndView showEdit(HttpServletRequest req, @PathVariable int id) {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("pages/pet/pet-update");
+		Pet pet = petService.findById(id);
+		model.addObject("pet", pet);
+		List<Species> listCategory = speciesService.findAll();
+		model.addObject("listCategory", listCategory);
+		List<String> listStatus = petService.selecStatus();
+		model.addObject("listStatus", listStatus);
+		return model;
 	}
 
 }

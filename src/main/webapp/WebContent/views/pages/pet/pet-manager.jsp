@@ -319,9 +319,9 @@
 															<img class="img-fluid" src="${product.getImgs().get(0).getImgAvartar() }" alt="" style="max-width: 90px; max-height: 90px;">
 														</td>
 														<td>
-															<div onclick="showFormUpdate(true, ${product.id})">
+															<a href="admin/ProductManagement/show-edit/${product.getId() }">
 																<div class="td__center">${product.petName }</div>
-															</div>
+															</a>
 														</td>
 														<td>
 															<span hidden="true" >${product.getSpecies().getId() }</span>
