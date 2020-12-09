@@ -81,17 +81,19 @@
 								<div class="card-body">
 									<div class="row">
 										<c:forEach var="blog" items="${blog }">
-											<div class="col-3 card">
+											<div class="col-3 card" style="position: relative;margin-left: 19px;">
 												<div name="image" id="image">
 													<img class="img-fluid img-thumbnail" alt="" src="${blog.getImg() }" />
 												</div>
-												<div id="ha">${blog.getContent() }</div>
+												<div id="ha" style="margin : 10px 0px 50px 5px;">
+													<h3>${blog.getContent() }</h3>
+												</div>
 
-												<div class="button-card">
+												<div class="button-card" style="display: flex;position: absolute;bottom: 8px;right: 12px;">
 													<form action="admin/blog/confirm/${blog.getId()}">
-														<button class="ui green basic button" type="submit">Duyệt bài</button>
+														<button class="ui green basic button" type="submit" style="margin-right: 10px;">Duyệt bài</button>
 													</form>
-														<button class="ui yellow basic button" data-toggle="modal" data-target="#reasonBlock">Hủy bài</button>
+														<button class="ui yellow basic button" data-toggle="modal" data-target="#reasonBlock" onclick="abc(${blog.getId()})">Hủy bài</button>
 												</div>
 											</div>
 										</c:forEach>
@@ -117,6 +119,7 @@
 			<strong>Copyright &copy; 2020 <a href="http://adminlte.io">Petmart
 			</a>.
 			</strong> All rights reserved.
+			<input type="hidden" id="active" value="blog">
 		</footer>
 
 		<!-- Modal -->
@@ -131,16 +134,27 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
+					<input type="hidden" id="id_card_model" value="">
 					<div class="modal-body">
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value=""
-								id="defaultCheck1"> <label class="form-check-label"
-								for="defaultCheck1"> ABC </label>
+							<input class="form-check-input" type="checkbox" value="Nội dung mang tính chất phản động"  id="defaultCheck4">
+							<label class="form-check-label" for="defaultCheck4"> Spam nội dung </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value=""
-								id="defaultCheck2"> <label class="form-check-label"
-								for="defaultCheck2"> BCS </label>
+							<input class="form-check-input" type="checkbox" value="Nội dung chứa ngôn từ không phù hợp với thuần phong mỹ tục Việt Nam" id="defaultCheck1">
+							<label class="form-check-label" for="defaultCheck1"> Nội dung chứa ngôn từ không phù hợp với thuần phong mỹ tục Việt Nam </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="Nội dung mang tính chất phản động" id="defaultCheck2">
+							<label class="form-check-label" for="defaultCheck2"> Nội dung mang tính chất phản động </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="Nội dung mang tính chất phản động"  id="defaultCheck3">
+							<label class="form-check-label" for="defaultCheck3"> Nội dung mang tính chất phản động </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="Nội dung mang tính chất phản động"  id="defaultCheck5">
+							<label class="form-check-label" for="defaultCheck5"> Nội dung, hình ảnh mang tính bạo lực, ngược đãi động vật </label>
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -173,13 +187,21 @@
 		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
 		crossorigin="anonymous"></script>
 	<!-- jsGrid -->
-	<script src="plugins/jsgrid/demos/db.js"></script>
+<%--	<script src="plugins/jsgrid/demos/db.js"></script>--%>
 	<script src="plugins/jsgrid/jsgrid.min.js"></script>
 	<!-- AdminLTE App -->
 	<script src="dist/js/adminlte.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
 	<!-- page script -->
+	<script>
+		function a(){
 
+		}
+		function abc(id){
+			let i = document.getElementById("id_card_model");
+			i.value = id;
+		}
+	</script>
 </body>
 </html>

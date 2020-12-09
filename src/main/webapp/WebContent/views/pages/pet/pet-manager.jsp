@@ -449,7 +449,7 @@
 							sl[i].style.color='#b71c1c';
 							sl[i].style.fontWeight='600';
 						}
-						else if(4 < parseInt(sl[i].innerHTML) < 10){
+						else if(4 < parseInt(sl[i].innerHTML) && parseInt(sl[i].innerHTML) < 10){
 							// tr[i].classList.add('do');
 							sl[i].style.color='#fbc02d';
 							sl[i].style.fontWeight='600';
