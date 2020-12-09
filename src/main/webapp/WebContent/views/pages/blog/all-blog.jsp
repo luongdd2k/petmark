@@ -87,6 +87,7 @@
 												</div>
 												<div id="ha" style="margin : 10px 0px 50px 5px;">
 													<h3>${blog.getContent() }</h3>
+													<p>${blog.displayStt() }
 												</div>
 
 												<div class="button-card" style="display: flex;position: absolute;bottom: 8px;right: 12px;">
@@ -126,6 +127,7 @@
 		<div class="modal fade" id="reasonBlock" tabindex="-1"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
+			<form action="admin/blog/cancel">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="exampleModalLabel">Lý do hủy bài</h5>
@@ -134,35 +136,32 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<input type="hidden" id="id_card_model" value="">
+					<input type="hidden" id="id_card_model" value="" name="blog-id">
 					<div class="modal-body">
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="Nội dung mang tính chất phản động"  id="defaultCheck4">
+							<input class="form-check-input" name="liDo" type="checkbox" value="Nội dung mang tính chất phản động"  id="defaultCheck4">
 							<label class="form-check-label" for="defaultCheck4"> Spam nội dung </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="Nội dung chứa ngôn từ không phù hợp với thuần phong mỹ tục Việt Nam" id="defaultCheck1">
+							<input class="form-check-input" name="liDo" type="checkbox" value="Nội dung chứa ngôn từ không phù hợp với thuần phong mỹ tục Việt Nam" id="defaultCheck1">
 							<label class="form-check-label" for="defaultCheck1"> Nội dung chứa ngôn từ không phù hợp với thuần phong mỹ tục Việt Nam </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="Nội dung mang tính chất phản động" id="defaultCheck2">
+							<input class="form-check-input" name="liDo" type="checkbox" value="Nội dung mang tính chất phản động" id="defaultCheck2">
 							<label class="form-check-label" for="defaultCheck2"> Nội dung mang tính chất phản động </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="Nội dung mang tính chất phản động"  id="defaultCheck3">
-							<label class="form-check-label" for="defaultCheck3"> Nội dung mang tính chất phản động </label>
-						</div>
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="Nội dung mang tính chất phản động"  id="defaultCheck5">
+							<input class="form-check-input" name="liDo" type="checkbox" value="Nội dung mang tính chất phản động"  id="defaultCheck5">
 							<label class="form-check-label" for="defaultCheck5"> Nội dung, hình ảnh mang tính bạo lực, ngược đãi động vật </label>
 						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">Đóng</button>
-						<button type="button" class="btn btn-primary">Gửi</button>
+						<button type="submit" class="btn btn-primary">Gửi</button>
 					</div>
 				</div>
+				</form>
 			</div>
 		</div>
 
