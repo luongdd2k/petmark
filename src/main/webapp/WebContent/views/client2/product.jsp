@@ -189,9 +189,9 @@
 											<div class="input-counter">
 												<span>Số lượng: </span>
 												<div class="buttons_added">
-													<input onclick="changePrice()" class="minus is-form" type="button" value="-">
+													<input class="minus is-form" type="button" value="-">
 													<input id="so-luong"  aria-label="quantity" class="input-qty" max="10" min="1" name="soLuong" type="number" value="1">
-													<input onclick="changePrice()" class="plus is-form" type="button" value="+">
+													<input class="plus is-form" type="button" value="+">
 												</div>
 											</div>
 										</li>
