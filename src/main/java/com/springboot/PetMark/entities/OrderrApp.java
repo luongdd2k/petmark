@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -18,6 +19,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "orderrapp")
 public @Data class OrderrApp extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = -1505214863712955854L;
@@ -42,7 +44,7 @@ public @Data class OrderrApp extends BaseEntity implements Serializable {
 	private String paymentStatus;
 	@Column(name = "sent_mail")
 	private String sentMail;
-	@Column(name = "total_amount")
+	@Column(name = "total_order")
 	private float totalAmount;
 
 	public OrderrApp() {
