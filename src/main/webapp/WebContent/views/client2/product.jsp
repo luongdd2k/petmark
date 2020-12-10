@@ -35,6 +35,10 @@
 <link rel="stylesheet" href="css/product.css" />
 <link rel="stylesheet" href="css/styles.css" />
 	<style>
+		.hide{
+			display: none;
+			visibility: hidden;
+		}
 		.buttons_added {
 			opacity:1;
 			display:inline-block;
@@ -136,7 +140,7 @@
 								<div class="zoom" id="zoom"></div>
 							</div>
 							<div class="product-details__btn product-details__btn_pet">
-								<button id="cho" type="submit" class="product-details__btn product-details__btn_pet buy">
+								<button id="button-acc" type="submit" class="product-details__btn product-details__btn_pet buy">
 									<span>
 										<svg>
 											<use xlink:href="images/sprite.svg#icon-credit-card"></use>
@@ -396,6 +400,14 @@
 				$this.attr('value', d).val(d)
 			})
 		});
+		a();
+		function a(){
+			let user = document.getElementById("usernameBE").value;
+			let btn = document.getElementById("button-acc");
+			if(user == ""){
+				btn.classList.add("hide");
+			}
+		}
 	</script>
 </body>
 

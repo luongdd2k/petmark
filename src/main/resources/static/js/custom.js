@@ -35,17 +35,7 @@ function tru(){
         document.getElementById("inputnumber").value = parseInt(t) - 1;
     }
 }
-$(function(){
-    let giaTriAmount = $(".checkout-product-ordered-list-itemheader--amount").html();
-    let giaTriTongTien = $(".checkout-product-ordered-list-itemheader--subtotal").html();
-    $("._2hlLyg").prepend('Tổng số tiền ( ' + giaTriAmount + ' sản phẩm ) :');
-    $("._7IQQY9").prepend(giaTriTongTien);
-    $("._34fUBg").prepend(giaTriTongTien);
-    $('._2ghey').prepend(giaTriTongTien);
 
-    console.log(giaTriTongTien);
-
-})
 
 function doiDiaChi(){
     $("#checkout-adress").addClass("hide");

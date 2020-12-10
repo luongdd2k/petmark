@@ -30,6 +30,10 @@
    <link rel="stylesheet" href="css/product.css">
   <link rel="stylesheet" href="css/styles.css" />
   <style>
+    .hide{
+      display: none;
+      visibility: hidden;
+    }
     .buttons_added {
       opacity:1;
       display:inline-block;
@@ -134,7 +138,7 @@
               <div class="zoom" id="zoom"></div>
             </div>
 
-            <div id="phuKien" class="product-details__btn product-details__btn_accessori">
+            <div id="button-acc" class="product-details__btn product-details__btn_accessori">
               <button class="add" type="submit" >
                 <span>
                   <svg>
@@ -401,6 +405,15 @@
     function getUrl(url){
       document.getElementById("pic").src = url;
     };
+
+    a();
+    function a(){
+      let user = document.getElementById("usernameBE").value;
+      let btn = document.getElementById("button-acc");
+      if(user == ""){
+        btn.classList.add("hide");
+      }
+    }
 
     $('input.input-qty').each(function() {
       var $this = $(this),
