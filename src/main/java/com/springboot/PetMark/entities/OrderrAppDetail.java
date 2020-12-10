@@ -1,6 +1,7 @@
 package com.springboot.PetMark.entities;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -46,7 +47,7 @@ public @Data class OrderrAppDetail implements Serializable {
 	private float totalAmount;
 	@Column(name = "total_money")
 	private int totalMoney;
-	@Column(name = "imagePath")
+	@Column(name = "imagepath")
 	private String imgPath;
 
 	public OrderrAppDetail() {
@@ -155,6 +156,10 @@ public @Data class OrderrAppDetail implements Serializable {
 
 	public void setTotalAmount(float totalAmount) {
 		this.totalAmount = totalAmount;
+	}
+	public String getDisplayDeposit() {
+		DecimalFormat decimalFormat = new DecimalFormat("#,##0");
+		return decimalFormat.format(this.totalAmount).replaceAll(",", ".") + " ₫";
 	}
 
 	@Override

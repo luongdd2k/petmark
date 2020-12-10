@@ -149,7 +149,7 @@
 								<p>Hãng phụ kiện</p>
 						</a></li>
 						<li class="nav-header">QUẢN LÝ</li>
-						<li class="nav-item has-treeview"><a href="admin/orders"
+						<li class="nav-item has-treeview"><a href="admin/order-app"
 							class="nav-link"> <i class="nav-icon fas fa-table"></i>
 								<p>Quản lý đơn hàng</p>
 						</a></li>
@@ -217,7 +217,7 @@
 										<div class="col-12 col-sm-6 col-md-3"></div>
 										<div class="col-12 col-sm-6 col-md-3">
 											<div style="margin-bottom: 15px; float: right">
-												<form action="admin/orders/cancel/${orderWeb.getId()}"
+												<form action="admin/order-app/cancel/${orderWeb.getId()}"
 													method="post">
 													<button type="submit" class="btn btn-danger"
 														onclick="anBtnHuy(true)">
@@ -276,7 +276,7 @@
 									<!-- 										<div class="col-12 col-sm-6 col-md-3"> -->
 									<!-- 											<div style="margin-top: 15px; margin-bottom: 10px;"> -->
 									<!-- 												<a class="btn btn-custon-three btn-primary" -->
-									<%-- 													href="admin/orders/change-status/${title}/${orderWeb.getId()}"> <i --%>
+									<%-- 													href="admin/order-app/change-status/${title}/${orderWeb.getId()}"> <i --%>
 									<%-- 													class="fas fa-calendar-check"></i> <span> ${title}</span></a> --%>
 									<!-- 											</div> -->
 									<!-- 										</div> -->
@@ -284,7 +284,7 @@
 										<div class="col-12 col-sm-6 col-md-3">
 											<div style="margin-top: 15px; margin-bottom: 10px">
 												<a onclick="hienThiBtnBD(true)"
-													href="admin/orders/change-status/${title}/${orderWeb.getId()}"
+													href="admin/order-app/change-status/${title}/${orderWeb.getId()}"
 													class="btn btn-custon-three btn-primary"> <i
 													class="fas fa-calendar-check"></i> <span> Duyệt đơn
 														hàng này</span>
@@ -300,7 +300,7 @@
 										<div class="col-12 col-sm-6 col-md-3">
 											<div style="margin-top: 15px; margin-bottom: 10px">
 												<a onclick="hienThiBtnGTC1(true)"
-													href="admin/orders/change-status/${title}/${orderWeb.getId()}"
+													href="admin/order-app/change-status/${title}/${orderWeb.getId()}"
 													class="btn btn-custon-three btn-primary"> <i
 													class="fas fa-meteor"></i> <span> Bắt đầu giao hàng</span>
 												</a>
@@ -315,7 +315,7 @@
 										<div class="col-12 col-sm-6 col-md-3">
 											<div style="margin-top: 15px; margin-bottom: 10px">
 												<a onclick="anBtnGTC1(true)"
-													href="admin/orders/change-status/${title}/${orderWeb.getId()}"
+													href="admin/order-app/change-status/${title}/${orderWeb.getId()}"
 													class="btn btn-custon-rounded-two btn-success"> <i
 													class="fas fa-check-circle"></i> <span> Giao hàng
 														thành công</span>
@@ -325,7 +325,7 @@
 										<div class="col-12 col-sm-6 col-md-3">
 											<div style="margin-top: 15px; margin-bottom: 10px">
 												<a onclick="hienThiBtnGTC2(true)"
-													href="admin/orders/change-status/${name}/${orderWeb.getId()}"
+													href="admin/order-app/change-status/${name}/${orderWeb.getId()}"
 													class="btn btn-custon-rounded-two btn-warning"> <i
 													class="fas fa-exclamation-circle"></i> <span> Giao
 														hàng thất bại, giao lại lần 2</span>
@@ -340,7 +340,7 @@
 										<div class="col-12 col-sm-6 col-md-3">
 											<div style="margin-top: 15px; margin-bottom: 10px">
 												<a onclick="anBtnGTC2(true)"
-													href="admin/orders/change-status/${title}/${orderWeb.getId()}"
+													href="admin/order-app/change-status/${title}/${orderWeb.getId()}"
 													class="btn btn-custon-rounded-two btn-success"> <i
 													class="fas fa-check-circle"></i> <span> Giao hàng
 														thành công</span>
@@ -350,7 +350,7 @@
 										<div class="col-12 col-sm-6 col-md-3">
 											<div style="margin-top: 15px; margin-bottom: 10px">
 												<a onclick="anBtnGTC2(true)"
-													href="admin/orders/change-status/${name}/${orderWeb.getId()}"
+													href="admin/order-app/change-status/${name}/${orderWeb.getId()}"
 													class="btn btn-custon-rounded-two btn-warning"> <i
 													class="fas fa-times"></i> <span> Giao hàng không
 														thành công</span>

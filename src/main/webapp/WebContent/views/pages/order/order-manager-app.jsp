@@ -90,7 +90,7 @@
 											<tbody>
 													<tr class="tr-js">
 														<td>
-															<a href="admin/orders/detail/${list.id}">${list.id }</a>
+															<a href="admin/order-app/detail/${list.id}">${list.id }</a>
 														</td>
 														<td>${list.getAccount().getFullName() }</td>
 														<td>${list.getDate() }</td>
