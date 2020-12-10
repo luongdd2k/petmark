@@ -1,6 +1,7 @@
 package com.springboot.PetMark.entities;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -56,7 +57,7 @@ public @Data class CardItemAccessories implements Serializable {
 		this.size = size;
 		this.color=color;
 	}
-
+	
 	public Integer getId() {
 		return id;
 	}

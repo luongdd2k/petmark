@@ -117,7 +117,10 @@ public @Data class Accessories implements Serializable {
 		} else
 			return decimalFormat.format(this.price);
 	}
-
+	public String getDisplay() {
+		DecimalFormat decimalFormat = new DecimalFormat("#,##0");
+		return decimalFormat.format(this.price);
+	}
 	public String getDisplayDeposit() {
 		DecimalFormat decimalFormat = new DecimalFormat("#,##0");
 		return decimalFormat.format(this.price).replaceAll(",", ".") + " đ";

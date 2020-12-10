@@ -139,7 +139,7 @@
 					<input type="hidden" id="id_card_model" value="" name="blog-id">
 					<div class="modal-body">
 						<div class="form-check">
-							<input class="form-check-input" name="liDo" type="checkbox" value="Nội dung mang tính chất phản động"  id="defaultCheck4">
+							<input class="form-check-input" name="liDo" type="checkbox" value="Spam nội dung"  id="defaultCheck4">
 							<label class="form-check-label" for="defaultCheck4"> Spam nội dung </label>
 						</div>
 						<div class="form-check">
@@ -151,7 +151,7 @@
 							<label class="form-check-label" for="defaultCheck2"> Nội dung mang tính chất phản động </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" name="liDo" type="checkbox" value="Nội dung mang tính chất phản động"  id="defaultCheck5">
+							<input class="form-check-input" name="liDo" type="checkbox" value="Nội dung, hình ảnh mang tính bạo lực, ngược đãi động vật"  id="defaultCheck5">
 							<label class="form-check-label" for="defaultCheck5"> Nội dung, hình ảnh mang tính bạo lực, ngược đãi động vật </label>
 						</div>
 					</div>
