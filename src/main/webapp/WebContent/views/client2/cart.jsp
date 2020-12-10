@@ -77,7 +77,7 @@
                                     </td>
                                     <td class="product__price">
                                         <div class="price">
-                                            <span class="new__price">${card.getAccessories().getDisplay()}</span>
+                                            <span class="new__price">${card.getAccessories().getDisplayPrice(1)}</span>
                                         </div>
                                     </td>
                                     <td class="product__quantity">
