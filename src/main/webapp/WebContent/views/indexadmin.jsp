@@ -18,16 +18,6 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to to the body tag
-to get the desired effect
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   	<!-- Navbar -->
@@ -142,12 +132,14 @@ to get the desired effect
 
   <!-- Main Footer -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.5
-    </div>
-  </footer>
+  <div class="float-right d-none d-sm-block">
+    <b>Version</b> 1.0.0
+  </div>
+  <strong>Copyright &copy; 2020 <a href="http://adminlte.io">Petmark
+  </a>.
+  </strong> All rights reserved.
+  <input type="hidden" id="active" value="Trang chủ">
+</footer>
 </div>
 <!-- ./wrapper -->
 
@@ -161,8 +153,8 @@ to get the desired effect
 <script src="dist/js/adminlte.js"></script>
 
 <!-- OPTIONAL SCRIPTS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
 <script src="dist/js/demo.js"></script>
-<script src="dist/js/pages/dashboard3.js"></script>
+<script src="js/active.js"></script>
+
 </body>
 </html>

@@ -378,6 +378,7 @@
 			<strong>Copyright &copy; 2020 <a href="http://adminlte.io">Petmart
 			</a>.
 			</strong> All rights reserved.
+			<input type="hidden" id="active" value="Phụ kiện">
 		</footer>
 
 		<!-- Control Sidebar -->
@@ -396,8 +397,10 @@
 	<script src="dist/js/adminlte.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
+	<script src="js/active.js"></script>
 	<script type="text/javascript" src="Script/QLPK.js"></script>
 	<script type="text/javascript">
+		b();
 	var x = [];
     $("#table-js tr").each(function () {
       var id = $(this).find("th").eq(0).html();

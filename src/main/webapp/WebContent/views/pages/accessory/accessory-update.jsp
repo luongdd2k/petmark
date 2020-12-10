@@ -151,32 +151,6 @@
                             <div class="clear"></div>
                         </div>
                         <!--End Form Update-->
-                        <div id="new-pet">
-                            <div class="row">
-                                <div class="col-12">
-                                    <form action="">
-                                        <div class="form-row">
-                                            <div class="form-group col-2">
-                                                <label>Tên</label> <input
-                                                    class="form-control" type="search"
-                                                    placeholder="Tìm kiếm theo tên" aria-label="Search">
-                                            </div>
-                                            <div class="form-group col-2">
-                                                <label>Lọc</label> <select
-                                                    class="form-control" id="cbo_sort_Accessories2" style="">
-                                                <option value="-1">ID:&nbsp thấp ⟶ cao</option>
-                                                <option value="0">ID:&nbsp cao ⟶ thấp</option>
-                                                <option value="1">Giá:&nbsp từ thấp ⟶ cao</option>
-                                                <option value="2">Giá:&nbsp từ cao ⟶ thấp</option>
-                                                <option value="3" style="background: #ffe6e6">Dừng
-                                                    kinh doanh</option>
-                                            </select> <span id="sortValue2" style="display: none;">${sortValue }</span>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="table-responsive-xl main-table">
                             <table class="table table-hover" style="margin-bottom: -1%" id="table-js">
@@ -270,6 +244,7 @@
         <strong>Copyright &copy; 2020 <a href="http://adminlte.io">Petmart
         </a>.
         </strong> All rights reserved.
+        <input type="hidden" id="active" value="Phụ kiện">
     </footer>
 
     <!-- Control Sidebar -->
@@ -288,6 +263,7 @@
 <script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<script src="js/active.js"></script>
 <script type="text/javascript" src="Script/QLPK.js"></script>
 <script type="text/javascript">
     function hiddenFormUpdate(visible) {

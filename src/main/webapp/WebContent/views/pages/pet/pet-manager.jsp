@@ -12,19 +12,15 @@
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
-
 <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
 <!-- Ionicons -->
-<link rel="stylesheet"
-	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <!-- overlayScrollbars -->
-<link rel="stylesheet"
-	href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+<link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="dist/css/adminlte.min.css">
 <!-- Google Font: Source Sans Pro -->
-<link
-	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet">
 <link rel="stylesheet" href="dist/css/custom.css">
 	<link rel="stylesheet" href="css/employee.css">
@@ -408,6 +404,7 @@
 			<strong>Copyright &copy; 2020 <a href="http://adminlte.io">Petmart
 			</a>.
 			</strong> All rights reserved.
+			<input type="hidden" id="active" value="Thú cưng">
 		</footer>
 
 		<!-- Control Sidebar -->
@@ -421,6 +418,7 @@
 	<!-- jQuery -->
 	<script src="plugins/jquery/jquery.min.js"></script>
 	<script src="dist/js/pages/custom.js"></script>
+	<script src="plugins/Semantic-UI-CSS-master/semantic.min.js"></script>
 	<!-- Bootstrap 4 -->
 	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- overlayScrollbars -->
@@ -430,6 +428,7 @@
 	<script src="dist/js/adminlte.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
+	<script src="js/active.js"></script>
 	<script type="text/javascript" src="Script/QLSP.js"></script>
 	<script>
 				function hienThiFormNew(visible) {

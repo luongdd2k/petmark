@@ -27,67 +27,67 @@
 			<nav class="mt-2">
 				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 					<li class="nav-item has-treeview">
-						<a href="LoggedInSuccessfully" class="nav-link"> 
+						<a href="LoggedInSuccessfully" class="nav-link nav-aside">
 						<i class="nav-icon fas fa-home"></i>
-							<p>Trang chủ</p>
+							<p class="nav-p">Trang chủ</p>
 						</a>
 					</li>
 					<li class="nav-header">CỬA HÀNG</li>
 					<li class="nav-item">
-						<a href="admin/UserManagement" class="nav-link">
+						<a href="admin/UserManagement" class="nav-link nav-aside">
 						<i class="nav-icon fas fa-users"></i>
-							<p>Nhân viên</p>
+							<p class="nav-p">Nhân viên</p>
 						</a>
 					</li>
 					<li class="nav-item has-treeview">
-						<a href="admin/ProductManagement" class="nav-link"> 
+						<a href="admin/ProductManagement" class="nav-link nav-aside">
 						<i class="nav-icon fas fa-paw"></i>
-							<p>Thú cưng</p>
+							<p class="nav-p">Thú cưng</p>
 						</a>
 					</li>
 					<li class="nav-item has-treeview">
-						<a href="admin/SpeciesManagement" class="nav-link"> 
+						<a href="admin/SpeciesManagement" class="nav-link nav-aside">
 						<i class="nav-icon fas fa-dog"></i>
-							<p>Giống thú cưng</p>
+							<p class="nav-p">Giống thú cưng</p>
 						</a>
 					</li>
 					<li class="nav-item has-treeview">
-						<a href="admin/AccessoriesManagement" class="nav-link"> 
+						<a href="admin/AccessoriesManagement" class="nav-link nav-aside">
 						<i class="nav-icon fab fa-simplybuilt"></i>
-							<p>Phụ kiện</p>
+							<p class="nav-p">Phụ kiện</p>
 						</a>
 					</li>
 					<li class="nav-item has-treeview">
-						<a href="admin/CategoryManagement" class="nav-link"> 
+						<a href="admin/CategoryManagement" class="nav-link nav-aside">
 						<i class="nav-icon fab fa-bandcamp"></i>
-							<p>Hãng phụ kiện</p>
+							<p class="nav-p">Hãng phụ kiện</p>
 						</a>
 					</li>
 					<li class="nav-header">QUẢN LÝ</li>
 					<li class="nav-item has-treeview">
-						<a href="admin/orders" class="nav-link"> 
+						<a href="admin/orders" class="nav-link nav-aside">
 						<i class="nav-icon fas fa-table"></i>
-							<p>Quản lý đơn hàng</p>
+							<p class="nav-p">Quản lý đơn hàng</p>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="admin/deposit" class="nav-link"> 
+						<a href="admin/deposit" class="nav-link nav-aside">
 						<i class="nav-icon fas fa-receipt"></i>
-							<p>Quản lý cọc</p>
+							<p class="nav-p">Quản lý cọc</p>
 						</a>
 					</li>
 					<li class="nav-header">QUẢN LÝ BLOG</li>
 					<li class="nav-item has-treeview">
-						<a href="admin/blog" class="nav-link"> 
+						<a href="admin/blog" class="nav-link nav-aside">
 						<i class="nav-icon fas fa-table"></i>
-							<p>Danh sách Blog</p>
+							<p class="nav-p">Danh sách Blog</p>
 						</a>
 					</li>
 					<li class="nav-header">THỐNG KÊ</li>
 					<li class="nav-item">
-						<a href="admin/statistical/show-statistical" class="nav-link"> 
+						<a href="admin/statistical/show-statistical" class="nav-link nav-aside">
 						<i class="nav-icon far fa-chart-bar"></i>
-							<p>Thống kê</p>
+							<p class="nav-p">Thống kê</p>
 						</a>
 					</li>
 				</ul>

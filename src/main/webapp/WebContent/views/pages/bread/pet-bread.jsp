@@ -215,6 +215,7 @@
 			<strong>Copyright &copy; 2020 <a
 				href="http://adminlte.io">Petmart </a>.
 			</strong> All rights reserved.
+			<input type="hidden" id="active" value="Giống thú cưng">
 		</footer>
 
 		<!-- Control Sidebar -->
@@ -238,6 +239,7 @@
 	<!-- Sparkline -->
 	<script src="plugins/sparkline/jquery.sparkline.min.js"></script>
 	<!-- page script -->
+	<script src="js/active.js"></script>
 	<script type="text/javascript" src="Script/QLG.js"></script>
 	<script type="text/javascript">
 		function hienThi(visible) {

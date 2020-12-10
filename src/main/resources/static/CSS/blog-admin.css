@@ -1,3 +1,7 @@
 .button-card{
     text-align: right;
 }
+.hide{
+    display: none;
+    visibility: hidden;
+}

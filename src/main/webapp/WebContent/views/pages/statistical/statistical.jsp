@@ -149,6 +149,7 @@
 			<strong>Copyright &copy; 2020 <a href="http://adminlte.io">Petmart
 			</a>.
 			</strong> All rights reserved.
+			<input type="hidden" id="active" value="Thống kê">
 		</footer>
 
 		<!-- Control Sidebar -->
@@ -173,6 +174,7 @@
 	<!-- OPTIONAL SCRIPTS -->
 	<script src="plugins/chart.js/Chart.min.js"></script>
 	<script src="dist/js/demo.js"></script>
+	<script src="js/active.js"></script>
 	<script src="dist/js/pages/dashboard3.js"></script>
 </body>
 
