@@ -8,22 +8,19 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Admin || Employee Manager</title>
-<base href="${pageContext.servletContext.contextPath}/">
-<!-- Tell the browser to be responsive to screen width -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Font Awesome -->
-<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-<!-- Ionicons -->
-<link rel="stylesheet"
-	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<!-- Theme style -->
-<link rel="stylesheet" href="dist/css/adminlte.min.css">
-<!-- Google Font: Source Sans Pro -->
-<link
-	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
-	rel="stylesheet">
-<!--Custo CSS-->
-<link rel="stylesheet" href="dist/css/custom.css">
+	<base href="${pageContext.servletContext.contextPath}/">
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+	<!-- Ionicons -->
+	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="dist/css/adminlte.min.css">
+	<!-- Google Font: Source Sans Pro -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<!--Custo CSS-->
+	<link rel="stylesheet" href="dist/css/custom.css">
 	<link rel="stylesheet" href="css/employee.css">
 </head>
 
@@ -203,7 +200,8 @@
 		<strong>Copyright &copy; 2020 <a href="http://adminlte.io">Petmark
 		</a>.
 		</strong> All rights reserved.
-	</footer>
+			<input type="hidden" id="active" value="Nhân viên">
+		</footer>
 
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-dark">
@@ -221,7 +219,25 @@
 	<script src="dist/js/adminlte.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
+	<script src="js/active.js"></script>
 	<script type="text/javascript" src="Script/QLND.js"></script>
+	<script>
+		b();
+		function b(){
+			let nav = document.getElementsByClassName("nav-aside");
+			let p = document.getElementsByClassName("nav-p");
+			let active = document.getElementById("active").value;
+			console.log(nav);
+			console.log(p);
+			for(let i=0; i<nav.length; i++){
+				console.log(nav[i].innerText);
+				if( nav[i].innerText == active){
+					console.log(i);
+					nav[i].classList.add("active");
+				}
+			}
+		}
+	</script>
 </body>
 
 </html>

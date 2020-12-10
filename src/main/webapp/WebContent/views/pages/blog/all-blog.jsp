@@ -8,31 +8,28 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>Admin || Quản lý Blog</title>
 <base href="${pageContext.servletContext.contextPath}/">
-<!-- Tell the browser to be responsive to screen width -->
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+	<!-- Ionicons -->
+	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<!-- overlayScrollbars -->
+	<link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
-<!-- Ionicons -->
-<link rel="stylesheet"
-	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
-<!-- jsGrid -->
-<link rel="stylesheet" href="plugins/jsgrid/jsgrid.min.css" />
-<link rel="stylesheet" href="plugins/jsgrid/jsgrid-theme.min.css" />
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-	crossorigin="anonymous" />
-<!-- Theme style -->
-<link rel="stylesheet" href="dist/css/adminlte.min.css" />
-<link rel="stylesheet"
-	href="plugins/Semantic-UI-CSS-master/semantic.min.css" />
-<!-- Google Font: Source Sans Pro -->
-<link
-	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
-	rel="stylesheet" />
-<link rel="stylesheet" href="dist/css/custom.css" />
-<link rel="stylesheet" href="css/blog-admin.css">
+	<link rel="stylesheet"  href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+	<!-- Theme style -->
+	<link rel="stylesheet" href="dist/css/adminlte.min.css" />
+	<link rel="stylesheet" href="plugins/Semantic-UI-CSS-master/semantic.min.css" />
+	<!-- Google Font: Source Sans Pro -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
+	<link rel="stylesheet" href="dist/css/custom.css" />
+	<link rel="stylesheet" href="css/employee.css">
+	<link rel="stylesheet" href="css/blog-admin.css"/>
+	<style>
+
+	</style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -87,7 +84,7 @@
 												</div>
 												<div id="ha" style="margin : 10px 0px 50px 5px;">
 													<h3>${blog.getContent() }</h3>
-													<p>${blog.displayStt() }
+													<p> Trạng thái: <strong class="blog-status">${blog.displayStt() }</strong></p>
 												</div>
 
 												<div class="button-card" style="display: flex;position: absolute;bottom: 8px;right: 12px;">
@@ -120,7 +117,7 @@
 			<strong>Copyright &copy; 2020 <a href="http://adminlte.io">Petmart
 			</a>.
 			</strong> All rights reserved.
-			<input type="hidden" id="active" value="blog">
+			<input type="hidden" id="active" value="Danh sách Blog">
 		</footer>
 
 		<!-- Modal -->
@@ -139,7 +136,7 @@
 					<input type="hidden" id="id_card_model" value="" name="blog-id">
 					<div class="modal-body">
 						<div class="form-check">
-							<input class="form-check-input" name="liDo" type="checkbox" value="Nội dung mang tính chất phản động"  id="defaultCheck4">
+							<input class="form-check-input" name="liDo" type="checkbox" value="Spam nội dung"  id="defaultCheck4">
 							<label class="form-check-label" for="defaultCheck4"> Spam nội dung </label>
 						</div>
 						<div class="form-check">
@@ -151,8 +148,20 @@
 							<label class="form-check-label" for="defaultCheck2"> Nội dung mang tính chất phản động </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" name="liDo" type="checkbox" value="Nội dung mang tính chất phản động"  id="defaultCheck5">
+							<input class="form-check-input" name="liDo" type="checkbox" value="Nội dung, hình ảnh mang tính bạo lực, ngược đãi động vật"  id="defaultCheck5">
 							<label class="form-check-label" for="defaultCheck5"> Nội dung, hình ảnh mang tính bạo lực, ngược đãi động vật </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" name="liDo" type="checkbox" value="Mình thích thì mình hủy thôi"  id="defaultCheck6">
+							<label class="form-check-label" for="defaultCheck6"> Mình thích thì mình hủy thôi </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" name="liDo" type="checkbox" value="Bị Boom hàng nhiều nên đang cáu, không duyệt bài nào"  id="defaultCheck7">
+							<label class="form-check-label" for="defaultCheck7"> Bị Boom hàng nhiều nên đang cáu, không duyệt bài nào </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" name="liDo" type="checkbox" value="Nhân viên vừa vào làm nên chưa rõ nghiệp vụ"  id="defaultCheck8">
+							<label class="form-check-label" for="defaultCheck8"> Nhân viên vừa vào làm nên chưa rõ nghiệp vụ </label>
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -192,10 +201,29 @@
 	<script src="dist/js/adminlte.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
+	<script src="js/active.js"></script>
 	<!-- page script -->
 	<script>
+		a();
 		function a(){
-
+			let stt = document.getElementsByClassName("blog-status");
+			let btn = document.getElementsByClassName("button-card");
+			console.log(stt);
+			console.log(btn);
+			for (let i=0; i<stt.length; i++){
+				if(stt[i].innerHTML=="Chưa xét duyệt"){
+					stt[i].style.color = '#fdb827';
+					btn[i].classList.remove ="hide";
+				}
+				if(stt[i].innerHTML=="Đã xét duyệt"){
+					stt[i].style.color = '#54e346';
+					btn[i].classList.add("hide");
+				}
+				if(stt[i].innerHTML=="Đã huỷ"){
+					stt[i].style.color = '#ec524b';
+					btn[i].classList.add("hide");
+				}
+			}
 		}
 		function abc(id){
 			let i = document.getElementById("id_card_model");
