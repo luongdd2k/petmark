@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "orderrapp")
-public @Data class OrderrApp extends BaseEntity implements Serializable {
+public @Data class OrderrApp implements Serializable {
 
 	private static final long serialVersionUID = -1505214863712955854L;
 	@Id
