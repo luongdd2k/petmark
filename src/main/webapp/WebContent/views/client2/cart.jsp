@@ -27,6 +27,56 @@
     <!-- Custom StyleSheet -->
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/cart.css">
+    <style>
+        .buttons_added {
+            opacity:1;
+            display:inline-block;
+            display:-ms-inline-flexbox;
+            display:inline-flex;
+            white-space:nowrap;
+            vertical-align:top;
+            margin-left: 10px;
+        }
+        .is-form {
+            overflow:hidden;
+            position:relative;
+            background-color:#f9f9f9;
+            height:4rem;
+            width:4rem;
+            padding:0;
+            text-shadow:1px 1px 1px #fff;
+            border:1px solid #ddd;
+            font-size: 2rem ;
+        }
+        .is-form:focus,.input-text:focus {
+            outline:none;
+        }
+        .is-form.minus {
+            border-radius:4px 0 0 4px;
+        }
+        .is-form.plus {
+            border-radius:0 4px 4px 0;
+        }
+        .input-qty {
+            background-color:#fff;
+            height:4rem;
+            width: 4rem;
+            text-align:center;
+            font-size:1.5rem;
+            display:inline-block;
+            vertical-align:top;
+            margin:0;
+            border-top:1px solid #ddd;
+            border-bottom:1px solid #ddd;
+            border-left:0;
+            border-right:0;
+            padding:0;
+        }
+        .input-qty::-webkit-outer-spin-button,.input-qty::-webkit-inner-spin-button {
+            -webkit-appearance:none;
+            margin:0;
+        }
+    </style>
 </head>
 
 <body>
@@ -77,29 +127,23 @@
                                     </td>
                                     <td class="product__price">
                                         <div class="price">
-                                            <span class="new__price">${card.getAccessories().getDisplayPrice(1)}</span>
+                                            <span class="new__price product-price">${card.getAccessories().getDisplayPrice(1)} đ</span>
                                         </div>
                                     </td>
                                     <td class="product__quantity">
                                         <div class="input-counter">
                                             <div>
-                                                <span class="minus-btn">
-                                                    <svg>
-                                                        <use xlink:href="images/sprite.svg#icon-minus"></use>
-                                                    </svg>
-                                                </span>
-                                                <input type="text" min="1" value="${card.getAmount() }" max="10" class="counter-btn">
-                                                <span class="plus-btn">
-                                                    <svg>
-                                                        <use xlink:href="images/sprite.svg#icon-plus"></use>
-                                                    </svg>
-                                                </span>
+                                                <div class="buttons_added">
+                                                    <input class="minus is-form" type="button" value="-">
+                                                    <input id="so-luong"  aria-label="quantity" class="input-qty" max="10" min="1" name="soLuong" type="number" value="${card.getAmount() }">
+                                                    <input class="plus is-form" type="button" value="+">
+                                                </div>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="product__subtotal">
                                         <div class="price">
-                                            <span class="new__price">${card.getAccessories().price} * ${card.amount }</span>
+                                            <span class="new__price total-price"> đ</span>
                                         </div>
                                         <a href="delete/${card.getId() }" class="remove__cart-item">
                                             <svg>
@@ -124,11 +168,11 @@
                         <ul>
                             <li>
                                 Tạm tính
-                                <span class="new__price">$250.99</span>
+                                <span class="new__price" id="tam-tinh"></span>
                             </li>
                             <li>
                                 Thành tiền
-                                <span class="new__price">$250.99</span>
+                                <span class="new__price" id="thanh-tien"></span>
                             </li>
                         </ul>
                         <div class="btn-payment">
@@ -174,7 +218,67 @@
     <script src="js/index.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/slider.js"></script>
-
+    <script>
+        $('input.input-qty').each(function() {
+            var $this = $(this),
+                qty = $this.parent().find('.is-form'),
+                min = Number($this.attr('min')),
+                max = Number($this.attr('max'))
+            if (min == 0) {
+                var d = 0
+            } else d = min
+            $(qty).on('click', function() {
+                if ($(this).hasClass('minus')) {
+                    if (d > min) d += -1
+                } else if ($(this).hasClass('plus')) {
+                    var x = Number($this.val()) + 1
+                    if (x <= max) d += 1
+                }
+                $this.attr('value', d).val(d)
+            })
+        });
+        tinhTong();
+        function tinhTong(){
+            let tien = document.getElementsByClassName("product-price");
+            let amount = document.getElementsByClassName("input-qty");
+            let tong =  document.getElementsByClassName("total-price");
+            for (let i = 0 ; i<tien.length; i++){
+                let tong1 = parseInt(tien[i].innerHTML) * parseInt(amount[i].value);
+                tong[i].innerHTML = tong1 +" đ";
+            }
+        }
+        thanhTien();
+        function thanhTien(){
+            let tong2 = document.getElementsByClassName("total-price");
+            let tam = document.getElementById("tam-tinh");
+            let thanh = document.getElementById("thanh-tien");
+            let sum =0;
+            for (let i =0; i<tong2.length; i++){
+                sum = parseInt(sum) + parseInt(tong2[i].innerHTML);
+                console.log(sum);
+                tam.innerHTML = sum +" đ";
+                thanh.innerHTML = sum + " đ";
+            }
+        }
+        formartN();
+        function formartN(){
+            let tien = document.getElementsByClassName("product-price");
+            let tong =  document.getElementsByClassName("total-price");
+            let tam = document.getElementById("tam-tinh");
+            let thanh = document.getElementById("thanh-tien");
+            for (let i=0; i<tien.length; i++){
+                let tien1 = tien[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+                tien[i].innerHTML = tien1;
+                let tong1 = tong[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+                tong[i].innerHTML = tong1;
+                let tam1 = tam.innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+                tam.innerHTML = tam1;
+                let thanh1 = thanh.innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+                thanh.innerHTML = thanh1;
+            }
+        }
+        // replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    </script>
 </body>
 
 </html>

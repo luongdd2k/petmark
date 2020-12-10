@@ -35,6 +35,10 @@
 <link rel="stylesheet" href="css/product.css" />
 <link rel="stylesheet" href="css/styles.css" />
 	<style>
+		.hide{
+			display: none;
+			visibility: hidden;
+		}
 		.buttons_added {
 			opacity:1;
 			display:inline-block;
@@ -136,7 +140,7 @@
 								<div class="zoom" id="zoom"></div>
 							</div>
 							<div class="product-details__btn product-details__btn_pet">
-								<button id="cho" type="submit" class="product-details__btn product-details__btn_pet buy">
+								<button id="button-acc" type="submit" class="product-details__btn product-details__btn_pet buy">
 									<span>
 										<svg>
 											<use xlink:href="images/sprite.svg#icon-credit-card"></use>
@@ -189,9 +193,9 @@
 											<div class="input-counter">
 												<span>Số lượng: </span>
 												<div class="buttons_added">
-													<input onclick="changePrice()" class="minus is-form" type="button" value="-">
+													<input class="minus is-form" type="button" value="-">
 													<input id="so-luong"  aria-label="quantity" class="input-qty" max="10" min="1" name="soLuong" type="number" value="1">
-													<input onclick="changePrice()" class="plus is-form" type="button" value="+">
+													<input class="plus is-form" type="button" value="+">
 												</div>
 											</div>
 										</li>
@@ -396,6 +400,14 @@
 				$this.attr('value', d).val(d)
 			})
 		});
+		a();
+		function a(){
+			let user = document.getElementById("usernameBE").value;
+			let btn = document.getElementById("button-acc");
+			if(user == ""){
+				btn.classList.add("hide");
+			}
+		}
 	</script>
 </body>
 
