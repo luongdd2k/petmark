@@ -1,7 +1,9 @@
 package com.springboot.PetMark.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AccessLevel;
@@ -34,7 +37,8 @@ public class Blog implements Serializable {
 	@Column(name = "date_submitted")
 	private Date dateSubmitted;
 	private int status;
-
+	@OneToMany( mappedBy = "blog",fetch = FetchType.LAZY)
+	private List<LikeBlog> like = new ArrayList<>();
 	public Blog() {
 		// TODO Auto-generated constructor stub
 	}
@@ -64,6 +68,14 @@ public class Blog implements Serializable {
 			stt = "Đã huỷ";
 		}
 		return stt;
+	}
+
+	public List<LikeBlog> getLike() {
+		return like;
+	}
+
+	public void setLike(List<LikeBlog> like) {
+		this.like = like;
 	}
 
 	public Integer getId() {

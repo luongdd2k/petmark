@@ -40,6 +40,11 @@ public class LikeBlog implements Serializable {
 		this.account = account;
 		this.blog = blog;
 	}
+	public LikeBlog(Account account, Blog blog) {
+		// TODO Auto-generated constructor stub
+		this.account = account;
+		this.blog = blog;
+	}
 
 	public Integer getId() {
 		return id;
