@@ -194,7 +194,7 @@
 												<span>Số lượng: </span>
 												<div class="buttons_added">
 													<input class="minus is-form" type="button" value="-">
-													<input id="so-luong"  aria-label="quantity" class="input-qty" max="10" min="1" name="soLuong" type="number" value="1">
+													<input id="so-luong"  aria-label="quantity" class="input-qty" max="${pet.getAmount() }" min="1" name="soLuong" type="number" value="1">
 													<input class="plus is-form" type="button" value="+">
 												</div>
 											</div>
