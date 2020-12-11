@@ -19,4 +19,6 @@ public interface OrderrWebService {
 	void save(OrderrWeb odOrderrWeb);
 	List<OrderrWeb> findBySttUser(String stt, Account account);
 	List<OrderrWeb> findByDeliveryStatusOrderByCreatedAtAsc(String deliveryStatus);
+	List<OrderrWeb> findByStt(String status);
+	List<OrderrWeb> findByPlace(int place);
 }

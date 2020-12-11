@@ -1,12 +1,16 @@
 package com.springboot.PetMark.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.openqa.selenium.DeviceRotation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -43,14 +47,77 @@ public class OrderAdminController {
 	@RequestMapping()
 	public String showOrders(ModelMap model, HttpServletRequest request, Principal principal) {
 		HttpSession session = request.getSession();
-		List<OrderrWeb> list = service.findAll();
-		model.addAttribute("list", list);
+		List<OrderrWeb> list = new ArrayList<>();
 		User logginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addAttribute("account", account);
+		int targetPage;
+
+		if (session.getAttribute("targetPage") != null) {
+			targetPage = (int) session.getAttribute("targetPage");
+		} else
+			targetPage = 1;
+
+		if (request.getParameter("targetPage") != null) {
+			targetPage = Integer.valueOf(request.getParameter("targetPage"));
+		}
+		int page = targetPage - 1;
+		String sortValue = request.getParameter("sortValue");
+		System.out.println("Index Sort: " + sortValue);
+		if (sortValue == null)
+			sortValue = "-2";
+		model.addAttribute("sortValue", sortValue);
+		try {		
+			switch (sortValue) {
+			case "-2":
+				list = service.findAll();
+				break;
+			case "-1":
+				list = service.findByPlace(0);
+				break;
+			case "0":
+				list = service.findByPlace(1);
+				break;
+			case "1":
+				list = service.findByStt(DeliveryStatus.NOT_APPROVED);
+				break;
+			case "2":
+				list = service.findByStt(DeliveryStatus.DELIVERING);
+				break;
+			case "3":
+				list = service.findByStt(DeliveryStatus.DELIVERING_2);
+				break;
+			case "4":
+				list = service.findByStt(DeliveryStatus.SUCCESSFUL);
+				break;
+			case "5":
+				list = service.findByStt(DeliveryStatus.CANCELLED);
+				break;
+			default:
+				
+				break;
+			}
+		
+		} catch (Exception e) {
+			return "404";
+		}
+		model.addAttribute("list", list);
 		return "pages/order/order-manager";
 	}
+	@RequestMapping("/getPageableQLSP")
+	public String getPageableQLSP(HttpServletRequest request) {
 
+		return "redirect:/admin/orders";
+	}
+
+//	
+	@RequestMapping("/changeSortValue")
+	public String changeSortValue(HttpServletRequest request) {
+		String sortValue = request.getParameter("sortValue");
+		
+		return "redirect:/admin/orders?sortValue="+sortValue;
+		
+	}
 	@RequestMapping("/detail/{id}")
 	public ModelAndView showOrderDetail(@PathVariable String id, HttpServletRequest request,Principal principal) {
 		ModelAndView model = new ModelAndView();

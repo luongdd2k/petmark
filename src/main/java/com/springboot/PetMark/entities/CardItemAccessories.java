@@ -20,7 +20,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "carditemaccessories")
+//@Table(name = "carditemaccessories")
+@Table(name = "carditem")
 public @Data class CardItemAccessories implements Serializable {
 
 	private static final long serialVersionUID = 3705264841579646640L;
