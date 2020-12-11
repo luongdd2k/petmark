@@ -14,8 +14,9 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet" />
 
-  <!-- Carousel -->
+  <!-- Boostrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <!-- Carousel -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css
 ">
@@ -82,6 +83,12 @@
       -webkit-appearance:none;
       margin:0;
     }
+    .close{
+      font-size: 2.5rem;
+    }
+    .modal-body__text{
+      font-size: 1.5rem;
+    }
   </style>
 </head>
 <!--    -->
@@ -138,15 +145,32 @@
               <div class="zoom" id="zoom"></div>
             </div>
 
-            <div id="button-acc" class="product-details__btn product-details__btn_accessori">
+            <div id="btn-action" class="product-details__btn product-details__btn_accessori">
               <button class="add" type="submit" >
                 <span>
                   <svg>
                     <use xlink:href="./images/sprite.svg#icon-cart-plus"></use>
                   </svg>
-                </span>
-                THÊM VÀO GIỎ HÀNG</button>
+                </span> THÊM VÀO GIỎ HÀNG
+              </button>
               <button class="buy" onclick="form.action='show-buy-now/${acc.getId()}';">
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-credit-card"></use>
+                  </svg>
+                </span>
+                MUA NGAY
+              </button>
+            </div>
+            <div id="btn-modal" class="product-details__btn product-details__btn_accessori">
+              <button class="add" type="button" data-toggle="modal" data-target="#myModal">
+                <span>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-cart-plus"></use>
+                  </svg>
+                </span> THÊM VÀO GIỎ HÀNG
+              </button>
+              <button class="buy" type="button" data-toggle="modal" data-target="#myModal">
                 <span>
                   <svg>
                     <use xlink:href="./images/sprite.svg#icon-credit-card"></use>
@@ -207,9 +231,9 @@
                     <div class="input-counter">
                       <span>Số lượng: </span>
                       <div class="buttons_added">
-                        <input onclick="changePrice()" class="minus is-form" type="button" value="-">
-                        <input id="so-luong"  aria-label="quantity" class="input-qty" max="10" min="1" name="soLuong" type="number" value="1">
-                        <input onclick="changePrice()" class="plus is-form" type="button" value="+">
+                        <input class="minus is-form" type="button" value="-">
+                        <input id="so-luong"  aria-label="quantity" class="input-qty" max="${acc.getAmount() }" min="1" name="soLuong" type="number" value="1">
+                        <input class="plus is-form" type="button" value="+">
                       </div>
                     </div>
                   </li>
@@ -390,6 +414,83 @@
     </svg>
   </a>
 
+  <!-- Modal noti-->
+  <div class="modal fade " id="myModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLabel">Thông báo</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-body__text">
+            Bạn cần <a href="showLogin">đăng nhập</a> để mua hàng!
+          Hoặc bạn có thể cung cấp thông tin để chúng tôi gửi hàng cho bạn
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-primary" onclick="b()" data-dismiss="modal" data-toggle="modal" data-target="#myModalForm">Thông tin</button>
+        </div>
+      </div>
+      <%--End modal content--%>
+    </div>
+  </div>
+<%--  End modal--%>
+
+  <!-- Modal form-->
+  <div class="modal fade " id="myModalForm" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLabel1">Thông tin cá nhân</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form>
+          <div class="modal-body">
+            <input type="hidden" id="so-luong-form" value="">
+            <input type="hidden" id="mau-sac-form" value="">
+            <input type="hidden" id="size-form" value="">
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="name">Họ và tên</label>
+                  <input type="text" class="form-control" id="name" placeholder="Họ và tên">
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="phone">Số điện thoại</label>
+                  <input type="text" class="form-control" id="phone" placeholder="Số điện thoại">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="address">Địa chỉ</label>
+                  <textarea class="form-control" id="address" rows="2" placeholder="Địa chỉ nhận hàng"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary">Đăng ký</button>
+          </div>
+        </form>
+      </div>
+      <%--End modal content--%>
+    </div>
+  </div>
+  <%--  End modal--%>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <!-- Glide Carousel Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
 
@@ -405,14 +506,31 @@
     function getUrl(url){
       document.getElementById("pic").src = url;
     };
-
     a();
     function a(){
-      let user = document.getElementById("usernameBE").value;
-      let btn = document.getElementById("button-acc");
-      if(user == ""){
-        btn.classList.add("hide");
+      let u = document.getElementById("usernameBE").value;
+      if(u == ""){
+        document.getElementById("btn-action").classList.add("hide");
+        document.getElementById("btn-modal").classList.remove("hide");
+      }else{
+        document.getElementById("btn-modal").classList.add("hide");
+        document.getElementById("btn-action").classList.remove("hide");
       }
+    }
+
+    function b(){
+      let sl = document.getElementById("so-luong").value;
+      let cl = document.getElementById("colors");
+      let sz = document.getElementById("size");
+      console.log(sl);
+      let slF = document.getElementById("so-luong-form");
+      let clF = document.getElementById("mau-sac-form");
+      let szF = document.getElementById("size-form");
+      slF.value = sl;
+      let clValue = cl.options[cl.selectedIndex].value;
+      clF.value = clValue;
+      let szValue = sz.options[sz.selectedIndex].value;
+      szF.value = szValue;
     }
 
     $('input.input-qty').each(function() {
