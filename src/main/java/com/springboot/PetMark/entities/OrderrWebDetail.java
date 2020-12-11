@@ -20,7 +20,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "orderrwebdetail")
+@Table(name = "orderdetail")
 public @Data class OrderrWebDetail implements Serializable {
 
 	private static final long serialVersionUID = -4166241148146902538L;
@@ -32,7 +32,7 @@ public @Data class OrderrWebDetail implements Serializable {
 	@JoinColumn(name = "accessoriesid")
 	private Accessories accessories;
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "orderrwebid")
+	@JoinColumn(name = "orderid")
 	private OrderrWeb orderrWeb;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "sizeid")

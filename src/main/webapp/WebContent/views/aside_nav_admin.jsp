@@ -67,13 +67,7 @@
 					<li class="nav-item has-treeview">
 						<a href="admin/orders" class="nav-link nav-aside">
 						<i class="nav-icon fas fa-table"></i>
-							<p class="nav-p">Quản lý đơn hàng đặt qua Web</p>
-						</a>
-					</li>
-					<li class="nav-item has-treeview">
-						<a href="admin/order-app" class="nav-link nav-aside">
-						<i class="nav-icon fas fa-table"></i>
-							<p class="nav-p">Quản lý đơn hàng đặt qua App</p>
+							<p class="nav-p">Quản lý đơn hàng</p>
 						</a>
 					</li>
 					<li class="nav-item">

@@ -27,7 +27,7 @@ import pet.mart.util.DeliveryStatus;
 import pet.mart.util.PaymentStatus;
 
 @Entity
-@Table(name = "orderrweb")
+@Table(name = "orderr")
 public @Data class OrderrWeb implements Serializable {
 
 	private static final long serialVersionUID = -3485459792890433309L;
@@ -53,10 +53,12 @@ public @Data class OrderrWeb implements Serializable {
 	private String paymentStatus;
 	@Column(name = "sent_mail")
 	private String sentMail;
-	@Column(name = "total_amount")
+	@Column(name = "total_order")
 	private float totalAmount;
 	@OneToMany(mappedBy = "orderrWeb",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<OrderrWebDetail> detail = new ArrayList<>();
+	@Column(name = "place_of_order")
+	private int place;
 	
 	
 	public List<OrderrWebDetail> getDetail() {
@@ -71,8 +73,16 @@ public @Data class OrderrWeb implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
+	public int getPlace() {
+		return place;
+	}
+
+	public void setPlace(int place) {
+		this.place = place;
+	}
+
 	public OrderrWeb(Account account, Date date, String consignee, String consigneePhone, String deliveryAddress,
-			String deliveryStatus, String paymentMethod, String paymentStatus, String sentMail, float totalAmount) {
+			String deliveryStatus, String paymentMethod, String paymentStatus, String sentMail, float totalAmount, int place) {
 
 		this.account = account;
 		this.createdAt = date;
@@ -84,12 +94,12 @@ public @Data class OrderrWeb implements Serializable {
 		this.paymentStatus = paymentStatus;
 		this.sentMail = sentMail;
 		this.totalAmount = totalAmount;
-
+		this.place=place;
 	}
 
 	public OrderrWeb(int id, Account account, Date date, String consignee, String consigneePhone,
 			String deliveryAddress, String deliveryStatus, String paymentMethod, String paymentStatus, String sentMail,
-			float totalAmount) {
+			float totalAmount, int place) {
 		this.id = id;
 		this.account = account;
 		this.createdAt = date;
@@ -101,7 +111,7 @@ public @Data class OrderrWeb implements Serializable {
 		this.paymentStatus = paymentStatus;
 		this.sentMail = sentMail;
 		this.totalAmount = totalAmount;
-
+		this.place=place;
 	}
 	public OrderrWeb(int id, String deliveryStatus) {
 		this.id = id;

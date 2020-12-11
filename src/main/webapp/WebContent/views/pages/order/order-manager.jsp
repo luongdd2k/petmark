@@ -71,6 +71,18 @@
 										<i class="fas fa-table"></i> Danh sách đơn hàng
 									</h3>
 								</div>
+								<div class="form-group col-2">
+													<label>Lọc</label> <select
+														class="form-control" id="cbo_sort_Accessories2" style="">
+														<option value="-1">Đơn đặt qua Web</option>
+														<option value="0">Đơn đặt qua App</option>
+														<option value="1">Đơn chưa xét duyệt</option>
+														<option value="2">Đơn đang giao lần 1</option>
+														<option value="3">Đơn đang giao lần 2</option>
+														<option value="4">Đơn giao thành công</option>
+														<option value="5" style="background: #ffe6e6">Đơn đã huỷ</option>
+													</select> <span id="sortValue2" style="display: none;">${sortValue }</span>
+												</div>
 								<!-- /.card-header -->
 								<div class="card-body">
 									<div class="table-responsive-xl main-table"
@@ -170,6 +182,7 @@
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
 	<script src="js/active.js"></script>
+	<script type="text/javascript" src="Script/QLOrder.js"></script>
 	<!-- page script -->
 	<script>
 		let tr = document.getElementsByClassName('tr-js');

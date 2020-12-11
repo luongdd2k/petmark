@@ -74,5 +74,17 @@ public class OrderrWebDAOImpl implements OrderrWebDAO {
 		return repo.findByDeliveryStatusOrderByCreatedAtDesc(deliveryStatus);
 	}
 
+	@Override
+	public List<OrderrWeb> findByStt(String status) {
+		// TODO Auto-generated method stub
+		return repo.findByStt(status);
+	}
+
+	@Override
+	public List<OrderrWeb> findByPlace(int place) {
+		// TODO Auto-generated method stub
+		return repo.findByPlace(place);
+	}
+
 
 }

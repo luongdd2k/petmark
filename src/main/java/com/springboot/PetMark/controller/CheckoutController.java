@@ -262,6 +262,7 @@ public class CheckoutController {
 		orderWeb.setConsigneePhone(req.getParameter("phone"));
 		orderWeb.setDeliveryAddress(req.getParameter("address"));
 		orderWeb.setAccount(user);
+		orderWeb.setPlace(0);
 		orderWeb.setSentMail(user.getEmail());
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
@@ -304,6 +305,7 @@ public class CheckoutController {
 		if (orderWeb.getPaymentMethod().equals(PaymentMethod.COD)) {
 			orderWeb.setPaymentStatus(PaymentStatus.UNPAID);
 			orderWebService.save(orderWeb);
+			cartItemService.deleteByAccount(user);
 			return "redirect:/order-result/" + orderWeb.getId();
 		}
 		cartItemService.deleteByAccount(user);
@@ -555,6 +557,7 @@ public class CheckoutController {
 		orderWeb.setConsigneePhone(req.getParameter("phone"));
 		orderWeb.setDeliveryAddress(req.getParameter("address"));
 		orderWeb.setAccount(user);
+		orderWeb.setPlace(0);
 		orderWeb.setSentMail(user.getEmail());
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
