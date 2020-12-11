@@ -1,6 +1,8 @@
 package com.springboot.PetMark.entities;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -11,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -18,7 +21,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-public @Data class OrderrApp extends BaseEntity implements Serializable {
+@Table(name = "orderrapp")
+public @Data class OrderrApp implements Serializable {
 
 	private static final long serialVersionUID = -1505214863712955854L;
 	@Id
@@ -42,7 +46,7 @@ public @Data class OrderrApp extends BaseEntity implements Serializable {
 	private String paymentStatus;
 	@Column(name = "sent_mail")
 	private String sentMail;
-	@Column(name = "total_amount")
+	@Column(name = "total_order")
 	private float totalAmount;
 
 	public OrderrApp() {
@@ -63,6 +67,15 @@ public @Data class OrderrApp extends BaseEntity implements Serializable {
 		this.sentMail = sentMail;
 		this.totalAmount = totalAmount;
 
+	}
+	public String getDate() {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		String dateString = format.format(this.createdAt);
+		return dateString;
+	}
+	public String getDisplayTotalAmount() {
+		DecimalFormat decimalFormat = new DecimalFormat("#,##0");
+		return decimalFormat.format(this.totalAmount).replaceAll(",", ".") + " ₫";
 	}
 
 	public Integer getId() {

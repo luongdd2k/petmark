@@ -1,6 +1,7 @@
 package com.springboot.PetMark.entities;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -18,6 +20,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "orderrappdetail")
 public @Data class OrderrAppDetail implements Serializable {
 
 	private static final long serialVersionUID = -2090814497915398501L;
@@ -40,23 +43,29 @@ public @Data class OrderrAppDetail implements Serializable {
 	private int amount;
 	@Column(name = "created_at")
 	private Date createdAt;
-	@Column(name = "total_amount")
+	@Column(name = "total_order")
 	private float totalAmount;
+	@Column(name = "total_money")
+	private int totalMoney;
+	@Column(name = "imagepath")
+	private String imgPath;
 
 	public OrderrAppDetail() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrderrAppDetail(Accessories accessories, OrderrApp orderrApp, Date date, int amount, float totalAmount) {
+	public OrderrAppDetail(Accessories accessories, OrderrApp orderrApp, Date date, int amount, float totalAmount, int totalMoney, String imgPath) {
 		// TODO Auto-generated constructor stub
 		this.accessories = accessories;
 		this.orderrApp = orderrApp;
 		this.amount = amount;
 		this.createdAt = date;
 		this.totalAmount = totalAmount;
+		this.totalMoney=totalMoney;
+		this.imgPath=imgPath;
 	}
 
-	public OrderrAppDetail(int id, Accessories accessories, OrderrApp orderrApp, Date date, int amount,
+	public OrderrAppDetail(int id, Accessories accessories, OrderrApp orderrApp, Date date, int amount,int totalMoney, String imgPath,
 			float totalAmount) {
 		// TODO Auto-generated constructor stub
 		this.id = id;
@@ -65,6 +74,8 @@ public @Data class OrderrAppDetail implements Serializable {
 		this.amount = amount;
 		this.createdAt = date;
 		this.totalAmount = totalAmount;
+		this.totalMoney=totalMoney;
+		this.imgPath=imgPath;
 	}
 
 	public SizeAccessories getSize() {
@@ -77,6 +88,22 @@ public @Data class OrderrAppDetail implements Serializable {
 
 	public ColorAccessories getColor() {
 		return color;
+	}
+
+	public int getTotalMoney() {
+		return totalMoney;
+	}
+
+	public void setTotalMoney(int totalMoney) {
+		this.totalMoney = totalMoney;
+	}
+
+	public String getImgPath() {
+		return imgPath;
+	}
+
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
 	}
 
 	public void setColor(ColorAccessories color) {
@@ -129,6 +156,10 @@ public @Data class OrderrAppDetail implements Serializable {
 
 	public void setTotalAmount(float totalAmount) {
 		this.totalAmount = totalAmount;
+	}
+	public String getDisplayDeposit() {
+		DecimalFormat decimalFormat = new DecimalFormat("#,##0");
+		return decimalFormat.format(this.totalAmount).replaceAll(",", ".") + " ₫";
 	}
 
 	@Override
