@@ -290,21 +290,21 @@
 									</div>
 								</div>
 								<div class="OR36Xx">
-									<div class="_38DBn- _1ylw6p _2ZumAb">Tổng tiền hàng: <span id="tong-tien-hang"> </span></div>
-									<div class="_38DBn- _2wZvga _2ZumAb _2ghey"></div>
-									<div class="_38DBn- _1ylw6p sfPrg9">Tổng thanh toán: <span id="tong-thanh-toan"> </span></div>
-									<div class="_38DBn- _34fUBg _2wZvga sfPrg9"></div>
+									<div class="_38DBn- _1ylw6p _2ZumAb">Tổng tiền hàng: </div>
+									<div class="_38DBn- _2wZvga _2ZumAb _2ghey"><span id="tong-tien-hang"> </span></div>
+									<div class="_38DBn- _1ylw6p sfPrg9">Tổng thanh toán: </div>
+									<div class="_38DBn- _34fUBg _2wZvga sfPrg9"><span id="tong-thanh-toan"> </span></div>
 
 									<div class="_3S63c5 _1WpGLP" id="btn-dat-tien">
 										<button type="submit"
 											class="stardust-button stardust-button--primary stardust-button--large _22Ktrb">
-											<span>Đặt hàng tiền mặt</span>
+											<span>Đặt hàng</span>
 										</button>
 									</div>
 									<div class="_3S63c5 _1WpGLP hide" id="btn-dat-vnpay">
 										<button type="submit" onclick="linkVNPay"
 											class="stardust-button stardust-button--primary stardust-button--large _22Ktrb">
-											<span>Đặt hàng Vn Pay</span>
+											<span>Đặt hàng</span>
 										</button>
 									</div>
 

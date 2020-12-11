@@ -302,7 +302,10 @@ svg:not(:root){
     padding-top: 1.2rem;
 }
 .checkout-product-ordered-list-item__item{
-    margin: 0 1.875rem;
+    /*margin: 0rem 1.875rem 1rem 1.875rem;*/
+    margin-bottom: 1rem;
+    margin-left: 1.875rem;
+    margin-right: 1.875rem;
     display: flex;
     overflow: hidden;
     text-overflow: ellipsis;

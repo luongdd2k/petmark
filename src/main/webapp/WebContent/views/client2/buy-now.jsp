@@ -69,52 +69,42 @@
 								<div id="checkout-adress" class="checkout-adress__container">
 									<div class="checkout-adress__section-header">
 										<div class="checkout-adress__section-header-text">
-											<svg height="16" viewBox="0 0 12 16" width="12"
-												class="shopee-svg-icon icon-location-marker">
-                        <path
-													d="M6 3.2c1.506 0 2.727 1.195 2.727 2.667 0 1.473-1.22 2.666-2.727 2.666S3.273 7.34 3.273 5.867C3.273 4.395 4.493 3.2 6 3.2zM0 6c0-3.315 2.686-6 6-6s6 2.685 6 6c0 2.498-1.964 5.742-6 9.933C1.613 11.743 0 8.498 0 6z"
-													fill-rule="evenodd"></path>
-                      </svg>
+											<svg height="16" viewBox="0 0 12 16" width="12" class="shopee-svg-icon icon-location-marker">
+                        						<path d="M6 3.2c1.506 0 2.727 1.195 2.727 2.667 0 1.473-1.22 2.666-2.727 2.666S3.273 7.34 3.273 5.867C3.273 4.395 4.493 3.2 6 3.2zM0 6c0-3.315 2.686-6 6-6s6 2.685 6 6c0 2.498-1.964 5.742-6 9.933C1.613 11.743 0 8.498 0 6z" fill-rule="evenodd"></path>
+                      						</svg>
 											Địa chỉ nhận hàng
 										</div>
 									</div>
 									<div class="checkout-adress__select-adress-summary">
 										<div class="checkout-adress-row">
 											<div class="checkout-adress-row__user-detail">
-												<span>${account.getFullName() } </span> &nbsp; <span>
-													${account.getPhone() } </span>
+												<span>${account.getFullName() } </span> &nbsp;
+												<span>  ${account.getPhone() } </span>
 											</div>
-											<div class="checkout-address-row__address-summary">
-												${account.getAddress() }</div>
-											<div id="adress-edit"
-												class="checkout-address-row__address-summary checkout-address-row__address-summary--edit">
+											<div class="checkout-address-row__address-summary"> ${account.getAddress() }</div>
+											<div id="adress-edit" class="checkout-address-row__address-summary checkout-address-row__address-summary--edit">
 												<p onclick="doiDiaChi()" style="color: blue;">Thay đổi</p>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div id="edit-checkout-adress"
-									class="edit-adress pt-20 pb-20 hide">
+								<div id="edit-checkout-adress" class="edit-adress pt-20 pb-20 hide">
 									<!--                     <form> -->
 									<div class="row">
 										<div class="col-6">
 											<div class="form-group">
-												<label for="formGroupExampleInput">Tên người nhận</label> <input
-													type="text" class="form-control" id="nameRecive"
-													name="name" value="${account.getFullName() }">
+												<label for="nameRecive">Tên người nhận</label>
+												<input type="text" class="form-control" id="nameRecive" name="name" value="${account.getFullName() }">
 											</div>
 											<div class="form-group">
-												<label for="formGroupExampleInput2">Số điện thoại</label> <input
-													type="text" class="form-control" id="phoneRecive"
-													name="phone" value="${account.getPhone() }">
+												<label for="phoneRecive">Số điện thoại</label>
+												<input type="text" class="form-control" id="phoneRecive" name="phone" value="${account.getPhone() }">
 											</div>
 										</div>
 										<div class="col-6">
 											<div class="form-group">
-												<label for="exampleFormControlTextarea1">Địa chỉ
-													nhận hàng</label>
-												<textarea class="form-control" id="adressRecive"
-													name="address" rows="3">${account.getAddress() }</textarea>
+												<label for="adressRecive">Địa chỉ nhận hàng</label>
+												<textarea class="form-control" id="adressRecive" name="address" rows="3">${account.getAddress() }</textarea>
 											</div>
 										</div>
 									</div>
@@ -176,20 +166,20 @@
 																${acc.getCategory().getName() }</span>
 														</div>
 														<div
-															class="checkout-product-ordered-list-item__header checkout-product-ordered-list-item__header--price">${acc.getDisplayPrice(1) }
+															class="checkout-product-ordered-list-item__header checkout-product-ordered-list-item__header--price price-js">${acc.getDisplayPrice(1) }
 															đ</div>
 														<div
-															class="checkout-product-ordered-list-item__header checkout-product-ordered-list-item__header--amount">${amount}</div>
+															class="checkout-product-ordered-list-item__header checkout-product-ordered-list-item__header--amount amount-js">${amount}</div>
 														<div
-															class="checkout-product-ordered-list-item__header checkout-product-ordered-list-item__header--subtotal">${thanhTien}
+															class="checkout-product-ordered-list-item__header checkout-product-ordered-list-item__header--subtotal tong-js">${thanhTien}
 															đ</div>
 													</div>
 												</div>
 											</div>
 										</div>
 										<div class="_2iOh5B">
-											<div class="_2hlLyg"></div>
-											<div class="_7IQQY9"></div>
+											<div class="_2hlLyg">Tổng số tiền ( <span id="tong-san-pham"></span> sản phẩm ) :</div>
+											<div class="_7IQQY9"  id="tong-tien"></div>
 										</div>
 									</div>
 								</div>
@@ -230,7 +220,7 @@
 											<div class="bank-transfer-category__body">
 												<div class="form-flexs">
 													<div class="form-group">
-														<label for="language">Loại dịch vụ </label> <select
+														<label for="ordertype">Loại dịch vụ </label> <select
 															name="ordertype" id="ordertype"
 															class="form-control form-vnpay">
 															<option value="billpayment">Thanh toán hóa đơn</option>
@@ -278,48 +268,41 @@
 														</select>
 													</div>
 													<div class="form-group">
-														<label for="OrderDescription">Nội dung thanh toán</label>
+														<label for="vnp_OrderInfo">Nội dung thanh toán</label>
 														<textarea class="form-control form-vnpay" cols="20"
-															id="vnp_OrderInfo" name="vnp_OrderInfo" rows="2">Thanh toan san pham</textarea>
+															id="vnp_OrderInfo" name="vnp_OrderInfo" rows="2">Thanh toán sản phẩm</textarea>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								<input type="hidden" id="colors" name="colors"
-									value="${color}" /> 
-									<input type="hidden"
-									id="size" name="size" value="${size }" />
-									<input type="hidden"
-									id="idacc" name="idacc" value="${acc.getId() }" />
+									<input type="hidden" id="colors" name="colors" value="${color}" />
+									<input type="hidden" id="size" name="size" value="${size }" />
+									<input type="hidden" id="idacc" name="idacc" value="${acc.getId() }" />
 								<div class="OR36Xx">
-								<input type="hidden"
-									id="soLuong" name="soLuong" value="${amount }" />
+									<input type="hidden" id="soLuong" name="soLuong" value="${amount }" />
 								<div class="OR36Xx">
-									<div class="_38DBn- _1ylw6p _2ZumAb">Tổng tiền hàng:
-										${thanhTien }</div>
-									<div class="_38DBn- _2wZvga _2ZumAb _2ghey"></div>
-									<div class="_38DBn- _1ylw6p sfPrg9">Tổng thanh toán:
-										${thanhTien }</div>
-									<div class="_38DBn- _34fUBg _2wZvga sfPrg9"></div>
+									<div class="_38DBn- _1ylw6p _2ZumAb">Tổng tiền hàng:</div>
+									<div class="_38DBn- _2wZvga _2ZumAb _2ghey"><span id="tong-tien-hang"> </span></div>
+									<div class="_38DBn- _1ylw6p sfPrg9">Tổng thanh toán:</div>
+									<div class="_38DBn- _34fUBg _2wZvga sfPrg9"><span id="tong-thanh-toan"> </span></div>
 
 									<div class="_3S63c5 _1WpGLP" id="btn-dat-tien">
 										<button type="submit"
 											class="stardust-button stardust-button--primary stardust-button--large _22Ktrb">
-											<span>Đặt hàng tiền mặt</span>
+											<span>Đặt hàng</span>
 										</button>
 									</div>
 									<div class="_3S63c5 _1WpGLP hide" id="btn-dat-vnpay">
 										<button type="submit" onclick="linkVNPay"
 											class="stardust-button stardust-button--primary stardust-button--large _22Ktrb">
-											<span>Đặt hàng Vn Pay</span>
+											<span>Đặt hàng</span>
 										</button>
 									</div>
-
-
 								</div>
 							</div>
+						</div>
 						</div>
 					</div>
 				</form>
@@ -386,6 +369,59 @@
 			});
 			return false;
 		});
+
+		tinhTong();
+		function tinhTong(){
+			let tien = document.getElementsByClassName("price-js");
+			let amount = document.getElementsByClassName("amount-js");
+			let tong =  document.getElementsByClassName("tong-js");
+
+			for (let i = 0 ; i<tien.length; i++){
+				let tong1 = parseInt(tien[i].innerHTML) * parseInt(amount[i].innerHTML);
+				tong[i].innerHTML = tong1 +" đ";
+			}
+		}
+		tongSP();
+		function tongSP(){
+			let amount = document.getElementsByClassName("amount-js");
+			let tongSP = document.getElementById("tong-san-pham");
+			let tong =  document.getElementsByClassName("tong-js");
+			let tongTien = document.getElementById("tong-tien");
+			let tongTienHang = document.getElementById("tong-tien-hang");
+			let tongThanhToan = document.getElementById("tong-thanh-toan");
+			let amount1 = 0;
+			let tongTien1 = 0;
+			for (let i=0; i<amount.length;i++){
+				amount1 = parseInt(amount1) + parseInt(amount[i].innerHTML);
+				tongSP.innerHTML = amount1;
+				tongTien1 = parseInt(tongTien1) + parseInt(tong[i].innerHTML);
+				tongTien.innerHTML = tongTien1 +" đ";
+
+				tongTienHang.innerHTML =tongTien1 +" đ";
+				tongThanhToan.innerHTML =tongTien1 +" đ";
+			}
+		}
+
+		formartN();
+		function formartN(){
+			let tien = document.getElementsByClassName("price-js");
+			let tong =  document.getElementsByClassName("tong-js");
+			let tongTien = document.getElementById("tong-tien");
+			let tongTienHang = document.getElementById("tong-tien-hang");
+			let tongThanhToan = document.getElementById("tong-thanh-toan");
+			for (let i=0; i<tien.length; i++){
+				let tien1 = tien[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+				tien[i].innerHTML = tien1;
+				let tong1 = tong[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+				tong[i].innerHTML = tong1;
+				let tam1 = tongTien.innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+				tongTien.innerHTML = tam1;
+				let thanh1 = tongTienHang.innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+				tongTienHang.innerHTML = thanh1;
+				let thanhToan = tongThanhToan.innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+				tongThanhToan.innerHTML = thanhToan;
+			}
+		}
 	</script>
 </body>
 
