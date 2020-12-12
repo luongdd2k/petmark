@@ -136,6 +136,8 @@ public class IndexController {
 			}
 			model.addObject("slCard", slCard);
 		}
+		String atm = request.getParameter("atm");
+		model.addObject("atm", atm);
 		model.setViewName("client2/index");
 		List<Pet> listPet = petService.findAll();
 		List<Accessories> listAcces = accessSv.findAll();

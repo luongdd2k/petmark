@@ -452,35 +452,35 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form>
+        <form action="buy-no-sign-in/${acc.getId() }" method="post">
           <div class="modal-body">
-            <input type="hidden" id="so-luong-form" value="">
-            <input type="hidden" id="mau-sac-form" value="">
-            <input type="hidden" id="size-form" value="">
+            <input type="hidden" id="so-luong-form" name="soLuong" value="">
+            <input type="hidden" id="mau-sac-form" name="colors" value="">
+            <input type="hidden" id="size-form" name="size" value="">
             <div class="row">
               <div class="col-6">
                 <div class="form-group">
                   <label for="name">Họ và tên</label>
-                  <input type="text" class="form-control" id="name" placeholder="Họ và tên">
+                  <input type="text" class="form-control" id="name" name="ten" placeholder="Họ và tên">
                 </div>
               </div>
               <div class="col-6">
                 <div class="form-group">
                   <label for="phone">Số điện thoại</label>
-                  <input type="text" class="form-control" id="phone" placeholder="Số điện thoại">
+                  <input type="text" class="form-control" id="phone" name="sdt" placeholder="Số điện thoại">
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
                   <label for="address">Địa chỉ</label>
-                  <textarea class="form-control" id="address" rows="2" placeholder="Địa chỉ nhận hàng"></textarea>
+                  <textarea class="form-control" id="address" rows="2" name="address" placeholder="Địa chỉ nhận hàng"></textarea>
                 </div>
               </div>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-            <button type="button" class="btn btn-primary">Đăng ký</button>
+            <button type="submit" class="btn btn-primary">Đăng ký</button>
           </div>
         </form>
       </div>

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.springboot.PetMark.entities.Accessories;
 import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.OrderrWeb;
 import com.springboot.PetMark.entities.OrderrWebDetail;
@@ -35,7 +36,7 @@ import pet.mart.util.PaymentStatus;
 public class OrderAdminController {
 
 	@Autowired
-	AccessoriesService productService;
+	AccessoriesService accessoriesService;
 	@Autowired
 	OrderrWebDetailService detailSv;
 	@Autowired
@@ -67,7 +68,7 @@ public class OrderAdminController {
 		if (sortValue == null)
 			sortValue = "-2";
 		model.addAttribute("sortValue", sortValue);
-		try {		
+		try {
 			switch (sortValue) {
 			case "-2":
 				list = service.findAll();
@@ -94,16 +95,17 @@ public class OrderAdminController {
 				list = service.findByStt(DeliveryStatus.CANCELLED);
 				break;
 			default:
-				
+
 				break;
 			}
-		
+
 		} catch (Exception e) {
 			return "404";
 		}
 		model.addAttribute("list", list);
 		return "pages/order/order-manager";
 	}
+
 	@RequestMapping("/getPageableQLSP")
 	public String getPageableQLSP(HttpServletRequest request) {
 
@@ -114,12 +116,13 @@ public class OrderAdminController {
 	@RequestMapping("/changeSortValue")
 	public String changeSortValue(HttpServletRequest request) {
 		String sortValue = request.getParameter("sortValue");
-		
-		return "redirect:/admin/orders?sortValue="+sortValue;
-		
+
+		return "redirect:/admin/orders?sortValue=" + sortValue;
+
 	}
+
 	@RequestMapping("/detail/{id}")
-	public ModelAndView showOrderDetail(@PathVariable String id, HttpServletRequest request,Principal principal) {
+	public ModelAndView showOrderDetail(@PathVariable String id, HttpServletRequest request, Principal principal) {
 		ModelAndView model = new ModelAndView();
 		User logginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(logginedUser.getUsername());
@@ -153,7 +156,7 @@ public class OrderAdminController {
 
 			case DeliveryStatus.DELIVERING_2:
 				title = DeliveryStatus.SUCCESSFUL;
-				name=DeliveryStatus.CANCELLED;
+				name = DeliveryStatus.CANCELLED;
 
 				break;
 
@@ -180,8 +183,15 @@ public class OrderAdminController {
 
 	@RequestMapping("/cancel/{id}")
 	public String adminCancelOrder(@PathVariable String id) {
-		System.out.println("id: "+id);
 		OrderrWeb orderWeb = service.findById(Integer.valueOf(id));
+		if (orderWeb.getDeliveryStatus().equals(DeliveryStatus.WAITING_FOR_DELIVERY)) {
+			List<OrderrWebDetail> orderDetail = orderWeb.getDetail();
+			for (OrderrWebDetail detail : orderDetail) {
+				Accessories acc = detail.getAccessories();
+				acc.setAmount(acc.getAmount() + detail.getAmount());
+				accessoriesService.updateAccessories(acc);
+			}
+		}
 		orderWeb.setDeliveryStatus(DeliveryStatus.CANCELLED);
 		String paymentStatus = orderWeb.getPaymentStatus();
 		if (paymentStatus.equalsIgnoreCase(PaymentStatus.UNPAID)
@@ -192,20 +202,31 @@ public class OrderAdminController {
 		return "redirect:/admin/orders/detail/{id}";
 	}
 
-
 	@RequestMapping("/change-status/{status}/{id}")
 	public String adminChangeStatusOrder(@PathVariable String id, @PathVariable String status) {
 		int id1 = Integer.parseInt(id);
 		OrderrWeb orderWeb = service.findById(id1);
 		orderWeb.setDeliveryStatus(status);
-
+		List<OrderrWebDetail> orderDetail = orderWeb.getDetail();
 		if (status.equalsIgnoreCase(DeliveryStatus.SUCCESSFUL)) {
 			orderWeb.setPaymentStatus(PaymentStatus.PAID);
 		} else if (status.equalsIgnoreCase(DeliveryStatus.CANCELLED)) {
+			for (OrderrWebDetail detail : orderDetail) {
+				Accessories acc = detail.getAccessories();
+				acc.setAmount(acc.getAmount() + detail.getAmount());
+				accessoriesService.updateAccessories(acc);
+			}
 			String paymentStatus = orderWeb.getPaymentStatus();
 			if (paymentStatus.equalsIgnoreCase(PaymentStatus.UNPAID)
 					|| paymentStatus.equalsIgnoreCase(PaymentStatus.PENDING_ATM)) {
 				orderWeb.setPaymentStatus(PaymentStatus.CANCELLED);
+			}
+		}
+		if (status.equals(DeliveryStatus.WAITING_FOR_DELIVERY)) {
+			for (OrderrWebDetail detail : orderDetail) {
+				Accessories acc = detail.getAccessories();
+				acc.setAmount(acc.getAmount() - detail.getAmount());
+				accessoriesService.updateAccessories(acc);
 			}
 		}
 		service.updateDelivery(status, id1);

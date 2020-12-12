@@ -6,6 +6,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Pet Mart | Đăng nhập</title>
+	<base href="${pageContext.servletContext.contextPath}/">
 	<link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@500&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
@@ -50,7 +51,7 @@
 								id="urlPage" value="">
 				<div class="row">
 					<div class="col-4"><a href="showregister" style="text-align: left;">Tạo tài khoản mới</a></div>
-					<div class="col-4"><a href="/tkwbh/" style="text-align: center;">Trang chủ</a></div>
+					<div class="col-4"><a href="" style="text-align: center;">Trang chủ</a></div>
 					<div class="col-4"><a href="showforgotpw">Quên mật khẩu?</a></div>
 				</div>
             	<input type="submit" class="btn" value="Đăng nhập">
