@@ -185,7 +185,7 @@
             <div class="product-detail__content">
               <h3>${acc.getName() }</h3>
               <div class="price">
-                <span class="new__price">${acc.getDisplayPrice(1) } đ</span>
+                <span class="new__price" id="price">${acc.getDisplayPrice(1)} đ</span>
               </div>
               <div class="product__review">
                 <div class="rating">
@@ -232,7 +232,7 @@
                       <span>Số lượng: </span>
                       <div class="buttons_added">
                         <input class="minus is-form" type="button" value="-">
-                        <input id="so-luong"  aria-label="quantity" class="input-qty" max="${acc.getAmount() }" min="1" name="soLuong" type="number" value="1">
+                        <input id="so-luong"  aria-label="quantity" class="input-qty" max="${acc.getAmount() }" min="1" name="soLuong" type="number" value="1" onchange="maxAmount(); changePrice()">
                         <input class="plus is-form" type="button" value="+">
                       </div>
                     </div>
@@ -240,7 +240,7 @@
 
                   <li>
                     <span>Số tiền :</span>
-                    <a href="javascript:" class="new__price">80000 đ</a>
+                    <a href="javascript:" class="new__price"><span id="price-a">${acc.getDisplayPrice(1) }</span> đ</a>
                   </li>
                   <li>
                     <span>Hãng :</span>
@@ -359,14 +359,6 @@
                         <a data-tip="Quick View" data-place="left" href="acc-detail/${list.getId() }">
                           <svg>
                             <use xlink:href="./images/sprite.svg#icon-eye"></use>
-                          </svg>
-                        </a>
-                      </li>
-                       
-                      <li>
-                        <a data-tip="Add To Compare" data-place="left" href="javascript:">
-                          <svg>
-                            <use xlink:href="./images/sprite.svg#icon-loop2"></use>
                           </svg>
                         </a>
                       </li>
@@ -548,9 +540,24 @@
           var x = Number($this.val()) + 1
           if (x <= max) d += 1
         }
-        $this.attr('value', d).val(d)
+        $this.attr('value', d).val(d);
+        changePrice();
       })
     });
+    function maxAmount() {
+      var x = parseInt(document.getElementById("so-luong").value);
+      var y = parseInt(document.getElementById("so-luong").max);
+      if(x > y){
+        document.getElementById("so-luong").value = y;
+      }
+    }
+    function changePrice(){
+      var p = parseInt(document.getElementById("so-luong").value);
+      var pA = parseInt(document.getElementById("price-a").innerHTML);
+      console.log(p,pA);
+      var total = pA * p;
+      document.getElementById("price").innerHTML = total;
+    }
   </script>
 </body>
 
