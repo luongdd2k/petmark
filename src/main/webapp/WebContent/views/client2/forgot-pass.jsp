@@ -46,7 +46,7 @@
            		   		<input type="text" class="input" name="email">
            		   </div>
            		</div>
-            	<a href="login.html">Trở lại đăng nhập</a>
+            	<a href="showLogin">Trở lại đăng nhập</a>
             	<input type="submit" class="btn" value="Gửi">
             </form>
         </div>

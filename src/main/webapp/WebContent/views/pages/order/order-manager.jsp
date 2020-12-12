@@ -74,6 +74,7 @@
 								<div class="form-group col-2">
 													<label>Lọc</label> <select
 														class="form-control" id="cbo_sort_Accessories2" style="">
+														<option value="-2">Tất cả đơn đặt hàng</option>
 														<option value="-1">Đơn đặt qua Web</option>
 														<option value="0">Đơn đặt qua App</option>
 														<option value="1">Đơn chưa xét duyệt</option>

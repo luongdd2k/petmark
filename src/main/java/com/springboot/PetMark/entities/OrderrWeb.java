@@ -57,7 +57,7 @@ public @Data class OrderrWeb implements Serializable {
 	private float totalAmount;
 	@OneToMany(mappedBy = "orderrWeb",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<OrderrWebDetail> detail = new ArrayList<>();
-	@Column(name = "place_of_order")
+	@Column(name = "foundation")
 	private int place;
 	
 	
