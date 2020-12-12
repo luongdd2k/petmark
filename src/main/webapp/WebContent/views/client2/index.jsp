@@ -32,6 +32,11 @@
 
 <title>Pet Mart | Cửa hàng thú cưng và phụ kiện cho thú cưng</title>
 <base href="${pageContext.servletContext.contextPath}/">
+	<style>
+		.glide__slide{
+			width: 259px!important;
+		}
+	</style>
 </head>
 
 <body>

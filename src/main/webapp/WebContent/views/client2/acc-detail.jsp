@@ -163,13 +163,13 @@
               </button>
             </div>
             <div id="btn-modal" class="product-details__btn product-details__btn_accessori">
-              <button class="add" type="button" data-toggle="modal" data-target="#myModal">
-                <span>
-                  <svg>
-                    <use xlink:href="./images/sprite.svg#icon-cart-plus"></use>
-                  </svg>
-                </span> THÊM VÀO GIỎ HÀNG
-              </button>
+<%--              <button class="add" type="button" data-toggle="modal" data-target="#myModal">--%>
+<%--                <span>--%>
+<%--                  <svg>--%>
+<%--                    <use xlink:href="./images/sprite.svg#icon-cart-plus"></use>--%>
+<%--                  </svg>--%>
+<%--                </span> THÊM VÀO GIỎ HÀNG--%>
+<%--              </button>--%>
               <button class="buy" type="button" data-toggle="modal" data-target="#myModal">
                 <span>
                   <svg>
@@ -450,6 +450,9 @@
             <input type="hidden" id="mau-sac-form" name="colors" value="">
             <input type="hidden" id="size-form" name="size" value="">
             <div class="row">
+<%--              <div class="col-12" style="text-align: center">--%>
+<%--                <h4>Để lại thông tin để chúng tôi có thể liên lạc với bạn</h4>--%>
+<%--              </div>--%>
               <div class="col-6">
                 <div class="form-group">
                   <label for="name">Họ và tên</label>
@@ -459,10 +462,16 @@
               <div class="col-6">
                 <div class="form-group">
                   <label for="phone">Số điện thoại</label>
-                  <input type="text" class="form-control" id="phone" name="sdt" placeholder="Số điện thoại">
+                  <input type="tel" class="form-control" id="phone" name="sdt" placeholder="Số điện thoại">
                 </div>
               </div>
-              <div class="col-12">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="phone">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+              </div>
+              <div class="col-6">
                 <div class="form-group">
                   <label for="address">Địa chỉ</label>
                   <textarea class="form-control" id="address" rows="2" name="address" placeholder="Địa chỉ nhận hàng"></textarea>

@@ -126,7 +126,6 @@
                                                                     </div>
                                                                     <div class="order-content__item__price order-content__item__col order-content__item__col--small order-content__item__col--last">
                                                                         <div class="order-content__item__price-text">
-                                                                            <div class="shopee-price--original">190000 đ</div>
                                                                             <div class="shopee-price--primary">${list.getDisplayTotalAmount() } </div>
                                                                         </div>
                                                                     </div>
