@@ -6,11 +6,10 @@
 	<div class="navigation">
 		<input type="hidden" id="usernameBE" value="${account.getFullName() }" />
 		<input type="hidden" id="atm" value="${atm }" />
-		<input type="hidden" id="is-empty" value="${isEmpty }" /> <input
-			type="hidden" id="hadBlog" value="1" /> 
-			<input
-			type="hidden" id="hadBlog_index" value="${blog1 }" /> 
-			<input type="hidden" id="valuePetOrAccessori" value="${loai }" />
+		<input type="hidden" id="is-empty" value="${isEmpty }" />
+		<input type="hidden" id="hadBlog" value="1" />
+		<input type="hidden" id="hadBlog_index" value="${blog1 }" />
+		<input type="hidden" id="valuePetOrAccessori" value="${loai }" />
 		<div class="row header__top">
 			<div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
 				<p>206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội</p>

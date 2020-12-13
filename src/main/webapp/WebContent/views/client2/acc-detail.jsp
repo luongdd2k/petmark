@@ -163,13 +163,13 @@
               </button>
             </div>
             <div id="btn-modal" class="product-details__btn product-details__btn_accessori">
-              <button class="add" type="button" data-toggle="modal" data-target="#myModal">
-                <span>
-                  <svg>
-                    <use xlink:href="./images/sprite.svg#icon-cart-plus"></use>
-                  </svg>
-                </span> THÊM VÀO GIỎ HÀNG
-              </button>
+<%--              <button class="add" type="button" data-toggle="modal" data-target="#myModal">--%>
+<%--                <span>--%>
+<%--                  <svg>--%>
+<%--                    <use xlink:href="./images/sprite.svg#icon-cart-plus"></use>--%>
+<%--                  </svg>--%>
+<%--                </span> THÊM VÀO GIỎ HÀNG--%>
+<%--              </button>--%>
               <button class="buy" type="button" data-toggle="modal" data-target="#myModal">
                 <span>
                   <svg>
@@ -185,7 +185,7 @@
             <div class="product-detail__content">
               <h3>${acc.getName() }</h3>
               <div class="price">
-                <span class="new__price">${acc.getDisplayPrice(1) } đ</span>
+                <span class="new__price" id="price">${acc.getDisplayPrice(1)} đ</span>
               </div>
               <div class="product__review">
                 <div class="rating">
@@ -232,7 +232,7 @@
                       <span>Số lượng: </span>
                       <div class="buttons_added">
                         <input class="minus is-form" type="button" value="-">
-                        <input id="so-luong"  aria-label="quantity" class="input-qty" max="${acc.getAmount() }" min="1" name="soLuong" type="number" value="1">
+                        <input id="so-luong"  aria-label="quantity" class="input-qty" max="${acc.getAmount() }" min="1" name="soLuong" type="number" value="1" onchange="maxAmount(); changePrice()">
                         <input class="plus is-form" type="button" value="+">
                       </div>
                     </div>
@@ -240,7 +240,7 @@
 
                   <li>
                     <span>Số tiền :</span>
-                    <a href="javascript:" class="new__price">80000 đ</a>
+                    <a href="javascript:" class="new__price"><span id="price-a">${acc.getDisplayPrice(1) }</span> đ</a>
                   </li>
                   <li>
                     <span>Hãng :</span>
@@ -362,14 +362,6 @@
                           </svg>
                         </a>
                       </li>
-                       
-                      <li>
-                        <a data-tip="Add To Compare" data-place="left" href="javascript:">
-                          <svg>
-                            <use xlink:href="./images/sprite.svg#icon-loop2"></use>
-                          </svg>
-                        </a>
-                      </li>
                     </ul>
                   </div>
                 </li>
@@ -458,6 +450,9 @@
             <input type="hidden" id="mau-sac-form" name="colors" value="">
             <input type="hidden" id="size-form" name="size" value="">
             <div class="row">
+<%--              <div class="col-12" style="text-align: center">--%>
+<%--                <h4>Để lại thông tin để chúng tôi có thể liên lạc với bạn</h4>--%>
+<%--              </div>--%>
               <div class="col-6">
                 <div class="form-group">
                   <label for="name">Họ và tên</label>
@@ -467,10 +462,16 @@
               <div class="col-6">
                 <div class="form-group">
                   <label for="phone">Số điện thoại</label>
-                  <input type="text" class="form-control" id="phone" name="sdt" placeholder="Số điện thoại">
+                  <input type="tel" class="form-control" id="phone" name="sdt" placeholder="Số điện thoại">
                 </div>
               </div>
-              <div class="col-12">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="phone">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+              </div>
+              <div class="col-6">
                 <div class="form-group">
                   <label for="address">Địa chỉ</label>
                   <textarea class="form-control" id="address" rows="2" name="address" placeholder="Địa chỉ nhận hàng"></textarea>
@@ -548,9 +549,24 @@
           var x = Number($this.val()) + 1
           if (x <= max) d += 1
         }
-        $this.attr('value', d).val(d)
+        $this.attr('value', d).val(d);
+        changePrice();
       })
     });
+    function maxAmount() {
+      var x = parseInt(document.getElementById("so-luong").value);
+      var y = parseInt(document.getElementById("so-luong").max);
+      if(x > y){
+        document.getElementById("so-luong").value = y;
+      }
+    }
+    function changePrice(){
+      var p = parseInt(document.getElementById("so-luong").value);
+      var pA = parseInt(document.getElementById("price-a").innerHTML);
+      console.log(p,pA);
+      var total = pA * p;
+      document.getElementById("price").innerHTML = total;
+    }
   </script>
 </body>
 

@@ -250,9 +250,8 @@
 													</div>
 													<div class="form-flexs">
 														<div class="form-group">
-															<label for="bankcode">Ngân hàng</label> <select
-																name="bankcode" id="bankcode"
-																class="form-control  form-vnpay">
+															<label for="bankcode">Ngân hàng</label>
+															<select name="bankcode" id="bankcode" class="form-control  form-vnpay">
 																<option value="">Không chọn</option>
 																<option value="NCB">Ngân hàng NCB</option>
 																<option value="SACOMBANK">Ngân hàng SacomBank</option>
@@ -261,16 +260,14 @@
 																<option value="NAMABANK">Ngân hàng NamABank</option>
 																<option value="VISA">Thanh toán qua VISA/MASTER</option>
 																<option value="VNMART">Ví điện tử VnMart</option>
-																<option value="VIETINBANK">Ngân hàng Vietinbank
-																</option>
+																<option value="VIETINBANK">Ngân hàng Vietinbank</option>
 																<option value="VIETCOMBANK">Ngân hàng VCB</option>
 																<option value="HDBANK">Ngân hàng HDBank</option>
 																<option value="DONGABANK">Ngân hàng Dong A</option>
 																<option value="TPBANK">Ngân hàng TPBank</option>
 																<option value="OJB">Ngân hàng OceanBank</option>
 																<option value="BIDV">Ngân hàng BIDV</option>
-																<option value="TECHCOMBANK">Ngân hàng
-																	Techcombank</option>
+																<option value="TECHCOMBANK">Ngân hàng Techcombank</option>
 																<option value="VPBANK">Ngân hàng VPBank</option>
 																<option value="AGRIBANK">Ngân hàng Agribank</option>
 																<option value="MBBANK">Ngân hàng MBBank</option>

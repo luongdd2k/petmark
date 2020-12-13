@@ -27,7 +27,14 @@
   <title>{Tên của đơn hàng thay vào đây nhá}</title>
   <base href="${pageContext.servletContext.contextPath}/">
   <link rel="stylesheet" href="css/acc-in.css">
+    <link rel="stylesheet" href="css/progressbar.css">
   <link rel="stylesheet" href="css/styles.css" />
+    <style>
+        .hide{
+            display: none;
+            visibility: hidden;
+        }
+    </style>
 </head>
 
 <body>
@@ -75,12 +82,19 @@
                                                 <div class="order-detail-page__delivery__shipping-address__shipping-name">${orderweb.getConsignee() }</div>
                                                 <div class="order-detail-page__delivery__shipping-address__detail">
                                                     <span>${orderweb.getConsigneePhone() }</span>
-                                                    <br>${orderweb.getDeliveryAddress() }
-<!--                                                     <div class="_3mRAgM"><br> -->
-<!--                                                         <button class="_2HZc_x _361Yzn _2u07D0">Sửa</button> -->
-<!--                                                     </div> -->
+                                                    <br>
+                                                    ${orderweb.getDeliveryAddress() }
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="_2nxwAx">
+                                                <ul class="progressbar">
+                                                    <li class="li-js complete" data-status="Đặt hàng thành công">Đặt hàng thành công</li>
+                                                    <li class="li-js active"  data-status="Chờ xác nhận">Chờ xác nhận</li>
+                                                    <li class="li-js"  data-status="Chờ giao hàng">Chờ giao hàng</li>
+                                                    <li class="li-js"  data-status="Đang giao hàng">Đang giao hàng</li>
+                                                    <li class="li-js"  data-status="Đã giao">Đã giao</li>
+                                                </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -92,8 +106,9 @@
                                 <div class="_1zdufp">
                                     <div class="_3XTRw7">
                                         <div class="_1Mug_K">
-                                            <div class="_31SLfG">Mã đơn hàng: ${orderweb.getId() }</div>
-                                            <div class="_1WDRrw">${orderweb.getDeliveryStatus() }</div>
+                                            <input type="hidden" id="status" value="${orderweb.getDeliveryStatus() }">
+                                            <div class="_31SLfG"> </div>
+                                            <div class="_1WDRrw">Mã đơn hàng: ${orderweb.getId() }</div>
                                         </div>
                                     </div>
                                     <c:forEach var="order" items="${order }">
@@ -126,14 +141,24 @@
                                                   </div>
                                                   <div class="order-content__item__detail-content">
                                                     <div class="order-content__item__name">${order.getAccessories().getName() }</div>
-                                                    <div class="order-content__item__quantity">x ${order.getAmount() }</div>
+                                                    <div id="so_luong" class="order-content__item__quantity">x ${order.getAmount() }</div>
+
+                                                      <div id="thay-doi" class="order-content__item__quantity">
+                                                          <a href="javascript:" onclick="showDoi()">Thay đổi</a>
+                                                      </div>
+                                                      <div id="so_luong_c" class="order-content__item__quantity hide" style="display: flex;">
+                                                          <input type="number" class="form-control" max="10" min="1" id="so-luong"value="1" style="margin-right: 10px;">
+                                                          <button class="btn btn-outline-success" type="button" onclick="anDoi()">
+                                                              Lưu
+                                                          </button>
+                                                      </div>
                                                   </div>
                                                 </div>
                                               </div>
                                               <div class="order-content__item__price order-content__item__col order-content__item__col--small order-content__item__col--last">
                                                 <div class="order-content__item__price-text">
-                                                  <div class="shopee-price--original">50.000 đ</div>
-                                                  <div class="shopee-price--primary">1.000 đ</div>
+<%--                                                  <div class="shopee-price--original">50.000 đ</div>--%>
+                                                  <div class="shopee-price--primary">${orderweb.getTotalAmount()}đ</div>
                                                 </div>
                                               </div>
                                             </div>
@@ -143,17 +168,11 @@
                                     </div>
                                     </c:forEach>
                                     <div class="payment-detail__container _1R4a4Y">
-                                      <div class="payment-detail__item">
-                                        <div class="payment-detail__item__description">Tổng tiền hàng</div>
-                                        <div class="payment-detail__item__value">
-                                          <div class="payment-detail__item__value-text">₫1.000</div>
-                                        </div>
-                                      </div>
                                       <div class="payment-detail__item payment-detail__item--last">
                                         <div class="payment-detail__item__description">Tổng số tiền</div>
                                         <div class="payment-detail__item__value payment-detail__item__value--highlighted">
                                           <div class="payment-detail__item__value-text"><div>
-                                            <div>₫1.000</div>
+                                            <div>${orderweb.getTotalAmount()}</div>
                                           </div>
                                         </div>
                                       </div>
@@ -206,7 +225,35 @@
   <script src="./js/all-order.js"></script> 
   <script src="./js/sweat-alert.js"></script>
   <script>
-    
+      a();
+      function a(){
+          let stt = document.getElementById("status").value;
+          let lit = document.getElementsByClassName("li-js");
+          for(let i=0; i<lit.length;i++) {
+              console.log(lit[i].innerText);
+              if(stt =="Chưa xét duyệt"){
+
+              }
+          }
+      }
+
+      function showDoi(){
+          let slP = document.getElementById("so_luong");
+          let a = document.getElementById("thay-doi");
+          let slC = document.getElementById("so_luong_c");
+          slP.classList.add("hide");
+          a.classList.add("hide");
+          slC.classList.remove("hide");
+      }
+      function anDoi(){
+          let slP = document.getElementById("so_luong");
+          let a = document.getElementById("thay-doi");
+          let slC = document.getElementById("so_luong_c");
+          slP.classList.remove("hide");
+          a.classList.remove("hide");
+          slC.classList.add("hide");
+      }
+
     
   </script>
 </body>

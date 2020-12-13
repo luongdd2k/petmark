@@ -307,7 +307,7 @@ public class DepositController {
 					if ("00".equals(request.getParameter("vnp_ResponseCode"))) {
 
 						deposit.setStatus(DepositStatus.DEPOSITED);
-						result = "Thàng công";
+						result = "Thành công";
 					}
 				}
 				depositService.add(deposit);

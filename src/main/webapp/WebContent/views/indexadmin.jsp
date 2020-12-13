@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-
+  <base href="${pageContext.servletContext.contextPath}/">
   <title>Admin || Home Page</title>
 
   <!-- Font Awesome Icons -->
@@ -57,12 +57,12 @@
               <div class="inner">
                 <h3>12</h3>
 
-                <p>Đơn hàng mới</p>
+                <p>Đơn hàng mới trên App</p>
               </div>
               <div class="icon">
-                <i class="fas fa-luggage-cart"></i>
+                <i class="fas fa-mobile-alt"></i>
               </div>
-              <a href="javascipt:" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="javascipt:" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -72,12 +72,12 @@
               <div class="inner">
                 <h3>125.000.000<sup style="font-size: 20px">đ</sup></h3>
 
-                <p>Tổng doanh thu</p>
+                <p>Đơn hàng mới trên Web</p>
               </div>
               <div class="icon">
-                <i class="fas fa-hand-holding-usd"></i>
+                <i class="fas fa-laptop-code"></i>
               </div>
-              <a href="javascipt:" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="javascipt:" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -87,12 +87,12 @@
               <div class="inner">
                 <h3>44</h3>
 
-                <p>User Registrations</p>
+                <p>Blog mới cần duyệt</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="fas fa-blog"></i>
               </div>
-              <a href="javascipt:" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="javascipt:" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -102,12 +102,12 @@
               <div class="inner">
                 <h3>65</h3>
 
-                <p>Unique Visitors</p>
+                <p>Tổng đơn giao trong ngày</p>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="fas fa-dolly"></i>
               </div>
-              <a href="javascipt:" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="javascipt:" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -119,6 +119,84 @@
         </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header border-0">
+                <div class="d-flex justify-content-between">
+                  <h3 class="card-title">Tổng doanh thu</h3>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="d-flex">
+                  <p class="d-flex flex-column">
+                    <span class="text-bold text-lg">820</span> <span>Tổng</span>
+                  </p>
+                  <p class="ml-auto d-flex flex-column text-right">
+											<span class="text-success"> <i class="fas fa-arrow-up"></i>
+												12.5%
+											</span> <span class="text-muted">Từ tháng trước</span>
+                  </p>
+                </div>
+                <!-- /.d-flex -->
+
+                <div class="position-relative mb-4">
+                  <canvas id="visitors-chart" height="200"></canvas>
+                </div>
+
+                <div class="d-flex flex-row justify-content-end">
+										<span class="mr-2"> <i
+                                                class="fas fa-square text-primary"></i> Tháng này
+										</span> <span> <i class="fas fa-square text-gray"></i> Tháng
+											trước
+										</span>
+                </div>
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+
+          <div class="col-lg-12">
+            <div class="card table-responsive"
+                 style="max-width: 1000px; margin: 0 auto;">
+              <h4 style="margin-left: 10px;">Đơn hàng chưa xét duyệt</h4>
+              <table class="table table-hover">
+                <thead>
+                <tr class="bg-info">
+                  <th scope="col">Mã đơn hàng</th>
+                  <th scope="col">Người mua</th>
+                  <th scope="col">Ngày đặt</th>
+                  <th scope="col">Trạng thái giao hàng</th>
+                  <th scope="col">Trạng thái thanh toán</th>
+                  <th scope="col">Tổng tiền</th>
+                </tr>
+                </thead>
+                <c:forEach var="list" items="${list }">
+                  <tbody>
+                  <tr>
+                    <td><a href="admin/orders/detail/${list.id}">${list.id }</a>
+                    </td>
+                    <td>${list.getAccount().getUsername() }</td>
+                    <td>${list.getDate() }</td>
+                    <td>${list.getPaymentStatus() }</td>
+                    <td>${list.getDeliveryStatus() }</td>
+                    <td>${list.getDisplayTotalAmount() }</td>
+                  </tr>
+                  </tbody>
+                </c:forEach>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- End container-fluid-->
     </section>
     <!-- /.content -->
   </div>
@@ -147,14 +225,20 @@
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
+<!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE -->
-<script src="dist/js/adminlte.js"></script>
-
+<!-- overlayScrollbars -->
+<script
+        src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
 <!-- OPTIONAL SCRIPTS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
 <script src="dist/js/demo.js"></script>
 <script src="js/active.js"></script>
+<script src="dist/js/pages/dashboard3.js"></script>
 
 </body>
 </html>

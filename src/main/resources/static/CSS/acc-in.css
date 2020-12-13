@@ -1292,7 +1292,7 @@ input[type="file"]{
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    max-width: 12.5rem;
+    max-width: 17.5rem;
 }
 .order-detail-page__delivery__shipping-address__container:last-child{
     max-width: 100%;
@@ -1367,9 +1367,11 @@ input[type="file"]{
     font-weight: 500;
 }
 ._1WDRrw{
-    font-size: 1.2rem;
-    line-height: 1.1875rem;
+    font-size: 14px;
+	font-weight: bold;
+    line-height: 0.1875rem;
     color: rgba(0,0,0,.54);
+	padding-bottom: 1rem;
 }
 ._3O5bHF{
     display: -webkit-box;
@@ -1544,7 +1546,6 @@ input[type="file"]{
     position: relative;
     min-width: 0;
     word-wrap: break-word;
-    pointer-events: none;
 }
 .shopee-image__content, 
 .shopee-image__wrapper{
@@ -1716,3 +1717,4 @@ input[type="file"]{
     font-size: 2rem;
     line-height: 2.125rem;
 }
+
