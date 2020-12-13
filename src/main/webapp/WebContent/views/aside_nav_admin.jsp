@@ -83,13 +83,6 @@
 							<p class="nav-p">Danh sách Blog</p>
 						</a>
 					</li>
-					<li class="nav-header">THỐNG KÊ</li>
-					<li class="nav-item">
-						<a href="admin/statistical/show-statistical" class="nav-link nav-aside">
-						<i class="nav-icon far fa-chart-bar"></i>
-							<p class="nav-p">Thống kê</p>
-						</a>
-					</li>
 				</ul>
 			</nav>
 			<!-- /.sidebar-menu -->
