@@ -7,10 +7,12 @@ let districtValue = maQh.options[maQh.selectedIndex].value;
 let villageValue = maXa.options[maXa.selectedIndex].value;
 
 $.ajax({
-    url: '',
+    url: 'show-qh',
     type: 'GET',
     dataType: 'html',
-    data: cityValue
+    data: {
+    	"matp" :cityValue
+    }
 })
     .done(function(res) {
         if (res) {

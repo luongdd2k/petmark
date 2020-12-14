@@ -21,6 +21,7 @@
 <div class="container">
     <div class="row">
         <div class="col-4">
+        <form action="show-qh" method="post">
             <label for="city">Tỉnh / Thành phố</label>
             <select class="form-select" aria-label="Default select example" id="city">
                 <option value="none">---- Chọn Tỉnh / Thành phố ----</option>
@@ -28,6 +29,9 @@
                     <option value="${list.getMatp() }">${list.getName() }</option>
                 </c:forEach>
             </select>
+            <input type="hidden" value="" id="matp" name="matp">
+            <button type="submit">ok</button>
+            </form>
         </div>
         <div class="col-4">
             <label for="district">Quận / Huyện    </label>
@@ -53,6 +57,8 @@
     function a(){
        let city = document.getElementById("city");
        let cityValue = city.options[city.selectedIndex].value;
+       let matp = document.getElementById("matp");
+       matp.value = cityValue;
        console.log(cityValue);
     };
 </script>
