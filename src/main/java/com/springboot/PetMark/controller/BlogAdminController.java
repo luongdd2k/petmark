@@ -89,4 +89,15 @@ public String confirmBlog(@PathVariable int id,Principal principal) {
 	blogService.changeStt(1, id);
 	return "redirect:/admin/blog";
 }
+@RequestMapping("show/{stt}")
+public ModelAndView showByStt(Principal principal, @PathVariable int stt) {
+	ModelAndView model = new ModelAndView();
+	User loginedUser = (User) ((Authentication) principal).getPrincipal();
+	Account account = accountService.findById(loginedUser.getUsername());
+	model.addObject("account", account);
+	List<Blog> blog = blogService.findByStatus(stt);
+	model.addObject("blog", blog);
+	model.setViewName("pages/blog/all-blog");
+	return model;
+}
 }

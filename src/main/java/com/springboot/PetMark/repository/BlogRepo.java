@@ -19,4 +19,7 @@ public interface BlogRepo extends JpaRepository<Blog, Integer> {
 	@Modifying
 	@Query("update Blog b set b.status = ?1 where b.id = ?2")
 	void changeStt(int stt, int id);
+	@Query("select count(b.id) from Blog b where b.status = ?1 ")
+	int countByStt(int stt);
+	
 }

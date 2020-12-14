@@ -51,4 +51,10 @@ public class BlogServiceImpl implements BlogService {
 		return dao.findByStatus(status);
 	}
 
+	@Override
+	public int countByStt(int stt) {
+		// TODO Auto-generated method stub
+		return dao.countByStt(stt);
+	}
+
 }

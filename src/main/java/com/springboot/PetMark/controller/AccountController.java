@@ -2,6 +2,7 @@ package com.springboot.PetMark.controller;
 
 import java.io.File;
 import java.security.Principal;
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -33,14 +34,22 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.springboot.PetMark.config.MailConfig;
 import com.springboot.PetMark.entities.Account;
+import com.springboot.PetMark.entities.OrderrWeb;
 import com.springboot.PetMark.service.AccountService;
+import com.springboot.PetMark.service.BlogService;
+import com.springboot.PetMark.service.OrderrWebService;
+
+import pet.mart.util.DeliveryStatus;
 
 @Controller
 public class AccountController {
 
 	@Autowired
 	AccountService accountService;
-
+	@Autowired
+	OrderrWebService orderrWebService;
+	@Autowired
+	BlogService blogService;
 	@Autowired
 	ServletContext context;
 
@@ -185,6 +194,11 @@ public class AccountController {
 		if (loggedRole.equals("ROLE_ADMIN")) {
 			model.setViewName("indexadmin");
 			model.addObject("name", loggedFullname);
+			model.addObject("web", orderrWebService.countBySttPlace(DeliveryStatus.NOT_APPROVED, 0));
+			model.addObject("app", orderrWebService.countBySttPlace(DeliveryStatus.NOT_APPROVED, 1));
+			model.addObject("bl", blogService.countByStt(2));
+			model.addObject("list", orderrWebService.findByDeliveryStatusOrderByCreatedAtAsc(DeliveryStatus.NOT_APPROVED));
+			model.addObject("danggiao", orderrWebService.countByStt(DeliveryStatus.DELIVERING)+orderrWebService.countByStt(DeliveryStatus.DELIVERING_2));
 			return model;
 		}
 		return model;

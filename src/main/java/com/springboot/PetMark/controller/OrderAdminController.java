@@ -233,4 +233,26 @@ public class OrderAdminController {
 		return "redirect:/admin/orders/detail/{id}";
 	}
 
+	@RequestMapping("/show-by-stt-place/{stt}/{place}")
+	public ModelAndView showBySttPlace(Principal principal, @PathVariable String stt, @PathVariable int place) {
+		ModelAndView model = new ModelAndView();
+		User logginedUser = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(logginedUser.getUsername());
+		model.addObject("account", account);
+		List<OrderrWeb> list = service.findBySttPlace(stt, place);
+		model.addObject("list", list);
+		model.setViewName("pages/order/order-manager");
+		return model;
+	}
+	@RequestMapping("/show-delivering")
+	public ModelAndView showByStt(Principal principal) {
+		ModelAndView model = new ModelAndView();
+		User logginedUser = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(logginedUser.getUsername());
+		model.addObject("account", account);
+		List<OrderrWeb> list = service.findStt(DeliveryStatus.DELIVERING,DeliveryStatus.DELIVERING_2);
+		model.addObject("list", list);
+		model.setViewName("pages/order/order-manager");
+		return model;
+	}
 }

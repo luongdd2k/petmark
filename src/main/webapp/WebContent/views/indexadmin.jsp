@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -55,14 +56,14 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>12</h3>
+                <h3>${app }</h3>
 
                 <p>Đơn hàng mới trên App</p>
               </div>
               <div class="icon">
                 <i class="fas fa-mobile-alt"></i>
               </div>
-              <a href="javascipt:" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="admin/orders/show-by-stt-place/Chưa xét duyệt/1" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -70,14 +71,14 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>125.000.000<sup style="font-size: 20px">đ</sup></h3>
+                <h3>${web }</h3>
 
                 <p>Đơn hàng mới trên Web</p>
               </div>
               <div class="icon">
                 <i class="fas fa-laptop-code"></i>
               </div>
-              <a href="javascipt:" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="admin/orders/show-by-stt-place/Chưa xét duyệt/0" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -85,14 +86,14 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>${bl }</h3>
 
                 <p>Blog mới cần duyệt</p>
               </div>
               <div class="icon">
                 <i class="fas fa-blog"></i>
               </div>
-              <a href="javascipt:" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="admin/blog/show/2" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -100,14 +101,14 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3>${danggiao }</h3>
 
                 <p>Tổng đơn giao trong ngày</p>
               </div>
               <div class="icon">
                 <i class="fas fa-dolly"></i>
               </div>
-              <a href="javascipt:" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="admin/orders/show-delivering" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -180,7 +181,7 @@
                 <c:forEach var="list" items="${list }">
                   <tbody>
                   <tr>
-                    <td><a href="admin/orders/detail/${list.id}">${list.id }</a>
+                    <td><a href="admin/orders/detail/${list.getId() }">${list.getId() }</a>
                     </td>
                     <td>${list.getAccount().getUsername() }</td>
                     <td>${list.getDate() }</td>

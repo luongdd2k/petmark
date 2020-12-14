@@ -14,4 +14,5 @@ public interface BlogService {
 	Blog findById(int id);
 	void saveBlog(Blog blog);
 	List<Blog> findByStatus(int status);
+	int countByStt(int stt);
 }
