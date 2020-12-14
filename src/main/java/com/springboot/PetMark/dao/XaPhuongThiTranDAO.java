@@ -9,4 +9,5 @@ public interface XaPhuongThiTranDAO {
 	List<XaPhuongThiTran> findAll();
 
 	List<XaPhuongThiTran> findByQh(QuanHuyen qh);
+	XaPhuongThiTran findById(String xaid);
 }

@@ -27,4 +27,10 @@ public class XaPhuongThiTranDAOImpl implements XaPhuongThiTranDAO {
 		return repo.findByQh(qh);
 	}
 
+	@Override
+	public XaPhuongThiTran findById(String xaid) {
+		// TODO Auto-generated method stub
+		return repo.findById(xaid).get();
+	}
+
 }

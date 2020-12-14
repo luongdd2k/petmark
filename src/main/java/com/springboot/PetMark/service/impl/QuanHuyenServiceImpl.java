@@ -27,4 +27,10 @@ public List<QuanHuyen> findByTp(TinhThanhPho tp) {
 	// TODO Auto-generated method stub
 	return dao.findByTp(tp);
 }
+
+@Override
+public QuanHuyen findById(String maqh) {
+	// TODO Auto-generated method stub
+	return dao.findById(maqh);
+}
 }

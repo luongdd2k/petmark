@@ -26,4 +26,10 @@ public class XaPhuongThiTranServiceImpl implements XaPhuongThiTranService{
 		return dao.findByQh(qh);
 	}
 
+	@Override
+	public XaPhuongThiTran findById(String xaid) {
+		// TODO Auto-generated method stub
+		return dao.findById(xaid);
+	}
+
 }

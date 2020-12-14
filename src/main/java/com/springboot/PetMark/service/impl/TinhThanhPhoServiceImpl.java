@@ -19,4 +19,10 @@ public List<TinhThanhPho> findAll() {
 	// TODO Auto-generated method stub
 	return dao.findAll();
 }
+
+@Override
+public TinhThanhPho findById(String matp) {
+	// TODO Auto-generated method stub
+	return dao.findById(matp);
+}
 }

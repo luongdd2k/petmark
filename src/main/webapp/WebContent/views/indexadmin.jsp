@@ -71,7 +71,11 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
+<<<<<<< HEAD
                 <h3>${web }</h3>
+=======
+                <h3>26</h3>
+>>>>>>> 5c14cacd7cd61673c3c14e231c5abc0bf73f2fe6
 
                 <p>Đơn hàng mới trên Web</p>
               </div>
