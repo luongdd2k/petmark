@@ -1,26 +1,3 @@
-let maTp = $("#city");
-let maQh = $("#district");
-let maXa = $("#village");
-
-let cityValue = maTp.options[maTp.selectedIndex].value;
-let districtValue = maQh.options[maQh.selectedIndex].value;
-let villageValue = maXa.options[maXa.selectedIndex].value;
-
-$.ajax({
-    url: 'show-qh',
-    type: 'GET',
-    dataType: 'html',
-    data: {
-    	"matp" :cityValue
-    }
-})
-    .done(function(res) {
-        if (res) {
-            let brands = $.parseJSON(res);
-            brands.forEach(item => {
-                $('#district').append(`<option value="${item.getMaqh() }">${item.getName() }</option>`)
-            })
-
 
 // let villageValue = maXa.options[maXa.selectedIndex].value;
 
@@ -37,10 +14,10 @@ function city(obj){
         .done(function(res) {
             if (res) {
                 let district = $.parseJSON(res);
-                $('#district').html(`<option value="none">---- Chọn Quận / Huyện ----</option>`);
+                $('#district2').html(`<option value="none">---- Chọn Quận / Huyện ----</option>`);
 
                 district.forEach(item => {
-                    $('#district').append(`<option value="${item.getMaqh()}">${item.getName() }</option>`)
+                    $('#district2').append(`<option value="${item.maqh}">${item.name }</option>`)
                 })
             }
             })
@@ -62,9 +39,9 @@ function district(obj){
         .done(function(res) {
             if (res) {
                 let village = $.parseJSON(res);
-                $('#village').html(`<option value="none">---- Chọn Xã / Phường / Thị trấn ----</option>`);
+                $('#village2').html(`<option value="none">---- Chọn Xã / Phường / Thị trấn ----</option>`);
                 village.forEach(item => {
-                    $('#village').append(`<option value="${item.getXaid() }">${item.getName() }</option>`);
+                    $('#village2').append(`<option value="${item.xaid }">${item.name}</option>`);
                 })
             }
         })
@@ -75,8 +52,8 @@ function district(obj){
 
 function village(obj){
     let villageValue = obj.value;
-    let maTp = document.getElementById("city");
-    let maQh = document.getElementById("district");
+    let maTp = document.getElementById("city2");
+    let maQh = document.getElementById("district2");
 
     let cityValue = maTp.options[maTp.selectedIndex].value;
     let districtValue = maQh.options[maQh.selectedIndex].value;

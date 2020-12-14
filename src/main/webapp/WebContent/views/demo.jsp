@@ -22,9 +22,9 @@
 </head>
 <body>
 <div class="container">
+<form action="">
     <div class="row">
         <div class="col-4">
-        <form action="show-qh" method="post">
             <label for="city">Tỉnh / Thành phố</label>
             <select class="form-select" aria-label="Default select example" id="city" onchange="city(this)">
                 <option value="none">---- Chọn Tỉnh / Thành phố ----</option>
@@ -32,9 +32,6 @@
                     <option value="${list.getMatp() }">${list.getName() }</option>
                 </c:forEach>
             </select>
-            <input type="hidden" value="" id="matp" name="matp">
-            <button type="submit">ok</button>
-            </form>
         </div>
         <div class="col-4">
             <label for="district">Quận / Huyện    </label>
@@ -53,11 +50,12 @@
             <button type="button" class="btn btn-outline-primary" onclick="a()">Primary</button>
         </div>
         <div class="col-4" style="margin-top: 30px;">
-            <input type="hiden" class="form-control" id="city-id" value="">
-            <input type="hiden" class="form-control" id="district-id" value="">
-            <input type="hiden" class="form-control" id="village-id" value="">
+            <input type="hidden" class="form-control" id="city-id" value="">
+            <input type="hidden" class="form-control" id="district-id" value="">
+            <input type="hidden" class="form-control" id="village-id" value="">
         </div>
     </div>
+    </form>
 </div>
 </body>
 <script src="plugins/jquery/jquery.min.js"></script>
@@ -66,8 +64,6 @@
     function a(){
        let city = document.getElementById("city");
        let cityValue = city.options[city.selectedIndex].value;
-       let matp = document.getElementById("matp");
-       matp.value = cityValue;
        console.log(cityValue);
     };
 </script>

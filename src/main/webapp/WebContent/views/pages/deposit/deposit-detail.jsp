@@ -100,17 +100,17 @@
 	                                            <div class="col-6">
 	                                                <p style="padding-left: 20px;">Người đặt cọc :</p>
 	                                                <p style="padding-left: 30px; margin-top: -8px; font-size: 16px;">
-	                                                    <strong>${account.getFullName() }</strong>
+	                                                    <strong>${deposit.getAccount().getFullName() }</strong>
 	                                                </p>
 	                                                <p style="padding-left: 20px;">Địa chỉ :</p>
 	                                                <p style="padding-left: 30px; margin-top: -8px;font-size: 16px;">
-	                                                    <strong>${account.getAddress() }</strong>
+	                                                    <strong>${deposit.getAccount().getAddress() }</strong>
 	                                                </p>
 	                                            </div>
 	                                            <div class="col-6">
 	                                                <p style="padding-left: 20px;">Số điện thoại :</p>
 	                                                <p style="padding-left: 30px; margin-top: -8px; font-size: 16px;">
-	                                                    <strong>${account.getPhone() }</strong></p>
+	                                                    <strong>${deposit.getAccount().getPhone() }</strong></p>
 	                                           		<p style="padding-left: 20px;">Trạng thái :</p>
 	                                                <p style="padding-left: 30px; margin-top: -8px;font-size: 16px;">
 	                                                    <strong id="status-deposit">${deposit.getStatus() }</strong></p> 

@@ -2,6 +2,7 @@ package com.springboot.PetMark.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -10,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "quanhuyen")
+@Table(name = "district")
 public class QuanHuyen implements Serializable {
 
 	/**
@@ -19,11 +20,12 @@ public class QuanHuyen implements Serializable {
 	private static final long serialVersionUID = -2538754527103034609L;
 
 	@Id
+	@Column(name = "districtid")
 	private String maqh;
 	private String name;
 	private String type;
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "matp")
+	@JoinColumn(name = "cityid")
 	private TinhThanhPho tp;
 
 	public QuanHuyen() {
