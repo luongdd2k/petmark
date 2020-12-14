@@ -15,6 +15,9 @@
         .container{
             margin-top: 50px;
         }
+        input{
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -41,8 +44,14 @@
                 <option value="none">---- Chọn Xã / Phường / Thị trấn ----</option>
             </select>
         </div>
+
         <div class="col-12" style="margin-top: 30px;text-align: center;">
             <button type="button" class="btn btn-outline-primary" onclick="a()">Primary</button>
+        </div>
+        <div class="col-4" style="margin-top: 30px;">
+            <input type="hiden" class="form-control" id="city-id" value="">
+            <input type="hiden" class="form-control" id="district-id" value="">
+            <input type="hiden" class="form-control" id="village-id" value="">
         </div>
     </div>
 </div>

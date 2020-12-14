@@ -1,29 +1,26 @@
-let maTp = document.getElementById("city");
-let maQh = document.getElementById("district");
-let maXa = document.getElementById("village");
 
-let cityValue = maTp.options[maTp.selectedIndex].value;
-let districtValue = maQh.options[maQh.selectedIndex].value;
-let villageValue = maXa.options[maXa.selectedIndex].value;
+// let villageValue = maXa.options[maXa.selectedIndex].value;
 
 function city(obj){
     let cityValue1 = obj.value;
-    console.log(cityValue1);
     $.ajax({
         url: 'show-qh',
         type: 'get',
         dataType: 'html',
-        data: cityValue1
+        data: {
+           "matp": cityValue1
+        }
     })
-        .done(function(abc) {
-            // console.log(abc);
-            // if (res) {
-            //     //let brands = $.parseJSON(res);
-            //     res.forEach(item => {
-            //         $('#district').append(`<option value="${item.getMaqh() }">${item.getName() }</option>`)
-            //     })
-            // }
-        })
+        .done(function(res) {
+            if (res) {
+                let district = $.parseJSON(res);
+                $('#district').html(`<option value="none">---- Chọn Quận / Huyện ----</option>`);
+
+                district.forEach(item => {
+                    $('#district').append(`<option value="${item.maqh}">${item.name }</option>`)
+                })
+            }
+            })
         .fail(function() {
             console.log("error city js");
         });
@@ -31,24 +28,42 @@ function city(obj){
 
 function district(obj){
     let districtValue1 = obj.value;
-    console.log(districtValue1);
     $.ajax({
-        url: 'show-qh',
+        url: 'show-xa',
         type: 'get',
         dataType: 'html',
-        data: districtValue
+        data:{
+            "maqh":districtValue1
+        }
     })
         .done(function(res) {
-            // console.log(res);
-            // if (res) {
-            //     //let brands = $.parseJSON(res);
-            //     res.forEach(item => {
-            //         $('#village').append(`<option value="${item.getXaid() }">${item.getName() }</option>`)
-            //     })
-            // }
+            if (res) {
+                let village = $.parseJSON(res);
+                $('#village').html(`<option value="none">---- Chọn Xã / Phường / Thị trấn ----</option>`);
+                village.forEach(item => {
+                    $('#village').append(`<option value="${item.xaid }">${item.name}</option>`);
+                })
+            }
         })
         .fail(function() {
             console.log("error village js");
         });
+}
+
+function village(obj){
+    let villageValue = obj.value;
+    let maTp = document.getElementById("city");
+    let maQh = document.getElementById("district");
+
+    let cityValue = maTp.options[maTp.selectedIndex].value;
+    let districtValue = maQh.options[maQh.selectedIndex].value;
+
+    document.getElementById("city-id").value = cityValue;
+    document.getElementById("city-id").innerHTML = cityValue;
+    document.getElementById("district-id").value = districtValue;
+    document.getElementById("district-id").innerHTML = districtValue;
+    document.getElementById("village-id").value = villageValue;
+    document.getElementById("village-id").innerHTML = villageValue;
+    console.log(cityValue, districtValue, villageValue);
 }
 

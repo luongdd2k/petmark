@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.springboot.PetMark.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -13,10 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.springboot.PetMark.entities.Account;
-import com.springboot.PetMark.entities.OrderrWeb;
-import com.springboot.PetMark.entities.QuanHuyen;
-import com.springboot.PetMark.entities.TinhThanhPho;
 import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.OrderrWebService;
 import com.springboot.PetMark.service.QuanHuyenService;
@@ -63,5 +60,11 @@ public class StatisticalController {
 		List<QuanHuyen> qh= qhService.findByTp(tpService.findById(req.getParameter("matp")));
 		System.out.println(qh);
 		return qh;
+	}
+
+	@RequestMapping("show-xa")
+	public @ResponseBody List<XaPhuongThiTran> showXa(HttpServletRequest req) {
+		List<XaPhuongThiTran> xa= xaService.findByQh(qhService.findById(req.getParameter("maqh")));
+		return xa;
 	}
 }
