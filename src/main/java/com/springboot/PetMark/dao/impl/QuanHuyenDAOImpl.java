@@ -26,4 +26,10 @@ public class QuanHuyenDAOImpl  implements QuanHuyenDAO{
 		// TODO Auto-generated method stub
 		return repo.findByTp(tp);
 	}
+
+	@Override
+	public QuanHuyen findById(String maqh) {
+		// TODO Auto-generated method stub
+		return repo.findById(maqh).get();
+	}
 }

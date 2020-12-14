@@ -9,4 +9,5 @@ public interface QuanHuyenDAO {
 	List<QuanHuyen> findAll();
 
 	List<QuanHuyen> findByTp(TinhThanhPho tp);
+	QuanHuyen findById(String maqh);
 }
