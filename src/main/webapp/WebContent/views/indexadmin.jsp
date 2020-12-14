@@ -70,7 +70,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>125.000.000<sup style="font-size: 20px">đ</sup></h3>
+                <h3>26</h3>
 
                 <p>Đơn hàng mới trên Web</p>
               </div>

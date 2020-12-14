@@ -111,7 +111,7 @@
 														<td class="td-js">${list.getPaymentStatus() }</td>
 														<td class="td_js">${list.getDeliveryStatus() }</td>
 														<td style="color: #f44336;font-weight: 600;">${list.getDisplayTotalAmount() }</td>
-														<td class="td_js">Web</td>
+														<td >Web</td>
 													</tr>
 											</tbody>
 											</c:forEach>
@@ -216,11 +216,11 @@
 				}
 				//Trạng thái giao hàng
 				if(td1[i].innerHTML == 'Chưa xét duyệt'){
-					td1[i].style.color="#ff6f00";
+					td1[i].style.color="#ed9f66";
 					td1[i].style.fontWeight="600";
 				}
 				if(td1[i].innerHTML == 'Chờ giao hàng'){
-					td1[i].style.color="#ffee58";
+					td1[i].style.color="#f4ce74";
 					td1[i].style.fontWeight="600";
 				}
 				if(td1[i].innerHTML == 'Chờ giao hàng lần 2'){
