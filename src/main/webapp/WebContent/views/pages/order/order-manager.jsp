@@ -111,11 +111,7 @@
 														<td class="td-js">${list.getPaymentStatus() }</td>
 														<td class="td_js">${list.getDeliveryStatus() }</td>
 														<td style="color: #f44336;font-weight: 600;">${list.getDisplayTotalAmount() }</td>
-<<<<<<< HEAD
 														<td class="td_js">${list.getDisplayPlace() }</td>
-=======
-														<td >Web</td>
->>>>>>> 5c14cacd7cd61673c3c14e231c5abc0bf73f2fe6
 													</tr>
 											</tbody>
 											</c:forEach>

@@ -32,9 +32,7 @@
         <div class="col-4">
             <label for="district">Quận / Huyện    </label>
             <select class="form-select" aria-label="Default select example" id="district">
-            <c:forEach var="qh" items="${qh }">
                 <option value="none">---- Chọn Quận / Huyện ----</option>
-                </c:forEach>
             </select>
         </div>
         <div class="col-4">
