@@ -40,7 +40,7 @@ public @Data class Deposit implements Serializable {
 	private int amount;
 	@Column(name = "created_at")
 	private Date createdAt;
-	@Column(name = "total_amount")
+	@Column(name = "total_money")
 	private float totalAmount;
 	private String status;
 

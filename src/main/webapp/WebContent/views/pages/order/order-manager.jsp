@@ -97,7 +97,7 @@
 													<th scope="col">Trạng thái thanh toán</th>
 													<th scope="col">Trạng thái giao hàng</th>
 													<th scope="col">Tổng tiền</th>
-													<th scope="col">Thiết bị</th>
+													<th scope="col">Nơi đặt</th>
 												</tr>
 											</thead>
 											<c:forEach var="list" items="${list }">
@@ -111,7 +111,7 @@
 														<td class="td-js">${list.getPaymentStatus() }</td>
 														<td class="td_js">${list.getDeliveryStatus() }</td>
 														<td style="color: #f44336;font-weight: 600;">${list.getDisplayTotalAmount() }</td>
-														<td >Web</td>
+														<td class="td_js">${list.getDisplayPlace() }</td>
 													</tr>
 											</tbody>
 											</c:forEach>

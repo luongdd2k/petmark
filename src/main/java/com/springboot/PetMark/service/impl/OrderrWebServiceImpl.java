@@ -88,5 +88,29 @@ public class OrderrWebServiceImpl implements OrderrWebService {
 		return dao.findByPlace(place);
 	}
 
+	@Override
+	public List<OrderrWeb> findBySttPlace(String status, int place) {
+		// TODO Auto-generated method stub
+		return dao.findBySttPlace(status, place);
+	}
+
+	@Override
+	public int countBySttPlace(String status, int place) {
+		// TODO Auto-generated method stub
+		return dao.countBySttPlace(status, place);
+	}
+
+	@Override
+	public int countByStt(String status) {
+		// TODO Auto-generated method stub
+		return dao.countByStt(status);
+	}
+
+	@Override
+	public List<OrderrWeb> findStt(String status, String stt) {
+		// TODO Auto-generated method stub
+		return dao.findStt(status, stt);
+	}
+
 
 }

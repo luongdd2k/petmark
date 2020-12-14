@@ -51,4 +51,10 @@ public class BlogDAOImpl implements BlogDAO {
 		return repo.findByStatus(status);
 	}
 
+	@Override
+	public int countByStt(int stt) {
+		// TODO Auto-generated method stub
+		return repo.countByStt(stt);
+	}
+
 }

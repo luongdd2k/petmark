@@ -24,4 +24,8 @@ public interface OrderrWebDAO {
 	List<OrderrWeb> findByDeliveryStatusOrderByCreatedAtAsc(String deliveryStatus);
 	List<OrderrWeb> findByStt(String status);
 	List<OrderrWeb> findByPlace(int place);
+	List<OrderrWeb> findBySttPlace(String status, int place);
+	int countBySttPlace(String status, int place);
+	 int countByStt(String status);
+	 List<OrderrWeb> findStt(String status, String stt);
 }

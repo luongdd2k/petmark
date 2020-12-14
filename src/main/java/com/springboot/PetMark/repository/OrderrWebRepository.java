@@ -25,9 +25,16 @@ public interface OrderrWebRepository extends JpaRepository<OrderrWeb, Integer> {
     List<OrderrWeb> findByPlace(int place);
     @Query("select o FROM OrderrWeb o where o.deliveryStatus = ?1 and o.account = ?2")
     List<OrderrWeb> findBySttUser(String status, Account account);
-    
+    @Query("select o FROM OrderrWeb o where o.deliveryStatus = ?1 and o.place = ?2")
+    List<OrderrWeb> findBySttPlace(String status, int place);
+    @Query("select count(o.id) FROM OrderrWeb o where o.deliveryStatus = ?1 and o.place = ?2")
+    int countBySttPlace(String status, int place);
+    @Query("select count(o.id) FROM OrderrWeb o where o.deliveryStatus = ?1")
+    int countByStt(String status);
     @Query("select o FROM OrderrWeb o where o.deliveryStatus = ?1")
     List<OrderrWeb> findByStt(String status);
+    @Query("select o FROM OrderrWeb o where o.deliveryStatus = ?1 or o.deliveryStatus = ?2")
+    List<OrderrWeb> findStt(String status, String stt);
 	@Query("select o FROM OrderrWeb o where o.id = ?1 or o.consignee like %?1% "
 										  + "or o.consigneePhone like %?2% "
 										  + "or o.deliveryAddress like %?2% "

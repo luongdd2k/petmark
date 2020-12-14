@@ -60,7 +60,13 @@ public @Data class OrderrWeb implements Serializable {
 	@Column(name = "foundation")
 	private int place;
 	
-	
+	public String getDisplayPlace() {
+		String rs = "Web";
+		if(this.place==1) {
+			rs ="App";
+		}
+		return rs;
+	}
 	public List<OrderrWebDetail> getDetail() {
 		return detail;
 	}
