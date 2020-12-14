@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-4">
             <label for="city">Tỉnh / Thành phố</label>
-            <select class="form-select" aria-label="Default select example" id="city">
+            <select class="form-select" aria-label="Default select example" id="city" onchange="city(this)">
                 <option value="none">---- Chọn Tỉnh / Thành phố ----</option>
                 <c:forEach var="list" items="${list }">
                     <option value="${list.getMatp() }">${list.getName() }</option>
@@ -31,13 +31,13 @@
         </div>
         <div class="col-4">
             <label for="district">Quận / Huyện    </label>
-            <select class="form-select" aria-label="Default select example" id="district">
+            <select class="form-select" aria-label="Default select example" id="district" onchange="district(this)">
                 <option value="none">---- Chọn Quận / Huyện ----</option>
             </select>
         </div>
         <div class="col-4">
             <label for="village">Xã / Phường / Thị trấn</label>
-            <select class="form-select" aria-label="Default select example" id="village">
+            <select class="form-select" aria-label="Default select example" id="village" onchange="village(this)">
                 <option value="none">---- Chọn Xã / Phường / Thị trấn ----</option>
             </select>
         </div>

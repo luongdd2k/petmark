@@ -1,44 +1,54 @@
-let maTp = $("#city");
-let maQh = $("#district");
-let maXa = $("#village");
+let maTp = document.getElementById("city");
+let maQh = document.getElementById("district");
+let maXa = document.getElementById("village");
 
 let cityValue = maTp.options[maTp.selectedIndex].value;
 let districtValue = maQh.options[maQh.selectedIndex].value;
 let villageValue = maXa.options[maXa.selectedIndex].value;
 
-$.ajax({
-    url: '',
-    type: 'GET',
-    dataType: 'html',
-    data: cityValue
-})
-    .done(function(res) {
-        if (res) {
-            let brands = $.parseJSON(res);
-            brands.forEach(item => {
-                $('#district').append(`<option value="${item.getMaqh() }">${item.getName() }</option>`)
-            })
-        }
+function city(obj){
+    let cityValue1 = obj.value;
+    console.log(cityValue1);
+    $.ajax({
+        url: 'show-qh',
+        type: 'get',
+        dataType: 'html',
+        data: cityValue1
     })
-    .fail(function() {
-        console.log("error city js");
-    });
+        .done(function(abc) {
+            // console.log(abc);
+            // if (res) {
+            //     //let brands = $.parseJSON(res);
+            //     res.forEach(item => {
+            //         $('#district').append(`<option value="${item.getMaqh() }">${item.getName() }</option>`)
+            //     })
+            // }
+        })
+        .fail(function() {
+            console.log("error city js");
+        });
+};
 
-
-$.ajax({
-    url: '',
-    type: 'GET',
-    dataType: 'html',
-    data: districtValue
-})
-    .done(function(res) {
-        if (res) {
-            let brands = $.parseJSON(res);
-            brands.forEach(item => {
-                $('#village').append(`<option value="${item.getXaid() }">${item.getName() }</option>`)
-            })
-        }
+function district(obj){
+    let districtValue1 = obj.value;
+    console.log(districtValue1);
+    $.ajax({
+        url: 'show-qh',
+        type: 'get',
+        dataType: 'html',
+        data: districtValue
     })
-    .fail(function() {
-        console.log("error village js");
-    });
+        .done(function(res) {
+            // console.log(res);
+            // if (res) {
+            //     //let brands = $.parseJSON(res);
+            //     res.forEach(item => {
+            //         $('#village').append(`<option value="${item.getXaid() }">${item.getName() }</option>`)
+            //     })
+            // }
+        })
+        .fail(function() {
+            console.log("error village js");
+        });
+}
+
