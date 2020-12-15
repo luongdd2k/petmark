@@ -29,7 +29,28 @@
             rel="stylesheet">
     <link rel="stylesheet" href="dist/css/custom.css">
     <link rel="stylesheet" href="css/employee.css">
+    <style>
+        .card-content-form{
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .button-group-right{
+            text-align: right;
+            margin-bottom: 5px ;
+        }
+        .button-group-left{
+            text-align: left;
+            margin-bottom: 5px ;
+        }
+        .button-group-center{
+            text-align: center;
 
+        }
+        .hide{
+            display: none;
+            visibility: hidden;
+        }
+    </style>
 
 
 </head>
@@ -80,173 +101,142 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <!-- Default box -->
-
-                                <!--Div form Update-->
-                                <div id="form-disable-update"
-                                     style="max-width: 95%; margin: auto;">
-                                    <form action="admin/ProductManagement/UpdateProduct"
-                                          method="post">
-                                        <input type="hidden" name="id" id="id">
-                                        <div class="form-disable-p1 float-left"
-                                             style="width: 330px; margin-left: 30px; float: left;">
-                                            <div class="form-group">
-                                                <label for="petNameUpdate">Tên thú cưng</label>
-                                                <input type="text" class="form-control" id="petNameUpdate"
-                                                       name="tenThu" value="${pet.getPetName() }">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="pet-bread-update">Giống thú cưng</label>
-                                                <select name="giongThu" id="pet-bread-update" style="height: 30px; width: 100%;">
-                                                <c:forEach var="category" items="${listCategory }">
-                                                    <option value="${category.id }">${ category.getName()}</option>
-                                                </c:forEach>
-                                            </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="petColor">Màu lông</label>
-                                                <input type="text" class="form-control" id="petColor" name="mauLong">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="petEyeColor">Màu mắt</label>
-                                                <input type="text" class="form-control" id="petEyeColor" name="mauMat">
-                                            </div>
-                                        </div>
-                                        <div class="form-disable-p1" style="width: 330px; margin-left: 30px; float: left;">
-                                            <div class="form-group">
-                                                <label for="petAgeUpdate">Tháng tuổi</label>
-                                                <input type="text" class="form-control" id="petAgeUpdate" name="tuoiThu" value="${pet.getAge() }">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="petPriceUpdate">Giá (VND)</label>
-                                                <input type="text" class="form-control" id="petPriceUpdate" name="giaThu" value="${pet.getDisplayPrice(1) }">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="pet-status-update">Trạng thái</label>
-                                                <select name="trangThai" id="pet-status-update"  style="height: 30px; width: 100%;">
-                                                    <c:forEach var="status" items="${listStatus }">
-                                                        <option value="${status }">${status }</option>
-                                                    </c:forEach>
-                                            </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="petAmountUpdate">Số lượng</label>
-                                                <input type="text" class="form-control" id="petAmountUpdate" name="soLuong" value="${pet.getAmount() }">
-                                            </div>
-                                        </div>
-                                        <div class="form-disable-p1" style="width: 330px; margin-left: 30px; float: left;">
-                                            <div class="form-group">
-                                                <label for="petInformationUpdate">Mô tả</label>
-                                                <textarea class="form-control" id="petInformationUpdate" rows="2" name="moTaThu">${pet.getDescription() }</textarea>
-                                            </div>
-                                            <div class="custom-file mb-3">
-                                                <label class="custom-file-label" for="customFile">Chọn hình ảnh</label>
-                                                <input type="file" class="custom-file-input" id="customFile" name="filename">
-                                            </div>
-                                            <div class="custom-file mb-3">
-                                                <label class="custom-file-label" for="customFile1">Chọn hình ảnh</label>
-                                                <input type="file" class="custom-file-input" id="customFile1" name="filename">
-                                            </div>
-                                            <div class="custom-file mb-3">
-                                                <label class="custom-file-label" for="customFile2">Chọn hình ảnh</label>
-                                                <input type="file" class="custom-file-input" id="customFile2" name="filename">
-                                            </div>
-                                            <div class="custom-file mb-3">
-                                                <label class="custom-file-label" for="customFile3">Chọn hình ảnh</label>
-                                                <input type="file" class="custom-file-input" id="customFile3" name="filename">
-                                            </div>
-                                            <input type="hidden" class="form-control" id="petDateUpdate" name="ngayNhap">
-
-                                        </div>
-                                        <div>
-                                            <button type="submit" class="btn btn-custon-rounded-three btn-success btn-css">
-                                                <i class="fas fa-save"></i> <span> Lưu</span>
-                                            </button>
-                                            <button type="reset" class="btn btn-custon-rounded-three btn-warning btn-css">
-                                                <i class="fas fa-backspace"></i> <span> Làm mới</span>
-                                            </button>
-                                            <button type="button" class="btn btn-custon-rounded-three btn-danger btn-css" onclick="hiddenFormUpdate(true)">
-                                                <i class="fas fa-slash"></i> <span> Huỷ</span>
-                                            </button>
-                                        </div>
-                                    </form>
-                                    <div class="clear"></div>
-                                </div>
-                                <!--End Div Form Update-->
-
-                                <div class="table-responsive-xl main-table ">
-                                    <table class="table table-hover" style="margin-bottom: -1%;" id="table-js">
-                                        <thead>
-                                        <tr class="bg-info">
-                                            <th scope="col">#</th>
-                                            <th scope="col">Ảnh</th>
-                                            <th scope="col">Tên thú cưng</th>
-                                            <th scope="col">Giống thú</th>
-                                            <th scope="col">Tuổi</th>
-                                            <th scope="col">Giá</th>
-                                            <th scope="col">Giá cọc</th>
-                                            <th scope="col">Số lượng</th>
-                                            <th scope="col">Ngày nhập</th>
-                                            <th scope="col">Trạng thái</th>
-                                            <th scope="col" hidden="true">Mô tả</th>
-                                            <th scope="col">Hành động</th>
-                                        </tr>
-                                        </thead>
-                                        <c:forEach var="product" items="${listProduct}">
-
-                                            <tbody>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div class="td__center">${product.id }</div>
-                                                </th>
-                                                <td>
-                                                    <img class="img-fluid" src="${product.getImgs().get(0).getImgAvartar() }" alt="" style="max-width: 90px; max-height: 90px;">
-                                                </td>
-                                                <td>
-                                                    <div>
-                                                        <div class="td__center">${product.petName }</div>
+                                <div class="row">
+                                    <div class="card-content-form">
+                                        <form id="pet-detail">
+                                            <div class="row">
+                                                <div class="form-group col-4">
+                                                    <label for="namePetDetail">Tên thú cưng</label>
+                                                    <input type="text" class="form-control" id="namePetDetail">
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="row">
+                                                        <div class="form-group col-4">
+                                                            <label for="agePet">Tuổi thú cưng</label>
+                                                            <input type="text" class="form-control" id="agePet">
+                                                        </div>
+                                                        <div class="form-group col-4">
+                                                            <label for="pricePet">Giá thú cưng</label>
+                                                            <input type="text" class="form-control" id="pricePet">
+                                                        </div>
+                                                        <div class="form-group col-4">
+                                                            <label for="amountPet">Số lượng</label>
+                                                            <input type="text" class="form-control" id="amountPet">
+                                                        </div>
                                                     </div>
-                                                </td>
-                                                <td>
-                                                    <span hidden="true" >${product.getSpecies().getId() }</span>
-                                                    <div class="td__center">${product.getSpecies().getName() }</div>
-                                                </td>
-                                                <td>
-                                                    <div class="td__center">${product.age }</div>
-                                                </td>
-                                                <td>
-                                                    <div class="td__center">${product.getDisplayPrice(1) }</div>
-                                                </td>
-                                                <td>
-                                                    <div class="td__center">${product.getDisplayDeposit() }</div>
-                                                </td>
-                                                <td>
-                                                    <div class="td__center">${product.amount}</div>
-                                                </td>
-                                                <td>
-                                                    <div class="td__center">${product.getDate() }</div>
-                                                </td>
-                                                <td>
-                                                    <div class="td__center">${product.status}</div>
-                                                </td>
-                                                <td hidden="true">${product.description}</td>
-                                                <td>
-                                                    <div class="td__center">
-                                                        <form action="admin/ProductManagement/${action }"
-                                                              method="post">
-                                                            <input type='hidden' name='idthu' value='${product.id }'>
-                                                            <button type="submit" class="btn btn-custon-rounded-three btn-danger">${nameButton2 }
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </c:forEach>
-                                    </table>
-                                    <hr>
+                                                </div>
+                                                <div class="form-group col-6">
+                                                    <label for="breadPet">Giống thú cưng</label>
+                                                    <select class="form-control" id="breadPet">
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-6">
+                                                    <label for="statusPet">Trạng thái</label>
+                                                    <select class="form-control" id="statusPet">
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-12">
+                                                    <label for="desAcc">Mô tả</label>
+                                                    <textarea class="form-control" id="desAcc" rows="2"></textarea>
+                                                </div>
+                                                <div class="form-group col-12 button-group-center" >
+                                                    <button type="button" class="btn btn-success">
+                                                        <i class="fas fa-save"></i> Cập nhật
+                                                    </button>
+                                                    <button onclick="showImage()" type="button" class="btn btn-info">
+                                                        <i class="fas fa-save"></i> Hình ảnh
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger">
+                                                        <i class="fas fa-window-close"></i> Hủy
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <form id="pet-color" class="hide">
+                                            <div class="row">
+                                                <div class="form-group col-6">
+                                                    <label for="namePet">Tên thú cưng</label>
+                                                    <input type="text" class="form-control" id="namePet">
+                                                </div>
+                                                <div class="form-group col-6">
+                                                    <label for="colorPet">Màu lông - Màu mắt</label>
+                                                    <input type="text" class="form-control" id="colorPet">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-12 button-group-center" >
+                                                <button type="button" class="btn btn-success">
+                                                    <i class="fas fa-save"></i> Lưu
+                                                </button>
+                                                <button onclick="hideColor()" type="button" class="btn btn-danger">
+                                                    <i class="fas fa-window-close"></i> Hủy
+                                                </button>
+                                            </div>
+                                        </form>
+                                        <form id="form-image"  class="hide">
+                                            <div class="row">
+                                                <div class="form-group col-3">
+                                                    <label class="custom-file-label" for="customFile">Chọn hình ảnh</label>
+                                                    <input type="file" class="custom-file-input" id="customFile" name="filename">
+                                                </div>
+                                                <div class="form-group col-3">
+                                                    <label class="custom-file-label" for="customFile1">Chọn hình ảnh</label>
+                                                    <input type="file" class="custom-file-input" id="customFile1" name="filename">
+                                                </div>
+                                                <div class="form-group col-3">
+                                                    <label class="custom-file-label" for="customFile2">Chọn hình ảnh</label>
+                                                    <input type="file" class="custom-file-input" id="customFile2" name="filename">
+                                                </div>
+                                                <div class="form-group col-3">
+                                                    <label class="custom-file-label" for="customFile3">Chọn hình ảnh</label>
+                                                    <input type="file" class="custom-file-input" id="customFile3" name="filename">
+                                                </div>
+                                                <div class="form-group col-12 button-group-center" >
+                                                    <button type="button" class="btn btn-success">
+                                                        <i class="fas fa-save"></i> Lưu
+                                                    </button>
+                                                    <button onclick="hideImage()" type="button" class="btn btn-danger">
+                                                        <i class="fas fa-window-close"></i> Hủy
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="col-12">
+                                            <div class="table-responsive main-table ">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                    <tr class="bg-info">
+                                                        <th scope="col">Tên thú cưng</th>
+                                                        <th scope="col">Màu lông - Màu mắt</th>
+                                                    </tr>
+                                                    </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Husky Shibarian</td>
+                                                                <td>Đen - Xanh</td>
+                                                            </tr>
+                                                        </tbody>
+                                                </table>
+                                                <hr>
+                                            </div>
+                                            <!--End Table-->
+                                            <div class="button-group-right">
+                                                <button onclick="showColor()" type="button" class="btn btn-primary" id="new-color">
+                                                    <i class="fas fa-plus-circle"></i> Thêm mới
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <!--End Table-->
                                 <div class="row">
                                     <div class="col-12 col-sm-6 col-md-3"></div>
                                     <div class="col-12 col-sm-6 col-md-3"></div>
@@ -318,6 +308,38 @@
         hienFormNew.style.display = visible ? "" : "none";
         var timKiem = document.getElementById("new-pet");
         timKiem.style.display = visible ? "none" : "block";
+    }
+    function hideColor(){
+        let detail =  document.getElementById("pet-detail");
+        let btnNew = document.getElementById("new-color");
+        let colorForm =  document.getElementById("pet-color");
+
+        detail.classList.remove("hide");
+        btnNew.classList.remove("hide");
+        colorForm.classList.add("hide");
+    }
+    function showColor(){
+        let detail =  document.getElementById("pet-detail");
+        let btnNew = document.getElementById("new-color");
+        let colorForm =  document.getElementById("pet-color");
+
+        detail.classList.add("hide");
+        btnNew.classList.add("hide");
+        colorForm.classList.remove("hide");
+    }
+    function showImage(){
+        let formImage = document.getElementById("form-image");
+        let detail = document.getElementById("pet-detail");
+
+        detail.classList.add("hide");
+        formImage.classList.remove("hide");
+    }
+    function hideImage(){
+        let formImage = document.getElementById("form-image");
+        let detail = document.getElementById("pet-detail");
+
+        detail.classList.remove("hide");
+        formImage.classList.add("hide");
     }
 </script>
 
