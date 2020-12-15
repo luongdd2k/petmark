@@ -4,159 +4,127 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>Đăng ký tài khoản mới</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petmart | Đăng ký tài khoản mới</title>
     <base href="${pageContext.servletContext.contextPath}/">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lemonada:wght@500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    <link rel="stylesheet" type="text/css" href="css-new/login.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <style>
+      body{
+        background-image: url(https://wallpaperaccess.com/full/1567666.png);
+      }
+      .container{
+        max-width: 900px;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+      }
+      .form-content{
+        padding: 30px 50px 0px 50px;
+      }
+      .form-div{
+        background-color: white;
+      }
+    </style>
   </head>
   <body>
-    <img class="wave" src="images/login/wave.png" />
-    <div class="container">
-      <div class="img">
-        <img src="images/login/product.svg" />
-      </div>
-      <div class="login-content">
-        <form action="CheckSignup" method="post">
-          <img src="images/login/avatar.svg" />
-          <h2 class="title1">Tài khoản mới</h2>
-          <div class="row">
-            <div class="col-6">
-              <div class="input-div name">
-                <div class="i">
-                  <i class="far fa-address-card"></i>
-                </div>
-                <div class="div">
-                  <h5>Họ tên</h5>
-                  <input type="text" name="sl_signup_name" class="input" required />
-                </div>
-              </div>
-              <div class="input-div user">
-                <div class="i">
-                  <i class="fas fa-user"></i>
-                </div>
-                <div class="div">
-                  <h5>Tên tài khoản</h5>
-                  <input type="text" name="sl_signup_username" class="input" required />
-                </div>
-              </div>
-              <div class="input-div pass">
-                <div class="i">
-                  <i class="fas fa-lock"></i>
-                </div>
-                <div class="div">
-                  <h5>Mật khẩu</h5>
-                  <input type="password" class="input" name="sl_signup_password" required />
-                </div>
-              </div>
-              <div class="input-div confri-pass">
-                <div class="i">
-                  <i class="fas fa-lock"></i>
-                </div>
-                <div class="div">
-                  <h5>Nhập lại mật khẩu</h5>
-                  <input type="password" class="input" name="sl_signup_password_2" required />
-                </div>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="input-div email">
-                <div class="i">
-                  <i class="far fa-envelope"></i>
-                </div>
-                <div class="div">
-                  <h5>Email</h5>
-                  <input type="email" class="input" name="sl_signup_email" required />
-                </div>
-              </div>
-              <div class="radio-div gender">
-                <div class="i">
-                  <i class="fas fa-venus-mars"></i>
-                </div>
-                <div class="div">
-                  <h5>Giới tính</h5>
-                  <div class="merge">
-                    <div class="custom-control custom-radio custom-control-inline" >
-                      <input type="radio" id="Nam" name="gioiTinh" class="custom-control-input" value="Nam" checked />
-                      <label class="custom-control-label" for="Nam">Nam</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline" >
-                      <input type="radio" id="Nu" name="gioiTinh" class="custom-control-input" value="Nu" />
-                      <label class="custom-control-label" for="Nu">Nữ</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="input-div phone">
-                <div class="i">
-                  <i class="fas fa-phone"></i>
-                </div>
-                <div class="div">
-                  <h5>Số điện thoại</h5>
-                  <input type="text" class="input" name="sl_signup_phone" required />
-                </div>
-              </div>
-              <div class="input-div adress">
-                <div class="i">
-                  <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="div">
-                  <h5>Địa chỉ</h5>
-                  <input type="text" class="input" name="sl_signup_address" required />
-                </div>
-              </div>
-            </div>
+  <div class="container">
+    <form class="border border-light form-div">
+      <div class="row form-content">
+        <div class="col-12">
+          <p class="h3 mb-4 text-center">TẠO TÀI KHOẢN</p>
+        </div>
+        <div class="form-group col-4">
+          <label for="username">Tên đăng nhập</label>
+          <input type="text" class="form-control" id="username" placeholder="Tên đăng nhập">
+        </div>
+        <div class="form-group col-4">
+          <label for="pass">Mật khẩu</label>
+          <input type="password" class="form-control" id="pass" placeholder="Mật khẩu">
+        </div>
+        <div class="form-group col-4">
+          <label for="passCon">Nhập lại mật khẩu</label>
+          <input type="password" class="form-control" id="passCon" placeholder="Xác nhận mật khẩu">
+        </div>
+        <div class="form-group col-4">
+          <label for="full-name">Họ và tên</label>
+          <input type="text" class="form-control" id="full-name" placeholder="Họ và tên">
+        </div>
+        <div class="form-group col-4">
+          <label for="mail">Email</label>
+          <input type="email" class="form-control" id="mail" placeholder="Email">
+        </div>
+        <div class="form-group col-3">
+          <label>Giới tính</label>
+          <br/>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="nam" value="male" checked>
+            <label class="form-check-label" for="nam">Nam</label>
           </div>
-		<p>${thongBao }</p>
-          <div class="row form-group">
-            <div class="col-6 form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required
-              />
-              <label class="form-check-label" for="invalidCheck2">
-                <span>Tôi đồng ý với các điều khoản</span>
-              </label>
-            </div>
-            <div class="col-6"><a href="showLogin">Trở lại đăng nhập</a></div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="nu" value="female">
+            <label class="form-check-label" for="nu">Nữ</label>
           </div>
-          <input type="submit" class="btn" value="ĐĂNG KÝ" />
-        </form>
+        </div>
+        <div class="form-group col-4">
+          <label for="city2">Tỉnh / Thành phố</label>
+          <select class="form-control" aria-label="Default select example" id="city2" onchange="city(this)">
+            <option value="none">Tỉnh / Thành phố</option>
+            <c:forEach var="list" items="${list }">
+              <option value="${list.getMatp() }">${list.getName() }</option>
+            </c:forEach>
+          </select>
+        </div>
+        <div class="form-group col-4">
+          <label for="district2">Quận / Huyện    </label>
+          <select class="form-control" aria-label="Default select example" id="district2" onchange="district(this)">
+            <option value="none">Quận / Huyện</option>
+          </select>
+        </div>
+        <div class="form-group col-4">
+          <label for="village2">Xã / Phường / Thị trấn</label>
+          <select class="form-control" aria-label="Default select example" id="village2" onchange="village(this)">
+            <option value="none">Xã / Phường / Thị trấn</option>
+          </select>
+        </div>
+        <div class="form-group col-12">
+          <label for="address">Địa chỉ</label>
+          <input type="email" class="form-control" id="address" placeholder="Địa chỉ">
+        </div>
+        <div class="form-check col-12">
+          <input class="form-group-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-group-label" for="defaultCheck1">
+            Đã đọc hết nội quy về việc tạo tài khoản của Shop
+          </label>
+        </div>
+        <div class="form-group col-12">
+          <button class="btn btn-info btn-block" type="submit">Đăng ký</button>
+        </div>
+        <div class="form-group col-6">
+          <p>
+            Đã có tài khoản! <a href="">Đăng nhập</a>
+          </p>
+        </div>
       </div>
-    </div>
-    <script type="text/javascript" src="js-new/main.js"></script>
-    <script>
-      const inputs = document.querySelectorAll(".input");
 
-      function addcl() {
-        let parent = this.parentNode.parentNode;
-        parent.classList.add("focus");
-      }
-
-      function remcl() {
-        let parent = this.parentNode.parentNode;
-        if (this.value == "") {
-          parent.classList.remove("focus");
-        }
-      }
-
-      inputs.forEach((input) => {
-        input.addEventListener("focus", addcl);
-        input.addEventListener("blur", remcl);
-      });
-    </script>
+    </form>
+  </div>
   </body>
+  <!-- JQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+  <script src="js/city.js"></script>
 </html>
