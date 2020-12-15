@@ -21,4 +21,10 @@ public class ImgAccServiceImpl implements ImgAccService {
 		return dao.findByAccessories(accessories);
 	}
 
+	@Override
+	public void add(ImgAccessories img) {
+		// TODO Auto-generated method stub
+		dao.add(img);
+	}
+
 }

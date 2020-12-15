@@ -98,48 +98,46 @@
                     <div class="card-body">
                         <div class="row card-content">
                             <div class="col-12">
-                                <form id="form-detail">
+                                <form id="form-detail" action="admin/AccessoriesManagement/UpdateAccessories">
+                                <input type="hidden" class="form-control" id="id" name="id" value="${acc.getId() }">
+                                <input type="hidden" class="form-control" id="ngay" name="ngay" value="${acc.getDate() }">
                                     <div class="row">
                                         <div class="form-group col-6">
                                             <label for="nameAccDetail">Tên phụ kiện</label>
-                                            <input type="text" class="form-control" id="nameAccDetail">
+                                            <input type="text" class="form-control" id="nameAccDetail" name="ten" value="${acc.getName() }">
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-6">
                                                 <label for="priceAcc">Giá</label>
-                                                <input type="text" class="form-control" id="priceAcc">
+                                                <input type="text" name="gia" class="form-control" id="priceAcc" value="${acc.getPrice() }">
                                             </div>
                                             <div class="form-group col-6">
                                                 <label for="amountAcc">Số lượng</label>
-                                                <input type="text" class="form-control" id="amountAcc">
+                                                <input type="text" class="form-control" name="soLuong" id="amountAcc" value="${acc.getAmount() }">
                                             </div>
                                         </div>
                                         <div class="form-group col-6">
                                             <label for="categoryAcc">Hãng phụ kiện</label>
-                                            <select class="form-control" id="categoryAcc">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                            <select class="form-control" id="categoryAcc" name="hang">
+                                                <c:forEach var="category" items="${listCategory }">
+															<option value="${category.id }">${ category.getName()}</option>
+														</c:forEach>
                                             </select>
                                         </div>
                                         <div class="form-group col-6">
                                             <label for="statusAcc">Trạng thái</label>
-                                            <select class="form-control" id="statusAcc">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                            <select class="form-control" id="statusAcc" name="trangThai">
+                                               <c:forEach var="status" items="${listStatus }">
+															<option value="${status }">${status }</option>
+														</c:forEach>
                                             </select>
                                         </div>
                                         <div class="form-group col-12">
                                             <label for="desAcc">Mô tả</label>
-                                            <textarea class="form-control" id="desAcc" rows="2"></textarea>
+                                            <textarea class="form-control" id="desAcc" rows="2" name="moTa">${acc.getDescription() }</textarea>
                                         </div>
                                         <div class="form-group col-12 button-group-center" >
-                                            <button type="button" class="btn btn-success">
+                                            <button type="submit" class="btn btn-success">
                                                 <i class="fas fa-save"></i> Cập nhật
                                             </button>
                                             <button onclick="showImage()" type="button" class="btn btn-info">
@@ -151,25 +149,19 @@
                                         </div>
                                     </div>
                                 </form>
-                                <form id="form-color" class="hide">
+                                <form id="form-color" class="hide" action="admin/AccessoriesManagement/addColor" method="post">
                                     <div class="row">
+                                    <input type="hidden" class="form-control" id="id" name="id" value="${acc.getId() }">
                                         <div class="form-group col-6">
                                             <label for="nameAcc">Tên phụ kiện</label>
-                                            <input type="text" class="form-control" id="nameAcc">
+                                            <input type="text" class="form-control" id="nameAcc" value="${acc.getName() }">
                                         </div>
                                             <div class="form-group col-6">
-                                                <label for="colorAcc">Màu sắc</label>
-                                                <select class="form-control selectpicker" multiple data-live-search="true" id="colorAcc">
-                                                    <option value="pink">Hồng</option>
-                                                    <option value="red">Đỏ</option>
-                                                    <option value="black">Đen</option>
-                                                    <option value="yellow">Vàng</option>
-                                                    <option value="white">Trắng</option>
-                                                    <option value="orange">Cam</option>
-                                                </select>
+                                               <label for="colorPet">Màu sắc</label> <input
+															type="text" class="form-control" id="color" name="mau">
                                             </div>
                                         <div class="form-group col-12 button-group-center" >
-                                            <button type="button" class="btn btn-success">
+                                            <button type="submit" class="btn btn-success">
                                                 <i class="fas fa-save"></i> Lưu
                                             </button>
                                             <button onclick="hideColor()" type="button" class="btn btn-danger">
@@ -178,25 +170,23 @@
                                         </div>
                                     </div>
                                 </form>
-                                <form id="form-size" class="hide">
+                                <form id="form-size" class="hide" action="admin/AccessoriesManagement/addSize" method="post">
+                                <input type="hidden" class="form-control" id="id" name="id" value="${acc.getId() }">
                                     <div class="row">
                                         <div class="form-group col-6">
                                             <label for="nameAccc">Tên phụ kiện</label>
-                                            <input type="text" class="form-control" id="nameAccc">
+                                            <input type="text" class="form-control" id="nameAccc" value="${acc.getName() }">
                                         </div>
                                         <div class="form-group col-6">
                                             <label for="sizeAcc">Kích thước</label>
-                                            <select class="form-control selectpicker" multiple data-live-search="true" id="sizeAcc">
-                                                <option value="S">S</option>
-                                                <option value="M">M</option>
-                                                <option value="L">L</option>
-                                                <option value="XL">XL</option>
-                                                <option value="XXL">XXL</option>
-                                                <option value="Free">Free Size</option>
+                                            <select class="form-control selectpicker" id="sizeAcc" name="size">
+                                                <c:forEach var="sizes" items="${sizes }">
+                                                <option value="${sizes }">${sizes }</option>
+                                                </c:forEach>
                                             </select>
                                         </div>
                                         <div class="form-group col-12 button-group-center" >
-                                            <button type="button" class="btn btn-success">
+                                            <button type="submit" class="btn btn-success">
                                                 <i class="fas fa-save"></i> Lưu
                                             </button>
                                             <button onclick="hideSize()" type="button" class="btn btn-danger">
@@ -244,10 +234,12 @@
                                         </tr>
                                         </thead>
                                             <tbody>
+                                            <c:forEach var="color" items="${color }">
                                                 <tr>
-                                                    <td>Vòng cổ chuông cho mèo</td>
-                                                    <td>Hồng</td>
+                                                    <td>${color.getAccessories().getName() }</td>
+                                                    <td>${color.getColorAccessories() }</td>
                                                 </tr>
+                                                </c:forEach>
                                             </tbody>
                                     </table>
                                 </div>
@@ -269,10 +261,12 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>Vòng cổ chuông cho mèo</td>
-                                            <td>M,L,XL</td>
-                                        </tr>
+                                         <c:forEach var="size" items="${size }">
+                                                <tr>
+                                                    <td>${size.getAccessories().getName() }</td>
+                                                    <td>${size.getSizeName() }</td>
+                                                </tr>
+                                                </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>

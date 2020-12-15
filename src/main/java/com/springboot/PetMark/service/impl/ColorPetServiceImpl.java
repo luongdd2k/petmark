@@ -45,4 +45,10 @@ public class ColorPetServiceImpl implements ColorPetService {
 		return dao.findListPet(fullColor, eyeColor);
 	}
 
+	@Override
+	public void add(ColorPet color) {
+		// TODO Auto-generated method stub
+		dao.add(color);
+	}
+
 }

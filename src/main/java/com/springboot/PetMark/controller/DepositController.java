@@ -354,7 +354,7 @@ public class DepositController {
 										+ "Khi đến cửa hàng nhận thú và thanh toán vui lòng mở mail để cửa hàng xác nhận đơn cọc." + "\n"
 										+ "Xin chân thành cảm ơn.");
 								Transport.send(message);
-								System.out.println("thông báo mail đặt hàng thành công");
+								System.out.println("Thông báo mail đặt hàng thành công!");
 							} catch (Exception e) {
 								// TODO: handle exception
 								System.out.println(e);

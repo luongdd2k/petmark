@@ -1,6 +1,7 @@
 package com.springboot.PetMark.controller;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,9 +29,14 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.springboot.PetMark.entities.Account;
+import com.springboot.PetMark.entities.Blog;
+import com.springboot.PetMark.entities.ColorPet;
+import com.springboot.PetMark.entities.ImgPet;
 import com.springboot.PetMark.entities.Pet;
 import com.springboot.PetMark.entities.Species;
 import com.springboot.PetMark.service.AccountService;
+import com.springboot.PetMark.service.ColorPetService;
+import com.springboot.PetMark.service.ImgPetService;
 import com.springboot.PetMark.service.PetService;
 import com.springboot.PetMark.service.SpeciesService;
 
@@ -44,11 +50,16 @@ public class PetController {
 	@Autowired
 	SpeciesService speciesService;
 	@Autowired
+	ColorPetService colorPetService;
+	@Autowired
+	ImgPetService imgPetService;
+	@Autowired
 	ServletContext context;
 
 //	
 	@RequestMapping("/ProductManagement")
-	public String index(ModelMap model, HttpServletRequest request,Principal principal) throws IllegalArgumentException {
+	public String index(ModelMap model, HttpServletRequest request, Principal principal)
+			throws IllegalArgumentException {
 		HttpSession session = request.getSession();
 		List<Pet> listProduct = new ArrayList<Pet>();
 //		List<Pet> listProduct = petService.findAll();
@@ -58,7 +69,7 @@ public class PetController {
 		List<String> listStatus = petService.selecStatus();
 		int countContinueProduct = petService.countContinueProduct();
 //		System.out.println("countContinueProduct: " + countContinueProduct);
-		int totalPage = (int) Math.ceil((double)countContinueProduct/10);
+		int totalPage = (int) Math.ceil((double) countContinueProduct / 10);
 		String action = "DisContinuedProduct";
 		int targetPage;
 
@@ -85,53 +96,65 @@ public class PetController {
 		if (sortValue == null)
 			sortValue = "-1";
 		model.addAttribute("sortValue", sortValue);
-		try {		
+		try {
 			switch (sortValue) {
 			case "-1":
-				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showProductByCategoryPageable( "Còn hàng", PageRequest.of(page, 10, Sort.by("id").ascending()));
-				
+				if (targetPage > totalPage)
+					page = 0;
+				listProduct = petService.showProductByCategoryPageable("Còn hàng",
+						PageRequest.of(page, 10, Sort.by("id").ascending()));
+
 				break;
 			case "0":
-				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("id").descending()));
-				
+				if (targetPage > totalPage)
+					page = 0;
+				listProduct = petService.showProductByCategoryPageable("Còn hàng",
+						PageRequest.of(page, 10, Sort.by("id").descending()));
+
 				break;
 			case "1":
-				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("price").ascending()));
-				
+				if (targetPage > totalPage)
+					page = 0;
+				listProduct = petService.showProductByCategoryPageable("Còn hàng",
+						PageRequest.of(page, 10, Sort.by("price").ascending()));
+
 				break;
 			case "2":
-				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("price").descending()));
-				
+				if (targetPage > totalPage)
+					page = 0;
+				listProduct = petService.showProductByCategoryPageable("Còn hàng",
+						PageRequest.of(page, 10, Sort.by("price").descending()));
+
 				break;
 			case "3":
-				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showProductByCategoryPageable("Ngừng bán", PageRequest.of(page, 10, Sort.by("id").ascending()));
+				if (targetPage > totalPage)
+					page = 0;
+				listProduct = petService.showProductByCategoryPageable("Ngừng bán",
+						PageRequest.of(page, 10, Sort.by("id").ascending()));
 //				totalPage = (int) Math.ceil((double)petService.countProduct("Ngừng bán")/10);
 				nameButton2 = "Đăng bán";
-				action ="ContinuedProduct";
+				action = "ContinuedProduct";
 //				classButton2 = "cancel_discontinue";
 				classButtonDelete = "cancel_discontinue";
-				
+
 				break;
 			case "4":
-				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showByDes( "chó", PageRequest.of(page, 10, Sort.by("id").ascending()));
-				
+				if (targetPage > totalPage)
+					page = 0;
+				listProduct = petService.showByDes("chó", PageRequest.of(page, 10, Sort.by("id").ascending()));
+
 				break;
 			case "5":
-				if(targetPage > totalPage) page = 0;
-				listProduct = petService.showByDes( "mèo", PageRequest.of(page, 10, Sort.by("id").ascending()));
-				
+				if (targetPage > totalPage)
+					page = 0;
+				listProduct = petService.showByDes("mèo", PageRequest.of(page, 10, Sort.by("id").ascending()));
+
 				break;
 			default:
-				
+
 				break;
 			}
-		
+
 		} catch (Exception e) {
 			return "404";
 		}
@@ -146,7 +169,7 @@ public class PetController {
 			model.addAttribute("add", "added");
 			session.setAttribute("add", null);
 		}
-	
+
 		User user = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(user.getUsername());
 		model.addAttribute("account", account);
@@ -162,57 +185,50 @@ public class PetController {
 		return "pages/pet/pet-manager";
 	}
 
-	
 	@RequestMapping("/getPageableQLSP")
 	public String getPageableQLSP(HttpServletRequest request) {
 
 		return "redirect:/admin/ProductManagement";
 	}
 
-	
 	@RequestMapping("/changeSortValue")
 	public String changeSortValue(HttpServletRequest request) {
 		String sortValue = request.getParameter("sortValue");
-		System.out.println("value lọc: "+ sortValue);
-		return "redirect:/admin/ProductManagement?sortValue="+sortValue;
-		
+		System.out.println("value lọc: " + sortValue);
+		return "redirect:/admin/ProductManagement?sortValue=" + sortValue;
+
 	}
 
 	@RequestMapping("/ProductManagement/AddProduct")
 	public String addProduct(HttpServletRequest request) {
 		String name = request.getParameter("tenThu");
 		String status = request.getParameter("trangThai");
-//		System.out.println("Trạng thái: "+status);
-//		String imagePath = request.getParameter("hiddenImgPath");
-//		System.out.println("IMGpath:" + imagePath);
 		int age = Integer.valueOf(request.getParameter("tuoiThu"));
 		int categoryID = Integer.valueOf(request.getParameter("giongThu"));
 		String priceDisplay = request.getParameter("giaThu");
 		float price = Float.valueOf(priceDisplay);
-		float coc = price/10;
+		float coc = price / 10;
 		int quantityLeft = Integer.valueOf(request.getParameter("soLuong"));
 		String des = request.getParameter("moTaThu");
 		Species species = speciesService.findById(categoryID);
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
 		Pet pet = new Pet(name, price, coc, age, quantityLeft, des, status, species, date);
-		System.out.println("pet: "+pet);
+		System.out.println("pet: " + pet);
 		petService.addPet(pet);
 
 		return "redirect:/admin/ProductManagement";
 	}
 
-
 	@RequestMapping("/ProductManagement/UpdateProduct")
-//	@ResponseBody
+
 	public String updateProduct(HttpServletRequest request) throws ParseException {
 		int id = Integer.valueOf(request.getParameter("id"));
 		String name = request.getParameter("tenThu");
 		String status = request.getParameter("trangThai");
 		String priceDisplay = request.getParameter("giaThu");
-//		String coc = request.getParameter("p_fix_coc");
-		float price = Float.valueOf(priceDisplay.substring(0, priceDisplay.length() - 2).replaceAll("\\.", ""));
-		float giaCoc = price/10;
+		float price = Float.valueOf(priceDisplay);
+		float giaCoc = price / 10;
 		int quantityLeft = Integer.valueOf(request.getParameter("soLuong"));
 		int age = Integer.valueOf(request.getParameter("tuoiThu"));
 		int categoryID = Integer.valueOf(request.getParameter("giongThu"));
@@ -223,9 +239,9 @@ public class PetController {
 		System.out.println(date);
 		Pet pet = new Pet(id, name, price, giaCoc, age, quantityLeft, des, status, species, date);
 		petService.updatePet(pet);
-		return "redirect:/admin/ProductManagement";
+		return "redirect:/admin/ProductManagement/show-edit/" + id;
 	}
-	
+
 	@RequestMapping("/ProductManagement/DisContinuedProduct")
 //	@ResponseBody
 	public String disContinuedProduct(HttpServletRequest request) {
@@ -235,26 +251,26 @@ public class PetController {
 
 		return "redirect:/admin/ProductManagement";
 	}
+
 //	
 	@RequestMapping("/ProductManagement/ContinuedProduct")
 //	@ResponseBody
 	public String continuedProduct(HttpServletRequest request) {
 		int productId = Integer.valueOf(request.getParameter("idthu"));
 		petService.continuePet(productId);
-		
+
 		return "redirect:/admin/ProductManagement";
 	}
-	
+
 	@RequestMapping("/ProductManagement/edit")
-//	@ResponseBody
 	public String editProduct(HttpServletRequest request, ModelMap model) {
 		int productId = Integer.valueOf(request.getParameter("id"));
-	 Pet pet = petService.findById(productId);
-//		request.setAttribute("pet", pet);
+		Pet pet = petService.findById(productId);
 		model.addAttribute("pet", pet);
-		System.out.println("Thú update: "+pet);
+		System.out.println("Thú update: " + pet);
 		return "redirect:/admin/ProductManagement";
 	}
+
 	@RequestMapping("/ProductManagement/show-edit/{id}")
 	public ModelAndView showEdit(HttpServletRequest req, @PathVariable int id, Principal principal) {
 		ModelAndView model = new ModelAndView();
@@ -268,7 +284,44 @@ public class PetController {
 		User logginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addObject("account", account);
+		List<ColorPet> color = colorPetService.findByPet(pet);
+		model.addObject("color", color);
 		return model;
 	}
 
+	@RequestMapping("/ProductManagement/addColor")
+	public String addColor(HttpServletRequest req) {
+		int id = Integer.parseInt(req.getParameter("id"));
+		String mauLong = req.getParameter("mauLong");
+		String mauMat = req.getParameter("mauMat");
+		Pet pet = petService.findById(id);
+		ColorPet color = new ColorPet(pet, mauLong, mauMat);
+		colorPetService.add(color);
+		return "redirect:/admin/ProductManagement/show-edit/" + id;
+	}
+
+	@RequestMapping("/ProductManagement/addImg")
+	public String addImg(HttpServletRequest req, @RequestParam("img2") MultipartFile img2,
+			@RequestParam("avatar") MultipartFile avatar, @RequestParam("img1") MultipartFile img1,
+			@RequestParam("img3") MultipartFile img3) throws FileNotFoundException {
+		int id = Integer.parseInt(req.getParameter("id"));
+		Pet pet = petService.findById(id);
+		String path = "Image/Pet/";
+		try {
+			String photoPath = context.getRealPath(path + avatar.getOriginalFilename());
+			avatar.transferTo(new File(photoPath));
+			String photoPath1 = context.getRealPath(path + img1.getOriginalFilename());
+			img1.transferTo(new File(photoPath));
+			String photoPath2 = context.getRealPath(path + img2.getOriginalFilename());
+			img2.transferTo(new File(photoPath));
+			String photoPath3 = context.getRealPath(path + img3.getOriginalFilename());
+			img3.transferTo(new File(photoPath));
+			ImgPet img = new ImgPet(path + avatar.getOriginalFilename(), path + img1.getOriginalFilename(), path + img2.getOriginalFilename(), path + img3.getOriginalFilename(), pet);
+		imgPetService.add(img);
+		} catch (Exception e) {
+			System.out.println("Lỗi lưu ảnh: " + e);
+		}
+
+		return "redirect:/admin/ProductManagement/show-edit/" + id;
+	}
 }

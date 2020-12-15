@@ -14,4 +14,5 @@ public interface ColorPetDAO {
 	List<String> getFullColor();
 
 	List<Pet> findListPet(String fullColor, String eyeColor);
+	void add(ColorPet color);
 }

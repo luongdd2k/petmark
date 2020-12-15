@@ -14,7 +14,7 @@ function city(obj){
         .done(function(res) {
             if (res) {
                 let district = $.parseJSON(res);
-                $('#district2').html(`<option value="none">---- Chọn Quận / Huyện ----</option>`);
+                $('#district2').html(`<option value="none"> Quận / Huyện </option>`);
 
                 district.forEach(item => {
                     $('#district2').append(`<option value="${item.maqh}">${item.name }</option>`)
@@ -39,7 +39,7 @@ function district(obj){
         .done(function(res) {
             if (res) {
                 let village = $.parseJSON(res);
-                $('#village2').html(`<option value="none">---- Chọn Xã / Phường / Thị trấn ----</option>`);
+                $('#village2').html(`<option value="none"> Xã / Phường / Thị trấn </option>`);
                 village.forEach(item => {
                     $('#village2').append(`<option value="${item.xaid }">${item.name}</option>`);
                 })

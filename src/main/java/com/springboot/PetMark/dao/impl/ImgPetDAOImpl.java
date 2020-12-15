@@ -17,5 +17,10 @@ public class ImgPetDAOImpl implements ImgPetDAO{
 		// TODO Auto-generated method stub
 		return repo.findByPet(pet);
 	}
+	@Override
+	public void add(ImgPet img) {
+		// TODO Auto-generated method stub
+		repo.save(img);
+	}
 
 }

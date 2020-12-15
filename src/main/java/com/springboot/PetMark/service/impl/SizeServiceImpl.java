@@ -39,4 +39,10 @@ public class SizeServiceImpl implements SizeService {
 		return dao.findListAcc(size);
 	}
 
+	@Override
+	public void add(SizeAccessories size) {
+		// TODO Auto-generated method stub
+		dao.add(size);
+	}
+
 }
