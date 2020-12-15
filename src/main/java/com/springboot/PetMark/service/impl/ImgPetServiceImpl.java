@@ -16,5 +16,10 @@ public class ImgPetServiceImpl implements ImgPetService{
 		// TODO Auto-generated method stub
 		return dao.findByPet(pet);
 	}
+	@Override
+	public void add(ImgPet img) {
+		// TODO Auto-generated method stub
+		dao.add(img);
+	}
 
 }

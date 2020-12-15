@@ -21,4 +21,10 @@ public class ImgAccDAOImpl implements ImgAccDAO {
 		return repo.findByAccessories(accessories);
 	}
 
+	@Override
+	public void add(ImgAccessories img) {
+		// TODO Auto-generated method stub
+		repo.save(img);
+	}
+
 }

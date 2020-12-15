@@ -39,5 +39,10 @@ ColorPetRepo repo;
 		// TODO Auto-generated method stub
 		return repo.findListPet(fullColor, eyeColor);
 	}
+	@Override
+	public void add(ColorPet color) {
+		// TODO Auto-generated method stub
+		repo.save(color);
+	}
 
 }

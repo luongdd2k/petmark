@@ -29,11 +29,14 @@ import org.springframework.web.servlet.ModelAndView;
 import com.springboot.PetMark.entities.Accessories;
 import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.Category;
+import com.springboot.PetMark.entities.ColorAccessories;
+import com.springboot.PetMark.entities.SizeAccessories;
 import com.springboot.PetMark.repository.AccessoriesRepository;
 import com.springboot.PetMark.service.AccessoriesService;
 import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.CategoryService;
 import com.springboot.PetMark.service.ColorAccessoriesService;
+import com.springboot.PetMark.service.SizeService;
 
 @Controller
 @RequestMapping("/admin/AccessoriesManagement")
@@ -44,6 +47,8 @@ public class AccessoriesController {
 	CategoryService CategoryService;
 	@Autowired
 	ColorAccessoriesService color;
+	@Autowired
+	SizeService sizeService;
 	@Autowired
 	AccountService accountService;
 	@Autowired
@@ -196,21 +201,21 @@ public class AccessoriesController {
 //	@ResponseBody
 	public String updateAccessories(HttpServletRequest request) throws ParseException {
 		int id = Integer.valueOf(request.getParameter("id"));
-		String name = request.getParameter("tenPhuKien");
-		String status = request.getParameter("trangThaiPhuKien");
-		String priceDisplay = request.getParameter("giaPhuKien");
-		String description = request.getParameter("moTaPhuKien");
-		float price = Float.valueOf(priceDisplay.substring(0, priceDisplay.length() - 2).replaceAll("\\.", ""));
-		int amount = Integer.valueOf(request.getParameter("soLuongPhuKien"));
-		int categoryID = Integer.valueOf(request.getParameter("hangPhuKien"));
+		String name = request.getParameter("ten");
+		String status = request.getParameter("trangThai");
+		String priceDisplay = request.getParameter("gia");
+		String description = request.getParameter("moTa");
+		float price = Float.valueOf(priceDisplay);
+		int amount = Integer.valueOf(request.getParameter("soLuong"));
+		int categoryID = Integer.valueOf(request.getParameter("hang"));
 		Category Category = CategoryService.findById(categoryID);
-		String date1 = request.getParameter("ngayUpdate");
+		String date1 = request.getParameter("ngay");
 		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(date1);
 		System.out.println(date);
 		Accessories Accessories = new Accessories(id, name, price, amount, Category, date, description, status);
 		System.out.println("phụ kiện update: " +Accessories);
 		AccessoriesService.updateAccessories(Accessories);
-		return "redirect:/admin/AccessoriesManagement";
+		return "redirect:/admin/AccessoriesManagement/show-edit/"+id;
 	}
 	
 	@RequestMapping("/DisContinuedAccessories")
@@ -244,6 +249,35 @@ public ModelAndView showEditAcc(HttpServletRequest req,@PathVariable int id,Prin
 	model.addObject("acc", accessories);
 	model.addObject("listCategory", listCategory);
 	model.addObject("listStatus", listStatus);
+	model.addObject("color", color.findByAccessories(accessories));
+	model.addObject("size", sizeService.findByAccessories(accessories));
+	model.addObject("sizes", sizeService.getStatus());
 	return model;
+}
+@RequestMapping("/addColor")
+public String addColor(HttpServletRequest req) {
+	int id = Integer.valueOf(req.getParameter("id"));
+	Accessories accessories = AccessoriesService.findById(id);
+	String mau = req.getParameter("mau");
+	ColorAccessories colo = new ColorAccessories(mau, accessories);
+	try {
+		color.addColorAccessories(colo);
+	} catch (Exception e) {
+		System.out.println("lỗi thêm màu: "+e);
+	}
+	return "redirect:/admin/AccessoriesManagement/show-edit/"+id;
+}
+@RequestMapping("/addSize")
+public String addSize(HttpServletRequest req) {
+	int id = Integer.valueOf(req.getParameter("id"));
+	Accessories accessories = AccessoriesService.findById(id);
+	String sizes = req.getParameter("size");
+	SizeAccessories size = new SizeAccessories(sizes, accessories);
+	try {
+		sizeService.add(size);
+	} catch (Exception e) {
+		System.out.println("lỗi thêm size: "+e);
+	}
+	return "redirect:/admin/AccessoriesManagement/show-edit/"+id;
 }
 }

@@ -10,4 +10,5 @@ public interface SizeService {
 	SizeAccessories findById(int id);
 	List<String> getStatus();
 	List<Accessories> findListAcc(String size);
+	void add(SizeAccessories size);
 }
