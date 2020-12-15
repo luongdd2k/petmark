@@ -40,7 +40,6 @@
 </head>
 
 <body>
-<a href="show-demo"><h1>ấn vào đây để vào demo nhé tk ngu</h1></a>
 	<%@ include file="/WebContent/views/header_nav.jsp"%>
 	<!-- Hero -->
 	<div id="carouselExampleIndicators" class="carousel slide"

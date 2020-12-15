@@ -81,7 +81,7 @@
 												<span>${name } </span> &nbsp;
 												<span>  ${phone } </span>
 											</div>
-											<div class="checkout-address-row__address-summary"> ${adress }</div>
+											<div class="checkout-address-row__address-summary"> ${address }</div>
 											<div id="adress-edit" class="checkout-address-row__address-summary checkout-address-row__address-summary--edit">
 												<p onclick="doiDiaChi()" style="color: blue;">Thay đổi</p>
 											</div>

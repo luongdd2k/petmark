@@ -106,7 +106,7 @@
 														<td>
 															<a href="admin/orders/detail/${list.id}">${list.id }</a>
 														</td>
-														<td>${list.getAccount().getFullName() }</td>
+														<td>${list.getConsignee() }</td>
 														<td>${list.getDate() }</td>
 														<td class="td-js">${list.getPaymentStatus() }</td>
 														<td class="td_js">${list.getDeliveryStatus() }</td>
