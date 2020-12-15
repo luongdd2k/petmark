@@ -38,6 +38,9 @@ import com.springboot.PetMark.entities.OrderrWeb;
 import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.BlogService;
 import com.springboot.PetMark.service.OrderrWebService;
+import com.springboot.PetMark.service.QuanHuyenService;
+import com.springboot.PetMark.service.TinhThanhPhoService;
+import com.springboot.PetMark.service.XaPhuongThiTranService;
 
 import pet.mart.util.DeliveryStatus;
 
@@ -52,6 +55,12 @@ public class AccountController {
 	BlogService blogService;
 	@Autowired
 	ServletContext context;
+	@Autowired
+	TinhThanhPhoService tpService;
+	@Autowired
+	QuanHuyenService qhService;
+	@Autowired
+	XaPhuongThiTranService xaService;
 
 	@RequestMapping("/showforgotpw")
 	public String showForgotpw() {
@@ -95,45 +104,39 @@ public class AccountController {
 	public ModelAndView checkSignup(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		ModelAndView model = new ModelAndView();
-		String username = request.getParameter("sl_signup_username");
-		String password = request.getParameter("sl_signup_password");
-		String password2 = request.getParameter("sl_signup_password_2");
-		String fullname = request.getParameter("sl_signup_name");
-		String gender_s = request.getParameter("gioiTinh");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		String password2 = request.getParameter("password_2");
+		String fullname = request.getParameter("name");
+		String gender_s = request.getParameter("inlineRadioOptions");
 		boolean gender = false;
 		if (gender_s.equals("Nu"))
 			gender = true;
-		String email = request.getParameter("sl_signup_email");
-		String phone = request.getParameter("sl_signup_phone");
-		String address = request.getParameter("sl_signup_address");
-		String message = "";
-		if (password.equalsIgnoreCase(password2)) {
+		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
+		String address = request.getParameter("address") + " - " + xaService.findById(request.getParameter("xaid")).getName()
+				+ " - " + qhService.findById(request.getParameter("maqh")).getName() + " - "
+				+ tpService.findById(request.getParameter("matp")).getName();
+		try {
 			accountService.addAccount(username, password, fullname, gender, email, phone, address);
-			model.setViewName("redirect:/showLogin");
-			message = "Đăng kí thành công! Mời bạn đăng nhập";
-			model.addObject("thongBao", message);
-		} else {
-			message = "Mật khẩu bạn nhập không trùng khớp vui lòng nhập lại!!";
+			model.setViewName("redirect:/showLogin");	
+		} catch (Exception e) {
+			// TODO: handle exception
 			model.setViewName("redirect:/showregister");
-			model.addObject("thongBao", message);
+			System.out.println("lỗi thêm tài khoản: "+e);
 		}
-//		try {
-//			request.login(username, password);
-//		} catch (ServletException e) {
-//			// TODO Auto-generated catch block
-//			System.out.println("CheckSignup: " + e);
-//		}
-
-		System.out.println("\r---------------------");
-		System.out.println("Signup Successfully!");
-		System.out.println("username: " + username);
-		System.out.println("role: member");
-		System.out.println("-----------------------");
-
-		session.setAttribute("username", username);
-		session.setAttribute("role", "member");
-		session.setAttribute("totalQuantity", 0);
-		session.setAttribute("fullname", fullname);
+			
+			
+//		System.out.println("\r---------------------");
+//		System.out.println("Signup Successfully!");
+//		System.out.println("username: " + username);
+//		System.out.println("role: member");
+//		System.out.println("-----------------------");
+//
+//		session.setAttribute("username", username);
+//		session.setAttribute("role", "member");
+//		session.setAttribute("totalQuantity", 0);
+//		session.setAttribute("fullname", fullname);
 		if (gender) {
 			session.setAttribute("profilePictureURL", "Image/user/woman01.svg");
 		} else {
@@ -142,8 +145,6 @@ public class AccountController {
 
 		String currentPath = (String) session.getAttribute("currentPath");
 
-//		return "redirect:" + currentPath;
-//		return "redirect:/showLogin";
 		return model;
 	}
 

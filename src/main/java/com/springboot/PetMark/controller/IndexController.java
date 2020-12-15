@@ -127,8 +127,8 @@ public class IndexController {
 	public ModelAndView showRegister(HttpServletRequest req) {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("client2/register");
-		String thongBao = req.getParameter("thongBao");
-		model.addObject("thongBao", thongBao);
+		List<TinhThanhPho> tp = tpService.findAll();
+		model.addObject("tp", tp);
 		return model;
 	}
 

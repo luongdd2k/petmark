@@ -296,7 +296,12 @@ public class PetController {
 		String mauMat = req.getParameter("mauMat");
 		Pet pet = petService.findById(id);
 		ColorPet color = new ColorPet(pet, mauLong, mauMat);
-		colorPetService.add(color);
+		try {
+			colorPetService.add(color);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi thêm màu thú: "+ e);
+		}
 		return "redirect:/admin/ProductManagement/show-edit/" + id;
 	}
 
