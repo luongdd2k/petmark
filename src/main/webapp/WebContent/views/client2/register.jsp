@@ -109,20 +109,20 @@ body {
 						<option value="none">Xã / Phường / Thị trấn</option>
 					</select>
 				</div>
-				<div class="form-group col-6">
+				<div class="form-group col-4">
 					<label for="address">Số điện thoại</label> <input type="text"
 						class="form-control" id="sdt" name="phone" placeholder="Số điện thoại">
 				</div>
-				<div class="form-group col-6">
+				<div class="form-group col-8">
 					<label for="address">Địa chỉ</label> <input type="text"
 						class="form-control" id="address" name="address" placeholder="Địa chỉ">
 				</div>
-				<div class="form-check col-12">
-					<input class="form-group-input" type="checkbox" value=""
-						id="defaultCheck1"> <label class="form-group-label"
-						for="defaultCheck1"> Đã đọc hết nội quy về việc tạo tài
-						khoản của Shop </label>
-				</div>
+<%--				<div class="form-check col-12">--%>
+<%--					<input class="form-group-input" type="checkbox" value=""--%>
+<%--						id="defaultCheck1"> <label class="form-group-label"--%>
+<%--						for="defaultCheck1"> Đã đọc hết nội quy về việc tạo tài--%>
+<%--						khoản của Shop </label>--%>
+<%--				</div>--%>
 				<input type="hidden" class="form-control" id="city-id" name="matp"
 				value=""> <input type="hidden" class="form-control"
 				id="district-id" name="maqh" value=""> <input type="hidden"
