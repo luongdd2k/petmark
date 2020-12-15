@@ -7,78 +7,78 @@
 	<meta charset="utf-8">
 	<title>Pet Mart | Đăng nhập</title>
 	<base href="${pageContext.servletContext.contextPath}/">
-	<link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@500&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
-			integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
-	<link rel="stylesheet" type="text/css" href="css-new/login.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	<!-- Google Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+	<style>
+		body{
+			background-image: url(https://wallpaperaccess.com/full/1567666.png);
+		}
+		.container{
+			max-width: 600px;
+			display: flex;
+			align-items: center;
+			height: 100vh;
+		}
+		.form-content{
+			padding: 30px 50px 0px 50px;
+		}
+		.form-div{
+			background-color: white;
+		}
+	</style>
 </head>
 <body>
-	<img class="wave" src="images/login/wave.png">
-	<div class="container">
-		<div class="img">
-			<img src="images/login/bg.svg">
+<div class="container">
+	<form class="border border-light form-div" action="CheckLogin" id="sl_form_login" method="post">
+		<div class="row form-content">
+			<div class="col-12">
+				<p class="h3 mb-4 text-center">XIN CHÀO</p>
+			</div>
+			<div class="form-group col-12">
+				<label for="username">Tên đăng nhập</label>
+				<input type="text" name="sl_login_username" class="form-control" id="username" placeholder="Tên đăng nhập" required="required">
+			</div>
+			<div class="form-group col-12">
+				<label for="pass">Mật khẩu</label>
+				<input type="password" name="sl_login_password" class="form-control" id="pass" placeholder="Mật khẩu" required="required">
+			</div>
+			<p>${thongBao }</p>
+			<input type="hidden" name="cart_hidden_id" id="cart_hidden_id" value="${id}">
+			<input type="hidden" name="urlPage" id="urlPage" value="">
+			<div class="form-check col-6">
+				<input class="form-group-input" type="checkbox" value="" id="defaultCheck1">
+				<label class="form-group-label" for="defaultCheck1">
+					Nhớ mật khẩu
+				</label>
+			</div>
+			<div class="form-check col-6" style="text-align: right;">
+				<a href="showforgotpw">Quên mật khẩu</a>
+			</div>
+			<div class="form-group col-12">
+				<button class="btn btn-info btn-block" type="submit">Đăng nhập</button>
+			</div>
+			<div class="form-group col-8">
+				<p>
+					Bạn chưa có tài khoản? <a href="showregister">Đăng ký</a>
+				</p>
+			</div>
 		</div>
-		<div class="login-content">
-			<form action="CheckLogin" id="sl_form_login" method="post">
-				<img src="images/login/avatar.svg">
-				<h2 class="title">Xin chào</h2>
-           		<div class="input-div one">
-           		   <div class="i">
-           		   		<i class="fas fa-user"></i>
-           		   </div>
-           		   <div class="div">
-           		   		<h5>Tên tài khoản</h5>
-           		   		<input type="text" class="input input_text" name="sl_login_username"
-									id="username" required="required">
-           		   </div>
-           		</div>
-           		<div class="input-div pass">
-           		   <div class="i"> 
-           		    	<i class="fas fa-lock"></i>
-           		   </div>
-           		   <div class="div">
-           		    	<h5>Mật khẩu</h5>
-           		    	<input type="password" class="input input_text" id="password" name="sl_login_password"
-									required="required">
-            	   </div>
-				</div>
-				<p>${thongBao }</p>
-				<input type="hidden" name="cart_hidden_id" id="cart_hidden_id"
-								value="${id}"> <input type="hidden" name="urlPage"
-								id="urlPage" value="">
-				<div class="row">
-					<div class="col-4"><a href="showregister" style="text-align: left;">Tạo tài khoản mới</a></div>
-					<div class="col-4"><a href="" style="text-align: center;">Trang chủ</a></div>
-					<div class="col-4"><a href="showforgotpw">Quên mật khẩu?</a></div>
-				</div>
-            	<input type="submit" class="btn" value="Đăng nhập">
-            </form>
-        </div>
-    </div>
-	<script type="text/javascript" src="js/main.js"></script>
-	<script>
-		const inputs = document.querySelectorAll(".input");
-  
-		function addcl() {
-		  let parent = this.parentNode.parentNode;
-		  parent.classList.add("focus");
-		}
-  
-		function remcl() {
-		  let parent = this.parentNode.parentNode;
-		  if (this.value == "") {
-			parent.classList.remove("focus");
-		  }
-		}
-  
-		inputs.forEach((input) => {
-		  input.addEventListener("focus", addcl);
-		  input.addEventListener("blur", remcl);
-		});
-	  </script>
-<%--	  <script type="text/javascript" src="Script/index.js"></script>--%>
+	</form>
+</div>
 </body>
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 </html>
