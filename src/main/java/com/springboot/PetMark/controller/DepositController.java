@@ -14,7 +14,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -30,6 +37,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.JsonObject;
+import com.springboot.PetMark.config.MailConfig;
 import com.springboot.PetMark.config.VNPayConfig;
 import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.ColorPet;
@@ -40,6 +48,9 @@ import com.springboot.PetMark.service.CartItemService;
 import com.springboot.PetMark.service.ColorPetService;
 import com.springboot.PetMark.service.DepositService;
 import com.springboot.PetMark.service.PetService;
+import com.springboot.PetMark.service.QuanHuyenService;
+import com.springboot.PetMark.service.TinhThanhPhoService;
+import com.springboot.PetMark.service.XaPhuongThiTranService;
 
 import pet.mart.util.DepositStatus;
 
@@ -56,6 +67,12 @@ public class DepositController {
 	PetService petService;
 	@Autowired
 	CartItemService cardSv;
+	@Autowired
+	TinhThanhPhoService tpService;
+	@Autowired
+	QuanHuyenService qhService;
+	@Autowired
+	XaPhuongThiTranService xaService;
 	
 	@RequestMapping("/show-cancel-deposit")
 	public ModelAndView showCancelDeposit(Principal principal) {
@@ -218,6 +235,13 @@ public class DepositController {
 		java.sql.Date date = new java.sql.Date(millis);
 		float totalAmount = pet.getDeposit()*soLuong;
 		String stt = DepositStatus.CANCELLED;
+		String address = req.getParameter("address") + " - " + xaService.findById(req.getParameter("xaid")).getName()
+				+ " - " + qhService.findById(req.getParameter("maqh")).getName() + " - "
+				+ tpService.findById(req.getParameter("matp")).getName();
+		account.setAddress(address);
+		account.setFullName(req.getParameter("ten"));
+		account.setEmail(req.getParameter("email"));
+		account.setPhone(req.getParameter("sdt"));
 		Deposit deposit = new Deposit(pet, account,color, date, soLuong, totalAmount, stt);
 		depositService.add(deposit);
 		model.addObject("total",totalAmount);
@@ -305,9 +329,37 @@ public class DepositController {
 
 				if (signValue.equals(vnp_SecureHash)) {
 					if ("00".equals(request.getParameter("vnp_ResponseCode"))) {
-
+						
 						deposit.setStatus(DepositStatus.DEPOSITED);
 						result = "Thành công";
+						if (deposit.getAccount().getEmail() != null) {
+							Properties props = new Properties();
+							props.put("mail.smtp.auth", "true");
+							props.put("mail.smtp.starttls.enable", "true");
+							props.put("mail.smtp.host", MailConfig.HOST_NAME);
+							props.put("mail.smtp.port", MailConfig.TSL_PORT);
+
+							// get Session
+							Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+								protected PasswordAuthentication getPasswordAuthentication() {
+									return new PasswordAuthentication(MailConfig.APP_EMAIL, MailConfig.APP_PASSWORD);
+								}
+							});
+							try {
+								MimeMessage message = new MimeMessage(session);
+								message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(deposit.getAccount().getEmail()));
+								message.setSubject("Thông báo đặt cọc thú cưng từ PetMark");
+								message.setText("Mã đơn đặt cọc của bạn: " + deposit.getId() + "\n"
+										+"Số tiền đã đặt cọc: "+deposit.getTotalAmount()+" VND" +"\n"
+										+ "Khi đến cửa hàng nhận thú và thanh toán vui lòng mở mail để cửa hàng xác nhận đơn cọc." + "\n"
+										+ "Xin chân thành cảm ơn.");
+								Transport.send(message);
+								System.out.println("thông báo mail đặt hàng thành công");
+							} catch (Exception e) {
+								// TODO: handle exception
+								System.out.println(e);
+							}
+						}
 					}
 				}
 				depositService.add(deposit);

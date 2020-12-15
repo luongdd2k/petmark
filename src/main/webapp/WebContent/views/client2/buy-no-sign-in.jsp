@@ -107,6 +107,7 @@
 												<textarea class="form-control" id="adressRecive" name="address" rows="3">${address }</textarea>
 											</div>
 										</div>
+										<input type="hidden" name="email" value="${email }">
 									</div>
 									<div class="col-12" style="text-align: center;">
 										<button onclick="anDoiDiaChi()" type="button"

@@ -22,7 +22,7 @@
 </head>
 <body>
 <div class="container">
-    <form>
+<form action="">
     <div class="row">
         <div class="col-4">
             <label for="city2">Tỉnh / Thành phố</label>
@@ -46,9 +46,9 @@
             </select>
         </div>
         <div class="col-4" style="margin-top: 30px;">
-            <input type="hiden" class="form-control" id="city-id" value="">
-            <input type="hiden" class="form-control" id="district-id" value="">
-            <input type="hiden" class="form-control" id="village-id" value="">
+            <input type="hidden" class="form-control" id="city-id" value="">
+            <input type="hidden" class="form-control" id="district-id" value="">
+            <input type="hidden" class="form-control" id="village-id" value="">
         </div>
     </div>
     </form>

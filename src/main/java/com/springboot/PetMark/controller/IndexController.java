@@ -25,6 +25,7 @@ import com.springboot.PetMark.entities.ColorAccessories;
 import com.springboot.PetMark.entities.Deposit;
 import com.springboot.PetMark.entities.Pet;
 import com.springboot.PetMark.entities.Species;
+import com.springboot.PetMark.entities.TinhThanhPho;
 import com.springboot.PetMark.service.AccessoriesService;
 import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.BlogService;
@@ -36,8 +37,11 @@ import com.springboot.PetMark.service.DepositService;
 import com.springboot.PetMark.service.ImgAccService;
 import com.springboot.PetMark.service.ImgPetService;
 import com.springboot.PetMark.service.PetService;
+import com.springboot.PetMark.service.QuanHuyenService;
 import com.springboot.PetMark.service.SizeService;
 import com.springboot.PetMark.service.SpeciesService;
+import com.springboot.PetMark.service.TinhThanhPhoService;
+import com.springboot.PetMark.service.XaPhuongThiTranService;
 
 @Controller
 @RequestMapping()
@@ -66,6 +70,12 @@ public class IndexController {
 	CategoryService categoryService;
 	@Autowired
 	SpeciesService speciesService;
+	@Autowired
+	TinhThanhPhoService tpService;
+	@Autowired
+	QuanHuyenService qhService;
+	@Autowired
+	XaPhuongThiTranService xaService;
 
 	@RequestMapping("/")
 	public String showIndex() {
@@ -195,6 +205,8 @@ public class IndexController {
 		model.setViewName("client2/product");
 		HttpSession session = req.getSession();
 		String username = (String) session.getAttribute("username");
+		List<TinhThanhPho> tp = tpService.findAll();
+		model.addObject("tp", tp);
 		if (username != null) {
 			Account account = accountService.findById(username);
 			model.addObject("account", account);
@@ -222,6 +234,8 @@ public class IndexController {
 		model.setViewName("client2/acc-detail");
 		HttpSession session = req.getSession();
 		String username = (String) session.getAttribute("username");
+		List<TinhThanhPho> tp = tpService.findAll();
+		model.addObject("tp", tp);
 		if (username != null) {
 			Account account = accountService.findById(username);
 			model.addObject("account", account);

@@ -471,12 +471,38 @@
                   <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                 </div>
               </div>
-              <div class="col-6">
+               <div class="col-4">
+		            <label for="city">Tỉnh / Thành phố</label>
+		            <select class="form-select" aria-label="Default select example" id="city2" onchange="city(this)">
+		                <option value="none">---- Chọn Tỉnh / Thành phố ----</option>
+		                <c:forEach var="tp" items="${tp }">
+		                    <option value="${tp.getMatp() }">${tp.getName() }</option>
+		                </c:forEach>
+		            </select>
+		        </div>
+		        <div class="col-4">
+		            <label for="district">Quận / Huyện    </label>
+		            <select class="form-select" aria-label="Default select example" id="district2" onchange="district(this)">
+		                <option value="none">---- Chọn Quận / Huyện ----</option>
+		            </select>
+		        </div>
+		        <div class="col-4">
+		            <label for="village">Xã / Phường / Thị trấn</label>
+		            <select class="form-select" aria-label="Default select example" id="village2" onchange="village(this)">
+		                <option value="none">---- Chọn Xã / Phường / Thị trấn ----</option>
+		            </select>
+		        </div>
+              <div class="col-12">
                 <div class="form-group">
                   <label for="address">Địa chỉ</label>
                   <textarea class="form-control" id="address" rows="2" name="address" placeholder="Địa chỉ nhận hàng"></textarea>
                 </div>
               </div>
+               <div class="col-4" style="margin-top: 30px;">
+		            <input type="hidden" class="form-control" id="city-id" name="matp" value="">
+		            <input type="hidden" class="form-control" id="district-id" name="maqh" value="">
+		            <input type="hidden" class="form-control" id="village-id" name="xaid" value="">
+		        </div>
             </div>
           </div>
           <div class="modal-footer">
@@ -500,6 +526,7 @@
 
   <!-- Custom JavaScript -->
   <script src="js/index.js"></script>
+  <script src="js/city.js"></script>
   <script src="js/slider.js"></script>
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/custom.js"></script>
@@ -567,6 +594,7 @@
       var total = pA * p;
       document.getElementById("price").innerHTML = total;
     }
+     
   </script>
 </body>
 

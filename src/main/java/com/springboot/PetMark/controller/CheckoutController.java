@@ -52,7 +52,10 @@ import com.springboot.PetMark.service.CartItemService;
 import com.springboot.PetMark.service.ColorAccessoriesService;
 import com.springboot.PetMark.service.OrderrWebDetailService;
 import com.springboot.PetMark.service.OrderrWebService;
+import com.springboot.PetMark.service.QuanHuyenService;
 import com.springboot.PetMark.service.SizeService;
+import com.springboot.PetMark.service.TinhThanhPhoService;
+import com.springboot.PetMark.service.XaPhuongThiTranService;
 
 import pet.mart.util.DeliveryStatus;
 import pet.mart.util.PaymentMethod;
@@ -76,7 +79,13 @@ public class CheckoutController {
 	ColorAccessoriesService colorAccessoriesService;
 	@Autowired
 	SizeService sizeService;
-	
+	@Autowired
+	TinhThanhPhoService tpService;
+	@Autowired
+	QuanHuyenService qhService;
+	@Autowired
+	XaPhuongThiTranService xaService;
+
 	private String successResult = "Đặt hàng thành công";
 	private String successNote = "Cảm ơn bạn đã mua hàng tại TopShoe";
 
@@ -87,8 +96,8 @@ public class CheckoutController {
 		User logginedUser = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(logginedUser.getUsername());
 		int slCard = 0;
-		if(cartItemService.countByAccount(account)!=0) {
-		slCard = cartItemService.countByAccount(account);
+		if (cartItemService.countByAccount(account) != 0) {
+			slCard = cartItemService.countByAccount(account);
 		}
 		model.addObject("slCard", slCard);
 		model.addObject("account", account);
@@ -112,8 +121,8 @@ public class CheckoutController {
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addObject("account", account);
 		int slCard = 0;
-		if(cartItemService.countByAccount(account)!=0) {
-		slCard = cartItemService.countByAccount(account);
+		if (cartItemService.countByAccount(account) != 0) {
+			slCard = cartItemService.countByAccount(account);
 		}
 		model.addObject("slCard", slCard);
 		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.NOT_APPROVED, account);
@@ -136,8 +145,8 @@ public class CheckoutController {
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addObject("account", account);
 		int slCard = 0;
-		if(cartItemService.countByAccount(account)!=0) {
-		slCard = cartItemService.countByAccount(account);
+		if (cartItemService.countByAccount(account) != 0) {
+			slCard = cartItemService.countByAccount(account);
 		}
 		model.addObject("slCard", slCard);
 		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.WAITING_FOR_DELIVERY, account);
@@ -160,8 +169,8 @@ public class CheckoutController {
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addObject("account", account);
 		int slCard = 0;
-		if(cartItemService.countByAccount(account)!=0) {
-		slCard = cartItemService.countByAccount(account);
+		if (cartItemService.countByAccount(account) != 0) {
+			slCard = cartItemService.countByAccount(account);
 		}
 		model.addObject("slCard", slCard);
 		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.DELIVERING, account);
@@ -186,8 +195,8 @@ public class CheckoutController {
 		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.SUCCESSFUL, account);
 		model.addObject("list", list);
 		int slCard = 0;
-		if(cartItemService.countByAccount(account)!=0) {
-		slCard = cartItemService.countByAccount(account);
+		if (cartItemService.countByAccount(account) != 0) {
+			slCard = cartItemService.countByAccount(account);
 		}
 		model.addObject("slCard", slCard);
 		String title = "Đơn hàng đã giao";
@@ -208,8 +217,8 @@ public class CheckoutController {
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addObject("account", account);
 		int slCard = 0;
-		if(cartItemService.countByAccount(account)!=0) {
-		slCard = cartItemService.countByAccount(account);
+		if (cartItemService.countByAccount(account) != 0) {
+			slCard = cartItemService.countByAccount(account);
 		}
 		model.addObject("slCard", slCard);
 		List<OrderrWeb> list = orderWebService.findBySttUser(DeliveryStatus.CANCELLED, account);
@@ -232,8 +241,8 @@ public class CheckoutController {
 		String username = loginUser.getUsername();
 		Account account = accountService.findById(username);
 		int slCard = 0;
-		if(cartItemService.countByAccount(account)!=0) {
-		slCard = cartItemService.countByAccount(account);
+		if (cartItemService.countByAccount(account) != 0) {
+			slCard = cartItemService.countByAccount(account);
 		}
 		model.addObject("slCard", slCard);
 		model.addObject("account", account);
@@ -374,8 +383,8 @@ public class CheckoutController {
 		model.setViewName("client2/order-detail");
 		model.addObject("account", account);
 		int slCard = 0;
-		if(cartItemService.countByAccount(account)!=0) {
-		slCard = cartItemService.countByAccount(account);
+		if (cartItemService.countByAccount(account) != 0) {
+			slCard = cartItemService.countByAccount(account);
 		}
 		model.addObject("slCard", slCard);
 		OrderrWeb orderWeb = orderWebService.findById(Integer.parseInt(id));
@@ -527,8 +536,8 @@ public class CheckoutController {
 		Accessories acc = accessoriesService.findById(Integer.parseInt(id));
 		model.addObject("acc", acc);
 		int slCard = 0;
-		if(cartItemService.countByAccount(account)!=0) {
-		slCard = cartItemService.countByAccount(account);
+		if (cartItemService.countByAccount(account) != 0) {
+			slCard = cartItemService.countByAccount(account);
 		}
 		model.addObject("slCard", slCard);
 		String mau = req.getParameter("colors");
@@ -549,8 +558,8 @@ public class CheckoutController {
 		String username = loginedUser.getUsername();
 		Account user = accountService.findById(username);
 		int slCard = 0;
-		if(cartItemService.countByAccount(user)!=0) {
-		slCard = cartItemService.countByAccount(user);
+		if (cartItemService.countByAccount(user) != 0) {
+			slCard = cartItemService.countByAccount(user);
 		}
 		model.addAttribute("slCard", slCard);
 		OrderrWeb orderWeb = new OrderrWeb();
@@ -657,8 +666,8 @@ public class CheckoutController {
 		job.addProperty("data", paymentUrl);
 		return "redirect:" + paymentUrl;
 	}
-	
-	@RequestMapping(value ="buy-no-sign-in/{id}",method = RequestMethod.POST )
+
+	@RequestMapping(value = "buy-no-sign-in/{id}", method = RequestMethod.POST)
 	public ModelAndView buyNoSignIn(HttpServletRequest req, @PathVariable int id) {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("client2/buy-no-sign-in");
@@ -666,6 +675,7 @@ public class CheckoutController {
 		model.addObject("acc", acc);
 		String mau = req.getParameter("colors");
 		model.addObject("color", mau);
+		model.addObject("email", req.getParameter("email"));
 		String sizes = req.getParameter("size");
 		model.addObject("size", sizes);
 		String soLuong = req.getParameter("soLuong");
@@ -675,11 +685,13 @@ public class CheckoutController {
 		model.addObject("thanhTien", thanhTien);
 		model.addObject("name", req.getParameter("ten"));
 		model.addObject("phone", req.getParameter("sdt"));
-		model.addObject("address", req.getParameter("address"));
+		String address = req.getParameter("address") + " - " + xaService.findById(req.getParameter("xaid")).getName()
+				+ " - " + qhService.findById(req.getParameter("maqh")).getName() + " - "
+				+ tpService.findById(req.getParameter("matp")).getName();
+		model.addObject("address", address);
 		return model;
 	}
-	
-	
+
 	// chưa xong
 	// thanh toán mua hàng không đăng nhập
 	@RequestMapping("/buy-no-signin")
@@ -691,7 +703,7 @@ public class CheckoutController {
 		orderWeb.setDeliveryAddress(req.getParameter("address"));
 		orderWeb.setAccount(user);
 		orderWeb.setPlace(0);
-		orderWeb.setSentMail(user.getEmail());
+		orderWeb.setSentMail(req.getParameter("email"));
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
 		orderWeb.setCreatedAt(date);
@@ -790,9 +802,9 @@ public class CheckoutController {
 		job.addProperty("data", paymentUrl);
 		return "redirect:" + paymentUrl;
 	}
+
 	@GetMapping("/order-atm")
-	public ModelAndView getOrderATM(HttpServletRequest request)
-			throws UnsupportedEncodingException {
+	public ModelAndView getOrderATM(HttpServletRequest request) throws UnsupportedEncodingException {
 		ModelAndView model = new ModelAndView();
 		int orderWebId = Integer.valueOf(request.getParameter("vnp_OrderInfo"));
 		OrderrWeb orderWeb = orderWebService.findById(orderWebId);

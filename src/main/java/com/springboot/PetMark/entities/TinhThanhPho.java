@@ -2,17 +2,19 @@ package com.springboot.PetMark.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tinhthanhpho")
+@Table(name = "city")
 public class TinhThanhPho implements Serializable {
 
 	private static final long serialVersionUID = 3543237799209493787L;
 
 	@Id
+	@Column(name = "cityid")
 	String matp;
 	String name;
 	String type;
