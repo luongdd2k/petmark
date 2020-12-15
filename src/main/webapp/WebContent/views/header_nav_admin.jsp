@@ -31,28 +31,28 @@
 			<!-- Right navbar links -->
 		<ul class="navbar-nav ml-auto">
 		<!-- Notifications Dropdown Menu -->
-			<li class="nav-item dropdown">
-				<a class="nav-link" data-toggle="dropdown" href="javascript:"> 
-					<i class="far fa-bell"></i> 
-					<span class="badge badge-warning navbar-badge">15</span>
-				</a>
-				<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-					<span class="dropdown-item dropdown-header">15 Thông báo</span>
-					<div class="dropdown-divider"></div>
-						<a href="javascript:" class="dropdown-item"> 
-							<i class="fas fa-envelope mr-2"></i>4 tin nhắn mới 
-							<span class="float-right text-muted text-sm">3 phút</span>
-						</a>
-						<div class="dropdown-divider"></div>
-						<div class="dropdown-divider"></div>
-						<a href="javascript:" class="dropdown-item"> 
-							<i class="fas fa-file mr-2"></i>3 báo cáo mới 
-							<span class="float-right text-muted text-sm">2 ngày</span>
-						</a>
-						<div class="dropdown-divider"></div>
-						<a href="javascript:" class="dropdown-item dropdown-footer">Xem tất cả thông báo</a>
-				</div>
-			</li>
+<%--			<li class="nav-item dropdown">--%>
+<%--				<a class="nav-link" data-toggle="dropdown" href="javascript:"> --%>
+<%--					<i class="far fa-bell"></i> --%>
+<%--					<span class="badge badge-warning navbar-badge">15</span>--%>
+<%--				</a>--%>
+<%--				<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">--%>
+<%--					<span class="dropdown-item dropdown-header">15 Thông báo</span>--%>
+<%--					<div class="dropdown-divider"></div>--%>
+<%--						<a href="javascript:" class="dropdown-item"> --%>
+<%--							<i class="fas fa-envelope mr-2"></i>4 tin nhắn mới --%>
+<%--							<span class="float-right text-muted text-sm">3 phút</span>--%>
+<%--						</a>--%>
+<%--						<div class="dropdown-divider"></div>--%>
+<%--						<div class="dropdown-divider"></div>--%>
+<%--						<a href="javascript:" class="dropdown-item"> --%>
+<%--							<i class="fas fa-file mr-2"></i>3 báo cáo mới --%>
+<%--							<span class="float-right text-muted text-sm">2 ngày</span>--%>
+<%--						</a>--%>
+<%--						<div class="dropdown-divider"></div>--%>
+<%--						<a href="javascript:" class="dropdown-item dropdown-footer">Xem tất cả thông báo</a>--%>
+<%--				</div>--%>
+<%--			</li>--%>
 			<li class="nav-item">
 				<a class="nav-link" href="log-out"> 
 					<i class="fas fa-sign-out-alt"></i>

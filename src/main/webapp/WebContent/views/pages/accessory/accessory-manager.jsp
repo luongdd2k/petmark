@@ -84,9 +84,8 @@
 												id="tenUpdate" />
 										</div>
 										<div class="form-group">
-											<label >Hãng</label> <select
-												name="hangPhuKien" id="hangUpdate"
-												style="height: 30px; width: 100%">
+											<label >Hãng</label>
+											<select class="form-control" name="hangPhuKien" id="hangUpdate" style="height: 30px; width: 100%">
 												<c:forEach var="category" items="${listCategory }">
 													<option value="${ category.id}" selected>${ category.name}</option>
 												</c:forEach>
@@ -106,7 +105,7 @@
 												id="giaUpdate" />
 										</div>
 										<div class="form-group">
-											<label >Trạng thái</label> <select
+											<label >Trạng thái</label> <select class="form-control"
 												name="trangThaiPhuKien" id="trangThaiUpdate"
 												style="height: 30px; width: 100%">
 												<c:forEach var="status" items="${listStatus }">

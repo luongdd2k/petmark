@@ -11,7 +11,7 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Bootstrap 4 -->
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
     <!-- Ionicons -->
@@ -25,6 +25,31 @@
             rel="stylesheet" />
     <link rel="stylesheet" href="dist/css/custom.css" />
     <link rel="stylesheet" href="css/employee.css">
+    <style>
+        .card-content{
+            max-width: 900px;
+            margin: 0  auto;
+        }
+        .button-group-right{
+            text-align: right;
+            margin-bottom: 5px ;
+        }
+        .button-group-left{
+            text-align: left;
+            margin-bottom: 5px ;
+        }
+        .button-group-center{
+            text-align: center;
+
+        }
+        .hide{
+            display: none;
+            visibility: hidden;
+        }
+        .custom-file-input{
+
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -71,144 +96,196 @@
 
 
                     <div class="card-body">
-                        <!--Div Form Update-->
-                        <div id="form-disable-update"
-                             style="max-width: 95%; margin: auto; margin-top: 10px;">
-                            <form action="admin/AccessoriesManagement/UpdateAccessories" method="post">
-                                <input type="hidden" name="id" id="id">
-                                <div class="form-disable-p1 float-left" style="width: 330px; margin-left: 30px; float: left">
-                                    <div class="form-group">
-                                        <label >Tên phụ kiện</label>
-                                        <input name="tenPhuKien" type="text" class="form-control" id="tenUpdate" value="${acc.getName() }"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label >Hãng</label>
-                                        <select name="hangPhuKien" id="hangUpdate" style="height: 30px; width: 100%">
-                                            <c:forEach var="category" items="${listCategory }">
-                                                <option value="${ category.id}" selected>${ category.name}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label >Màu sắc</label>
-                                        <input name="mauPhuKien" type="text" class="form-control" id="accessoriColor" />
-                                    </div>
-                                </div>
-                                <div class="form-disable-p1" style="width: 330px; margin-left: 30px; float: left">
-                                    <div class="form-group">
-                                        <label >Giá</label>
-                                        <input name="giaPhuKien" type="text" class="form-control" id="giaUpdate" value="${acc.getDisplayPrice(1) }"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label >Trạng thái</label>
-                                        <select name="trangThaiPhuKien" id="trangThaiUpdate" style="height: 30px; width: 100%">
-                                            <c:forEach var="status" items="${listStatus }">
-                                                <option value="${status }" selected>${status }</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label >Số lượng</label>
-                                        <input name="soLuongPhuKien" type="text" class="form-control" id="soLuongUpdate" value="${acc.getAmount() }" />
-                                    </div>
-                                </div>
-                                <div class="form-disable-p1" style="width: 330px; margin-left: 30px; float: left">
-                                    <div class="form-group">
-                                        <label>Mô tả</label>
-                                        <textarea name="moTaPhuKien" class="form-control" id="moTaUpdate" rows="2">${acc.getDescription() }</textarea>
-                                    </div>
-                                    <div class="custom-file mb-3">
-                                        <label class="custom-file-label" for="customFile">Hình ảnh</label>
-                                        <input type="file" class="custom-file-input" id="customFile" name="filename" />
-                                    </div>
-                                    <div class="custom-file mb-3">
-                                        <label class="custom-file-label" for="customFile1">Hình ảnh</label>
-                                        <input type="file" class="custom-file-input" id="customFile1" name="filename" />
-                                    </div>
-                                    <div class="custom-file mb-3">
-                                        <label class="custom-file-label" for="customFile2">Hình ảnh</label>
-                                        <input type="file" class="custom-file-input" id="customFile2" name="filename" />
-                                    </div>
-                                    <div class="custom-file mb-3">
-                                        <label class="custom-file-label" for="customFile3">Hình ảnh</label>
-                                        <input type="file" class="custom-file-input" id="customFile3" name="filename" />
-                                    </div>
-                                    <input type="hidden" class="form-control" id="ngayUpdate" name="ngayUpdate">
-
-                                </div>
-                                <div>
-                                    <button type="submit" class="btn btn-custon-rounded-three btn-success btn-css">
-                                        <i class="fas fa-save"></i> <span> Lưu</span>
-                                    </button>
-                                    <button type="reset" class="btn btn-custon-rounded-three btn-warning btn-css">
-                                        <i class="fas fa-backspace"></i> <span> Làm mới</span>
-                                    </button>
-                                    <button type="button" class="btn btn-custon-rounded-three btn-danger btn-css" onclick="hiddenFormUpdate(true)">
-                                        <i class="fas fa-slash"></i> <span> Huỷ</span>
-                                    </button>
-                                </div>
-                            </form>
-                            <div class="clear"></div>
-                        </div>
-                        <!--End Form Update-->
-
-                        <div class="table-responsive-xl main-table">
-                            <table class="table table-hover" style="margin-bottom: -1%" id="table-js">
-                                <thead>
-                                <tr class="bg-info">
-                                    <th scope="col">Tên phụ kiện</th>
-                                    <th scope="col"></th>
-                                </tr>
-                                </thead>
-                                <c:forEach var="Accessories" items="${listAccessories}">
-                                    <tbody>
-                                    <tr>
-                                        <th scope="row" class="idthu">
-                                            <div class="td__center">${Accessories.id }</div>
-                                        </th>
-                                        <td>
-                                            <img class="img-fluid" src="${Accessories.getImgs().get(0).getImgAvartar() }" alt="" style="max-width: 90px; max-height: 90px;">
-                                        </td>
-                                        <td class="tenthucung">
-                                            <div onclick="showFormUpdate(true, ${Accessories.id})" class="alert-link">
-                                                <div class="td__center">${Accessories.name }</div>
+                        <div class="row card-content">
+                            <div class="col-12">
+                                <form id="form-detail">
+                                    <div class="row">
+                                        <div class="form-group col-6">
+                                            <label for="nameAccDetail">Tên phụ kiện</label>
+                                            <input type="text" class="form-control" id="nameAccDetail">
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-6">
+                                                <label for="priceAcc">Giá</label>
+                                                <input type="text" class="form-control" id="priceAcc">
                                             </div>
-                                        </td>
-                                        <td>
-                                            <span hidden="true">${Accessories.getCategory().getId() }</span>
-                                            <div class="td__center">${Accessories.getCategory().getName() }</div>
-                                        </td>
-                                        <td>
-                                            <div class="td__center">${Accessories.getDisplayPrice(1) } <span> đ</span></div>
-                                        </td>
-                                        <td>
-                                            <div class="td__center">${Accessories.getAmount() }</div>
-                                        </td>
-                                        <td>
-                                            <div class="td__center">${Accessories.getDate() }</div>
-                                        </td>
-                                        <td>
-                                            <div class="td__center">${Accessories.getStatus() }</div>
-                                        </td>
-                                        <td hidden="true">${Accessories.getDescription()}</td>
-                                        <td>
-                                            <div class="td__center">
-                                                <form action="admin/AccessoriesManagement/${action }"
-                                                      method="post">
-                                                    <input type="hidden" value="${Accessories.id }"
-                                                           name="AccessoriesId">
-                                                    <button type="submit"
-                                                            class="btn btn-custon-rounded-three btn-danger">${nameButton2 }</button>
-                                                </form>
+                                            <div class="form-group col-6">
+                                                <label for="amountAcc">Số lượng</label>
+                                                <input type="text" class="form-control" id="amountAcc">
                                             </div>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </c:forEach>
-                            </table>
-                            <hr />
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label for="categoryAcc">Hãng phụ kiện</label>
+                                            <select class="form-control" id="categoryAcc">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label for="statusAcc">Trạng thái</label>
+                                            <select class="form-control" id="statusAcc">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <label for="desAcc">Mô tả</label>
+                                            <textarea class="form-control" id="desAcc" rows="2"></textarea>
+                                        </div>
+                                        <div class="form-group col-12 button-group-center" >
+                                            <button type="button" class="btn btn-success">
+                                                <i class="fas fa-save"></i> Cập nhật
+                                            </button>
+                                            <button onclick="showImage()" type="button" class="btn btn-info">
+                                                <i class="fas fa-save"></i> Hình ảnh
+                                            </button>
+                                            <button type="button" class="btn btn-danger">
+                                                <i class="fas fa-window-close"></i> Hủy
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form id="form-color" class="hide">
+                                    <div class="row">
+                                        <div class="form-group col-6">
+                                            <label for="nameAcc">Tên phụ kiện</label>
+                                            <input type="text" class="form-control" id="nameAcc">
+                                        </div>
+                                            <div class="form-group col-6">
+                                                <label for="colorAcc">Màu sắc</label>
+                                                <select class="form-control selectpicker" multiple data-live-search="true" id="colorAcc">
+                                                    <option value="pink">Hồng</option>
+                                                    <option value="red">Đỏ</option>
+                                                    <option value="black">Đen</option>
+                                                    <option value="yellow">Vàng</option>
+                                                    <option value="white">Trắng</option>
+                                                    <option value="orange">Cam</option>
+                                                </select>
+                                            </div>
+                                        <div class="form-group col-12 button-group-center" >
+                                            <button type="button" class="btn btn-success">
+                                                <i class="fas fa-save"></i> Lưu
+                                            </button>
+                                            <button onclick="hideColor()" type="button" class="btn btn-danger">
+                                                <i class="fas fa-window-close"></i> Hủy
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form id="form-size" class="hide">
+                                    <div class="row">
+                                        <div class="form-group col-6">
+                                            <label for="nameAccc">Tên phụ kiện</label>
+                                            <input type="text" class="form-control" id="nameAccc">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label for="sizeAcc">Kích thước</label>
+                                            <select class="form-control selectpicker" multiple data-live-search="true" id="sizeAcc">
+                                                <option value="S">S</option>
+                                                <option value="M">M</option>
+                                                <option value="L">L</option>
+                                                <option value="XL">XL</option>
+                                                <option value="XXL">XXL</option>
+                                                <option value="Free">Free Size</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-12 button-group-center" >
+                                            <button type="button" class="btn btn-success">
+                                                <i class="fas fa-save"></i> Lưu
+                                            </button>
+                                            <button onclick="hideSize()" type="button" class="btn btn-danger">
+                                                <i class="fas fa-window-close"></i> Hủy
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form id="form-image"  class="hide">
+                                    <div class="row">
+                                        <div class="form-group col-3">
+                                            <label class="custom-file-label" for="customFile">Chọn hình ảnh</label>
+                                            <input type="file" class="custom-file-input" id="customFile" name="filename">
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <label class="custom-file-label" for="customFile1">Chọn hình ảnh</label>
+                                            <input type="file" class="custom-file-input" id="customFile1" name="filename">
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <label class="custom-file-label" for="customFile2">Chọn hình ảnh</label>
+                                            <input type="file" class="custom-file-input" id="customFile2" name="filename">
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <label class="custom-file-label" for="customFile3">Chọn hình ảnh</label>
+                                            <input type="file" class="custom-file-input" id="customFile3" name="filename">
+                                        </div>
+                                        <div class="form-group col-12 button-group-center" >
+                                            <button type="button" class="btn btn-success">
+                                                <i class="fas fa-save"></i> Lưu
+                                            </button>
+                                            <button onclick="hideImage()" type="button" class="btn btn-danger">
+                                                <i class="fas fa-window-close"></i> Hủy
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-6">
+                                <div class="table-responsive main-table">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr class="bg-info">
+                                            <th scope="col">Tên phụ kiện</th>
+                                            <th scope="col">Màu sắc</th>
+                                        </tr>
+                                        </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Vòng cổ chuông cho mèo</td>
+                                                    <td>Hồng</td>
+                                                </tr>
+                                            </tbody>
+                                    </table>
+                                </div>
+                                <!--End Table-->
+                                <div class="button-group-left">
+                                    <button onclick="showColor()" type="button" class="btn btn-primary" id="new-color">
+                                        <i class="fas fa-plus-circle"></i> Thêm mới
+                                    </button>
+                                </div>
+                            </div>
+                            <!--End Col-6-->
+                            <div class="col-6">
+                                <div class="table-responsive main-table">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr class="bg-info">
+                                            <th scope="col">Tên phụ kiện</th>
+                                            <th scope="col">Kích thước</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Vòng cổ chuông cho mèo</td>
+                                            <td>M,L,XL</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--End Table-->
+                                <div class="button-group-right">
+                                    <button onclick="showSize()" type="button" class="btn btn-primary" id="new-size">
+                                        <i class="fas fa-plus-circle"></i> Thêm mới
+                                    </button>
+                                </div>
+                            </div>
+                            <!--End Col-6-->
                         </div>
-                        <!--End Table-->
+                        <!-- End row -->
                         <div class="pagination-main" style="padding-left: 85%">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
@@ -251,6 +328,7 @@
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -258,11 +336,59 @@
 <script src="js/active.js"></script>
 <script type="text/javascript" src="Script/QLPK.js"></script>
 <script type="text/javascript">
-    function hiddenFormUpdate(visible) {
-        var hienFormUpdate = document.getElementById("form-disable-update");
-        hienFormUpdate.style.display = visible ? "none" : "block";
-        var timKiem = document.getElementById("new-pet");
-        timKiem.style.display = visible ? "" : "none";
+    $('#sizeAcc').change(function () {
+        var selectedItem = $('#sizeAcc').val();
+        console.log("Kích thước "+selectedItem);
+    });
+    $('#colorAcc').change(function () {
+        var selectedItem = $('#colorAcc').val();
+        console.log("Màu sắc "+selectedItem);
+    });
+    function showColor(){
+        let btnNew = document.getElementById("new-color");
+        let formNew = document.getElementById("form-color");
+        let detail = document.getElementById("form-detail");
+        btnNew.classList.add("hide");
+        formNew.classList.remove("hide");
+        detail.classList.add("hide");
+    }
+    function hideColor(){
+        let btnNew = document.getElementById("new-color");
+        let formNew = document.getElementById("form-color");
+        let detail = document.getElementById("form-detail");
+        btnNew.classList.remove("hide");
+        formNew.classList.add("hide");
+        detail.classList.remove("hide");
+    }
+    function showSize(){
+        let btnNew = document.getElementById("new-size");
+        let formNew = document.getElementById("form-size");
+        let detail = document.getElementById("form-detail");
+        btnNew.classList.add("hide");
+        formNew.classList.remove("hide");
+        detail.classList.add("hide");
+    }
+    function hideSize(){
+        let btnNew = document.getElementById("new-size");
+        let formNew = document.getElementById("form-size");
+        let detail = document.getElementById("form-detail");
+        btnNew.classList.remove("hide");
+        formNew.classList.add("hide");
+        detail.classList.remove("hide");
+    }
+    function showImage(){
+        let formImage = document.getElementById("form-image");
+        let detail = document.getElementById("form-detail");
+
+        detail.classList.add("hide");
+        formImage.classList.remove("hide");
+    }
+    function hideImage(){
+        let formImage = document.getElementById("form-image");
+        let detail = document.getElementById("form-detail");
+
+        detail.classList.remove("hide");
+        formImage.classList.add("hide");
     }
 </script>
 </body>
