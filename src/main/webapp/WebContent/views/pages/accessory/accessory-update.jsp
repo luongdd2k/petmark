@@ -156,16 +156,8 @@
                             <table class="table table-hover" style="margin-bottom: -1%" id="table-js">
                                 <thead>
                                 <tr class="bg-info">
-                                    <th scope="col">STT</th>
-                                    <th scope="col">Ảnh</th>
                                     <th scope="col">Tên phụ kiện</th>
-                                    <th scope="col">Hãng</th>
-                                    <th scope="col">Giá</th>
-                                    <th scope="col">Số lượng</th>
-                                    <th scope="col">Ngày nhập</th>
-                                    <th scope="col">Trạng thái</th>
-                                    <th scope="col" hidden="true">Mô tả</th>
-                                    <th scope="col">Hành động</th>
+                                    <th scope="col"></th>
                                 </tr>
                                 </thead>
                                 <c:forEach var="Accessories" items="${listAccessories}">

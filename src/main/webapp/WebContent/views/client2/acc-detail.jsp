@@ -84,10 +84,23 @@
       margin:0;
     }
     .close{
-      font-size: 2.5rem;
+      color: #ff4646;
+      font-size: 27px;
+    }
+    .close:hover{
+      color: #ec524b;
     }
     .modal-body__text{
       font-size: 1.5rem;
+    }
+    .modal-body{
+      padding: 1rem 3rem 0rem 3rem ;
+    }
+    .modal-body__text{
+      font-size: 15px;
+    }
+    .btn {
+      font-size: 13px;
     }
   </style>
 </head>
@@ -408,7 +421,7 @@
 
   <!-- Modal noti-->
   <div class="modal fade " id="myModal" role="dialog">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -420,12 +433,12 @@
         <div class="modal-body">
           <p class="modal-body__text">
             Bạn cần <a href="showLogin">đăng nhập</a> để mua hàng!
-          Hoặc bạn có thể cung cấp thông tin để chúng tôi gửi hàng cho bạn
+          Hoặc bạn có thể cung cấp thông tin để chúng tôi có thể liên lạc với bạn
           </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-          <button type="button" class="btn btn-primary" onclick="b()" data-dismiss="modal" data-toggle="modal" data-target="#myModalForm">Thông tin</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-success" onclick="b()" data-dismiss="modal" data-toggle="modal" data-target="#myModalForm">Thông tin</button>
         </div>
       </div>
       <%--End modal content--%>
@@ -435,7 +448,7 @@
 
   <!-- Modal form-->
   <div class="modal fade " id="myModalForm" role="dialog">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -465,32 +478,38 @@
                   <input type="tel" class="form-control" id="phone" name="sdt" placeholder="Số điện thoại">
                 </div>
               </div>
-              <div class="col-6">
+              <div class="col-12">
                 <div class="form-group">
                   <label for="phone">Email</label>
                   <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                 </div>
               </div>
                <div class="col-4">
-		            <label for="city">Tỉnh / Thành phố</label>
-		            <select class="form-select" aria-label="Default select example" id="city2" onchange="city(this)">
-		                <option value="none">---- Chọn Tỉnh / Thành phố ----</option>
-		                <c:forEach var="tp" items="${tp }">
-		                    <option value="${tp.getMatp() }">${tp.getName() }</option>
-		                </c:forEach>
-		            </select>
+                 <div class="form-group">
+                      <label for="city2">Tỉnh / Thành phố</label>
+                      <select class="form-control" aria-label="Default select example" id="city2" onchange="city(this)">
+                          <option value="none">Tỉnh/Thành phố</option>
+                          <c:forEach var="tp" items="${tp }">
+                              <option value="${tp.getMatp() }">${tp.getName() }</option>
+                          </c:forEach>
+                      </select>
+                 </div>
 		        </div>
 		        <div class="col-4">
-		            <label for="district">Quận / Huyện    </label>
-		            <select class="form-select" aria-label="Default select example" id="district2" onchange="district(this)">
-		                <option value="none">---- Chọn Quận / Huyện ----</option>
-		            </select>
+                  <div class="form-group">
+                      <label for="district2">Quận / Huyện</label>
+                      <select class="form-control" aria-label="Default select example" id="district2" onchange="district(this)">
+                          <option value="none">Quận/Huyện</option>
+                      </select>
+                  </div>
 		        </div>
 		        <div class="col-4">
-		            <label for="village">Xã / Phường / Thị trấn</label>
-		            <select class="form-select" aria-label="Default select example" id="village2" onchange="village(this)">
-		                <option value="none">---- Chọn Xã / Phường / Thị trấn ----</option>
-		            </select>
+                  <div class="form-group">
+                      <label for="village2">Xã / Phường / Thị trấn</label>
+                      <select class="form-control" aria-label="Default select example" id="village2" onchange="village(this)">
+                          <option value="none">Xã/Phường/Thị trấn</option>
+                      </select>
+                  </div>
 		        </div>
               <div class="col-12">
                 <div class="form-group">
@@ -506,8 +525,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-            <button type="submit" class="btn btn-primary">Đăng ký</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            <button type="submit" class="btn btn-success">Đăng ký</button>
           </div>
         </form>
       </div>
