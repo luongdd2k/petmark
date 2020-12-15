@@ -22,10 +22,11 @@
 </head>
 <body>
 <div class="container">
+    <form>
     <div class="row">
         <div class="col-4">
-            <label for="city">Tỉnh / Thành phố</label>
-            <select class="form-select" aria-label="Default select example" id="city" onchange="city(this)">
+            <label for="city2">Tỉnh / Thành phố</label>
+            <select class="form-select" aria-label="Default select example" id="city2" onchange="city(this)">
                 <option value="none">---- Chọn Tỉnh / Thành phố ----</option>
                 <c:forEach var="list" items="${list }">
                     <option value="${list.getMatp() }">${list.getName() }</option>
@@ -33,20 +34,16 @@
             </select>
         </div>
         <div class="col-4">
-            <label for="district">Quận / Huyện    </label>
-            <select class="form-select" aria-label="Default select example" id="district" onchange="district(this)">
+            <label for="district2">Quận / Huyện    </label>
+            <select class="form-select" aria-label="Default select example" id="district2" onchange="district(this)">
                 <option value="none">---- Chọn Quận / Huyện ----</option>
             </select>
         </div>
         <div class="col-4">
-            <label for="village">Xã / Phường / Thị trấn</label>
-            <select class="form-select" aria-label="Default select example" id="village" onchange="village(this)">
+            <label for="village2">Xã / Phường / Thị trấn</label>
+            <select class="form-select" aria-label="Default select example" id="village2" onchange="village(this)">
                 <option value="none">---- Chọn Xã / Phường / Thị trấn ----</option>
             </select>
-        </div>
-
-        <div class="col-12" style="margin-top: 30px;text-align: center;">
-            <button type="button" class="btn btn-outline-primary" onclick="a()">Primary</button>
         </div>
         <div class="col-4" style="margin-top: 30px;">
             <input type="hiden" class="form-control" id="city-id" value="">
@@ -54,15 +51,9 @@
             <input type="hiden" class="form-control" id="village-id" value="">
         </div>
     </div>
+    </form>
 </div>
 </body>
 <script src="plugins/jquery/jquery.min.js"></script>
 <script src="js/city.js"></script>
-<script>
-    function a(){
-       let city = document.getElementById("city");
-       let cityValue = city.options[city.selectedIndex].value;
-       console.log(cityValue);
-    };
-</script>
 </html>
