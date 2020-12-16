@@ -347,4 +347,13 @@ public class AccountController {
 		session.invalidate();
 		return "redirect:/index";
 	}
+	@RequestMapping("change-info")
+	public String changeInfo(HttpServletRequest req) {
+		Account account = accountService.findById(req.getParameter("username"));
+		account.setFullName(req.getParameter("name"));
+		account.setPhone(req.getParameter("phone"));
+		account.setAddress(req.getParameter("address"));
+		accountService.save(account);
+		return "redirect:/show-account";
+	}
 }

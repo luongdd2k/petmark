@@ -1,6 +1,7 @@
 package com.springboot.PetMark.controller;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -30,12 +31,16 @@ import com.springboot.PetMark.entities.Accessories;
 import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.Category;
 import com.springboot.PetMark.entities.ColorAccessories;
+import com.springboot.PetMark.entities.ImgAccessories;
+import com.springboot.PetMark.entities.ImgPet;
+import com.springboot.PetMark.entities.Pet;
 import com.springboot.PetMark.entities.SizeAccessories;
 import com.springboot.PetMark.repository.AccessoriesRepository;
 import com.springboot.PetMark.service.AccessoriesService;
 import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.CategoryService;
 import com.springboot.PetMark.service.ColorAccessoriesService;
+import com.springboot.PetMark.service.ImgAccService;
 import com.springboot.PetMark.service.SizeService;
 
 @Controller
@@ -52,18 +57,21 @@ public class AccessoriesController {
 	@Autowired
 	AccountService accountService;
 	@Autowired
+	ImgAccService imgAccessories;
+	@Autowired
 	ServletContext context;
 
 //	
 	@RequestMapping
-	public String index(ModelMap model, HttpServletRequest request,Principal principal) throws IllegalArgumentException {
+	public String index(ModelMap model, HttpServletRequest request, Principal principal)
+			throws IllegalArgumentException {
 		HttpSession session = request.getSession();
 		List<Accessories> listAccessories = new ArrayList<Accessories>();
 		List<Integer> listAccessoriesInteger = new ArrayList<Integer>();
 		List<Category> listCategory = CategoryService.findAll();
 		List<String> listStatus = AccessoriesService.getStatus();
 		int countContinueAccessories = AccessoriesService.countContinueProduct();
-		int totalPage = (int) Math.ceil((double)countContinueAccessories/10);
+		int totalPage = (int) Math.ceil((double) countContinueAccessories / 10);
 		int targetPage;
 
 		if (session.getAttribute("targetPage") != null) {
@@ -75,7 +83,8 @@ public class AccessoriesController {
 			targetPage = Integer.valueOf(request.getParameter("targetPage"));
 		}
 		int page = targetPage - 1;
-		listAccessories = AccessoriesService.showProductByCategoryPageable("", PageRequest.of(page, 10, Sort.by("id").ascending()));
+		listAccessories = AccessoriesService.showProductByCategoryPageable("",
+				PageRequest.of(page, 10, Sort.by("id").ascending()));
 //		int page = targetPage - 1;
 
 		if (request.getParameter("scrollT") != null) {
@@ -90,42 +99,52 @@ public class AccessoriesController {
 		if (sortValue == null)
 			sortValue = "-1";
 		model.addAttribute("sortValue", sortValue);
-		try {		
+		try {
 			switch (sortValue) {
 			case "-1":
-				if(targetPage > totalPage) page = 0;
-				listAccessories = AccessoriesService.showProductByCategoryPageable( "Còn hàng", PageRequest.of(page, 10, Sort.by("id").ascending()));
-				
+				if (targetPage > totalPage)
+					page = 0;
+				listAccessories = AccessoriesService.showProductByCategoryPageable("Còn hàng",
+						PageRequest.of(page, 10, Sort.by("id").ascending()));
+
 				break;
 			case "0":
-				if(targetPage > totalPage) page = 0;
-				listAccessories = AccessoriesService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("id").descending()));
-				
+				if (targetPage > totalPage)
+					page = 0;
+				listAccessories = AccessoriesService.showProductByCategoryPageable("Còn hàng",
+						PageRequest.of(page, 10, Sort.by("id").descending()));
+
 				break;
 			case "1":
-				if(targetPage > totalPage) page = 0;
-				listAccessories = AccessoriesService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("price").ascending()));
-				
+				if (targetPage > totalPage)
+					page = 0;
+				listAccessories = AccessoriesService.showProductByCategoryPageable("Còn hàng",
+						PageRequest.of(page, 10, Sort.by("price").ascending()));
+
 				break;
 			case "2":
-				if(targetPage > totalPage) page = 0;
-				listAccessories = AccessoriesService.showProductByCategoryPageable("Còn hàng", PageRequest.of(page, 10, Sort.by("price").descending()));
-				
+				if (targetPage > totalPage)
+					page = 0;
+				listAccessories = AccessoriesService.showProductByCategoryPageable("Còn hàng",
+						PageRequest.of(page, 10, Sort.by("price").descending()));
+
 				break;
 			case "3":
-				if(targetPage > totalPage) page = 0;
-				listAccessories = AccessoriesService.showProductByCategoryPageable("Ngừng bán", PageRequest.of(page, 10, Sort.by("id").ascending()));
+				if (targetPage > totalPage)
+					page = 0;
+				listAccessories = AccessoriesService.showProductByCategoryPageable("Ngừng bán",
+						PageRequest.of(page, 10, Sort.by("id").ascending()));
 //				totalPage = (int) Math.ceil((double)AccessoriesService.countAccessories("Ngừng bán")/10);
 				nameButton2 = "Đăng bán";
 				action = "ContinuedAccessories";
 				classButtonDelete = "cancel_discontinue";
-				
+
 				break;
 			default:
-				
+
 				break;
 			}
-		
+
 		} catch (Exception e) {
 			return "404";
 		}
@@ -165,10 +184,11 @@ public class AccessoriesController {
 	@RequestMapping("/changeSortValue")
 	public String changeSortValue(HttpServletRequest request) {
 		String sortValue = request.getParameter("sortValue");
-		
-		return "redirect:/admin/AccessoriesManagement?sortValue="+sortValue;
-		
+
+		return "redirect:/admin/AccessoriesManagement?sortValue=" + sortValue;
+
 	}
+
 //	
 	@RequestMapping("/AddAccessories")
 	public String addAccessories(HttpServletRequest request) {
@@ -187,15 +207,14 @@ public class AccessoriesController {
 		Category Category = CategoryService.findById(categoryID);
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
-		Accessories Accessories = new Accessories( name,  price,  quantityLeft,  Category,  date,des,  status);
-		System.out.println("Accessories: "+Accessories);
+		Accessories Accessories = new Accessories(name, price, quantityLeft, Category, date, des, status);
+		System.out.println("Accessories: " + Accessories);
 //		System.out.println("giống : "+Category);
 		AccessoriesService.addAccessories(Accessories);
 //		request.getSession().setAttribute("add", "added");
 
 		return "redirect:/admin/AccessoriesManagement";
 	}
-
 
 	@RequestMapping("/UpdateAccessories")
 //	@ResponseBody
@@ -213,11 +232,11 @@ public class AccessoriesController {
 		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(date1);
 		System.out.println(date);
 		Accessories Accessories = new Accessories(id, name, price, amount, Category, date, description, status);
-		System.out.println("phụ kiện update: " +Accessories);
+		System.out.println("phụ kiện update: " + Accessories);
 		AccessoriesService.updateAccessories(Accessories);
-		return "redirect:/admin/AccessoriesManagement/show-edit/"+id;
+		return "redirect:/admin/AccessoriesManagement/show-edit/" + id;
 	}
-	
+
 	@RequestMapping("/DisContinuedAccessories")
 //	@ResponseBody
 	public String disContinuedAccessories(HttpServletRequest request) {
@@ -227,57 +246,88 @@ public class AccessoriesController {
 
 		return "redirect:/admin/AccessoriesManagement";
 	}
+
 //	
 	@RequestMapping("/ContinuedAccessories")
 //	@ResponseBody
 	public String continuedAccessories(HttpServletRequest request) {
 		int AccessoriesId = Integer.valueOf(request.getParameter("AccessoriesId"));
 		AccessoriesService.continueAccessories(AccessoriesId);
-		
+
 		return "redirect:/admin/AccessoriesManagement";
 	}
-@RequestMapping("/show-edit/{id}")
-public ModelAndView showEditAcc(HttpServletRequest req,@PathVariable int id,Principal principal) {
-	ModelAndView model = new ModelAndView();
-	User logginedUser = (User) ((Authentication) principal).getPrincipal();
-	Account account = accountService.findById(logginedUser.getUsername());
-	model.addObject("account", account);
-	model.setViewName("pages/accessory/accessory-update");
-	Accessories accessories = AccessoriesService.findById(id);
-	List<Category> listCategory = CategoryService.findAll();
-	List<String> listStatus = AccessoriesService.getStatus();
-	model.addObject("acc", accessories);
-	model.addObject("listCategory", listCategory);
-	model.addObject("listStatus", listStatus);
-	model.addObject("color", color.findByAccessories(accessories));
-	model.addObject("size", sizeService.findByAccessories(accessories));
-	model.addObject("sizes", sizeService.getStatus());
-	return model;
-}
-@RequestMapping("/addColor")
-public String addColor(HttpServletRequest req) {
-	int id = Integer.valueOf(req.getParameter("id"));
-	Accessories accessories = AccessoriesService.findById(id);
-	String mau = req.getParameter("mau");
-	ColorAccessories colo = new ColorAccessories(mau, accessories);
-	try {
-		color.addColorAccessories(colo);
-	} catch (Exception e) {
-		System.out.println("lỗi thêm màu: "+e);
+
+	@RequestMapping("/show-edit/{id}")
+	public ModelAndView showEditAcc(HttpServletRequest req, @PathVariable int id, Principal principal) {
+		ModelAndView model = new ModelAndView();
+		User logginedUser = (User) ((Authentication) principal).getPrincipal();
+		Account account = accountService.findById(logginedUser.getUsername());
+		model.addObject("account", account);
+		model.setViewName("pages/accessory/accessory-update");
+		Accessories accessories = AccessoriesService.findById(id);
+		List<Category> listCategory = CategoryService.findAll();
+		List<String> listStatus = AccessoriesService.getStatus();
+		model.addObject("acc", accessories);
+		model.addObject("listCategory", listCategory);
+		model.addObject("listStatus", listStatus);
+		model.addObject("color", color.findByAccessories(accessories));
+		model.addObject("size", sizeService.findByAccessories(accessories));
+		model.addObject("sizes", sizeService.getStatus());
+		return model;
 	}
-	return "redirect:/admin/AccessoriesManagement/show-edit/"+id;
-}
-@RequestMapping("/addSize")
-public String addSize(HttpServletRequest req) {
-	int id = Integer.valueOf(req.getParameter("id"));
-	Accessories accessories = AccessoriesService.findById(id);
-	String sizes = req.getParameter("size");
-	SizeAccessories size = new SizeAccessories(sizes, accessories);
-	try {
-		sizeService.add(size);
-	} catch (Exception e) {
-		System.out.println("lỗi thêm size: "+e);
+
+	@RequestMapping("/addColor")
+	public String addColor(HttpServletRequest req) {
+		int id = Integer.valueOf(req.getParameter("id"));
+		Accessories accessories = AccessoriesService.findById(id);
+		String mau = req.getParameter("mau");
+		ColorAccessories colo = new ColorAccessories(mau, accessories);
+		try {
+			color.addColorAccessories(colo);
+		} catch (Exception e) {
+			System.out.println("lỗi thêm màu: " + e);
+		}
+		return "redirect:/admin/AccessoriesManagement/show-edit/" + id;
 	}
-	return "redirect:/admin/AccessoriesManagement/show-edit/"+id;
-}
+
+	@RequestMapping("/addSize")
+	public String addSize(HttpServletRequest req) {
+		int id = Integer.valueOf(req.getParameter("id"));
+		Accessories accessories = AccessoriesService.findById(id);
+		String sizes = req.getParameter("size");
+		SizeAccessories size = new SizeAccessories(sizes, accessories);
+		try {
+			sizeService.add(size);
+		} catch (Exception e) {
+			System.out.println("lỗi thêm size: " + e);
+		}
+		return "redirect:/admin/AccessoriesManagement/show-edit/" + id;
+	}
+
+	@RequestMapping("/addImg")
+	public String addImgAcc(HttpServletRequest req, @RequestParam("img2") MultipartFile img2,
+			@RequestParam("avatar") MultipartFile avatar, @RequestParam("img1") MultipartFile img1,
+			@RequestParam("img3") MultipartFile img3) throws FileNotFoundException {
+		int id = Integer.parseInt(req.getParameter("id"));
+		Accessories acc = AccessoriesService.findById(id);
+		String path = "files/image/";
+		try {
+			String photoPath = context.getRealPath(path + avatar.getOriginalFilename());
+			avatar.transferTo(new File(photoPath));
+			String photoPath1 = context.getRealPath(path + img1.getOriginalFilename());
+			img1.transferTo(new File(photoPath));
+			String photoPath2 = context.getRealPath(path + img2.getOriginalFilename());
+			img2.transferTo(new File(photoPath));
+			String photoPath3 = context.getRealPath(path + img3.getOriginalFilename());
+			img3.transferTo(new File(photoPath));
+			ImgAccessories img = new ImgAccessories(path + avatar.getOriginalFilename(),
+					path + img1.getOriginalFilename(), path + img2.getOriginalFilename(),
+					path + img3.getOriginalFilename(), acc);
+			imgAccessories.add(img);
+		} catch (Exception e) {
+			System.out.println("Lỗi lưu ảnh: " + e);
+		}
+
+		return "redirect:/admin/AccessoriesManagement/show-edit/" + id;
+	}
 }

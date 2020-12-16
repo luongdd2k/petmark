@@ -311,7 +311,7 @@ public class PetController {
 			@RequestParam("img3") MultipartFile img3) throws FileNotFoundException {
 		int id = Integer.parseInt(req.getParameter("id"));
 		Pet pet = petService.findById(id);
-		String path = "Image/Pet/";
+		String path = "files/image/";
 		try {
 			String photoPath = context.getRealPath(path + avatar.getOriginalFilename());
 			avatar.transferTo(new File(photoPath));

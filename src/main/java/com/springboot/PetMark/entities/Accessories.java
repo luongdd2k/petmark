@@ -53,6 +53,13 @@ public @Data class Accessories implements Serializable {
 	@OneToMany(mappedBy = "accessories", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 	private List<ImgAccessories> imgs = new ArrayList<>();
 	
+	public String displayPrice() {
+		String dinhDang = "#";
+		DecimalFormat format = new DecimalFormat(dinhDang);
+		String rs = format.format(this.price);
+		return rs;
+	}
+	
 	public Accessories() {
 		// TODO Auto-generated constructor stub
 	}

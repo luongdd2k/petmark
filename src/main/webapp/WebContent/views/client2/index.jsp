@@ -154,7 +154,7 @@
                         </svg>
 												</div>
 												<div class="product__price">
-													<h4 class="price">${listAcc.getDisplayDeposit() }</h4>
+													<h4 class="price">${listAcc.displayPrice() }</h4>
 												</div>
 											</div>
 											<ul>
@@ -248,7 +248,7 @@
                         </svg>
 									</div>
 									<div class="product__price">
-										<h4 class="price">${list.getDisplayPrice(1) }</h4>
+										<h4 class="price">${list.displayPrice() }</h4>
 									</div>
 								</div>
 								<ul>

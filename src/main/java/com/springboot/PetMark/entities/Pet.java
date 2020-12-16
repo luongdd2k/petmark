@@ -66,7 +66,18 @@ public @Data class Pet implements Serializable {
 
 	public Pet() {
 	}
-
+	public String displayPrice() {
+		String dinhDang = "#";
+		DecimalFormat format = new DecimalFormat(dinhDang);
+		String rs = format.format(this.price);
+		return rs;
+	}
+	public String displayDeposit() {
+		String dinhDang = "#";
+		DecimalFormat format = new DecimalFormat(dinhDang);
+		String rs = format.format(this.deposit);
+		return rs;
+	}
 	public Pet(int id, String name, float gia, float coc, int age, int soLuong, String des, String status,
 			Species species, Date date) {
 		this.id = id;
