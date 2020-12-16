@@ -5,72 +5,71 @@
 <html>
 <head>
     <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Quên mật khẩu</title>
 	<base href="${pageContext.servletContext.contextPath}/">
-	<link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
-			integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/login.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	<!-- Google Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+	<style>
+		body {
+			background-image: url(https://wallpaperaccess.com/full/1567666.png);
+		}
+
+		.container {
+			max-width: 600px;
+			display: flex;
+			align-items: center;
+			height: 100vh;
+		}
+
+		.form-content {
+			padding: 30px 50px 0px 50px;
+		}
+
+		.form-div {
+			background-color: white;
+		}
+	</style>
 </head>
 <body>
-	<img class="wave" src="images/login/wave.png">
-	<div class="container">
-		<div class="img">
-			<img src="images/login/questions.svg">
+<div class="container">
+	<form class="border border-light form-div" action="forgot-pass" method="post">
+		<div class="row form-content">
+			<div class="col-12">
+				<p class="h3 text-center">QUÊN MẬT KHẨU</p>
+				<p class="text-center">Vui lòng cung cấp Email để lấy lại mật khẩu</p>
+			</div>
+			<div class="form-group col-12">
+				<label for="username">Tên đăng nhập</label>
+				<input type="text" name="username" class="form-control" id="username" placeholder="Tên đăng nhập" required="required">
+			</div>
+			<div class="form-group col-12">
+				<label for="email">Email</label>
+				<input type="email" name="email" class="form-control" id="email" placeholder="Nhập Email bạn đã đăng ký để lấy lại mật khẩu" required="required">
+			</div>
+			<div class="col-12" style="margin-bottom: 5px;">
+				<button class="btn btn-info btn-block" type="submit">Gửi</button>
+			</div>
+			<div class="form-group col-8">
+				<a href="showLogin">Trở lại đăng nhập</a>
+			</div>
 		</div>
-		<div class="login-content">
-			<form action="forgot-pass" method="post">
-				<img src="images/login/avatar.svg">
-                <h2 class="title1">Quên mật khẩu ?</h2>
-                <h3 class="title_des">
-                    Vui lòng cung cấp Email để lấy lại mật khẩu
-                </h3>
-                <div class="input-div email">
-           		   <div class="i">
-                    <i class="far fa-user"></i>
-           		   </div>
-           		   <div class="div">
-           		   		<h5>Tên đăng nhập</h5>
-           		   		<input type="text" class="input" name="username">
-           		   </div>
-           		</div>
-           		<div class="input-div email">
-           		   <div class="i">
-                    <i class="far fa-envelope"></i>
-           		   </div>
-           		   <div class="div">
-           		   		<h5>Email</h5>
-           		   		<input type="text" class="input" name="email">
-           		   </div>
-           		</div>
-            	<a href="showLogin">Trở lại đăng nhập</a>
-            	<input type="submit" class="btn" value="Gửi">
-            </form>
-        </div>
-    </div>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script>
-        const inputs = document.querySelectorAll(".input");
-  
-        function addcl() {
-          let parent = this.parentNode.parentNode;
-          parent.classList.add("focus");
-        }
-  
-        function remcl() {
-          let parent = this.parentNode.parentNode;
-          if (this.value == "") {
-            parent.classList.remove("focus");
-          }
-        }
-  
-        inputs.forEach((input) => {
-          input.addEventListener("focus", addcl);
-          input.addEventListener("blur", remcl);
-        });
-      </script>
+	</form>
+</div>
 </body>
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 </html>
