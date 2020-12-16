@@ -15,7 +15,8 @@ function validateForm() {
     let districtVal = district.options[district.selectedIndex].value;
     let villageVal = village.options[village.selectedIndex].value;
 
-
+    let userNameRegex = /^[a-z0-9A-Z]+$/;
+    let nameRegex = /^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]+$/;
     let mailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     let errorUser = document.getElementById("error1");
@@ -29,13 +30,19 @@ function validateForm() {
     let errorPhone = document.getElementById("error9");
     let errorAddress = document.getElementById("error10");
 
-    if(username.value == ""){
+    if(username.value.trim() == ""){
         errorUser.classList.remove("hide");
         username.style.borderColor= "red";
         username.focus;
         errorUser.innerHTML="Không để trống tên đăng nhập";
         check = false;
-    }else if(username.value.length < 4 || username.value.length > 15){
+    }else if(!userNameRegex.test(username.value.trim())){
+        errorUser.classList.remove("hide");
+        username.style.borderColor= "red";
+        username.focus;
+        errorUser.innerHTML="Tên đăng nhập không có ký tự đặc biệt";
+        check = false;
+    }else if(username.value.trim().length < 4 || username.value.trim().length > 15){
         errorUser.classList.remove("hide");
         username.style.borderColor= "red";
         username.focus;
@@ -45,13 +52,13 @@ function validateForm() {
         username.style.borderColor= "green";
         errorUser.classList.add("hide");
     }
-    if(pass.value==""){
+    if(pass.value.trim()==""){
         errorPass.classList.remove("hide");
         pass.style.borderColor="red";
         pass.focus;
         errorPass.innerHTML="Không để trống mật khẩu";
         check = false;
-    }else if(pass.value.length <8){
+    }else if(pass.value.trim().length <8){
         errorPass.classList.remove("hide");
         pass.style.borderColor="red";
         pass.focus;
@@ -61,13 +68,13 @@ function validateForm() {
         errorPass.classList.add("hide");
         pass.style.borderColor="green";
     }
-    if(passCon.value==""){
+    if(passCon.value.trim()==""){
         errorPassCon.classList.remove("hide");
         passCon.style.borderColor="red";
         passCon.focus;
         errorPassCon.innerHTML="Không được để trống mật khẩu";
         check = false;
-    }else if(passCon.value != pass.value){
+    }else if(passCon.value.trim() != pass.value.trim()){
         errorPassCon.classList.remove("hide");
         passCon.style.borderColor="red";
         passCon.focus;
@@ -77,13 +84,19 @@ function validateForm() {
         errorPassCon.classList.add("hide");
         passCon.style.borderColor="green";
     }
-    if( name.value== "" ){
+    if( name.value.trim()== "" ){
         errorName.classList.remove("hide");
         name.style.borderColor="red";
         name.focus;
         errorName.innerHTML="Không để trống tên";
         check = false;
-    }else if(name.value.length > 50 ){
+    }else if(!nameRegex.test(name.value.trim())) {
+        errorName.classList.remove("hide");
+        name.style.borderColor="red";
+        name.focus;
+        errorName.innerHTML="Tên không chứa ký tự đặc biệt và số";
+        check = false;
+    }else if(name.value.trim().length > 50 ){
         errorName.classList.remove("hide");
         name.style.borderColor="red";
         name.focus;
@@ -93,13 +106,13 @@ function validateForm() {
         errorName.classList.add("hide");
         name.style.borderColor="green";
     }
-    if(email.value==""){
+    if(email.value.trim()==""){
         errorMail.classList.remove("hide");
         email.style.borderColor="red";
         email.focus;
         errorMail.innerHTML="Không để trống Mail";
         check = false;
-    }else if(!mailRegex.test(email.value)){
+    }else if(!mailRegex.test(email.value.trim())){
         errorMail.classList.remove("hide");
         email.style.borderColor="red";
         email.focus;
@@ -139,19 +152,19 @@ function validateForm() {
         errorVillage.classList.add("hide");
         village.style.borderColor="green";
     }
-    if(phone.value==""){
+    if(phone.value.trim()==""){
         errorPhone.classList.remove("hide");
         phone.style.borderColor="red";
         phone.focus;
         errorPhone.innerHTML="Không để trống số điện thoại";
         check= false;
-    }else if(isNaN(phone.value)){
+    }else if(isNaN(phone.value.trim())){
         errorPhone.classList.remove("hide");
         phone.style.borderColor="red";
         phone.focus;
         errorPhone.innerHTML="Số điện thoại phải là số";
         check= false;
-    }else if(phone.value.length != 10){
+    }else if(phone.value.trim().length != 10){
         errorPhone.classList.remove("hide");
         phone.style.borderColor="red";
         phone.focus;
@@ -161,13 +174,13 @@ function validateForm() {
         errorPhone.classList.add("hide");
         phone.style.borderColor="green";
     }
-    if(address.value==""){
+    if(address.value.trim()==""){
         errorAddress.classList.remove("hide");
         address.style.borderColor="red";
         address.focus;
         errorAddress.innerHTML="Không để trống địa chỉ";
         check = false;
-    }else if(address.value.length<255){
+    }else if(address.value.trim().length<255){
         errorAddress.classList.remove("hide");
         address.style.borderColor="red";
         address.focus;

@@ -176,13 +176,6 @@
               </button>
             </div>
             <div id="btn-modal" class="product-details__btn product-details__btn_accessori">
-<%--              <button class="add" type="button" data-toggle="modal" data-target="#myModal">--%>
-<%--                <span>--%>
-<%--                  <svg>--%>
-<%--                    <use xlink:href="./images/sprite.svg#icon-cart-plus"></use>--%>
-<%--                  </svg>--%>
-<%--                </span> THÊM VÀO GIỎ HÀNG--%>
-<%--              </button>--%>
               <button class="buy" type="button" data-toggle="modal" data-target="#myModal">
                 <span>
                   <svg>
@@ -198,7 +191,7 @@
             <div class="product-detail__content">
               <h3>${acc.getName() }</h3>
               <div class="price">
-                <span class="new__price" id="price">${acc.getDisplayPrice(1)} đ</span>
+                <span class="new__price" id="price">${acc.getDisplayPrice(1)}</span>
               </div>
               <div class="product__review">
                 <div class="rating">
@@ -253,7 +246,7 @@
 
                   <li>
                     <span>Số tiền :</span>
-                    <a href="javascript:" class="new__price"><span id="price-a">${acc.getDisplayPrice(1) }</span> đ</a>
+                    <a href="javascript:" class="new__price"><span id="price-a">${acc.getDisplayPrice(1) }</span></a>
                   </li>
                   <li>
                     <span>Hãng :</span>
@@ -457,31 +450,31 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="buy-no-sign-in/${acc.getId() }" method="post">
+        <form action="buy-no-sign-in/${acc.getId() }" onsubmit="return validateForm()" method="post">
           <div class="modal-body">
             <input type="hidden" id="so-luong-form" name="soLuong" value="">
             <input type="hidden" id="mau-sac-form" name="colors" value="">
             <input type="hidden" id="size-form" name="size" value="">
             <div class="row">
-<%--              <div class="col-12" style="text-align: center">--%>
-<%--                <h4>Để lại thông tin để chúng tôi có thể liên lạc với bạn</h4>--%>
-<%--              </div>--%>
               <div class="col-6">
                 <div class="form-group">
                   <label for="name">Họ và tên</label>
                   <input type="text" class="form-control" id="name" name="ten" placeholder="Họ và tên">
+                  <p id="error1" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
                 </div>
               </div>
               <div class="col-6">
                 <div class="form-group">
                   <label for="phone">Số điện thoại</label>
                   <input type="tel" class="form-control" id="phone" name="sdt" placeholder="Số điện thoại">
+                  <p id="error2" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
                   <label for="phone">Email</label>
                   <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                  <p id="error3" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
                 </div>
               </div>
                <div class="col-4">
@@ -493,6 +486,7 @@
                               <option value="${tp.getMatp() }">${tp.getName() }</option>
                           </c:forEach>
                       </select>
+                   <p id="error4" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
                  </div>
 		        </div>
 		        <div class="col-4">
@@ -501,6 +495,7 @@
                       <select class="form-control" aria-label="Default select example" id="district2" onchange="district(this)">
                           <option value="none">Quận/Huyện</option>
                       </select>
+                    <p id="error5" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
                   </div>
 		        </div>
 		        <div class="col-4">
@@ -509,12 +504,14 @@
                       <select class="form-control" aria-label="Default select example" id="village2" onchange="village(this)">
                           <option value="none">Xã/Phường/Thị trấn</option>
                       </select>
+                    <p id="error6" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
                   </div>
 		        </div>
               <div class="col-12">
                 <div class="form-group">
                   <label for="address">Địa chỉ</label>
                   <textarea class="form-control" id="address" rows="2" name="address" placeholder="Địa chỉ nhận hàng"></textarea>
+                  <p id="error7" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
                 </div>
               </div>
                <div class="col-4" style="margin-top: 30px;">
@@ -545,74 +542,13 @@
 
   <!-- Custom JavaScript -->
   <script src="js/index.js"></script>
+  <script src="js/client/acc-detail.js"></script>
   <script src="js/city.js"></script>
   <script src="js/slider.js"></script>
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/custom.js"></script>
   <script type="text/javascript">
-    function getUrl(url){
-      document.getElementById("pic").src = url;
-    };
-    a();
-    function a(){
-      let u = document.getElementById("usernameBE").value;
-      if(u == ""){
-        document.getElementById("btn-action").classList.add("hide");
-        document.getElementById("btn-modal").classList.remove("hide");
-      }else{
-        document.getElementById("btn-modal").classList.add("hide");
-        document.getElementById("btn-action").classList.remove("hide");
-      }
-    }
 
-    function b(){
-      let sl = document.getElementById("so-luong").value;
-      let cl = document.getElementById("colors");
-      let sz = document.getElementById("size");
-      console.log(sl);
-      let slF = document.getElementById("so-luong-form");
-      let clF = document.getElementById("mau-sac-form");
-      let szF = document.getElementById("size-form");
-      slF.value = sl;
-      let clValue = cl.options[cl.selectedIndex].value;
-      clF.value = clValue;
-      let szValue = sz.options[sz.selectedIndex].value;
-      szF.value = szValue;
-    }
-
-    $('input.input-qty').each(function() {
-      var $this = $(this),
-              qty = $this.parent().find('.is-form'),
-              min = Number($this.attr('min')),
-              max = Number($this.attr('max'))
-      if (min == 0) {
-        var d = 0
-      } else d = min
-      $(qty).on('click', function() {
-        if ($(this).hasClass('minus')) {
-          if (d > min) d += -1
-        } else if ($(this).hasClass('plus')) {
-          var x = Number($this.val()) + 1
-          if (x <= max) d += 1
-        }
-        $this.attr('value', d).val(d);
-        changePrice();
-      })
-    });
-    function maxAmount() {
-      var x = parseInt(document.getElementById("so-luong").value);
-      var y = parseInt(document.getElementById("so-luong").max);
-      if(x > y){
-        document.getElementById("so-luong").value = y;
-      }
-    }
-    function changePrice(){
-      var p = parseInt(document.getElementById("so-luong").value);
-      var pA = parseInt(document.getElementById("price-a").innerHTML);
-      console.log(p,pA);
-      var total = pA * p;
-      document.getElementById("price").innerHTML = total;
-    }
      
   </script>
 </body>

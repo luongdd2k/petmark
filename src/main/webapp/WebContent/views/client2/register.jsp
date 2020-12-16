@@ -75,7 +75,7 @@ body {
 					<p id="error5" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
 				</div>
 				<div class="form-group col-3">
-					<label for="gender">Giới tính</label>
+					<label>Giới tính</label>
 					<br/>
 					<div class="form-check form-check-inline">
 						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="nam" value="male" checked>
@@ -127,7 +127,7 @@ body {
 				</div>
 				<div class="form-group col-6">
 					<p>
-						Đã có tài khoản! <a href="">Đăng nhập</a>
+						Đã có tài khoản! <a href="showLogin">Đăng nhập</a>
 					</p>
 				</div>
 			</div>

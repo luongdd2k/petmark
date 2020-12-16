@@ -87,6 +87,25 @@
 			-webkit-appearance:none;
 			margin:0;
 		}
+		.close{
+			color: #ff4646;
+			font-size: 27px;
+		}
+		.close:hover{
+			color: #ec524b;
+		}
+		.modal-body__text{
+			font-size: 1.5rem;
+		}
+		.modal-body{
+			padding: 1rem 3rem 0rem 3rem ;
+		}
+		.modal-body__text{
+			font-size: 15px;
+		}
+		.btn {
+			font-size: 13px;
+		}
 	</style>
 </head>
 
@@ -368,7 +387,7 @@
 
 	<!-- Modal noti-->
 	<div class="modal fade " id="myModal" role="dialog">
-		<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-dialog modal-sm modal-dialog-centered">
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
@@ -379,13 +398,13 @@
 				</div>
 				<div class="modal-body">
 					<p class="modal-body__text">
-						Bạn cần <a href="showLogin">đăng nhập</a> để đặt cọc!
+						Bạn cần <a href="showLogin">đăng nhập</a> để mua hàng!
 						Hoặc bạn có thể cung cấp thông tin để chúng tôi có thể liên lạc với bạn
 					</p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-					<button type="button" class="btn btn-primary" onclick="b()" data-dismiss="modal" data-toggle="modal" data-target="#myModalForm">Thông tin</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+					<button type="button" class="btn btn-success" onclick="b()" data-dismiss="modal" data-toggle="modal" data-target="#myModalForm">Thông tin</button>
 				</div>
 			</div>
 			<%--End modal content--%>
@@ -395,7 +414,7 @@
 
 	<!-- Modal form-->
 	<div class="modal fade " id="myModalForm" role="dialog">
-		<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
@@ -404,69 +423,79 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form action="deposit-no-sign/${pet.getId() }" method="post">
+				<form action="deposit-no-sign/${pet.getId() }" method="post" onsubmit="return validateForm()">
 					<div class="modal-body">
 						<input type="hidden" id="so-luong-form" name="soLuong" value="">
 						<input type="hidden" id="mau-sac-form" name="colors" value="">
 						<div class="row">
-							<%--              <div class="col-12" style="text-align: center">--%>
-							<%--                <h4>Để lại thông tin để chúng tôi có thể liên lạc với bạn</h4>--%>
-							<%--              </div>--%>
 							<div class="col-6">
 								<div class="form-group">
 									<label for="name">Họ và tên</label>
 									<input type="text" class="form-control" id="name" name="ten" placeholder="Họ và tên">
+									<p id="error1" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
 								</div>
 							</div>
 							<div class="col-6">
 								<div class="form-group">
 									<label for="phone">Số điện thoại</label>
 									<input type="tel" class="form-control" id="phone" name="sdt" placeholder="Số điện thoại">
+									<p id="error2" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
 								</div>
 							</div>
-							<div class="col-6">
+							<div class="col-12">
 								<div class="form-group">
 									<label for="phone">Email</label>
 									<input type="email" class="form-control" id="email" name="email" placeholder="Email">
+									<p id="error3" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
 								</div>
 							</div>
-							 <div class="col-4">
-		            <label for="city">Tỉnh / Thành phố</label>
-		            <select class="form-select" aria-label="Default select example" id="city2" onchange="city(this)">
-		                <option value="none">---- Chọn Tỉnh / Thành phố ----</option>
-		                <c:forEach var="tp" items="${tp }">
-		                    <option value="${tp.getMatp() }">${tp.getName() }</option>
-		                </c:forEach>
-		            </select>
-		        </div>
-		        <div class="col-4">
-		            <label for="district">Quận / Huyện    </label>
-		            <select class="form-select" aria-label="Default select example" id="district2" onchange="district(this)">
-		                <option value="none">---- Chọn Quận / Huyện ----</option>
-		            </select>
-		        </div>
-		        <div class="col-4">
-		            <label for="village">Xã / Phường / Thị trấn</label>
-		            <select class="form-select" aria-label="Default select example" id="village2" onchange="village(this)">
-		                <option value="none">---- Chọn Xã / Phường / Thị trấn ----</option>
-		            </select>
-		        </div>
-              <div class="col-12">
-                <div class="form-group">
-                  <label for="address">Địa chỉ</label>
-                  <textarea class="form-control" id="address" rows="2" name="address" placeholder="Địa chỉ nhận hàng"></textarea>
-                </div>
-              </div>
-               <div class="col-4" style="margin-top: 30px;">
-		            <input type="hidden" class="form-control" id="city-id" name="matp" value="">
-		            <input type="hidden" class="form-control" id="district-id" name="maqh" value="">
-		            <input type="hidden" class="form-control" id="village-id" name="xaid" value="">
-		        </div>
+							<div class="col-4">
+								<div class="form-group">
+									<label for="city2">Tỉnh / Thành phố</label>
+									<select class="form-control" aria-label="Default select example" id="city2" onchange="city(this)">
+										<option value="none">Tỉnh/Thành phố</option>
+										<c:forEach var="tp" items="${tp }">
+											<option value="${tp.getMatp() }">${tp.getName() }</option>
+										</c:forEach>
+									</select>
+									<p id="error4" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="form-group">
+									<label for="district2">Quận / Huyện</label>
+									<select class="form-control" aria-label="Default select example" id="district2" onchange="district(this)">
+										<option value="none">Quận/Huyện</option>
+									</select>
+									<p id="error5" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="form-group">
+									<label for="village2">Xã / Phường / Thị trấn</label>
+									<select class="form-control" aria-label="Default select example" id="village2" onchange="village(this)">
+										<option value="none">Xã/Phường/Thị trấn</option>
+									</select>
+									<p id="error6" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="form-group">
+									<label for="address">Địa chỉ</label>
+									<textarea class="form-control" id="address" rows="2" name="address" placeholder="Địa chỉ nhận hàng"></textarea>
+									<p id="error7" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
+								</div>
+							</div>
+							<div class="col-4" style="margin-top: 30px;">
+								<input type="hidden" class="form-control" id="city-id" name="matp" value="">
+								<input type="hidden" class="form-control" id="district-id" name="maqh" value="">
+								<input type="hidden" class="form-control" id="village-id" name="xaid" value="">
+							</div>
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-						<button type="submit" class="btn btn-primary">Đăng ký</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+						<button type="submit" class="btn btn-success">Đăng ký</button>
 					</div>
 				</form>
 			</div>
@@ -488,73 +517,13 @@
 	<!-- Custom JavaScript -->
 	
 	<script src="js/index.js"></script>
+	<script src="js/client/product.js"></script>
 	<script src="js/slider.js"></script>
 	<script src="js/city.js"></script>
 	<script src="js/jquery-3.5.1.min.js"></script>
 	<script src="js/custom.js"></script>
 	<script type="text/javascript">
-		function getUrl(url){
-			document.getElementById("pic").src = url;
-		};
 
-		a();
-		function a(){
-			let u = document.getElementById("usernameBE").value;
-			if(u == ""){
-				document.getElementById("btn-action").classList.add("hide");
-				document.getElementById("btn-modal").classList.remove("hide");
-			}else{
-				document.getElementById("btn-modal").classList.add("hide");
-				document.getElementById("btn-action").classList.remove("hide");
-			}
-		}
-
-		$('input.input-qty').each(function() {
-			var $this = $(this),
-					qty = $this.parent().find('.is-form'),
-					min = Number($this.attr('min')),
-					max = Number($this.attr('max'))
-			if (min == 0) {
-				var d = 0
-			} else d = min
-			$(qty).on('click', function() {
-				if ($(this).hasClass('minus')) {
-					if (d > min) d += -1
-				} else if ($(this).hasClass('plus')) {
-					var x = Number($this.val()) + 1
-					if (x <= max) d += 1
-				}
-				$this.attr('value', d).val(d);
-				changePrice();
-			})
-		});
-
-		function b(){
-			let sl = document.getElementById("so-luong").value;
-			let cl = document.getElementById("color");
-			console.log(sl);
-			let slF = document.getElementById("so-luong-form");
-			let clF = document.getElementById("mau-sac-form");
-			slF.value = sl;
-			let clValue = cl.options[cl.selectedIndex].value;
-			clF.value = clValue;
-		}
-
-		function maxAmount() {
-			var x = parseInt(document.getElementById("so-luong").value);
-			var y = parseInt(document.getElementById("so-luong").max);
-			if(x > y){
-				document.getElementById("so-luong").value = y;
-			}
-		}
-		function changePrice(){
-			var p = parseInt(document.getElementById("so-luong").value);
-			var pA = document.getElementById("price-a").value.replace(/\./g,'');
-			var pF = parseInt(pA);
-			console.log(p,pF);
-			var total = pF * p;
-			document.getElementById("price").innerHTML = total;
-		}
 	</script>
 </body>
 
