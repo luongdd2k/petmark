@@ -177,7 +177,7 @@
 																	${card.getAccessories().getCategory().getName() }</span>
 															</div>
 															<div
-																class="checkout-product-ordered-list-item__header checkout-product-ordered-list-item__header--price price-js">${card.getAccessories().getDisplayPrice(1) } đ</div>
+																class="checkout-product-ordered-list-item__header checkout-product-ordered-list-item__header--price price-js">${card.getAccessories().displayPrice() }</div>
 															<div
 																class="checkout-product-ordered-list-item__header checkout-product-ordered-list-item__header--amount amount-js">${card.getAmount() }</div>
 <%--															<div class="checkout-product-ordered-list-item__header checkout-product-ordered-list-item__header--subtotal tong-js">${thanhTien}</div>--%>

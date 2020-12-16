@@ -118,6 +118,7 @@
                             <tbody>
                                 <tr>
                                     <td class="product__thumbnail">
+                                    <input type="hidden" id="id" name="id" value="${card.getId() }">
                                         <a href="javascript:">
                                             <img src="${card.getAccessories().getImgs().get(0).getImgAvartar() }" alt="">
                                         </a>
@@ -127,7 +128,7 @@
                                     </td>
                                     <td class="product__price">
                                         <div class="price">
-                                            <span class="new__price product-price">${card.getAccessories().getDisplayPrice(1)} đ</span>
+                                            <span class="new__price product-price">${card.getAccessories().displayPrice()}</span>
                                         </div>
                                     </td>
                                     <td class="product__quantity">
@@ -135,7 +136,7 @@
                                             <div>
                                                 <div class="buttons_added">
                                                     <input class="minus is-form" type="button" value="-">
-                                                    <input id="so-luong"  aria-label="quantity" class="input-qty" max="10" min="1" name="soLuong" type="number" value="${card.getAmount() }">
+                                                    <input id="so-luong"  aria-label="quantity" class="input-qty" max="${card.getAccessories().getAmount()}" min="1" name="soLuong" type="number" value="${card.getAmount() }">
                                                     <input class="plus is-form" type="button" value="+">
                                                 </div>
                                             </div>
