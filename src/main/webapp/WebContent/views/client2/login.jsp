@@ -43,13 +43,13 @@
 			</div>
 			<div class="form-group col-12">
 				<label for="username">Tên đăng nhập</label>
-				<input type="text" name="sl_login_username" class="form-control" id="username" placeholder="Tên đăng nhập" required="required">
+				<input type="text" name="sl_login_username" class="form-control" id="username" placeholder="Tên đăng nhập" value="" required="required">
 			</div>
 			<div class="form-group col-12">
 				<label for="pass">Mật khẩu</label>
-				<input type="password" name="sl_login_password" class="form-control" id="pass" placeholder="Mật khẩu" required="required">
+				<input type="password" name="sl_login_password" class="form-control" id="pass" placeholder="Mật khẩu" value="" required="required">
 			</div>
-			<p>${thongBao }</p>
+			<p class="abc"></p>
 			<input type="hidden" name="cart_hidden_id" id="cart_hidden_id" value="${id}">
 			<input type="hidden" name="urlPage" id="urlPage" value="">
 			<div class="form-check col-6">
@@ -62,7 +62,7 @@
 				<a href="showforgotpw">Quên mật khẩu</a>
 			</div>
 			<div class="form-group col-12">
-				<button class="btn btn-info btn-block" type="submit">Đăng nhập</button>
+				<button class="btn btn-info btn-block btn-js" type="submit">Đăng nhập</button>
 			</div>
 			<div class="form-group col-8">
 				<p>
@@ -82,4 +82,5 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+<%--<script src="js/login-validate.js"></script>--%>
 </html>
