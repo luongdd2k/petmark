@@ -118,12 +118,12 @@ public class AccountDAOImpl implements AccountDAO{
 	
 	private boolean validate(String username, String password, String fullName, Boolean gender, String email, String phone, String address) {
 		// TODO Auto-generated method stub
-		if(	username.length() == 0 || username.length() > 15  ||
+		if(	username.length() == 0 || username.length() > 25  ||
 			password.length() < 8  || password.length() > 100 || 
 			fullName.length() == 0 || fullName.length() > 50  ||
 			email.length() < 5     || email.length() > 50     || 
 			phone.length() < 8     || phone.length() > 13     ||
-			address.length() < 8 || address.length() > 100) 	  {
+			address.length() < 8 || address.length() > 255) 	  {
 			
 			System.out.println("validate: invalid length");
 			return false;
