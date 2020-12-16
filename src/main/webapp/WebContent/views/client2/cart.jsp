@@ -118,7 +118,7 @@
                             <tbody>
                                 <tr>
                                     <td class="product__thumbnail">
-                                    <input type="hidden" id="id" name="id" value="${card.getId() }">
+                                    <input type="hidden"  name="id-cart" value="${card.getId() }">
                                         <a href="javascript:">
                                             <img src="${card.getAccessories().getImgs().get(0).getImgAvartar() }" alt="">
                                         </a>
@@ -128,7 +128,8 @@
                                     </td>
                                     <td class="product__price">
                                         <div class="price">
-                                            <span class="new__price product-price">${card.getAccessories().displayPrice()}</span>
+                                            <input type="hidden" class="product-price-origin" value="${card.getAccessories().displayPrice()}">
+                                            <span class="new__price product-price">${card.getAccessories().displayPrice()} đ</span>
                                         </div>
                                     </td>
                                     <td class="product__quantity">
@@ -144,6 +145,7 @@
                                     </td>
                                     <td class="product__subtotal">
                                         <div class="price">
+                                            <input type="hidden" class="total-price-origin" value="">
                                             <span class="new__price total-price"> đ</span>
                                         </div>
                                         <a href="delete/${card.getId() }" class="remove__cart-item">
@@ -177,7 +179,7 @@
                             </li>
                         </ul>
                         <div class="btn-payment">
-                          <a href="showcheck-out">TIẾN HÀNH THANH TOÁN</a>
+                          <a href="showcheck-out" id="do-to-check-out">TIẾN HÀNH THANH TOÁN</a>
                         </div>
                     </div>
                 </form>
@@ -217,67 +219,9 @@
     <!-- Custom JavaScript -->
     
     <script src="js/index.js"></script>
+    <script src="js/client/cart.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/slider.js"></script>
-    <script>
-        $('input.input-qty').each(function() {
-            var $this = $(this),
-                qty = $this.parent().find('.is-form'),
-                min = Number($this.attr('min')),
-                max = Number($this.attr('max')),
-                x = Number($this.val())
-
-            $(qty).on('click', function() {
-                if ($(this).hasClass('minus')) {
-                    if (x > min) x--
-                } else if ($(this).hasClass('plus')) {
-                    if (x < max) x++
-                }
-                $this.val(x)
-                tinhTong();
-            })
-        });
-        tinhTong();
-        function tinhTong(){
-            let tien = document.getElementsByClassName("product-price");
-            let amount = document.getElementsByClassName("input-qty");
-            let tong =  document.getElementsByClassName("total-price");
-            for (let i = 0 ; i<tien.length; i++){
-                let tong1 = parseInt(tien[i].innerHTML) * parseInt(amount[i].value);
-                tong[i].innerHTML = tong1 +" đ";
-            }
-        }
-        thanhTien();
-        function thanhTien(){
-            let tong2 = document.getElementsByClassName("total-price");
-            let tam = document.getElementById("tam-tinh");
-            let thanh = document.getElementById("thanh-tien");
-            let sum =0;
-            for (let i =0; i<tong2.length; i++){
-                sum = parseInt(sum) + parseInt(tong2[i].innerHTML);
-                console.log(sum);
-                tam.innerHTML = sum +" đ";
-                thanh.innerHTML = sum + " đ";
-            }
-        }
-        formartN();
-        function formartN(){
-            let tien = document.getElementsByClassName("product-price");
-            let tong =  document.getElementsByClassName("total-price");
-            let tam = document.getElementById("tam-tinh");
-            let thanh = document.getElementById("thanh-tien");
-            for (let i=0; i<tien.length; i++){
-                let tien1 = tien[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-                tien[i].innerHTML = tien1;
-                let tong1 = tong[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-                tong[i].innerHTML = tong1;
-                let tam1 = tam.innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-                tam.innerHTML = tam1;
-                let thanh1 = thanh.innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-                thanh.innerHTML = thanh1;
-            }
-        }
-    </script>
 </body>
 
 </html>
