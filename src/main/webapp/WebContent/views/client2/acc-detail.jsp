@@ -357,7 +357,7 @@
                         </svg>
                       </div>
                       <div class="product__price">
-                        <h4>${list.getDisplayPrice(1) } đ</h4>
+                        <h4 class="price-list">${list.getDisplayPrice(1) } </h4>
                       </div>
                     </div>
                     <ul>

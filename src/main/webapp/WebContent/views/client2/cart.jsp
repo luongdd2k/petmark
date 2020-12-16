@@ -223,18 +223,17 @@
             var $this = $(this),
                 qty = $this.parent().find('.is-form'),
                 min = Number($this.attr('min')),
-                max = Number($this.attr('max'))
-            if (min == 0) {
-                var d = 0
-            } else d = min
+                max = Number($this.attr('max')),
+                x = Number($this.val())
+
             $(qty).on('click', function() {
                 if ($(this).hasClass('minus')) {
-                    if (d > min) d += -1
+                    if (x > min) x--
                 } else if ($(this).hasClass('plus')) {
-                    var x = Number($this.val()) + 1
-                    if (x <= max) d += 1
+                    if (x < max) x++
                 }
-                $this.attr('value', d).val(d)
+                $this.val(x)
+                tinhTong();
             })
         });
         tinhTong();
@@ -277,7 +276,6 @@
                 thanh.innerHTML = thanh1;
             }
         }
-        // replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     </script>
 </body>
 

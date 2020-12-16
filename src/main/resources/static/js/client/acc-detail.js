@@ -75,6 +75,14 @@ function fomartNumber1(){
     let p1 = p.innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     p.innerHTML = p1 +" đ";
 }
+fomartNumberList();
+function fomartNumberList(){
+    let priceList = document.getElementsByClassName("price-list");
+    for(let i =0; i <priceList.length; i++){
+        let priceListF = priceList[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+        priceList[i].innerHTML = priceListF +" đ";
+    }
+}
 
 function validateForm(){
     let check = true;

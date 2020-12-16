@@ -231,7 +231,7 @@
 
 										<li>
 											<span>Giá :</span>
-											<a href="javascript:" class="new__price">${pet.displayPrice() } </a>
+											<a href="javascript:" class="new__price" id="price-ori">${pet.displayPrice() } </a>
 										</li>
 										<li>
 											<span>Giống :</span>
@@ -336,7 +336,7 @@
                         </svg>
                       </div>
                       <div class="product__price">
-                        <h4>${list.displayPrice() } </h4>
+                        <h4 class="price-list">${list.displayPrice() } </h4>
                       </div>
                     </div>
                     <ul>
