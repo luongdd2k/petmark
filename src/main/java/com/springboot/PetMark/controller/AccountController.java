@@ -71,8 +71,8 @@ public class AccountController {
 	@ResponseBody
 	public String loginFail(HttpServletRequest request) {
 //		xong
-		String username = request.getParameter("sl_login_username");
-		String password = request.getParameter("sl_login_password");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
 		System.out.println("tên đăng nhập: " + username);
 		System.out.println("mật khẩu: " + password);
 
@@ -80,6 +80,7 @@ public class AccountController {
 		if (accountService.checkLogin(username, password)) {
 			isLoginFail = "0";
 		}
+		
 		return "?" + "isLoginFail=" + isLoginFail;
 	}
 
@@ -345,5 +346,14 @@ public class AccountController {
 		HttpSession session = req.getSession(false);
 		session.invalidate();
 		return "redirect:/index";
+	}
+	@RequestMapping("change-info")
+	public String changeInfo(HttpServletRequest req) {
+		Account account = accountService.findById(req.getParameter("username"));
+		account.setFullName(req.getParameter("name"));
+		account.setPhone(req.getParameter("phone"));
+		account.setAddress(req.getParameter("address"));
+		accountService.save(account);
+		return "redirect:/show-account";
 	}
 }

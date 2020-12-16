@@ -62,7 +62,8 @@
                       <div class="my-account-section__header-subtitle">Quản lý thông tin hồ sơ để bảo mật an toàn</div>
                     </div>
                   </div>
-                  <form action="">
+                  <form action="change-info" method="post">
+                  <input type="hidden" name="username"  value="${account.getUsername() }">
                     <div class="my-account-profile">
                       <div class="my-account-profile__left">
                         <div class="input-with-label">
@@ -87,7 +88,7 @@
                             <div class="input-with-label__content">
                               <div class="input-with-validator-wrapper">
                                 <div  class="input-with-validator">
-                                  <input type="text" placeholder="" value="${account.getFullName() }">
+                                  <input type="text" placeholder="" name="name" value="${account.getFullName() }">
                                 </div>
                               </div>
                             </div>
@@ -158,7 +159,7 @@
                             <div class="input-with-label__content">
                               <div class="input-with-validator-wrapper">
                                 <div  class="input-with-validator">
-                                  <input type="text" placeholder="" value="${account.getPhone() }">
+                                  <input type="text" placeholder="" name="phone" value="${account.getPhone() }">
                                 </div>
                               </div>
                             </div>
@@ -172,7 +173,7 @@
                             <div class="input-with-label__content">
                               <div class="input-with-validator-wrapper">
                                 <div  class="input-with-validator">
-                                  <input type="text" placeholder="" value="${account.getAddress() }">
+                                  <input type="text" placeholder="" name="address" value="${account.getAddress() }">
                                 </div>
                               </div>
                             </div>
@@ -189,6 +190,7 @@
                         </div>
                       </div>
                     </div>
+                    <button type="submit" class="btn btn-primary">Cập nhật</button>
                   </form>
                 </div>
               </div>

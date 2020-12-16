@@ -195,26 +195,27 @@
                                         </div>
                                     </div>
                                 </form>
-                                <form id="form-image"  class="hide">
+                                <form id="form-image"  class="hide" action="admin/AccessoriesManagement/addImg" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="id" value="${acc.getId() }">
                                     <div class="row">
                                         <div class="form-group col-3">
                                             <label class="custom-file-label" for="customFile">Chọn hình ảnh</label>
-                                            <input type="file" class="custom-file-input" id="customFile" name="filename">
+                                            <input type="file" class="custom-file-input" id="customFile" name="avatar">
                                         </div>
                                         <div class="form-group col-3">
                                             <label class="custom-file-label" for="customFile1">Chọn hình ảnh</label>
-                                            <input type="file" class="custom-file-input" id="customFile1" name="filename">
+                                            <input type="file" class="custom-file-input" id="customFile1" name="img1">
                                         </div>
                                         <div class="form-group col-3">
                                             <label class="custom-file-label" for="customFile2">Chọn hình ảnh</label>
-                                            <input type="file" class="custom-file-input" id="customFile2" name="filename">
+                                            <input type="file" class="custom-file-input" id="customFile2" name="img2">
                                         </div>
                                         <div class="form-group col-3">
                                             <label class="custom-file-label" for="customFile3">Chọn hình ảnh</label>
-                                            <input type="file" class="custom-file-input" id="customFile3" name="filename">
+                                            <input type="file" class="custom-file-input" id="customFile3" name="img3">
                                         </div>
                                         <div class="form-group col-12 button-group-center" >
-                                            <button type="button" class="btn btn-success">
+                                            <button type="submit" class="btn btn-success">
                                                 <i class="fas fa-save"></i> Lưu
                                             </button>
                                             <button onclick="hideImage()" type="button" class="btn btn-danger">

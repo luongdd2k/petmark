@@ -182,8 +182,8 @@
 							<div class="product-detail__content">
 								<h3>${pet.getPetName() }</h3>
 								<div class="price">
-									<input type="hidden" id="price-a" value="${pet.getDisplayDeposit() }">
-									<span class="new__price" id="price">${pet.getDisplayDeposit() }</span>
+									<input type="hidden" id="price-a" value="${pet.displayDeposit() }">
+									<span class="new__price" id="price">${pet.displayDeposit() }</span>
 								</div>
 								<div class="product__review">
 									<div class="rating">
@@ -231,7 +231,7 @@
 
 										<li>
 											<span>Giá :</span>
-											<a href="javascript:" class="new__price">${pet.getDisplayPrice(1) } </a>
+											<a href="javascript:" class="new__price">${pet.displayPrice() } </a>
 										</li>
 										<li>
 											<span>Giống :</span>
@@ -336,7 +336,7 @@
                         </svg>
                       </div>
                       <div class="product__price">
-                        <h4>${list.getDisplayPrice(1) } </h4>
+                        <h4>${list.displayPrice() } </h4>
                       </div>
                     </div>
                     <ul>
