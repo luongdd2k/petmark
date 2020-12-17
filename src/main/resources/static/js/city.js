@@ -1,5 +1,4 @@
 
-// let villageValue = maXa.options[maXa.selectedIndex].value;
 
 function city(obj){
     let cityValue1 = obj.value;

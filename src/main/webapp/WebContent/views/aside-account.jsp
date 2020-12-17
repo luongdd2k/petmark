@@ -44,13 +44,13 @@
                         <div class="userpage-sidebar-menu-entry__text">Tài khoản của tôi</div>
                     </a>
                 </div>
-                <div class="stardust-dropdown__item-body stardust-dropdown__item-body--open" style="opacity: 1;">
+                <div class="stardust-dropdown__item-body stardust-dropdown__item-body--open" id="acount-hide" style="opacity: 1;">
                     <div class="userpage-sideber-menu__subsection">
                         <a href="show-account" class="_17BcjA _1EUbVp">
-                            <span class="_2ilxaJ">Hồ sơ</span>
+                            <span class="_2ilxaJ active" id="ho-so">Hồ sơ</span>
                         </a>
                         <a href="show-change-pass" class="_17BcjA">
-                            <span class="_2ilxaJ">Đổi mật khẩu</span>
+                            <span class="_2ilxaJ" id="change-pass">Đổi mật khẩu</span>
                         </a>
                     </div>
                 </div>
@@ -69,25 +69,25 @@
                 </div>
                 <div class="userpage-sidebar-menu-entry__text">Đơn Hàng</div>
             </a>
-            <div class="stardust-dropdown__item-body stardust-dropdown__item-body--open" style="opacity: 1;">
+            <div class="stardust-dropdown__item-body stardust-dropdown__item-body--open" id="order-hide" style="opacity: 1;">
                 <div class="userpage-sideber-menu__subsection">
                     <a href="show-all-order" class="_17BcjA _1EUbVp">
-                        <span class="_2ilxaJ">Tất cả đơn hàng</span>
+                        <span class="_2ilxaJ" id="all-order">Tất cả đơn hàng</span>
                     </a>
                     <a href="show-waiting-order" class="_17BcjA">
-                        <span class="_2ilxaJ">Chờ xác nhận</span>
+                        <span class="_2ilxaJ" id="waiting">Chờ xác nhận</span>
                     </a>
                     <a href="show-waiting-delevery" class="_17BcjA">
-                        <span class="_2ilxaJ">Chờ giao hàng</span>
+                        <span class="_2ilxaJ" id="wait-delevery">Chờ giao hàng</span>
                     </a>
                     <a href="show-delevering" class="_17BcjA">
-                        <span class="_2ilxaJ">Đang giao hàng</span>
+                        <span class="_2ilxaJ" id="delevering-order">Đang giao hàng</span>
                     </a>
                     <a href="show-delivered" class="_17BcjA">
-                        <span class="_2ilxaJ">Đã giao</span>
+                        <span class="_2ilxaJ" id="done-order">Đã giao</span>
                     </a>
                     <a href="show-cancel-order" class="_17BcjA">
-                        <span class="_2ilxaJ">Đã hủy</span>
+                        <span class="_2ilxaJ" id="cancel-order">Đã hủy</span>
                     </a>
                 </div>
             </div>
@@ -99,13 +99,13 @@
                 </div>
                 <div class="userpage-sidebar-menu-entry__text">Đặt cọc</div>
             </a>
-            <div class="stardust-dropdown__item-body stardust-dropdown__item-body--open" style="opacity: 1;">
+            <div class="stardust-dropdown__item-body stardust-dropdown__item-body--open" id="depost-hide" style="opacity: 1;">
                 <div class="userpage-sideber-menu__subsection">
                     <a href="javascript:" class="_17BcjA _1EUbVp">
-                        <span class="_2ilxaJ">Tất cả đơn đặt cọc</span>
+                        <span class="_2ilxaJ" id="all-depost">Tất cả đơn đặt cọc</span>
                     </a>
                     <a href="show-cancel-deposit" class="_17BcjA">
-                        <span class="_2ilxaJ">Đã hủy cọc</span>
+                        <span class="_2ilxaJ" id="cancel-depost">Đã hủy cọc</span>
                     </a>
                     </a>
                 </div>
@@ -118,6 +118,14 @@
                 </div>
                 <div class="userpage-sidebar-menu-entry__text">Blog</div>
             </a>
+            <div class="stardust-dropdown__item-body stardust-dropdown__item-body--open" id="blog-hide" style="opacity: 1;">
+                <div class="userpage-sideber-menu__subsection">
+                    <a href="javascript:" class="_17BcjA _1EUbVp">
+                        <span class="_2ilxaJ" id="all-blog">Danh sách Blog</span>
+                    </a>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

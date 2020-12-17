@@ -154,7 +154,7 @@
                         </svg>
 												</div>
 												<div class="product__price">
-													<h4 class="price">${listAcc.displayPrice() }</h4>
+													<h4 class="price-list">${listAcc.displayPrice() }</h4>
 												</div>
 											</div>
 											<ul>
@@ -248,7 +248,7 @@
                         </svg>
 									</div>
 									<div class="product__price">
-										<h4 class="price">${list.displayPrice() }</h4>
+										<h4 class="price-list">${list.displayPrice() }</h4>
 									</div>
 								</div>
 								<ul>
@@ -426,5 +426,14 @@
 	<script src="js/sweat-alert.js"></script>
 
 </body>
-
+<script>
+	fomartNumberList();
+	function fomartNumberList(){
+		let priceList = document.getElementsByClassName("price-list");
+		for(let i =0; i <priceList.length; i++){
+			let priceListF = priceList[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+			priceList[i].innerHTML = priceListF +" đ";
+		}
+	}
+</script>
 </html>

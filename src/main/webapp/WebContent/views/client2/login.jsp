@@ -51,6 +51,9 @@ body {
 				<div class="col-12">
 					<p class="h3 mb-4 text-center">XIN CHÀO</p>
 				</div>
+				<div class="col-12" style="text-align: center;">
+					<p class="abc"></p>
+				</div>
 				<div class="form-group col-12">
 					<label for="username">Tên đăng nhập</label> <input type="text"
 						name="sl_login_username" class="form-control" id="username"
@@ -61,7 +64,6 @@ body {
 						name="sl_login_password" class="form-control" id="pass"
 						placeholder="Mật khẩu" value="" required="required">
 				</div>
-				<p class="abc"></p>
 				<input type="hidden" name="cart_hidden_id" id="cart_hidden_id"
 					value="${id}"> <input type="hidden" name="urlPage"
 					id="urlPage" value="">
@@ -87,70 +89,12 @@ body {
 	</div>
 </body>
 <!-- JQuery -->
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script type="text/javascript">
-$.urlParam = function(name, param){
-    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(param);
-    if (results==null) {
-       return null;
-    }
-    return decodeURI(results[1]) || 0;
-};
-
-	$('.btn')
-			.click(
-					function(event) {
-						$('.sl_form_input span').text("");
-						event.preventDefault();
-						$
-								.ajax({
-									url : 'isLoginFail',
-									type : 'POST',
-									dataType : 'html',
-									data : {
-										"username" : $('#username').val(),
-										"password" : $('#pass').val(),
-										"currentPath" : $('#urlPage').val()
-									},
-								})
-								.done(
-										function(login_resp) {
-											console.log(login_resp);
-											if ($.urlParam('isLoginFail',
-													login_resp) == "1") {
-												$('.abc')
-														.after(
-																'<span class="msgForm">Đăng nhập thất bại!</span>');
-												event.preventDefault();
-											} else if ($.urlParam(
-													'isLoginFail', login_resp) == "0") {
-												$('.abc')
-														.after(
-																'<span class="msgForm" style="color: #00e600; font-size: 115%;">Đăng nhập thành công!</span>');
-
-												setTimeout(function() {
-													$('#sl_form_login')
-															.submit();
-												}, 700);
-											}
-
-										}).fail(function() {
-									console.log("error");
-								}).always(function() {
-									console.log("complete");
-								});
-
-					});
-</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
 <!-- Bootstrap core JavaScript -->
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-<%--<script src="js/login-validate.js"></script>--%>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+<script src="js/client/login.js"></script>
 </html>
