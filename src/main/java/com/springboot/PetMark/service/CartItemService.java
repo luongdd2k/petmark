@@ -17,4 +17,5 @@ public interface CartItemService {
 	void deleteByAccount(Account acc);
 
 	int countByAccount(Account account);
+	CardItemAccessories findById(int id);
 }

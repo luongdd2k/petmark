@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.springboot.PetMark.entities.Accessories;
@@ -84,5 +85,13 @@ public class CardController {
 //	ModelAndView model = new ModelAndView();
 		cartItemService.delete(Integer.parseInt(id));
 		return "redirect:/show-card";
+	}
+	@RequestMapping("/update-cart")
+	@ResponseBody
+	public CardItemAccessories updateCart(HttpServletRequest req) {
+		CardItemAccessories card = cartItemService.findById(Integer.parseInt(req.getParameter("id")));
+		card.setAmount(Integer.parseInt(req.getParameter("soLuong")));
+		cartItemService.save(card);
+		return card;
 	}
 }
