@@ -50,4 +50,10 @@ CardItemAccessoriesRepo repo;
 		return repo.countByAccount(account);
 	}
 
+	@Override
+	public CardItemAccessories findById(int id) {
+		// TODO Auto-generated method stub
+		return repo.findById(id).get();
+	}
+
 }

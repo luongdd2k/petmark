@@ -51,4 +51,10 @@ public class CartItemServiceImpl implements CartItemService {
 		return dao.countByAccount(account);
 	}
 
+	@Override
+	public CardItemAccessories findById(int id) {
+		// TODO Auto-generated method stub
+		return dao.findById(id);
+	}
+
 }
