@@ -259,10 +259,10 @@
                     }
                 })
                     .done(function() {
-                        alert("Gửi thành công!!!!")
+                        console.log("Gửi thành công!!!!")
                     })
                     .fail(function() {
-                        alert("Gửi thất bại!!!!")
+                        console.log("Gửi thất bại!!!!")
                     });
 
             }
