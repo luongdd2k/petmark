@@ -12,6 +12,7 @@ $('input.input-qty').each(function() {
             if (x < max) x++
         }
         $this.val(x)
+        cartAmount();
         tinhTong();
     })
 });
@@ -37,7 +38,6 @@ function thanhTien(){
     let sum =0;
     for (let i =0; i<tong2.length; i++){
         sum = parseInt(sum) + parseInt(tong2[i].value);
-        console.log(sum);
         tam.innerHTML = sum +" đ";
         thanh.innerHTML = sum + " đ";
     }

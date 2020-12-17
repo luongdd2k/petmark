@@ -114,11 +114,11 @@
                                     <th>Tổng tiền</th>
                                 </tr>
                             </thead>
-                            <c:forEach var="card" items="${card }">
                             <tbody>
+                            <c:forEach var="card" items="${card }">
                                 <tr>
                                     <td class="product__thumbnail">
-                                    <input type="hidden"  name="id-cart" value="${card.getId() }">
+                                    <input type="hidden" class="id-cart"  name="id-cart" value="${card.getId() }">
                                         <a href="javascript:">
                                             <img src="${card.getAccessories().getImgs().get(0).getImgAvartar() }" alt="">
                                         </a>
@@ -137,7 +137,7 @@
                                             <div>
                                                 <div class="buttons_added">
                                                     <input class="minus is-form" type="button" value="-">
-                                                    <input id="so-luong"  aria-label="quantity" class="input-qty" max="${card.getAccessories().getAmount()}" min="1" name="soLuong" type="number" value="${card.getAmount() }">
+                                                    <input  aria-label="quantity" class="input-qty" max="${card.getAccessories().getAmount()}" min="1" name="soLuong" type="number"  value="${card.getAmount() }" onchange="maxAmount(); changePrice();cartAmount()">
                                                     <input class="plus is-form" type="button" value="+">
                                                 </div>
                                             </div>
@@ -155,8 +155,8 @@
                                         </a>
                                     </td>
                                 </tr>
+                                </c:forEach>
                             </tbody>
-                            </c:forEach>
                         </table>
                     </div>
 
@@ -222,6 +222,52 @@
     <script src="js/client/cart.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/slider.js"></script>
+    <script>
+        function maxAmount() {
+            var x = document.getElementsByClassName("input-qty");
+            var y = document.getElementsByClassName("input-qty");
+            for(let i=0; i<x.length; i ++){
+                if(parseInt(x[i].value)>parseInt(y[i].max)){
+                    x[i].value = y[i].max;
+                }
+            }
+        }
+        function changePrice(){
+            var p = document.getElementsByClassName("input-qty");
+            var pO = document.getElementsByClassName("product-price-origin");
+            // let pF = parseInt(pA.replace(/,/g,""));
+            for(let i =0; i<p.length;i++){
+                let total = parseInt(p[i].value) * parseInt(pO[i].value);
+                document.getElementsByClassName("total-price")[i].innerHTML= total +" đ";
+                formartN();
+                tinhTong();
+            }
+        }
+        function cartAmount(){
+            let idC = document.getElementsByClassName("id-cart");
+            let soLuong = document.getElementsByClassName("input-qty");
+            for(let i=0;i<idC.length;i++){
+                let idCart = idC[i].value;
+                let soLuongCart = soLuong[i].value;
+                $.ajax({
+                    url: 'update-cart',
+                    type: 'post',
+                    dataType: 'html',
+                    data: {
+                        "id": idCart,
+                        "soLuong":soLuongCart
+                    }
+                })
+                    .done(function() {
+                        console.log("Gửi thành công!!!!")
+                    })
+                    .fail(function() {
+                        console.log("Gửi thất bại!!!!")
+                    });
+
+            }
+        }
+    </script>
 </body>
 
 </html>
