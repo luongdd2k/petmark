@@ -12,7 +12,7 @@
 		<input type="hidden" id="valuePetOrAccessori" value="${loai }" />
 		<div class="row header__top">
 			<div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
-				<p>206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội</p>
+				<p style="padding-left: 20px;">174 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội</p>
 			</div>
 			<div id="row-login" class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
 				<div class="header__actions">
@@ -36,13 +36,13 @@
 				</div>
 
 				<div class="nav__logo">
-					<a href="index.html" class="scroll-link"> PET MART </a>
+					<a href="index" class="scroll-link"> PET MART </a>
 				</div>
 
 				<div class="nav__menu">
 					<div class="menu__top">
 						<span class="nav__category">PET MART</span> 
-						<a href="index.html" class="close__toggle"> 
+						<a class="close__toggle">
 							<svg>
                                 <use xlink:href="images/sprite.svg#icon-cross"></use>
                             </svg>
