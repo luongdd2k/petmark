@@ -120,15 +120,15 @@
 <%--            </div>--%>
                 <div class="rating">
                     <div class="rating rating2">
-                        <input name="stars" id="e5" type="radio">
+                        <input name="rating" id="e5" type="radio">
                         <label for="e5">★</label>
-                        <input name="stars" id="e4" type="radio">
+                        <input name="rating" id="e4" type="radio">
                         <label for="e4">★</label>
-                        <input name="stars" id="e3" type="radio">
+                        <input name="rating" id="e3" type="radio">
                         <label for="e3">★</label>
-                        <input name="stars" id="e2" type="radio">
+                        <input name="rating" id="e2" type="radio">
                         <label for="e2">★</label>
-                        <input name="stars" id="e1" type="radio">
+                        <input name="rating" id="e1" type="radio">
                         <label for="e1">★</label>
                     </div>
                 </div>
@@ -146,6 +146,5 @@
             id = 'star' + f + (r % f ? 'half' : '')
         id && (document.getElementById(id).checked = !0)
     }
-
 </script>
 </html>
