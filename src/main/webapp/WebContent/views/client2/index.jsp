@@ -134,36 +134,33 @@
 												<h3>${listAcc.getName() }</h3>
 												<div class="rating">
 													<svg>
-                          <use
-															xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
+														<use xlink:href="images/sprite.svg#icon-star-full"></use>
+													</svg>
 													<svg>
-                          <use
-															xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
+														<use xlink:href="images/sprite.svg#icon-star-full"></use>
+													</svg>
 													<svg>
-                          <use
-															xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        </svg>
+														<use xlink:href="images/sprite.svg#icon-star-empty"></use>
+													</svg>
 													<svg>
-                          <use
-															xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        </svg>
+														<use xlink:href="images/sprite.svg#icon-star-empty"></use>
+													</svg>
 													<svg>
-                          <use
-															xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        </svg>
+														<use xlink:href="images/sprite.svg#icon-star-empty"></use>
+													</svg>
 												</div>
 												<div class="product__price">
 													<h4 class="price-list">${listAcc.displayPrice() }</h4>
 												</div>
 											</div>
 											<ul>
-												<li><a data-tip="Quick View" data-place="left"
-													href="acc-detail/${listAcc.getId() }"> <svg>
-                            <use xlink:href="images/sprite.svg#icon-eye"></use>
-                          </svg>
-												</a></li>
+												<li>
+													<a data-tip="Quick View" data-place="left" href="acc-detail/${listAcc.getId() }">
+														<svg>
+                            								<use xlink:href="images/sprite.svg#icon-eye"></use>
+                          								</svg>
+													</a>
+												</li>
 											</ul>
 										</div>
 									</li>
@@ -172,17 +169,15 @@
 						</div>
 
 						<div class="glide__arrows" data-glide-el="controls">
-							<button class="glide__arrow glide__arrow--left"
-								data-glide-dir="<">
+							<button class="glide__arrow glide__arrow--left" data-glide-dir="<">
 								<svg>
-                  <use xlink:href="images/sprite.svg#icon-arrow-left2"></use>
-                </svg>
+                  					<use xlink:href="images/sprite.svg#icon-arrow-left2"></use>
+                				</svg>
 							</button>
-							<button class="glide__arrow glide__arrow--right"
-								data-glide-dir=">">
+							<button class="glide__arrow glide__arrow--right" data-glide-dir=">">
 								<svg>
-                  <use xlink:href="images/sprite.svg#icon-arrow-right2"></use>
-                </svg>
+                  					<use xlink:href="images/sprite.svg#icon-arrow-right2"></use>
+                				</svg>
 							</button>
 						</div>
 					</div>
@@ -193,15 +188,13 @@
 				<div class="tab__list">
 					<div class="title__container tabs">
 						<div class="section__titles category__titles ">
-							<div class="section__title filter-btn active"
-								data-id="All Products">
+							<div class="section__title filter-btn active" data-id="All Products">
 								<span class="dot"></span>
 								<h1 class="primary__title">Tất cả thú cưng</h1>
 							</div>
 						</div>
 						<div class="section__titles">
-							<div class="section__title filter-btn"
-								data-id="Trending Products">
+							<div class="section__title filter-btn" data-id="Trending Products">
 								<span class="dot"></span>
 								<h1 class="primary__title">Thú cưng hot</h1>
 							</div>
@@ -221,43 +214,39 @@
 						<c:forEach var="list" items="${list }">
 							<div class="product">
 								<div class="product__header">
-									<img style="border-radius: 10px;"
-										src="${list.getImgs().get(0).getImgAvartar() }" alt="product">
+									<img style="border-radius: 10px;" src="${list.getImgs().get(0).getImgAvartar() }" alt="product">
 								</div>
 								<div class="product__footer">
 									<h3>${list.getPetName() }</h3>
 									<div class="rating">
 										<svg>
-                          <use
-												xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
+                          					<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                        				</svg>
 										<svg>
-                          <use
-												xlink:href="images/sprite.svg#icon-star-full"></use>
-                        </svg>
+                          					<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                        				</svg>
 										<svg>
-                          <use
-												xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        </svg>
+                          					<use xlink:href="images/sprite.svg#icon-star-empty"></use>
+                        				</svg>
 										<svg>
-                          <use
-												xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        </svg>
+                          					<use xlink:href="images/sprite.svg#icon-star-empty"></use>
+                        				</svg>
 										<svg>
-                          <use
-												xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        </svg>
+                          					<use xlink:href="images/sprite.svg#icon-star-empty"></use>
+                        				</svg>
 									</div>
 									<div class="product__price">
 										<h4 class="price-list">${list.displayPrice() }</h4>
 									</div>
 								</div>
 								<ul>
-									<li><a data-tip="Quick View" data-place="left"
-										href="pet-detail/${list.getId() }"> <svg>
-                            <use xlink:href="images/sprite.svg#icon-eye"></use>
-                          </svg>
-									</a></li>
+									<li>
+										<a data-tip="Quick View" data-place="left" href="pet-detail/${list.getId() }">
+											<svg>
+                            					<use xlink:href="images/sprite.svg#icon-eye"></use>
+                          					</svg>
+										</a>
+									</li>
 								</ul>
 							</div>
 						</c:forEach>
@@ -336,33 +325,19 @@
 						<div class="glide" id="glide_5">
 							<div class="glide__track" data-glide-el="track">
 								<ul class="glide__slides">
-									<%--                <c:forEach var="blog" items="${blog }"> --%>
-									<!--                  <li class="glide__slide"> -->
-									<!--                  <div class="new__card"> -->
-									<!--                    <div class="card__header"> -->
-									<%--                      <img src="${blog.getImg() }" alt=""> --%>
-									<!--                    </div> -->
-									<!--                    <div class="card__footer"> -->
-									<%--                      <h3>${blog.getContent() }</h3> --%>
-									<%--                      <span>By <strong>${blog.getAccount().getUsername()}</strong></span> --%>
-									<!--                    </div> -->
-									<!--                  </div> -->
-									<!--                </li> -->
-									<%--                </c:forEach> --%>
-									<li class="glide__slide">
-										<div class="new__card">
-											<div class="card__header">
-												<img src="./images/news1.jpg" alt="">
+									<c:forEach var="blog" items="${blog }">
+										<li class="glide__slide">
+											<div class="new__card">
+												<div class="card__header">
+													<img src="${blog.getImg() }" alt="">
+												</div>
+												<div class="card__footer">
+													<h3>${blog.getContent() }</h3>
+													<span>Đăng bởi <strong>${blog.getAccount().getUsername()}</strong></span>
+												</div>
 											</div>
-											<div class="card__footer">
-												<h3>Styling White Shirts After A Cool Day</h3>
-												<span>By <strong>Admin</strong></span>
-												<p>Lorem ipsum dolor sit amet consectetur adipisicing
-													elit. Illo praesentium, numquam non provident rem sed minus
-													natus unde vel modi!</p>
-											</div>
-										</div>
-									</li>
+										</li>
+									</c:forEach>
 								</ul>
 							</div>
 						</div>
