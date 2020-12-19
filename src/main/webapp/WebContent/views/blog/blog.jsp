@@ -77,13 +77,24 @@
 	width: 100%;
 }
 .action{
-	text-align: right;
 	margin-right: 10px;
 	padding-bottom: 10px;
+	margin-right: 10px;
+	padding-bottom: 10px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 }
 .count-like{
+	padding-right: 7px;
 	color: rgb(151, 153, 153);
 	font-size: 15px;
+}
+.description h3{
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 </style>
 </head>
@@ -125,28 +136,26 @@
 								<div class="my-account-profile" style="display: block">
 									<div class="row">
 										<c:forEach var="blog" items="${blog }">
-											<div class="col-4">
+											<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 												<div class="card">
 													<div name="image" id="image">
-														<img alt="" src="${blog.getImg() }">
+														<img class="img-thumbnail" alt="ảnh" src="${blog.getImg() }">
+													</div>
+													<div class="description" style="padding: 11px 15px;">
+														<h3 style="font-weight: bold;">${blog.getContent() }</h3>
 													</div>
 													<div class="description">
-														${blog.getContent() }
-													</div>
-													<div class="description">
-														${blog.displayStt() }
+														<p style="padding-left: 11px;">Trạng thái:  <span class="status-blog">${blog.displayStt() }</span></p>
 													</div>
 													<div class="action">
 														<span class="count-like">${blog.getLike().size() }</span>
-														<form action="addLike/${blog.getId() }" method="post">
-														<button type="submit">
-														<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"
-															class="bi bi-heart" fill="currentColor"
-															xmlns="http://www.w3.org/2000/svg">
-															<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
-														  </svg>
-														  </button>
-														  </form>
+															<form action="addLike/${blog.getId() }" method="post">
+																<button style="border: none;background: white;" type="submit">
+																	<svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+																		<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+																  	</svg>
+																</button>
+															</form>
 														<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"
 															class="bi bi-three-dots-vertical" fill="currentColor"
 															xmlns="http://www.w3.org/2000/svg">
@@ -238,5 +247,23 @@
 	<script src="js/all-order.js"></script>
 	<script src="js/blog.js"></script>
 	<script src="js/sweat-alert.js"></script>
+	<script>
+		changeStatus();
+		function changeStatus(){
+			let status = document.getElementsByClassName("status-blog");
+			for (let i=0;i<status.length;i++){
+				if(status[i].innerHTML == "Đã duyệt"){
+					status[i].style.color = "green";
+					status[i].style.fontWeight="700";
+				}else if(status[i].innerHTML == "Chưa xét duyệt"){
+					status[i].style.color = "orange";
+					status[i].style.fontWeight="700";
+				}else if(status[i].innerHTML == "Đã hủy"){
+					status[i].style.color = "red";
+					status[i].style.fontWeight="700";
+				}
+			}
+		}
+	</script>
 </body>
 </html>

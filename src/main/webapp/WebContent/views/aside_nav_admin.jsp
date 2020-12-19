@@ -32,32 +32,32 @@
 							<p class="nav-p">Trang chủ</p>
 						</a>
 					</li>
-					<li class="nav-header">CỬA HÀNG</li>
-					<li class="nav-item">
+					<li class="nav-header hide-role">CỬA HÀNG</li>
+					<li class="nav-item hide-role">
 						<a href="admin/UserManagement" class="nav-link nav-aside">
 						<i class="nav-icon fas fa-users"></i>
 							<p class="nav-p">Nhân viên</p>
 						</a>
 					</li>
-					<li class="nav-item has-treeview">
+					<li class="nav-item has-treeview hide-role">
 						<a href="admin/ProductManagement" class="nav-link nav-aside">
 						<i class="nav-icon fas fa-paw"></i>
 							<p class="nav-p">Thú cưng</p>
 						</a>
 					</li>
-					<li class="nav-item has-treeview">
+					<li class="nav-item has-treeview hide-role">
 						<a href="admin/SpeciesManagement" class="nav-link nav-aside">
 						<i class="nav-icon fas fa-dog"></i>
 							<p class="nav-p">Giống thú cưng</p>
 						</a>
 					</li>
-					<li class="nav-item has-treeview">
+					<li class="nav-item has-treeview hide-role">
 						<a href="admin/AccessoriesManagement" class="nav-link nav-aside">
 						<i class="nav-icon fab fa-simplybuilt"></i>
 							<p class="nav-p">Phụ kiện</p>
 						</a>
 					</li>
-					<li class="nav-item has-treeview">
+					<li class="nav-item has-treeview hide-role">
 						<a href="admin/CategoryManagement" class="nav-link nav-aside">
 						<i class="nav-icon fab fa-bandcamp"></i>
 							<p class="nav-p">Hãng phụ kiện</p>

@@ -18,6 +18,12 @@
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <style>
+    .hide{
+      display: none;
+      visibility: hidden;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -240,6 +246,18 @@
 <script src="dist/js/demo.js"></script>
 <script src="js/active.js"></script>
 <script src="dist/js/pages/dashboard3.js"></script>
-
+<script>
+  hideRole();
+  function hideRole(){
+    let roleP = document.getElementById("role-user");
+    let hideLi = document.getElementsByClassName("hide-role");
+      for (let i=o;i<hideLi.length;i++){
+        if(roleP.value == "ROLE_STAFF"){
+          console.log(hideLi[i].innerHTML)
+          // hideLi[i].classList.add("hide");
+        }
+      }
+  }
+</script>
 </body>
 </html>

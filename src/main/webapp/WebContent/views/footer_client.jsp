@@ -31,7 +31,7 @@
               <use xlink:href="images/sprite.svg#icon-location"></use>
             </svg>
           </span>
-                    206 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội
+                    174 Đường Kim Mã, Quận Ba Đình, TP. Hà Nội
                 </div>
                 <div>
           <span>

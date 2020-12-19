@@ -2428,7 +2428,7 @@ Cart Area
 }
 
 .cart__totals {
-  width: 60rem;
+  max-width: 60rem;
   /* height: 30rem; */
   margin: 5rem auto 0 auto;
   color: var(--black5);
@@ -2469,7 +2469,7 @@ Cart Area
 
 .cart__totals a:link,
 .cart__totals a:visited {
-  font-size: 1.5rem;
+  font-size: 14px;
   padding: 1.2rem 3rem;
   color: var(--black);
   text-transform: uppercase;

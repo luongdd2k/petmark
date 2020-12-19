@@ -37,65 +37,7 @@
 <link rel="stylesheet" href="css/acc-in.css">
 <link rel="stylesheet" href="css/search.css">
 <link rel="stylesheet" href="css/styles.css" />
-<style>
-.buttons_added {
-	opacity: 1;
-	display: inline-block;
-	display: -ms-inline-flexbox;
-	display: inline-flex;
-	white-space: nowrap;
-	vertical-align: top;
-	margin-left: 10px;
-}
-
-.is-form {
-	overflow: hidden;
-	position: relative;
-	background-color: #f9f9f9;
-	height: 4rem;
-	width: 4rem;
-	padding: 0;
-	text-shadow: 1px 1px 1px #fff;
-	border: 1px solid #ddd;
-	font-size: 2rem;
-}
-
-.is-form:focus, .input-text:focus {
-	outline: none;
-}
-
-.is-form.minus {
-	border-radius: 4px 0 0 4px;
-}
-
-.is-form.plus {
-	border-radius: 0 4px 4px 0;
-}
-
-.input-qty {
-	background-color: #fff;
-	height: 4rem;
-	width: 4rem;
-	text-align: center;
-	font-size: 1.5rem;
-	display: inline-block;
-	vertical-align: top;
-	margin: 0;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-	border-left: 0;
-	border-right: 0;
-	padding: 0;
-}
-
-.input-qty::-webkit-outer-spin-button, .input-qty::-webkit-inner-spin-button
-	{
-	-webkit-appearance: none;
-	margin: 0;
-}
-</style>
 </head>
-<!--    -->
 <body>
 	<%@ include file="/WebContent/views/header_nav.jsp"%>
 	<div class="page__title-area">
@@ -113,7 +55,6 @@
 	</div>
 
 	<main id="main">
-		<div class="container">
 			<div class="main-container _2usMPO">
 				<form action="loc" method="post">
 					<div class="userpage-sidebar">
@@ -157,8 +98,9 @@
 									</c:forEach>
 								</select>
 							</div>
-							<button type="submit" class="btn btn-primary">Áp dụng</button>
-
+							<div class="block" style="text-align: center;">
+								<button type="submit" class="btn btn-primary">Áp dụng</button>
+							</div>
 						</div>
 					</div>
 				</form>
@@ -168,21 +110,6 @@
 							<div class="title">
 								<h1>Kết quả tìm kiếm:</h1>
 								<h4>${kqsearch } kết quả</h4>
-							</div>
-							<div class="Sorter__Root-sc-1u1tc3w-0 jdfxzb">
-								<div class="Sorter__Top-sc-1u1tc3w-1 ftKDwW">
-									<div class="Sorter__Tabs-sc-1u1tc3w-3 ehYkVZ">
-										<span>Ưu tiên xem: </span>
-										<div class="sort-list">
-											<a class="active" href="javascript:">Chọn lọc</a> <a class=""
-												href="javascript:">Hàng mới</a> <a class=""
-												href="javascript:">Bán chạy</a> <a class=""
-												href="javascript:">Giảm giá nhiều</a> <a class=""
-												href="javascript:">Giá thấp</a> <a class=""
-												href="javascript:">Giá cao</a>
-										</div>
-									</div>
-								</div>
 							</div>
 						</div>
 						<div class="ProductList__Wrapper-sc-1dl80l2-0 healEa">
@@ -259,7 +186,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 		<!-- Facility Section -->
 		<%@ include file="/WebContent/views/section-facility.jsp" %>
 	</main>
