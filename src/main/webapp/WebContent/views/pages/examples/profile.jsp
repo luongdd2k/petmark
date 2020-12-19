@@ -78,13 +78,13 @@
                       <div class="form-group row">
                         <label for="user-name" class="col-sm-2 col-form-label">Tên đăng nhập</label>
                         <div class="col-sm-10">
-                          <input type="text" readonly class="form-control" id="user-name" value="">
+                          <input type="text" readonly class="form-control" id="user-name" value="${account.getUsername() }">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="full-name" class="col-sm-2 col-form-label">Họ và tên</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="full-name">
+                          <input type="text" class="form-control" id="full-name" value="${account.getFullName() }">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -103,19 +103,19 @@
                       <div class="form-group row">
                         <label for="mail" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="mail">
+                          <input type="email" class="form-control" id="mail" value="${account.getEmail() }">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="phone-number" class="col-sm-2 col-form-label">Số điện thoại</label>
                         <div class="col-sm-10">
-                            <input type="tel" class="form-control" id="phone-number">
+                            <input type="tel" class="form-control" id="phone-number" value="${account.getPhone() }">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="address" class="col-sm-2 col-form-label">Địa chỉ</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="address">
+                          <input type="text" class="form-control" id="address" value="${account.getAddress() }">
                         </div>
                       </div>
                     </form>

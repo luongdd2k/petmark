@@ -97,11 +97,13 @@ public class BlogController {
 		return model;
 	}
 
-	@RequestMapping("/addLike/{id}")
-	public String likeBlog(HttpServletRequest req, Principal principal, @PathVariable int id,Model model) {
+	@RequestMapping("/addLike")
+	@ResponseBody
+	public String likeBlog(HttpServletRequest req, Principal principal,Model model) {
 		HttpSession session = req.getSession();
 		String username = (String) session.getAttribute("username");
 		Account account = accountService.findById(username);
+		int id = Integer.parseInt(req.getParameter("id"));
 		Blog blog = blogService.findById(id);
 		LikeBlog likeBlog = new LikeBlog(account, blog);
 		likeBlogService.addLike(likeBlog);
