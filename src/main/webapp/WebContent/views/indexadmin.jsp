@@ -251,10 +251,9 @@
   function hideRole(){
     let roleP = document.getElementById("role-user");
     let hideLi = document.getElementsByClassName("hide-role");
-      for (let i=o;i<hideLi.length;i++){
+      for (let i=0;i<hideLi.length;i++){
         if(roleP.value == "ROLE_STAFF"){
-          console.log(hideLi[i].innerHTML)
-          // hideLi[i].classList.add("hide");
+          hideLi[i].classList.add("hide");
         }
       }
   }
