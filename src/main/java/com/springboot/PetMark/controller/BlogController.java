@@ -82,12 +82,14 @@ public class BlogController {
 		String content = "";
 		if (req.getParameter("content") != "") {
 			content = req.getParameter("content");
+			System.out.println("Nội dung blog: "+content);
 		}
 		try {
 			String photoPath = context.getRealPath("files/image/" + photo.getOriginalFilename());
 			photo.transferTo(new File(photoPath));
 			Blog blog = new Blog(account, content, date, "files/image/" + photo.getOriginalFilename(), 2);
 			blogService.saveBlog(blog);
+			System.out.println("Blog: "+blog);
 		} catch (Exception e) {
 			System.out.println("Lỗi lưu ảnh: " + e);
 		}

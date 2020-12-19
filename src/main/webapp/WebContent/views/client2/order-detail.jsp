@@ -158,7 +158,7 @@
                                               <div class="order-content__item__price order-content__item__col order-content__item__col--small order-content__item__col--last">
                                                 <div class="order-content__item__price-text">
 <%--                                                  <div class="shopee-price--original">50.000 đ</div>--%>
-                                                  <div class="shopee-price--primary">${orderweb.getTotalAmount()}đ</div>
+                                                  <div class="shopee-price--primary">${orderweb.displayPrice()}</div>
                                                 </div>
                                               </div>
                                             </div>
@@ -172,7 +172,7 @@
                                         <div class="payment-detail__item__description">Tổng số tiền</div>
                                         <div class="payment-detail__item__value payment-detail__item__value--highlighted">
                                           <div class="payment-detail__item__value-text"><div>
-                                            <div>${orderweb.getTotalAmount()}</div>
+                                            <div>${orderweb.displayPrice()}</div>
                                           </div>
                                         </div>
                                       </div>
