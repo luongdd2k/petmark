@@ -49,7 +49,12 @@ public @Data class OrderrWebDetail implements Serializable {
 	public OrderrWebDetail() {
 		// TODO Auto-generated constructor stub
 	}
-
+	public String displayPrice() {
+		String dinhDang = "#";
+		DecimalFormat format = new DecimalFormat(dinhDang);
+		String rs = format.format(this.totalAmount);
+		return rs;
+	}
 	public OrderrWebDetail(Accessories accessories, OrderrWeb orderrWeb, int amount, Date date, float totalAmount) {
 		// TODO Auto-generated constructor stub
 		this.accessories = accessories;

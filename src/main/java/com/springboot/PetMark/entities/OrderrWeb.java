@@ -59,7 +59,12 @@ public @Data class OrderrWeb implements Serializable {
 	private List<OrderrWebDetail> detail = new ArrayList<>();
 	@Column(name = "foundation")
 	private int place;
-	
+	public String displayPrice() {
+		String dinhDang = "#";
+		DecimalFormat format = new DecimalFormat(dinhDang);
+		String rs = format.format(this.totalAmount);
+		return rs;
+	}
 	public String getDisplayPlace() {
 		String rs = "Web";
 		if(this.place==1) {
