@@ -22,39 +22,6 @@
             font-family: "Segoe WP","Segoe UI", Helvetica, Arial, sans-serif;
             text-align:center;
         }
-        h1, h2 {
-            color: #888;
-            margin:0;
-            font-weight:normal;
-        }
-        h1{ padding-top: 1.5em; padding-bottom: 2em; }
-        h2 {
-            clear:both;
-            color: #aaa;
-            padding: 2em 0 0.3em
-        }
-        em {
-            display: block;
-            margin: .5em auto 2em;
-            color: #bbb;
-        }
-
-        p, p a {
-            color: #aaa;
-            text-decoration: none;
-        }
-        p a:hover,
-        p a:focus {
-            text-decoration: underline;
-        }
-        p + p { color: #bbb; margin-top: 2em;}
-        .detail {position: absolute; text-align: right; right: 5px; bottom: 5px; width: 50%;}
-
-        a[href*="intent"] {
-            display:inline-block;
-            margin-top: 0.4em;
-        }
-
         /*
          * Rating styles
          */
@@ -89,62 +56,40 @@
             color: orange;
             cursor: pointer;
         }
-        .rating2 {
-            direction: rtl;
-        }
-        .rating2 a {
-            float:none
-        }
     </style>
 </head>
 <body>
-<div class="container">
-<form action="">
-    <div class="row">
-        <div class="col-12">
-<%--            <div id="rating">--%>
-<%--                <input type="radio" id="star5" name="rating" value="5" />--%>
-<%--                <label class = "full" for="star5" title="Awesome - 5 stars"></label>--%>
-
-<%--                <input type="radio" id="star4" name="rating" value="4" />--%>
-<%--                <label class = "full" for="star4" title="Pretty good - 4 stars"></label>--%>
-
-<%--                <input type="radio" id="star3" name="rating" value="3" />--%>
-<%--                <label class = "full" for="star3" title="Meh - 3 stars"></label>--%>
-
-<%--                <input type="radio" id="star2" name="rating" value="2" />--%>
-<%--                <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>--%>
-
-<%--                <input type="radio" id="star1" name="rating" value="1" />--%>
-<%--                <label class = "full" for="star1" title="Sucks big time - 1 star"></label>--%>
-<%--            </div>--%>
-                <div class="rating">
-                    <div class="rating rating2">
-                        <input name="rating" id="e5" type="radio">
-                        <label for="e5">★</label>
-                        <input name="rating" id="e4" type="radio">
-                        <label for="e4">★</label>
-                        <input name="rating" id="e3" type="radio">
-                        <label for="e3">★</label>
-                        <input name="rating" id="e2" type="radio">
-                        <label for="e2">★</label>
-                        <input name="rating" id="e1" type="radio">
-                        <label for="e1">★</label>
+    <div class="container">
+        <form action="">
+            <div class="row">
+                <div class="col-12">
+                    <div class="rating">
+                        <div class="rating">
+                            <input class="star" name="rating" id="e5" type="radio" value="5">
+                            <label for="e5">★</label>
+                            <input class="star" name="rating" id="e4" type="radio" value="4">
+                            <label for="e4">★</label>
+                            <input class="star" name="rating" id="e3" type="radio" value="3">
+                            <label for="e3">★</label>
+                            <input class="star" name="rating" id="e2" type="radio" value="2">
+                            <label for="e2">★</label>
+                            <input class="star" name="rating" id="e1" type="radio" value="1">
+                            <label for="e1">★</label>
+                        </div>
                     </div>
                 </div>
+                <div class="col-4" style="margin-top: 30px;">
+                </div>
             </div>
-        <div class="col-4" style="margin-top: 30px;">
-        </div>
+            <input type="hidden" name="username" value="${acoount.getUsername() }">
+            <input type="hidden" name="id" value="${pet.getId() }">
+            <!-- phụ kiệ thì lấy cái dưới: -->
+            <%-- <input type="hidden" name="id" value="${acc.getId() }"> --%>
+        </form>
     </div>
-    </form>
-</div>
 </body>
 <script src="plugins/jquery/jquery.min.js"></script>
 <script>
-    function calcRate(r) {
-        const f = ~~r,//Tương tự Math.floor(r)
-            id = 'star' + f + (r % f ? 'half' : '')
-        id && (document.getElementById(id).checked = !0)
-    }
+
 </script>
 </html>

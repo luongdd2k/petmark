@@ -136,7 +136,7 @@
 								<div class="my-account-profile" style="display: block">
 									<div class="row">
 										<c:forEach var="blog" items="${blog }">
-											<div class="col-4">
+											<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 												<div class="card">
 													<div name="image" id="image">
 														<img class="img-thumbnail" alt="ảnh" src="${blog.getImg() }">

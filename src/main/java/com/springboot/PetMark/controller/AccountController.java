@@ -193,7 +193,7 @@ public class AccountController {
 		System.out.println("currentPath: " + session.getAttribute("currentPath"));
 		String currentPath = (String) session.getAttribute("currentPath");
 //		&& currentPath.contains("/index")
-		if (loggedRole.equals("ROLE_ADMIN")) {
+		if (loggedRole.equals("ROLE_ADMIN") || loggedRole.equals("ROLE_STAFF")) {
 			model.setViewName("indexadmin");
 			model.addObject("name", loggedFullname);
 			model.addObject("web", orderrWebService.countBySttPlace(DeliveryStatus.NOT_APPROVED, 0));
