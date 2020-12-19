@@ -19,6 +19,11 @@
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <style>
+    label:not(.form-check-label):not(.custom-file-label){
+      font-weight: 400;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -67,7 +72,58 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                
+                <div class="row">
+                  <div class="col-lg-8 col-md-12" style="padding: 10px 20px 0px 20px;">
+                    <form>
+                      <div class="form-group row">
+                        <label for="user-name" class="col-sm-2 col-form-label">Tên đăng nhập</label>
+                        <div class="col-sm-10">
+                          <input type="text" readonly class="form-control" id="user-name" value="">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="full-name" class="col-sm-2 col-form-label">Họ và tên</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="full-name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Giới tính</label>
+                        <div class="col-sm-10">
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="male" value="male" checked>
+                            <label class="form-check-label" for="male">Nam</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="female" value="female">
+                            <label class="form-check-label" for="female">Nữ</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="mail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="mail">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="phone-number" class="col-sm-2 col-form-label">Số điện thoại</label>
+                        <div class="col-sm-10">
+                            <input type="tel" class="form-control" id="phone-number">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="address" class="col-sm-2 col-form-label">Địa chỉ</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="address">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="col-lg-4 col-md-12">
+
+                  </div>
+                </div>
               </div>
               <!-- /.card-body -->
             </div>
