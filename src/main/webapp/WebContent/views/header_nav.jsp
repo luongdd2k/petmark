@@ -5,6 +5,7 @@
 <header id="header" class="header">
 	<div class="navigation">
 		<input type="hidden" id="usernameBE" value="${account.getFullName() }" />
+		<input type="hidden" id="userName" value="${account.getUsername() }">
 		<input type="hidden" id="atm" value="${atm }" />
 		<input type="hidden" id="is-empty" value="${isEmpty }" />
 		<input type="hidden" id="hadBlog" value="1" />
