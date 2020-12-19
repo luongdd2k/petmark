@@ -336,33 +336,33 @@
 						<div class="glide" id="glide_5">
 							<div class="glide__track" data-glide-el="track">
 								<ul class="glide__slides">
-									<%--                <c:forEach var="blog" items="${blog }"> --%>
-									<!--                  <li class="glide__slide"> -->
-									<!--                  <div class="new__card"> -->
-									<!--                    <div class="card__header"> -->
-									<%--                      <img src="${blog.getImg() }" alt=""> --%>
-									<!--                    </div> -->
-									<!--                    <div class="card__footer"> -->
-									<%--                      <h3>${blog.getContent() }</h3> --%>
-									<%--                      <span>By <strong>${blog.getAccount().getUsername()}</strong></span> --%>
-									<!--                    </div> -->
-									<!--                  </div> -->
-									<!--                </li> -->
-									<%--                </c:forEach> --%>
-									<li class="glide__slide">
-										<div class="new__card">
-											<div class="card__header">
-												<img src="./images/news1.jpg" alt="">
-											</div>
-											<div class="card__footer">
-												<h3>Styling White Shirts After A Cool Day</h3>
-												<span>By <strong>Admin</strong></span>
-												<p>Lorem ipsum dolor sit amet consectetur adipisicing
-													elit. Illo praesentium, numquam non provident rem sed minus
-													natus unde vel modi!</p>
-											</div>
-										</div>
-									</li>
+									               <c:forEach var="blog" items="${blog }">
+									                 <li class="glide__slide">
+									                 <div class="new__card">
+									                   <div class="card__header">
+									                     <img src="${blog.getImg() }" alt="">
+									                   </div>
+									                   <div class="card__footer">
+									                     <h3>${blog.getContent() }</h3>
+									                     <span>By <strong>${blog.getAccount().getUsername()}</strong></span>
+									                   </div>
+									                 </div>
+									               </li>
+									               </c:forEach>
+<!-- 									<li class="glide__slide"> -->
+<!-- 										<div class="new__card"> -->
+<!-- 											<div class="card__header"> -->
+<!-- 												<img src="./images/news1.jpg" alt=""> -->
+<!-- 											</div> -->
+<!-- 											<div class="card__footer"> -->
+<!-- 												<h3>Styling White Shirts After A Cool Day</h3> -->
+<!-- 												<span>By <strong>Admin</strong></span> -->
+<!-- 												<p>Lorem ipsum dolor sit amet consectetur adipisicing -->
+<!-- 													elit. Illo praesentium, numquam non provident rem sed minus -->
+<!-- 													natus unde vel modi!</p> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									</li> -->
 								</ul>
 							</div>
 						</div>
