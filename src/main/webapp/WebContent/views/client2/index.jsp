@@ -133,21 +133,16 @@
 											<div class="product__footer">
 												<h3>${listAcc.getName() }</h3>
 												<div class="rating">
-													<svg>
-														<use xlink:href="images/sprite.svg#icon-star-full"></use>
-													</svg>
-													<svg>
-														<use xlink:href="images/sprite.svg#icon-star-full"></use>
-													</svg>
-													<svg>
-														<use xlink:href="images/sprite.svg#icon-star-empty"></use>
-													</svg>
-													<svg>
-														<use xlink:href="images/sprite.svg#icon-star-empty"></use>
-													</svg>
-													<svg>
-														<use xlink:href="images/sprite.svg#icon-star-empty"></use>
-													</svg>
+													<input class="star" name="rating" type="radio" value="5">
+													<label>★</label>
+													<input class="star" name="rating" type="radio" value="4">
+													<label>★</label>
+													<input class="star" name="rating" type="radio" value="3">
+													<label>★</label>
+													<input class="star" name="rating" type="radio" value="2">
+													<label>★</label>
+													<input class="star" name="rating" type="radio" value="1">
+													<label>★</label>
 												</div>
 												<div class="product__price">
 													<h4 class="price-list">${listAcc.displayPrice() }</h4>
@@ -219,21 +214,16 @@
 								<div class="product__footer">
 									<h3>${list.getPetName() }</h3>
 									<div class="rating">
-										<svg>
-                          					<use xlink:href="images/sprite.svg#icon-star-full"></use>
-                        				</svg>
-										<svg>
-                          					<use xlink:href="images/sprite.svg#icon-star-full"></use>
-                        				</svg>
-										<svg>
-                          					<use xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        				</svg>
-										<svg>
-                          					<use xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        				</svg>
-										<svg>
-                          					<use xlink:href="images/sprite.svg#icon-star-empty"></use>
-                        				</svg>
+										<input class="star" name="rating" type="radio" value="5">
+										<label>★</label>
+										<input class="star" name="rating" type="radio" value="4">
+										<label>★</label>
+										<input class="star" name="rating" type="radio" value="3">
+										<label>★</label>
+										<input class="star" name="rating" type="radio" value="2">
+										<label>★</label>
+										<input class="star" name="rating" type="radio" value="1">
+										<label>★</label>
 									</div>
 									<div class="product__price">
 										<h4 class="price-list">${list.displayPrice() }</h4>
@@ -311,39 +301,55 @@
 			</section>
 
 			<!--New Section  -->
-<%--			<section class="section news" id="news">--%>
-<%--				<div class="container">--%>
-<%--					<div class="title__container">--%>
-<%--						<div class="section__titles">--%>
-<%--							<div class="section__title active">--%>
-<%--								<span class="dot"></span>--%>
-<%--								<h1 class="primary__title">Chia sẻ từ khách hàng</h1>--%>
-<%--							</div>--%>
-<%--						</div>--%>
-<%--					</div>--%>
-<%--					<div class="news__container">--%>
-<%--						<div class="glide" id="glide_5">--%>
-<%--							<div class="glide__track" data-glide-el="track">--%>
-<%--								<ul class="glide__slides">--%>
-<%--									<c:forEach var="blog" items="${blog }">--%>
-<%--										<li class="glide__slide">--%>
-<%--											<div class="new__card">--%>
-<%--												<div class="card__header">--%>
-<%--													<img src="${blog.getImg() }" alt="">--%>
-<%--												</div>--%>
-<%--												<div class="card__footer">--%>
-<%--													<h3>${blog.getContent() }</h3>--%>
-<%--													<span>Đăng bởi <strong>${blog.getAccount().getUsername()}</strong></span>--%>
-<%--												</div>--%>
-<%--											</div>--%>
-<%--										</li>--%>
-<%--									</c:forEach>--%>
-<%--								</ul>--%>
-<%--							</div>--%>
-<%--						</div>--%>
-<%--					</div>--%>
-<%--				</div>--%>
-<%--			</section>--%>
+			<section class="section news" id="news">
+				<div class="container">
+					<div class="title__container">
+						<div class="section__titles">
+							<div class="section__title active">
+								<span class="dot"></span>
+								<h1 class="primary__title">Chia sẻ từ khách hàng</h1>
+							</div>
+						</div>
+					</div>
+					<div class="news__container">
+						<div class="glide" id="glide_5">
+							<div class="glide__track" data-glide-el="track">
+								<ul class="glide__slides">
+									<c:forEach var="blog" items="${blog }">
+										<li class="glide__slide">
+											<div class="new__card">
+												<div class="card__header">
+													<img src="${blog.getImg() }" alt="">
+												</div>
+												<div class="card__body">
+													<h3>${blog.getContent() }</h3>
+													<span>Đăng bởi <strong>${blog.getAccount().getUsername()}</strong></span>
+												</div>
+												<div class="card__footer">
+													<span class="count-like">${blog.getLike().size() }</span>
+														<%--															<form action="addLike/${blog.getId() }" method="post">--%>
+													<input type="hidden" class="blog-id" value="${blog.getId() }">
+													<button style="border: none;background: white;" type="submit" onclick="addLike(${blog.getId() },${i.index})">
+														<svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+															<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+														</svg>
+													</button>
+														<%--															</form>--%>
+													<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"
+														 class="bi bi-three-dots-vertical" fill="currentColor"
+														 xmlns="http://www.w3.org/2000/svg">
+														<path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+													</svg>
+												</div>
+											</div>
+										</li>
+									</c:forEach>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
 			<!-- NewsLetter -->
 			<section class="section newsletter" id="contact">

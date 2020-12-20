@@ -73,24 +73,18 @@
 										style="display: none; max-width: 100%; margin-top: 10px">
 										<div class="form-disable-p1">
 											<form id="formAddSpecies"
-												action="admin/SpeciesManagement/AddSpecies" method="POST">
+												action="admin/SpeciesManagement/AddSpecies" method="POST" onsubmit="return validateForm()">
 												<div class="form-group">
-													<label for="nameBread">Tên giống thú
-														cưng</label> <input type="text" class="form-control"
-														id="nameBread" name="nameBread">
+													<label for="nameBread">Tên giống thú cưng</label>
+													<input type="text" class="form-control" id="nameBread" name="nameBread">
+													<p id="error1" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
 												</div>
 												<div class="form-group">
-													<label for="infomation">Thông tin
-														thêm</label> <input type="text" class="form-control"
-														id="infomation" name="information">
+													<label for="infomation">Thông tin</label>
+													<textarea class="form-control" id="infomation" name="information" rows="3"></textarea>
+													<p id="error2" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
 												</div>
-												<!-- 												<div class="form-group"> -->
-												<!-- 													<label for="exampleFormControlSelect1">Trạng thái</label> <select -->
-												<!-- 														class="form-control quyen" id="exampleFormControlSelect1" name="status"> -->
-												<!-- 														<option value="stocking" selected>Còn kinh doanh</option> -->
-												<!-- 													</select> -->
-												<!-- 												</div> -->
-												<div style="margin-top: 30px;">
+												<div style="margin-top: 5px; text-align: right;">
 													<button type="submit"
 														class="btn btn-custon-rounded-three btn-success btn-css">Lưu</button>
 													<button type="button"
@@ -247,6 +241,43 @@
 			hienForm.style.display = visible ? "" : "none";
 			var timKiem = document.getElementById("new-pet");
 			timKiem.style.display = visible ? "none" : "block";
+		}
+		function validateForm(){
+			let check = true;
+			let bread = document.getElementById("nameBread");
+			let information = document.getElementById("infomation");
+
+			let errorBread = document.getElementById("error1");
+			let errorInfor = document.getElementById("error2");
+			if(bread.value.trim()==""){
+				errorBread.classList.remove("hide");
+				bread.style.borderColor="red";
+				errorBread.innerHTML="Không để trống tên giống thú";
+				check = false;
+			}else if(bread.value.trim().length > 50){
+				errorBread.classList.remove("hide");
+				bread.style.borderColor="red";
+				errorBread.innerHTML="Tên giống thú không quá 50 ký tự";
+				check = false;
+			}else{
+				errorBread.classList.add("hide");
+				bread.style.borderColor="green";
+			}
+			if(information.value.trim()==""){
+				errorInfor.classList.remove("hide");
+				information.style.borderColor="red";
+				errorInfor.innerHTML="Không để trống thông tin giống thú cưng";
+				check= false;
+			}else if(information.value.trim().length > 900){
+				errorInfor.classList.remove("hide");
+				information.style.borderColor="red";
+				errorInfor.innerHTML="Thông tin giống thú không quá 900 ký tự";
+				check= false;
+			}else{
+				errorInfor.classList.add("hide");
+				information.style.borderColor="green";
+			}
+			return check;
 		}
 	</script>
 </body>

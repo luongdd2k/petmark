@@ -164,7 +164,6 @@ function validateForm(){
     if(city=="none"){
         errorCity.classList.remove("hide");
         c.style.borderColor="red";
-        c.focus;
         errorCity.innerHTML="Vui lòng chọn Tỉnh/Thành phố";
         check=false;
     }else{
@@ -195,7 +194,6 @@ function validateForm(){
         errorAddress.innerHTML="Không để trống địa chỉ";
         check = false;
     }else if(address.value.trim().length > 255){
-        console.log(address.value.trim().length);
         errorAddress.classList.remove("hide");
         address.style.borderColor="red";
         errorAddress.innerHTML="Địa chỉ không quá 255 ký tự";
