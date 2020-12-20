@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.petmark</groupId>
 	<artifactId>PetMark</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PetMark</name>
 	<description>OnlineShopping Spring Boot</description>

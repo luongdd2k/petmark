@@ -1,7 +1,6 @@
 package com.springboot.PetMark.entities;
 
 import java.io.Serializable;
-import java.text.DecimalFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,10 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 //@Table(name = "carditemaccessories")

@@ -19,12 +19,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import pet.mart.util.DeliveryStatus;
-import pet.mart.util.PaymentStatus;
 
 @Entity
 @Table(name = "orderr")

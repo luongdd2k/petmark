@@ -2,7 +2,6 @@ package com.springboot.PetMark.controller;
 
 import java.io.File;
 import java.security.Principal;
-import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -34,7 +33,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.springboot.PetMark.config.MailConfig;
 import com.springboot.PetMark.entities.Account;
-import com.springboot.PetMark.entities.OrderrWeb;
 import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.BlogService;
 import com.springboot.PetMark.service.OrderrWebService;
