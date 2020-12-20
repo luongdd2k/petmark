@@ -309,55 +309,45 @@
           <div class="glide" id="glide_3">
             <div class="glide__track" data-glide-el="track">
               <ul class="glide__slides latest-center">
-              
-              
-              
-              
-              
-              <c:forEach var="list" items="${list }">
-                <li class="glide__slide">
-                  <div class="product">
-                    <div class="product__header">
-                      <a href="javascript:"><img src="${list.getImgs().get(0).getImgAvartar() }" alt="product"></a>
-                    </div>
-                    <div class="product__footer">
-                      <h3>${list.getName() }</h3>
-                      <div class="rating">
-                        <input class="star" name="rating" type="radio" value="5">
-                        <label>★</label>
-                        <input class="star" name="rating" type="radio" value="4">
-                        <label>★</label>
-                        <input class="star" name="rating" type="radio" value="3">
-                        <label>★</label>
-                        <input class="star" name="rating" type="radio" value="2">
-                        <label>★</label>
-                        <input class="star" name="rating" type="radio" value="1">
-                        <label>★</label>
+                <c:forEach var="list" items="${list }">
+                  <li class="glide__slide">
+                    <div class="product">
+                      <div class="product__header">
+                        <a href="javascript:"><img src="${list.getImgs().get(0).getImgAvartar() }" alt="product"></a>
                       </div>
-                      <div class="product__price">
-                        <h4 class="price-list">${list.getDisplayPrice(1) } </h4>
+                      <div class="product__footer">
+                        <h3>${list.getName() }</h3>
+                        <div class="rating">
+                          <input class="star" name="rating" type="radio" value="5">
+                          <label>★</label>
+                          <input class="star" name="rating" type="radio" value="4">
+                          <label>★</label>
+                          <input class="star" name="rating" type="radio" value="3">
+                          <label>★</label>
+                          <input class="star" name="rating" type="radio" value="2">
+                          <label>★</label>
+                          <input class="star" name="rating" type="radio" value="1">
+                          <label>★</label>
+                        </div>
+                        <div class="product__price">
+                          <h4 class="price-list">${list.getDisplayPrice(1) } </h4>
+                        </div>
                       </div>
+                      <ul>
+                        <li>
+                          <a data-tip="Quick View" data-place="left" href="acc-detail/${list.getId() }">
+                            <svg>
+                              <use xlink:href="./images/sprite.svg#icon-eye"></use>
+                            </svg>
+                          </a>
+                        </li>
+                      </ul>
                     </div>
-                    <ul>
-                      <li>
-                        <a data-tip="Quick View" data-place="left" href="acc-detail/${list.getId() }">
-                          <svg>
-                            <use xlink:href="./images/sprite.svg#icon-eye"></use>
-                          </svg>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
+                  </li>
                 </c:forEach>
-                
-                
-               
-                    </ul>
-                  </div>
-
               </ul>
             </div>
+          </div>
 
             <div class="glide__arrows" data-glide-el="controls">
               <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
@@ -525,10 +515,6 @@
   <script src="js/slider.js"></script>
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/custom.js"></script>
-  <script type="text/javascript">
-
-     
-  </script>
 </body>
 
 </html>
