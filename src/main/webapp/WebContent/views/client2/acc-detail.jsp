@@ -195,16 +195,21 @@
               </div>
               <div class="product__review">
                 <div class="rating">
-                  <input class="star" name="rating" type="radio" value="5">
-                  <label>★</label>
-                  <input class="star" name="rating" type="radio" value="4">
-                  <label>★</label>
-                  <input class="star" name="rating" type="radio" value="3">
-                  <label>★</label>
-                  <input class="star" name="rating" type="radio" value="2">
-                  <label>★</label>
-                  <input class="star" name="rating" type="radio" value="1">
-                  <label>★</label>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                  </svg>
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                  </svg>
                 </div>
                 <a href="#description"  class="rating__quatity">3 nhận xét</a>
               </div>
@@ -271,26 +276,38 @@
                 <h1 class="primary__title">Mô tả sản phẩm</h1>
               </div>
             </div>
+
+            <div class="section__titles">
+              <div class="section__title detail-btn" data-id="reviews">
+                <span class="dot"></span>
+                <h1 class="primary__title">Nhận xét</h1>
+              </div>
+            </div>
           </div>
 
           <div class="detail__content">
             <div class="content active" id="description">
               <h2>Chi tiết phụ kiện</h2>
               <p>${acc.getDescription() }</p>
+            </div>
+            <div class="content" id="reviews">
               <h1>Nhận xét của khách hàng</h1>
               <div class="rating">
-                <input class="star" name="rating" id="e5" type="radio" value="5">
-                <label for="e5">★</label>
-                <input class="star" name="rating" id="e4" type="radio" value="4">
-                <label for="e4">★</label>
-                <input class="star" name="rating" id="e3" type="radio" value="3">
-                <label for="e3">★</label>
-                <input class="star" name="rating" id="e2" type="radio" value="2">
-                <label for="e2">★</label>
-                <input class="star" name="rating" id="e1" type="radio" value="1">
-                <label for="e1">★</label>
-                <input type="hidden" name="username" value="${acoount.getUsername() }">
-                <input type="hidden" name="id" value="${pet.getId() }">
+                <svg>
+                  <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                </svg>
+                <svg>
+                  <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                </svg>
+                <svg>
+                  <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                </svg>
+                <svg>
+                  <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                </svg>
+                <svg>
+                  <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                </svg>
               </div>
             </div>
           </div>

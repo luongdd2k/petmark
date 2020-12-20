@@ -24,6 +24,14 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="dist/css/custom.css">
 	<link rel="stylesheet" href="css/employee.css">
+	<style>
+		.do{
+			background-color: #ffebee;
+		}
+		.table-danger{
+			background-color: #ffebee;
+		}
+	</style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -74,75 +82,172 @@
 								<div class="card-body">
 									<!-- Default box -->
 
-									<!--Div Form New-->
-									<div id="form-disable-new"
+									<!--Div form Update-->
+									<div id="form-disable-update"
 										style="display: none; max-width: 95%; margin: auto;">
-										<form id="formAddProduct"
-											action="admin/ProductManagement/AddProduct" method="POST" onsubmit="return validateForm()">
+										<form action="admin/ProductManagement/UpdateProduct"
+											method="post">
+											<input type="hidden" name="id" id="id">
 											<div class="form-disable-p1 float-left"
 												style="width: 330px; margin-left: 30px; float: left;">
 												<div class="form-group">
-													<label for="petName">Tên thú cưng</label>
-													<input type="text" class="form-control" id="petName" name="tenThu">
-													<p id="error1" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
+													<label for="petNameUpdate">Tên thú cưng</label>
+													<input type="text" class="form-control" id="petNameUpdate"
+														name="tenThu">
 												</div>
 												<div class="form-group">
-													<label for="pet-bread">Giống thú cưng</label>
-													<select name="giongThu" class="form-control" id="pet-bread">
-														<option value="none" selected>--- Chọn giống thú ---</option>
+													<label for="pet-bread-update">Giống thú
+														cưng</label> <select name="giongThu" id="pet-bread-update"
+														style="height: 30px; width: 100%;">
 														<c:forEach var="category" items="${listCategory }">
-															<option value="${ category.id}">${ category.name}</option>
+															<option value="${category.id }">${ category.getName()}</option>
 														</c:forEach>
 													</select>
-													<p id="error2" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
 												</div>
 												<div class="form-group">
-													<label for="petAge">Tuổi</label>
-													<input type="text" class="form-control" id="petAge" name="tuoiThu">
-													<p id="error3" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
+													<label for="petColor">Màu lông</label> <input
+														type="text" class="form-control" id="petColor"
+														name="mauLong">
+												</div>
+												<div class="form-group">
+													<label for="petEyeColor">Màu mắt</label> <input
+														type="text" class="form-control" id="petEyeColor"
+														name="mauMat">
 												</div>
 											</div>
 											<div class="form-disable-p1"
 												style="width: 330px; margin-left: 30px; float: left;">
 												<div class="form-group">
-													<label for="petPrice">Giá</label>
-													<input type="text" class="form-control" id="petPrice" name="giaThu">
-													<p id="error4" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
+													<label for="petAgeUpdate">Tuổi</label> <input
+														type="text" class="form-control" id="petAgeUpdate"
+														name="tuoiThu">
 												</div>
 												<div class="form-group">
-													<label for="pet-status">Trạng thái</label>
-													<select name="trangThai" id="pet-status" class="form-control">
-														<option value="none" selected>--- Chọn trạng thái ---</option>
+													<label for="petPriceUpdate">Giá</label> <input
+														type="text" class="form-control" id="petPriceUpdate"
+														name="giaThu">
+												</div>
+												<div class="form-group">
+													<label for="pet-status-update">Trạng thái</label> <select
+														name="trangThai" id="pet-status-update"
+														style="height: 30px; width: 100%;">
 														<c:forEach var="status" items="${listStatus }">
 															<option value="${status }">${status }</option>
 														</c:forEach>
 													</select>
-													<p id="error5" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
 												</div>
 												<div class="form-group">
-													<label for="petAmount">Số lượng</label>
-													<input type="text" class="form-control" id="petAmount" name="soLuong">
-													<p id="error6" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
+													<label for="petAmountUpdate">Số lượng</label> <input
+														type="text" class="form-control" id="petAmountUpdate"
+														name="soLuong">
 												</div>
 											</div>
-											<div class="form-disable-p1" style="width: 330px; margin-left: 30px; float: left;">
+											<div class="form-disable-p1"
+												style="width: 330px; margin-left: 30px; float: left;">
+												<div class="form-group">
+													<label for="petInformationUpdate">Mô tả</label>
+													<textarea class="form-control" id="petInformationUpdate"
+														rows="2" name="moTaThu"></textarea>
+												</div>
+												<div class="custom-file mb-3">
+													<label class="custom-file-label" for="customFile">Chọn
+														hình ảnh</label> <input type="file" class="custom-file-input"
+														id="customFile" name="filename">
+												</div>
+
+												<input type="hidden" class="form-control" id="petDateUpdate"
+													name="ngayNhap">
+
+												<div>
+													<button type="submit"
+														class="btn btn-custon-rounded-three btn-success btn-css">
+														<i class="fas fa-save"></i> <span> Save</span>
+													</button>
+													<button type="reset"
+														class="btn btn-custon-rounded-three btn-warning btn-css">
+														<i class="fas fa-backspace"></i> <span> Clear</span>
+													</button>
+													<button type="button"
+														class="btn btn-custon-rounded-three btn-danger btn-css"
+														onclick="hiddenFormUpdate(true)">
+														<i class="fas fa-slash"></i> <span> Cancel</span>
+													</button>
+												</div>
+											</div>
+										</form>
+										<div class="clear"></div>
+									</div>
+									<!--End Div Form Update-->
+
+									<!--Div Form New-->
+									<div id="form-disable-new"
+										style="display: none; max-width: 95%; margin: auto;">
+										<form id="formAddProduct"
+											action="admin/ProductManagement/AddProduct" method="POST">
+											<div class="form-disable-p1 float-left"
+												style="width: 330px; margin-left: 30px; float: left;">
+												<div class="form-group">
+													<label for="petName">Tên thú cưng</label>
+													<input type="text" class="form-control" id="petName"
+														name="tenThu">
+												</div>
+												<div class="form-group">
+													<label for="pet-bread">Giống thú
+														cưng</label> <select name="giongThu" id="pet-bread"
+														style="height: 30px; width: 100%;">
+														<c:forEach var="category" items="${listCategory }">
+															<option value="${ category.id}">${ category.name}</option>
+														</c:forEach>
+													</select>
+												</div>
+												<div class="form-group">
+													<label for="petAge">Tuổi</label> <input
+														type="text" class="form-control" id="petAge"
+														name="tuoiThu">
+												</div>
+											</div>
+											<div class="form-disable-p1"
+												style="width: 330px; margin-left: 30px; float: left;">
+												<div class="form-group">
+													<label for="petPrice">Giá</label> <input
+														type="text" class="form-control" id="petPrice"
+														name="giaThu">
+												</div>
+												<div class="form-group">
+													<label for="pet-status">Trạng thái</label> <select
+														name="trangThai" id="pet-status"
+														style="height: 30px; width: 100%;">
+														<c:forEach var="status" items="${listStatus }">
+															<option value="${status }">${status }</option>
+														</c:forEach>
+													</select>
+												</div>
+												<div class="form-group">
+													<label for="petAmount">Số lượng</label> <input
+														type="text" class="form-control" id="petAmount"
+														name="soLuong">
+												</div>
+											</div>
+											<div class="form-disable-p1"
+												style="width: 330px; margin-left: 30px; float: left;">
 												<div class="form-group">
 													<label for="petInformation">Mô tả</label>
-													<textarea class="form-control" id="petInformation" rows="6" name="moTaThu"></textarea>
-													<p id="error7" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
+													<textarea class="form-control" id="petInformation" rows="2"
+														name="moTaThu"></textarea>
 												</div>
 												<div>
 													<button type="submit"
 														class="btn btn-custon-rounded-three btn-success btn-css">
-														<i class="fas fa-save"></i> <span> Lưu</span>
+														<i class="fas fa-save"></i> <span> Save</span>
 													</button>
-													<button type="reset" class="btn btn-custon-rounded-three btn-warning btn-css">
-														<i class="fas fa-backspace"></i> <span> Xóa</span>
+													<button type="reset"
+														class="btn btn-custon-rounded-three btn-warning btn-css">
+														<i class="fas fa-backspace"></i> <span> Clear</span>
 													</button>
 													<button type="button"
 														class="btn btn-custon-rounded-three btn-danger btn-css"
 														onclick="hienThiFormNew(false)">
-														<i class="fas fa-slash"></i> <span> Hủy</span>
+														<i class="fas fa-slash"></i> <span> Cancel</span>
 													</button>
 												</div>
 											</div>
@@ -154,12 +259,12 @@
 										<div class="row">
 											<div class="col-12">
 												<form action="">
-													<div class="row">
-														<div class="form-group col-lg-4 col-md-6 col-sm-6">
+													<div class="form-row">
+														<div class="form-group col-2">
 															<label>Tên</label>
 															<input class="form-control" type="search" placeholder="Tìm kiếm theo tên" aria-label="Search">
 														</div>
-														<div class="form-group col-lg-4 col-md-6 col-sm-6">
+														<div class="form-group col-2">
 															<label for="cbo_sort_product2">Lọc</label> <select
 																class="form-control" id="cbo_sort_product2" style="">
 																<option value="-1">ID:&nbsp thấp ⟶ cao</option>
@@ -224,7 +329,7 @@
 															<div class="td__center">${product.getSpecies().getName() }</div>
 														</td>
 														<td>
-															<div class="td__center">${product.age } tháng</div>
+															<div class="td__center">${product.age }</div>
 														</td>
 														<td>
 															<div class="td__center">${product.getDisplayPrice(1) }</div>
@@ -336,6 +441,7 @@
 				let sl = document.getElementsByClassName("sl-js");
 				abc();
 				function abc(){
+
 					for (let i= 0; i<sl.length; i++){
 						if(parseInt(sl[i].innerHTML) <= 3){
 							tr[i].classList.add('table-danger');
@@ -348,118 +454,6 @@
 							sl[i].style.fontWeight='600';
 						}
 					}
-				}
-
-				function validateForm(){
-					let check = true;
-					let namePet = document.getElementById("petName");
-					let pricePet = document.getElementById("petPrice");
-					let petBread = document.getElementById("pet-bread");
-					let petStatus = document.getElementById("pet-status");
-					let agePet = document.getElementById("petAge");
-					let amountPet = document.getElementById("petAmount");
-					let inforPet = document.getElementById("petInformation");
-
-					let breadPet = petBread.options[petBread.selectedIndex].value;
-					let statusPet = petStatus.options[petStatus.selectedIndex].value;
-
-					let errorName = document.getElementById("error1");
-					let errorPrice = document.getElementById("error4");
-					let errorBread = document.getElementById("error2");
-					let errorStatus = document.getElementById("error5");
-					let errorAge = document.getElementById("error3");
-					let errorAmount = document.getElementById("error6");
-					let errorInfor = document.getElementById("error7");
-
-					if(namePet.value.trim()==""){
-						errorName.classList.remove("hide");
-						namePet.style.borderColor="red";
-						errorName.innerHTML="Không để trống tên thú cưng!";
-						check =  false;
-					}else if(namePet.value.trim().length > 25){
-						errorName.classList.remove("hide");
-						namePet.style.borderColor="red";
-						errorName.innerHTML="Tên thú cưng không quá 25 ký tự!";
-						check = false;
-					}else{
-						errorName.classList.add("hide");
-						namePet.style.borderColor="green";
-					}
-					if(breadPet == "none"){
-						errorBread.classList.remove("hide");
-						petBread.style.borderColor="red";
-						errorBread.innerHTML="Vui lòng chọn giống thú cưng!";
-						check = false;
-					}else{
-						errorBread.classList.add("hide");
-						petBread.style.borderColor="green";
-					}
-					if(agePet.value.trim()==""){
-						errorAge.classList.remove("hide");
-						agePet.style.borderColor="red";
-						errorAge.innerHTML="Không để trống tuổi thú cưng!";
-						check = false;
-					}else if(isNaN(agePet.value.trim())){
-						errorAge.classList.remove("hide");
-						agePet.style.borderColor="red";
-						errorAge.innerHTML="Tuổi thú cưng phải là số!";
-						check = false;
-					}else{
-						errorAge.classList.add("hide");
-						agePet.style.borderColor="green";
-					}
-					if(pricePet.value.trim()==""){
-						errorPrice.classList.remove("hide");
-						pricePet.style.borderColor="red";
-						errorPrice.innerHTML="Không để trống giá thú cưng!";
-						check = false;
-					}else if(isNaN(pricePet.value.trim())){
-						errorPrice.classList.remove("hide");
-						pricePet.style.borderColor="red";
-						errorPrice.innerHTML="Giá thú cưng phải là số!";
-						check = false;
-					}else{
-						errorPrice.classList.add("hide");
-						pricePet.style.borderColor="green";
-					}
-					if(statusPet=="none"){
-						errorStatus.classList.remove("hide");
-						petStatus.style.borderColor="red";
-						errorStatus.innerHTML="Vui lòng chọn trạng thái thú cưng!";
-						check = false;
-					}else{
-						errorStatus.classList.add("hide");
-						petStatus.style.borderColor="green";
-					}
-					if(amountPet.value.trim()==""){
-						errorAmount.classList.remove("hide");
-						amountPet.style.borderColor="red";
-						errorAmount.innerHTML="Số lượng thú cưng không được để trống!";
-						check = false;
-					}else if(isNaN(amountPet.value.trim())){
-						errorAmount.classList.remove("hide");
-						amountPet.style.borderColor="red";
-						errorAmount.innerHTML="Số lượng thú cưng phải là số!";
-						check = false;
-					}else{
-						errorAmount.classList.add("hide");
-						amountPet.style.borderColor="green";
-					}
-					if(inforPet.value.trim()==""){
-						errorInfor.classList.remove("hide");
-						inforPet.style.borderColor="red";
-						errorInfor.innerHTML="Không để trống mô tả thú cưng!";
-						check = false;
-					}else if(inforPet.value.trim().length > 900){
-						errorInfor.classList.remove("hide");
-						inforPet.style.borderColor="red";
-						errorInfor.innerHTML="Mô tả thú cưng không quá 900 ký tự! Số ký tự của bạn đang là "+inforPet.value.trim().length;
-						check = false;
-					}else{
-						errorInfor.classList.add("hide");
-						inforPet.style.borderColor="green";
-					}
-					return check;
 				}
 	</script>
 

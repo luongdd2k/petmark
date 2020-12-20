@@ -92,18 +92,17 @@
 										style="display: none; max-width: 100%; margin-top: 10px">
 										<div class="form-disable-p1">
 											<form id="formAddCategory"
-												action="admin/CategoryManagement/AddCategory" method="POST" onsubmit="return validateForm()">
+												action="admin/CategoryManagement/AddCategory" method="POST">
 												<div class="form-group">
-													<label for="category">Tên hãng phụ kiện</label>
-													<input type="text" class="form-control" id="category" name="name">
-													<p id="error1" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
+													<label for="exampleFormControlInput1">Tên hãng</label> <input
+														type="text" class="form-control" id="category" name="name">
 												</div>
 												<div class="form-group">
-													<label for="information">Thông tin hãng phụ kiện</label>
-													<textarea class="form-control" id="information" name="thongtin" rows="3"></textarea>
-													<p id="error2" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
+													<label for="exampleFormControlInput1">Thông tin
+														thêm</label> <input type="text" class="form-control" id="category"
+														name="thongtin">
 												</div>
-												<div style="margin-top: 5px;text-align: right;">
+												<div style="margin-top: 30px;">
 													<button type="submit"
 														class="btn btn-custon-rounded-three btn-success btn-css">Lưu</button>
 													<button type="button"
@@ -116,13 +115,13 @@
 									</div>
 									<!-- End Form -->
 									<div class="form-group col-2">
-										<label for="cbo_sort_Category2">Lọc</label>
-										<select class="form-control" id="cbo_sort_Category2" style="">
+										<label for="exampleFormControlSelect1">Lọc</label> <select
+											class="form-control" id="cbo_sort_Category2" style="">
 											<option value="-1">ID:&nbsp thấp ⟶ cao</option>
 											<option value="0">ID:&nbsp cao ⟶ thấp</option>
-											<option value="1" style="background: #ffe6e6">Dừng kinh doanh</option>
-										</select>
-										<span id="sortValue2" style="display: none;">${sortValue }</span>
+											<option value="1" style="background: #ffe6e6">Dừng
+												kinh doanh</option>
+										</select> <span id="sortValue2" style="display: none;">${sortValue }</span>
 									</div>
 									<div class="btn-new-css">
 										<button id="new-pet" type="button"
@@ -276,43 +275,6 @@
 			hienForm.style.display = visible ? "" : "none";
 			var timKiem = document.getElementById("new-pet");
 			timKiem.style.display = visible ? "none" : "block";
-		}
-		function validateForm(){
-			let check = true;
-			let category = document.getElementById("category");
-			let information = document.getElementById("information");
-
-			let errorCategory = document.getElementById("error1");
-			let errorInfor = document.getElementById("error2");
-			if(category.value.trim()==""){
-				errorCategory.classList.remove("hide");
-				category.style.borderColor="red";
-				errorCategory.innerHTML="Không để trống tên hãng phụ kiện";
-				check = false;
-			}else if(category.value.trim().length > 50){
-				errorCategory.classList.remove("hide");
-				category.style.borderColor="red";
-				errorCategory.innerHTML="Tên hãng phụ không quá 50 ký tự";
-				check = false;
-			}else{
-				errorCategory.classList.add("hide");
-				category.style.borderColor="green";
-			}
-			if(information.value.trim()==""){
-				errorInfor.classList.remove("hide");
-				information.style.borderColor="red";
-				errorInfor.innerHTML="Không để trống thông tin hãng phụ kiện";
-				check= false;
-			}else if(information.value.trim().length > 255){
-				errorInfor.classList.remove("hide");
-				information.style.borderColor="red";
-				errorInfor.innerHTML="Thông tin hãng phụ kiện không quá 255 ký tự";
-				check= false;
-			}else{
-				errorInfor.classList.add("hide");
-				information.style.borderColor="green";
-			}
-			return check;
 		}
 	</script>
 </body>

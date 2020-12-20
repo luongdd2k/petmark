@@ -32,10 +32,81 @@
 
 <title>Pet Mart | Tên thú cưng, phụ kiện được xem chi tiết</title>
 <base href="${pageContext.servletContext.contextPath}/">
-	<link rel="stylesheet" src="css/fontawesome-free-5.15.1/css/fontawesome.css">
-	<link rel="stylesheet" href="css/product.css" />
-	<link rel="stylesheet" href="css/styles.css" />
-
+<link rel="stylesheet" href="css/product.css" />
+<link rel="stylesheet" href="css/styles.css" />
+	<style>
+		.hide{
+			display: none;
+			visibility: hidden;
+		}
+		.buttons_added {
+			opacity:1;
+			display:inline-block;
+			display:-ms-inline-flexbox;
+			display:inline-flex;
+			white-space:nowrap;
+			vertical-align:top;
+			margin-left: 10px;
+		}
+		.is-form {
+			overflow:hidden;
+			position:relative;
+			background-color:#f9f9f9;
+			height:4rem;
+			width:4rem;
+			padding:0;
+			text-shadow:1px 1px 1px #fff;
+			border:1px solid #ddd;
+			font-size: 2rem ;
+		}
+		.is-form:focus,.input-text:focus {
+			outline:none;
+		}
+		.is-form.minus {
+			border-radius:4px 0 0 4px;
+		}
+		.is-form.plus {
+			border-radius:0 4px 4px 0;
+		}
+		.input-qty {
+			background-color:#fff;
+			height:4rem;
+			width: 4rem;
+			text-align:center;
+			font-size:1.5rem;
+			display:inline-block;
+			vertical-align:top;
+			margin:0;
+			border-top:1px solid #ddd;
+			border-bottom:1px solid #ddd;
+			border-left:0;
+			border-right:0;
+			padding:0;
+		}
+		.input-qty::-webkit-outer-spin-button,.input-qty::-webkit-inner-spin-button {
+			-webkit-appearance:none;
+			margin:0;
+		}
+		.close{
+			color: #ff4646;
+			font-size: 27px;
+		}
+		.close:hover{
+			color: #ec524b;
+		}
+		.modal-body__text{
+			font-size: 1.5rem;
+		}
+		.modal-body{
+			padding: 1rem 3rem 0rem 3rem ;
+		}
+		.modal-body__text{
+			font-size: 15px;
+		}
+		.btn {
+			font-size: 13px;
+		}
+	</style>
 </head>
 
 <body>
@@ -116,16 +187,21 @@
 								</div>
 								<div class="product__review">
 									<div class="rating">
-										<input class="star" name="rating" type="radio" value="5">
-										<label>★</label>
-										<input class="star" name="rating" type="radio" value="4">
-										<label>★</label>
-										<input class="star" name="rating" type="radio" value="3">
-										<label>★</label>
-										<input class="star" name="rating"type="radio" value="2">
-										<label>★</label>
-										<input class="star" name="rating" type="radio" value="1">
-										<label>★</label>
+										<svg>
+											<use xlink:href="images/sprite.svg#icon-star-full"></use>
+									  	</svg>
+										<svg>
+                    						<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                  						</svg>
+										<svg>
+                    						<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                  						</svg>
+										<svg>
+                    						<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                  						</svg>
+											<svg>
+												<use xlink:href="images/sprite.svg#icon-star-empty"></use>
+					  					</svg>
 									</div>
 									<a href="#description" class="rating__quatity">3 nhận xét</a>
 								</div>
@@ -184,25 +260,38 @@
 								<h1 class="primary__title">Mô tả sản phẩm</h1>
 							</div>
 						</div>
+
+						<div class="section__titles">
+							<div class="section__title detail-btn" data-id="reviews">
+								<span class="dot"></span>
+								<h1 class="primary__title">Nhận xét</h1>
+							</div>
+						</div>
 					</div>
 
 					<div class="detail__content">
 						<div class="content active" id="description">
 							<h2>Chi tiết về thú</h2>
 							<p>${pet.getDescription() }</p>
+						</div>
+						<div class="content" id="reviews">
+							<h1>Nhận xét của khách hàng</h1>
 							<div class="rating">
-								<input class="star" name="rating" id="e5" type="radio" value="5">
-								<label for="e5">★</label>
-								<input class="star" name="rating" id="e4" type="radio" value="4">
-								<label for="e4">★</label>
-								<input class="star" name="rating" id="e3" type="radio" value="3">
-								<label for="e3">★</label>
-								<input class="star" name="rating" id="e2" type="radio" value="2">
-								<label for="e2">★</label>
-								<input class="star" name="rating" id="e1" type="radio" value="1">
-								<label for="e1">★</label>
-								<input type="hidden" name="username" value="${acoount.getUsername() }">
-								<input type="hidden" name="id" value="${pet.getId() }">
+								<svg>
+                  					<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                				</svg>
+								<svg>
+                  					<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                				</svg>
+								<svg>
+                  					<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                				</svg>
+								<svg>
+                  					<use xlink:href="images/sprite.svg#icon-star-full"></use>
+                				</svg>
+								<svg>
+                  					<use xlink:href="images/sprite.svg#icon-star-empty"></use>
+                				</svg>
 							</div>
 						</div>
 					</div>
@@ -223,39 +312,44 @@
 							<ul class="glide__slides latest-center">
 								<c:forEach var="list" items="${list }">
                 					<li class="glide__slide">
-									  <div class="product">
-										<div class="product__header">
-										  <a href="javascript:"><img src="${list.getImgs().get(0).getImgAvartar() }" alt="product"></a>
-										</div>
-										<div class="product__footer">
-										  <h3>${list.getPetName() }</h3>
-											<div class="rating">
-												<input class="star" name="rating" type="radio" value="5">
-												<label>★</label>
-												<input class="star" name="rating" type="radio" value="4">
-												<label>★</label>
-												<input class="star" name="rating" type="radio" value="3">
-												<label>★</label>
-												<input class="star" name="rating" type="radio" value="2">
-												<label>★</label>
-												<input class="star" name="rating" type="radio" value="1">
-												<label>★</label>
-											</div>
-										  <div class="product__price">
-											<h4 class="price-list">${list.displayPrice() } </h4>
-										  </div>
-										</div>
-										<ul>
-										  <li>
-											<a data-tip="Quick View" data-place="left" href="pet-detail/${list.getId() }">
-											  <svg>
-												<use xlink:href="./images/sprite.svg#icon-eye"></use>
-											  </svg>
-											</a>
-										  </li>
-										</ul>
-									  </div>
-									</li>
+                  <div class="product">
+                    <div class="product__header">
+                      <a href="javascript:"><img src="${list.getImgs().get(0).getImgAvartar() }" alt="product"></a>
+                    </div>
+                    <div class="product__footer">
+                      <h3>${list.getPetName() }</h3>
+                      <div class="rating">
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-full"></use>
+                        </svg>
+                        <svg>
+                          <use xlink:href="./images/sprite.svg#icon-star-empty"></use>
+                        </svg>
+                      </div>
+                      <div class="product__price">
+                        <h4 class="price-list">${list.displayPrice() } </h4>
+                      </div>
+                    </div>
+                    <ul>
+                      <li>
+                        <a data-tip="Quick View" data-place="left" href="pet-detail/${list.getId() }">
+                          <svg>
+                            <use xlink:href="./images/sprite.svg#icon-eye"></use>
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
                 				</c:forEach>
 							</ul>
 						</div>
@@ -428,6 +522,9 @@
 	<script src="js/city.js"></script>
 	<script src="js/jquery-3.5.1.min.js"></script>
 	<script src="js/custom.js"></script>
+	<script type="text/javascript">
+
+	</script>
 </body>
 
 </html>

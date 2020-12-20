@@ -63,16 +63,18 @@
             <div class="row">
                 <div class="col-12">
                     <div class="rating">
-                        <input class="star" name="rating" id="e5" type="radio" value="5">
-                        <label for="e5">★</label>
-                        <input class="star" name="rating" id="e4" type="radio" value="4">
-                        <label for="e4">★</label>
-                        <input class="star" name="rating" id="e3" type="radio" value="3">
-                        <label for="e3">★</label>
-                        <input class="star" name="rating" id="e2" type="radio" value="2">
-                        <label for="e2">★</label>
-                        <input class="star" name="rating" id="e1" type="radio" value="1">
-                        <label for="e1">★</label>
+                        <div class="rating">
+                            <input class="star" name="rating" id="e5" type="radio" value="5">
+                            <label for="e5">★</label>
+                            <input class="star" name="rating" id="e4" type="radio" value="4">
+                            <label for="e4">★</label>
+                            <input class="star" name="rating" id="e3" type="radio" value="3">
+                            <label for="e3">★</label>
+                            <input class="star" name="rating" id="e2" type="radio" value="2">
+                            <label for="e2">★</label>
+                            <input class="star" name="rating" id="e1" type="radio" value="1">
+                            <label for="e1">★</label>
+                        </div>
                     </div>
                 </div>
                 <div class="col-4" style="margin-top: 30px;">
