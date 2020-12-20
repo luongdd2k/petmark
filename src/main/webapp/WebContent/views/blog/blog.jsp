@@ -135,7 +135,7 @@
 								</div>
 								<div class="my-account-profile" style="display: block">
 									<div class="row">
-										<c:forEach var="blog" items="${blog }">
+										<c:forEach var="blog" items="${blog }" varStatus="i">
 											<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 												<div class="card">
 													<div name="image" id="image">
@@ -149,14 +149,14 @@
 													</div>
 													<div class="action">
 														<span class="count-like">${blog.getLike().size() }</span>
-															<form action="addLike/${blog.getId() }" method="post">
-																<input type="text" class="blog-id" value="${blog.getId() }">
-																<button style="border: none;background: white;" type="submit">
+<%--															<form action="addLike/${blog.getId() }" method="post">--%>
+																<input type="hidden" class="blog-id" value="${blog.getId() }">
+																<button style="border: none;background: white;" type="submit" onclick="addLike(${blog.getId() },${i.index})">
 																	<svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 																		<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
 																  	</svg>
 																</button>
-															</form>
+<%--															</form>--%>
 														<svg width="1.3em" height="1.3em" viewBox="0 0 16 16"
 															class="bi bi-three-dots-vertical" fill="currentColor"
 															xmlns="http://www.w3.org/2000/svg">
@@ -237,10 +237,6 @@
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="js/jquery-3.5.1.min.js"></script>
-			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-			<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-			<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 	<!-- Custom JavaScript -->
 	<script src="js/index.js"></script>
 	<script src="js/slider.js"></script>
@@ -265,29 +261,36 @@
 				}
 			}
 		}
-		addLike();
-		function addLike(){
+		function addLike(id, index){
 			let user = document.getElementById("userName");
 			let idBlog = document.getElementsByClassName("blog-id");
-			for (let i=0; i<idBlog.length;i++){
-				$.ajax({
-					url: 'addLike',
-					type: 'post',
-					dataType: 'html',
-					data: {
-						"username": user.value,
-						"id": idBlog[i].value
-					}
-				})
-						.done(function() {
+			let like = document.getElementsByClassName("count-like");
+			console.log(index);
+			$.ajax({
+				url: 'addLike',
+				type: 'post',
+				dataType: 'html',
+				data: {
+					"username": user.value,
+					"id": id
+				}
+			})
+					//em ko chayj viong for owr day dc a
+					//t cần lấy cái index cho vào cá like kaif
+
+					.done(function(res) {
+						if(res){
 							console.log("Thành công!!!!");
 							console.log(user.value);
-							console.log(idBlog[i].value);
-						})
-						.fail(function() {
-							console.log("error city js");
-						});
-			}
+							console.log("like: "+res);
+							like[index].innerHTML ="";
+							like[index].innerHTML=res;
+						}
+					})
+					.fail(function() {
+						console.log("error city js");
+					});
+			console.log(id);
 		}
 	</script>
 </body>
