@@ -94,7 +94,6 @@ public class IndexController {
 		slCard = cardSv.countByAccount(account);
 		}
 		model.addObject("slCard", slCard);
-//		return "client2/account";
 		return model;
 	}
 
