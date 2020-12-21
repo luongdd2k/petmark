@@ -80,7 +80,7 @@
                 <div class="col-4" style="margin-top: 30px;">
                 </div>
             </div>
-            <input type="hidden" name="username" value="${acoount.getUsername() }">
+            <input type="hidden" name="username" value="${account.getUsername() }">
             <input type="hidden" name="id" value="${pet.getId() }">
             <!-- phụ kiệ thì lấy cái dưới: -->
             <%-- <input type="hidden" name="id" value="${acc.getId() }"> --%>

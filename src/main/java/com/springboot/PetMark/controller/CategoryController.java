@@ -146,7 +146,13 @@ public class CategoryController {
 		String information = request.getParameter("thongtin");
 		Category Category = new Category(name, information, false);
 		System.out.println(Category);
-		CategoryService.addCategory(Category);
+		try {
+			CategoryService.addCategory(Category);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi thêm hãng phụ kiện: "+e);
+		}
+		
 		request.getSession().setAttribute("add", "added");
 
 		return "redirect:/admin/CategoryManagement";
@@ -160,7 +166,12 @@ public class CategoryController {
 		String information = request.getParameter("p_fix_information");
 		Category category = new Category(id, name, information, false);
 		System.out.println("Update: " + category);
-		CategoryService.updateCategory(category);
+		try {
+			CategoryService.updateCategory(category);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi update hãng: "+e);
+		}
 		return "?update=done";
 	}
 
@@ -169,7 +180,12 @@ public class CategoryController {
 	public String disContinuedCategory(HttpServletRequest request) {
 		int CategoryId = Integer.valueOf(request.getParameter("CategoryId"));
 		System.out.println("ID giống: " + CategoryId);
-		CategoryService.disContinueCategory(CategoryId);
+		try {
+			CategoryService.disContinueCategory(CategoryId);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi ngừng kinh doanh hãng phụ kiện: "+e);
+		}
 
 		return "redirect:/admin/CategoryManagement";
 	}
@@ -178,7 +194,12 @@ public class CategoryController {
 //	@ResponseBody
 	public String continuedCategory(HttpServletRequest request) {
 		int CategoryId = Integer.valueOf(request.getParameter("CategoryId"));
-		CategoryService.continueCategory(CategoryId);
+		try {
+			CategoryService.continueCategory(CategoryId);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi tiếp tục kinh doanh hàng PK: "+e);
+		}
 
 		return "redirect:/admin/CategoryManagement";
 	}

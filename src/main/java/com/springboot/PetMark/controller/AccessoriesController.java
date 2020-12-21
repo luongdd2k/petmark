@@ -12,6 +12,7 @@ import java.util.Date;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.sound.midi.Soundbank;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -32,10 +33,7 @@ import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.Category;
 import com.springboot.PetMark.entities.ColorAccessories;
 import com.springboot.PetMark.entities.ImgAccessories;
-import com.springboot.PetMark.entities.ImgPet;
-import com.springboot.PetMark.entities.Pet;
 import com.springboot.PetMark.entities.SizeAccessories;
-import com.springboot.PetMark.repository.AccessoriesRepository;
 import com.springboot.PetMark.service.AccessoriesService;
 import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.CategoryService;
@@ -195,24 +193,21 @@ public class AccessoriesController {
 		String name = request.getParameter("tenPhuKien");
 		String status = request.getParameter("trangThaiPhuKien");
 		String des = request.getParameter("moTaPhuKien");
-//		String imagePath = request.getParameter("hiddenImgPath");
-//		System.out.println("IMGpath:" + imagePath);
 		String priceDisplay = request.getParameter("giaPhuKien");
 		float price = Float.valueOf(priceDisplay);
-//		String giaCoc = request.getParameter("p_add_coc");
-//		float coc = Float.valueOf(giaCoc.substring(0, giaCoc.length() - 2).replaceAll("\\.", ""));
 		int quantityLeft = Integer.valueOf(request.getParameter("soLuongPhuKien"));
-//		int age = Integer.valueOf(request.getParameter("p_add_age"));
 		int categoryID = Integer.valueOf(request.getParameter("hangPhuKien"));
 		Category Category = CategoryService.findById(categoryID);
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
 		Accessories Accessories = new Accessories(name, price, quantityLeft, Category, date, des, status);
 		System.out.println("Accessories: " + Accessories);
-//		System.out.println("giống : "+Category);
-		AccessoriesService.addAccessories(Accessories);
-//		request.getSession().setAttribute("add", "added");
-
+		try {
+			AccessoriesService.addAccessories(Accessories);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi thêm phụ kiện: "+e);
+		}
 		return "redirect:/admin/AccessoriesManagement";
 	}
 
@@ -233,7 +228,12 @@ public class AccessoriesController {
 		System.out.println(date);
 		Accessories Accessories = new Accessories(id, name, price, amount, Category, date, description, status);
 		System.out.println("phụ kiện update: " + Accessories);
-		AccessoriesService.updateAccessories(Accessories);
+		try {
+			AccessoriesService.updateAccessories(Accessories);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi cập nhật phụ kiện: "+e);
+		}
 		return "redirect:/admin/AccessoriesManagement/show-edit/" + id;
 	}
 
@@ -242,7 +242,12 @@ public class AccessoriesController {
 	public String disContinuedAccessories(HttpServletRequest request) {
 		int AccessoriesId = Integer.valueOf(request.getParameter("AccessoriesId"));
 		System.out.println("AccessoriesID: " + AccessoriesId);
-		AccessoriesService.disContinueAccessories(AccessoriesId);
+		try {
+			AccessoriesService.disContinueAccessories(AccessoriesId);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi dừng kinh doanh phụ kiện: "+e);
+		}
 
 		return "redirect:/admin/AccessoriesManagement";
 	}
@@ -252,7 +257,12 @@ public class AccessoriesController {
 //	@ResponseBody
 	public String continuedAccessories(HttpServletRequest request) {
 		int AccessoriesId = Integer.valueOf(request.getParameter("AccessoriesId"));
-		AccessoriesService.continueAccessories(AccessoriesId);
+		try {
+			AccessoriesService.continueAccessories(AccessoriesId);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi tiếp tục kinh doanh phụ kiện: "+e);
+		}
 
 		return "redirect:/admin/AccessoriesManagement";
 	}
@@ -330,4 +340,12 @@ public class AccessoriesController {
 
 		return "redirect:/admin/AccessoriesManagement/show-edit/" + id;
 	}
+	
+	@RequestMapping("search")
+	@ResponseBody
+	public List<Accessories> search(HttpServletRequest req){
+		List<Accessories> listAccessories = AccessoriesService.search(req.getParameter("search"));
+		return listAccessories;
+	}
+	
 }

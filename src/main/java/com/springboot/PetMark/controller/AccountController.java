@@ -353,7 +353,12 @@ public class AccountController {
 		account.setFullName(req.getParameter("name"));
 		account.setPhone(req.getParameter("phone"));
 		account.setAddress(req.getParameter("address"));
-		accountService.save(account);
+		try {
+			accountService.save(account);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi change info: "+e);
+		}
 		return "redirect:/show-account";
 	}
 }

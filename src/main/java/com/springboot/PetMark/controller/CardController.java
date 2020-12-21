@@ -58,7 +58,12 @@ public class CardController {
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
 		CardItemAccessories card = new CardItemAccessories(accessories, account, soLuong, date, siz, col);
-		cartItemService.save(card);
+		try {
+			cartItemService.save(card);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi thêm giỏ hàng: "+e);
+		}
 		model.addObject("card", cartItemService.findByAccount(account));
 		return model;
 	}
@@ -83,7 +88,12 @@ public class CardController {
 	@RequestMapping("/delete/{id}")
 	public String deleteCard(@PathVariable String id, HttpServletRequest req) {
 //	ModelAndView model = new ModelAndView();
-		cartItemService.delete(Integer.parseInt(id));
+		try {
+			cartItemService.delete(Integer.parseInt(id));
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi xoá cart: "+e);
+		}
 		return "redirect:/show-card";
 	}
 	@RequestMapping("/update-cart")
@@ -91,7 +101,12 @@ public class CardController {
 	public CardItemAccessories updateCart(HttpServletRequest req) {
 		CardItemAccessories card = cartItemService.findById(Integer.parseInt(req.getParameter("id")));
 		card.setAmount(Integer.parseInt(req.getParameter("soLuong")));
-		cartItemService.save(card);
+		try {
+			cartItemService.save(card);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi cập nhật số lượng cart: "+e);
+		}
 		return card;
 	}
 }

@@ -10,7 +10,7 @@ import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.OrderrWeb;
 
 public interface OrderrWebDAO {
-
+	List<OrderrWeb> findPage(Pageable pageable);
 	List<OrderrWeb> findAll();
 	OrderrWeb findById(int id);
 	List<OrderrWeb> findByAccount(Account account);
@@ -22,10 +22,12 @@ public interface OrderrWebDAO {
 			@Param("paymentMethod") String paymentMethod, @Param("paymentStatus") String paymentStatus,
 			@Param("deliveryStatus") String deliveryStatus, Pageable pageable);
 	List<OrderrWeb> findByDeliveryStatusOrderByCreatedAtAsc(String deliveryStatus);
-	List<OrderrWeb> findByStt(String status);
-	List<OrderrWeb> findByPlace(int place);
+	List<OrderrWeb> findByStt(String status, Pageable pageable);
+	List<OrderrWeb> findByPlace(int place,Pageable pageable);
 	List<OrderrWeb> findBySttPlace(String status, int place);
 	int countBySttPlace(String status, int place);
 	 int countByStt(String status);
 	 List<OrderrWeb> findStt(String status, String stt);
+	 int countAll();
+	 int countByPlace(int place);
 }

@@ -130,8 +130,10 @@
 														<li class="page-item"><a class="page-link" href="javascript:"
 															aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 														</a></li>
-														<li class="page-item"><a class="page-link" href="javascript:">1</a></li>
-														<li class="page-item"><a class="page-link" href="javascript:">2</a></li>
+														<c:forEach begin="1" end="${totalPage }" var="i">
+															<li class="page-item"><a class="page-link"
+																href="admin/orders?targetPage=${i }">${i }</a>
+														</c:forEach>
 														<li class="page-item"><a class="page-link" href="javascript:"
 															aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 														</a></li>

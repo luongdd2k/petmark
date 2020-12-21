@@ -3,6 +3,7 @@ package com.springboot.PetMark.dao.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import com.springboot.PetMark.dao.DepositDAO;
@@ -42,6 +43,18 @@ public class DepositDAOImpl implements DepositDAO{
 	public List<Deposit> findByAccountStt(Account account, String stt) {
 		// TODO Auto-generated method stub
 		return repo.findByAccountStt(account, stt);
+	}
+
+	@Override
+	public int countAll() {
+		// TODO Auto-generated method stub
+		return repo.countAll();
+	}
+
+	@Override
+	public List<Deposit> findPage(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return repo.findPage(pageable);
 	}
 
 }

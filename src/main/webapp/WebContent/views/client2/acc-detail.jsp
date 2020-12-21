@@ -209,6 +209,7 @@
             <div class="content active" id="description">
               <h2>Chi tiết phụ kiện</h2>
               <p>${acc.getDescription() }</p>
+              <form action="add-vote-acc" method="post">
               <h1>Nhận xét của khách hàng</h1>
               <div class="rating">
                 <div class="rating">
@@ -222,10 +223,12 @@
                   <label for="e2">★</label>
                   <input class="star" name="rating" id="e1" type="radio" value="1">
                   <label for="e1">★</label>
-                  <input type="hidden" name="username" value="${acoount.getUsername() }">
+                  <input type="hidden" name="username" value="${account.getUsername() }">
                   <input type="hidden" name="id" value="${acc.getId() }">
+                  <button type="submit" class="btn btn-primary">Đánh giá</button>
                 </div>
               </div>
+              </form>
             </div>
           </div>
         </div>

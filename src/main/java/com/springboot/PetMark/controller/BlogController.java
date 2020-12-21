@@ -104,7 +104,12 @@ public class BlogController {
 		int id = Integer.parseInt(req.getParameter("id"));
 		Blog blog = blogService.findById(id);
 		LikeBlog likeBlog = new LikeBlog(account, blog);
-		likeBlogService.addLike(likeBlog);
+		try {
+			likeBlogService.addLike(likeBlog);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi add like: "+e);
+		}
 		int like = blog.getLike().size();
 		return like;
 	}

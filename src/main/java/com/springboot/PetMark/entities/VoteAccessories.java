@@ -34,7 +34,7 @@ public @Data class VoteAccessories implements Serializable {
 	@JoinColumn(name = "username")
 	private Account account;
 	private int star;
-	@Column(name = "dateVote")
+	@Column(name = "datevote")
 	private Date dateVote;
 
 	public VoteAccessories() {

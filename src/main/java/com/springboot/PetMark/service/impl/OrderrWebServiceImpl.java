@@ -77,15 +77,15 @@ public class OrderrWebServiceImpl implements OrderrWebService {
 	}
 
 	@Override
-	public List<OrderrWeb> findByStt(String status) {
+	public List<OrderrWeb> findByStt(String status, Pageable pageable) {
 		// TODO Auto-generated method stub
-		return dao.findByStt(status);
+		return dao.findByStt(status,pageable);
 	}
 
 	@Override
-	public List<OrderrWeb> findByPlace(int place) {
+	public List<OrderrWeb> findByPlace(int place, Pageable pageable) {
 		// TODO Auto-generated method stub
-		return dao.findByPlace(place);
+		return dao.findByPlace(place, pageable);
 	}
 
 	@Override
@@ -110,6 +110,24 @@ public class OrderrWebServiceImpl implements OrderrWebService {
 	public List<OrderrWeb> findStt(String status, String stt) {
 		// TODO Auto-generated method stub
 		return dao.findStt(status, stt);
+	}
+
+	@Override
+	public int countAll() {
+		// TODO Auto-generated method stub
+		return dao.countAll();
+	}
+
+	@Override
+	public int countByPlace(int place) {
+		// TODO Auto-generated method stub
+		return dao.countByPlace(place);
+	}
+
+	@Override
+	public List<OrderrWeb> findPage(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return dao.findPage(pageable);
 	}
 
 

@@ -75,15 +75,15 @@ public class OrderrWebDAOImpl implements OrderrWebDAO {
 	}
 
 	@Override
-	public List<OrderrWeb> findByStt(String status) {
+	public List<OrderrWeb> findByStt(String status, Pageable pageable) {
 		// TODO Auto-generated method stub
-		return repo.findByStt(status);
+		return repo.findByStt(status,pageable);
 	}
 
 	@Override
-	public List<OrderrWeb> findByPlace(int place) {
+	public List<OrderrWeb> findByPlace(int place, Pageable pageable) {
 		// TODO Auto-generated method stub
-		return repo.findByPlace(place);
+		return repo.findByPlace(place, pageable);
 	}
 
 	@Override
@@ -108,6 +108,24 @@ public class OrderrWebDAOImpl implements OrderrWebDAO {
 	public List<OrderrWeb> findStt(String status, String stt) {
 		// TODO Auto-generated method stub
 		return repo.findStt(status, stt);
+	}
+
+	@Override
+	public int countAll() {
+		// TODO Auto-generated method stub
+		return repo.countAll();
+	}
+
+	@Override
+	public int countByPlace(int place) {
+		// TODO Auto-generated method stub
+		return repo.countByPlace(place);
+	}
+
+	@Override
+	public List<OrderrWeb> findPage(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return repo.findPage(pageable);
 	}
 
 
