@@ -131,7 +131,7 @@
 											</div>
 											<div class="product__footer">
 												<h3>${listAcc.getName() }</h3>
-												<div class="rating">
+												<div class="rating1">
 													<svg>
 														<use xlink:href="images/sprite.svg#icon-star-full"></use>
 													</svg>
@@ -217,7 +217,7 @@
 								</div>
 								<div class="product__footer">
 									<h3>${list.getPetName() }</h3>
-									<div class="rating">
+									<div class="rating1">
 										<svg>
                           					<use xlink:href="images/sprite.svg#icon-star-full"></use>
                         				</svg>
@@ -310,38 +310,38 @@
 			</section>
 
 			<!--New Section  -->
-<%--			<section class="section news" id="news">--%>
-<%--				<div class="container">--%>
-<%--					<div class="title__container">--%>
-<%--						<div class="section__titles">--%>
-<%--							<div class="section__title active">--%>
-<%--								<span class="dot"></span>--%>
-<%--								<h1 class="primary__title">Chia sẻ từ khách hàng</h1>--%>
-<%--							</div>--%>
-<%--						</div>--%>
-<%--					</div>--%>
-<%--					<div class="news__container">--%>
-<%--						<div class="glide" id="glide_5">--%>
-<%--							<div class="glide__track" data-glide-el="track">--%>
-<%--								<ul class="glide__slides">--%>
-<%--									<c:forEach var="blog" items="${blog }">--%>
-<%--										<li class="glide__slide">--%>
-<%--											<div class="new__card">--%>
-<%--												<div class="card__header">--%>
-<%--													<img src="${blog.getImg() }" alt="">--%>
-<%--												</div>--%>
-<%--												<div class="card__footer">--%>
-<%--													<h3>${blog.getContent() }</h3>--%>
-<%--													<span>Đăng bởi <strong>${blog.getAccount().getUsername()}</strong></span>--%>
-<%--												</div>--%>
-<%--											</div>--%>
-<%--										</li>--%>
-<%--									</c:forEach>--%>
-<%--								</ul>--%>
-<%--							</div>--%>
-<%--						</div>--%>
-<%--					</div>--%>
-<%--				</div>--%>
+			<section class="section news" id="news">
+				<div class="container">
+					<div class="title__container">
+						<div class="section__titles">
+							<div class="section__title active">
+								<span class="dot"></span>
+								<h1 class="primary__title">Chia sẻ từ khách hàng</h1>
+							</div>
+						</div>
+					</div>
+					<div class="news__container">
+						<div class="glide" id="glide_5">
+							<div class="glide__track" data-glide-el="track">
+								<ul class="glide__slides">
+									<c:forEach var="blog" items="${blog }">
+										<li class="glide__slide">
+											<div class="new__card">
+												<div class="card__header">
+													<img src="${blog.getImg() }" alt="">
+												</div>
+												<div class="card__footer">
+													<h3>${blog.getContent() }</h3>
+													<span>Đăng bởi <strong>${blog.getAccount().getUsername()}</strong></span>
+												</div>
+											</div>
+										</li>
+									</c:forEach>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 <%--			</section>--%>
 
 			<!-- NewsLetter -->
