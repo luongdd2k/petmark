@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  
         http.csrf().disable();
 
-        http.authorizeRequests().antMatchers("/", "/CheckLogin", "/CheckLogout", "/CSS/**", "/Script/**").permitAll();
+        http.authorizeRequests().antMatchers("/", "/CheckLogin", "/CheckLogout", "/css/**", "/Script/**","/Image/**","/font/**","/plugins/**","/dist/**","/admin/**","/shopper/**","/css/**","/fonts/**","/images/**","/js/**","/vendor/**","/resources/**").permitAll();
  
         http.authorizeRequests().antMatchers("/CartItem/**", "/Profile").access("hasAnyRole('ROLE_MEMBER', 'ROLE_ADMIN', 'ROLE_STAFF')");
 
