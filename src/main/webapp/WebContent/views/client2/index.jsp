@@ -126,7 +126,7 @@
 										<div class="product">
 											<div class="product__header">
 												<img style="border-radius: 10px;"
-													src="${listAcc.getImgs().get(0).getImgAvartar() }"
+													src="${listAcc.getImgs().get(listAcc.getImgs().size()-1).getImgAvartar() }"
 													alt="product">
 											</div>
 											<div class="product__footer">
@@ -213,7 +213,7 @@
 						<c:forEach var="list" items="${list }">
 							<div class="product">
 								<div class="product__header">
-									<img style="border-radius: 10px;" src="${list.getImgs().get(0).getImgAvartar() }" alt="product">
+									<img style="border-radius: 10px;" src="${list.getImgs().get(list.getImgs().size()-1).getImgAvartar() }" alt="product">
 								</div>
 								<div class="product__footer">
 									<h3>${list.getPetName() }</h3>
