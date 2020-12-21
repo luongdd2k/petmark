@@ -442,9 +442,6 @@
 	<script src="js/city.js"></script>
 	<script src="js/jquery-3.5.1.min.js"></script>
 	<script src="js/custom.js"></script>
-	<script type="text/javascript">
-
-	</script>
 </body>
 
 </html>
