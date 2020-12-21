@@ -215,7 +215,12 @@ public class PetController {
 		java.sql.Date date = new java.sql.Date(millis);
 		Pet pet = new Pet(name, price, coc, age, quantityLeft, des, status, species, date);
 		System.out.println("pet: " + pet);
-		petService.addPet(pet);
+		try {
+			petService.addPet(pet);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi thêm thú cưng: "+e);
+		}
 
 		return "redirect:/admin/ProductManagement";
 	}
@@ -238,7 +243,13 @@ public class PetController {
 		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(date1);
 		System.out.println(date);
 		Pet pet = new Pet(id, name, price, giaCoc, age, quantityLeft, des, status, species, date);
-		petService.updatePet(pet);
+		try {
+			petService.updatePet(pet);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi cập nhật thú cưng: "+e);
+		}
+		
 		return "redirect:/admin/ProductManagement/show-edit/" + id;
 	}
 
@@ -247,7 +258,12 @@ public class PetController {
 	public String disContinuedProduct(HttpServletRequest request) {
 		int productId = Integer.valueOf(request.getParameter("idthu"));
 		System.out.println("productID: " + productId);
-		petService.disContinuePet(productId);
+		try {
+			petService.disContinuePet(productId);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi ngừng kinh doanh thú cưng: "+e);
+		}
 
 		return "redirect:/admin/ProductManagement";
 	}
@@ -257,7 +273,12 @@ public class PetController {
 //	@ResponseBody
 	public String continuedProduct(HttpServletRequest request) {
 		int productId = Integer.valueOf(request.getParameter("idthu"));
-		petService.continuePet(productId);
+		try {
+			petService.continuePet(productId);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi tiếp tục kinh doanh thú cưng: "+e);
+		}
 
 		return "redirect:/admin/ProductManagement";
 	}

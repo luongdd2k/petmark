@@ -12,6 +12,7 @@ import java.util.Date;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.sound.midi.Soundbank;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -201,8 +202,12 @@ public class AccessoriesController {
 		java.sql.Date date = new java.sql.Date(millis);
 		Accessories Accessories = new Accessories(name, price, quantityLeft, Category, date, des, status);
 		System.out.println("Accessories: " + Accessories);
-		AccessoriesService.addAccessories(Accessories);
-
+		try {
+			AccessoriesService.addAccessories(Accessories);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi thêm phụ kiện: "+e);
+		}
 		return "redirect:/admin/AccessoriesManagement";
 	}
 
@@ -223,7 +228,12 @@ public class AccessoriesController {
 		System.out.println(date);
 		Accessories Accessories = new Accessories(id, name, price, amount, Category, date, description, status);
 		System.out.println("phụ kiện update: " + Accessories);
-		AccessoriesService.updateAccessories(Accessories);
+		try {
+			AccessoriesService.updateAccessories(Accessories);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi cập nhật phụ kiện: "+e);
+		}
 		return "redirect:/admin/AccessoriesManagement/show-edit/" + id;
 	}
 
@@ -232,7 +242,12 @@ public class AccessoriesController {
 	public String disContinuedAccessories(HttpServletRequest request) {
 		int AccessoriesId = Integer.valueOf(request.getParameter("AccessoriesId"));
 		System.out.println("AccessoriesID: " + AccessoriesId);
-		AccessoriesService.disContinueAccessories(AccessoriesId);
+		try {
+			AccessoriesService.disContinueAccessories(AccessoriesId);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi dừng kinh doanh phụ kiện: "+e);
+		}
 
 		return "redirect:/admin/AccessoriesManagement";
 	}
@@ -242,7 +257,12 @@ public class AccessoriesController {
 //	@ResponseBody
 	public String continuedAccessories(HttpServletRequest request) {
 		int AccessoriesId = Integer.valueOf(request.getParameter("AccessoriesId"));
-		AccessoriesService.continueAccessories(AccessoriesId);
+		try {
+			AccessoriesService.continueAccessories(AccessoriesId);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi tiếp tục kinh doanh phụ kiện: "+e);
+		}
 
 		return "redirect:/admin/AccessoriesManagement";
 	}

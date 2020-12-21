@@ -135,15 +135,14 @@ public class SpeciesController {
 	public String addSpecies(HttpServletRequest request) {
 		String name = request.getParameter("nameBread");
 		String information = request.getParameter("information");
-//		String imagePath = request.getParameter("hiddenImgPath");
-//		System.out.println("IMGpath:" + imagePath);
 		Species species = new Species(name, information, false);
 		System.out.println("Giống thêm: "+species);
-//		if(species.getId()==null) {
-//			System.out.println("ID rỗng");
-//		}
-		speciesService.addSpecies(species);
-//		request.getSession().setAttribute("add", "added");
+		try {
+			speciesService.addSpecies(species);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi thêm giống thú: "+e);
+		}
 		
 		return "redirect:/admin/SpeciesManagement";
 	}
@@ -155,9 +154,13 @@ public class SpeciesController {
 		String name = request.getParameter("p_fix_name");
 		String information = request.getParameter("p_fix_information");
 		String imagePath = request.getParameter("p_fix_image");	
-		Species species = new Species(id, name, information, false);	
-//		System.out.println("Update: " + species);
-		speciesService.updateSpecies(species);
+		Species species = new Species(id, name, information, false);
+		try {
+			speciesService.updateSpecies(species);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Lỗi update giống: "+e);
+		}
 		return "?update=done";
 	}
 	

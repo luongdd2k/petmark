@@ -200,20 +200,6 @@ public class UserController {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@RequestMapping("test")
 	public String userManager2() {
 		

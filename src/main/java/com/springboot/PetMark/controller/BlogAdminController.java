@@ -86,7 +86,13 @@ public String cancelBlog(Principal principal,HttpServletRequest req) {
 
 @RequestMapping("/confirm/{id}")
 public String confirmBlog(@PathVariable int id,Principal principal) {
-	blogService.changeStt(1, id);
+	try {
+		blogService.changeStt(1, id);
+	} catch (Exception e) {
+		// TODO: handle exception
+		System.out.println("Lỗi duyệt blog: "+e);
+	}
+
 	return "redirect:/admin/blog";
 }
 @RequestMapping("show/{stt}")
