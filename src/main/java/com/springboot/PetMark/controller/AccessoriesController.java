@@ -208,7 +208,9 @@ public class AccessoriesController {
 			// TODO: handle exception
 			System.out.println("Lỗi thêm phụ kiện: "+e);
 		}
-		return "redirect:/admin/AccessoriesManagement";
+		ImgAccessories img = new ImgAccessories("files/image/defaultpk.jpg", "files/image/defaultpk.jpg", "files/image/defaultpk.jpg", "files/image/defaultpk.jpg", Accessories);
+		imgAccessories.add(img);
+		return "redirect:/admin/AccessoriesManagement/show-edit/"+Accessories.getId();
 	}
 
 	@RequestMapping("/UpdateAccessories")

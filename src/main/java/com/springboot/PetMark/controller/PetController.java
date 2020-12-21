@@ -221,8 +221,9 @@ public class PetController {
 			// TODO: handle exception
 			System.out.println("Lỗi thêm thú cưng: "+e);
 		}
-
-		return "redirect:/admin/ProductManagement";
+		ImgPet img = new ImgPet("files/image/default.png", "files/image/default.png", "files/image/default.png", "files/image/default.png", pet);
+		imgPetService.add(img);
+		return "redirect:/admin/ProductManagement/show-edit/" +pet.getId();
 	}
 
 	@RequestMapping("/ProductManagement/UpdateProduct")

@@ -39,7 +39,7 @@ public class AccountDAOImpl implements AccountDAO{
 
 		Account accounts = accountRepository.findByUsername(username);
 
-		if ((accounts!=null)) {
+		if ((accounts!=null) && accounts.getIsDeactivate() == false) {
 			return new BCryptPasswordEncoder().matches(password, accounts.getPassword());
 		}
 		return false;
