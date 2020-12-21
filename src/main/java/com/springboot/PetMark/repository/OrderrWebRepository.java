@@ -17,12 +17,14 @@ import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.OrderrWeb;
 
 public interface OrderrWebRepository extends JpaRepository<OrderrWeb, Integer> {
+	 @Query("select o FROM OrderrWeb o")
+	    List<OrderrWeb> findPage(Pageable pageable);
     List<OrderrWeb> findByAccount(Account account);
     @Transactional
     @Modifying
     @Query("update OrderrWeb o set o.deliveryStatus = ?1 where o.id = ?2")
     void capnhatStt(String status, int id);
-    List<OrderrWeb> findByPlace(int place);
+    List<OrderrWeb> findByPlace(int place, Pageable pageable);
     @Query("select o FROM OrderrWeb o where o.deliveryStatus = ?1 and o.account = ?2")
     List<OrderrWeb> findBySttUser(String status, Account account);
     @Query("select o FROM OrderrWeb o where o.deliveryStatus = ?1 and o.place = ?2")
@@ -31,8 +33,12 @@ public interface OrderrWebRepository extends JpaRepository<OrderrWeb, Integer> {
     int countBySttPlace(String status, int place);
     @Query("select count(o.id) FROM OrderrWeb o where o.deliveryStatus = ?1")
     int countByStt(String status);
+    @Query("select count(o.id) FROM OrderrWeb o")
+    int countAll();
+    @Query("select count(o.id) FROM OrderrWeb o where o.place = ?1")
+    int countByPlace(int place);
     @Query("select o FROM OrderrWeb o where o.deliveryStatus = ?1")
-    List<OrderrWeb> findByStt(String status);
+    List<OrderrWeb> findByStt(String status,Pageable pageable);
     @Query("select o FROM OrderrWeb o where o.deliveryStatus = ?1 or o.deliveryStatus = ?2")
     List<OrderrWeb> findStt(String status, String stt);
 	@Query("select o FROM OrderrWeb o where o.id = ?1 or o.consignee like %?1% "

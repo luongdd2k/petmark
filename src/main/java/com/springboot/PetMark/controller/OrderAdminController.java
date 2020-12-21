@@ -53,6 +53,7 @@ public class OrderAdminController {
 		Account account = accountService.findById(logginedUser.getUsername());
 		model.addAttribute("account", account);
 		int targetPage;
+		int totalPage = (int) Math.ceil((double) service.countAll() / 10);
 
 		if (session.getAttribute("targetPage") != null) {
 			targetPage = (int) session.getAttribute("targetPage");
@@ -71,28 +72,35 @@ public class OrderAdminController {
 		try {
 			switch (sortValue) {
 			case "-2":
-				list = service.findAll();
+				list = service.findPage( PageRequest.of(page, 10));
 				break;
 			case "-1":
-				list = service.findByPlace(0);
+				totalPage = (int) Math.ceil((double) service.countByPlace(0) / 10);
+				list = service.findByPlace(0,  PageRequest.of(page, 10));
 				break;
 			case "0":
-				list = service.findByPlace(1);
+				totalPage = (int) Math.ceil((double) service.countByPlace(1) / 10);
+				list = service.findByPlace(1,  PageRequest.of(page, 10));
 				break;
 			case "1":
-				list = service.findByStt(DeliveryStatus.NOT_APPROVED);
+				totalPage = (int) Math.ceil((double) service.countByStt(DeliveryStatus.NOT_APPROVED) / 10);
+				list = service.findByStt(DeliveryStatus.NOT_APPROVED,  PageRequest.of(page, 10));
 				break;
 			case "2":
-				list = service.findByStt(DeliveryStatus.DELIVERING);
+				totalPage = (int) Math.ceil((double) service.countByStt(DeliveryStatus.DELIVERING) / 10);
+				list = service.findByStt(DeliveryStatus.DELIVERING,  PageRequest.of(page, 10));
 				break;
 			case "3":
-				list = service.findByStt(DeliveryStatus.DELIVERING_2);
+				totalPage = (int) Math.ceil((double) service.countByStt(DeliveryStatus.DELIVERING_2) / 10);
+				list = service.findByStt(DeliveryStatus.DELIVERING_2,  PageRequest.of(page, 10));
 				break;
 			case "4":
-				list = service.findByStt(DeliveryStatus.SUCCESSFUL);
+				totalPage = (int) Math.ceil((double) service.countByStt(DeliveryStatus.SUCCESSFUL) / 10);
+				list = service.findByStt(DeliveryStatus.SUCCESSFUL,  PageRequest.of(page, 10));
 				break;
 			case "5":
-				list = service.findByStt(DeliveryStatus.CANCELLED);
+				totalPage = (int) Math.ceil((double) service.countByStt(DeliveryStatus.CANCELLED) / 10);
+				list = service.findByStt(DeliveryStatus.CANCELLED,  PageRequest.of(page, 10));
 				break;
 			default:
 
@@ -102,6 +110,7 @@ public class OrderAdminController {
 		} catch (Exception e) {
 			return "404";
 		}
+		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("list", list);
 		return "pages/order/order-manager";
 	}

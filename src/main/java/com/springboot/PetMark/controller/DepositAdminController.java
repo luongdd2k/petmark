@@ -2,9 +2,14 @@ package com.springboot.PetMark.controller;
 
 import java.security.Principal;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -31,15 +36,34 @@ public class DepositAdminController {
 	PetService petService;
 
 	@RequestMapping()
-	public ModelAndView showDeposit(Principal principal) {
+	public ModelAndView showDeposit(Principal principal, HttpServletRequest request) {
+		HttpSession session = request.getSession();
 		ModelAndView model = new ModelAndView();
 		model.setViewName("pages/deposit/deposit-manager");
 		User user = (User) ((Authentication) principal).getPrincipal();
 		Account account = accountService.findById(user.getUsername());
 		model.addObject("account", account);
-		List<Deposit> list = depositService.findAll();
+		List<Deposit> list = new ArrayList<>();
+		int targetPage;
+		if (session.getAttribute("targetPage") != null) {
+			targetPage = (int) session.getAttribute("targetPage");
+		} else
+			targetPage = 1;
+
+		if (request.getParameter("targetPage") != null) {
+			targetPage = Integer.valueOf(request.getParameter("targetPage"));
+		}
+		int page = targetPage - 1;
+		int totalPage = (int) Math.ceil((double) depositService.countAll() / 10);
+		list = depositService.findPage(PageRequest.of(page, 10));
+		model.addObject("totalPage", totalPage);
 		model.addObject("list", list);
 		return model;
+	}
+	@RequestMapping("/getPageableQLSP")
+	public String getPageableQLSP(HttpServletRequest request) {
+
+		return "redirect:/admin/deposit";
 	}
 
 	@RequestMapping("/deposit-detail/{id}")

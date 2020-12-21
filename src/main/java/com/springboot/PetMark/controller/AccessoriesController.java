@@ -32,10 +32,7 @@ import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.Category;
 import com.springboot.PetMark.entities.ColorAccessories;
 import com.springboot.PetMark.entities.ImgAccessories;
-import com.springboot.PetMark.entities.ImgPet;
-import com.springboot.PetMark.entities.Pet;
 import com.springboot.PetMark.entities.SizeAccessories;
-import com.springboot.PetMark.repository.AccessoriesRepository;
 import com.springboot.PetMark.service.AccessoriesService;
 import com.springboot.PetMark.service.AccountService;
 import com.springboot.PetMark.service.CategoryService;
@@ -195,23 +192,16 @@ public class AccessoriesController {
 		String name = request.getParameter("tenPhuKien");
 		String status = request.getParameter("trangThaiPhuKien");
 		String des = request.getParameter("moTaPhuKien");
-//		String imagePath = request.getParameter("hiddenImgPath");
-//		System.out.println("IMGpath:" + imagePath);
 		String priceDisplay = request.getParameter("giaPhuKien");
 		float price = Float.valueOf(priceDisplay);
-//		String giaCoc = request.getParameter("p_add_coc");
-//		float coc = Float.valueOf(giaCoc.substring(0, giaCoc.length() - 2).replaceAll("\\.", ""));
 		int quantityLeft = Integer.valueOf(request.getParameter("soLuongPhuKien"));
-//		int age = Integer.valueOf(request.getParameter("p_add_age"));
 		int categoryID = Integer.valueOf(request.getParameter("hangPhuKien"));
 		Category Category = CategoryService.findById(categoryID);
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
 		Accessories Accessories = new Accessories(name, price, quantityLeft, Category, date, des, status);
 		System.out.println("Accessories: " + Accessories);
-//		System.out.println("giống : "+Category);
 		AccessoriesService.addAccessories(Accessories);
-//		request.getSession().setAttribute("add", "added");
 
 		return "redirect:/admin/AccessoriesManagement";
 	}
@@ -330,4 +320,12 @@ public class AccessoriesController {
 
 		return "redirect:/admin/AccessoriesManagement/show-edit/" + id;
 	}
+	
+	@RequestMapping("search")
+	@ResponseBody
+	public List<Accessories> search(HttpServletRequest req){
+		List<Accessories> listAccessories = AccessoriesService.search(req.getParameter("search"));
+		return listAccessories;
+	}
+	
 }
