@@ -71,171 +71,71 @@
 
 
 						<div class="card-body">
-							<!--Div Form Update-->
-							<div id="form-disable-update"
-								style="display: none; max-width: 95%; margin: auto; margin-top: 10px;">
-								<form action="admin/AccessoriesManagement/UpdateAccessories" method="post">
-								<input type="hidden" name="id" id="id">
-									<div class="form-disable-p1 float-left"
-										style="width: 330px; margin-left: 30px; float: left">
-										<div class="form-group">
-											<label >Tên phụ kiện</label> <input
-												name="tenPhuKien" type="text" class="form-control"
-												id="tenUpdate" />
+							<form id="formAddAccessories" action="admin/AccessoriesManagement/AddAccessories" method="POST" onsubmit="return validateForm()">
+								<div id="form-disable-new" class="row" style="display: none; max-width: 80%; margin: auto; margin-top: 10px;">
+										<div class="form-group col-lg-3">
+											<label>Tên phụ kiện</label>
+											<input name="tenPhuKien" type="text" class="form-control" id="accessoriName" />
+											<p id="error1" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 										</div>
-										<div class="form-group">
-											<label >Hãng</label>
-											<select class="form-control" name="hangPhuKien" id="hangUpdate" style="height: 30px; width: 100%">
+										<div class="form-group col-lg-3">
+											<label for="category">Hãng</label>
+											<select name="hangPhuKien" id="category" class="form-control">
+													<option value="none" selected>---- Chọn hãng phụ kiện ----</option>
 												<c:forEach var="category" items="${listCategory }">
 													<option value="${ category.id}" selected>${ category.name}</option>
 												</c:forEach>
 											</select>
+											<p id="error2" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 										</div>
-										<div class="form-group">
-											<label >Màu sắc</label> <input
-												name="mauPhuKien" type="text" class="form-control"
-												id="accessoriColor" />
+										<div class="form-group col-lg-2">
+											<label>Giá</label>
+											<input name="giaPhuKien" type="text" class="form-control" id="accessoriPrice" />
+											<p id="error3" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 										</div>
-									</div>
-									<div class="form-disable-p1"
-										style="width: 330px; margin-left: 30px; float: left">
-										<div class="form-group">
-											<label >Giá</label> <input
-												name="giaPhuKien" type="text" class="form-control"
-												id="giaUpdate" />
-										</div>
-										<div class="form-group">
-											<label >Trạng thái</label> <select class="form-control"
-												name="trangThaiPhuKien" id="trangThaiUpdate"
-												style="height: 30px; width: 100%">
+										<div class="form-group col-lg-2">
+											<label>Trạng thái</label>
+											<select name="trangThaiPhuKien" id="accessoriStatus" class="form-control">
+												<option value="none" selected>---- Chọn trạng thái ----</option>
 												<c:forEach var="status" items="${listStatus }">
 													<option value="${status }" selected>${status }</option>
 												</c:forEach>
 											</select>
+											<p id="error4" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 										</div>
-										<div class="form-group">
-											<label >Số lượng</label> <input
-												name="soLuongPhuKien" type="text" class="form-control"
-												id="soLuongUpdate" />
+										<div class="form-group col-lg-2">
+											<label>Số lượng</label>
+											<input name="soLuongPhuKien" type="text" class="form-control" id="accessoriAmount" />
+											<p id="error5" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 										</div>
-									</div>
-									<div class="form-disable-p1"
-										style="width: 330px; margin-left: 30px; float: left">
-										<div class="form-group">
+										<div class="form-group col-12">
 											<label>Mô tả</label>
-											<textarea name="moTaPhuKien" class="form-control"
-												id="moTaUpdate" rows="2"></textarea>
+											<textarea name="moTaPhuKien" class="form-control" id="accessoriInformation" rows="2"></textarea>
+											<p id="error6" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 										</div>
-										<div class="custom-file mb-3">
-											<label class="custom-file-label" for="customFile">Hình
-												ảnh</label> <input type="file" class="custom-file-input"
-												id="customFile" name="filename" />
-										</div>
-										 <input type="hidden" class="form-control" id="ngayUpdate"
-														name="ngayUpdate">
-										<div>
-											<button type="submit"
-												class="btn btn-custon-rounded-three btn-success btn-css">
-												<i class="fas fa-save"></i> <span> Lưu</span>
-											</button>
-											<button type="reset"
-												class="btn btn-custon-rounded-three btn-warning btn-css">
-												<i class="fas fa-backspace"></i> <span> Clear</span>
-											</button>
-											<button type="button"
-												class="btn btn-custon-rounded-three btn-danger btn-css"
-												onclick="hiddenFormUpdate(true)">
-												<i class="fas fa-slash"></i> <span> Cancel</span>
-											</button>
-										</div>
-									</div>
-								</form>
-								<div class="clear"></div>
-							</div>
-							<!--End Form Update-->
-
-
-
-							<div id="form-disable-new"
-								style="display: none; max-width: 95%; margin: auto; margin-top: 10px;">
-								<form id="formAddAccessories"
-									action="admin/AccessoriesManagement/AddAccessories"
-									method="POST">
-									<div class="form-disable-p1 float-left"
-										style="width: 330px; margin-left: 30px; float: left">
-										<div class="form-group">
-											<label>Tên phụ kiện</label> <input
-												name="tenPhuKien" type="text" class="form-control"
-												id="accessoriName" />
-										</div>
-										<div class="form-group">
-											<label>Hãng</label> <select
-												name="hangPhuKien" id="category"
-												style="height: 30px; width: 100%">
-												<c:forEach var="category" items="${listCategory }">
-													<option value="${ category.id}" selected>${ category.name}</option>
-												</c:forEach>
-											</select>
-										</div>
-										<div class="form-group">
-											<label>Giá</label> <input
-												name="giaPhuKien" type="text" class="form-control"
-												id="accessoriPrice" />
-										</div>
-									</div>
-									<div class="form-disable-p1"
-										style="width: 330px; margin-left: 30px; float: left">
-										<div class="form-group">
-											<label>Trạng thái</label> <select
-												name="trangThaiPhuKien" id="accessori-status"
-												style="height: 30px; width: 100%">
-												<c:forEach var="status" items="${listStatus }">
-													<option value="${status }" selected>${status }</option>
-												</c:forEach>
-											</select>
-										</div>
-										<div class="form-group">
-											<label>Số lượng</label> <input
-												name="soLuongPhuKien" type="text" class="form-control"
-												id="accessoriAmount" />
-										</div>
-									</div>
-									<div class="form-disable-p1"
-										style="width: 330px; margin-left: 30px; float: left">
-										<div class="form-group">
-											<label>Mô tả</label>
-											<textarea name="moTaPhuKien" class="form-control"
-												id="accessoriInformation" rows="2"></textarea>
-										</div>
-										<div>
-											<button type="submit"
-												class="btn btn-custon-rounded-three btn-success btn-css">
+										<div class="form-group col-lg-12" style="text-align: center;">
+											<button type="submit" class="btn btn-custon-rounded-three btn-success btn-css">
 												<i class="fas fa-save"></i> <span> Save</span>
 											</button>
-											<button type="reset"
-												class="btn btn-custon-rounded-three btn-warning btn-css">
+											<button type="reset" class="btn btn-custon-rounded-three btn-warning btn-css">
 												<i class="fas fa-backspace"></i> <span> Clear</span>
 											</button>
-											<button type="button"
-												class="btn btn-custon-rounded-three btn-danger btn-css"
-												onclick="hienThiFormNew(false)">
+											<button type="button" class="btn btn-custon-rounded-three btn-danger btn-css" onclick="hienThiFormNew(false)">
 												<i class="fas fa-slash"></i> <span> Cancel</span>
 											</button>
 										</div>
-									</div>
-								</form>
-								<div class="clear"></div>
-							</div>
+								</div>
+							</form>
 							<!-- End new Form -->
+
 							<div id="new-pet">
 								<div class="row">
 									<div class="col-12">
 										<form action="">
 											<div class="form-row">
 												<div class="form-group col-2">
-													<label>Tên</label> <input
-														class="form-control" type="search"
-														placeholder="Tìm kiếm theo tên" aria-label="Search">
+													<label>Tên</label>
+													<input class="form-control" type="search" placeholder="Tìm kiếm theo tên" aria-label="Search">
 												</div>
 												<div class="form-group col-2">
 													<label>Lọc</label> <select
@@ -410,17 +310,16 @@
       var date = $(this).find("td").eq(5).html();
       var stt = $(this).find("td").eq(6).html();
       var mota = $(this).find("td").eq(7).html();
-      x.push({
-        id: id,
-        ten: ten,
-        hang: hang,
-        gia: gia,
-        soLuong: soLuong,
-        date: date,
-        stt: stt,
-        mota: mota
-      });
-//       console.log(x);
+		  x.push({
+			id: id,
+			ten: ten,
+			hang: hang,
+			gia: gia,
+			soLuong: soLuong,
+			date: date,
+			stt: stt,
+			mota: mota
+		  });
       });
 		function hienThiFormNew(visible) {
 			var hienFormNew = document.getElementById("form-disable-new");
@@ -428,31 +327,114 @@
 			var timKiem = document.getElementById("new-pet");
 			timKiem.style.display = visible ? "none" : "block";
 		}
-		function showFormUpdate(visible, id) {
-			var hienFormUpdate = document.getElementById("form-disable-update");
-			hienFormUpdate.style.display = visible ? "" : "none";
-			var timKiem = document.getElementById("new-pet");
-			timKiem.style.display = visible ? "none" : "block";
-			var hienFormNew = document.getElementById("form-disable-new");
-			hienFormNew.style.display = visible ? "none" : "block";
-			var pet = x.find( item => item.id === id.toString() );
-			console.log(pet.hang);
-			console.log(x);
-			$('#id').val(pet.id);
-			$('#tenUpdate').val(pet.ten);
-			$('#giaUpdate').val(pet.gia);
-			$('#soLuongUpdate').val(pet.soLuong);
-			$('#trangThaiUpdate').val(pet.stt);
-			$('#hangUpdate').val(pet.hang);
-			$('#moTaUpdate').val(pet.mota);
-			$('#ngayUpdate').val(pet.date);
+
+		function validateForm(){
+			let check = true;
+			let accName = document.getElementById("accessoriName");
+			let categoryAcc = document.getElementById("category");
+			let accPrice = document.getElementById("accessoriPrice");
+			let statusAcc = document.getElementById("accessoriStatus");
+			let accAmount = document.getElementById("accessoriAmount");
+			let accInfor = document.getElementById("accessoriInformation");
+
+			let accCategory = categoryAcc.options[categoryAcc.selectedIndex].value;
+			let accStatus = statusAcc.options[statusAcc.selectedIndex].value;
+
+			let errorName = document.getElementById("error1");
+			let errorCategory = document.getElementById("error2");
+			let errorPrice = document.getElementById("error3");
+			let errorStatus = document.getElementById("error4");
+			let errorAmount = document.getElementById("error5");
+			let errorInfor = document.getElementById("error6");
+
+			if(accName.value.trim()==""){
+				errorName.classList.remove("hide");
+				accName.style.borderColor="red";
+				errorName.innerHTML="Không để trống tên phụ kiện!";
+				check = false;
+			}else if(accName.value.trim().lenth >25){
+				errorName.classList.remove("hide");
+				accName.style.borderColor="red";
+				errorName.innerHTML="Tên phụ kiện không quá 25 ký tự!";
+				check = false;
+			}else{
+				errorName.classList.add("hide");
+				accName.style.borderColor="green";
+			}
+			if(accCategory=="none"){
+				errorCategory.classList.remove("hide");
+				categoryAcc.style.borderColor="red";
+				errorCategory.innerHTML="Vui lòng chọn hãng phụ kiện!";
+				check=false;
+			}else{
+				errorCategory.classList.add("hide");
+				categoryAcc.style.borderColor="green";
+			}
+			if(accPrice.value.trim()==""){
+				errorPrice.classList.remove("hide");
+				accPrice.style.borderColor="red";
+				errorPrice.innerHTML ="Không để trống giá phụ kiện!";
+				check = false;
+			}else if(isNaN(accPrice.value.trim())){
+				errorPrice.classList.remove("hide");
+				accPrice.style.borderColor="red";
+				errorPrice.innerHTML="Giá phụ kiện phải là số!";
+				check = false;
+			}else if(parseInt(accPrice.value.trim()) < 0){
+				errorPrice.classList.remove("hide");
+				accPrice.style.borderColor="red";
+				errorPrice.innerHTML="Giá phụ kiện phải là số nguyên dương!";
+				check = false;
+			}else{
+				errorPrice.classList.add("hide");
+				accPrice.style.borderColor="green";
+			}
+			if(accStatus=="none"){
+				errorStatus.classList.remove("hide");
+				statusAcc.style.borderColor="red";
+				errorStatus.innerHTML="Vui lòng chọn trạng thái!";
+				check=false;
+			}else{
+				errorStatus.classList.add("hide");
+				statusAcc.style.borderColor="green";
+			}
+			if (accAmount.value.trim()==""){
+				errorAmount.classList.remove("hide");
+				accAmount.style.borderColor="red";
+				errorAmount.innerHTML ="Không để trống số lượng phụ kiện!";
+				check = false;
+			}else if(isNaN(accAmount.value.trim())){
+				errorAmount.classList.remove("hide");
+				accAmount.style.borderColor="red";
+				errorAmount.innerHTML="Số lượng phụ kiện phải là số!";
+				check = false;
+			}else if(parseInt(accAmount.value.trim()) < 0){
+				errorAmount.classList.remove("hide");
+				accAmount.style.borderColor="red";
+				errorAmount.innerHTML="Giá phụ kiện phải là số nguyên dương!";
+				check = false;
+			}else{
+				errorAmount.classList.add("hide");
+				accAmount.style.borderColor="green";
+			}
+			if(accInfor.value.trim()==""){
+				errorInfor.classList.remove("hide");
+				accInfor.style.borderColor="red";
+				errorInfor.innerHTML ="Không để trống mô tả phụ kiện!";
+				check = false;
+			}else if(accInfor.value.trim().lenth > 900){
+				errorInfor.classList.remove("hide");
+				accInfor.style.borderColor="red";
+				errorInfor.innerHTML="Mô tả phụ kiện không quá 900 ký tự!";
+				check = false;
+			}else{
+				errorInfor.classList.add("hide");
+				accInfor.style.borderColor="green";
+			}
+			return check;
 		}
-		function hiddenFormUpdate(visible) {
-			var hienFormUpdate = document.getElementById("form-disable-update");
-			hienFormUpdate.style.display = visible ? "none" : "block";
-			var timKiem = document.getElementById("new-pet");
-			timKiem.style.display = visible ? "" : "none";
-		}
+
+
 	</script>
 </body>
 </html>

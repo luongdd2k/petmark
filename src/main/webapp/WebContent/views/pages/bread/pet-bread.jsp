@@ -69,37 +69,31 @@
 								</div>
 								<!-- /.card-header -->
 								<div class="card-body">
-									<div id="form-disable" class="form-disable-css"
-										style="display: none; max-width: 100%; margin-top: 10px">
-										<div class="form-disable-p1">
-											<form id="formAddSpecies"
-												action="admin/SpeciesManagement/AddSpecies" method="POST">
-												<div class="form-group">
-													<label for="nameBread">Tên giống thú
-														cưng</label> <input type="text" class="form-control"
-														id="nameBread" name="nameBread">
+									<div id="form-disable" class="form-disable-css" style="display: none; max-width: 100%; margin-top: 10px">
+										<form id="formAddSpecies" action="admin/SpeciesManagement/AddSpecies" method="POST" onsubmit="return validateForm()">
+											<div class="row" style="max-width: 60%; margin: 0 auto;">
+												<div class="col-12">
+													<div class="form-group">
+														<label for="nameBread">Tên giống thú</label>
+														<input type="text" class="form-control" id="nameBread" name="nameBread">
+														<p id="error1" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
+													</div>
 												</div>
-												<div class="form-group">
-													<label for="infomation">Thông tin
-														thêm</label> <input type="text" class="form-control"
-														id="infomation" name="information">
+												<div class="col-12">
+													<div class="form-group">
+														<label for="infomation">Thông tin chi tiết</label>
+														<textarea class="form-control" name="information" id="infomation"></textarea>
+														<p id="error2" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
+													</div>
 												</div>
-												<!-- 												<div class="form-group"> -->
-												<!-- 													<label for="exampleFormControlSelect1">Trạng thái</label> <select -->
-												<!-- 														class="form-control quyen" id="exampleFormControlSelect1" name="status"> -->
-												<!-- 														<option value="stocking" selected>Còn kinh doanh</option> -->
-												<!-- 													</select> -->
-												<!-- 												</div> -->
-												<div style="margin-top: 30px;">
-													<button type="submit"
-														class="btn btn-custon-rounded-three btn-success btn-css">Lưu</button>
-													<button type="button"
-														class="btn btn-custon-rounded-three btn-danger btn-css"
-														onclick="hienThi(false)">Huỷ</button>
+												<div class="col-12">
+													<div style="text-align: center;">
+														<button type="submit" class="btn btn-custon-rounded-three btn-success btn-css">Lưu</button>
+														<button type="button" class="btn btn-custon-rounded-three btn-danger btn-css" onclick="hienThi(false)">Huỷ</button>
+													</div>
 												</div>
-											</form>
-										</div>
-										<div class="clear"></div>
+											</div>
+										</form>
 									</div>
 									<!-- End Form -->
 									<div class="form-group col-2">
@@ -107,9 +101,9 @@
 											class="form-control" id="cbo_sort_species2" style="">
 											<option value="-1">ID:&nbsp thấp ⟶ cao</option>
 											<option value="0">ID:&nbsp cao ⟶ thấp</option>
-											<option value="1" style="background: #ffe6e6">Dừng
-												kinh doanh</option>
-										</select> <span id="sortValue2" style="display: none;">${sortValue }</span>
+											<option value="1" style="background: #ffe6e6">Dừng kinh doanh</option>
+										</select>
+										<span id="sortValue2" style="display: none;">${sortValue }</span>
 									</div>
 									<div class="btn-new-css">
 										<button id="new-pet" type="button"
@@ -247,6 +241,44 @@
 			hienForm.style.display = visible ? "" : "none";
 			var timKiem = document.getElementById("new-pet");
 			timKiem.style.display = visible ? "none" : "block";
+		}
+		function validateForm(){
+			let check = true;
+			let namePet = document.getElementById("nameBread");
+			let inforPet = document.getElementById("infomation");
+
+			let errorName =  document.getElementById("error1");
+			let errorInfo = document.getElementById("error2");
+
+			if(namePet.value.trim()==""){
+				errorName.classList.remove("hide");
+				namePet.style.borderColor="red";
+				errorName.innerHTML="Không để trống tên giống thú!";
+				check = false;
+			}else if(namePet.value.trim().length > 50){
+				errorName.classList.remove("hide");
+				namePet.style.borderColor="red";
+				errorName.innerHTML="Tên giống thú không quá 50 ký tự!";
+				check = false;
+			}else{
+				errorName.classList.add("hide");
+				namePet.style.borderColor="green";
+			}
+			if(inforPet.value.trim()==""){
+				errorInfo.classList.remove("hide");
+				inforPet.style.borderColor="red";
+				errorInfo.innerHTML="Không để trống thông tin chi tiết giống thú!";
+				check = false;
+			}else if(inforPet.value.trim()>900){
+				errorInfo.classList.remove("hide");
+				inforPet.style.borderColor="red";
+				errorInfo.innerHTML="Thông tin chi tiết không quá 900 ký tự!";
+				check = false;
+			}else{
+				errorName.classList.add("hide");
+				namePet.style.borderColor="green";
+			}
+			return check;
 		}
 	</script>
 </body>

@@ -88,34 +88,29 @@
 								</div>
 								<!-- /.card-header -->
 								<div class="card-body">
-									<div id="form-disable"
-										style="display: none; max-width: 100%; margin-top: 10px">
-										<div class="form-disable-p1">
-											<form id="formAddCategory"
-												action="admin/CategoryManagement/AddCategory" method="POST">
-												<div class="form-group">
-													<label for="exampleFormControlInput1">Tên hãng</label> <input
-														type="text" class="form-control" id="category" name="name">
+									<div id="form-disable" style="display: none; max-width: 60%; margin-top: 10px; margin: 0 auto;">
+										<form id="formAddCategory" action="admin/CategoryManagement/AddCategory" method="POST" onsubmit="return validateForm()">
+											<div class="row">
+												<div class="form-group col-12">
+													<label for="categoryName">Tên hãng</label>
+													<input type="text" class="form-control" id="categoryName" name="name">
+													<p id="error1" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 												</div>
-												<div class="form-group">
-													<label for="exampleFormControlInput1">Thông tin
-														thêm</label> <input type="text" class="form-control" id="category"
-														name="thongtin">
+												<div class="form-group col-12">
+													<label for="categoryInfor">Thông tin thêm</label>
+													<textarea class="form-control" id="categoryInfor" name="thongtin"rows="3"></textarea>
+													<p id="error2" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 												</div>
-												<div style="margin-top: 30px;">
-													<button type="submit"
-														class="btn btn-custon-rounded-three btn-success btn-css">Lưu</button>
-													<button type="button"
-														class="btn btn-custon-rounded-three btn-danger btn-css"
-														onclick="hienThi(false)">Huỷ</button>
+												<div class="form-group col-12" style="text-align: center;">
+													<button type="submit" class="btn btn-custon-rounded-three btn-success btn-css">Lưu</button>
+													<button type="button" class="btn btn-custon-rounded-three btn-danger btn-css" onclick="hienThi(false)">Huỷ</button>
 												</div>
-											</form>
-										</div>
-										<div class="clear"></div>
+											</div>
+										</form>
 									</div>
 									<!-- End Form -->
 									<div class="form-group col-2">
-										<label for="exampleFormControlSelect1">Lọc</label> <select
+										<label for="cbo_sort_Category2">Lọc</label> <select
 											class="form-control" id="cbo_sort_Category2" style="">
 											<option value="-1">ID:&nbsp thấp ⟶ cao</option>
 											<option value="0">ID:&nbsp cao ⟶ thấp</option>
@@ -275,6 +270,44 @@
 			hienForm.style.display = visible ? "" : "none";
 			var timKiem = document.getElementById("new-pet");
 			timKiem.style.display = visible ? "none" : "block";
+		}
+		function validateForm(){
+			let check = true;
+			let categoryName = document.getElementById("categoryName");
+			let categoryInfo = document.getElementById("categoryInfor");
+
+			let errorName = document.getElementById("error1");
+			let errorInfor = document.getElementById("error2");
+
+			if(categoryName.value.trim()==""){
+				errorName.classList.remove("hide");
+				categoryName.style.borderColor="red";
+				errorName.innerHTML="Không để trống tên hãng phụ kiện!";
+				check = false;
+			}else if(categoryName.value.trim().length > 50){
+				errorName.classList.remove("hide");
+				categoryName.style.borderColor="red";
+				errorName.innerHTML="Tên hãng thú không quá 50 ký tự!";
+				check = false;
+			}else{
+				errorName.classList.add("hide");
+				categoryName.style.borderColor="green";
+			}
+			if(categoryInfo.value.trim()==""){
+				errorInfor.classList.remove("hide");
+				categoryInfo.style.borderColor="red";
+				errorInfor.innerHTML="Không để trống thông tin chi tiết hãng phụ kiện!";
+				check = false;
+			}else if(categoryInfo.value.trim()>900){
+				errorInfor.classList.remove("hide");
+				categoryInfo.style.borderColor="red";
+				errorInfor.innerHTML="Thông tin chi tiết không quá 900 ký tự!";
+				check = false;
+			}else{
+				errorInfor.classList.add("hide");
+				categoryInfo.style.borderColor="green";
+			}
+			return check;
 		}
 	</script>
 </body>
