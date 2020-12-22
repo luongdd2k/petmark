@@ -140,7 +140,7 @@ public class DepositController {
 		vnp_Params.put("vnp_OrderInfo", String.valueOf(deposit.getId()));
 		vnp_Params.put("vnp_OrderType", "billpayment");
 		vnp_Params.put("vnp_Locale", "vn");
-		vnp_Params.put("vnp_ReturnUrl", "http://localhost:8080/petmart/deposit-atm-result");
+		vnp_Params.put("vnp_ReturnUrl", "http://34.92.82.228:8080/petmart/deposit-atm-result");
 		vnp_Params.put("vnp_IpAddr", VNPayConfig.getIpAddress(req));
 		vnp_Params.put("vnp_CreateDate", new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()));
 
@@ -259,7 +259,7 @@ public class DepositController {
 		vnp_Params.put("vnp_OrderInfo", String.valueOf(deposit.getId()));
 		vnp_Params.put("vnp_OrderType", "billpayment");
 		vnp_Params.put("vnp_Locale", "vn");
-		vnp_Params.put("vnp_ReturnUrl", "http://localhost:8080/petmart/deposit-atm");
+		vnp_Params.put("vnp_ReturnUrl", "http://34.92.82.228:8080/petmart/deposit-atm");
 		vnp_Params.put("vnp_IpAddr", VNPayConfig.getIpAddress(req));
 		vnp_Params.put("vnp_CreateDate", new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()));
 

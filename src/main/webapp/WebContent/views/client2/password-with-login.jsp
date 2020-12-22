@@ -73,11 +73,6 @@
                                     <div class="_1jBnmJ">
                                         <input class="_2mVfdi _2u9RSh" type="password" autocomplete="off" name="password" value="">
                                     </div>
-                                    <div class="stardust-popover">
-                                        <div role="button" aria-describedby="stardust-popover6" class="stardust-popover__target">
-                                            <div class="_2TYDwU">Quên mật khẩu?</div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                           </div>

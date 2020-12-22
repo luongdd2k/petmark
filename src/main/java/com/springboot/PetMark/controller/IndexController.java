@@ -157,7 +157,6 @@ public class IndexController {
 			blog1 = 1;
 			model.addObject("blog", blog);
 		}
-		System.out.println("blog: "+blog.size());
 		model.addObject("blog1", blog1);
 //		model.addObject("blog", blog);
 		model.addObject("list", listPet);
@@ -255,7 +254,6 @@ public class IndexController {
 	@RequestMapping("/search")
 	public ModelAndView searchProduct(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("client2/index");
 		HttpSession session = request.getSession();
 		String username = (String) session.getAttribute("username");
 		if (username != null) {
@@ -267,17 +265,22 @@ public class IndexController {
 			}
 			model.addObject("slCard", slCard);
 		}
+		List<Blog> blog = blogService.findByStatus(1);
+		int blog1 = 0;
+		if(blog.size()>0) {
+			blog1 = 1;
+			model.addObject("blog", blog);
+		}
+		model.addObject("blog1", blog1);
 		String search = request.getParameter("search");
 		List<Pet> listPet = petService.search(search);
 		model.addObject("list", listPet);
 		List<Accessories> listAcces = accessSv.search(search);
-		String result = "";
 		if (listAcces.size() == 0) {
 			listAcces = accessSv.findAll();
-			result = "Không tìm thấy phụ kiện phù hợp";
 		}
-		model.addObject("result", result);
 		model.addObject("listAcc", listAcces);
+		model.setViewName("client2/index");
 		return model;
 	}
 
