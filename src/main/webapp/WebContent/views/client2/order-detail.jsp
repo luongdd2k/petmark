@@ -34,6 +34,13 @@
             display: none;
             visibility: hidden;
         }
+        .button-huy{
+            border-color: red;
+            color: red;
+        }
+        .button-huy:hover{
+            background-color: red;
+        }
     </style>
 </head>
 
@@ -158,6 +165,12 @@
                                     </c:forEach>
                                     <div class="payment-detail__container _1R4a4Y">
                                       <div class="payment-detail__item payment-detail__item--last">
+                                          <div class="purchase-card-buttons__show-button-wrapper">
+                                              <button data-toggle="modal" data-target="#staticBackdrop" onclick="abc(${orderweb.getId() })"
+                                                      class="shopee-button-outline shopee-button-outline--fill shopee-button-outline--primary button-huy">
+                                                  <span class="purchase-card-buttons__button-content"> Hủy đơn hàng này </span>
+                                              </button>
+                                          </div>
                                         <div class="payment-detail__item__description">Tổng số tiền</div>
                                         <div class="payment-detail__item__value payment-detail__item__value--highlighted">
                                           <div class="payment-detail__item__value-text"><div>
@@ -189,6 +202,27 @@
 <!-- Footer -->
 <%@ include file="/WebContent/views/footer_client.jsp" %>
 <!-- End Footer -->
+<!-- Modal -->
+<div class="modal fade " id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="staticBackdropLabel">Bạn có chắc chắn muốn hủy đơn này không?</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="id-order" name="id" value="">
+                <p id="text-order"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-danger">Đồng ý</button>
+            </div>
+        </div>
+    </div>
+</div>
 
   <!-- Go To -->
 
@@ -200,12 +234,15 @@
 
   <!-- Glide Carousel Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 
   <!-- Animate On Scroll -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <!-- Custom JavaScript -->
   <script src="./js/index.js"></script>
@@ -267,6 +304,15 @@
               money[i].innerHTML = moneyF + " đ";
               let totalF = total[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
               total[i].innerHTML = totalF+" đ";
+          }
+      }
+      function abc(id){
+          let i = document.getElementById("id-order");
+          i.value = id;
+          let name = document.getElementsByClassName("order-content__item__name");
+          for (let i=0;i<name.length;i++){
+              console.log(name[i].innerHTML);
+
           }
       }
   </script>

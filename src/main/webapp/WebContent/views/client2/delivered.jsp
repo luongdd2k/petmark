@@ -160,11 +160,6 @@
                                                                 <span class="purchase-card-buttons__button-content"> Xem Chi tiết đơn hàng </span>
                                                             </button>
                                                         </div>
-                                                        <div class="purchase-card-buttons__show-button-wrapper">
-                                                            <button class="shopee-button-outline shopee-button-outline--fill shopee-button-outline--primary ">
-                                                                <span class="purchase-card-buttons__button-content"> Mua lần nữa </span>
-                                                            </button>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
