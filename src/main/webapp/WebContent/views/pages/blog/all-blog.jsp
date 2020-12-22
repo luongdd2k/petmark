@@ -11,22 +11,22 @@
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" type="text/css"    href="plugins/fontawesome-free/css/all.min.css">
 	<!-- Ionicons -->
-	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link rel="stylesheet" type="text/css"    href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<!-- overlayScrollbars -->
-	<link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+	<link rel="stylesheet" type="text/css"    href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 
-	<link rel="stylesheet"  href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+	<link rel="stylesheet" type="text/css"     href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link rel="stylesheet" type="text/css"    href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
 	<!-- Theme style -->
-	<link rel="stylesheet" href="dist/css/adminlte.min.css" />
-	<link rel="stylesheet" href="plugins/Semantic-UI-CSS-master/semantic.min.css" />
+	<link rel="stylesheet" type="text/css"    href="dist/css/adminlte.min.css" />
+	<link rel="stylesheet" type="text/css"    href="plugins/Semantic-UI-CSS-master/semantic.min.css" />
 	<!-- Google Font: Source Sans Pro -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
-	<link rel="stylesheet" href="dist/css/custom.css" />
-	<link rel="stylesheet" href="css/employee.css">
-	<link rel="stylesheet" href="css/blog-admin.css"/>
+	<link rel="stylesheet" type="text/css"    href="dist/css/custom.css" />
+	<link rel="stylesheet" type="text/css"    href="css/employee.css">
+	<link rel="stylesheet" type="text/css"    href="css/blog-admin.css"/>
 	<style>
 
 	</style>
@@ -78,7 +78,7 @@
 								<div class="card-body">
 									<div class="row">
 										<c:forEach var="blog" items="${blog }">
-											<div class="col-3 card" style="position: relative;margin-left: 19px;">
+											<div class="col-lg-3 col-md-6 col-sm-12 card" style="position: relative;">
 												<div name="image" id="image">
 													<img class="img-fluid img-thumbnail" alt="" src="${blog.getImg() }" />
 												</div>
@@ -215,7 +215,7 @@
 					stt[i].style.color = '#fdb827';
 					btn[i].classList.remove ="hide";
 				}
-				if(stt[i].innerHTML=="Đã xét duyệt"){
+				if(stt[i].innerHTML=="Đã duyệt"){
 					stt[i].style.color = '#54e346';
 					btn[i].classList.add("hide");
 				}

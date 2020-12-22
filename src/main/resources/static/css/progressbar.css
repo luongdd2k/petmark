@@ -8,6 +8,7 @@
 }
 
 .progressbar li {
+    width: 100%;
     float: left;
     list-style: none;
     position: relative;

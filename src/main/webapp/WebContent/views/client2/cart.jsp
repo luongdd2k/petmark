@@ -14,19 +14,19 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
     <!-- Carousel -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css" />
+    <link rel="stylesheet" type="text/css"    href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"    href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css" />
+    <link rel="stylesheet" type="text/css"    href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css" />
 
     <!-- Animate On Scroll -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" type="text/css"    href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" type="text/css"    href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 
     <title>Pet Mart | Giỏ hàng</title>
     <base href="${pageContext.servletContext.contextPath}/">
     <!-- Custom StyleSheet -->
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" type="text/css"    href="css/styles.css" />
+    <link rel="stylesheet" type="text/css"    href="css/cart.css">
     <style>
         .buttons_added {
             opacity:1;
