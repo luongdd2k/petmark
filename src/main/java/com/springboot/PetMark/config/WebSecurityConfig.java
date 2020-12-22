@@ -40,7 +40,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  
         http.csrf().disable();
 
+<<<<<<< HEAD
         http.authorizeRequests().antMatchers("/", "/CheckLogin", "/CheckLogout", "/css/**", "/Script/**").permitAll();
+=======
+        http.authorizeRequests().antMatchers("/", "/CheckLogin", "/CheckLogout", "/css/**", "/Script/**","/Image/**","/font/**","/plugins/**","/dist/**","/admin/**","/shopper/**","/css/**","/fonts/**","/images/**","/js/**","/vendor/**","/resources/**").permitAll();
+>>>>>>> 276a3265f64cf0b02c18cbd485061dec6003c44d
  
         http.authorizeRequests().antMatchers("/CartItem/**", "/Profile").access("hasAnyRole('ROLE_MEMBER', 'ROLE_ADMIN', 'ROLE_STAFF')");
 
