@@ -131,10 +131,8 @@ public class PetController {
 					page = 0;
 				listProduct = petService.showProductByCategoryPageable("Ngừng bán",
 						PageRequest.of(page, 10, Sort.by("id").ascending()));
-//				totalPage = (int) Math.ceil((double)petService.countProduct("Ngừng bán")/10);
 				nameButton2 = "Đăng bán";
 				action = "ContinuedProduct";
-//				classButton2 = "cancel_discontinue";
 				classButtonDelete = "cancel_discontinue";
 
 				break;
@@ -350,5 +348,15 @@ public class PetController {
 		}
 
 		return "redirect:/admin/ProductManagement/show-edit/" + id;
+	}
+	
+	@RequestMapping("ProductManagement/search")
+	@ResponseBody
+	public ModelAndView searchPet(HttpServletRequest req) {
+		ModelAndView model = new ModelAndView();
+		List<Pet> listProduct =petService.search(req.getParameter("search"));
+		model.addObject("listProduct", listProduct);
+		model.setViewName("pages/pet/pet-manager");
+		return model;
 	}
 }

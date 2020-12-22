@@ -344,10 +344,12 @@ public class AccessoriesController {
 	}
 	
 	@RequestMapping("search")
-	@ResponseBody
-	public List<Accessories> search(HttpServletRequest req){
+	public ModelAndView search(HttpServletRequest req){
+		ModelAndView model = new ModelAndView();
 		List<Accessories> listAccessories = AccessoriesService.search(req.getParameter("search"));
-		return listAccessories;
+		model.addObject("listAccessories", listAccessories);
+		model.setViewName("pages/accessory/accessory-manager");
+		return model;
 	}
 	
 }
