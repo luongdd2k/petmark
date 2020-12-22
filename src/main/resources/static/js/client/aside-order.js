@@ -43,6 +43,10 @@ function abcd() {
             document.getElementById("depost-hide").classList.add("hide");
             document.getElementById("blog-hide").classList.add("hide");
             document.getElementById("cancel-order").style.color="orange";
+        }else if(page[i].innerHTML == "Chi tiết đơn hàng"){
+            document.getElementById("acount-hide").classList.add("hide");
+            document.getElementById("depost-hide").classList.add("hide");
+            document.getElementById("blog-hide").classList.add("hide");
         }else if(page[i].innerHTML == "Đơn đặt cọc thành công"){
             document.getElementById("acount-hide").classList.add("hide");
             document.getElementById("order-hide").classList.add("hide");

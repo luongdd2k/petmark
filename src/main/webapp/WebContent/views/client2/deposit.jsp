@@ -28,6 +28,11 @@
   <base href="${pageContext.servletContext.contextPath}/">
    <link rel="stylesheet" type="text/css"    href="css/acc-in.css">
   <link rel="stylesheet" type="text/css"    href="css/styles.css" />
+    <style>
+        .order-content__item__price{
+            width: 20%;
+        }
+    </style>
 </head>
 
 <body>
@@ -121,14 +126,14 @@
                                                                             </div>
                                                                             <div class="order-content__item__detail-content">
                                                                                 <div class="order-content__item__name">${list.getPet().getPetName() }</div>
-<!--                                                                                 <div class="order-content__item__quantity">x 3</div> -->
+                                                                                <div class="order-content__item__quantity">x <span class="so-luong">${list.getAmount()}</span></div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="order-content__item__price order-content__item__col order-content__item__col--small order-content__item__col--last">
                                                                         <div class="order-content__item__price-text">
-                                                                            <div class="shopee-price--original">Giá thú: ${list.getPet().displayPrice() }</div>
-                                                                            <div class="shopee-price--primary">Đã đặt cọc: ${list.display() }</div>
+                                                                            <div class="shopee-price--original">Giá: <span class="price-all">${list.getPet().displayPrice() }</span></div>
+                                                                            <div class="shopee-price--primary">Đã cọc: <span class="price-depost">${list.display() }</span></div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -149,21 +154,11 @@
                                                 <div class="purchase-card-buttons__wrapper">
                                                     <div class="purchase-card-buttons__total-payment">
                                                         <span class="purchase-card-buttons__label-price"> Số tiền cần thanh toán: </span>
-                                                        <span class="purchase-card-buttons__total-price"> 140000 đ</span>
+                                                        <span class="purchase-card-buttons__total-price money"></span>
                                                     </div>
                                                     <div class="purchase-card-buttons__container">
                                                         <div class="purchase-card-buttons__text-info">
 
-                                                        </div>
-                                                        <!-- <div class="purchase-card-buttons__show-button-wrapper">
-                                                            <button class="shopee-button-solid shopee-button-solid--fill shopee-button-solid--primary ">
-                                                                <span class="purchase-card-buttons__button-content"> Đánh giá </span>
-                                                            </button>
-                                                        </div> -->
-                                                        <div class="purchase-card-buttons__show-button-wrapper">
-                                                            <button class="shopee-button-outline shopee-button-outline--fill shopee-button-outline--primary ">
-                                                                <span class="purchase-card-buttons__button-content"> Xem Chi tiết đơn hàng </span>
-                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -229,7 +224,40 @@
   <script src="./js/sweat-alert.js"></script>
     <script src="js/client/aside-order.js"></script>
   <script>
-    
+      count();
+      function count(){
+          let price = document.getElementsByClassName("price-all");
+          let sl = document.getElementsByClassName("so-luong");
+          let deposit = document.getElementsByClassName("price-depost");
+          let total = document.getElementsByClassName("money");
+          for (let i=0; i<price.length; i++){
+              console.log(price[i].innerHTML);
+              console.log(sl[i].innerHTML);
+              let priceTo = parseInt(price[i].innerHTML) * parseInt(sl[i].innerHTML);
+              price[i].innerHTML = priceTo;
+
+              let totalMo = parseInt(price[i].innerHTML) -parseInt(deposit[i].innerHTML) ;
+              total[i].innerHTML = totalMo;
+          }
+      }
+      fomartNumber();
+      function fomartNumber(){
+          let price = document.getElementsByClassName("price-all");
+          let deposit = document.getElementsByClassName("price-depost");
+          let sl = document.getElementsByClassName("so-luong");
+          let total = document.getElementsByClassName("money");
+          for (let i=0; i<price.length; i++){
+              console.log(price[i].innerHTML);
+              console.log(sl[i].innerHTML);
+              console.log(deposit[i].innerHTML);
+               let priceF = price[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+              price[i].innerHTML = priceF + " đ";
+              let depositF = deposit[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+              deposit[i].innerHTML = depositF+" đ";
+              let totalF = total[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+              total[i].innerHTML = totalF+" đ";
+          }
+      }
     
   </script>
 </body>

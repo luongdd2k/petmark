@@ -24,7 +24,7 @@
 
   <!-- Custom StyleSheet -->
 
-  <title>{Tên của đơn hàng thay vào đây nhá}</title>
+  <title>Chi tiết đơn hàng</title>
   <base href="${pageContext.servletContext.contextPath}/">
   <link rel="stylesheet" type="text/css"    href="css/acc-in.css">
     <link rel="stylesheet" type="text/css"    href="css/progressbar.css">
@@ -40,6 +40,9 @@
         }
         .button-huy:hover{
             background-color: red;
+        }
+        .userpage-sidebar{
+            height: 544px;
         }
     </style>
 </head>
@@ -73,7 +76,7 @@
                     <div class="my-account-section">
                         <div class="order-section__header">
                             <div class="order-section__header-left">
-                                <div class="order-section__header-title">Chi tiết đơn hàng</div>
+                                <div class="order-section__header-title my-acount-section__header-title">Chi tiết đơn hàng</div>
                             </div>
                         </div>
                         <div class="purchase-list-page__checkout-list-card-container">
@@ -154,7 +157,7 @@
                                               </div>
                                               <div class="order-content__item__price order-content__item__col order-content__item__col--small order-content__item__col--last">
                                                 <div class="order-content__item__price-text">
-                                                  <div class="shopee-price--primary">${orderweb.displayPrice()}</div>
+                                                  <div class="shopee-price--primary">${order.displayPrice()}</div>
                                                 </div>
                                               </div>
                                             </div>
@@ -165,7 +168,7 @@
                                     </c:forEach>
                                     <div class="payment-detail__container _1R4a4Y">
                                       <div class="payment-detail__item payment-detail__item--last">
-                                          <div class="purchase-card-buttons__show-button-wrapper">
+                                          <div class="purchase-card-buttons__show-button-wrapper button-hide">
                                               <button data-toggle="modal" data-target="#staticBackdrop" onclick="abc(${orderweb.getId() })"
                                                       class="shopee-button-outline shopee-button-outline--fill shopee-button-outline--primary button-huy">
                                                   <span class="purchase-card-buttons__button-content"> Hủy đơn hàng này </span>
@@ -174,7 +177,7 @@
                                         <div class="payment-detail__item__description">Tổng số tiền</div>
                                         <div class="payment-detail__item__value payment-detail__item__value--highlighted">
                                           <div class="payment-detail__item__value-text"><div>
-                                            <div class="total-money">${orderweb.displayPrice()}</div>
+                                            <div class="total-money" id="total-money">${orderweb.displayPrice()}</div>
                                           </div>
                                         </div>
                                       </div>
@@ -301,12 +304,13 @@
       fomartNumber();
       function fomartNumber(){
           let money = document.getElementsByClassName("shopee-price--primary");
-          let total = document.getElementsByClassName("total-money");
+          let total = document.getElementById("total-money");
           for (let i=0; i<money.length; i++){
+              console.log(money[i].innerHTML)
               let moneyF = money[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
               money[i].innerHTML = moneyF + " đ";
-              let totalF = total[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-              total[i].innerHTML = totalF+" đ";
+              let totalF = total.innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+              total.innerHTML = totalF+" đ";
           }
       }
       function abc(id){
@@ -317,6 +321,19 @@
           for (let i=0;i<name.length;i++){
             nameModel.innerHTML= "Bạn có muốn hủy đơn hàng "+ name[i].innerHTML +" này không??"
           }
+      }
+      xyz();
+      function xyz(){
+          let stt = document.getElementById("status").value;
+          console.log(stt);
+          let buton =document.getElementsByClassName("button-hide");
+          for(let i=0;i<buton.length;i++){
+
+              if(stt!= "Chưa xét duyệt"){
+                  buton[i].classList.add("hide");
+              }
+          }
+
       }
   </script>
 </body>
