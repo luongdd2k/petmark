@@ -205,6 +205,7 @@
 <!-- Modal -->
 <div class="modal fade " id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
+    <form action="cancle-order" method="post">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title" id="staticBackdropLabel">Bạn có chắc chắn muốn hủy đơn này không?</h3>
@@ -218,9 +219,10 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-danger">Đồng ý</button>
+                <button type="submit" class="btn btn-danger">Đồng ý</button>
             </div>
         </div>
+        </form>
     </div>
 </div>
 

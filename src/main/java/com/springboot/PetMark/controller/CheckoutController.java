@@ -762,7 +762,7 @@ public class CheckoutController {
 		vnp_Params.put("vnp_OrderType", "billpayment");
 		vnp_Params.put("vnp_Locale", "vn");
 //		cần sửa
-		vnp_Params.put("vnp_ReturnUrl", "http://localhost:8080/petmart/order-atm");
+		vnp_Params.put("vnp_ReturnUrl", "http://34.92.82.228:8080/petmart/order-atm");
 		vnp_Params.put("vnp_IpAddr", VNPayConfig.getIpAddress(req));
 		System.out.println("reques: " + VNPayConfig.getIpAddress(req));
 		vnp_Params.put("vnp_CreateDate", new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()));
@@ -860,5 +860,15 @@ public class CheckoutController {
 		model.setViewName("redirect:/index");
 		return model;
 	}
-
+@RequestMapping("cancle-order")
+public String cancaleOrder(HttpServletRequest req) {
+	int id = Integer.parseInt(req.getParameter("id"));
+	try {
+		orderWebService.updateDelivery(DeliveryStatus.CANCELLED, id);
+	} catch (Exception e) {
+		// TODO: handle exception
+		System.out.println("Lỗi huỷ đơn client: "+e);
+	}
+	return "redirect:/show-cancel-order";
+}
 }

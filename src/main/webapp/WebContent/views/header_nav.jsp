@@ -73,7 +73,7 @@
 				<div class="nav__icons">
 					<form action="search" style="display: flex;">
 						<div  style="margin-right: 1rem;">
-							<input class="form-control search-form" type="search" aria-label="Search" placeholder="Tìm kiếm ...">
+							<input class="form-control search-form" type="search" name="search" aria-label="Search" placeholder="Tìm kiếm ...">
 						</div>
 
 						<button type="submit" class="icon__item"> 

@@ -89,7 +89,7 @@
                                                             <div class="order-content__header__flex-placeholder">
 
                                                             </div>
-                                                            <div class="order-content-status">${list.getDisplayStt() }</div>
+                                                            <div class="order-content-status">${list.getStatus() }</div>
                                                         </div>
                                                         <div class="order-content__item-list">
                                                             <a class="order-content__item-wrapper" >
@@ -126,8 +126,8 @@
                                                                     </div>
                                                                     <div class="order-content__item__price order-content__item__col order-content__item__col--small order-content__item__col--last">
                                                                         <div class="order-content__item__price-text">
-                                                                            <div class="shopee-price--original">Giá thú: ${list.getPet().getDisplayPrice(1) }</div>
-                                                                            <div class="shopee-price--primary">Đã đặt cọc: ${list.getTotalAmount() } đ</div>
+                                                                            <div class="shopee-price--original">Giá thú: ${list.getPet().displayPrice() }</div>
+                                                                            <div class="shopee-price--primary">Đã đặt cọc: ${list.display() }</div>
                                                                         </div>
                                                                     </div>
                                                                 </div>

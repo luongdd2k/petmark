@@ -47,7 +47,12 @@ public @Data class Deposit implements Serializable {
 	public Deposit() {
 		// TODO Auto-generated constructor stub
 	}
-	
+	public String display() {
+		String dinhDang = "#";
+		DecimalFormat format = new DecimalFormat(dinhDang);
+		String rs = format.format(this.totalAmount);
+		return rs;
+	}
 	public Deposit(Pet pet, Account account,ColorPet color, Date date,int amount, float totalAmount, String status) {
 		// TODO Auto-generated constructor stub
 		this.pet = pet;
