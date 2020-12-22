@@ -36,6 +36,11 @@
 <base href="${pageContext.servletContext.contextPath}/">
 <link rel="stylesheet" type="text/css"    href="css/acc-in.css">
 <link rel="stylesheet" type="text/css"    href="css/styles.css" />
+	<style>
+		.userpage-sidebar{
+			height: 544px;
+		}
+	</style>
 </head>
 
 <body>
@@ -282,6 +287,7 @@
 	<script src="./js/custom.js"></script>
 	<script src="./js/all-order.js"></script>
 	<script src="./js/sweat-alert.js"></script>
+	<script src="js/client/aside-order.js"></script>
 	<script>
 		
 	</script>

@@ -228,6 +228,7 @@
   <script src="./js/custom.js"></script>    
   <script src="./js/check-out.js"></script>
   <script src="./js/sweat-alert.js"></script>
+  <script src="js/client/aside-order.js"></script>
   <script>
     function logabc(){
       var tt = document.getElementById("adressRecive").value;

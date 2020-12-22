@@ -227,6 +227,7 @@
   <script src="./js/custom.js"></script>   
   <script src="./js/all-order.js"></script> 
   <script src="./js/sweat-alert.js"></script>
+    <script src="js/client/aside-order.js"></script>
   <script>
     
     

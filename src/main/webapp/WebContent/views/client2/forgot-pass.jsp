@@ -47,11 +47,11 @@
 				<p class="text-center">Vui lòng cung cấp Email để lấy lại mật khẩu</p>
 			</div>
 			<div class="form-group col-12">
-				<label for="username">Tên đăng nhập</label>
+				<label for="username">Tên đăng nhập (<span style="color: red;">*</span>)</label>
 				<input type="text" name="username" class="form-control" id="username" placeholder="Tên đăng nhập" required="required">
 			</div>
 			<div class="form-group col-12">
-				<label for="email">Email</label>
+				<label for="email">Email (<span style="color: red;">*</span>)</label>
 				<input type="email" name="email" class="form-control" id="email" placeholder="Nhập Email bạn đã đăng ký để lấy lại mật khẩu" required="required">
 			</div>
 			<div class="col-12" style="margin-bottom: 5px;">

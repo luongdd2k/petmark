@@ -149,10 +149,7 @@
   <script src="./js/custom.js"></script>    
   <script src="./js/check-out.js"></script>
   <script src="./js/sweat-alert.js"></script>
-  <script>
-    
-    
-  </script>
+  <script src="js/client/aside-order.js"></script>
 </body>
 
 </html>

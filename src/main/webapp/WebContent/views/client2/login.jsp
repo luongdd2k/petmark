@@ -55,12 +55,12 @@ body {
 					<p class="abc"></p>
 				</div>
 				<div class="form-group col-12">
-					<label for="username">Tên đăng nhập</label> <input type="text"
+					<label for="username">Tên đăng nhập (<span style="color: red;">*</span>)</label> <input type="text"
 						name="sl_login_username" class="form-control" id="username"
 						placeholder="Tên đăng nhập" value="" required="required">
 				</div>
 				<div class="form-group col-12">
-					<label for="pass">Mật khẩu</label> <input type="password"
+					<label for="pass">Mật khẩu (<span style="color: red;">*</span>)</label> <input type="password"
 						name="sl_login_password" class="form-control" id="pass"
 						placeholder="Mật khẩu" value="" required="required">
 				</div>

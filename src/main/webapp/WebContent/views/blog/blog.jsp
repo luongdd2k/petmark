@@ -126,7 +126,7 @@
 						<div class="my-account-section">
 							<div class="order-section__header">
 								<div class="order-section__header-left">
-									<div class="order-section__header-title">Blog của tôi</div>
+									<div class="order-section__header-title my-acount-section__header-title">Blog của tôi</div>
 								</div>
 							</div>
 							<div id="blog" class="blog">
@@ -244,6 +244,7 @@
 	<script src="js/all-order.js"></script>
 	<script src="js/blog.js"></script>
 	<script src="js/sweat-alert.js"></script>
+			<script src="js/client/aside-order.js"></script>
 	<script>
 		changeStatus();
 		function changeStatus(){

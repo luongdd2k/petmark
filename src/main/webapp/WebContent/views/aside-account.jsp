@@ -47,7 +47,7 @@
                 <div class="stardust-dropdown__item-body stardust-dropdown__item-body--open" id="acount-hide" style="opacity: 1;">
                     <div class="userpage-sideber-menu__subsection">
                         <a href="show-account" class="_17BcjA _1EUbVp">
-                            <span class="_2ilxaJ active" id="ho-so">Hồ sơ</span>
+                            <span class="_2ilxaJ" id="ho-so">Hồ sơ</span>
                         </a>
                         <a href="show-change-pass" class="_17BcjA">
                             <span class="_2ilxaJ" id="change-pass">Đổi mật khẩu</span>
@@ -120,7 +120,7 @@
             </a>
             <div class="stardust-dropdown__item-body stardust-dropdown__item-body--open" id="blog-hide" style="opacity: 1;">
                 <div class="userpage-sideber-menu__subsection">
-                    <a href="javascript:" class="_17BcjA _1EUbVp">
+                    <a href="show-blog" class="_17BcjA _1EUbVp">
                         <span class="_2ilxaJ" id="all-blog">Danh sách Blog</span>
                     </a>
                     </a>
