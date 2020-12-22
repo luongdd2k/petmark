@@ -310,9 +310,9 @@
           let i = document.getElementById("id-order");
           i.value = id;
           let name = document.getElementsByClassName("order-content__item__name");
+          let nameModel = document.getElementById("text-order");
           for (let i=0;i<name.length;i++){
-              console.log(name[i].innerHTML);
-
+            nameModel.innerHTML= "Bạn có muốn hủy đơn hàng "+ name[i].innerHTML +" này không??"
           }
       }
   </script>
