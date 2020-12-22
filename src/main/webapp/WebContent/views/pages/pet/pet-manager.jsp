@@ -86,32 +86,32 @@
 										<form id="formAddProduct" action="admin/ProductManagement/AddProduct" method="POST" onsubmit="return validateForm()">
 											<div class="row" style="width: 90%; margin-left: 30px;">
 												<div class="form-group col-lg-5">
-													<label for="petName">Tên thú cưng</label>
+													<label for="petName">Tên thú cưng (<span style="color: red;">*</span>)</label>
 													<input type="text" class="form-control" id="petName" name="tenThu">
 													<p id="error1" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 												</div>
 												<div class="form-group col-lg-2">
-													<label for="petAge">Tuổi</label>
+													<label for="petAge">Tuổi (<span style="color: red;">*</span>)</label>
 													<input type="text" class="form-control" id="petAge" name="tuoiThu">
 													<p id="error2" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 												</div>
 												<div class="form-group col-lg-2">
-													<label for="petAmount">Số lượng</label>
+													<label for="petAmount">Số lượng (<span style="color: red;">*</span>)</label>
 													<input type="text" class="form-control" id="petAmount" name="soLuong">
 													<p id="error3" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 												</div>
 												<div class="form-group col-lg-3">
-													<label for="petPrice">Giá</label>
+													<label for="petPrice">Giá (<span style="color: red;">*</span>)</label>
 													<input type="text" class="form-control" id="petPrice" name="giaThu">
 													<p id="error4" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 												</div>
 												<div class="form-group col-lg-6">
-													<label for="petInformation">Mô tả</label>
+													<label for="petInformation">Mô tả (<span style="color: red;">*</span>)</label>
 													<textarea class="form-control" id="petInformation" rows="2" name="moTaThu"></textarea>
 													<p id="error5" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 												</div>
 												<div class="form-group col-lg-3">
-													<label for="petBread">Giống thú cưng</label>
+													<label for="petBread">Giống thú cưng (<span style="color: red;">*</span>)</label>
 													<select name="giongThu" class="form-control" id="petBread">
 															<option value="none">---- Chọn giống thú ----</option>
 														<c:forEach var="category" items="${listCategory }">
@@ -121,7 +121,7 @@
 													<p id="error6" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 												</div>
 												<div class="form-group col-lg-3">
-													<label for="petStatus">Trạng thái</label>
+													<label for="petStatus">Trạng thái (<span style="color: red;">*</span>)</label>
 													<select name="trangThai" class="form-control" id="petStatus">
 															<option value="none">---- Chọn trạng thái ----</option>
 														<c:forEach var="status" items="${listStatus }">

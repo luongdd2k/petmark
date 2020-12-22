@@ -174,11 +174,11 @@
                                 <input type="hidden" class="form-control" id="id" name="id" value="${acc.getId() }">
                                     <div class="row">
                                         <div class="form-group col-6">
-                                            <label for="nameAccc">Tên phụ kiện</label>
+                                            <label for="nameAccc">Tên phụ kiện (<span style="color: red;">*</span>)</label>
                                             <input type="text" class="form-control" id="nameAccc" value="${acc.getName() }">
                                         </div>
                                         <div class="form-group col-6">
-                                            <label for="sizeAcc">Kích thước</label>
+                                            <label for="sizeAcc">Kích thước (<span style="color: red;">*</span>)</label>
                                             <select class="form-control selectpicker" id="sizeAcc" name="size">
                                                 <c:forEach var="sizes" items="${sizes }">
                                                 <option value="${sizes }">${sizes }</option>

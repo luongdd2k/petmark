@@ -74,14 +74,14 @@
 											<div class="row" style="max-width: 60%; margin: 0 auto;">
 												<div class="col-12">
 													<div class="form-group">
-														<label for="nameBread">Tên giống thú</label>
+														<label for="nameBread">Tên giống thú (<span style="color: red;">*</span>)</label>
 														<input type="text" class="form-control" id="nameBread" name="nameBread">
 														<p id="error1" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 													</div>
 												</div>
 												<div class="col-12">
 													<div class="form-group">
-														<label for="infomation">Thông tin chi tiết</label>
+														<label for="infomation">Thông tin chi tiết (<span style="color: red;">*</span>)</label>
 														<textarea class="form-control" name="information" id="infomation"></textarea>
 														<p id="error2" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 													</div>

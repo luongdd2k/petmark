@@ -172,15 +172,15 @@
 												<input type="hidden" name="id" value="${pet.getId() }">
 												<div class="row">
 													<div class="form-group col-4">
-														<label for="namePet">Tên thú cưng</label> <input
+														<label for="namePet">Tên thú cưng (<span style="color: red;">*</span>)</label> <input
 															type="text" class="form-control" id="namePet" value="${pet.getPetName() }">
 													</div>
 													<div class="form-group col-4">
-														<label for="colorPet">Màu lông</label> <input
+														<label for="colorPet">Màu lông (<span style="color: red;">*</span>)</label> <input
 															type="text" class="form-control" id="colorPet" name="mauLong">
 													</div>
 													<div class="form-group col-4">
-														<label for="colorPet">Màu mắt</label> <input
+														<label for="colorPet">Màu mắt (<span style="color: red;">*</span>)</label> <input
 															type="text" class="form-control" id="colorPet" name="mauMat">
 													</div>
 												</div>

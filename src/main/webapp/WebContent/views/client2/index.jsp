@@ -259,13 +259,11 @@
 										<div class="client__image">
 											<img src="./images/profile1.jpg" alt="profile">
 										</div>
-										<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae fuga hic nesciunt tempore
-											quibusdam consequatur eligendi unde officia ex quae.ipsum dolor sit amet consectetur adipisicing
-											elit. Recusandae fuga hic nesciunt tempore
-											quibusdam consequatur eligendi unde officia ex quae.</p>
+										<p>Em đã mua cún shop 2 lần rồi, rất ưng ý về chất lượng cún & đội ngũ nhân viên
+											tư vấn chăm sóc rất nhiệt tình. Sẽ ủng hộ Shop lâu dài..</p>
 										<div class="client__info">
-											<h3>John Smith</h3>
-											<span>Founder at Apple</span>
+											<h3>Đặng Đông</h3>
+											<span>Khách hàng</span>
 										</div>
 									</div>
 								</li>
@@ -274,16 +272,11 @@
 										<div class="client__image">
 											<img src="./images/profile2.jpg" alt="profile">
 										</div>
-										<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae fuga hic nesciunt tempore
-											quibusdam consequatur
-											eligendi unde officia ex quae.ipsum dolor sit amet consectetur adipisicing elit. Recusandae fuga hic
-											nesciunt tempore
-											quibusdam consequatur eligendi unde officia ex quae.adipisicing elit. Recusandae fuga hic
-											nesciunt tempore
-											quibusdam consequatur eligendi unde officia ex quae.</p>
+										<p>Luôn cởi mở, thân thiện với khách hàng là tiêu chí hàng đầu của chúng tôi.
+										Chúng tôi luôn coi mỗi một khách hàng là một người bạn</p>
 										<div class="client__info">
-											<h3>John Smith</h3>
-											<span>Founder at Apple</span>
+											<h3>Mr Hoàng</h3>
+											<span>Sáng lập Pet Mart</span>
 										</div>
 									</div>
 								</li>

@@ -37,7 +37,7 @@
 
 <title>Pet Mart | Thanh toán</title>
 <base href="${pageContext.servletContext.contextPath}/">
-
+	<link rel="stylesheet" type="text/css"    href="css/acc-in.css">
 <link rel="stylesheet" type="text/css"    href="css/check-out.css">
 <link rel="stylesheet" type="text/css"    href="css/styles.css" />
 </head>
@@ -293,15 +293,23 @@
 									<div class="_38DBn- _34fUBg _2wZvga sfPrg9"><span id="tong-thanh-toan"> </span></div>
 
 									<div class="_3S63c5 _1WpGLP" id="btn-dat-tien">
-										<button type="submit"
-											class="stardust-button stardust-button--primary stardust-button--large _22Ktrb">
-											<span>Đặt hàng</span>
+<%--										<button type="submit"--%>
+<%--											class="stardust-button stardust-button--primary stardust-button--large _22Ktrb">--%>
+<%--											<span>Đặt hàng</span>--%>
+<%--										</button>--%>
+										<button
+												type="submit"
+												class="btn btn-solid-primary btn--m btn--inline btn-solid-primary--disabled"
+												aria-disabled="true"
+										>Đặt hàng
 										</button>
 									</div>
 									<div class="_3S63c5 _1WpGLP hide" id="btn-dat-vnpay">
-										<button type="submit" onclick="linkVNPay"
-											class="stardust-button stardust-button--primary stardust-button--large _22Ktrb">
-											<span>Đặt hàng</span>
+										<button onclick="linkVNPay"
+												type="submit"
+												class="btn btn-solid-primary btn--m btn--inline btn-solid-primary--disabled"
+												aria-disabled="true"
+										>Đặt hàng
 										</button>
 									</div>
 

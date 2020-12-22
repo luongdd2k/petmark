@@ -79,7 +79,7 @@
 									<div class="row">
 										<c:forEach var="blog" items="${blog }">
 											<div class="col-lg-3 col-md-6 col-sm-12 card" style="position: relative;">
-												<div name="image" id="image">
+												<div name="image" id="image" style="    text-align: center;">
 													<img class="img-fluid img-thumbnail" alt="" src="${blog.getImg() }" />
 												</div>
 												<div id="ha" style="margin : 10px 0px 50px 5px;">
@@ -150,18 +150,6 @@
 						<div class="form-check">
 							<input class="form-check-input" name="liDo" type="checkbox" value="Nội dung, hình ảnh mang tính bạo lực, ngược đãi động vật"  id="defaultCheck5">
 							<label class="form-check-label" for="defaultCheck5"> Nội dung, hình ảnh mang tính bạo lực, ngược đãi động vật </label>
-						</div>
-						<div class="form-check">
-							<input class="form-check-input" name="liDo" type="checkbox" value="Mình thích thì mình hủy thôi"  id="defaultCheck6">
-							<label class="form-check-label" for="defaultCheck6"> Mình thích thì mình hủy thôi </label>
-						</div>
-						<div class="form-check">
-							<input class="form-check-input" name="liDo" type="checkbox" value="Bị Boom hàng nhiều nên đang cáu, không duyệt bài nào"  id="defaultCheck7">
-							<label class="form-check-label" for="defaultCheck7"> Bị Boom hàng nhiều nên đang cáu, không duyệt bài nào </label>
-						</div>
-						<div class="form-check">
-							<input class="form-check-input" name="liDo" type="checkbox" value="Nhân viên vừa vào làm nên chưa rõ nghiệp vụ"  id="defaultCheck8">
-							<label class="form-check-label" for="defaultCheck8"> Nhân viên vừa vào làm nên chưa rõ nghiệp vụ </label>
 						</div>
 					</div>
 					<div class="modal-footer">

@@ -636,3 +636,34 @@ input[type="radio" i]{
     width: 44px;
 }
 
+.btn{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    flex-direction: column;
+    font-size: 14px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    outline: 0;
+    cursor: pointer;
+}
+.btn--inline{
+    display: inline-flex;
+}
+.btn--m{
+    height: 40px;
+    padding: 0 20px;
+    min-width: 70px;
+    max-width: 220px;
+}
+.btn-light{
+    background: #fff;
+    color: #555;
+    border: 1px solid rgba(0, 0, 0, .09);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .03);
+}

@@ -92,12 +92,12 @@
 										<form id="formAddCategory" action="admin/CategoryManagement/AddCategory" method="POST" onsubmit="return validateForm()">
 											<div class="row">
 												<div class="form-group col-12">
-													<label for="categoryName">Tên hãng</label>
+													<label for="categoryName">Tên hãng (<span style="color: red;">*</span>)</label>
 													<input type="text" class="form-control" id="categoryName" name="name">
 													<p id="error1" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 												</div>
 												<div class="form-group col-12">
-													<label for="categoryInfor">Thông tin thêm</label>
+													<label for="categoryInfor">Thông tin thêm (<span style="color: red;">*</span>)</label>
 													<textarea class="form-control" id="categoryInfor" name="thongtin"rows="3"></textarea>
 													<p id="error2" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 												</div>

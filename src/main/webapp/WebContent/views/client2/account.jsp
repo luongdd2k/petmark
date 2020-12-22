@@ -179,6 +179,14 @@
                             </div>
                           </div>
                         </div>
+                        <div class="input-with-label" style="text-align: center;">
+                          <button
+                                  type="submit"
+                                  class="btn btn-solid-primary btn--m btn--inline btn-solid-primary--disabled"
+                                  aria-disabled="true"
+                          >Cập nhật
+                          </button>
+                        </div>
                       </div>
                       <div class="my-account-profile__right">
                         <div class="avatar-uploader">
@@ -190,7 +198,6 @@
                         </div>
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Cập nhật</button>
                   </form>
                 </div>
               </div>

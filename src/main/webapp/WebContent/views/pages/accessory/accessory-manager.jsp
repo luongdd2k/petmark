@@ -74,12 +74,12 @@
 							<form id="formAddAccessories" action="admin/AccessoriesManagement/AddAccessories" method="POST" onsubmit="return validateForm()">
 								<div id="form-disable-new" class="row" style="display: none; max-width: 80%; margin: auto; margin-top: 10px;">
 										<div class="form-group col-lg-3">
-											<label>Tên phụ kiện</label>
+											<label>Tên phụ kiện (<span style="color: red;">*</span>)</label>
 											<input name="tenPhuKien" type="text" class="form-control" id="accessoriName" />
 											<p id="error1" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 										</div>
 										<div class="form-group col-lg-3">
-											<label for="category">Hãng</label>
+											<label for="category">Hãng (<span style="color: red;">*</span>)</label>
 											<select name="hangPhuKien" id="category" class="form-control">
 													<option value="none" selected>---- Chọn hãng phụ kiện ----</option>
 												<c:forEach var="category" items="${listCategory }">
@@ -89,12 +89,12 @@
 											<p id="error2" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 										</div>
 										<div class="form-group col-lg-2">
-											<label>Giá</label>
+											<label>Giá (<span style="color: red;">*</span>)</label>
 											<input name="giaPhuKien" type="text" class="form-control" id="accessoriPrice" />
 											<p id="error3" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 										</div>
 										<div class="form-group col-lg-2">
-											<label>Trạng thái</label>
+											<label>Trạng thái (<span style="color: red;">*</span>)</label>
 											<select name="trangThaiPhuKien" id="accessoriStatus" class="form-control">
 												<option value="none" selected>---- Chọn trạng thái ----</option>
 												<c:forEach var="status" items="${listStatus }">
@@ -104,12 +104,12 @@
 											<p id="error4" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 										</div>
 										<div class="form-group col-lg-2">
-											<label>Số lượng</label>
+											<label>Số lượng (<span style="color: red;">*</span>)</label>
 											<input name="soLuongPhuKien" type="text" class="form-control" id="accessoriAmount" />
 											<p id="error5" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 										</div>
 										<div class="form-group col-12">
-											<label>Mô tả</label>
+											<label>Mô tả (<span style="color: red;">*</span>)</label>
 											<textarea name="moTaPhuKien" class="form-control" id="accessoriInformation" rows="2"></textarea>
 											<p id="error6" class="hide" style="color: red;font-weight: 400;font-size: 14px;" ></p>
 										</div>
