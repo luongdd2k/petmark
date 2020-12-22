@@ -2,6 +2,7 @@ package com.springboot.PetMark.controller;
 
 import java.io.File;
 import java.security.Principal;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Properties;
 
@@ -196,8 +197,11 @@ public class AccountController {
 		if (loggedRole.equals("ROLE_ADMIN") || loggedRole.equals("ROLE_STAFF")) {
 			model.setViewName("indexadmin");
 			model.addObject("name", loggedFullname);
-			model.addObject("web", orderrWebService.countBySttPlace(DeliveryStatus.NOT_APPROVED, 0));
-			model.addObject("app", orderrWebService.countBySttPlace(DeliveryStatus.NOT_APPROVED, 1));
+			model.addObject("web", orderrWebService.countBySttPlace(DeliveryStatus.NOT_APPROVED, 0)+orderrWebService.countBySttPlace(DeliveryStatus.NOT_APPROVED, 1));
+			String dinhDang = "#";
+			DecimalFormat format = new DecimalFormat(dinhDang);
+			String doanhThu = format.format(orderrWebService.thongKe());
+			model.addObject("doanhThu", doanhThu);
 			model.addObject("bl", blogService.countByStt(2));
 			model.addObject("list", orderrWebService.findByDeliveryStatusOrderByCreatedAtAsc(DeliveryStatus.NOT_APPROVED));
 			model.addObject("danggiao", orderrWebService.countByStt(DeliveryStatus.DELIVERING)+orderrWebService.countByStt(DeliveryStatus.DELIVERING_2));

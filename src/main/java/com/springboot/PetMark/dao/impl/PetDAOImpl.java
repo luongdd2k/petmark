@@ -122,4 +122,10 @@ public class PetDAOImpl implements PetDAO {
 		return petRepository.findBySpecies(species);
 	}
 
+	@Override
+	public List<Pet> showAll(String status) {
+		// TODO Auto-generated method stub
+		return petRepository.showAll(status);
+	}
+
 }

@@ -62,14 +62,14 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>${app }</h3>
+                <h3>${doanhThu }</h3>
 
-                <p>Đơn hàng mới trên App</p>
+                <p>Doanh thu tháng</p>
               </div>
               <div class="icon">
                 <i class="fas fa-mobile-alt"></i>
               </div>
-              <a href="admin/orders/show-by-stt-place/Chưa xét duyệt/1" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="javascript:#" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -79,12 +79,12 @@
               <div class="inner">
                 <h3>${web }</h3>
 
-                <p>Đơn hàng mới trên Web</p>
+                <p>Đơn hàng mới</p>
               </div>
               <div class="icon">
                 <i class="fas fa-laptop-code"></i>
               </div>
-              <a href="admin/orders/show-by-stt-place/Chưa xét duyệt/0" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="admin/orders?sortValue=1" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

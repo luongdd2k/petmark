@@ -29,4 +29,5 @@ public interface OrderrWebService {
 	 int countAll();
 	 int countByPlace(int place);
 	 List<OrderrWeb> findPage(Pageable pageable);
+	 float thongKe();
 }

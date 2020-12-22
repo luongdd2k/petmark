@@ -55,9 +55,19 @@ public @Data class Pet implements Serializable {
 	private List<ColorPet> color = new ArrayList<>();
 	@OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 	private List<ImgPet> imgs = new ArrayList<>();
-
+	@OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+	private List<VotePet> vote = new ArrayList<>();
+	
 	public List<ImgPet> getImgs() {
 		return imgs;
+	}
+
+	public List<VotePet> getVote() {
+		return vote;
+	}
+
+	public void setVote(List<VotePet> vote) {
+		this.vote = vote;
 	}
 
 	public void setImgs(List<ImgPet> imgs) {

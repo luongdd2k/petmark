@@ -12,9 +12,10 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-
 import com.springboot.PetMark.entities.Account;
 import com.springboot.PetMark.entities.OrderrWeb;
+
+
 
 public interface OrderrWebRepository extends JpaRepository<OrderrWeb, Integer> {
 	 @Query("select o FROM OrderrWeb o")
@@ -66,5 +67,7 @@ public interface OrderrWebRepository extends JpaRepository<OrderrWeb, Integer> {
 								Pageable pageable);
 	
 	List<OrderrWeb> findByDeliveryStatusOrderByCreatedAtDesc(String deliveryStatus);
+	@Query("SELECT sum(o.totalAmount) FROM OrderrWeb o where o.paymentStatus = 'Đã thanh toán' and year(o.createdAt) = year(now()) and month(o.createdAt)=month(now()) group by month(o.createdAt)")
+	 float thongKe();
 
 }

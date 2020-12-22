@@ -30,4 +30,5 @@ public interface OrderrWebDAO {
 	 List<OrderrWeb> findStt(String status, String stt);
 	 int countAll();
 	 int countByPlace(int place);
+	 float thongKe();
 }

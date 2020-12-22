@@ -104,4 +104,10 @@ public class PetServiceImpl implements PetService {
 		return petDAO.findBySpecies(species);
 	}
 
+	@Override
+	public List<Pet> showAll(String status) {
+		// TODO Auto-generated method stub
+		return petDAO.showAll(status);
+	}
+
 }

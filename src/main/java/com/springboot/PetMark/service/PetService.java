@@ -11,7 +11,7 @@ public interface PetService {
 	List<Pet> findAll();
 
 	Pet findById(int id);
-
+	List<Pet> showAll(String status);
 	boolean addPet(Pet pet);
 
 	void updatePet(Pet pet);

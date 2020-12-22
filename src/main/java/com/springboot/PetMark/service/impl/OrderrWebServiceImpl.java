@@ -130,5 +130,11 @@ public class OrderrWebServiceImpl implements OrderrWebService {
 		return dao.findPage(pageable);
 	}
 
+	@Override
+	public float thongKe() {
+		// TODO Auto-generated method stub
+		return dao.thongKe();
+	}
+
 
 }

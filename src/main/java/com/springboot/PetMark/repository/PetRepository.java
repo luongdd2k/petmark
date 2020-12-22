@@ -16,7 +16,8 @@ import com.springboot.PetMark.entities.Species;
 
 public interface PetRepository extends JpaRepository<Pet, Integer> {
 	
-
+	@Query("SELECT p FROM Pet p where p.status != ?1")
+	List<Pet> showAll(String status);
 	@Query("SELECT p FROM Pet p where p.status like %?1%")
 	List<Pet> showProductByCategoryPageable(String status, Pageable pageable);
 	@Transactional

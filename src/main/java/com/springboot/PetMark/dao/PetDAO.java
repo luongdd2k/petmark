@@ -14,7 +14,7 @@ import com.springboot.PetMark.entities.Species;
 
 public interface PetDAO {
 	List<Pet> findAll();
-
+	List<Pet> showAll(String status);
 	Pet findById(int id);
 
 	List<Pet> findBySpecies(Integer speciesId);

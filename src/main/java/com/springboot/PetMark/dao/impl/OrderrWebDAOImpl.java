@@ -128,5 +128,11 @@ public class OrderrWebDAOImpl implements OrderrWebDAO {
 		return repo.findPage(pageable);
 	}
 
+	@Override
+	public float thongKe() {
+		// TODO Auto-generated method stub
+		return repo.thongKe();
+	}
+
 
 }

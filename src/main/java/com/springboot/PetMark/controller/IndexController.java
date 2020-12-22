@@ -149,7 +149,7 @@ public class IndexController {
 		String atm = request.getParameter("atm");
 		model.addObject("atm", atm);
 		model.setViewName("client2/index");
-		List<Pet> listPet = petService.findAll();
+		List<Pet> listPet = petService.showAll("Ngừng bán");
 		List<Accessories> listAcces = accessSv.findAll();
 		List<Blog> blog = blogService.findByStatus(1);
 		int blog1 = 0;
