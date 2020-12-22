@@ -151,11 +151,13 @@
 									<div id="new-pet">
 										<div class="row">
 											<div class="col-12">
-												<form action="">
 													<div class="form-row">
 														<div class="form-group col-2">
+														<form action="admin/ProductManagement/search" >
 															<label>Tên</label>
-															<input class="form-control" type="search" placeholder="Tìm kiếm theo tên" aria-label="Search">
+															<input class="form-control" type="search" name="search" placeholder="Tìm kiếm theo tên" aria-label="Search">
+															<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+															</form>
 														</div>
 														<div class="form-group col-2">
 															<label for="cbo_sort_product2">Lọc</label>
@@ -171,7 +173,6 @@
 															<span id="sortValue2" style="display: none;">${sortValue }</span>
 														</div>
 													</div>
-												</form>
 											</div>
 										</div>
 										<div class="btn-new-css">

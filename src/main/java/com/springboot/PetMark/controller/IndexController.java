@@ -169,28 +169,22 @@ public class IndexController {
 	@RequestMapping("/403")
 	public String forbidden(ModelMap model, HttpServletRequest request) {
 
-		return "error/e403";
+		return "pages/examples/404";
 	}
 
 	@RequestMapping("/404")
 	public String notFound(ModelMap model, HttpServletRequest request) {
 
-		return "error/e404";
+		return "pages/examples/404";
 	}
 
 	@RequestMapping("/*")
 	public String notFound2(ModelMap model, HttpServletRequest request) {
 		model.addAttribute("u404", request.getRequestURI());
 
-		return "error/e404";
+		return "pages/examples/404";
 	}
 
-//	@RequestMapping("/error")
-//	public String error2(ModelMap model, HttpServletRequest request) {
-//		model.addAttribute("u404", request.getRequestURI());
-//		
-//		return "error/e404";
-//	}
 
 	@RequestMapping("/changeSortValue")
 	public String changeSortValue(HttpServletRequest request) {
