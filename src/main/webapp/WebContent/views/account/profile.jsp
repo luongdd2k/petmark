@@ -9,13 +9,13 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<TITLE>Thông tin cá nhân</TITLE>
 		<base href="${pageContext.servletContext.contextPath}/">
-		<link rel="stylesheet" type="text/css" href="CSS/header.css">
-		<link rel="stylesheet" type="text/css" href="CSS/nnav.css">
-		<link rel="stylesheet" type="text/css" href="CSS/index.css">
-		<link rel="stylesheet" type="text/css" href="CSS/footer.css">
-		<link rel="stylesheet" type="text/css" href="CSS/home.css">
-		<link rel="stylesheet" type="text/css" href="CSS/profile.css">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+		<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+		<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+		<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+		<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+		<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+		<link rel="stylesheet" type="text/css"    href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		<script type="text/javascript" src="Script/shop.js"></script>
 		<script type="text/javascript" src="Script/index.js"></script>
 		<script type="text/javascript" src="Script/house.js"></script>

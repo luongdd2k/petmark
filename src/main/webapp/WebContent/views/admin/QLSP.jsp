@@ -10,12 +10,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <TITLE>Quản lý sản phẩm</TITLE>
 <base href="${pageContext.servletContext.contextPath}/">
-<link rel="stylesheet" type="text/css" href="CSS/header.css">
-<link rel="stylesheet" type="text/css" href="CSS/nnav.css">
-<link rel="stylesheet" type="text/css" href="CSS/QLSP.css">
-<link rel="stylesheet" type="text/css" href="CSS/footer.css">
-<link rel="stylesheet" type="text/css" href="CSS/home.css">
-<link rel="stylesheet" type="text/css" href="CSS/favor.css">
+<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
 <script type="text/javascript" src="Script/shop.js"></script>
 <script type="text/javascript" src="Script/index.js"></script>
 <script type="text/javascript" src="Script/house.js"></script>

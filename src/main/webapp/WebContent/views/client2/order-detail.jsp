@@ -15,20 +15,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet" />
 
   <!-- Carousel -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css
+  <link rel="stylesheet" type="text/css"    href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css"    href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css">
+  <link rel="stylesheet" type="text/css"    href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css
 ">
   <!-- Animate On Scroll -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" type="text/css"    href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <!-- Custom StyleSheet -->
 
   <title>{Tên của đơn hàng thay vào đây nhá}</title>
   <base href="${pageContext.servletContext.contextPath}/">
-  <link rel="stylesheet" href="css/acc-in.css">
-    <link rel="stylesheet" href="css/progressbar.css">
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" type="text/css"    href="css/acc-in.css">
+    <link rel="stylesheet" type="text/css"    href="css/progressbar.css">
+  <link rel="stylesheet" type="text/css"    href="css/styles.css" />
     <style>
         .hide{
             display: none;
@@ -83,12 +83,12 @@
                                                 <div class="order-detail-page__delivery__shipping-address__detail">
                                                     <span>${orderweb.getConsigneePhone() }</span>
                                                     <br>
-                                                    ${orderweb.getDeliveryAddress() }
+                                                    <p style="margin-top: 10px;">${orderweb.getDeliveryAddress() }</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="_2nxwAx">
-                                                <ul class="progressbar">
+                                        <div class="_2nxwAx" style="width: 100%;font-size: 13px;">
+                                                <ul class="progressbar" id="progressbar">
                                                     <li class="li-js complete" data-status="Đặt hàng thành công">Đặt hàng thành công</li>
                                                     <li class="li-js active"  data-status="Chờ xác nhận">Chờ xác nhận</li>
                                                     <li class="li-js"  data-status="Chờ giao hàng">Chờ giao hàng</li>
@@ -112,7 +112,7 @@
                                         </div>
                                     </div>
                                     <c:forEach var="order" items="${order }">
-                                    <div class="_2XBFNq">
+                                    <div class="_2XBFNq" style="    margin-bottom: 10px;">
                                       <div class="order-content__container">
                                         <div class="order-content__item-list">
                                           <div class="order-content__item-wrapper">
@@ -142,22 +142,11 @@
                                                   <div class="order-content__item__detail-content">
                                                     <div class="order-content__item__name">${order.getAccessories().getName() }</div>
                                                     <div id="so_luong" class="order-content__item__quantity">x ${order.getAmount() }</div>
-
-                                                      <div id="thay-doi" class="order-content__item__quantity">
-                                                          <a href="javascript:" onclick="showDoi()">Thay đổi</a>
-                                                      </div>
-                                                      <div id="so_luong_c" class="order-content__item__quantity hide" style="display: flex;">
-                                                          <input type="number" class="form-control" max="10" min="1" id="so-luong"value="1" style="margin-right: 10px;">
-                                                          <button class="btn btn-outline-success" type="button" onclick="anDoi()">
-                                                              Lưu
-                                                          </button>
-                                                      </div>
                                                   </div>
                                                 </div>
                                               </div>
                                               <div class="order-content__item__price order-content__item__col order-content__item__col--small order-content__item__col--last">
                                                 <div class="order-content__item__price-text">
-<%--                                                  <div class="shopee-price--original">50.000 đ</div>--%>
                                                   <div class="shopee-price--primary">${orderweb.displayPrice()}</div>
                                                 </div>
                                               </div>
@@ -172,7 +161,7 @@
                                         <div class="payment-detail__item__description">Tổng số tiền</div>
                                         <div class="payment-detail__item__value payment-detail__item__value--highlighted">
                                           <div class="payment-detail__item__value-text"><div>
-                                            <div>${orderweb.displayPrice()}</div>
+                                            <div class="total-money">${orderweb.displayPrice()}</div>
                                           </div>
                                         </div>
                                       </div>
@@ -229,32 +218,57 @@
       function a(){
           let stt = document.getElementById("status").value;
           let lit = document.getElementsByClassName("li-js");
+          let pro = document.getElementById("progressbar");
           for(let i=0; i<lit.length;i++) {
-              console.log(lit[i].innerText);
               if(stt =="Chưa xét duyệt"){
-
+                  pro.innerHTML = "";
+                  pro.innerHTML =   '<li class="li-js complete" data-status="Đặt hàng thành công">Đặt hàng thành công</li>'+
+                      '<li class="li-js active"  data-status="Chờ xác nhận">Chờ xác nhận</li>'+
+                      '<li class="li-js"  data-status="Chờ giao hàng">Chờ giao hàng</li>'+
+                      '<li class="li-js"  data-status="Đang giao hàng">Đang giao hàng</li>'+
+                      '<li class="li-js"  data-status="Đã giao">Đã giao</li>';
+              }else if(stt =="Chờ giao hàng"){
+                  pro.innerHTML = "";
+                  pro.innerHTML =   '<li class="li-js complete" data-status="Đặt hàng thành công">Đặt hàng thành công</li>'+
+                      '<li class="li-js complete"  data-status="Chờ xác nhận">Chờ xác nhận</li>'+
+                      '<li class="li-js active"  data-status="Chờ giao hàng">Chờ giao hàng</li>'+
+                      '<li class="li-js"  data-status="Đang giao hàng">Đang giao hàng</li>'+
+                      '<li class="li-js"  data-status="Đã giao">Đã giao</li>';
+              }else if(stt =="Đang giao hàng"){
+                  pro.innerHTML = "";
+                  pro.innerHTML =   '<li class="li-js complete" data-status="Đặt hàng thành công">Đặt hàng thành công</li>'+
+                      '<li class="li-js complete"  data-status="Chờ xác nhận">Chờ xác nhận</li>'+
+                      '<li class="li-js complete"  data-status="Chờ giao hàng">Chờ giao hàng</li>'+
+                      '<li class="li-js active"  data-status="Đang giao hàng">Đang giao hàng</li>'+
+                      '<li class="li-js"  data-status="Đã giao">Đã giao</li>';
+              }else if(stt =="Giao hàng thành công"){
+                  pro.innerHTML = "";
+                  pro.innerHTML =   '<li class="li-js complete" data-status="Đặt hàng thành công">Đặt hàng thành công</li>'+
+                                    '<li class="li-js complete"  data-status="Chờ xác nhận">Chờ xác nhận</li>'+
+                                    '<li class="li-js complete"  data-status="Chờ giao hàng">Chờ giao hàng</li>'+
+                                    '<li class="li-js complete"  data-status="Đang giao hàng">Đang giao hàng</li>'+
+                                    '<li class="li-js active"  data-status="Đã giao">Đã giao</li>';
+              }else if(stt=="Đã hủy"){
+                  pro.innerHTML = "";
+                  pro.innerHTML =   '<li class="li-js complete" data-status="Đặt hàng thành công">Đặt hàng thành công</li>'+
+                      '<li class="li-js complete"  data-status="Chờ xác nhận">Chờ xác nhận</li>'+
+                      '<li class="li-js complete"  data-status="Chờ giao hàng">Chờ giao hàng</li>'+
+                      '<li class="li-js complete"  data-status="Đang giao hàng">Đang giao hàng</li>'+
+                      '<li class="li-js active"  data-status="Đã giao">Đã hủy</li>';
               }
           }
       }
-
-      function showDoi(){
-          let slP = document.getElementById("so_luong");
-          let a = document.getElementById("thay-doi");
-          let slC = document.getElementById("so_luong_c");
-          slP.classList.add("hide");
-          a.classList.add("hide");
-          slC.classList.remove("hide");
+      fomartNumber();
+      function fomartNumber(){
+          let money = document.getElementsByClassName("shopee-price--primary");
+          let total = document.getElementsByClassName("total-money");
+          for (let i=0; i<money.length; i++){
+              let moneyF = money[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+              money[i].innerHTML = moneyF + " đ";
+              let totalF = total[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+              total[i].innerHTML = totalF+" đ";
+          }
       }
-      function anDoi(){
-          let slP = document.getElementById("so_luong");
-          let a = document.getElementById("thay-doi");
-          let slC = document.getElementById("so_luong_c");
-          slP.classList.remove("hide");
-          a.classList.remove("hide");
-          slC.classList.add("hide");
-      }
-
-    
   </script>
 </body>
 

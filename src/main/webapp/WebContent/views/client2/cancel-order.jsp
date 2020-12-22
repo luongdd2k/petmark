@@ -18,24 +18,24 @@
 	rel="stylesheet" />
 
 <!-- Carousel -->
-<link rel="stylesheet"
+<link rel="stylesheet" type="text/css"   
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
-<link rel="stylesheet"
+<link rel="stylesheet" type="text/css"   
 	href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.min.css">
-<link rel="stylesheet"
+<link rel="stylesheet" type="text/css"   
 	href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css
 ">
 <!-- Animate On Scroll -->
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<link rel="stylesheet" type="text/css"    href="https://unpkg.com/aos@next/dist/aos.css" />
 
 <!-- Custom StyleSheet -->
 
 <title>Đơn hàng đã hủy</title>
 <base href="${pageContext.servletContext.contextPath}/">
-<link rel="stylesheet" href="css/acc-in.css">
-<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" type="text/css"    href="css/acc-in.css">
+<link rel="stylesheet" type="text/css"    href="css/styles.css" />
 </head>
 
 <body>

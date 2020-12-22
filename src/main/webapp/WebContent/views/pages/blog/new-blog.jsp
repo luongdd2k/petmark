@@ -15,7 +15,7 @@
       rel="stylesheet"
       href="./../../plugins/fontawesome-free-5.15.1/css/all.min.css"
     />
-    <link rel="stylesheet" href="./QEditor.css" />
+    <link rel="stylesheet" type="text/css"    href="./QEditor.css" />
     <style>
       .qeditor-content img {
         width: 300px;

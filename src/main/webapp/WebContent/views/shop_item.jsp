@@ -7,15 +7,15 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<TITLE>Thông tin sản phẩm</TITLE>
 		<base href="${pageContext.servletContext.contextPath}/">
-		<link rel="stylesheet" type="text/css" href="CSS/header.css">
-		<link rel="stylesheet" type="text/css" href="CSS/nnav.css">
-		<link rel="stylesheet" type="text/css" href="CSS/shop_item.css">
-		<link rel="stylesheet" type="text/css" href="CSS/footer.css">
-		<link rel="stylesheet" type="text/css" href="CSS/home.css">
-		<link rel="stylesheet" type="text/css" href="CSS/favor.css">
-		<link rel="stylesheet" type="text/css" href="CSS/jquery-comments.css">
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">		
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+		<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+		<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+		<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+		<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+		<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+		<link rel="stylesheet" type="text/css"    type="text/css" href="CSS/css">
+		<link rel="stylesheet" type="text/css"    type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">		
+		<link rel="stylesheet" type="text/css"    href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		<script type="text/javascript" src="Script/shop.js"></script>
 		<script type="text/javascript" src="data/comments-data.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.textcomplete/1.8.0/jquery.textcomplete.js"></script>
