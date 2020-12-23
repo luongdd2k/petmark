@@ -67,12 +67,12 @@
 								<div class="border-delivery"></div>
 								<div id="checkout-adress" class="checkout-adress__container">
 									<div class="checkout-adress__section-header">
-										<div class="checkout-adress__section-header-text">
+										<div class="checkout-adress__section-header-text" style="color: red;">
 											<svg height="16" viewBox="0 0 12 16" width="12"
 												class="shopee-svg-icon icon-location-marker">
                         <path
 													d="M6 3.2c1.506 0 2.727 1.195 2.727 2.667 0 1.473-1.22 2.666-2.727 2.666S3.273 7.34 3.273 5.867C3.273 4.395 4.493 3.2 6 3.2zM0 6c0-3.315 2.686-6 6-6s6 2.685 6 6c0 2.498-1.964 5.742-6 9.933C1.613 11.743 0 8.498 0 6z"
-													fill-rule="evenodd"></path>
+													fill-rule="evenodd" style="color: red;"></path>
                       </svg>
 
 											Địa chỉ nhận hàng
@@ -189,7 +189,7 @@
 										</div>
 										<div class="_2iOh5B">
 											<div class="_2hlLyg">Tổng số tiền ( <span id="tong-san-pham"></span> sản phẩm ) :</div>
-											<div class="_7IQQY9" id="tong-tien"></div>
+											<div class="_7IQQY9" id="tong-tien" style="color: red;"></div>
 										</div>
 									</div>
 								</div>
@@ -290,7 +290,7 @@
 									<div class="_38DBn- _1ylw6p _2ZumAb">Tổng tiền hàng: </div>
 									<div class="_38DBn- _2wZvga _2ZumAb _2ghey"><span id="tong-tien-hang"> </span></div>
 									<div class="_38DBn- _1ylw6p sfPrg9">Tổng thanh toán: </div>
-									<div class="_38DBn- _34fUBg _2wZvga sfPrg9"><span id="tong-thanh-toan"> </span></div>
+									<div class="_38DBn- _34fUBg _2wZvga sfPrg9" style="color: red;"><span id="tong-thanh-toan"> </span></div>
 
 									<div class="_3S63c5 _1WpGLP" id="btn-dat-tien">
 <%--										<button type="submit"--%>

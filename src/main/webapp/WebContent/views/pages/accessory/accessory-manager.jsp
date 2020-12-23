@@ -180,7 +180,7 @@
 									</thead>
 									<c:forEach var="Accessories" items="${listAccessories}">
 										<tbody>
-											<tr>
+											<tr onclick="window.location.href='admin/AccessoriesManagement/show-edit/${Accessories.getId() }'">
 												<th scope="row" class="idthu">
 													<div class="td__center">${Accessories.id }</div>
 												</th>
@@ -188,9 +188,7 @@
 													<img class="img-fluid" src="${Accessories.getImgs().get(0).getImgAvartar() }" alt="" style="max-width: 90px; max-height: 90px;">
 												</td>
 												<td class="tenthucung">
-													<a href="admin/AccessoriesManagement/show-edit/${Accessories.getId() }">
 														<div class="td__center">${Accessories.name }</div>
-													</a>
 												</td>
 												<td>
 													<span hidden="true">${Accessories.getCategory().getId() }</span>
@@ -200,7 +198,7 @@
 													<div class="td__center">${Accessories.getDisplayPrice(1) } <span> đ</span></div>
 												</td>
 												<td>
-													<div class="td__center">${Accessories.getAmount() }</div>
+													<div class="td__center sl-js">${Accessories.getAmount() }</div>
 												</td>
 												<td>
 													<div class="td__center">${Accessories.getDate() }</div>
@@ -294,6 +292,7 @@
 	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- AdminLTE App -->
 	<script src="dist/js/adminlte.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
 	<script src="js/active.js"></script>
@@ -326,6 +325,23 @@
 			hienFormNew.style.display = visible ? "" : "none";
 			var timKiem = document.getElementById("new-pet");
 			timKiem.style.display = visible ? "none" : "block";
+		}
+		let sl = document.getElementsByClassName("sl-js");
+		abc();
+		function abc(){
+
+			for (let i= 0; i<sl.length; i++){
+				if(parseInt(sl[i].innerHTML) <= 3){
+					tr[i].classList.add('table-danger');
+					sl[i].style.color='#b71c1c';
+					sl[i].style.fontWeight='600';
+				}
+				else if(4 < parseInt(sl[i].innerHTML) && parseInt(sl[i].innerHTML) < 10){
+					// tr[i].classList.add('do');
+					sl[i].style.color='#fbc02d';
+					sl[i].style.fontWeight='600';
+				}
+			}
 		}
 
 		function validateForm(){
@@ -434,6 +450,17 @@
 			return check;
 		}
 
+		$(function () {
+			let sl = document.getElementsByClassName("sl-js");
+			for (let i=0;i<sl.length;i++){
+				if(parseInt(sl[i].innerHTML)<10){
+					swal({
+						title: "Có một số thú cưng sắp hết hàng!",
+						icon: "warning",
+					});
+				}
+			}
+		});
 
 	</script>
 </body>

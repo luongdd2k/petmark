@@ -102,9 +102,9 @@
 											</thead>
 											<c:forEach var="list" items="${list }">
 											<tbody>
-													<tr class="tr-js">
+													<tr class="tr-js" onclick="window.location.href='admin/orders/detail/${list.id}'">
 														<td>
-															<a href="admin/orders/detail/${list.id}">${list.id }</a>
+															${list.id }
 														</td>
 														<td>${list.getConsignee() }</td>
 														<td>${list.getDate() }</td>

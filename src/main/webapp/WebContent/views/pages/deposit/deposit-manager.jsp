@@ -88,9 +88,8 @@
 											</thead>
 											<c:forEach var="list" items="${list }">
 												<tbody>
-													<tr class="tr-js">
-														<td><a
-															href="admin/deposit/deposit-detail/${list.getId() }">${list.getId()}</a></td>
+													<tr class="tr-js" onclick="window.location.href='admin/deposit/deposit-detail/${list.getId() }'">
+														<td>${list.getId()}</td>
 														<td>${list.getDate() }</td>
 														<td>${list.getPet().getPetName() }</td>
 														<td>${list.getPet().getDisplayPrice(1) }</td>
@@ -192,7 +191,7 @@
 					td[i].style.color = "#0288d1";
 					td[i].style.fontWeight = "600";
 				}
-				if (td[i].innerHTML == 'Đã huỷ') {
+				if (td[i].innerHTML == 'Đã hủy') {
 					td[i].style.color = "#b71c1c";
 					td[i].style.fontWeight = "600";
 				}

@@ -180,8 +180,8 @@
 															type="text" class="form-control" id="colorPet" name="mauLong">
 													</div>
 													<div class="form-group col-4">
-														<label for="colorPet">Màu mắt (<span style="color: red;">*</span>)</label> <input
-															type="text" class="form-control" id="colorPet" name="mauMat">
+														<label for="colorEyePet">Màu mắt (<span style="color: red;">*</span>)</label> <input
+															type="text" class="form-control" id="colorEyePet" name="mauMat">
 													</div>
 												</div>
 												<div class="form-group col-12 button-group-center">
@@ -194,13 +194,14 @@
 													</button>
 												</div>
 											</form>
-											<form id="form-image" class="hide" action="admin/ProductManagement/addImg"  method="post" enctype="multipart/form-data">
+											<form id="form-image" class="hide" action="admin/ProductManagement/addImg"  method="post" enctype="multipart/form-data"
+												onsubmit="return validateImage()">
 												<input type="hidden" name="id" value="${pet.getId() }">
 												<div class="row">
 													<div class="form-group col-3">
 														<label class="custom-file-label" for="customFile">Chọn
 															hình ảnh</label> <input type="file" class="custom-file-input"
-															id="customFile" name="avatar">
+															id="customFile"  name="avatar">
 													</div>
 													<div class="form-group col-3">
 														<label class="custom-file-label" for="customFile1">Chọn
@@ -363,6 +364,45 @@
 
 			detail.classList.remove("hide");
 			formImage.classList.add("hide");
+		}
+		function validateForm(){
+			let check = true;
+			let avatar = $("#customFile").val();
+			let extension = avatar.split('.').pop().toLowerCase();
+			console.log(extension);
+
+			let errorCmt =document.getElementById("error1");
+			let errorImg =document.getElementById("error2");
+
+			if(cmt.value.trim() == ""){
+				errorCmt.classList.remove("hide");
+				cmt.style.borderColor= "red";
+				errorCmt.innerHTML="Không để trống nhận xét";
+				check = false;
+			}else if(cmt.value.trim().length > 255){
+				errorCmt.classList.remove("hide");
+				cmt.style.borderColor= "red";
+				errorCmt.innerHTML="Nhận xét không quá 255 ký tự";
+				check = false;
+			}else{
+				cmt.style.borderColor= "green";
+				errorCmt.classList.add("hide");
+			}
+			if(img.value.trim() == ""){
+				errorImg.classList.remove("hide");
+				img.style.borderColor= "red";
+				errorImg.innerHTML="Vui lòng chọn ảnh!";
+				check = false;
+			}else if($.inArray(extension, ['png', 'gif', 'jpeg', 'jpg']) == -1){
+				errorImg.classList.remove("hide");
+				img.style.borderColor= "red";
+				errorImg.innerHTML="File ảnh phải có đuôi .pnd .jpg .jpeg .gif";
+				check = false;
+			}else{
+				img.style.borderColor= "green";
+				errorImg.classList.add("hide");
+			}
+			return check;
 		}
 	</script>
 

@@ -188,17 +188,20 @@
 							<div id="new-blog" class="new-blog">
 								<div class="my-account-profile">
 									<div class="new-blog-form">
-											<form class="row" action="addBlog" method="POST" name="form-example-1" id="form-example-1" enctype="multipart/form-data" style="width: 500px; margin: 0 auto;">
+											<form class="row" action="addBlog" method="POST" name="form-example-1" id="form-example-1" enctype="multipart/form-data" style="width: 500px; margin: 0 auto;" onsubmit="return validateForm()">
 												<h2 class="col-12 form-title" style="text-align: center;">Tạo bài viết</h2>
 												<div class="form-group col-12">
 													<label for="comment">Nhận xét</label>
 													<textarea class="form-control" id="comment" rows="2" name="content"></textarea>
+													<p id="error1" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
 												</div>
 												<div class="custom-file col-12">
-													<input type="file" class="custom-file-input" id="customFile" name="addimg">
-													<label class="custom-file-label" for="customFile">Choose file</label>
+													<input type="file" class="custom-file-input" id="customFile" name="addimg" value="">
+													<label class="custom-file-label" for="customFile" id="label">Chọn hình ảnh</label>
+
+													<p id="error2" style="color: red;font-weight: 400;font-size: 14px;" class="hide"></p>
 												</div>
-												<div class="button col-12" style="text-align: center; margin-top: 10px">
+												<div class="button col-12" style="text-align: center; margin-top: 30px">
 													<button  id="luu" type="submit" class="btn btn-primary">Đăng bài</button>
 													<button id="huy" type="button" class="btn btn-warning">Hủy</button>
 												</div>
@@ -276,9 +279,6 @@
 					"id": id
 				}
 			})
-					//em ko chayj viong for owr day dc a
-					//t cần lấy cái index cho vào cá like kaif
-
 					.done(function(res) {
 						if(res){
 							console.log("Thành công!!!!");
@@ -292,6 +292,53 @@
 						console.log("error city js");
 					});
 			console.log(id);
+		}
+		$(document).ready( function(){
+			$("#customFile").click();
+			$('#customFile').change(function(){
+				$("#label").html($(this).val());
+			});
+		});
+		function validateForm(){
+			let check = true;
+			let cmt = document.getElementById("comment");
+			let img = document.getElementById("customFile");
+			let imgV = $("#customFile").val();
+			let extension = imgV.split('.').pop().toLowerCase();
+			console.log(imgV);
+
+			let errorCmt =document.getElementById("error1");
+			let errorImg =document.getElementById("error2");
+
+			if(cmt.value.trim() == ""){
+				errorCmt.classList.remove("hide");
+				cmt.style.borderColor= "red";
+				errorCmt.innerHTML="Không để trống nhận xét";
+				check = false;
+			}else if(cmt.value.trim().length > 255){
+				errorCmt.classList.remove("hide");
+				cmt.style.borderColor= "red";
+				errorCmt.innerHTML="Nhận xét không quá 255 ký tự";
+				check = false;
+			}else{
+				cmt.style.borderColor= "green";
+				errorCmt.classList.add("hide");
+			}
+			if(img.value.trim() == ""){
+				errorImg.classList.remove("hide");
+				img.style.borderColor= "red";
+				errorImg.innerHTML="Vui lòng chọn ảnh!";
+				check = false;
+			}else if($.inArray(extension, ['png', 'gif', 'jpeg', 'jpg']) == -1){
+				errorImg.classList.remove("hide");
+				img.style.borderColor= "red";
+				errorImg.innerHTML="File ảnh phải có đuôi .pnd .jpg .jpeg .gif";
+				check = false;
+			}else{
+				img.style.borderColor= "green";
+				errorImg.classList.add("hide");
+			}
+			return check;
 		}
 	</script>
 </body>

@@ -118,6 +118,11 @@
                           <input type="text" class="form-control" id="address" value="${account.getAddress() }">
                         </div>
                       </div>
+                      <div class="form-group row">
+                        <div class="col-sm-10" style="text-align: center;">
+                          <button type="submit" class="btn btn-success">Cập nhật</button>
+                        </div>
+                      </div>
                     </form>
                   </div>
                   <div class="col-lg-4 col-md-12">

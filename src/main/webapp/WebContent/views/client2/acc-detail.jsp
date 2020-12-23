@@ -223,9 +223,9 @@
                   <label for="e2">★</label>
                   <input class="star" name="rating" id="e1" type="radio" value="1">
                   <label for="e1">★</label>
+                  <button type="submit" class="btn btn-primary">Đánh giá</button>
                   <input type="hidden" name="username" value="${account.getUsername() }">
                   <input type="hidden" name="id" value="${acc.getId() }">
-                  <button type="submit" class="btn btn-primary">Đánh giá</button>
                 </div>
               </div>
               </form>

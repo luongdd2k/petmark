@@ -33,7 +33,7 @@
 <title>Pet Mart | Tìm kiếm</title>
 <base href="${pageContext.servletContext.contextPath}/">
 <!-- Custom StyleSheet -->
-<link rel="stylesheet" type="text/css"    href="plugin/slick/slick.css">
+<%--<link rel="stylesheet" type="text/css"    href="plugin/slick/slick.css">--%>
 <link rel="stylesheet" type="text/css"    href="css/acc-in.css">
 <link rel="stylesheet" type="text/css"    href="css/search.css">
 <link rel="stylesheet" type="text/css"    href="css/styles.css" />
@@ -76,9 +76,9 @@
 								<h4 class="title">Giá</h4>
 								<div class="price-small-text">Chọn khoảng giá</div>
 								<div class="input-group">
-									<input pattern="[0-9]*" placeholder="Giá từ" value="0"
-										name="min"> <span>-</span> <input pattern="[0-9]*"
-										placeholder="Giá đến" value="0" name="max">
+									<input pattern="[0-9]*" placeholder="Giá từ" value="0" name="min">
+									<span style="margin-left: 2px; margin-right: 2px;">-</span>
+									<input pattern="[0-9]*" placeholder="Giá đến" value="0" name="max">
 								</div>
 
 							</div>
@@ -129,54 +129,27 @@
 													<span>${list.getPetName() }</span>
 												</div>
 												<div class="rating-review">
-													<div class="rating">
-														<div class="rating__total">
-															<svg stroke="currentColor" fill="currentColor"
-																stroke-width="0" viewBox="0 0 24 24" size="12"
-																color="#c7c7c7" height="12" width="12"
-																xmlns="http://www.w3.org/2000/svg"
-																style="color: rgb(199, 199, 199);">
-                                <path
-																	d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                              </svg>
-															<svg stroke="currentColor" fill="currentColor"
-																stroke-width="0" viewBox="0 0 24 24" size="12"
-																color="#c7c7c7" height="12" width="12"
-																xmlns="http://www.w3.org/2000/svg"
-																style="color: rgb(199, 199, 199);">
-                                <path
-																	d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                              </svg>
-															<svg stroke="currentColor" fill="currentColor"
-																stroke-width="0" viewBox="0 0 24 24" size="12"
-																color="#c7c7c7" height="12" width="12"
-																xmlns="http://www.w3.org/2000/svg"
-																style="color: rgb(199, 199, 199);">
-                                <path
-																	d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                              </svg>
-															<svg stroke="currentColor" fill="currentColor"
-																stroke-width="0" viewBox="0 0 24 24" size="12"
-																color="#c7c7c7" height="12" width="12"
-																xmlns="http://www.w3.org/2000/svg"
-																style="color: rgb(199, 199, 199);">
-                                <path
-																	d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                              </svg>
-															<svg stroke="currentColor" fill="currentColor"
-																stroke-width="0" viewBox="0 0 24 24" size="12"
-																color="#c7c7c7" height="12" width="12"
-																xmlns="http://www.w3.org/2000/svg"
-																style="color: rgb(199, 199, 199);">
-                                <path
-																	d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                              </svg>
-														</div>
+													<div class="rating1">
+														<svg>
+															<use xlink:href="images/sprite.svg#icon-star-full"></use>
+														</svg>
+														<svg>
+															<use xlink:href="images/sprite.svg#icon-star-full"></use>
+														</svg>
+														<svg>
+															<use xlink:href="images/sprite.svg#icon-star-empty"></use>
+														</svg>
+														<svg>
+															<use xlink:href="images/sprite.svg#icon-star-empty"></use>
+														</svg>
+														<svg>
+															<use xlink:href="images/sprite.svg#icon-star-empty"></use>
+														</svg>
 													</div>
-													<div class="review">(70)</div>
+<%--													<div class="review">(70)</div>--%>
 												</div>
-												<div class="price-discount">
-													<div class="price-discount__price">${list.getDisplayPrice(1) }</div>
+												<div class="price-discount"  style="justify-content: flex-end;">
+													<div class="price-discount__price price-search" style="font-size: 20px;color: red;">${list.getDisplayPrice(1) }</div>
 												</div>
 												<div class="badge-under-price"></div>
 											</div>
@@ -217,32 +190,14 @@
 	<script src="js/jquery-3.5.1.min.js"></script>
 	<script src="js/custom.js"></script>
 	<script>
-		function getUrl(url) {
-			document.getElementById("pic").src = url;
-		};
-
-		$('input.input-qty')
-				.each(
-						function() {
-							var $this = $(this), qty = $this.parent().find(
-									'.is-form'), min = Number($this.attr('min')), max = Number($this
-									.attr('max'))
-							if (min == 0) {
-								var d = 0
-							} else
-								d = min
-							$(qty).on('click', function() {
-								if ($(this).hasClass('minus')) {
-									if (d > min)
-										d += -1
-								} else if ($(this).hasClass('plus')) {
-									var x = Number($this.val()) + 1
-									if (x <= max)
-										d += 1
-								}
-								$this.attr('value', d).val(d)
-							})
-						});
+		abc();
+		function abc(){
+			let money = document.getElementsByClassName("price-search");
+			for(let i=0;i<money.length;i++){
+				let moneyF = money[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+				money[i].innerHTML = moneyF + " đ";
+			}
+		}
 	</script>
 </body>
 

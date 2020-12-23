@@ -62,14 +62,14 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>${doanhThu }</h3>
+                <h3 id="doanh-thu">${doanhThu }</h3>
 
                 <p>Doanh thu tháng</p>
               </div>
               <div class="icon">
                 <i class="fas fa-mobile-alt"></i>
               </div>
-              <a href="javascript:#" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="javascript:" class="small-box-footer">XEM NGAY <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -186,14 +186,13 @@
                 </thead>
                 <c:forEach var="list" items="${list }">
                   <tbody>
-                  <tr>
-                    <td><a href="admin/orders/detail/${list.getId() }">${list.getId() }</a>
-                    </td>
+                  <tr onclick="window.location.href='admin/orders/detail/${list.getId() }'">
+                    <td>${list.getId() }</td>
                     <td>${list.getAccount().getUsername() }</td>
                     <td>${list.getDate() }</td>
-                    <td>${list.getPaymentStatus() }</td>
-                    <td>${list.getDeliveryStatus() }</td>
-                    <td>${list.getDisplayTotalAmount() }</td>
+                    <td class="td-js">${list.getPaymentStatus() }</td>
+                    <td class="td_js">${list.getDeliveryStatus() }</td>
+                    <td style="color: #f44336;font-weight: 600;">${list.getDisplayTotalAmount() }</td>
                   </tr>
                   </tbody>
                 </c:forEach>
@@ -256,6 +255,68 @@
           hideLi[i].classList.add("hide");
         }
       }
+  }
+  abc();
+  function abc(){
+    let money =document.getElementById("doanh-thu");
+    let moneyF = money.innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    money.innerHTML = moneyF+" đ";
+  }
+  let td = document.getElementsByClassName('td-js');
+  let td1 = document.getElementsByClassName('td_js');
+  abcz();
+  function abcz(){
+    for (let i = 0; i< td.length; i++){
+      if(td[i].innerHTML == 'Chưa thanh toán'){
+        td[i].style.color="#ff6f00";
+        td[i].style.fontWeight="600";
+      }
+      if(td[i].innerHTML == 'Đã thanh toán'){
+        td[i].style.color="#64dd17";
+        td[i].style.fontWeight="600";
+      }
+      if(td[i].innerHTML == 'Chờ thanh toán ATM'){
+        td[i].style.color="#0288d1";
+        td[i].style.fontWeight="600";
+      }
+      if(td[i].innerHTML == 'Đã hoàn tiền'){
+        td[i].style.color="#c0ca33";
+        td[i].style.fontWeight="600";
+      }
+      if(td[i].innerHTML == 'Đã hủy bỏ'){
+        td[i].style.color="#b71c1c";
+        td[i].style.fontWeight="600";
+      }
+      //Trạng thái giao hàng
+      if(td1[i].innerHTML == 'Chưa xét duyệt'){
+        td1[i].style.color="#ed9f66";
+        td1[i].style.fontWeight="600";
+      }
+      if(td1[i].innerHTML == 'Chờ giao hàng'){
+        td1[i].style.color="#f4ce74";
+        td1[i].style.fontWeight="600";
+      }
+      if(td1[i].innerHTML == 'Chờ giao hàng lần 2'){
+        td1[i].style.color="#fdd835";
+        td1[i].style.fontWeight="600";
+      }
+      if(td1[i].innerHTML == 'Đang giao hàng'){
+        td1[i].style.color="#81c784";
+        td1[i].style.fontWeight="600";
+      }
+      if(td1[i].innerHTML == 'Đang giao hàng lần 2'){
+        td1[i].style.color="#1b5e20";
+        td1[i].style.fontWeight="600";
+      }
+      if(td1[i].innerHTML == 'Giao hàng thành công'){
+        td1[i].style.color="#64dd17";
+        td1[i].style.fontWeight="600";
+      }
+      if(td1[i].innerHTML == 'Đã hủy'){
+        td1[i].style.color="#b71c1c";
+        td1[i].style.fontWeight="600";
+      }
+    }
   }
 </script>
 </body>

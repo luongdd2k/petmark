@@ -2127,7 +2127,7 @@ Product Details
 
 .detail__content {
   position: relative;
-  height:20rem;
+  height:32rem;
 }
 
 .detail__content .content {
@@ -2589,8 +2589,7 @@ Index
 /*Star Rating*/
 .rating {
   width: 226px;
-  margin: 0 auto 1em;
-  font-size: 45px;
+  font-size: 37px;
   overflow:hidden;
 }
 .rating input {

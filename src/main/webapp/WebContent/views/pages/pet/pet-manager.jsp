@@ -151,28 +151,30 @@
 									<div id="new-pet">
 										<div class="row">
 											<div class="col-12">
-													<div class="form-row">
-														<div class="form-group col-2">
-														<form action="admin/ProductManagement/search" >
+													<form action="admin/ProductManagement/search" >
+														<div class="row">
+															<div class="form-group col-3">
 															<label>Tên</label>
 															<input class="form-control" type="search" name="search" placeholder="Tìm kiếm theo tên" aria-label="Search">
-															<button type="submit" class="btn btn-primary">Tìm kiếm</button>
-															</form>
+															</div>
+															<div class="form-group col-1" style="margin-top: 31px;">
+																<button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+															</div>
+															<div class="form-group col-3">
+																<label for="cbo_sort_product2">Lọc</label>
+																<select class="form-control" id="cbo_sort_product2">
+																	<option value="-1">ID:&nbsp thấp ⟶ cao</option>
+																	<option value="0">ID:&nbsp cao ⟶ thấp</option>
+																	<option value="1">Giá:&nbsp từ thấp ⟶ cao</option>
+																	<option value="2">Giá:&nbsp từ cao ⟶ thấp</option>
+																	<option value="4">Giống: chó</option>
+																	<option value="5">Giống: mèo</option>
+																	<option value="3" style="background: #ffe6e6">Dừng kinh doanh</option>
+																</select>
+																<span id="sortValue2" style="display: none;">${sortValue }</span>
+															</div>
 														</div>
-														<div class="form-group col-2">
-															<label for="cbo_sort_product2">Lọc</label>
-															<select class="form-control" id="cbo_sort_product2">
-																<option value="-1">ID:&nbsp thấp ⟶ cao</option>
-																<option value="0">ID:&nbsp cao ⟶ thấp</option>
-																<option value="1">Giá:&nbsp từ thấp ⟶ cao</option>
-																<option value="2">Giá:&nbsp từ cao ⟶ thấp</option>
-																<option value="4">Giống: chó</option>
-																<option value="5">Giống: mèo</option>
-																<option value="3" style="background: #ffe6e6">Dừng kinh doanh</option>
-															</select>
-															<span id="sortValue2" style="display: none;">${sortValue }</span>
-														</div>
-													</div>
+													</form>
 											</div>
 										</div>
 										<div class="btn-new-css">
@@ -317,6 +319,7 @@
 		src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 	<!-- AdminLTE App -->
 	<script src="dist/js/adminlte.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
 	<script src="js/active.js"></script>
@@ -472,6 +475,17 @@
 					}
 					return check;
 				}
+				$(function () {
+					let sl = document.getElementsByClassName("sl-js");
+					for (let i=0;i<sl.length;i++){
+						if(parseInt(sl[i].innerHTML)<5){
+							swal({
+								title: "Có một số thú cưng sắp hết hàng!",
+								icon: "warning",
+							});
+						}
+					}
+				});
 	</script>
 
 </body>

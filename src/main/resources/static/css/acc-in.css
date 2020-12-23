@@ -732,7 +732,7 @@ input[type="file"]{
     margin-right: .625rem;
 }
 .order-content-status{
-    color: #ee4d2d;
+    color: red;
     line-height: 0.8rem;
     text-align: right;
     text-transform: uppercase;
@@ -908,7 +908,7 @@ input[type="file"]{
     padding-bottom: 20px;
 }
 .shopee-price--primary{
-    color: #ee4d2d;
+    color: red;
     font-size: 17px;
 }
 .shopee-border-bottom-dotted-circle__container{
@@ -967,7 +967,7 @@ input[type="file"]{
 
 }
 .purchase-card-buttons__total-price{
-    color: #ee4d2d;
+    color: red;
     font-size: 19px;
     line-height: 2rem;
 }
@@ -1653,7 +1653,7 @@ input[type="file"]{
     padding-bottom: 20px;
 }
 .shopee-price--primary{
-    color: #ee4d2d;
+    color: red;
     font-size: 17px;
 }
 .payment-detail__container{
@@ -1724,5 +1724,8 @@ input[type="file"]{
 }
 .active{
 	color: orangered;
+}
+.total-money{
+	color: red;
 }
 
