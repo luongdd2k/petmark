@@ -128,17 +128,6 @@ public class AccountController {
 			System.out.println("lỗi thêm tài khoản: "+e);
 		}
 			
-			
-//		System.out.println("\r---------------------");
-//		System.out.println("Signup Successfully!");
-//		System.out.println("username: " + username);
-//		System.out.println("role: member");
-//		System.out.println("-----------------------");
-//
-//		session.setAttribute("username", username);
-//		session.setAttribute("role", "member");
-//		session.setAttribute("totalQuantity", 0);
-//		session.setAttribute("fullname", fullname);
 		if (gender) {
 			session.setAttribute("profilePictureURL", "Image/user/woman01.svg");
 		} else {
@@ -330,7 +319,7 @@ public class AccountController {
 				MimeMessage message = new MimeMessage(session);
 				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
 				message.setSubject("Thông báo quên mật khẩu từ PetMark");
-				message.setText("Mật khẩu của bạn là: " + newPass);
+				message.setText("Mật khẩu mới của bạn là: " + newPass + "\n" + "Xin chân thành cảm ơn.");
 				account.setPassword(new BCryptPasswordEncoder().encode(newPass));
 				accountService.save(account);
 				// send message
