@@ -177,7 +177,7 @@
                                         <div class="payment-detail__item__description">Tổng số tiền</div>
                                         <div class="payment-detail__item__value payment-detail__item__value--highlighted">
                                           <div class="payment-detail__item__value-text"><div>
-                                            <div class="total-money" id="total-money">${orderweb.displayPrice()}</div>
+                                            <div class="total-money" id="total-money">${orderweb.displayPrice()} <span> đ</span></div>
                                           </div>
                                         </div>
                                       </div>
