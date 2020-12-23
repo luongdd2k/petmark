@@ -338,6 +338,9 @@ public class DepositController {
 						
 						deposit.setStatus(DepositStatus.DEPOSITED);
 						result = "Thành công";
+						Pet pet = petService.findById(deposit.getPet().getId());
+						pet.setAmount(pet.getAmount()-deposit.getAmount());
+						petService.addPet(pet);
 						if (deposit.getAccount().getEmail() != null) {
 							Properties props = new Properties();
 							props.put("mail.smtp.auth", "true");
