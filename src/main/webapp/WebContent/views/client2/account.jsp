@@ -241,7 +241,21 @@
       var tt = document.getElementById("adressRecive").value;
     console.log(tt);
     }
-    
+    $(function () {
+      let tt = document.getElementById("atm");
+      console.log(tt.value);
+      if(tt.value == "Thành công"){
+        swal({
+          title: "Đặt hàng thành công!",
+          icon: "success",
+        });
+      }else if(tt.value == "Thất bại"){
+        swal({
+          title: "Đặt hàng thất bại!",
+          icon: "danger",
+        });
+      }
+    });
   </script>
 </body>
 

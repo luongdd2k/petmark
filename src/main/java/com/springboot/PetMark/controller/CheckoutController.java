@@ -471,6 +471,7 @@ public class CheckoutController {
 		String paymentStatus = orderWeb.getPaymentStatus();
 		String deliveryStatus = orderWeb.getDeliveryStatus();
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
+		String result = "Thất bại";
 		String username = loginedUser.getUsername();
 		if (orderWeb.getAccount().getUsername().equals(username)) {
 			if (!paymentStatus.equalsIgnoreCase(PaymentStatus.CANCELLED)
@@ -509,6 +510,7 @@ public class CheckoutController {
 							Accessories acc = detail.getAccessories();
 							acc.setAmount(acc.getAmount() - detail.getAmount());
 							accessoriesService.addAccessories(acc);
+							result = "Thành công";
 						}
 //		        		cartItemService.deleteByUser(userPrincipal.getCurrentUser());
 					}
@@ -517,6 +519,7 @@ public class CheckoutController {
 			}
 			return "redirect:/order-result/" + orderWeb.getId();
 		}
+		model.addAttribute("atm", result);
 		return "redirect:/show-account";
 	}
 

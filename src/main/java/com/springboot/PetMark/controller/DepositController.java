@@ -187,6 +187,7 @@ public class DepositController {
 		Deposit deposit = depositService.findById(id);
 		User loginedUser = (User) ((Authentication) principal).getPrincipal();
 		String username = loginedUser.getUsername();
+		String rs = "Thất bại";
 		if (deposit.getAccount().getUsername().equals(username)) {
 			if (deposit.getStatus().equals(DepositStatus.CANCELLED)) {
 				
@@ -212,12 +213,17 @@ public class DepositController {
 					if ("00".equals(request.getParameter("vnp_ResponseCode"))) {
 
 						deposit.setStatus(DepositStatus.DEPOSITED);
+						Pet pet = petService.findById(deposit.getPet().getId());
+						pet.setAmount(pet.getAmount()-deposit.getAmount());
+						petService.addPet(pet);
+						rs = "Thành công";
 					}
 				}
 				depositService.add(deposit);
 			}
 			return "redirect:/show-deposit" ;
 		}
+		model.addAttribute("atm", rs);
 		return "redirect:/show-cancel-deposit";
 	}
 	
