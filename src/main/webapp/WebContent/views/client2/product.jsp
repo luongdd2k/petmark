@@ -372,7 +372,7 @@
 						<div class="row">
 							<div class="col-6">
 								<div class="form-group">
-									<label for="name">Họ và tên</label> <input type="text"
+									<label for="name">Họ và tên (<span style="color: red;">*</span>)</label> <input type="text"
 										class="form-control" id="name" name="ten"
 										placeholder="Họ và tên">
 									<p id="error1"
@@ -382,7 +382,7 @@
 							</div>
 							<div class="col-6">
 								<div class="form-group">
-									<label for="phone">Số điện thoại</label> <input type="tel"
+									<label for="phone">Số điện thoại (<span style="color: red;">*</span>)</label> <input type="tel"
 										class="form-control" id="phone" name="sdt"
 										placeholder="Số điện thoại">
 									<p id="error2"
@@ -392,7 +392,7 @@
 							</div>
 							<div class="col-12">
 								<div class="form-group">
-									<label for="phone">Email</label> <input type="email"
+									<label for="phone">Email (<span style="color: red;">*</span>)</label> <input type="email"
 										class="form-control" id="email" name="email"
 										placeholder="Email">
 									<p id="error3"
@@ -402,7 +402,7 @@
 							</div>
 							<div class="col-4">
 								<div class="form-group">
-									<label for="city2">Tỉnh / Thành phố</label> <select
+									<label for="city2">Tỉnh / Thành phố (<span style="color: red;">*</span>)</label> <select
 										class="form-control" aria-label="Default select example"
 										id="city2" onchange="city(this)">
 										<option value="none">Tỉnh/Thành phố</option>
@@ -417,7 +417,7 @@
 							</div>
 							<div class="col-4">
 								<div class="form-group">
-									<label for="district2">Quận / Huyện</label> <select
+									<label for="district2">Quận / Huyện (<span style="color: red;">*</span>)</label> <select
 										class="form-control" aria-label="Default select example"
 										id="district2" onchange="district(this)">
 										<option value="none">Quận/Huyện</option>
@@ -429,7 +429,7 @@
 							</div>
 							<div class="col-4">
 								<div class="form-group">
-									<label for="village2">Xã / Phường / Thị trấn</label> <select
+									<label for="village2">Xã / Phường / Thị trấn (<span style="color: red;">*</span>)</label> <select
 										class="form-control" aria-label="Default select example"
 										id="village2" onchange="village(this)">
 										<option value="none">Xã/Phường/Thị trấn</option>
@@ -441,7 +441,7 @@
 							</div>
 							<div class="col-12">
 								<div class="form-group">
-									<label for="address">Địa chỉ</label>
+									<label for="address">Địa chỉ (<span style="color: red;">*</span>)</label>
 									<textarea class="form-control" id="address" rows="2"
 										name="address" placeholder="Địa chỉ nhận hàng"></textarea>
 									<p id="error7"
