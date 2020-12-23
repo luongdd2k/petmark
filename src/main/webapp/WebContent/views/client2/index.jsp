@@ -376,6 +376,7 @@
 	<!-- Animate On Scroll -->
 	<script src="js/jquery-3.5.1.min.js"></script>
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<!-- Custom JavaScript -->
 	<script src="js/index.js"></script>
@@ -395,6 +396,7 @@
 	}
 	$(function () {
 		let tt = document.getElementById("atm");
+		console.log(tt.value);
 			if(tt.value == "Thành công"){
 				swal({
 					title: "Đặt hàng thành công!",

@@ -86,7 +86,7 @@
             </div>
 
             <div id="btn-action" class="product-details__btn product-details__btn_accessori">
-              <button class="add" type="submit" >
+              <button class="add" type="submit" id="add" onclick="add()">
                 <span>
                   <svg>
                     <use xlink:href="./images/sprite.svg#icon-cart-plus"></use>
@@ -165,7 +165,7 @@
                       <span>Số lượng: </span>
                       <div class="buttons_added">
                         <input class="minus is-form" type="button" value="-">
-                        <input id="so-luong"  aria-label="quantity" class="input-qty" max="${acc.getAmount() }" min="1" name="soLuong" type="number" value="1" onchange="maxAmount(); changePrice()">
+                        <input id="so-luong"  aria-label="quantity" class="input-qty" max="${acc.getAmount() }" min="1" name="soLuong" type="number" value="1" onchange="maxAmount(); minAmount(); changePrice()">
                         <input class="plus is-form" type="button" value="+">
                       </div>
                     </div>
@@ -449,6 +449,7 @@
 
   <!-- Animate On Scroll -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <!-- Custom JavaScript -->
   <script src="js/index.js"></script>
@@ -457,6 +458,14 @@
   <script src="js/slider.js"></script>
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/custom.js"></script>
+<script>
+  $("#add").click (function() {
+    swal({
+      title: "Thêm vào giỏ hàng thành công!",
+      icon: "success",
+    });
+  });
+</script>
 </body>
 
 </html>

@@ -54,6 +54,13 @@ function maxAmount() {
         document.getElementById("so-luong").value = y;
     }
 }
+function minAmount() {
+    var x = parseInt(document.getElementById("so-luong").value);
+    var y = parseInt(document.getElementById("so-luong").min);
+    if(x < y){
+        document.getElementById("so-luong").value = y;
+    }
+}
 function changePrice(){
     var p = parseInt(document.getElementById("so-luong").value);
     var pA = document.getElementById("price-a").innerHTML;

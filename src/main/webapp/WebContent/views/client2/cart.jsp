@@ -148,7 +148,7 @@
                                             <input type="hidden" class="total-price-origin" value="">
                                             <span class="new__price total-price"> đ</span>
                                         </div>
-                                        <a href="delete/${card.getId() }" class="remove__cart-item">
+                                        <a href="delete/${card.getId() }" class="remove__cart-item" onclick="remove()">
                                             <svg>
                                                 <use xlink:href="images/sprite.svg#icon-trash"></use>
                                             </svg>

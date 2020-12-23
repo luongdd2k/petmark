@@ -166,7 +166,7 @@
 													<input id="so-luong" aria-label="quantity"
 														class="input-qty" max="${pet.getAmount() }" min="1"
 														name="soLuong" type="number" value="1"
-														onchange="maxAmount(); changePrice()"> <input
+														onchange="maxAmount();minAmount(); changePrice()"> <input
 														class="plus is-form" type="button" value="+">
 												</div>
 											</div>

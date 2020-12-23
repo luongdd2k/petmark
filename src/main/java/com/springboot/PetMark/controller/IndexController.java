@@ -167,20 +167,35 @@ public class IndexController {
 
 	@RequestMapping("/403")
 	public String forbidden(ModelMap model, HttpServletRequest request) {
-
-		return "pages/examples/404";
+		HttpSession session = request.getSession();
+		String username = (String) session.getAttribute("username");
+		if (username != null) {
+			Account account = accountService.findById(username);
+			model.addAttribute("account", account);
+			}
+		return "pages/examples/403";
 	}
 
 	@RequestMapping("/404")
 	public String notFound(ModelMap model, HttpServletRequest request) {
-
+		HttpSession session = request.getSession();
+		String username = (String) session.getAttribute("username");
+		if (username != null) {
+			Account account = accountService.findById(username);
+			model.addAttribute("account", account);
+		}
 		return "pages/examples/404";
 	}
 
 	@RequestMapping("/*")
 	public String notFound2(ModelMap model, HttpServletRequest request) {
 		model.addAttribute("u404", request.getRequestURI());
-
+		HttpSession session = request.getSession();
+		String username = (String) session.getAttribute("username");
+		if (username != null) {
+			Account account = accountService.findById(username);
+			model.addAttribute("account", account);
+		}
 		return "pages/examples/404";
 	}
 
