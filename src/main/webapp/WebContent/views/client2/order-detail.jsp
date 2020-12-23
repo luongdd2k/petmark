@@ -310,7 +310,7 @@
               let moneyF = money[i].innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
               money[i].innerHTML = moneyF + " đ";
               let totalF = total.innerHTML.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-              total.innerHTML = totalF+" đ";
+              total.innerHTML = totalF;
           }
       }
       function abc(id){
