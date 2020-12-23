@@ -66,7 +66,7 @@ public class AccountDAOImpl implements AccountDAO{
 	@Override
 	public boolean addAccount(String username, String password, String fullName, Boolean gender, String email, String phone, String address) {
 
-		if(!checkNotNull(username, password, fullName, gender, email, phone, address)) {
+		if(!checkNotNull(username, password, fullName, gender, email, phone, address) || !isDuplicate(username) ) {
 			return false;
 		}
 		
